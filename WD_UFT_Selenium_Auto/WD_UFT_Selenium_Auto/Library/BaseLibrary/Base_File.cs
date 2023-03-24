@@ -408,6 +408,8 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
         }
 
         public static Base_ExamplesPath ExamplesPath = new Base_ExamplesPath();
+
+        
     }
 
     public class Base_ExamplesPath

@@ -17,6 +17,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public static Administration_Page Administration_Page => new Administration_Page(Selenium_Driver._Selenium_Driver);
 
         public static Equipment_Page Equipment_Page => new Equipment_Page(Selenium_Driver._Selenium_Driver);
-
+        public static Order_Page Order_Page => new Order_Page(Selenium_Driver._Selenium_Driver);
+        public static Report_Page Report_Page => new Report_Page(Selenium_Driver._Selenium_Driver);
     }
 }

@@ -38,10 +38,13 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         {
         }
 
-        //public UFT_Editor userNameEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'User name:']");
-        //public UFT_Editor passwordEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Password:']");
         public UFT_Button OrderDispensing => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnOrderDispense']");
         public UFT_Button OpenWeigh => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnOpenWeigh']");
+        public UFT_Button BoothCleaning => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnBoothCleaning']");
+        public UFT_Button ScaleChecking => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnScaleChecking']");
+        public UFT_Button MaterialDispense => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnMaterialDispense']");
+        public UFT_Button CampaignDispense => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnCampaignDispense']");
+        public UFT_Button OrderKitting => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnOrderKitting']");
 
     }
 
@@ -74,6 +77,8 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         {
         }
         public UFT_Button cleanComplete => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Cleaning']");
+        public UFT_Button Home => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Button0']");
+        
     }
     public class Handle_Information_InterFrame : ClassMainInterFrame
     {

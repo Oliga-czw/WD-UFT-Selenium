@@ -1,7 +1,9 @@
 ﻿using OpenQA.Selenium;
+using Spire.Pdf;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -161,6 +163,122 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         {
             string  xpath = "//td[text()='"+simulator+"']";
             Web.Equipment_Page.body._Selenium_WebElement.FindElement(By.XPath(xpath)).Click();
+        }
+        #endregion
+        #region booth function
+        public static void edit_booth(string booth)
+        {
+            string xpath = "//td[text()='" + booth + "']/../td[3]/img";
+            var img = Web.Equipment_Page.body._Selenium_WebElement.FindElements(By.XPath(xpath));
+            img[0].Click();
+        }
+        #endregion
+        #region report fuction
+        public static void Check_report(List<string> columns,List<string> datatexts)
+        {
+            
+            var data_list = new List<List<string>>();
+            var head_list = new List<string>();
+            var head = Web.Report_Page.Report_Table._Selenium_WebElement.FindElements(By.XPath("//a[@class='Report_Head_Style']"));
+            //get head list
+            foreach (var h in head)
+            {
+                head_list.Add(h.Text);
+            }
+            var row = Web.Report_Page.Report_Table._Selenium_WebElement.FindElements(By.XPath("//table[@class='Order_Table_body_Style_Collapse']/tbody/tr"));
+           //get table data
+            for (int j = 1; j < row.Count; j++)
+            {
+                var single_row_text = new List<string>();
+                var cells = row[j].FindElements(By.CssSelector("td.Inner_Column_Left"));
+                foreach (var cell in cells)
+                {
+                    single_row_text.Add(cell.Text);
+                   
+                }
+                data_list.Add(single_row_text);
+            }
+            //check selected data
+            for (int i = 0; i < columns.Count; i++)
+            {
+                int number = head_list.IndexOf(columns[i]);
+                string datatext = datatexts[i];
+                for (int m = 0; m < data_list.Count; m++)
+                {
+                    Base_Assert.AreEqual(datatext, data_list[m][number]);
+                }
+
+            }
+        }
+
+        [Obsolete]
+        //verify the ferquency of select value
+        public static void Check_PDF(string path,string filename,List<string> searchList)
+        {
+            var row = Web.Report_Page.Report_Table._Selenium_WebElement.FindElements(By.XPath("//table[@class='Order_Table_body_Style_Collapse']/tbody/tr"));
+            string[] files = Directory.GetFiles(path, filename);
+            Base_Assert.IsTrue(files.Length > 0, "Save pdf");
+            Array.Reverse(files);
+            PdfDocument doc = new PdfDocument();
+            doc.LoadFromFile(files[0]);
+            StringBuilder content = new StringBuilder();
+
+            foreach (PdfPageBase page in doc.Pages)
+
+            {
+
+                content.Append(page.ExtractText());
+
+            }
+            //Console.WriteLine(content.ToString());
+            string[] source = content.ToString().Split(new char[] { '.', '?' ,' ', '!', ';', ':', ',', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (string searchTerm in searchList)
+            {
+                var matchQuery = from word in source
+                    where word.Equals(searchTerm)//, StringComparison.InvariantCultureIgnoreCase
+                                 select word;
+                // Count the matches, which executes the query.  
+                int wordCount = matchQuery.Count();
+                //Console.WriteLine(searchTerm + wordCount);
+                //verify no.<tr> == ferquency(line+cerified) 
+                Base_Assert.AreEqual(row.Count, wordCount, searchTerm);
+
+            }
+
+
+        }
+        #endregion
+
+        #region order function
+        public static void active_order(string ordername)
+        {
+            string xpath = "//td[text()='" + ordername + "']";
+            int i = 0;
+            //get order
+            while(i < 10)
+            {
+                try
+                {
+                    Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath(xpath));
+                }
+                catch(NoSuchElementException e)
+                {
+                    Web.Order_Page.Refresh.Click();
+                    Thread.Sleep(2000);
+                }
+                i++;
+            }
+            var order = Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath(xpath));
+            //check order status and active
+            string status = order.FindElement(By.XPath("../td[7]")).Text;
+            if (status == "Planned")
+            {
+                order.FindElement(By.XPath("..//td/span[@class='gwt-CheckBox']")).Click();
+                Web.Order_Page.Activate.Click();
+            }
+            Thread.Sleep(2000);
+            Base_Assert.AreEqual("Active", order.FindElement(By.XPath("../td[7]")).Text,"Active order");
+
         }
         #endregion
     }

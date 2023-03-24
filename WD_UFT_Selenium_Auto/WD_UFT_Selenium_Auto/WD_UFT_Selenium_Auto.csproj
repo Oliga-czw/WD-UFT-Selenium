@@ -54,6 +54,9 @@
     <Reference Include="LeanFTForSelenium, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\LeanFT.Selenium.1.0.1\lib\net45\LeanFTForSelenium.dll</HintPath>
     </Reference>
+    <Reference Include="Spire.Pdf, Version=9.3.4.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.PDF.9.3.4\lib\net40\Spire.Pdf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -82,6 +85,7 @@
     <Compile Include="Product\WD\AFW_Window.cs" />
     <Compile Include="TestCase\39755.cs" />
     <Compile Include="TestCase\29461.cs" />
+    <Compile Include="TestCase\43325.cs" />
     <Compile Include="TestCase\818432.cs" />
     <Compile Include="TestCase\AFW_Test.cs" />
     <Compile Include="TestCase\Base_ProductBase.cs" />

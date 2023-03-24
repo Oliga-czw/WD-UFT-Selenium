@@ -72,6 +72,23 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             }
             Thread.Sleep(5000);
         }
+        public static void FinishNetDiapense(string simulator, string tare, string net)
+        {
+            //WD.mainWindow.ScaleWeightInternalFrame.scale.SelectItems(simulator);
+            //zeor
+            WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
+            //tare
+
+            WD.mainWindow.ScaleWeightInternalFrame.tare_editor.SetText(tare);
+            //weight
+            WD.mainWindow.ScaleWeightInternalFrame.net_editor.SetText(net, true);
+            WD.mainWindow.ScaleWeightInternalFrame.accept.Click();
+            if (WD.ErrorDialog.IsExist())
+            {
+                WD.ErrorDialog.OKButton.Click();
+            }
+            Thread.Sleep(5000);
+        }
 
         public static void CleanInventoryData()
         {
@@ -125,7 +142,27 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             p.Close();
             Base_logger.Message("impot sucessfully" + output);
         }
-
+        public static void Bulkload_Overwrite(string file)
+        {
+            string path = Base_Directory.WDBulkload;
+            Process p = new Process();
+            p.StartInfo.FileName = "cmd.exe";
+            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.RedirectStandardInput = true;
+            p.StartInfo.RedirectStandardOutput = true;
+            p.StartInfo.RedirectStandardError = true;
+            p.StartInfo.CreateNoWindow = false;
+            p.Start();
+            p.StandardInput.WriteLine("cd " + path);
+            string no = file.Substring(0, 2);
+            string project = Base_Directory.ProjectDir + "Data\\Input\\BulkLoad\\";
+            string xml = $"wdbulkloadtool -w localhost -i{no}o \"{project}{file}\"";
+            p.StandardInput.WriteLine(xml + "&exit");
+            string output = p.StandardOutput.ReadToEnd();
+            p.WaitForExit();
+            p.Close();
+            Base_logger.Message("impot sucessfully" + output);
+        }
         public static void WDSign()
         {
             string path = Base_Directory.WDBulkload;

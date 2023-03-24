@@ -15,7 +15,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         {
         }
 
-
+        public Selenium_WebElement body => new Selenium_WebElement(_Selenium_Driver, "//body");
         public Selenium_WebElement Message => new Selenium_WebElement(_Selenium_Driver, "//div[@title='Message']");
 
     }
@@ -92,7 +92,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         {
         }
 
-        public Selenium_WebElement body => new Selenium_WebElement(_Selenium_Driver, "//body");
+        
         public Selenium_WebElement Apply => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Apply']");
         public Selenium_WebElement booth_copy_row => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Copy selected row']", 0);
         #region scales
@@ -102,9 +102,46 @@ namespace WD_UFT_Selenium_Auto.Product.WD
 
 
         #endregion
+
+        #region booth
+        public Selenium_WebElement booth_status => new Selenium_WebElement(_Selenium_Driver, "//select[@name='boothStatusValue']");
+        #endregion
+    }
+
+    public class Report_Page : Web_Page
+
+    {
+        public Report_Page(IWebDriver driver) : base(driver)
+        {
+        }
+        public Selenium_WebElement Cleaning => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Cleaning']");
+
+        public Selenium_WebElement Start_Time => new Selenium_WebElement(_Selenium_Driver, "//input[@class='Date_TextBox_Style']/../../td/img",0);
+        public Selenium_WebElement End_Time => new Selenium_WebElement(_Selenium_Driver, "//input[@class='Date_TextBox_Style']/../../td/img",1);
+        //public Selenium_WebElement Type => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Cleaning']");
+        //public Selenium_WebElement Booth => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Cleaning']");
+        //public Selenium_WebElement Operator => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Cleaning']");
+       
+        public Selenium_WebElement Generate_Report => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Generate Report']");
+        public Selenium_WebElement Generate_Audit => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Generate Audit']");
+        public Selenium_WebElement Report_Table => new Selenium_WebElement(_Selenium_Driver, "//table[@class='Order_Table_body_Style_Collapse']/tbody");
+
+        public Selenium_WebElement SaveAs => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Save As']");
+        public Selenium_WebElement Print => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Print']");
+
+
+    }
+
+    public class Order_Page : Web_Page
+
+    {
+        public Order_Page(IWebDriver driver) : base(driver)
+        {
+        }
+        public Selenium_WebElement Refresh => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Refresh']");
+        public Selenium_WebElement Activate => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Activate']");
+        
+    }
     }
 
 
-
-}
-    

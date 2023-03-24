@@ -2,13 +2,9 @@
 using HP.LFT.SDK.Java;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using WD_UFT_Selenium_Auto.Library.BaseLibrary;
 using WD_UFT_Selenium_Auto.Library.SeleniumLibrary;
 using WD_UFT_Selenium_Auto.Product.WD;
@@ -18,10 +14,10 @@ namespace WD_UFT_Selenium_Auto.TestCase
     public partial class WD_TestCase
     {
         [TestCaseID(818432)]
-        [Title("Test")]
+        [Title("Inspired from customer defect 786934 - Manual Weighing second e-Signature - username field is locked out")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Medium)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Created)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
         [Timeout(600000)]
@@ -63,7 +59,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             driver.Wait();
             Web.Equipment_Page.simultor_name.Clear();
             Web.Equipment_Page.simultor_name.SendKeys("simulator***manual");
-            Web.Equipment_Page.simultor_status._Selenium_WebElement.FindElement(By.XPath("//option[text()='Disconnected']")).Click();
+            Web.Equipment_Page.simultor_status.select_option("Disconnected");
             Web.Equipment_Page.Apply.Click();
             LogStep(@"5. Open Wd client and select manual");
             Application.LaunchWDAndLogin();

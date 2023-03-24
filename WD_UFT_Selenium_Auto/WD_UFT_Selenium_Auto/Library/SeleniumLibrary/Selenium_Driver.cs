@@ -3,6 +3,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -92,6 +93,15 @@ namespace WD_UFT_Selenium_Auto.Library.SeleniumLibrary
         public void Wait(double time = 1000)
         {
             _Selenium_Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(time);
+        }
+
+        public IWebElement FindElement(string xpath)
+        {
+            return _Selenium_Driver.FindElement(By.XPath(xpath));
+        }
+        public ReadOnlyCollection<IWebElement> FindElements(string xpath)
+        {
+            return _Selenium_Driver.FindElements(By.XPath(xpath));
         }
     }
 }

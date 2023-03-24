@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using Microsoft.Win32;
+using System;
+using System.IO;
 using System.Linq;
 
 namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
@@ -103,5 +105,8 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
         //    return exampleFileDir;
         //}
 
+        //public static string DownloadFileDir => "C:\\Users\\" + RegistryHive.CurrentUser + "\\Downloads";
+        public static string DownloadFileDir => "C:\\Users\\"+ Environment.UserName + "\\Downloads";
+        
     }
 }

@@ -30,11 +30,11 @@ namespace WD_UFT_Selenium_Auto.Library.SeleniumLibrary
 
         public Selenium_WebElement(IWebDriver driver, string xpath)
         {
-            _Selenium_WebElement = driver.FindElement(By.XPath(xpath)); ;
+            _Selenium_WebElement = driver.FindElement(By.XPath(xpath));
         }
         public Selenium_WebElement(IWebDriver driver, string xpaths,int index )
         {
-            _Selenium_WebElement = driver.FindElements(By.XPath(xpaths))[index]; ;
+            _Selenium_WebElement = driver.FindElements(By.XPath(xpaths))[index];
         }
         public void Click()
         {
@@ -59,5 +59,16 @@ namespace WD_UFT_Selenium_Auto.Library.SeleniumLibrary
         {
             return _Selenium_WebElement.GetAttribute(items);
         }
+        public void select_option(string target)
+        {
+            var options = _Selenium_WebElement.FindElements(By.TagName("option"));
+            foreach(var option in options)
+            {
+                if (option.Text == target)
+                    option.Click();
+                break;
+            }
+        }
+
     }
 }

@@ -94,15 +94,7 @@
     <EquipmentProperty>
       <ID>LastCalibrationDate</ID>
       <Value>
-        <ValueString>2013-08-26T01:25:00.0</ValueString>
-        <DataType>DateTime</DataType>
-        <UnitOfMeasure />
-      </Value>
-    </EquipmentProperty>
-    <EquipmentProperty>
-      <ID>CalibrationExpirationDate</ID>
-      <Value>
-        <ValueString>2013-08-27T01:25:00.0</ValueString>
+        <ValueString>2013-08-26T01:25:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -110,16 +102,10 @@
     <EquipmentProperty>
       <ID>Standardization</ID>
       <Value>
-        <ValueString>2013-08-26T01:25:00.0</ValueString>
+        <ValueString>2013-08-26T01:25:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
         <Key>StandardizationLastCheckDate</Key>
-      </Value>
-      <Value>
-        <ValueString>2013-08-27T01:25:00.0</ValueString>
-        <DataType>DateTime</DataType>
-        <UnitOfMeasure />
-        <Key>StandardizationExpirationDate</Key>
       </Value>
       <Value>
         <ValueString>1</ValueString>
@@ -197,7 +183,7 @@
     <EquipmentProperty>
       <ID>Status</ID>
       <Value>
-        <ValueString>Ready</ValueString>
+        <ValueString>Maintain</ValueString>
         <DataType>string</DataType>
         <UnitOfMeasure />
       </Value>
@@ -285,7 +271,7 @@
     <EquipmentProperty>
       <ID>LastCalibrationDate</ID>
       <Value>
-        <ValueString>2013-08-26T01:25:00.0</ValueString>
+        <ValueString>2013-08-26T01:25:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -293,7 +279,7 @@
     <EquipmentProperty>
       <ID>CalibrationExpirationDate</ID>
       <Value>
-        <ValueString>2019-08-27T00:00:00.0</ValueString>
+        <ValueString>2019-08-27T00:00:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -301,13 +287,13 @@
     <EquipmentProperty>
       <ID>Standardization</ID>
       <Value>
-        <ValueString>2013-08-26T01:25:00.0</ValueString>
+        <ValueString>2013-08-26T01:25:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
         <Key>StandardizationLastCheckDate</Key>
       </Value>
       <Value>
-        <ValueString>2013-08-27T01:25:00.0</ValueString>
+        <ValueString>2013-08-27T01:25:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
         <Key>StandardizationExpirationDate</Key>
@@ -476,7 +462,7 @@
     <EquipmentProperty>
       <ID>LastCalibrationDate</ID>
       <Value>
-        <ValueString>2013-08-26T01:25:00.0</ValueString>
+        <ValueString>2013-08-26T01:25:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -484,7 +470,7 @@
     <EquipmentProperty>
       <ID>CalibrationExpirationDate</ID>
       <Value>
-        <ValueString>2019-08-27T00:00:00.0</ValueString>
+        <ValueString>2033-08-31T00:00:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -498,13 +484,13 @@
         <Key>StandardOperatingProcedure</Key>
       </Value>
       <Value>
-        <ValueString>2013-08-26T01:25:00.0</ValueString>
+        <ValueString>2022-08-26T01:25:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
         <Key>StandardizationLastCheckDate</Key>
       </Value>
       <Value>
-        <ValueString>2016-05-21T01:25:00.0</ValueString>
+        <ValueString>2025-05-21T01:25:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
         <Key>StandardizationExpirationDate</Key>
@@ -673,15 +659,7 @@
     <EquipmentProperty>
       <ID>LastCalibrationDate</ID>
       <Value>
-        <ValueString>2013-09-17T11:00:00.0</ValueString>
-        <DataType>DateTime</DataType>
-        <UnitOfMeasure />
-      </Value>
-    </EquipmentProperty>
-    <EquipmentProperty>
-      <ID>CalibrationExpirationDate</ID>
-      <Value>
-        <ValueString>2013-09-18T11:00:00.0</ValueString>
+        <ValueString>2013-09-17T11:00:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -689,16 +667,10 @@
     <EquipmentProperty>
       <ID>Standardization</ID>
       <Value>
-        <ValueString>2013-09-16T11:00:00.0</ValueString>
+        <ValueString>2013-09-16T11:00:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
         <Key>StandardizationLastCheckDate</Key>
-      </Value>
-      <Value>
-        <ValueString>2013-09-18T11:00:00.0</ValueString>
-        <DataType>DateTime</DataType>
-        <UnitOfMeasure />
-        <Key>StandardizationExpirationDate</Key>
       </Value>
       <Value>
         <ValueString>1</ValueString>
@@ -773,16 +745,10 @@
         <Key>StandardOperatingProcedure</Key>
       </Value>
       <Value>
-        <ValueString>2013-08-16T11:00:00.0</ValueString>
+        <ValueString>2013-08-16T11:00:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
         <Key>StandardizationLastCheckDate</Key>
-      </Value>
-      <Value>
-        <ValueString>2013-09-18T11:00:00.0</ValueString>
-        <DataType>DateTime</DataType>
-        <UnitOfMeasure />
-        <Key>StandardizationExpirationDate</Key>
       </Value>
       <Value>
         <ValueString>7</ValueString>
