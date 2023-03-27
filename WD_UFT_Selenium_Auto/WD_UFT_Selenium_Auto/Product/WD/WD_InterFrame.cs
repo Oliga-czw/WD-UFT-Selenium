@@ -40,23 +40,15 @@ namespace WD_UFT_Selenium_Auto.Product.WD
 
         public UFT_Button OrderDispensing => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnOrderDispense']");
         public UFT_Button OpenWeigh => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnOpenWeigh']");
-<<<<<<< Updated upstream
+        //
         public UFT_Button BoothCleaning => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnBoothCleaning']");
         public UFT_Button ScaleChecking => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnScaleChecking']");
-        public UFT_Button MaterialDispense => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnMaterialDispense']");
         public UFT_Button CampaignDispense => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnCampaignDispense']");
         public UFT_Button OrderKitting => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnOrderKitting']");
-=======
         public UFT_Button MaterialDispensing => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnMaterialDispense']");
-        public UFT_Button BoothCleaning => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnBoothCleaning']");
-        public UFT_Button OrderKitting => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnOrderKitting']");
-        public UFT_Button ScaleChecking => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnScaleChecking']");
         public UFT_Button CampaignDispensing => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnCampaignDispense']");
         public UFT_Button LogOff => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnLogOff']");
         public UFT_Button Exit => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnExit']");
-
-
->>>>>>> Stashed changes
 
     }
 
@@ -90,13 +82,9 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         {
         }
         public UFT_Button cleanComplete => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Cleaning']");
-<<<<<<< Updated upstream
-        public UFT_Button Home => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Button0']");
-        
-=======
-        public UFT_Button HomeButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Button0']");
 
->>>>>>> Stashed changes
+        public UFT_Button HomeButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Button0']");
+        
     }
     public class Handle_Information_InterFrame : ClassMainInterFrame
     {
@@ -148,7 +136,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public UFT_Button next => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnNext']");
         public UFT_Button HomeButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnHome']");
 
-        
+
     }
     public class ScaleCheck_InterFrame : ClassMainInterFrame
     {
@@ -176,4 +164,5 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         //public UFT_Table materialTable => new UFT_Table(_UFT_InterFrame, "//Table[@AttachedText = 'Materials:']");
         //public UFT_Button next => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'MaterialNext']");
     }
+}
     
