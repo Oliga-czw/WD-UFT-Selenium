@@ -122,6 +122,9 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
                 return _UFT_IList.Items;
             }
         }
+
+        public object SelectedItems { get; internal set; }
+
         protected TChild Describe<TChild>(IDescription description) where TChild : class, ITestObject
         {
             return _UFT_IList.Describe<TChild>(description);

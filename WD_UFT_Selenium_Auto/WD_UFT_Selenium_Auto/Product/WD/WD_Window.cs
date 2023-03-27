@@ -20,30 +20,9 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public ClassMainWindow(string xpath) : base(xpath)
         {
         }
-
         #region window
         private IWindow Window = UFT_Xpath.GetDesktopWindow<IWindow>("//JavaWindow[@Title = 'Aspen Weigh and Dispense Execution' and @NativeClass = 'wd.WDWorkstation']");
-        //public class DialogWindow : UFT_JavaWindow
-        //{
-        //    public DialogWindow(string xpath) : base(xpath)
-        //    {
-        //    }
-
-        //    public UFT_Button OKButton => new UFT_Button(_UFT_Window, "//Button[@AttachedText = 'OK']");
-        //    public HP.LFT.SDK.Java.IButton YesButton => _UFT_Window.Describe<HP.LFT.SDK.Java.IButton>(new ButtonDescription
-        //    {
-        //        AttachedText = @"	 	 	 	Yes	 	 	 	"
-        //    });
-        //    public UFT_Button NoButton => new UFT_Button(_UFT_Window, "//Button[@AttachedText = '	 	 	 	No	 	 	 	']");
-        //    public UFT_Button CancelButton => new UFT_Button(_UFT_Window, "//Button[@AttachedText = 'Cancel']");
-        //    public UFT_Button HelpButton => new UFT_Button(_UFT_Window, "//Button[@ObjectName = 'btnHelp']");
-        //    //public UFT_TextBlock MessageTextBlock => new UFT_TextBlock(_UFT_Window, "//UiObject[@NativeClass = 'System.Windows.Controls.TextBlock' and @Index = '0']");
-        //    //public UFT_EditField EditField => new UFT_EditField(_UFT_Window, "//EditField[@NativeClass = 'System.Windows.Controls.TextBox']");
-        //    //public UFT_Button DeleteButton => new UFT_Button(_UFT_Window, "//WPFButton[@Text = 'Delete']");
-        //    //public UFT_Button RestoreButton => new UFT_Button(_UFT_Window, "//WPFButton[@Text = 'Restore']");
-        //    //public UFT_Button RenameButton => new UFT_Button(_UFT_Window, "//WPFButton[@Text = 'Rename']");
-
-        //}
+       
         public class SimulatorWindow : UFT_JavaWindow
         {
             public SimulatorWindow(string xpath) : base(xpath)
@@ -64,31 +43,13 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public Handle_Information_InterFrame HandleInformationInterFrame => new Handle_Information_InterFrame(_UFT_Window, "//InterFrame[@Label = 'Handle Information']");
         public ScaleWeight_InterFrame ScaleWeightInternalFrame => new ScaleWeight_InterFrame(_UFT_Window, "//InterFrame[@ObjectName = 'MATERIAL_DISPENSE']");
         public OpenWeight_InterFrame OpenWeighInternalFrame => new OpenWeight_InterFrame(_UFT_Window, "//InterFrame[@ObjectName = 'OPENCONSOLE']");
-
+        public Material_Selection_InterFrame Material_SelectionInternalFrame => new Material_Selection_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Material Selection']");
+        public ScaleCheck_InterFrame ScaleCheckInternalFrame => new ScaleCheck_InterFrame(_UFT_Window, "//InterFrame[@ObjectName = 'SCALECHECK']");
+        public SelectAnOrderToKitting_InterFrame SelectAnOrderToKittingFrame => new SelectAnOrderToKitting_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Select an order to kitting']");
+        public CampaignSelection_InterFrame CampaignSelectionInternalFrame => new CampaignSelection_InterFrame(_UFT_Window, "//InterFrame[@ObjectName = 'Main']");
         #endregion
 
-        //#region Dialog
-        //public UFT_Dialog DeviationDialog => new UFT_Dialog(Window, "//Dialog[@Title = 'Create Deviation']");
-        //#endregion
-        //interframe-->interframe class-->uiobject
-        //public ClassSpecificationsPage SpecificationsPage => new ClassSpecificationsPage(window, "//UiObject[@ParentText = 'Specifications']");
-        //public class LoginWindow : UFT_JavaWindow
-        //{
-        //    public LoginWindow(string xpath) : base(xpath)
-        //    {
-        //    }
 
-        //    public Login_InterFrame WDLogonInternalFrame => new Login_InterFrame(_UFT_Window, "//InterFrame[@ObjectName = 'LOGON']");
-        //}
-
-        //public class MenuWindow : UFT_JavaWindow
-        //{
-        //    public MenuWindow(string xpath) : base(xpath)
-        //    {
-        //    }
-
-        //    public Home_InterFrame WDMainInternalFrame => new Home_InterFrame(_UFT_Window, "//InterFrame[@ObjectName = 'HOME']");
-        //}
 
 
     }
