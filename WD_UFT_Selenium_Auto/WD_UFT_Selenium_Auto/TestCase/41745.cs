@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using HP.LFT.SDK;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -25,15 +26,20 @@ namespace WD_UFT_Selenium_Auto.TestCase
         public void VSTS_41745()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID;
-            string message = @"Invalid username or password. Please re-enter domain\username and password.";
+            string message = @"Username or password is incorrect.";
 
-            LogStep(@"1. Open WD web");
-           
+            LogStep(@"1. Open WD client");
+            Base_Test.LaunchApp(Base_Directory.WDDir);
+            SdkConfiguration config = new SdkConfiguration();
+            SDK.Init(config);
             LogStep(@"2. input wrong userid/password");
-           
-            
+            Base_Test.Login(@"qae\qaon8", "Assss889");
+            Thread.Sleep(2000);
             LogStep(@"3. Can not login,error message will pop up");
-            
+            WD.mainWindow.GetSnapshot(Resultpath + "error.PNG");
+            Base_Assert.AreEqual(message, WD.MessageDialog.Lable.Text, "error in wd client");
+            WD.MessageDialog.OKButton.Click();
+            WD_Fuction.Close();
             LogStep(@"4. open Audit to check error");
             Application.LaunchMocAndLogin();
             MOC.MocmainWindow.Audit_moudle.ClickSignle();
@@ -44,7 +50,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             MOC.MOCAuditWindow.GetSnapshot(Resultpath + "Audit result.PNG");
             var b = MOC.MOCAuditWindow.LoginFailureInterFrame.auditTable.GetCell(a - 1, "Module").Value;
             var c = MOC.MOCAuditWindow.LoginFailureInterFrame.auditTable.GetCell(a - 1, "Reason").Value;
-            Base_Assert.AreEqual("WDServer", b, "in audit");
+            Base_Assert.AreEqual("WDWorkstation", b, "in audit");
             Base_Assert.AreEqual(message, c, "in audit");
             MOC_Fuction.AuditClose();
             MOC_Fuction.MocClose();
