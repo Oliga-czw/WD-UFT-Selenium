@@ -101,7 +101,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
 
         public UFT_List dispense_method => new UFT_List(_UFT_InterFrame, "//List[@TagName = 'Dispense method:']");
         public UFT_List scale => new UFT_List(_UFT_InterFrame, "//List[@TagName = 'Scale:']");
-        public UFT_Editor barcode => new UFT_Editor(_UFT_InterFrame, "//Editor[@ObjectName = 'StxtBarcode']");
+        public UFT_Editor barcode => new UFT_Editor(_UFT_InterFrame, "//Editor[@ObjectName = 'txtBarcode']");
         public UFT_Button zero => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'zeroBtn']");
         public UFT_Button tare => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'tareBtn']");
         public UFT_Button accept => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnAccept']");

@@ -28,6 +28,12 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
             Thread.Sleep(waitingTime);
         }
 
+        public void ClickSignle(int waitingTime = 1000)
+        {
+            _UFT_Button.WaitUntilEnabled();
+            _UFT_Button.Click();
+            Thread.Sleep(waitingTime);
+        }
         public void DoubleClick(int waitingTime = 1000)
         {
             _UFT_Button.WaitUntilEnabled();

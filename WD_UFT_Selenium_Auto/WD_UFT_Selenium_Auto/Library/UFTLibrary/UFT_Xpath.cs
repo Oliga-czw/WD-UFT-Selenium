@@ -340,6 +340,9 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
                             case "IsFocused":
                                 objectDescription.IsFocused = Convert.ToBoolean(propValue);
                                 break;
+                            case "IsWrapped":
+                                objectDescription.IsWrapped = Convert.ToBoolean(propValue);
+                                break;
                             default:
                                 throw new Exception($"Cannot Find the Property Name '{propName}', please confirm the format of xpath is valid");
                         }
@@ -374,6 +377,9 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
                                 break;
                             case "IsFocused":
                                 objectDescription.IsFocused = Convert.ToBoolean(propValue);
+                                break;
+                            case "IsWrapped":
+                                objectDescription.IsWrapped = Convert.ToBoolean(propValue);
                                 break;
                             default:
                                 throw new Exception($"Cannot Find the Property Name '{ propName }', please confirm the format of xpath is valid");

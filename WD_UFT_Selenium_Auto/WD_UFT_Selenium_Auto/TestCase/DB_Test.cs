@@ -18,7 +18,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
         public void DB_TEST()
         {
             //WD_Fuction.CleanInventoryData();
-            //WD_Fuction.CleanOrdersData();
+            WD_Fuction.CleanOrdersData();
             //string xml = "05 aspen wd inventory bulk load.xml";
             //string xml2 ="02 aspen wd scales bulk load.xml";
             //WD_Fuction.Bulkload(xml);

@@ -19,7 +19,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
     {
 
         [TestCaseID(29461)]
-        [Title("Test")]
+        [Title("Administration General: Execution System setting")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Medium)]
         [TestCategory(CaseState.Started)]

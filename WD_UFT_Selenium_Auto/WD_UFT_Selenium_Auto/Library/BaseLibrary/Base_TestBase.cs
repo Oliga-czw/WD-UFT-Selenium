@@ -164,6 +164,16 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
             WD.AFWSecuredDialog.OK.Click();
 
         }
+        public static void LaunchMocAndLogin()
+        {
+            Base_Test.LaunchApp(Base_Directory.MOCDir);
+            SdkConfiguration config = new SdkConfiguration();
+            SDK.Init(config);
+            MOC.MocmainWindow.LogonInternalFrame.userNameEditor.SetText(UserName.qaone1);
+            MOC.MocmainWindow.LogonInternalFrame.passwordEditor.SetSecure(PassWord.qaone1);
+            MOC.MocmainWindow.LogonInternalFrame.loginbutton.ClickSignle();
+        }
+
         public static void KillWD()
         {
             Base_Test.KillProcess(application);

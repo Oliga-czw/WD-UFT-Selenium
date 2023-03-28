@@ -82,7 +82,8 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD.DeviationDialog.OK.Click();
             LogStep(@"7. FinishManualDispense");
             WD_Fuction.FinishManualDiapense(simulator, tare, net);
-
+            driver.Close();
+            WD_Fuction.Close();
         } 
 
     }

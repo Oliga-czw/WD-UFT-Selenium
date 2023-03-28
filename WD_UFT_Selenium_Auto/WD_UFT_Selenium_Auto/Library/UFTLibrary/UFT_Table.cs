@@ -73,6 +73,12 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
         {
             _UFT_Table.SelectRows(row);
         }
+
+        public int Rowscount()
+        {
+            var rows = _UFT_Table.Rows;
+            return rows.Count();
+        }
         public void SelectCell(int row, string columnheader)
         {
             _UFT_Table.SelectCell(row, columnheader);
@@ -102,6 +108,8 @@ public class UFT_TableRow
         _ITable = table;
         _ITableRow = tableRow;
     }
+
+
     public bool Existing
     {
         get

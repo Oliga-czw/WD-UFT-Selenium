@@ -1,14 +1,8 @@
-﻿using HP.LFT.SDK;
-using HP.LFT.SDK.Java;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using Spire.Pdf;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Text;
+
 using System.Threading;
 using WD_UFT_Selenium_Auto.Library.BaseLibrary;
 using WD_UFT_Selenium_Auto.Library.SeleniumLibrary;
@@ -22,12 +16,13 @@ namespace WD_UFT_Selenium_Auto.TestCase
         [Title("cleaning report")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Medium)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Created)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
         [Timeout(600000)]
 
         [TestMethod]
+        [Obsolete]
         public void VSTS_43325()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID;
@@ -35,9 +30,8 @@ namespace WD_UFT_Selenium_Auto.TestCase
             string material = WDMaterial.X0125;
             string method = WDMethod.Net;
             string barcode = "X0125001";
-            string simulator = "simulator***manual";
             string tare = "10";
-            string net = "400";
+            string net = "410";
 
             LogStep(@"1. Open WD client and do a booth clean");
             Application.LaunchWDAndLogin();
@@ -89,7 +83,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Web.Equipment_Page.Apply.Click();
             LogStep(@"8.active order and start weight,error shows");
             Web_Fuction.gotoTab(WDWebTab.order);
-            Web_Fuction.active_order("test2");
+            Web_Fuction.active_order(order);
             //select order and material
             WD.mainWindow.HomeInternalFrame.OrderDispensing.Click();
             WD.mainWindow.DispensingInternalFrame.orderTable.Row(order).Click();
@@ -115,7 +109,9 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD.DeviationDialog.OK.Click();
             //finish dispense
             WD_Fuction.SelectMehod(method, barcode);
-            WD_Fuction.FinishNetDiapense(simulator, tare, net);
+            WD_Fuction.FinishNetDiapense(tare, net);
+            driver.Close();
+            WD_Fuction.Close();
         }
     }
 }

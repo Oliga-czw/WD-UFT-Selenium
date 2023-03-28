@@ -1,10 +1,5 @@
 ﻿using HP.LFT.SDK;
 using HP.LFT.SDK.Java;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WD_UFT_Selenium_Auto.Library.UFTLibrary;
 
 namespace WD_UFT_Selenium_Auto.Product.WD

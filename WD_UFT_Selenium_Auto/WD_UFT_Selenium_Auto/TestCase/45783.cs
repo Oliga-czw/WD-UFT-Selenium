@@ -19,7 +19,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
     {
 
         [TestCaseID(45783)]
-        [Title("Test")]
+        [Title("Booth Task View")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Medium)]
         [TestCategory(CaseState.Started)]

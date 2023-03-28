@@ -71,23 +71,30 @@ namespace WD_UFT_Selenium_Auto.Product.WD
                 WD.ErrorDialog.OKButton.Click();
             }
             Thread.Sleep(5000);
+            //check Finish Dispense
+            Base_Assert.IsTrue(WD.mainWindow.Material_SelectionInternalFrame.IsExist() || WD.mainWindow.MaterialInternalFrame.IsExist(), "Finish Dispense");
+
         }
-        public static void FinishNetDiapense(string simulator, string tare, string net)
+        public static void FinishNetDiapense(string tare, string net)
         {
             //WD.mainWindow.ScaleWeightInternalFrame.scale.SelectItems(simulator);
             //zeor
             WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
             //tare
-
-            WD.mainWindow.ScaleWeightInternalFrame.tare_editor.SetText(tare);
+            WD.SimulatorWindow.weight.SetText(tare);
+            WD.SimulatorWindow.OK.Click();
+            WD.mainWindow.ScaleWeightInternalFrame.tare.Click();
             //weight
-            WD.mainWindow.ScaleWeightInternalFrame.net_editor.SetText(net, true);
+            WD.SimulatorWindow.weight.SetText(net);
+            WD.SimulatorWindow.OK.Click();
             WD.mainWindow.ScaleWeightInternalFrame.accept.Click();
             if (WD.ErrorDialog.IsExist())
             {
                 WD.ErrorDialog.OKButton.Click();
             }
             Thread.Sleep(5000);
+            //check Finish Dispense
+            Base_Assert.IsTrue(WD.mainWindow.Material_SelectionInternalFrame.IsExist() || WD.mainWindow.MaterialInternalFrame.IsExist(), "Finish Dispense");
         }
 
         public static void CleanInventoryData()

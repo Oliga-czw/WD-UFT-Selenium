@@ -29,6 +29,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public Selenium_WebElement username => new Selenium_WebElement(_Selenium_Driver, "//input[@class='gwt-TextBox']");
         public Selenium_WebElement password => new Selenium_WebElement(_Selenium_Driver, "//input[@class='gwt-PasswordTextBox']");
         public Selenium_WebElement login => new Selenium_WebElement(_Selenium_Driver, "//button[@class='Home_Login_Button']");
+        public Selenium_WebElement error => new Selenium_WebElement(_Selenium_Driver, "//div[@class='gwt-HTML Home_Login_Msg_Html']");
 
         //public static IWebElement username1 = _Selenium_Driver.FindElement(By.XPath("//input[@class='gwt-TextBox']"));
         //public static IWebElement password = _Selenium_Driver.FindElement(By.XPath("//input[@class='gwt-PasswordTextBox']"));

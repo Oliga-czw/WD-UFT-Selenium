@@ -10,7 +10,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
     public partial class WD_TestCase
     {
         [TestCaseID(38246)]
-        [Title("Test")]
+        [Title("A message should show when no scale can be selected automatically")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Medium)]
         [TestCategory(CaseState.Started)]

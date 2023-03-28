@@ -11,7 +11,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
     {
 
         [TestCaseID(39755)]
-        [Title("Test")]
+        [Title("V8.8.4-Test Zero/Tare buttons in Open Weighing screen.")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Medium)]
         [TestCategory(CaseState.Started)]
