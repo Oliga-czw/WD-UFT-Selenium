@@ -145,8 +145,23 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         }
 
         //public UFT_Table materialTable => new UFT_Table(_UFT_InterFrame, "//Table[@AttachedText = 'Materials:']");
-        //public UFT_Button next => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'MaterialNext']");
+        public UFT_Button startcheck => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnStartCheck']");
     }
+
+    public class CheckWeight_InterFrame : ClassMainInterFrame
+    {
+        public CheckWeight_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+
+        //public UFT_Table materialTable => new UFT_Table(_UFT_InterFrame, "//Table[@AttachedText = 'Materials:']");
+        public UFT_Button zero => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnZero']");
+        public UFT_Button readScale => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnReadScale']");
+        public UFT_Button accept => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnAccept']");
+
+        public UFT_Table checkTable => new UFT_Table(_UFT_InterFrame, "//Table[@AttachedText = 'Expiration date:']");
+    }
+    
     public class SelectAnOrderToKitting_InterFrame : ClassMainInterFrame
     {
         public SelectAnOrderToKitting_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)

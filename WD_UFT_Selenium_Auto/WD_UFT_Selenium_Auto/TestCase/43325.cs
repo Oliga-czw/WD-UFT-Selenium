@@ -66,7 +66,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             var datatext = new List<string>() { "booth1", "Full Clean", "qaone1(qaone1)" };
             Web_Fuction.Check_report(column, datatext);
             LogStep(@"6.save pdf and print ");
-            //Web.Report_Page.SaveAs.Click();
+            Web.Report_Page.SaveAs.Click();
             Thread.Sleep(2000);
             Web.Report_Page.Print.Click();
             //wait for screenshot and download

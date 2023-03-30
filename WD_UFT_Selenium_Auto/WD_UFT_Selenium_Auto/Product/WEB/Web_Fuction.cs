@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using Spire.Pdf;
+using Spire.Pdf.Texts;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -179,15 +180,16 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             
             var data_list = new List<List<string>>();
             var head_list = new List<string>();
-            var head = Web.Report_Page.Report_Table._Selenium_WebElement.FindElements(By.XPath("//a[@class='Report_Head_Style']"));
+            var head = Web.Report_Page.Report_Table._Selenium_WebElement.FindElements(By.XPath("//table[@class='Report_Paper_Border_Shading']/tbody/tr[4]/td/table/tbody/tr/td/div//a[@class='Report_Head_Style']"));
             //get head list
             foreach (var h in head)
             {
                 head_list.Add(h.Text);
             }
-            var row = Web.Report_Page.Report_Table._Selenium_WebElement.FindElements(By.XPath("//table[@class='Order_Table_body_Style_Collapse']/tbody/tr"));
+            var row = Web.Report_Page.Report_Table._Selenium_WebElement.FindElements(By.XPath("//table[@class='Report_Paper_Border_Shading']/tbody/tr[4]/td/table/tbody/tr/td[@class='Inner_Column_Left']/.."));
            //get table data
-            for (int j = 1; j < row.Count; j++)
+           
+            for (int j = 0; j < row.Count; j++)
             {
                 var single_row_text = new List<string>();
                 var cells = row[j].FindElements(By.CssSelector("td.Inner_Column_Left"));
@@ -211,11 +213,48 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             }
         }
 
-        [Obsolete]
+        public static void Check_report_inner(List<List<string>> datatexts,int tablerow)
+        {
+
+            var data_list = new List<List<string>>();
+            var row = Web.Report_Page.Report_Table._Selenium_WebElement.FindElements(By.XPath("//table[@class='Sub_Table_Indent']//table[@class='Order_Table_body_Style_Collapse']/tbody/tr/td[@class='Inner_Column_Left']/.."));
+            //get table data
+
+            for (int j = 0; j < tablerow; j++)
+            {
+                var single_row_text = new List<string>();
+                var cells = row[j].FindElements(By.CssSelector("td.Inner_Column_Left"));
+                foreach (var cell in cells)
+                {
+                    single_row_text.Add(cell.Text);
+
+                }
+                data_list.Add(single_row_text);
+            }
+            //check selected data
+            bool same = true;
+            for (int i = 0; i < data_list.Count; i++)
+            {
+                for (int j = 0; j < data_list[0].Count; j++)
+                {
+                    if(data_list[i][j] != datatexts[i][j])
+                    {
+                        same = false;
+                        Base_logger.Error("Actual:"+data_list[i][j]+"Expected:"+datatexts[i][j]+"is not same");
+                        break;
+                    }
+                    
+                }
+                break;
+            }
+            Base_Assert.IsTrue(same,"inner table report");
+
+        }
+
         //verify the ferquency of select value
         public static void Check_PDF(string path,string filename,List<string> searchList)
         {
-            var row = Web.Report_Page.Report_Table._Selenium_WebElement.FindElements(By.XPath("//table[@class='Order_Table_body_Style_Collapse']/tbody/tr"));
+            var row = Web.Report_Page.Report_Table._Selenium_WebElement.FindElements(By.XPath("//table[@class='Report_Paper_Border_Shading']/tbody/tr[4]/td/table/tbody/tr/td[@class='Inner_Column_Left']/.."));
             string[] files = Directory.GetFiles(path, filename);
             Base_Assert.IsTrue(files.Length > 0, "Save pdf");
             Array.Reverse(files);
@@ -224,11 +263,13 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             StringBuilder content = new StringBuilder();
 
             foreach (PdfPageBase page in doc.Pages)
-
             {
-
-                content.Append(page.ExtractText());
-
+                //创建一个PdfTextExtractot 对象
+                PdfTextExtractor textExtractor = new PdfTextExtractor(page);
+                //创建一个 PdfTextExtractOptions 对象
+                PdfTextExtractOptions extractOptions = new PdfTextExtractOptions();
+                extractOptions.IsExtractAllText = true;
+                content.AppendLine(textExtractor.ExtractText(extractOptions));
             }
             //Console.WriteLine(content.ToString());
             string[] source = content.ToString().Split(new char[] { '.', '?' ,' ', '!', ';', ':', ',', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
@@ -239,13 +280,42 @@ namespace WD_UFT_Selenium_Auto.Product.WD
                                  select word;
                 // Count the matches, which executes the query.  
                 int wordCount = matchQuery.Count();
-                //Console.WriteLine(searchTerm + wordCount);
+                Console.WriteLine(searchTerm + wordCount);
                 //verify no.<tr> == ferquency(line+cerified) 
-                Base_Assert.AreEqual(row.Count, wordCount, searchTerm);
-
+                Base_Assert.AreEqual(row.Count+1, wordCount, searchTerm);
             }
+        }
 
-
+        public static void Check_PDF_inner(string path, string filename, List<string> searchList)
+        {
+            var tablehead = Web.Report_Page.Report_Table._Selenium_WebElement.FindElements(By.XPath("//table[@class='Sub_Table_Indent']//table[@class='Order_Table_body_Style_Collapse']/tbody/tr[1]"));
+            string[] files = Directory.GetFiles(path, filename);
+            Array.Reverse(files);
+            PdfDocument doc = new PdfDocument();
+            doc.LoadFromFile(files[0]);
+            StringBuilder content = new StringBuilder();
+            foreach (PdfPageBase page in doc.Pages)
+            {
+                //创建一个PdfTextExtractot 对象
+                PdfTextExtractor textExtractor = new PdfTextExtractor(page);
+                //创建一个 PdfTextExtractOptions 对象
+                PdfTextExtractOptions extractOptions = new PdfTextExtractOptions();
+                extractOptions.IsExtractAllText = true;
+                content.AppendLine(textExtractor.ExtractText(extractOptions));
+            }
+            //Console.WriteLine(content.ToString());
+            string[] source = content.ToString().Split(new char[] { '.', '?', ' ', '!', ';', ':', ',', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (string searchTerm in searchList)
+            {
+                var matchQuery = from word in source
+                                 where word.Equals(searchTerm)//, StringComparison.InvariantCultureIgnoreCase
+                                 select word;
+                // Count the matches, which executes the query.  
+                int wordCount = matchQuery.Count();
+                Console.WriteLine(searchTerm + wordCount);
+                //verify no.<tr> == ferquency(line+cerified) 
+                Base_Assert.IsTrue(tablehead.Count== wordCount, searchTerm+"Exsit");
+            }
         }
         #endregion
 
