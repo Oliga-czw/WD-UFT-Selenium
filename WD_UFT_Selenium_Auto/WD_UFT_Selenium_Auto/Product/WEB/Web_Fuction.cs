@@ -165,6 +165,12 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             string  xpath = "//td[text()='"+simulator+"']";
             Web.Equipment_Page.body._Selenium_WebElement.FindElement(By.XPath(xpath)).Click();
         }
+        public static void edit_scale(string simulator)
+        {
+            string xpath = "//td[text()='" + simulator + "']/../td[3]/img";
+            Web.Equipment_Page.body._Selenium_WebElement.FindElement(By.XPath(xpath)).Click();
+        }
+
         #endregion
         #region booth function
         public static void edit_booth(string booth)

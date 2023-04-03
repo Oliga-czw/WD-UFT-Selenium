@@ -19,11 +19,14 @@ namespace WD_UFT_Selenium_Auto.TestCase
         {
             //WD_Fuction.CleanInventoryData();
             WD_Fuction.CleanOrdersData();
-            //string xml = "05 aspen wd inventory bulk load.xml";
+            string xml = "05 aspen wd inventory bulk load.xml";
+            string xml3 = "07 aspen wd orders bulk load.xml";
             //string xml2 ="02 aspen wd scales bulk load.xml";
-            //WD_Fuction.Bulkload(xml);
+            WD_Fuction.Bulkload(xml);
+            
+            WD_Fuction.Bulkload(xml3);
             //WD_Fuction.Bulkload_Overwrite(xml2);
-            //WD_Fuction.WDSign();
+            WD_Fuction.WDSign();
 
             //string sql = "SELECT CODE FROM EBR_USER";
             //List<List<string>> users = helper.Execute(sql);

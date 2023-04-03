@@ -103,5 +103,17 @@ namespace WD_UFT_Selenium_Auto.Library.SeleniumLibrary
         {
             return _Selenium_Driver.FindElements(By.XPath(xpath));
         }
+        public void execute_script(string script)
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)_Selenium_Driver;
+            js.ExecuteScript(script);
+        }
+
+        public void execute_script(string script,IWebElement element)
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)_Selenium_Driver;
+            js.ExecuteScript(script, element);
+        }
+
     }
 }

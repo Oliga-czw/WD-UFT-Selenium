@@ -31,7 +31,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             string method = WDMethod.Net;
             string barcode = "X0125001";
             string tare = "10";
-            string net = "410";
+            string net = "455.4";
 
             LogStep(@"1. Open WD client and do a booth clean");
             Application.LaunchWDAndLogin();
