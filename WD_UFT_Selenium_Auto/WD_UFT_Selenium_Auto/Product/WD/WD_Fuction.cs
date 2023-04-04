@@ -144,10 +144,36 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             string project = Base_Directory.ProjectDir + "Data\\Input\\BulkLoad\\";
             string xml = $"wdbulkloadtool -w localhost -i{no} \"{project}{file}\"";
             p.StandardInput.WriteLine(xml + "&exit");
-            string output = p.StandardOutput.ReadToEnd();
+            string output = p.StandardOutput.ReadLine();
             p.WaitForExit();
             p.Close();
-            Base_logger.Message("impot sucessfully" + output);
+            Base_logger.Message("impot xml" + output);
+        }
+        public static void Bulkload(Array files)
+        {
+            string path = Base_Directory.WDBulkload;
+            Process p = new Process();
+            p.StartInfo.FileName = "cmd.exe";
+            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.RedirectStandardInput = true;
+            p.StartInfo.RedirectStandardOutput = true;
+            p.StartInfo.RedirectStandardError = true;
+            p.StartInfo.CreateNoWindow = false;
+            p.Start();
+            p.StandardInput.WriteLine("cd " + path);
+            foreach (string file in files)
+            {
+                string no = file.Substring(0, 2);
+                string project = Base_Directory.ProjectDir + "Data\\Input\\BulkLoad\\";
+                string xml = $"wdbulkloadtool -w localhost -i{no} \"{project}{file}\"";
+                p.StandardInput.WriteLine(xml);
+            }
+            p.StandardInput.WriteLine("exit");
+            string output = p.StandardOutput.ReadToEnd();
+            Base_logger.Message("impot xml" + output);
+            p.WaitForExit();
+            p.Close();
+            
         }
         public static void Bulkload_Overwrite(string file)
         {
@@ -170,11 +196,36 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             p.Close();
             Base_logger.Message("impot sucessfully" + output);
         }
+        public static void Bulkload_Overwrite(Array files)
+        {
+            string path = Base_Directory.WDBulkload;
+            Process p = new Process();
+            p.StartInfo.FileName = "cmd.exe";
+            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.RedirectStandardInput = true;
+            p.StartInfo.RedirectStandardOutput = true;
+            p.StartInfo.RedirectStandardError = true;
+            p.StartInfo.CreateNoWindow = false;
+            p.Start();
+            p.StandardInput.WriteLine("cd " + path);
+            foreach (string file in files)
+            {
+                string no = file.Substring(0, 2);
+                string project = Base_Directory.ProjectDir + "Data\\Input\\BulkLoad\\";
+                string xml = $"wdbulkloadtool -w localhost -i{no}o \"{project}{file}\"";
+                p.StandardInput.WriteLine(xml);
+            }
+            p.StandardInput.WriteLine("exit");
+            string output = p.StandardOutput.ReadToEnd();
+            Base_logger.Message("impot xml" + output);
+            p.WaitForExit();
+            p.Close();
+        }
         public static void WDSign()
         {
             string path = Base_Directory.WDBulkload;
             string cmd = "sign.cmd";
-            Console.WriteLine(cmd);
+            //Console.WriteLine(cmd);
             Process p = new Process();
             //process.StartInfo.FileName = cmd;
             p.StartInfo.FileName = "cmd.exe";
@@ -186,10 +237,29 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             p.Start();
             p.StandardInput.WriteLine("cd " + path);
             p.StandardInput.WriteLine(cmd + "&exit");
-            string output = p.StandardOutput.ReadToEnd();
+            string output = p.StandardOutput.ReadLine();
             p.WaitForExit();
             p.Close();
             Base_logger.Message("Sign sucessfully" + output);
+            Thread.Sleep(10000);
+        }
+
+        public static void initial_data()
+        {
+            WD_Fuction.CleanOrdersData();
+
+            string signature = "10 aspen wd signautres bulk load.xml";
+            string deviation = "14 aspen wd deviation bulk load.xml";
+            string orders = "07 aspen wd orders bulk load.xml";
+
+            string scale = "02 aspen wd scales bulk load.xml";
+            string booth = "01 aspen wd booths bulk load.xml";
+            string inventory = "05 aspen wd inventory bulk load.xml";
+            string[] files = new string[] { signature, deviation, orders };
+            string[] overwrite = new string[] { scale, booth, inventory };
+            WD_Fuction.Bulkload(files);
+            WD_Fuction.Bulkload_Overwrite(overwrite);
+            WD_Fuction.WDSign();
         }
     }
 

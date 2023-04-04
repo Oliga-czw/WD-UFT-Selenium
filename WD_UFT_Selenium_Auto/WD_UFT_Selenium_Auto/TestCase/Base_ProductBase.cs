@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using WD_UFT_Selenium_Auto.Library.BaseLibrary;
+using WD_UFT_Selenium_Auto.Product.WD;
 
 namespace WD_UFT_Selenium_Auto.TestCase
 {
@@ -31,6 +32,8 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Base_logger.Info("Test Initialize");
             //Base_Test.KillProcess("javaw");
             Base_File.CleanWorkFolder(Base_Directory.GenerateOutputFileDir(CaseID, ""));
+            //Initial data
+            //WD_Fuction.initial_data();
         }
 
         [TestCleanup]

@@ -22,7 +22,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
         [Timeout(600000)]
 
         [TestMethod]
-        [Obsolete]
+
         public void VSTS_43325()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID;
@@ -31,7 +31,8 @@ namespace WD_UFT_Selenium_Auto.TestCase
             string method = WDMethod.Net;
             string barcode = "X0125001";
             string tare = "10";
-            string net = "455.4";
+            string net = "454.4";
+            string xml = "14 aspen wd deviation_43325 bulk load.xml";
 
             LogStep(@"1. Open WD client and do a booth clean");
             Application.LaunchWDAndLogin();
@@ -70,7 +71,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Thread.Sleep(2000);
             Web.Report_Page.Print.Click();
             //wait for screenshot and download
-            Thread.Sleep(5000);
+            Thread.Sleep(10000);
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Print Report.PNG");
             driver.FindElement("//button[text()='Close']").Click();
             //The searchList can't contain ' '
@@ -97,6 +98,8 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD.MessageDialog.OKButton.Click();
             LogStep(@"9.Change deviation");
             //import xml
+            WD_Fuction.Bulkload(xml);
+            WD_Fuction.WDSign();
             LogStep(@"10.check deviation and finish dispense");
             WD.mainWindow.BoothCleanInternalFrame.HomeButton.Click();
             WD.mainWindow.HomeInternalFrame.OrderDispensing.Click();

@@ -32,7 +32,9 @@ namespace WD_UFT_Selenium_Auto.TestCase
             string barcode = "X0125001";
             string simulator = "simulator***manual";
             string tare = "10";
-            string net = "400";
+            string net = "444.4";
+            string xml = "14 aspen wd deviation_818432 bulk load.xml";
+
 
             LogStep(@"1. Open WD web and login");
             Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
@@ -40,17 +42,23 @@ namespace WD_UFT_Selenium_Auto.TestCase
             driver.Wait();
             Web_Fuction.login();
             driver.Wait();
-            LogStep(@"2. Go to admin and deviation");
+            LogStep(@"2. Active order");
+            Web_Fuction.gotoTab(WDWebTab.order);
+            //Web_Fuction.active_order(order);
+            LogStep(@"3. Change deviation");
+            WD_Fuction.Bulkload(xml);
+            WD_Fuction.WDSign();
+
+            //old function to change deviation
+            //List<ReadOnlyCollection<IWebElement>> table = new List<ReadOnlyCollection<IWebElement>>();
+            //Selenium_WebElement deviation_table = Web.Administration_Page.deviation_table;
+            //table = Web_Fuction.get_table(deviation_table);
+            //int r = Web_Fuction.get_select_rowIndex(table, "Manual material identification");
+            //int c = Web_Fuction.get_select_colIndex(table, "Double Signature");
+            //table[r][c].Click();
+            //Web_Fuction.administration_Apply("Apply Deviation Configuration Successful");
             Web_Fuction.gotoTab(WDWebTab.admin);
             Web.Administration_Page.Deviations.Click();
-            LogStep(@"3. Change deviation");
-            List<ReadOnlyCollection<IWebElement>> table = new List<ReadOnlyCollection<IWebElement>>();
-            Selenium_WebElement deviation_table = Web.Administration_Page.deviation_table;
-            table = Web_Fuction.get_table(deviation_table);
-            int r = Web_Fuction.get_select_rowIndex(table, "Manual material identification");
-            int c = Web_Fuction.get_select_colIndex(table, "Double Signature");
-            table[r][c].Click();
-            Web_Fuction.administration_Apply("Apply Deviation Configuration Successful");
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "DeviationSetting.PNG");
             LogStep(@"4. Go to equipment and add a disconnection simulator");
             Web_Fuction.gotoTab(WDWebTab.equipment);

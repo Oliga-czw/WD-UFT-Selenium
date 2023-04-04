@@ -27,10 +27,11 @@ namespace WD_UFT_Selenium_Auto.TestCase
             string Resultpath = Base_Directory.ResultsDir + CaseID;
             string scale = "simulator";
             string desciption = "Sartorius1";
+            string xml = "10 aspen wd signautres_106691 bulk load.xml";
 
             LogStep(@"1. import Signatures xml");
-            //bulkload
-            //xml
+            WD_Fuction.Bulkload(xml);
+            WD_Fuction.WDSign();
             Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
             Web_Fuction.gotoWDWeb(driver);
             driver.Wait();
@@ -64,8 +65,6 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Base_Assert.AreEqual(desciption, des, "changed data");
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Signature2.PNG");
             driver.Close();
-
-
         }
     }
 }

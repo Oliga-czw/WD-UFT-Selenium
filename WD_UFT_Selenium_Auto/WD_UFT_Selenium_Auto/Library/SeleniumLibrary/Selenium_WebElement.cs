@@ -62,11 +62,15 @@ namespace WD_UFT_Selenium_Auto.Library.SeleniumLibrary
         public void select_option(string target)
         {
             var options = _Selenium_WebElement.FindElements(By.TagName("option"));
-            foreach(var option in options)
+            foreach (var option in options)
             {
                 if (option.Text == target)
+                {
                     option.Click();
-                break;
+                    break;
+                }
+                    
+                
             }
         }
 
