@@ -53,13 +53,13 @@ namespace WD_UFT_Selenium_Auto.TestCase
             var inputs = Web.Equipment_Page.FindElements("//input[@class='Input_TextBox_Style']");
             Base_Assert.IsFalse(inputs[0].Enabled, "disable username");
             string username = inputs[0].GetAttribute("value");
-            Base_Assert.AreEqual(FulluserName.qaone1,username,"full username");
+            Base_Assert.AreEqual(FulluserNameWeb.qaone1,username,"full username");
             //input reason
             Web.Equipment_Page.FindElement("//textarea[@class='DialogTextArea']").SendKeys("signature test");
             inputs[1].SendKeys(PassWord.qaone1);
             Web.Equipment_Page.FindElement("//button[text()='OK']").Click();
             Thread.Sleep(2000);
-            LogStep(@"3. check the data");
+            LogStep(@"4. check the data");
             Web_Fuction.edit_scale(scale);
             string des = Web.Equipment_Page.simultor_description.GetAttribute("value");
             Base_Assert.AreEqual(desciption, des, "changed data");

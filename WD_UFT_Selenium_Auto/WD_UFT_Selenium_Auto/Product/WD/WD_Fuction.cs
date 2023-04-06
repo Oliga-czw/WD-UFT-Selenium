@@ -167,6 +167,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
                 string project = Base_Directory.ProjectDir + "Data\\Input\\BulkLoad\\";
                 string xml = $"wdbulkloadtool -w localhost -i{no} \"{project}{file}\"";
                 p.StandardInput.WriteLine(xml);
+                Thread.Sleep(3000);
             }
             p.StandardInput.WriteLine("exit");
             string output = p.StandardOutput.ReadToEnd();
@@ -214,6 +215,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
                 string project = Base_Directory.ProjectDir + "Data\\Input\\BulkLoad\\";
                 string xml = $"wdbulkloadtool -w localhost -i{no}o \"{project}{file}\"";
                 p.StandardInput.WriteLine(xml);
+                Thread.Sleep(3000);
             }
             p.StandardInput.WriteLine("exit");
             string output = p.StandardOutput.ReadToEnd();
@@ -247,7 +249,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public static void initial_data()
         {
             WD_Fuction.CleanOrdersData();
-
+            CleanWeighHistory();
             string signature = "10 aspen wd signautres bulk load.xml";
             string deviation = "14 aspen wd deviation bulk load.xml";
             string orders = "07 aspen wd orders bulk load.xml";
@@ -256,8 +258,9 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             string booth = "01 aspen wd booths bulk load.xml";
             string inventory = "05 aspen wd inventory bulk load.xml";
             string[] files = new string[] { signature, deviation, orders };
-            string[] overwrite = new string[] { scale, booth, inventory };
+            string[] overwrite = new string[] { booth, scale, inventory };
             WD_Fuction.Bulkload(files);
+            Thread.Sleep(5000);
             WD_Fuction.Bulkload_Overwrite(overwrite);
             WD_Fuction.WDSign();
         }

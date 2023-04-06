@@ -44,7 +44,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             driver.Wait();
             LogStep(@"2. Active order");
             Web_Fuction.gotoTab(WDWebTab.order);
-            //Web_Fuction.active_order(order);
+            Web_Fuction.active_order(order);
             LogStep(@"3. Change deviation");
             WD_Fuction.Bulkload(xml);
             WD_Fuction.WDSign();

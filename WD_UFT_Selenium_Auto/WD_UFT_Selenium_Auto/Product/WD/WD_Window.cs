@@ -44,7 +44,10 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public SelectAnOrderToKitting_InterFrame SelectAnOrderToKittingFrame => new SelectAnOrderToKitting_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Select an order to kitting']");
         public CampaignSelection_InterFrame CampaignSelectionInternalFrame => new CampaignSelection_InterFrame(_UFT_Window, "//InterFrame[@ObjectName = 'Main']");
         #endregion
+        #region dialog
+        public UFT_Dialog Dialog => new UFT_Dialog(_UFT_Window, "//Dialog[@Index = '0']");
 
+        #endregion
 
 
 
