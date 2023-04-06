@@ -12,8 +12,8 @@ namespace WD_UFT_Selenium_Auto.TestCase
 {
     public partial class WD_TestCase
     {
-        [TestCaseID(106694)]
-        [Title("V8.8.6_CQ00775250: Deviation dialog should show full user name_Single signature on WD client")]
+        [TestCaseID(106695)]
+        [Title("V8.8.6_CQ00775250:Deviation dialog should not show full user name_Double signature")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Medium)]
         [TestCategory(CaseState.Created)]
@@ -22,19 +22,22 @@ namespace WD_UFT_Selenium_Auto.TestCase
         [Timeout(600000)]
 
         [TestMethod]
-        public void VSTS_106694()
+        public void VSTS_106695()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID+"-";
-            string xml = "14 aspen wd deviation_106694 bulk load.xml";
+            string xml = "14 aspen wd deviation_106695 bulk load.xml";
+            string xml2 = "02 aspen wd scales_106695 bulk load.xml";
             string order = "test1";
             string material = WDMaterial.X0125;
+            string simulator = "simulator";
             string method = WDMethod.Net;
             string barcode = "X0125001";
             string tare = "10";
-            string net = "300";
+            string net = "454.4";
 
             LogStep(@"1. import deviation xml");
             WD_Fuction.Bulkload(xml);
+            WD_Fuction.Bulkload_Overwrite(xml2);
             WD_Fuction.WDSign();
             Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
             Web_Fuction.gotoWDWeb(driver);
@@ -43,7 +46,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             driver.Wait();
             Web_Fuction.gotoTab(WDWebTab.admin);
             Web.Administration_Page.Deviations.Click();
-            Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "insufficient quantity deviation-Setting.PNG");
+            Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Weight outside scale limits deviation-Setting.PNG");
             //active order
             Web_Fuction.gotoTab(WDWebTab.order);
             Web_Fuction.active_order(order);
@@ -52,33 +55,30 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD_Fuction.SelectOrderandMaterial(order, material);
             WD_Fuction.SelectMehod(method, barcode);
             Thread.Sleep(3000);
-            #region Finish Dispense
-            //zeor
-            WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
-            //tare
-            WD.SimulatorWindow.weight.SetText(tare);
-            WD.SimulatorWindow.OK.Click();
-            WD.mainWindow.ScaleWeightInternalFrame.tare.Click();
-            //weight
-            WD.SimulatorWindow.weight.SetText(net);
-            WD.SimulatorWindow.OK.Click();
-            WD.mainWindow.ScaleWeightInternalFrame.accept.Click();
-            #endregion
-            Thread.Sleep(2000);
             LogStep(@"3. check deviation");
-            //username show full user name
-            WD.mainWindow.GetSnapshot(Resultpath + "insufficient quantity deviation.PNG");
-            string username = WD.mainWindow.Dialog.UserID.Text;
-            Base_Assert.AreEqual(FulluserNameWD.qaone1, username, "check username show full username");
-            Base_Assert.IsFalse(WD.mainWindow.Dialog.UserID.IsEnabled,"username editable");
+            //Weight outside scale limitserror shows
+            WD.mainWindow.GetSnapshot(Resultpath + "Weight outside scale limits error.PNG");
+            string message = WD.MessageDialog.Lable.Text;
+            Base_Assert.AreEqual("simulator  :  Weight outside scale limits.", message,"error message");
+            WD.MessageDialog.OKButton.Click();
+            //select scale
+            WD.mainWindow.ScaleWeightInternalFrame.scale.SelectItems(simulator);
+            //signature1 not show full user name
+            WD.mainWindow.GetSnapshot(Resultpath + "clean booth signature1.PNG");
+            string signature1 = WD.mainWindow.Dialog.UserID.Text;
+            Base_Assert.AreEqual("", signature1, "check signature1 not show full username");
+            WD.mainWindow.Dialog.UserID.SetText(UserName.qaone1);
             WD.mainWindow.Dialog.Password.SetSecure(PassWord.qaone1);
             WD.mainWindow.Dialog.OK.Click();
-            //check Finish Dispense
-            if (WD.ErrorDialog.IsExist())
-            {
-                WD.ErrorDialog.OKButton.Click();
-            }
-            Base_Assert.IsTrue(WD.mainWindow.Material_SelectionInternalFrame.IsExist() || WD.mainWindow.MaterialInternalFrame.IsExist(), "Finish Dispense");
+            //signature2 not show full user name
+            WD.mainWindow.GetSnapshot(Resultpath + "clean booth signature2.PNG");
+            string signature2 = WD.mainWindow.Dialog.UserID.Text;
+            Base_Assert.AreEqual("", signature2, "check signature2 not show full username");
+            WD.mainWindow.Dialog.UserID.SetText(UserName.qaone2);
+            WD.mainWindow.Dialog.Password.SetSecure(PassWord.qaone2);
+            WD.mainWindow.Dialog.OK.Click();
+            //Finish Dispense
+            WD_Fuction.FinishNetDiapense(tare,net);
             driver.Close();
             WD_Fuction.Close();
         }
