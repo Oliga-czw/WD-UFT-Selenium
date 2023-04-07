@@ -356,6 +356,13 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             Base_Assert.AreEqual("Active", order.FindElement(By.XPath("../td[7]")).Text,"Active order");
 
         }
+        public static void edit_order(string order)
+        {
+            string xpath = "//td[text()='" + order + "']/../td[3]/img";
+            Web.Equipment_Page.body._Selenium_WebElement.FindElement(By.XPath(xpath)).Click();
+        }
+
+
         #endregion
     }
 }

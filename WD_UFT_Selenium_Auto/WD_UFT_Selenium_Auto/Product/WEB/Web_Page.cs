@@ -145,6 +145,8 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         }
         public Selenium_WebElement Refresh => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Refresh']");
         public Selenium_WebElement Activate => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Activate']");
+        public Selenium_WebElement Redispense => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Redispense a Material']");
+        
         
     }
     }

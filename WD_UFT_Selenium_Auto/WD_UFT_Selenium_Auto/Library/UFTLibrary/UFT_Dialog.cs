@@ -85,11 +85,16 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
             AttachedText = @"Password:"
         });
 
+        public IEditor Comment => _UFT_Dialog.Describe<IEditor>(new EditorDescription
+        {
+            AttachedText = @"Comment:"
+        });
         public ILabel Lable => _UFT_Dialog.Describe<ILabel>(new LabelDescription
         {
             ObjectName = @"OptionPane.label"
         });
 
+        
         //public IComboBox SaveAsTypeComboBox => Describe<IComboBox>(new ComboBoxDescription
         //{
         //    NativeClass = @"ComboBox",

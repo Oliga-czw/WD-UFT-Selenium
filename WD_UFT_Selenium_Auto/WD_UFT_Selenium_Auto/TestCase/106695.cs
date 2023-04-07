@@ -56,7 +56,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD_Fuction.SelectMehod(method, barcode);
             Thread.Sleep(3000);
             LogStep(@"3. check deviation");
-            //Weight outside scale limitserror shows
+            //Weight outside scale limits error shows
             WD.mainWindow.GetSnapshot(Resultpath + "Weight outside scale limits error.PNG");
             string message = WD.MessageDialog.Lable.Text;
             Base_Assert.AreEqual("simulator  :  Weight outside scale limits.", message,"error message");
