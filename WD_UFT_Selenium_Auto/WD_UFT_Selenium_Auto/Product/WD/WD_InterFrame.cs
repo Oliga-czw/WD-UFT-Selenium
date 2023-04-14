@@ -105,6 +105,8 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public UFT_Button zero => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'zeroBtn']");
         public UFT_Button tare => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'tareBtn']");
         public UFT_Button accept => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnAccept']");
+        public UFT_Button cancel => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnCancel']");
+        public UFT_Button reset => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnReset']");
         public UFT_Button HomeButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Button0']");
         public UFT_Editor tare_editor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Tare:']");
 

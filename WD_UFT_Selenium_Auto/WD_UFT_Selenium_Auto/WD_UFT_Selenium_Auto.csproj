@@ -54,8 +54,8 @@
     <Reference Include="LeanFTForSelenium, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\LeanFT.Selenium.1.0.1\lib\net45\LeanFTForSelenium.dll</HintPath>
     </Reference>
-    <Reference Include="Spire.Pdf, Version=9.3.4.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
-      <HintPath>..\packages\Spire.PDF.9.3.4\lib\net40\Spire.Pdf.dll</HintPath>
+    <Reference Include="Spire.Pdf, Version=9.4.0.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.PDF.9.4.0\lib\net40\Spire.Pdf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -81,11 +81,30 @@
     <Compile Include="Library\UFTLibrary\STD_Window.cs" />
     <Compile Include="Library\UFTLibrary\STD_Xpath.cs" />
     <Compile Include="Library\UFTLibrary\UFT_Label.cs" />
-    <Compile Include="Product\WD\AFW_Fuction.cs" />
-    <Compile Include="Product\WD\AFW_Window.cs" />
+    <Compile Include="Product\AFW\AFW_Fuction.cs" />
+    <Compile Include="Product\AFW\AFW_Window.cs" />
+    <Compile Include="Product\MOC\MOC_Window.cs" />
+    <Compile Include="Product\MOC\MOC_Repository.cs" />
+    <Compile Include="Product\MOC\MOC_InterFrame.cs" />
+    <Compile Include="Product\MOC\MOC_Fuction.cs" />
+    <Compile Include="TestCase\728667.cs" />
+    <Compile Include="TestCase\121316.cs" />
+    <Compile Include="TestCase\121313.cs" />
+    <Compile Include="TestCase\106695.cs" />
+    <Compile Include="TestCase\106694.cs" />
+    <Compile Include="TestCase\106692.cs" />
+    <Compile Include="TestCase\106691.cs" />
+    <Compile Include="TestCase\42345.cs" />
+    <Compile Include="TestCase\41745.cs" />
+    <Compile Include="TestCase\38246.cs" />
     <Compile Include="TestCase\39755.cs" />
     <Compile Include="TestCase\29461.cs" />
+    <Compile Include="TestCase\34735.cs" />
+    <Compile Include="TestCase\41252.cs" />
+    <Compile Include="TestCase\106684.cs" />
+    <Compile Include="TestCase\45752.cs" />
     <Compile Include="TestCase\43325.cs" />
+    <Compile Include="TestCase\45783.cs" />
     <Compile Include="TestCase\818432.cs" />
     <Compile Include="TestCase\AFW_Test.cs" />
     <Compile Include="TestCase\Base_ProductBase.cs" />
@@ -107,9 +126,9 @@
     <Compile Include="Product\WD\WD_InterFrame.cs" />
     <Compile Include="Product\WD\WD_Repository.cs" />
     <Compile Include="Product\WD\WD_Window.cs" />
-    <Compile Include="Product\WD\Web_Fuction.cs" />
-    <Compile Include="Product\WD\Web_Page.cs" />
-    <Compile Include="Product\WD\Web_Repository.cs" />
+    <Compile Include="Product\WEB\Web_Fuction.cs" />
+    <Compile Include="Product\WEB\Web_Page.cs" />
+    <Compile Include="Product\WEB\Web_Repository.cs" />
     <Compile Include="TestCase\CodeFile1.cs" />
     <Compile Include="TestCase\DB_Test.cs" />
     <Compile Include="TestCase\vstsxxx.cs" />
@@ -122,19 +141,17 @@
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Product\AFW\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.110.0.5481.7700\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.110.0.5481.7700\build\Selenium.WebDriver.ChromeDriver.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.110.0.5481.7700\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.110.0.5481.7700\build\Selenium.WebDriver.ChromeDriver.targets'))" />
     <Error Condition="!Exists('..\packages\Selenium.WebDriver.IEDriver.4.8.1\build\Selenium.WebDriver.IEDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.IEDriver.4.8.1\build\Selenium.WebDriver.IEDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.112.0.5615.4900\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.112.0.5615.4900\build\Selenium.WebDriver.ChromeDriver.targets'))" />
   </Target>
   <Import Project="..\packages\Selenium.WebDriver.IEDriver.4.8.1\build\Selenium.WebDriver.IEDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.IEDriver.4.8.1\build\Selenium.WebDriver.IEDriver.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.112.0.5615.4900\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.112.0.5615.4900\build\Selenium.WebDriver.ChromeDriver.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
