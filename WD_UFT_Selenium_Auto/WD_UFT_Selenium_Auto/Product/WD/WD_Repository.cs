@@ -97,7 +97,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
 
         public static STD_Dialog AFWCloseDialog => new STD_Dialog("//Dialog[@Text = 'Microsoft Management Console']");
 
-        public static Property_Dialog AFWUserPropertyDialog => new Property_Dialog("//Dialog[@Text = 'Production Execution User Properties']");
+        public static Property_Dialog AFWPropertyDialog => new Property_Dialog("//Dialog[@Index = '0']");
 
         public static SelectUser_Dialog AFWSelectUserDialog => new SelectUser_Dialog("//Dialog[@Text = 'Select Users or Groups']");
         #endregion

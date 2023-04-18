@@ -67,7 +67,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public Selenium_WebElement Deviations => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Deviations']");
         public Selenium_WebElement General => new Selenium_WebElement(_Selenium_Driver, "//div[text()='General']");
         public Selenium_WebElement Signatures => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Signatures']");
-
+        public Selenium_WebElement Permissions => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Permissions']");
 
 
         public Selenium_WebElement Apply => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Apply']");
@@ -120,6 +120,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         #region report
         public Selenium_WebElement Cleaning => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Cleaning']");
         public Selenium_WebElement ScaleCheck => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Scale Check']");
+        public Selenium_WebElement Permissions => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Permissions']");
         #endregion
         public Selenium_WebElement Start_Time => new Selenium_WebElement(_Selenium_Driver, "//input[@class='Date_TextBox_Style']/../../td/img",0);
         public Selenium_WebElement End_Time => new Selenium_WebElement(_Selenium_Driver, "//input[@class='Date_TextBox_Style']/../../td/img",1);
@@ -131,8 +132,10 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public Selenium_WebElement Generate_Audit => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Generate Audit']");
         public Selenium_WebElement Report_Table => new Selenium_WebElement(_Selenium_Driver, "//table[@class='Order_Table_body_Style_Collapse']/tbody");
 
+
         public Selenium_WebElement SaveAs => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Save As']");
         public Selenium_WebElement Print => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Print']");
+        public Selenium_WebElement difference => new Selenium_WebElement(_Selenium_Driver, "//label[text()='Show Difference Only']");
 
 
     }

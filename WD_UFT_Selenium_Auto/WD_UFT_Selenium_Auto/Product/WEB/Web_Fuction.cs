@@ -323,6 +323,101 @@ namespace WD_UFT_Selenium_Auto.Product.WD
                 Base_Assert.IsTrue(tablehead.Count== wordCount, searchTerm+"Exsit");
             }
         }
+
+        public static void Check_audit(List<string> columns, List<string> datatexts)
+        {
+
+            var data_list = new List<List<string>>();
+            var head_list = new List<string>();
+            var head = Web.Report_Page.body._Selenium_WebElement.FindElements(By.XPath("//td[@class='Audit_Report_Table_Header_Left']//a"));
+            //get head list
+            foreach (var h in head)
+            {
+                head_list.Add(h.Text);
+            }
+            var row = Web.Report_Page.body._Selenium_WebElement.FindElements(By.XPath("//td[@class='Inner_Column_Left']/.."));
+            //get table data
+
+            for (int j = 0; j < row.Count; j++)
+            {
+                var single_row_text = new List<string>();
+                var cells = row[j].FindElements(By.CssSelector("td.Inner_Column_Left"));
+                foreach (var cell in cells)
+                {
+                    single_row_text.Add(cell.Text);
+
+                }
+                data_list.Add(single_row_text);
+            }
+            //check selected data
+            for (int i = 0; i < columns.Count; i++)
+            {
+                int number = head_list.IndexOf(columns[i]);
+                string datatext = datatexts[i];
+                //check first row reason
+                if(columns[i] == "Reason for change")
+                {
+                    Base_Assert.AreEqual(datatext, data_list[0][number],"audit report");
+                }
+                else 
+                {
+                    for (int m = 0; m < data_list.Count; m++)
+                    {
+                        Base_Assert.AreEqual(datatext, data_list[m][number], "audit report");
+                    }
+                }
+                
+
+            }
+
+            
+        }
+        public static void Check_audit_difference(List<string> columns, List<string> datatexts)
+        {
+            //expand first row
+            Web.Report_Page.body._Selenium_WebElement.FindElements(By.XPath("//td[@class='Inner_Column_Left']/..//img"))[0].Click();
+
+            var data_list = new List<List<string>>();
+            var head_list = new List<string>();
+            var head = Web.Report_Page.body._Selenium_WebElement.FindElements(By.XPath("//td[@class='Inner_Column_Left']/div[@class='gwt-Label']/../../../tr//a"));
+            //get head list
+            foreach (var h in head)
+            {
+                head_list.Add(h.Text);
+            }
+            var row = Web.Report_Page.body._Selenium_WebElement.FindElements(By.XPath("//td[@class='Inner_Column_Left']/div[@class='gwt-Label']/../.."));
+            
+            //get table data
+
+            for (int j = 0; j < row.Count; j++)
+            {
+                var single_row_text = new List<string>();
+                var cells = row[j].FindElements(By.CssSelector("div.gwt-Label"));
+                foreach (var cell in cells)
+                {
+                    single_row_text.Add(cell.Text);
+
+                }
+                data_list.Add(single_row_text);
+            }
+            //check selected data
+            for (int i = 0; i < columns.Count; i++)
+            {
+                int number = head_list.IndexOf(columns[i]);
+                string datatext = datatexts[i];
+                //check first row reason
+              
+                    for (int m = 0; m < data_list.Count; m++)
+                    {
+                        Base_Assert.AreEqual(datatext, data_list[m][number],"show difference");
+                    }
+
+
+            }
+
+
+        }
+
         #endregion
 
         #region order function

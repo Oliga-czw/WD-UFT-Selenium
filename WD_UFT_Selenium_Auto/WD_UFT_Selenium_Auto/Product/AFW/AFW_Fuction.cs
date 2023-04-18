@@ -37,8 +37,8 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             }
             WD.AFWMainWindow.AFWSubWindow.ListView.Select(role);
             WD.AFWMainWindow.toolbar.PressButton("6");
-            WD.AFWUserPropertyDialog.tab.Select("Members");
-            ReadOnlyCollection<IListViewItem> items = WD.AFWUserPropertyDialog.ListView._STD_ListView.Items;
+            WD.AFWPropertyDialog.tab.Select("Members");
+            ReadOnlyCollection<IListViewItem> items = WD.AFWPropertyDialog.ListView._STD_ListView.Items;
             bool need_add = true;
             foreach (IListViewItem item in items)
             {
@@ -51,7 +51,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             }
             if (need_add)
             {
-                WD.AFWUserPropertyDialog.Add.Click();
+                WD.AFWPropertyDialog.Add.Click();
                 WD.AFWSelectUserDialog.inputbox.SendKeys(account);
                 WD.AFWSelectUserDialog.OK.Click();
                 Thread.Sleep(5000);
@@ -61,8 +61,49 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             {
                 Base_logger.Message($"{account} exited.");
             }
-            WD.AFWUserPropertyDialog.OK.Click();
+            WD.AFWPropertyDialog.OK.Click();
         }
-        
+        public static void removeRole(string role, string account)
+        {
+            if (WD.AFWMainWindow.AFWSubWindow.TreeView.GetNode("Console Root;AFW Security Manager").IsExpanded)
+            {
+                WD.AFWMainWindow.AFWSubWindow.TreeView._STD_TreeView.Select("Console Root;AFW Security Manager;Roles");
+            }
+            else
+            {
+                WD.AFWMainWindow.AFWSubWindow.TreeView.GetNode("Console Root;AFW Security Manager").Expand();
+
+                WD.AFWMainWindow.AFWSubWindow.TreeView._STD_TreeView.Select("Console Root;AFW Security Manager;Roles");
+            }
+            WD.AFWMainWindow.AFWSubWindow.ListView.Select(role);
+            WD.AFWMainWindow.toolbar.PressButton("6");
+            Thread.Sleep(1000);
+            WD.AFWPropertyDialog.tab.Select("Members");
+            ReadOnlyCollection<IListViewItem> items = WD.AFWPropertyDialog.ListView._STD_ListView.Items;
+            bool need_remove = false;
+            string user = "";
+            foreach (IListViewItem item in items)
+            {
+                Console.WriteLine(item.Text.ToLower());
+                if (item.Text.ToLower() == account)
+                {
+                    user = item.Text;
+                    need_remove = true;
+                    break;
+                }
+            }
+            if (need_remove)
+            {
+                WD.AFWPropertyDialog.ListView.Select(user);
+                WD.AFWPropertyDialog.Remove.Click();
+                Thread.Sleep(1000);
+                Base_logger.Message($"Remove {account} sucessfully.");
+            }
+            else
+            {
+                Base_logger.Message($"{account} not exited.");
+            }
+            WD.AFWPropertyDialog.OK.Click();
+        }
     }
 }

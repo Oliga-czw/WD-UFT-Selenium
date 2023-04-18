@@ -109,6 +109,11 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
             NativeClass = @"Button",
             Text = @"Add..."
         });
+        public IButton Remove => _STD_Dialog.Describe<IButton>(new ButtonDescription
+        {
+            NativeClass = @"Button",
+            Text = @"Remove"
+        });
 
 
         public STD_ListView ListView => new STD_ListView(_STD_Dialog, "//Treeview[@NativeClass = 'SysListView32']");
