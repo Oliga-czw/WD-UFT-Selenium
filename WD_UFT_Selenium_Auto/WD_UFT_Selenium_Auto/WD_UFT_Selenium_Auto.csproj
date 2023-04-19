@@ -87,6 +87,7 @@
     <Compile Include="Product\MOC\MOC_Repository.cs" />
     <Compile Include="Product\MOC\MOC_InterFrame.cs" />
     <Compile Include="Product\MOC\MOC_Fuction.cs" />
+    <Compile Include="TestCase\748922.cs" />
     <Compile Include="TestCase\728667.cs" />
     <Compile Include="TestCase\121316.cs" />
     <Compile Include="TestCase\121313.cs" />
