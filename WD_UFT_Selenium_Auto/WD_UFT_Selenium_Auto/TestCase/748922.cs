@@ -43,45 +43,45 @@ namespace WD_UFT_Selenium_Auto.TestCase
             driver.Wait();
             LogStep(@"2. Active order");
             Web_Fuction.gotoTab(WDWebTab.order);
-            //Web_Fuction.active_order(order);
-            //LogStep(@"3. Open WD client and select order");
-            //Application.LaunchWDAndLogin();
-            //WD_Fuction.SelectOrderandMaterial(order, material);
-            //WD_Fuction.SelectMehod(method, barcode);
-            //LogStep(@"4. do Reset,Cancel,New Source, Partial dispense and Accept");
-            ////click reset
-            //set_weight("10", "100");
-            //WD.mainWindow.ScaleWeightInternalFrame.reset.Click();
-            ////click cancel
-            //WD_Fuction.SelectMehod(method, barcode);
-            //set_weight("15", "165");
-            //WD.mainWindow.ScaleWeightInternalFrame.cancel.Click();
-            //Thread.Sleep(2000);
-            //WD.mainWindow.MaterialInternalFrame.materialTable.Row(material).Click();
-            //WD.mainWindow.MaterialInternalFrame.next.Click();
-            ////click new source
-            //WD_Fuction.SelectMehod(method, barcode);
-            //set_weight("20", "120");
-            //WD.mainWindow.ScaleWeightInternalFrame.NewSource.Click();
-            ////click partial dispense
-            //WD.mainWindow.ScaleWeightInternalFrame.barcode.SendKeys(barcode2);
-            //WD.SimulatorWindow.weight.SetText("200");
-            //WD.SimulatorWindow.OK.Click();
-            //WD.mainWindow.ScaleWeightInternalFrame.Partial.Click();
-            //if (WD.ErrorDialog.IsExist())
-            //{
-            //    WD.ErrorDialog.OKButton.Click();
-            //}
-            ////click accept
-            //set_weight("10", "254.4");
-            //WD.mainWindow.ScaleWeightInternalFrame.accept.Click();
-            //if (WD.ErrorDialog.IsExist())
-            //{
-            //    WD.ErrorDialog.OKButton.Click();
-            //}
-            ////check Finish Dispense
-            //Base_Assert.IsTrue(WD.mainWindow.Material_SelectionInternalFrame.IsExist() || WD.mainWindow.MaterialInternalFrame.IsExist(), "Finish Dispense");
-            //WD_Fuction.Close();
+            Web_Fuction.active_order(order);
+            LogStep(@"3. Open WD client and select order");
+            Application.LaunchWDAndLogin();
+            WD_Fuction.SelectOrderandMaterial(order, material);
+            WD_Fuction.SelectMehod(method, barcode);
+            LogStep(@"4. do Reset,Cancel,New Source, Partial dispense and Accept");
+            //click reset
+            set_weight("10", "100");
+            WD.mainWindow.ScaleWeightInternalFrame.reset.Click();
+            //click cancel
+            WD_Fuction.SelectMehod(method, barcode);
+            set_weight("15", "165");
+            WD.mainWindow.ScaleWeightInternalFrame.cancel.Click();
+            Thread.Sleep(2000);
+            WD.mainWindow.MaterialInternalFrame.materialTable.Row(material).Click();
+            WD.mainWindow.MaterialInternalFrame.next.Click();
+            //click new source
+            WD_Fuction.SelectMehod(method, barcode);
+            set_weight("20", "120");
+            WD.mainWindow.ScaleWeightInternalFrame.NewSource.Click();
+            //click partial dispense
+            WD.mainWindow.ScaleWeightInternalFrame.barcode.SendKeys(barcode2);
+            WD.SimulatorWindow.weight.SetText("200");
+            WD.SimulatorWindow.OK.Click();
+            WD.mainWindow.ScaleWeightInternalFrame.Partial.Click();
+            if (WD.ErrorDialog.IsExist())
+            {
+                WD.ErrorDialog.OKButton.Click();
+            }
+            //click accept
+            set_weight("10", "254.4");
+            WD.mainWindow.ScaleWeightInternalFrame.accept.Click();
+            if (WD.ErrorDialog.IsExist())
+            {
+                WD.ErrorDialog.OKButton.Click();
+            }
+            //check Finish Dispense
+            Base_Assert.IsTrue(WD.mainWindow.Material_SelectionInternalFrame.IsExist() || WD.mainWindow.MaterialInternalFrame.IsExist(), "Finish Dispense");
+            WD_Fuction.Close();
             LogStep(@"4. Check weight report");
             Web_Fuction.gotoTab(WDWebTab.report);
             Web.Report_Page.Weighing.Click();
