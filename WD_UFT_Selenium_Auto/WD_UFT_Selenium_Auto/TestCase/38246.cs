@@ -29,16 +29,20 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD.mainWindow.HomeInternalFrame.MaterialDispensing.Click();
             LogStep(@"3. select the material");
             WD.mainWindow.Material_SelectionInternalFrame.materialTable.Row("X0125").Click();
-            WD.mainWindow.Material_SelectionInternalFrame.next.Click();
+            var Required_value = WD.mainWindow.Material_SelectionInternalFrame.materialTable._UFT_Table.GetCell(0, "Clean Required").Value;
 
-            if (WD.mainWindow.BoothCleanInternalFrame.IsEnabled)
+            WD.mainWindow.Material_SelectionInternalFrame.next.Click();
+            if (Required_value.ToString() == "Yes")
             {
                 WD.mainWindow.BoothCleanInternalFrame.cleanComplete.Click();
             }
             LogStep(@"3. enter the Barcode");
-            WD.mainWindow.ScaleWeightInternalFrame.barcode.SetText("test\n");
+            WD.mainWindow.ScaleWeightInternalFrame.barcode._UFT_Editor.SetText("test\n");
             var message = WD.MessageDialog.Lable.Text;
+            //System.IO.File.WriteAllText("C:/Users/qaone1/Desktop/eee.txt", message);
             Base_Assert.AreEqual(message, "Container barcode is not recognized. Scan another container.");
+            WD.mainWindow.GetSnapshot(Resultpath + "POPMessage.PNG");
+
         }
 
     }

@@ -82,6 +82,17 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
             NativeClass = @"Button",
             Text = @"Cancel"
         });
+        public IEditField nameEditField => _STD_Dialog.Describe<IEditField>(new EditFieldDescription
+        {
+            AttachedText = @"Name:",
+            NativeClass = @"Edit"
+        });
+        public IEditField descriptionEditField => _STD_Dialog.Describe<IEditField>(new EditFieldDescription
+        {
+            AttachedText = @"Description:",
+            NativeClass = @"Edit"
+        });
+        
     }
     public class Login_Dialog : STD_Dialog
     {

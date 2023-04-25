@@ -49,6 +49,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
                 Web_Fuction.administration_Apply("Configuration successfully saved");
             }
             LogStep(@"4. Open Wd client");
+            Thread.Sleep(2000);
             Base_Test.LaunchApp(Base_Directory.WDDir);
             WD.mainWindow.GetSnapshot(Resultpath + "logon_required.PNG");
             Base_Assert.IsTrue(WD.mainWindow.LogonInternalFrame.IsEnabled);
@@ -59,6 +60,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Web_Fuction.administration_Apply("Configuration successfully saved");
             LogStep(@"7. Open Wd client");
             Base_Test.LaunchApp(Base_Directory.WDDir);
+            Thread.Sleep(2000);
             WD.mainWindow.GetSnapshot(Resultpath + "logon_without_username.PNG");
             Base_Assert.IsTrue(WD.mainWindow.HomeInternalFrame.IsEnabled);
             WD_Fuction.Close();

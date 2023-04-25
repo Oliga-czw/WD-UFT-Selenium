@@ -26,6 +26,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public static IWindow window = UFT_Xpath.GetDesktopWindow<IWindow>("//JavaWindow[@Title = 'Aspen Weigh and Dispense Execution']");
         
         public static SimulatorWindow SimulatorWindow => new SimulatorWindow("//Window[@Title = 'simulator']");
+        public static SimulatorWindow SimulatorWindow001 => new SimulatorWindow("//Window[@Title = 'simulator001']");
 
         #endregion
 
@@ -34,6 +35,8 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public static UFT_Dialog ErrorDialog => new UFT_Dialog("//Dialog[@Title = 'Error']");
         public static UFT_Dialog MessageDialog => new UFT_Dialog("//Dialog[@Title = 'Message']");
         public static UFT_Dialog DeviationDialog => new UFT_Dialog(window, "//Dialog[@Title = 'Create Deviation']");
+        public static UFT_Dialog ConfirmationDialog => new UFT_Dialog(window, "//Dialog[@Title = 'Confirmation']");
+        public static UFT_Dialog reopenMessageDialog => new UFT_Dialog("//Dialog[@Title = 'Module Already Running']");
 
         #endregion
         #region WD_Controls

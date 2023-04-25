@@ -1,6 +1,8 @@
 ﻿using HP.LFT.SDK;
 using System.Collections.Generic;
 using HP.LFT.SDK.Java;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
 {
@@ -69,7 +71,10 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
         {
             AttachedText = @"	 	 	 	Yes	 	 	 	"
         });
-
+        public IButton NoButton => _UFT_Dialog.Describe<IButton>(new ButtonDescription
+        {
+            AttachedText = @"	 	 	 	No	 	 	 	"
+        });
         public IButton OKButton => _UFT_Dialog.Describe<IButton>(new ButtonDescription
         {
             AttachedText = @"	 	 	 	OK	 	 	 	"
@@ -94,13 +99,11 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
             ObjectName = @"OptionPane.label"
         });
 
-        
-        //public IComboBox SaveAsTypeComboBox => Describe<IComboBox>(new ComboBoxDescription
-        //{
-        //    NativeClass = @"ComboBox",
-        //    Index = 1
-
-        //});
+        public void GetSnapshot(string path)
+        {
+            Image image = _UFT_Dialog.GetSnapshot();
+            image.Save(path, ImageFormat.Png);
+        }
 
     }
 
