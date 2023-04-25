@@ -57,6 +57,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             //int c = Web_Fuction.get_select_colIndex(table, "Double Signature");
             //table[r][c].Click();
             //Web_Fuction.administration_Apply("Apply Deviation Configuration Successful");
+
             Web_Fuction.gotoTab(WDWebTab.admin);
             Web.Administration_Page.Deviations.Click();
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "DeviationSetting.PNG");
@@ -84,6 +85,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD.DeviationDialog.Password.SetText(PassWord.qaone1);
             WD.DeviationDialog.OK.Click();
             Base_Assert.AreEqual(WD.MessageDialog.Lable.Text, "User is the same as the previous one.");
+            WD.mainWindow.GetSnapshot(Resultpath + "same user error.PNG");
             WD.MessageDialog.OKButton.Click();
             WD.DeviationDialog.UserID.SetText(UserName.qaone2);
             WD.DeviationDialog.Password.SetText(PassWord.qaone2);

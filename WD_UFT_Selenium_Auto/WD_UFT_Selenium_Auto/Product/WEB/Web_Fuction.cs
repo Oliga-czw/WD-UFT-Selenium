@@ -257,6 +257,12 @@ namespace WD_UFT_Selenium_Auto.Product.WD
 
         }
 
+        public static void check_report_date(DateTime execute_time)
+        {
+            var date = Web.Report_Page.Report_Table._Selenium_WebElement.FindElements(By.XPath("//table[@class='Report_Paper_Border_Shading']/tbody/tr[4]/td/table/tbody/tr/td[@class='Inner_Column_Left']"))[0].Text;
+            DateTime report_time = Convert.ToDateTime(date);
+            Base_Assert.IsTrue(Math.Abs(report_time.Subtract(execute_time).TotalSeconds) < 30, "date time is right");
+        }
         //verify the ferquency of select value
         public static void Check_PDF(string path,string filename,List<string> searchList)
         {
@@ -417,7 +423,12 @@ namespace WD_UFT_Selenium_Auto.Product.WD
 
 
         }
-
+        public static void check_audit_date(DateTime execute_time)
+        {
+            var date = Web.Report_Page.body._Selenium_WebElement.FindElements(By.XPath("//td[@class='Inner_Column_Left']/../td[@class='Inner_Column_Left']"))[0].Text;
+            DateTime report_time = Convert.ToDateTime(date);
+            Base_Assert.IsTrue(Math.Abs(report_time.Subtract(execute_time).TotalSeconds) < 30, "date time is right");
+        }
         #endregion
 
         #region order function

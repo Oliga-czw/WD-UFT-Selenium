@@ -76,6 +76,8 @@ namespace WD_UFT_Selenium_Auto.TestCase
             }
             WD.mainWindow.GetSnapshot(Resultpath + "scale check.PNG");
             WD.mainWindow.CheckWeightInternalFrame.accept.Click();
+            //get execute time
+            DateTime execute_time = DateTime.Now;
             LogStep(@"2. Open WD web and login");
             Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
             Web_Fuction.gotoWDWeb(driver);
@@ -107,8 +109,12 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "scale check Report.PNG");
             var column = new List<string>() { "Booth", "Type", "Operator", "Status", "Scale" };
             var datatext = new List<string>() { "booth1", "STD-weekly", "qaone1(qaone1)", "Success", "simulator" };
+            //check date
+            Web_Fuction.check_report_date(execute_time);
+            //check data
             Web_Fuction.Check_report(column, datatext);
             Web_Fuction.Check_report_inner(data_list, 2);
+            Thread.Sleep(2000);
             LogStep(@"6.save pdf and print ");
             Web.Report_Page.SaveAs.Click();
             Thread.Sleep(2000);

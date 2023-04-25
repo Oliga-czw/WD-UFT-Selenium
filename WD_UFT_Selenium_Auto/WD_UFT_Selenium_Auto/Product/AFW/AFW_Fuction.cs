@@ -84,7 +84,6 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             string user = "";
             foreach (IListViewItem item in items)
             {
-                Console.WriteLine(item.Text.ToLower());
                 if (item.Text.ToLower() == account)
                 {
                     user = item.Text;
@@ -103,6 +102,20 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             {
                 Base_logger.Message($"{account} not exited.");
             }
+            //check user is deleted
+            ReadOnlyCollection<IListViewItem> items2 = WD.AFWPropertyDialog.ListView._STD_ListView.Items;
+            bool exit = false;
+            foreach (IListViewItem item in items2)
+            {
+                Console.WriteLine(item.Text.ToLower());
+                if (item.Text.ToLower() == account)
+                {
+                    exit = true;
+                    break;
+                }
+            }
+            Base_Assert.IsFalse(exit, $"{account} not exited.");
+
             WD.AFWPropertyDialog.OK.Click();
         }
     }

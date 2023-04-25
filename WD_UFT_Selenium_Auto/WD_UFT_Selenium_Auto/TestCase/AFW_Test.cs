@@ -23,38 +23,48 @@ namespace WD_UFT_Selenium_Auto.TestCase
 
             //Application.LaunchAFW();
 
-            //string role = AFWRole.User;
+            //string role = AFWRole.Admin;
             //string accout = UserName.qaone2;
-            //AFW_Fuction.addRole(role, accout);
+            //AFW_Fuction.removeRole(role, accout);
 
             //AFW_Fuction.closeAFW();
 
-            string serviceName = "Tomcat9";
-            int timeoutMilliseconds = 200000;
-            ServiceController service = new ServiceController(serviceName);
-            try
-            {
-                int millisec1 = 0;
-                TimeSpan timeout;
-                if (service.Status == ServiceControllerStatus.Running)
-                {
-                    millisec1 = Environment.TickCount;
-                    timeout = TimeSpan.FromMilliseconds(timeoutMilliseconds);
-                    service.Stop();
-                    service.WaitForStatus(ServiceControllerStatus.Stopped, timeout);
-                    Console.WriteLine("stop success");
-                }
-                // count the rest of the timeout
-                int millisec2 = Environment.TickCount;
-                timeout = TimeSpan.FromMilliseconds(timeoutMilliseconds - (millisec2 - millisec1));
-                service.Start();
-                service.WaitForStatus(ServiceControllerStatus.Running, timeout);
-                Console.WriteLine("start success");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
+            //get current date
+            DateTime t = DateTime.Now;
+            Console.WriteLine(t);
+
+            string time = "4/25/23, 8:06:45 AM";
+            DateTime t2 = Convert.ToDateTime(time);
+           
+            Console.WriteLine(t2);
+            Console.WriteLine(Math.Abs(t2.Subtract(t).TotalSeconds));
+            //service
+            //string serviceName = "Tomcat9";
+            //int timeoutMilliseconds = 200000;
+            //ServiceController service = new ServiceController(serviceName);
+            //try
+            //{
+            //    int millisec1 = 0;
+            //    TimeSpan timeout;
+            //    if (service.Status == ServiceControllerStatus.Running)
+            //    {
+            //        millisec1 = Environment.TickCount;
+            //        timeout = TimeSpan.FromMilliseconds(timeoutMilliseconds);
+            //        service.Stop();
+            //        service.WaitForStatus(ServiceControllerStatus.Stopped, timeout);
+            //        Console.WriteLine("stop success");
+            //    }
+            //    // count the rest of the timeout
+            //    int millisec2 = Environment.TickCount;
+            //    timeout = TimeSpan.FromMilliseconds(timeoutMilliseconds - (millisec2 - millisec1));
+            //    service.Start();
+            //    service.WaitForStatus(ServiceControllerStatus.Running, timeout);
+            //    Console.WriteLine("start success");
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine(e.Message);
+            //}
         }
         
     }

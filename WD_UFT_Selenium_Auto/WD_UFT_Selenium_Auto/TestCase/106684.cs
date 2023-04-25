@@ -51,6 +51,8 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD.SimulatorWindow.weight.SetText(weight1);
             WD.SimulatorWindow.OK.Click();
             WD.mainWindow.CheckWeightInternalFrame.readScale.ClickSignle();
+            //get execute time
+            DateTime execute_time = DateTime.Now;
             //check signature
             WD.mainWindow.GetSnapshot(Resultpath + "Scale Check Standardization Signature.PNG");
             WD.mainWindow.Dialog.Password.SetSecure(PassWord.qaone1);
@@ -83,8 +85,11 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Scale.FindElement(By.XPath("//option[text()='simulator']")).Click();
             driver.Wait();
             Web.Report_Page.Generate_Report.Click();
+            Thread.Sleep(2000);
             LogStep(@"5.check report");
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "scale check failure Report.PNG");
+            //check date
+            Web_Fuction.check_report_date(execute_time);
             var head_list = new List<string>();
             var head = Web.Report_Page.Report_Table._Selenium_WebElement.FindElements(By.XPath("//table[@class='Report_Paper_Border_Shading']/tbody/tr[4]/td/table/tbody/tr/td/div//a[@class='Report_Head_Style']"));
             //get head list
@@ -109,6 +114,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
                 Base_Assert.AreEqual(datatext, single_row_text[number]);
             }
             LogStep(@"6.save pdf and print ");
+            Thread.Sleep(2000);
             Web.Report_Page.SaveAs.Click();
             Thread.Sleep(2000);
             Web.Report_Page.Print.Click();
@@ -132,6 +138,8 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD.SimulatorWindow.weight.SetText(weight1);
             WD.SimulatorWindow.OK.Click();
             WD.mainWindow.CheckWeightInternalFrame.readScale.ClickSignle();
+            //get execute time
+            DateTime execute_time2 = DateTime.Now;
             //no signature and leave the checking screen
             WD.MessageDialog.OKButton.Click();
             Thread.Sleep(2000);
@@ -163,8 +171,11 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Scale2.FindElement(By.XPath("//option[text()='simulator']")).Click();
             driver2.Wait();
             Web.Report_Page.Generate_Report.Click();
+            Thread.Sleep(2000);
             LogStep(@"10.check report-no comment");
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "scale check failure Report-no comment.PNG");
+            //check date
+            Web_Fuction.check_report_date(execute_time2);
             var head_list2 = new List<string>();
             var head2 = Web.Report_Page.Report_Table._Selenium_WebElement.FindElements(By.XPath("//table[@class='Report_Paper_Border_Shading']/tbody/tr[4]/td/table/tbody/tr/td/div//a[@class='Report_Head_Style']"));
             //get head list
@@ -180,7 +191,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
                 single_row_text2.Add(cell.Text);
             }
             var columns2 = new List<string>() { "Operator", "Comment" };
-            var datatexts2 = new List<string>() { "qaone1(qaone1)", ""};
+            var datatexts2 = new List<string>() { "qaone1(qaone1)", "" };
             //check selected data
             for (int i = 0; i < columns2.Count; i++)
             {

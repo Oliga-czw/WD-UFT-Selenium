@@ -38,6 +38,9 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Application.LaunchWDAndLogin();
             WD.mainWindow.HomeInternalFrame.BoothCleaning.Click();
             WD.mainWindow.BoothCleanInternalFrame.cleanComplete.Click();
+            //get execute time
+            DateTime execute_time = DateTime.Now;
+            Console.WriteLine(execute_time);
             LogStep(@"2. Open WD web and login");
             Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
             Web_Fuction.gotoWDWeb(driver);
@@ -65,8 +68,12 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Clean Report.PNG");
             var column = new List<string>() { "Booth", "Type", "Operator" };
             var datatext = new List<string>() { "booth1", "Full Clean", "qaone1(qaone1)" };
+            //check date
+            Web_Fuction.check_report_date(execute_time);
+            //check data
             Web_Fuction.Check_report(column, datatext);
             LogStep(@"6.save pdf and print ");
+            Thread.Sleep(2000);
             Web.Report_Page.SaveAs.Click();
             Thread.Sleep(2000);
             Web.Report_Page.Print.Click();

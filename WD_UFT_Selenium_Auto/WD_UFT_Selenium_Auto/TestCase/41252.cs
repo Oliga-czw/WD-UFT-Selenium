@@ -53,6 +53,8 @@ namespace WD_UFT_Selenium_Auto.TestCase
             //input reason
             Web.Equipment_Page.FindElement("//textarea[@class='DialogTextArea']").SendKeys(change_reason);
             Web.Equipment_Page.FindElement("//button[text()='OK']").Click();
+            //get execute time
+            DateTime execute_time = DateTime.Now;
             //check apply successfully
             string message = driver.FindElement("//div[@class='gwt-Label Alert_Label']").Text;
             Base_Assert.AreEqual("Apply Permission Successful", message, "apply successfully");
@@ -85,6 +87,8 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Web.Report_Page.Generate_Audit.Click();
             LogStep(@"5.check report");
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "permission Report.PNG");
+            //check date
+            Web_Fuction.check_audit_date(execute_time);
             var column = new List<string>() { "User", "Reason for change" };
             var datatext = new List<string>() { "qaone1(qaone1)", change_reason };
             Web_Fuction.Check_audit(column, datatext);
