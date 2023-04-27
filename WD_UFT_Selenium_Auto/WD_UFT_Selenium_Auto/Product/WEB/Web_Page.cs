@@ -76,6 +76,10 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         #endregion
         #region clean rules
         public Selenium_WebElement States => new Selenium_WebElement(_Selenium_Driver, "//div[text()='States']");
+        public Selenium_WebElement Data => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Data']");
+        public Selenium_WebElement Actions => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Actions']");
+        public Selenium_WebElement Types => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Types']");
+        public Selenium_WebElement Transitions => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Transitions']");
         #endregion
 
         #region deviations
@@ -153,6 +157,55 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         
         
     }
+    public class CleanRules_Page : Web_Page
+
+    {
+        public CleanRules_Page(IWebDriver driver) : base(driver)
+        {
+        }
+        public Selenium_WebElement States => new Selenium_WebElement(_Selenium_Driver, "//div[text()='States']");
+        public Selenium_WebElement Data => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Data']");
+        public Selenium_WebElement Actions => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Actions']");
+        public Selenium_WebElement Types => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Types']");
+        public Selenium_WebElement Transitions => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Transitions']");
+        #region Transitions
+        public Selenium_WebElement Add_Event => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Add an Event']");
+        public Selenium_WebElement cleanRules_Event => new Selenium_WebElement(_Selenium_Driver, "//input[@name='CleanRule_Event']");
+        public Selenium_WebElement Edit_Button => new Selenium_WebElement(_Selenium_Driver, "//tr[@id='clicked_Row_Style']/td[5]//button[@class='gwt-Button']");
+        public Selenium_WebElement Use_Action => new Selenium_WebElement(_Selenium_Driver, "//select[@name='CleanRule_Action']/option[text()='Use']");
+        public Selenium_WebElement Usable_state => new Selenium_WebElement(_Selenium_Driver, "//select[@name='CleanRule_State']/option[text()='Usable']");
+        public Selenium_WebElement Dialog_OK => new Selenium_WebElement(_Selenium_Driver, "//button[@id='Dialogbox_Bottom_OK_Button_Id']");
+        public Selenium_WebElement SaveRules_Button => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Save Rules']");
+        public Selenium_WebElement selected_event => new Selenium_WebElement(_Selenium_Driver, "//tr[@id='clicked_Row_Style']");
+        //public Selenium_WebElement EventList => new Selenium_WebElement(_Selenium_Driver, "//*[@id='WDView']/table/tbody/tr[3]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[@class !='List_Background_Color']");
+        public Selenium_WebElement Alert_meaasge => new Selenium_WebElement(_Selenium_Driver, "//div[@class='gwt-Label Alert_Label']");
+        public Selenium_WebElement Alert_OK_Button => new Selenium_WebElement(_Selenium_Driver, "//button[@class='gwt-Button OkStyle']");
+        public Selenium_WebElement MoveUp => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Move Up']");
+        public Selenium_WebElement MoveDown => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Move Down']");
+        public Selenium_WebElement TestRules => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Test Rules...']");
+        //public Selenium_WebElement ExpPeriod => new Selenium_WebElement(_Selenium_Driver, "//td[text()='ExpPeriod']/../td[3]/input");
+
+        //public Selenium_WebElement ExpDate => new Selenium_WebElement(_Selenium_Driver, "//td[text()='ExpDate']/../td[3]/input");
+        public Selenium_WebElement TestTransition => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Test Transition']");
+        public Selenium_WebElement EffectiveDate => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Effective date:']/../../td[2]//input");
+        public Selenium_WebElement CommitRules => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Commit Rules']");
+        public Selenium_WebElement delete_button => new Selenium_WebElement(_Selenium_Driver, "//table[@class='List_Table_Border_Style']/tbody/tr/td/img[@class='gwt-Image']", 0);
+        public Selenium_WebElement delete_alert_ok => new Selenium_WebElement(_Selenium_Driver, "//button[@class='gwt-Button OkStyle']");
+        public Selenium_WebElement testRules_Event => new Selenium_WebElement(_Selenium_Driver, "//select[@class='gwt-ListBox']", 1);
+        public Selenium_WebElement testRules_InitialState => new Selenium_WebElement(_Selenium_Driver, "//select[@class='gwt-ListBox']", 0);
+        public Selenium_WebElement testRules_FinalState => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Final State:']/../../td[2]/div");
+        public Selenium_WebElement testRules_close => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Close']");
+        #endregion
+
+        #region deviations
+        public Selenium_WebElement deviation_table => new Selenium_WebElement(_Selenium_Driver, "//table[@class='Permission_Table_body_Style']/tbody", 0);
+
+        #endregion
+        #region General
+        public Selenium_WebElement log_on_required_chx => new Selenium_WebElement(_Selenium_Driver, "//label[text()='Log on required for Execution System']/../input");
+
+        #endregion
     }
+}
 
 

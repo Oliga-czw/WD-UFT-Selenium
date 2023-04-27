@@ -88,6 +88,63 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             screenshot.SaveAsFile(path, ScreenshotImageFormat.Png);
 
         }
+        public static void permissionUpdate(IWebDriver driver, string[] permission_list)
+        {
+            var permissionList = driver.FindElements(By.XPath("//span[@class='gwt-CheckBox']/label"));
+            //int count001 = permissionList.Count;
+
+            foreach (var permission in permissionList)
+            {
+                //System.IO.File.WriteAllText("C:/Users/qaone1/Desktop/eee.txt", count001.ToString(), Encoding.Default);
+                var inputXpath = "//label[text()='" + permission.Text + "']/../input";
+                if (permission_list.Length == 2)
+                {
+                    if (permission.Text == permission_list[0] || permission.Text == permission_list[1])
+                    {
+                        var NameList = driver.FindElements(By.XPath(inputXpath));
+                        foreach (var Name in NameList)
+                        {
+                            if (Name.GetAttribute("checked") != null)
+                            {
+                                Name.Click();
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (permission.Text.ToLower().Contains(permission_list[0].ToLower()))
+                    {
+                        var NameList = driver.FindElements(By.XPath(inputXpath));
+                        foreach (var Name in NameList)
+                        {
+                            if (Name.GetAttribute("checked") != null)
+                            {
+                                Name.Click();
+                            }
+                        }
+                    }
+                }
+
+            }
+            driver.FindElement(By.XPath("//button[text()='Apply']")).Click();
+            Thread.Sleep(2000);
+            driver.FindElement(By.XPath("//button[text()='OK']")).Click();
+        }
+        public static void RestorePermission(IWebDriver driver)
+        {
+            var checkbox = driver.FindElements(By.XPath("//span[@class='gwt-CheckBox']/input"));
+            foreach (var input in checkbox)
+            {
+                if (input.GetAttribute("checked") == null)
+                {
+                    input.Click();
+                }
+            }
+            driver.FindElement(By.XPath("//button[text()='Apply']")).Click();
+            Thread.Sleep(2000);
+            driver.FindElement(By.XPath("//button[text()='OK']")).Click();
+        }
         #endregion
 
         #region table fuction

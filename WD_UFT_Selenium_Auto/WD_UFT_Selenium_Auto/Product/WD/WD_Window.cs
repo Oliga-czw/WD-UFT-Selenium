@@ -48,7 +48,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public CheckWeight_InterFrame CheckWeightInternalFrame => new CheckWeight_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Check Weight']");
         public SelectAnOrderToKitting_InterFrame SelectAnOrderToKittingFrame => new SelectAnOrderToKitting_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Select an order to kitting']");
         public CampaignSelection_InterFrame CampaignSelectionInternalFrame => new CampaignSelection_InterFrame(_UFT_Window, "//InterFrame[@ObjectName = 'MAIN']");
-        public CheckWeight_InterFrame CheckWeightInternalFrame => new CheckWeight_InterFrame(_UFT_Window, "//InterFrame[@ObjectName = 'SCALECHECK2']");
+        //public CheckWeight_InterFrame CheckWeightInternalFrame => new CheckWeight_InterFrame(_UFT_Window, "//InterFrame[@ObjectName = 'SCALECHECK2']");
         public Handing_InterFrame HandingInternalFrame => new Handing_InterFrame(_UFT_Window, "//InterFrame[@ObjectName = 'HANDLING_INFORMATION']");
         #endregion
         #region dialog

@@ -35,17 +35,17 @@ namespace WD_UFT_Selenium_Auto.TestCase
             var scaleList = WD.mainWindow.ScaleCheckInternalFrame.ScaleList;
             scaleList.SelectItems("simulator");
             var standardizationStatusTable = WD.mainWindow.ScaleCheckInternalFrame.Standardization_type;
-            WD.mainWindow.ScaleCheckInternalFrame.StartCheckButton.Click();
+            WD.mainWindow.ScaleCheckInternalFrame.startcheck.Click();
             Thread.Sleep(2000);
 
             LogStep(@"2.with plate empty, click Zero button");
-            WD.mainWindow.CheckWeightInternalFrame.ZeroButton.Click();
+            WD.mainWindow.CheckWeightInternalFrame.zero.Click();
             
             LogStep(@"3.the weight is out of Precision range(weight<595 or weight >605)");
             WD.SimulatorWindow.weight.SetText("400");
             WD.SimulatorWindow.OK.Click();
             WD.mainWindow.GetSnapshot(Resultpath + "WD_Scalcheck.PNG");
-            WD.mainWindow.CheckWeightInternalFrame.ReadScaleButton.Click();
+            WD.mainWindow.CheckWeightInternalFrame.readScale.Click();
             var now_time = DateTime.Now.ToString("yyyy/M/d tth:mm:ss");
             // no message
             Base_Assert.Equals(WD.mainWindow.ScaleCheckInternalFrame.IsEnabled, true);

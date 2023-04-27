@@ -408,8 +408,20 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
         }
 
         public static Base_ExamplesPath ExamplesPath = new Base_ExamplesPath();
+        public static DateTime GetDateTime(string timestamp)
+        {
+            DateTime dtStart = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1, 0, 0, 0, 0));
+            
+            if (timestamp.Length == 13)
+            {
+                return dtStart.AddMilliseconds(Convert.ToInt64(timestamp));
+            }
+            else
+            {
+                return dtStart.AddSeconds(Convert.ToInt64(timestamp));
+            }
+        }
 
-        
     }
 
     public class Base_ExamplesPath

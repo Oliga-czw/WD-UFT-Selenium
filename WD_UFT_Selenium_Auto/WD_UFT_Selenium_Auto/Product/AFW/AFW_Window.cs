@@ -21,6 +21,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public STD_Toolbar toolbar => new STD_Toolbar(_STD_Window, "//Window[@WindowId = '4098']");
 
         public STD_Dialog AFWCloseDialog => new STD_Dialog("//Dialog[@Text = 'Microsoft Management Console']");
+        public STD_Dialog AFWAddRoleDialog => new STD_Dialog("//Dialog[@Text = 'New Role']");
 
     }
     public class AFWSubWindow : STD_Window

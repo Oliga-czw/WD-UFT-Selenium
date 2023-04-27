@@ -38,7 +38,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             //2. do a scale check,go back to scale check again, check the Standardization Status(test - cancel before clicking zero )
             //3. select one standardization type, click start check
             standardizationStatusTable.SelectRows(0);
-            WD.mainWindow.ScaleCheckInternalFrame.StartCheckButton.Click();
+            WD.mainWindow.ScaleCheckInternalFrame.startcheck.Click();
             Thread.Sleep(3000);
 
             var standardizationlabel = WD.mainWindow.CheckWeightInternalFrame.Standardization_label;
@@ -55,15 +55,15 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Thread.Sleep(3000);
             //Click "Scale check"(test - cancel before read scale
             standardizationStatusTable.SelectRows(0);
-            WD.mainWindow.ScaleCheckInternalFrame.StartCheckButton.Click();
+            WD.mainWindow.ScaleCheckInternalFrame.startcheck.Click();
             Thread.Sleep(3000);
             //with plate empty, click Zero button
-            WD.mainWindow.CheckWeightInternalFrame.ZeroButton.Click();
+            WD.mainWindow.CheckWeightInternalFrame.zero.Click();
             
             Assert.AreEqual(WD.mainWindow.CheckWeightInternalFrame.ScaleResult_Label._UFT_Label.Text, "0.0 G");
-            Assert.IsFalse(WD.mainWindow.CheckWeightInternalFrame.ZeroButton.IsEnabled);
+            Assert.IsFalse(WD.mainWindow.CheckWeightInternalFrame.zero.IsEnabled);
             
-            Assert.IsTrue(WD.mainWindow.CheckWeightInternalFrame.ReadScaleButton.IsEnabled);
+            Assert.IsTrue(WD.mainWindow.CheckWeightInternalFrame.readScale.IsEnabled);
             //Click Cancel
             WD.mainWindow.CheckWeightInternalFrame.cancelButton.Click();
             Assert.IsTrue(WD.mainWindow.ScaleCheckInternalFrame.IsEnabled);

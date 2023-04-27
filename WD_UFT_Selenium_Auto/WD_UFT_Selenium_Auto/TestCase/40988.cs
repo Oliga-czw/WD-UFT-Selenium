@@ -16,7 +16,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
         [Title("scale check-cancel when not all weights are checked.")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Medium)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Created)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]
@@ -38,8 +38,8 @@ namespace WD_UFT_Selenium_Auto.TestCase
             var selectedlastcheckdate = standardizationStatusTable.GetCell(0, "Last Check Date").Value.ToString();
             LogStep(@"2. do a scale check,go back to scale check again, check the Standardization Status");
             standardizationStatusTable.SelectRows(0);
-            WD.mainWindow.ScaleCheckInternalFrame.StartCheckButton._UFT_Button.Click();
-            WD.mainWindow.ScaleCheckInternalFrame.StartCheckButton._UFT_Button.Click();
+            WD.mainWindow.ScaleCheckInternalFrame.startcheck._UFT_Button.Click();
+            WD.mainWindow.ScaleCheckInternalFrame.startcheck._UFT_Button.Click();
             Thread.Sleep(3000);
             var standardizationlabel = WD.mainWindow.CheckWeightInternalFrame.Standardization_label;
             System.IO.File.WriteAllText("C:/Users/qaone1/Desktop/eee.txt", standardizationlabel._UFT_Label.Text);
@@ -50,16 +50,16 @@ namespace WD_UFT_Selenium_Auto.TestCase
             LogStep(@"3.select one standardization type, click start check");
             standardizationStatusTable.SelectRows(1);
             WD.mainWindow.ScaleCheckInternalFrame.StandardizationList.SelectItems("STD-monthly");
-            WD.mainWindow.ScaleCheckInternalFrame.StartCheckButton.Click();
+            WD.mainWindow.ScaleCheckInternalFrame.startcheck.Click();
             Thread.Sleep(3000);
             LogStep(@"4. with plate empty, click Zero button");
-            WD.mainWindow.CheckWeightInternalFrame.ZeroButton.Click();
+            WD.mainWindow.CheckWeightInternalFrame.zero.Click();
             Base_Assert.AreEqual(WD.mainWindow.CheckWeightInternalFrame.ScaleResult_Label._UFT_Label.Text, "0.0 G");
             LogStep(@"5.put the weight in the plate shown in Check Weight list, Click Read Scale");
             WD.SimulatorWindow.weight.SetText("100");
             WD.SimulatorWindow.OK.Click();
-            WD.mainWindow.CheckWeightInternalFrame.ReadScaleButton.Click();
-            var expirationDateTable = WD.mainWindow.CheckWeightInternalFrame.checkWeightTable;
+            WD.mainWindow.CheckWeightInternalFrame.readScale.Click();
+            var expirationDateTable = WD.mainWindow.CheckWeightInternalFrame.checkTable;
 
             Base_Assert.AreEqual(expirationDateTable.GetCell(0, "Actual").Value.ToString(), "100.0 G");
             Base_Assert.IsTrue(WD.mainWindow.CheckWeightInternalFrame.CheckResult._UFT_Label.Text.Contains("click Read Scale"));

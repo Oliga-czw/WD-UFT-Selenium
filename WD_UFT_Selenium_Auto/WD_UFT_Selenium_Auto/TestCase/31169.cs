@@ -37,7 +37,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             var standardizationStatusTable = WD.mainWindow.ScaleCheckInternalFrame.Standardization_type;
             System.IO.File.WriteAllText("C:/Users/qaone1/Desktop/eee.txt", standardizationStatusTable._UFT_Table.Rows.Count.ToString());
 
-            WD.mainWindow.ScaleCheckInternalFrame.StartCheckButton.Click();
+            WD.mainWindow.ScaleCheckInternalFrame.startcheck.Click();
             Thread.Sleep(2000);
             WD.mainWindow.CheckWeightInternalFrame.cancelButton.Click();
             Thread.Sleep(2000);
@@ -50,7 +50,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             //Verify.Contains(@"STD-monthly", standardizationStatusTable.Rows);
             //Verify.Contains(@"STD-weekly", standardizationStatusTable.Rows);
             LogStep(@"3.select one standardization type, click start check");
-            WD.mainWindow.ScaleCheckInternalFrame.StartCheckButton.Click();
+            WD.mainWindow.ScaleCheckInternalFrame.startcheck.Click();
             Thread.Sleep(2000);
             // scale information should be same as that defined in web
             WD.mainWindow.GetSnapshot(Resultpath + "scale_information.PNG");
@@ -64,11 +64,11 @@ namespace WD_UFT_Selenium_Auto.TestCase
 
             Base_Assert.AreEqual(ExpirationPeriodLabel, "777");
             LogStep(@"4.with plate empty, click Zero button");
-            WD.mainWindow.CheckWeightInternalFrame.ZeroButton.Click();
+            WD.mainWindow.CheckWeightInternalFrame.zero.Click();
             //it should read as 0 after click Zero, Zero button disabled? Read Scale is enabled
             WD.mainWindow.GetSnapshot(Resultpath + "after_ClickZero.PNG");
-            Base_Assert.AreEqual(WD.mainWindow.CheckWeightInternalFrame.ZeroButton.IsEnabled, false);
-            var btnReadScale = WD.mainWindow.CheckWeightInternalFrame.ReadScaleButton;
+            Base_Assert.AreEqual(WD.mainWindow.CheckWeightInternalFrame.zero.IsEnabled, false);
+            var btnReadScale = WD.mainWindow.CheckWeightInternalFrame.readScale;
             Base_Assert.AreEqual(btnReadScale.IsEnabled, true);
             LogStep(@"5. put the weight in the plate shown in Check Weight list, Click Read Scale");
             WD.SimulatorWindow.weight.SetText("100");
@@ -78,7 +78,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Thread.Sleep(3000);
             Base_Assert.AreEqual(WD.mainWindow.ScaleCheckInternalFrame.Standardization_type._UFT_Table.IsEnabled, true);
             //it should show green check mark if it is in allowed Precision range. 
-            var checkMark = WD.mainWindow.CheckWeightInternalFrame.checkWeightTable.GetCell(0, "Pass");
+            var checkMark = WD.mainWindow.CheckWeightInternalFrame.checkTable.GetCell(0, "Pass");
             //Base_Assert.AreEqual(checkMark.Value.GetType().Attributes, "");
             Base_Assert.AreEqual(WD.mainWindow.CheckWeightInternalFrame.CheckResult._UFT_Label.Text, "All scale checks passed.");
             WD.mainWindow.GetSnapshot(Resultpath + "checkPass.PNG");

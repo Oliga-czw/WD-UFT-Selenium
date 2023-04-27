@@ -115,6 +115,11 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public UFT_Button HomeButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Button0']");
         public UFT_Editor tare_editor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Tare:']");
         public UFT_Label disploylMaeterial => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'dispLblMaeterial']");
+        public UFT_Label Lot => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'dispLblLot']");
+        public UFT_Label AvailQty => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'dispLblAvailQty']");
+        public UFT_Label Status => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'dispLblStatus']");
+        public UFT_Label Expiration => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'dispLblExpiration']");
+        public UFT_Label Potency => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'dispLblPotency']");
         public UFT_Editor net_editor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Net:']");
     }
     public class OpenWeight_InterFrame : ClassMainInterFrame
@@ -134,6 +139,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public UFT_Label ResolutionLabel => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'lblPrecision']");
         public UFT_Label GrossstLabel => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'displayGross']");
         public UFT_Button HomeButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnHome']");
+        public UFT_Button PrintLabelButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnPrintLabel']");
 
     }
     public class Material_Selection_InterFrame : ClassMainInterFrame
@@ -155,7 +161,10 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         {
         }
 
-        //public UFT_Table materialTable => new UFT_Table(_UFT_InterFrame, "//Table[@AttachedText = 'Materials:']");
+        public UFT_List ScaleList => new UFT_List(_UFT_InterFrame, "//List[@ObjectName = 'cbxScales']");
+        public UFT_Table Standardization_type => new UFT_Table(_UFT_InterFrame, "//Table[@TagName = 'Standardization Status']");
+        public UFT_Button homeButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName='Button0']");
+        public UFT_List StandardizationList => new UFT_List(_UFT_InterFrame, "//List[@ObjectName = 'cbxStandzn']");
         public UFT_Button startcheck => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnStartCheck']");
     }
 
@@ -165,11 +174,17 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         {
         }
 
-        //public UFT_Table materialTable => new UFT_Table(_UFT_InterFrame, "//Table[@AttachedText = 'Materials:']");
+        public UFT_Button cancelButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnCancel']");
+        // public UFT_List scale => new UFT_List(_UFT_InterFrame, "//List[@TagName = 'Scale:']");
+        public UFT_Label CheckResult => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'lblInstruction']");
+        public UFT_Label Standardization_label => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'DisplayLabel1']");
+        public UFT_Label ExpirationPeriod_label => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'DisplayLabel3']");
+        public UFT_Label LastCheckdate_label => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'DisplayLabel4']");
+        public UFT_Label ExpirationDate_label => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'DisplayLabel5']");
+        public UFT_Label ScaleResult_Label => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'ScaleResultLabel']");
         public UFT_Button zero => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnZero']");
         public UFT_Button readScale => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnReadScale']");
         public UFT_Button accept => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnAccept']");
-
         public UFT_Table checkTable => new UFT_Table(_UFT_InterFrame, "//Table[@AttachedText = 'Expiration date:']");
     }
     public class SelectAnOrderToKitting_InterFrame : ClassMainInterFrame
@@ -197,26 +212,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public UFT_Button SearchButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnSearch']");
         public UFT_Table CampaignsTable => new UFT_Table(_UFT_InterFrame, "//Table[@TagName = 'Campaigns:']");
     }
-    public class CheckWeight_InterFrame : ClassMainInterFrame
-    {
-        public CheckWeight_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
-        {
-        }
-
-        public UFT_Button cancelButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnCancel']");
-       // public UFT_List scale => new UFT_List(_UFT_InterFrame, "//List[@TagName = 'Scale:']");
-        public UFT_Button ZeroButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnZero']");
-        public UFT_Button ReadScaleButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnReadScale']");
-        public UFT_Button AcceptButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnAccept']");
-        public UFT_Label CheckResult => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'lblInstruction']");
-        public UFT_Table checkWeightTable => new UFT_Table(_UFT_InterFrame, "//Table[@TagName ='Expiration date: ']");
-        public UFT_Label Standardization_label => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'DisplayLabel1']");
-        public UFT_Label ExpirationPeriod_label => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'DisplayLabel3']");
-        public UFT_Label LastCheckdate_label => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'DisplayLabel4']");
-        public UFT_Label ExpirationDate_label => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'DisplayLabel5']");
-        public UFT_Label ScaleResult_Label => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'ScaleResultLabel']");
-
-    }
+   
     //Handing_InterFrame
     public class Handing_InterFrame : ClassMainInterFrame
     {
