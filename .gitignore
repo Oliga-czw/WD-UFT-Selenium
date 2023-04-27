@@ -1,1 +1,10 @@
 TestResults/
+WD_UFT_Selenium_Auto/WD_UFT_Selenium_Auto/Results/*.PNG
+WD_UFT_Selenium_Auto/WD_UFT_Selenium_Auto/Log/
+WD_UFT_Selenium_Auto/WD_UFT_Selenium_Auto/obj/
+WD_UFT_Selenium_Auto/WD_UFT_Selenium_Auto/bin/
+
+WD_UFT_Selenium_Auto/.vs/WD_UFT_Selenium_Auto/v16/.suo
+*.testlog
+*.testlog
+*.cache
