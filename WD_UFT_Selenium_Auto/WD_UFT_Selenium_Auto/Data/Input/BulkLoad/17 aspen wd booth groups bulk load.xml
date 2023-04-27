@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EquipmentInformation xmlns="http://www.wbf.org/xml/B2MML-V0401">
+  <Equipment>
+    <ID>fggffg</ID>
+    <Description>fgfgfgfg</Description>
+    <EquipmentProperty>
+      <ID>NeedKitting</ID>
+      <Value>
+        <ValueString>true</ValueString>
+        <DataType>boolean</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </EquipmentProperty>
+  </Equipment>
+  <Equipment>
+    <ID>Group1</ID>
+    <Description />
+    <EquipmentProperty>
+      <ID>NeedKitting</ID>
+      <Value>
+        <ValueString>true</ValueString>
+        <DataType>boolean</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </EquipmentProperty>
+  </Equipment>
+  <Equipment>
+    <ID>Group2</ID>
+    <Description />
+    <EquipmentProperty>
+      <ID>NeedKitting</ID>
+      <Value>
+        <ValueString>true</ValueString>
+        <DataType>boolean</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </EquipmentProperty>
+  </Equipment>
+</EquipmentInformation>
