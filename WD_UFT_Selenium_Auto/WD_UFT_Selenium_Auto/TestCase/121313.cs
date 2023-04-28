@@ -35,7 +35,6 @@ namespace WD_UFT_Selenium_Auto.TestCase
 
             LogStep(@"1. import deviation xml");
             WD_Fuction.Bulkload(xml);
-            WD_Fuction.WDSign();
             Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
             Web_Fuction.gotoWDWeb(driver);
             driver.Wait();
@@ -56,6 +55,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Thread.Sleep(3000);
             LogStep(@"3. go to web and redispense");
             Web.Order_Page.Refresh.Click();
+            Thread.Sleep(2000);
             Web_Fuction.edit_order(order);
             Web.Order_Page.Redispense.Click();
             //select all material to redispense

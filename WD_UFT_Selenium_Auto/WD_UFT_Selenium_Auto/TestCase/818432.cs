@@ -47,7 +47,6 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Web_Fuction.active_order(order);
             LogStep(@"3. Change deviation");
             WD_Fuction.Bulkload(xml);
-            WD_Fuction.WDSign();
 
             //old function to change deviation
             //List<ReadOnlyCollection<IWebElement>> table = new List<ReadOnlyCollection<IWebElement>>();

@@ -10,7 +10,7 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
 {
     public class SqlHelper
     {
-        static string server = "Oliga-2022-2";
+        static string server = Environment.MachineName;
         static string database = "AeBRS";
         static string user = "sa";
         static string password = "Aspen000";

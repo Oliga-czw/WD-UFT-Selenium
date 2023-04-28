@@ -106,7 +106,6 @@
     <Compile Include="TestCase\41959.cs" />
     <Compile Include="TestCase\41964.cs" />
     <Compile Include="TestCase\42291.cs" />
-    <Compile Include="TestCase\748922.cs" />
     <Compile Include="TestCase\728667.cs" />
     <Compile Include="TestCase\121316.cs" />
     <Compile Include="TestCase\121313.cs" />
@@ -114,7 +113,6 @@
     <Compile Include="TestCase\106694.cs" />
     <Compile Include="TestCase\106692.cs" />
     <Compile Include="TestCase\106691.cs" />
-    <Compile Include="TestCase\42345.cs" />
     <Compile Include="TestCase\41745.cs" />
     <Compile Include="TestCase\38246.cs" />
     <Compile Include="TestCase\39755.cs" />
@@ -126,7 +124,6 @@
     <Compile Include="TestCase\43325.cs" />
     <Compile Include="TestCase\45783.cs" />
     <Compile Include="TestCase\818432.cs" />
-    <Compile Include="TestCase\AFW_Test.cs" />
     <Compile Include="TestCase\Base_ProductBase.cs" />
     <Compile Include="Library\BaseLibrary\Base_Registry.cs" />
     <Compile Include="Library\BaseLibrary\Base_report.cs" />
@@ -149,9 +146,6 @@
     <Compile Include="Product\WEB\Web_Fuction.cs" />
     <Compile Include="Product\WEB\Web_Page.cs" />
     <Compile Include="Product\WEB\Web_Repository.cs" />
-    <Compile Include="TestCase\CodeFile1.cs" />
-    <Compile Include="TestCase\DB_Test.cs" />
-    <Compile Include="TestCase\vstsxxx.cs" />
     <Compile Include="UftDeveloperSeleniumTest.cs" />
   </ItemGroup>
   <ItemGroup>

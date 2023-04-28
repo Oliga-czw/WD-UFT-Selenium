@@ -33,7 +33,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             //Base_Test.KillProcess("javaw");
             Base_File.CleanWorkFolder(Base_Directory.GenerateOutputFileDir(CaseID, ""));
             //Initial data
-            //WD_Fuction.initial_data();
+            WD_Fuction.initial_data();
         }
 
         [TestCleanup]
@@ -45,7 +45,9 @@ namespace WD_UFT_Selenium_Auto.TestCase
             //Type ClassType = this.GetType();
             //string _Descrpt = Base_Attribute.GetTestDescription(ClassType);
             //report.GenerateReportFile(_Descrpt);
-            //Base_Test.KillProcess("javaw");
+            Base_Test.KillProcess("javaw");
+            Base_Test.KillProcess("chrome");
+            
         }
 
         public string CaseID => this.GetType().Name == null ? throw new ArgumentNullException() : TestCaseManage.GetCase(this.TestContext.TestName).CaseID;

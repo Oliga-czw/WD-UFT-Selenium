@@ -27,12 +27,14 @@ namespace WD_UFT_Selenium_Auto.TestCase
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID + "-";
             string xml = "10 aspen wd signautres_106684 bulk load.xml";
+            string xml2 = "02 aspen wd scales_106684 bulk load.xml";
+            string xml3 = "10 aspen wd signautres bulk load.xml";
             string weight1 = "200";
 
 
             LogStep(@"1. import Signature xml");
             WD_Fuction.Bulkload(xml);
-            WD_Fuction.WDSign();
+            WD_Fuction.Bulkload_Overwrite(xml2);
             Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
             Web_Fuction.gotoWDWeb(driver);
             driver.Wait();
@@ -114,12 +116,12 @@ namespace WD_UFT_Selenium_Auto.TestCase
                 Base_Assert.AreEqual(datatext, single_row_text[number]);
             }
             LogStep(@"6.save pdf and print ");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
             Web.Report_Page.SaveAs.Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
             Web.Report_Page.Print.Click();
             //wait for screenshot and download
-            Thread.Sleep(5000);
+            Thread.Sleep(10000);
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Print Report.PNG");
             driver.FindElement("//button[text()='Close']").Click();
             //The searchList can't contain ' '
@@ -127,7 +129,8 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Web_Fuction.Check_PDF(Base_Directory.DownloadFileDir, "*SCALECHECK*", searchList);
             driver.Close();
             LogStep(@"7.no signature and initial data");
-            WD_Fuction.initial_data();
+            WD_Fuction.Bulkload_Overwrite(xml3);
+            WD_Fuction.Bulkload_Overwrite(xml2);
             LogStep(@"8. Open WD client and do scale check");
             Application.LaunchWDAndLogin();
             WD.mainWindow.HomeInternalFrame.ScaleChecking.Click();

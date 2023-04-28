@@ -496,15 +496,13 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             //get order
             while(i < 10)
             {
-                try
-                {
-                    Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath(xpath));
-                }
-                catch(NoSuchElementException e)
+
+                if (Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath(xpath)).Displayed == false)
                 {
                     Web.Order_Page.Refresh.Click();
                     Thread.Sleep(2000);
                 }
+                   
                 i++;
             }
             var order = Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath(xpath));

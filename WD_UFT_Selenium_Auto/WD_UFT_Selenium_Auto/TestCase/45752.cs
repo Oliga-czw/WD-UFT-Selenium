@@ -26,11 +26,14 @@ namespace WD_UFT_Selenium_Auto.TestCase
         public void VSTS_45752()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID;
+            string xml = "02 aspen wd scales_45752 bulk load.xml";
             string weight1 = "100";
             string weight2 = "500";
 
-
-            LogStep(@"1. Open WD client and do scale check");
+            LogStep(@"1. import Signature xml");
+            WD_Fuction.Bulkload(xml);
+            WD_Fuction.WDSign();
+            LogStep(@"2. Open WD client and do scale check");
             Application.LaunchWDAndLogin();
             WD.mainWindow.HomeInternalFrame.ScaleChecking.Click();
             WD.mainWindow.ScaleCheckInternalFrame.startcheck.Click();
@@ -78,16 +81,16 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD.mainWindow.CheckWeightInternalFrame.accept.Click();
             //get execute time
             DateTime execute_time = DateTime.Now;
-            LogStep(@"2. Open WD web and login");
+            LogStep(@"3. Open WD web and login");
             Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
             Web_Fuction.gotoWDWeb(driver);
             driver.Wait();
             Web_Fuction.login();
             driver.Wait();
-            LogStep(@"3. Go to scale check report");
+            LogStep(@"4. Go to scale check report");
             Web_Fuction.gotoTab(WDWebTab.report);
             Web.Report_Page.ScaleCheck.Click();
-            LogStep(@"4. set criteria ");
+            LogStep(@"5. set criteria ");
             var Booth = driver.FindElements("//select")[2];
             var Type = driver.FindElements("//select")[0];
             var Operator = driver.FindElements("//select")[3];
@@ -105,7 +108,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Scale.FindElement(By.XPath("//option[text()='simulator']")).Click();
             driver.Wait();
             Web.Report_Page.Generate_Report.Click();
-            LogStep(@"5.check report");
+            LogStep(@"6.check report");
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "scale check Report.PNG");
             var column = new List<string>() { "Booth", "Type", "Operator", "Status", "Scale" };
             var datatext = new List<string>() { "booth1", "STD-weekly", "qaone1(qaone1)", "Success", "simulator" };
@@ -115,7 +118,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Web_Fuction.Check_report(column, datatext);
             Web_Fuction.Check_report_inner(data_list, 2);
             Thread.Sleep(2000);
-            LogStep(@"6.save pdf and print ");
+            LogStep(@"7.save pdf and print ");
             Web.Report_Page.SaveAs.Click();
             Thread.Sleep(2000);
             Web.Report_Page.Print.Click();

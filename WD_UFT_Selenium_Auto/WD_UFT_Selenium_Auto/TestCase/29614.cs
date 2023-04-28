@@ -25,8 +25,8 @@ namespace WD_UFT_Selenium_Auto.TestCase
             LogStep(@"1. Open Wd client and login");
             Application.LaunchWDAndLogin();
             Thread.Sleep(5000);
-            WD.mainWindow.HomeInternalFrame.ScaleChecking.Click();
-            Thread.Sleep(3000);
+            //WD.mainWindow.HomeInternalFrame.ScaleChecking.Click();
+            //Thread.Sleep(3000);
             WD.mainWindow.HomeInternalFrame.OrderKitting.Click();
 
             var orderName = WD.mainWindow.SelectAnOrderToKittingFrame.orderTable.GetCell(0, "Order").Value.ToString();

@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CleaningRulesSet>
+  <CleaningRules effective="2025-05-03T22:32:36">
+    <Data>
+      <CurrentStateData description="Cleaning expiration date" isDefault="1" name="ExpDate" sequence="0" type="Date" />
+      <ConfigurationData description="Full clean expiration period (in days)" isDefault="1" name="ExpPeriod" sequence="0" type="Number" />
+      <CurrentExecutionData description="current dispensed material" isDefault="1" name="Material" sequence="0" type="String" />
+      <ConfigurationData description="API clean expiration period (in days)" isDefault="1" name="APICleanExpPeriod" sequence="1" type="Number" />
+      <CurrentStateData description="Current clean type" isDefault="1" name="CleanType" sequence="1" type="String" />
+      <CurrentExecutionData description="currently dispensed material type (API or Excipient)" isDefault="1" name="MaterialType" sequence="1" type="String" />
+      <CurrentStateData description="Current cleaning date" isDefault="1" name="CleaningDate" sequence="2" type="Date" />
+      <ConfigurationData description="Excipient clean expiration period (in days)" isDefault="1" name="ExcCleanExpPeriod" sequence="2" type="Number" />
+      <CurrentExecutionData description="Currently dispensed order" isDefault="1" name="Order" sequence="2" type="String" />
+      <CurrentExecutionData description="Currently dispensed order campaign" isDefault="1" name="Campaign" sequence="3" type="String" />
+      <CurrentStateData description="Last dispensed material (empty if cleaned)" isDefault="1" name="LastMaterial" sequence="3" type="String" />
+      <CurrentStateData description="Last dispensed material type (API or Excipient)" isDefault="1" name="LastMaterialType" sequence="4" type="String" />
+      <CurrentStateData description="Last dispensed order" isDefault="1" name="LastOrder" sequence="5" type="String" />
+      <CurrentStateData description="Last dispensed order campaign (if any)" isDefault="1" name="LastCampaign" sequence="6" type="String" />
+    </Data>
+    <Actions>
+      <Action comment="" isDefault="1" name="Clean" sequence="0">
+        <Code>@@@ current.cleaningDate:= NOW()
+@@Yes@ current.expDate:=NOW()+config.ExpPeriod</Code>
+      </Action>
+      <Action comment="" isDefault="1" name="UseClean" sequence="1">
+        <Code>@@No@Yes Expired()</Code>
+      </Action>
+      <Action comment="" isDefault="1" name="Use" sequence="2">
+        <Code>@@No@ Expired()
+@@@No GoodOrder()
+@@Yes@No GoodMaterial()</Code>
+      </Action>
+      <Action comment="" isDefault="1" name="Release" sequence="3">
+        <Code>@@@ current.lastMaterial:=runtime.material
+@@@ current.lastMaterialType:=runtime.materialType
+@@@ current.lastOrder:=runtime.order
+@@Yes@ current.lastCampaign:=runtime.campaign</Code>
+      </Action>
+      <Action comment="" isDefault="1" name="Expired" sequence="4">
+        <Code>@@Yes@No NOW()&gt;current.expDate</Code>
+      </Action>
+      <Action comment="" isDefault="1" name="APIClean" sequence="5">
+        <Code>@@@ current.lastMaterial:=NULL
+@@Yes@ current.expDate:=NOW()+config.APICleanExpPeriod</Code>
+      </Action>
+      <Action comment="" isDefault="1" name="ExcipientClean" sequence="6">
+        <Code>@@@No current.lastMaterialType="Excipient"
+@@@ current.lastMaterial:=NULL
+@@Yes@ current.expDate:=NOW()+config.ExcCleanExpPeriod</Code>
+      </Action>
+      <Action comment="" isDefault="1" name="GoodOrder" sequence="7">
+        <Code>@@Yes@ current.lastOrder=NULL
+@@Yes@ current.lastOrder=runtime.Order
+@@No@ current.lastCampaign=NULL
+@@Yes@No current.lastCampaign=runtime.Campaign</Code>
+      </Action>
+      <Action comment="" isDefault="1" name="GoodMaterial" sequence="8">
+        <Code>@@Yes@ current.lastMaterial=NULL
+@@Yes@ current.lastMaterial=runtime.material
+@@Yes@No current.lastMaterialType="Excipient"&amp;&amp;runtime.MaterialType="Excipient"</Code>
+      </Action>
+    </Actions>
+    <States>
+      <State description="In maintenance" display="&quot;Unavailable&quot;" isDefault="1" name="Unavailable" sequence="0" />
+      <State description="Dirty, from maintenance" display="&quot;Available&quot;" isDefault="1" name="Available" sequence="1" />
+      <State description="Clean - ready to be used" display="Expired()? &quot;Expired&quot; : &quot;Clean&quot;" isDefault="1" name="Clean" sequence="2" />
+      <State description="Ready to be used - clean for some materials, order, ..." display="Expired()? &quot;Expired&quot;:current.lastMaterial &lt;&gt; NULL? &quot;Clean for &quot; + current.lastMaterial : &quot;Clean&quot;" isDefault="1" name="Usable" sequence="3" />
+      <State description="In use" display="&quot;In use&quot;" isDefault="1" name="In Use" sequence="4" />
+    </States>
+    <Transitions>
+      <Transition action="APIClean" event="API Clean" final="Clean" initial="Usable" />
+      <Transition action="ExcipientClean" event="Excipient Clean" final="Clean" initial="Usable" />
+      <Transition action="Clean" event="Expired Clean" final="Clean" initial="Clean" />
+      <Transition action="Clean" event="Full Clean" final="Clean" initial="Available" />
+      <Transition action="Clean" event="Full Clean" final="Clean" initial="Clean" />
+      <Transition action="Clean" event="Full Clean" final="Clean" initial="Usable" />
+      <Transition action="Release" event="Release" final="Usable" initial="In Use" />
+      <Transition action="Use" event="Use" final="In Use" initial="Usable" />
+      <Transition action="UseClean" event="Use" final="In Use" initial="Clean" />
+    </Transitions>
+    <Types>
+      <Type description="Make booth clean for any dispense activity" event="Full Clean" instructions="" isDefault="1" name="Full Clean" sequence="0" />
+      <Type description="Re-make booth clean for any dispense activity after previous full clean expired" event="Expired Clean" instructions="" isDefault="1" name="Expired Clean" sequence="1" />
+      <Type description="Make booth clean for any dispense in same order/campaign after weighing any active material." event="API Clean" instructions="" isDefault="1" name="API Clean" sequence="2" />
+      <Type description="Make booth clean for any dispense in same order/campaign after weighing excipient" event="Excipient Clean" instructions="" isDefault="1" name="Excipient Clean" sequence="3" />
+    </Types>
+    <Events>
+      <Event event="Full Clean" sequence="0" />
+      <Event event="Use" sequence="1" />
+      <Event event="Release" sequence="2" />
+      <Event event="Expired Clean" sequence="3" />
+      <Event event="API Clean" sequence="4" />
+      <Event event="Excipient Clean" sequence="5" />
+    </Events>
+  </CleaningRules>
+</CleaningRulesSet>

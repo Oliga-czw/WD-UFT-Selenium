@@ -24,13 +24,17 @@ namespace WD_UFT_Selenium_Auto.TestCase
             string xml4 = "10 aspen wd signautres_106691 bulk load.xml";
             string xml5 = "14 aspen wd deviation_43325 bulk load.xml";
             string[] files = new string[] { xml4,xml5};
+
             //string xml2 ="02 aspen wd scales bulk load.xml";
-            WD_Fuction.initial_data();
+            //WD_Fuction.initial_data();
             //WD_Fuction.Bulkload(xml);
             //WD_Fuction.Bulkload(xml4);
             //WD_Fuction.Bulkload_Overwrite(xml2);
             //WD_Fuction.Bulkload(files);
             //WD_Fuction.WDSign();
+            Base_Test.KillProcess("chromedriver");
+
+            
 
             //string sql = "SELECT CODE FROM EBR_USER";
             //List<List<string>> users = helper.Execute(sql);
