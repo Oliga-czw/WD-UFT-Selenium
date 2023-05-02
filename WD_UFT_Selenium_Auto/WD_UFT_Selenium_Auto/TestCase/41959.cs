@@ -39,6 +39,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             //3. select one standardization type, click start check
             standardizationStatusTable.SelectRows(0);
             WD.mainWindow.ScaleCheckInternalFrame.startcheck.Click();
+            WD.mainWindow.ScaleCheckInternalFrame.startcheck.DoubleClick();
             Thread.Sleep(3000);
 
             var standardizationlabel = WD.mainWindow.CheckWeightInternalFrame.Standardization_label;
@@ -56,6 +57,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             //Click "Scale check"(test - cancel before read scale
             standardizationStatusTable.SelectRows(0);
             WD.mainWindow.ScaleCheckInternalFrame.startcheck.Click();
+            WD.mainWindow.ScaleCheckInternalFrame.startcheck.DoubleClick();
             Thread.Sleep(3000);
             //with plate empty, click Zero button
             WD.mainWindow.CheckWeightInternalFrame.zero.Click();

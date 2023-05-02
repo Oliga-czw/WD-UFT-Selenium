@@ -30,8 +30,6 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Thread.Sleep(5000);
             WD.mainWindow.HomeInternalFrame.ScaleChecking.Click();
             Thread.Sleep(3000);
-            WD.mainWindow.HomeInternalFrame.ScaleChecking.Click();
-            Thread.Sleep(3000);
             var scaleList = WD.mainWindow.ScaleCheckInternalFrame.ScaleList;
             scaleList.SelectItems("simulator");
             var standardizationStatusTable = WD.mainWindow.ScaleCheckInternalFrame.Standardization_type;
@@ -45,7 +43,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD.SimulatorWindow.weight.SetText("400");
             WD.SimulatorWindow.OK.Click();
             WD.mainWindow.GetSnapshot(Resultpath + "WD_Scalcheck.PNG");
-            WD.mainWindow.CheckWeightInternalFrame.readScale.Click();
+            WD.mainWindow.CheckWeightInternalFrame.readScale.ClickSignle();
             var now_time = DateTime.Now.ToString("yyyy/M/d tth:mm:ss");
             // no message
             Base_Assert.Equals(WD.mainWindow.ScaleCheckInternalFrame.IsEnabled, true);

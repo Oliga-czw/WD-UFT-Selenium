@@ -32,7 +32,6 @@ namespace WD_UFT_Selenium_Auto.TestCase
 
             LogStep(@"1. import signature xml");
             WD_Fuction.Bulkload(xml);
-            WD_Fuction.WDSign();
             LogStep(@"2. change the permission");
             Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
             Web_Fuction.gotoWDWeb(driver);

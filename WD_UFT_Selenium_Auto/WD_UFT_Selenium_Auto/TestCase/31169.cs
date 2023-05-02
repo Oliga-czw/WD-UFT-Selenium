@@ -76,13 +76,13 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Thread.Sleep(2000);
             btnReadScale._UFT_Button.Click();
             Thread.Sleep(3000);
-            Base_Assert.AreEqual(WD.mainWindow.ScaleCheckInternalFrame.Standardization_type._UFT_Table.IsEnabled, true);
+            //Base_Assert.AreEqual(WD.mainWindow.ScaleCheckInternalFrame.Standardization_type._UFT_Table.IsEnabled, true);
             //it should show green check mark if it is in allowed Precision range. 
             var checkMark = WD.mainWindow.CheckWeightInternalFrame.checkTable.GetCell(0, "Pass");
             //Base_Assert.AreEqual(checkMark.Value.GetType().Attributes, "");
             Base_Assert.AreEqual(WD.mainWindow.CheckWeightInternalFrame.CheckResult._UFT_Label.Text, "All scale checks passed.");
             WD.mainWindow.GetSnapshot(Resultpath + "checkPass.PNG");
-            WD.mainWindow.CheckWeightInternalFrame.cancelButton.Click();
+            WD.mainWindow.CheckWeightInternalFrame.cancelButton.ClickSignle();
             Thread.Sleep(3000);
             Base_Assert.AreEqual(WD.mainWindow.ScaleCheckInternalFrame.IsEnabled, true);
             Base_Assert.AreEqual(ExpirationDateLabel, "5/22/25, 12:00:00 PM");

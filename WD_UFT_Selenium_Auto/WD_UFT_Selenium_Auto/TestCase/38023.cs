@@ -26,6 +26,16 @@ namespace WD_UFT_Selenium_Auto.TestCase
         public void VSTS_38023()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID;
+            string order = "test1";
+
+            //active order how much?
+            Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
+            Web_Fuction.gotoWDWeb(driver);
+            driver.Wait();
+            Web_Fuction.login();
+            driver.Wait();
+            Web_Fuction.gotoTab(WDWebTab.order);
+            Web_Fuction.active_order(order);
             LogStep(@"1. Open Wd client and login");
             Application.LaunchWDAndLogin();
             Thread.Sleep(5000);

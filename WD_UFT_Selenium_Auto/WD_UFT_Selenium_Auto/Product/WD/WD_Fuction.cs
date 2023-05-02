@@ -253,13 +253,12 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             string signature = "10 aspen wd signautres bulk load.xml";
             string deviation = "14 aspen wd deviation bulk load.xml";
             string orders = "07 aspen wd orders bulk load.xml";
-            string cleanrules = "12 aspen wd clean rules bulk load.xml";
 
             string scale = "02 aspen wd scales bulk load.xml";
             string booth = "01 aspen wd booths bulk load.xml";
             string permission = "09 aspen wd permissions bulk load.xml";
             string inventory = "05 aspen wd inventory bulk load.xml";
-            string[] files = new string[] { signature, deviation, orders, cleanrules};
+            string[] files = new string[] { signature, deviation, orders};
             string[] overwrite = new string[] { booth, scale, permission, inventory };
             WD_Fuction.Bulkload(files);
             Thread.Sleep(5000);

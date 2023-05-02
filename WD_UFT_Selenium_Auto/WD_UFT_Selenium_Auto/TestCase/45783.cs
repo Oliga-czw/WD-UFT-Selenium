@@ -42,9 +42,9 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD.mainWindow.BoothCleanInternalFrame.HomeButton.Click();
             LogStep(@"3. click Scale Checking button");
             WD.mainWindow.HomeInternalFrame.ScaleChecking.Click();
-            Base_Assert.IsTrue(WD.mainWindow.ScaleWeightInternalFrame.IsEnabled);
+            Base_Assert.IsTrue(WD.mainWindow.ScaleCheckInternalFrame.IsEnabled);
             Thread.Sleep(5000);
-            WD.mainWindow.ScaleWeightInternalFrame.HomeButton.Click();
+            WD.mainWindow.ScaleCheckInternalFrame.homeButton.Click();
             LogStep(@"4. click Material Dispensing button");
             WD.mainWindow.HomeInternalFrame.MaterialDispensing.Click();
             Base_Assert.IsTrue(WD.mainWindow.Material_SelectionInternalFrame.IsEnabled);

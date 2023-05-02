@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -34,6 +35,11 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Base_File.CleanWorkFolder(Base_Directory.GenerateOutputFileDir(CaseID, ""));
             //Initial data
             WD_Fuction.initial_data();
+            //create resultdir
+            if (!Directory.Exists(Base_Directory.ResultsDir))
+            {
+                Directory.CreateDirectory(Base_Directory.ResultsDir);
+            }
         }
 
         [TestCleanup]

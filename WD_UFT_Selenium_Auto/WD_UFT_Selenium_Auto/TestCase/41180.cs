@@ -27,6 +27,8 @@ namespace WD_UFT_Selenium_Auto.TestCase
         public void VSTS_41180()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID;
+
+            //active
             LogStep(@"1. Open Wd client and login");
             Application.LaunchWDAndLogin();
             LogStep(@"2. Open Material Dispening");

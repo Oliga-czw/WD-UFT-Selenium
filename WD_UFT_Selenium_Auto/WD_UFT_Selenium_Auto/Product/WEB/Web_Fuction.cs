@@ -491,20 +491,11 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         #region order function
         public static void active_order(string ordername)
         {
+            Thread.Sleep(2000);
             string xpath = "//td[text()='" + ordername + "']";
-            int i = 0;
             //get order
-            while(i < 10)
-            {
-
-                if (Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath(xpath)).Displayed == false)
-                {
-                    Web.Order_Page.Refresh.Click();
-                    Thread.Sleep(2000);
-                }
-                   
-                i++;
-            }
+            Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath("//input[@class='Tab_Manu_bar_Margin Tab_Menu_Bar_Search_Box']")).SendKeys(ordername);
+            Thread.Sleep(2000);
             var order = Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath(xpath));
             //check order status and active
             string status = order.FindElement(By.XPath("../td[7]")).Text;

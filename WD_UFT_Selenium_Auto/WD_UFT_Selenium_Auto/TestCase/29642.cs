@@ -76,7 +76,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             var tabList2 = driver.FindElements("//div[@class='Tab_Label']");
             foreach (var tab in tabList2)
             {
-                Base_Assert.IsFalse(tab.Text != "Material");
+                Base_Assert.IsTrue(tab.Text != "Material");
             }
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "no_material.PNG");
             Web_Fuction.RestorePermission(Selenium_Driver._Selenium_Driver);

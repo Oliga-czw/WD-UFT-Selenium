@@ -138,7 +138,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public UFT_Label RangeMaxLabel => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'lblMax']");
         public UFT_Label ResolutionLabel => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'lblPrecision']");
         public UFT_Label GrossstLabel => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'displayGross']");
-        public UFT_Button HomeButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnHome']");
+        public UFT_Button HomeButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnCancel']");
         public UFT_Button PrintLabelButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnPrintLabel']");
 
     }
@@ -167,7 +167,6 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public UFT_List StandardizationList => new UFT_List(_UFT_InterFrame, "//List[@ObjectName = 'cbxStandzn']");
         public UFT_Button startcheck => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnStartCheck']");
     }
-
     public class CheckWeight_InterFrame : ClassMainInterFrame
     {
         public CheckWeight_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)

@@ -31,8 +31,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             string weight2 = "500";
 
             LogStep(@"1. import Signature xml");
-            WD_Fuction.Bulkload(xml);
-            WD_Fuction.WDSign();
+            WD_Fuction.Bulkload_Overwrite(xml);
             LogStep(@"2. Open WD client and do scale check");
             Application.LaunchWDAndLogin();
             WD.mainWindow.HomeInternalFrame.ScaleChecking.Click();
@@ -109,6 +108,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             driver.Wait();
             Web.Report_Page.Generate_Report.Click();
             LogStep(@"6.check report");
+            Thread.Sleep(2000);
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "scale check Report.PNG");
             var column = new List<string>() { "Booth", "Type", "Operator", "Status", "Scale" };
             var datatext = new List<string>() { "booth1", "STD-weekly", "qaone1(qaone1)", "Success", "simulator" };

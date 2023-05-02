@@ -37,6 +37,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             driver.FindElement("//div[text()='States']").Click();
             Thread.Sleep(3000);
             driver.FindElement("//a[text()='Add a State']").Click();
+            Thread.Sleep(3000);
             driver.FindElement("//input[@name='CleanRule_State']").Click();
             driver.FindElement("//input[@name='CleanRule_State']").SendKeys(Keys.Control + "A");
             driver.FindElement("//input[@name='CleanRule_State']").SendKeys(Keys.Delete);
@@ -51,10 +52,11 @@ namespace WD_UFT_Selenium_Auto.TestCase
             driver.FindElement("//div[text()='Actions']").Click();
             Thread.Sleep(3000);
             driver.FindElement("//a[text()='Add an Action']").Click();
-            driver.FindElement("//input[@name='CleanRule_Type']").Click();
-            driver.FindElement("//input[@name='CleanRule_Type']").SendKeys(Keys.Control + "A");
-            driver.FindElement("//input[@name='CleanRule_Type']").SendKeys(Keys.Delete);
-            driver.FindElement("//input[@name='CleanRule_Type']").SendKeys("testRulesAction");
+            Thread.Sleep(3000);
+            driver.FindElement("//input[@name='CleanRule_Action']").Click();
+            driver.FindElement("//input[@name='CleanRule_Action']").SendKeys(Keys.Control + "A");
+            driver.FindElement("//input[@name='CleanRule_Action']").SendKeys(Keys.Delete);
+            driver.FindElement("//input[@name='CleanRule_Action']").SendKeys("testRulesAction");
             driver.FindElement("//textarea[@name='CleanRule_Comment']").Click();
             driver.FindElement("//textarea[@name='CleanRule_Comment']").SendKeys("for test");
             driver.FindElement("//input[@name='Code_Code']").Click();

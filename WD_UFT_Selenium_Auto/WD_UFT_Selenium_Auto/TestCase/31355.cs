@@ -53,9 +53,11 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Assert.AreEqual(driver.FindElement("//div[@class='WD_Page_Title_Style']").Text, "Inventory");
             //Orders
             Web_Fuction.gotoTab(WDWebTab.order);
+            Thread.Sleep(2000);
             Assert.AreEqual(driver.FindElement("//div[@class='WD_Page_Title_Style']").Text, "Orders");
             //Report
             Web_Fuction.gotoTab(WDWebTab.report);
+            Thread.Sleep(2000);
             Assert.AreEqual(driver.FindElement("//div[@class='WD_Page_Title_Style']").Text, "Cleaning Report");
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "WD_WebLogin.PNG");
             driver.FindElement("//div[text()='Logoff']").Click();
@@ -66,12 +68,13 @@ namespace WD_UFT_Selenium_Auto.TestCase
             driver.Close();
             LogStep(@"4. Open Wd client");
             Thread.Sleep(2000);
-            Base_Test.LaunchApp(Base_Directory.WDDir);
+            Application.LaunchWDAndLogin();
             WD.mainWindow.GetSnapshot(Resultpath + "WD_EXlogin.PNG");
             Base_Assert.IsTrue(WD.mainWindow.HomeInternalFrame.IsEnabled);
             Base_Assert.Equals(WD.mainWindow.HomeInternalFrame.weightBooth._UFT_Label.Text, "booth1");
             Base_Assert.Equals(WD.mainWindow.HomeInternalFrame.operatorName._UFT_Label.Text, "qaone1");
             WD.mainWindow.HomeInternalFrame.LogOff.Click();
+            WD.ConfirmationDialog.YesButton.Click();
             Thread.Sleep(2000);
             Base_Assert.IsTrue(WD.mainWindow.LogonInternalFrame.IsEnabled);
 
@@ -117,9 +120,10 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD.mainWindow.CampaignSelectionInternalFrame.homeButton.Click();
             Thread.Sleep(2000);
             //exit
-            WD.mainWindow.HomeInternalFrame.Exit.Click();
+            WD.mainWindow.HomeInternalFrame.Exit.ClickSignle();
             WD.mainWindow.GetSnapshot(Resultpath + "WD_EXlogoff.PNG");
             WD.ConfirmationDialog.YesButton.Click();
+            Thread.Sleep(2000);
             Base_Assert.IsFalse(WD.mainWindow._UFT_Window.IsEnabled);
         }
 

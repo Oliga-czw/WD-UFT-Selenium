@@ -35,11 +35,11 @@ namespace WD_UFT_Selenium_Auto.TestCase
             var standardizationStatusTable = WD.mainWindow.ScaleCheckInternalFrame.Standardization_type;
             var Selectedstandardization = standardizationStatusTable.GetCell(0, "ID").Value.ToString();
             System.IO.File.WriteAllText("C:/Users/qaone1/Desktop/eee.txt", Selectedstandardization);
-            var selectedlastcheckdate = standardizationStatusTable.GetCell(0, "Last Check Date").Value.ToString();
+            var selectedlastcheckdate = standardizationStatusTable.GetCell(1, "Last Check Date").Value.ToString();
             LogStep(@"2. do a scale check,go back to scale check again, check the Standardization Status");
             standardizationStatusTable.SelectRows(0);
-            WD.mainWindow.ScaleCheckInternalFrame.startcheck._UFT_Button.Click();
-            WD.mainWindow.ScaleCheckInternalFrame.startcheck._UFT_Button.Click();
+            WD.mainWindow.ScaleCheckInternalFrame.startcheck.Click();
+            WD.mainWindow.ScaleCheckInternalFrame.startcheck.DoubleClick();
             Thread.Sleep(3000);
             var standardizationlabel = WD.mainWindow.CheckWeightInternalFrame.Standardization_label;
             System.IO.File.WriteAllText("C:/Users/qaone1/Desktop/eee.txt", standardizationlabel._UFT_Label.Text);
@@ -50,7 +50,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             LogStep(@"3.select one standardization type, click start check");
             standardizationStatusTable.SelectRows(1);
             WD.mainWindow.ScaleCheckInternalFrame.StandardizationList.SelectItems("STD-monthly");
-            WD.mainWindow.ScaleCheckInternalFrame.startcheck.Click();
+            WD.mainWindow.ScaleCheckInternalFrame.startcheck.ClickSignle();
             Thread.Sleep(3000);
             LogStep(@"4. with plate empty, click Zero button");
             WD.mainWindow.CheckWeightInternalFrame.zero.Click();
@@ -58,7 +58,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             LogStep(@"5.put the weight in the plate shown in Check Weight list, Click Read Scale");
             WD.SimulatorWindow.weight.SetText("100");
             WD.SimulatorWindow.OK.Click();
-            WD.mainWindow.CheckWeightInternalFrame.readScale.Click();
+            WD.mainWindow.CheckWeightInternalFrame.readScale.ClickSignle();
             var expirationDateTable = WD.mainWindow.CheckWeightInternalFrame.checkTable;
 
             Base_Assert.AreEqual(expirationDateTable.GetCell(0, "Actual").Value.ToString(), "100.0 G");

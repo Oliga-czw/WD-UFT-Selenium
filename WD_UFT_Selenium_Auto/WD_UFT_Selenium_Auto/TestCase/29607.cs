@@ -135,6 +135,16 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "commitRules.PNG");
             Assert.AreEqual(Web.CleanRules_Page.Alert_meaasge.GetAttribute("innerText"), "Clean rules committed successfully.");
             Web.CleanRules_Page.Alert_OK_Button.Click();
+            //delete an event
+            Web.CleanRules_Page.delete_button.Click();
+            Thread.Sleep(2000);
+            Web.CleanRules_Page.delete_alert_ok.Click();
+            Thread.Sleep(2000);
+            Web.CleanRules_Page.SaveRules_Button.Click();
+            Thread.Sleep(2000);
+            Web.CleanRules_Page.Alert_OK_Button.Click();
+
+
             driver.Close();
 
         }
