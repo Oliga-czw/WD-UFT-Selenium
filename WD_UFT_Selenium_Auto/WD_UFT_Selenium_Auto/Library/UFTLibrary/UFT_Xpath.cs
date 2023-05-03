@@ -316,6 +316,9 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
                         propValue = propValue.Replace("*", ".*");
                         switch (propName)
                         {
+                            case "Index":
+                                objectDescription.Index = uint.Parse(propValue);
+                                break;
                             case "Text":
                                 objectDescription.Text = As.RegExp(propValue);
                                 break;
@@ -407,6 +410,9 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
                         propValue = propValue.Replace("*", ".*");
                         switch (propName)
                         {
+                            case "Index":
+                                objectDescription.Index = uint.Parse(propValue);
+                                break;
                             case "Title":
                                 objectDescription.Title = As.RegExp(propValue);
                                 break;

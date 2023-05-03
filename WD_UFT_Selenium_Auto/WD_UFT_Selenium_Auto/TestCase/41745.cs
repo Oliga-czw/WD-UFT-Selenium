@@ -34,7 +34,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             SDK.Init(config);
             LogStep(@"2. input wrong userid/password");
             Base_Test.Login(@"qae\qaon8", "Assss889");
-            Thread.Sleep(2000);
+            Thread.Sleep(20000);
             LogStep(@"3. Can not login,error message will pop up");
             WD.mainWindow.GetSnapshot(Resultpath + "error.PNG");
             Base_Assert.AreEqual(message, WD.MessageDialog.Lable.Text, "error in wd client");
