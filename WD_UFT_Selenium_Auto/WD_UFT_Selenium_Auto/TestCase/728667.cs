@@ -68,7 +68,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Base_Assert.IsFalse(enable, "can not to continue");
             //exit dispense
             WD.mainWindow.ScaleWeightInternalFrame.reset.ClickSignle();
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
             WD.MessageDialog.OKButton.Click();
             WD.mainWindow.ScaleWeightInternalFrame.cancel.Click();
             driver.Close();
