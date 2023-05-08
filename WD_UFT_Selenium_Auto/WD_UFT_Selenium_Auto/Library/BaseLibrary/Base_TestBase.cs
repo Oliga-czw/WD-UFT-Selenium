@@ -151,8 +151,9 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
         public static void LaunchWDAndLogin()
         {
             Base_Test.LaunchApp(Base_Directory.WDDir);
-            SdkConfiguration config = new SdkConfiguration();
-            SDK.Init(config);
+            //SdkConfiguration config = new SdkConfiguration();
+            //SDK.Init(config);
+            Thread.Sleep(5000);
             Base_Test.Login(UserName.qaone1, PassWord.qaone1);
         }
         public static void LaunchAFW()
@@ -160,6 +161,7 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
             Base_Test.LaunchApp(Base_Directory.AFWDir);
             SdkConfiguration config = new SdkConfiguration();
             SDK.Init(config);
+            Thread.Sleep(2000);
             WD.AFWloginDialog.OK.Click();
             WD.AFWSecuredDialog.OK.Click();
 

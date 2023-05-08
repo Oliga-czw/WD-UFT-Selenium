@@ -1,9 +1,9 @@
-﻿using System;
+﻿using System.Collections;
+using System.Threading;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WD_UFT_Selenium_Auto.Library.BaseLibrary;
 using WD_UFT_Selenium_Auto.Library.SeleniumLibrary;
 using WD_UFT_Selenium_Auto.Product.WD;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Threading;
 
 namespace WD_UFT_Selenium_Auto.TestCase
 {
@@ -20,6 +20,9 @@ namespace WD_UFT_Selenium_Auto.TestCase
 
         [TestMethod]
         public void VSTS_29613()
+
+
+
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID;
             string order = "test1";
@@ -49,7 +52,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD.mainWindow.ScaleWeightInternalFrame.barcode.SendKeys("X0125001");
             WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
             WD.mainWindow.ScaleWeightInternalFrame.tare.Click();
-            WD.SimulatorWindow.weight.SetText("400");
+            WD.SimulatorWindow.weight.SetText("444");
 
             WD.SimulatorWindow.OK.Click();
 
@@ -59,19 +62,22 @@ namespace WD_UFT_Selenium_Auto.TestCase
                 WD.ErrorDialog.OKButton.Click();
             }
 
-            //BarcodeEditor.SetText("M801890001");
-
             WD.mainWindow.MaterialInternalFrame.materialTable.SelectRows(0);
             WD.mainWindow.MaterialInternalFrame.next.Click();
             if (WD.mainWindow.BoothCleanInternalFrame.IsEnabled)
             {
                 WD.mainWindow.BoothCleanInternalFrame.cleanComplete.Click();
-                WD.mainWindow.HandingInternalFrame.AcknowledgeButton.ClickSignle();
+                
             }
+            WD.mainWindow.HandingInternalFrame.AcknowledgeButton.ClickSignle();
             WD.mainWindow.ScaleWeightInternalFrame.barcode.SendKeys("M801890001");
+            if (WD.ConfirmationDialog._UFT_Dialog.IsEnabled)
+            {
+                WD.ConfirmationDialog.YesButton.Click();
+            }
             WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
             WD.mainWindow.ScaleWeightInternalFrame.tare.Click();
-            WD.SimulatorWindow.weight.SetText("200");
+            WD.SimulatorWindow.weight.SetText("180");
 
             WD.SimulatorWindow.OK.Click();
 
@@ -87,12 +93,17 @@ namespace WD_UFT_Selenium_Auto.TestCase
             if (WD.mainWindow.BoothCleanInternalFrame.IsEnabled)
             {
                 WD.mainWindow.BoothCleanInternalFrame.cleanComplete.Click();
-                WD.mainWindow.HandingInternalFrame.AcknowledgeButton.ClickSignle();
+                
             }
+            WD.mainWindow.HandingInternalFrame.AcknowledgeButton.ClickSignle();
             WD.mainWindow.ScaleWeightInternalFrame.barcode.SendKeys("1072003");
+            if (WD.ConfirmationDialog._UFT_Dialog.IsEnabled)
+            {
+                WD.ConfirmationDialog.YesButton.Click();
+            }
             WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
             WD.mainWindow.ScaleWeightInternalFrame.tare.Click();
-            WD.SimulatorWindow.weight.SetText("200");
+            WD.SimulatorWindow.weight.SetText("180");
 
             WD.SimulatorWindow.OK.Click();
 
@@ -103,27 +114,84 @@ namespace WD_UFT_Selenium_Auto.TestCase
             }
             ////order Kitting
             WD.mainWindow.DispensingInternalFrame.HomeButton.Click();
-
-            WD.mainWindow.HomeInternalFrame.OrderKitting.Click();
+            WD.mainWindow.HomeInternalFrame.OrderKitting.Click();    
+            WD.mainWindow.SelectAnOrderToKittingFrame.orderTable.SelectRows(0);
+            WD.mainWindow.SelectAnOrderToKittingFrame.StartKitButton.Click();
+            //ArrayList KitBarcodeList = new ArrayList();
+            Thread.Sleep(4000);
+            string test01 = WD.mainWindow.SelectAnOrderToKittingFrame.KitTable.GetCell(0, "Container").Value.ToString();
+            string test02 = WD.mainWindow.SelectAnOrderToKittingFrame.KitTable.GetCell(1, "Container").Value.ToString();
+            string test03 = WD.mainWindow.SelectAnOrderToKittingFrame.KitTable.GetCell(2, "Container").Value.ToString();
+            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys("test1");
+            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys(test01);
+            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys("test2");
+            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys(test02);
+            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys("test3");
+            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys(test03);
+            WD.mainWindow.SelectAnOrderToKittingFrame.accept.ClickSignle();
+            if (WD.ErrorDialog.IsExist())
+            {
+                WD.ErrorDialog.OKButton.Click();
+            }
+            Thread.Sleep(5000);
+            WD.mainWindow.SelectAnOrderToKittingFrame.printButton.Click();
+            if (WD.ErrorDialog.IsExist())
+            {
+                WD.ErrorDialog.OKButton.Click();
+            }
+            WD.MessageDialog.OKButton.Click();
+            Thread.Sleep(2000);
+            Web_Fuction.gotoTab(WDWebTab.report);
+            driver.FindElement("//div[text()='Label Reprint']").Click();
+            Thread.Sleep(2000);
+            driver.FindElement("//button[text()='Generate Report']").Click();
+            Thread.Sleep(5000);
+            int labelReport = driver.FindElements("//*[@class='Report_Paper_Border_Shading']/tbody/tr[4]/td/table/tbody/tr").Count;
+            ArrayList firstReportData1 = new ArrayList();
+            foreach (var data in driver.FindElements("//*[@class='Report_Paper_Border_Shading']/tbody/tr[4]/td/table/tbody/tr[2]/td"))
+            {
+                firstReportData1.Add(data.Text);
+            }
+            firstReportData1.RemoveAt(0);
             LogStep(@"2.Without select any order and click 'Start Kitting' button.");
+            WD_Fuction.Close();
+            Application.LaunchWDAndLogin();
+            Thread.Sleep(5000);
+            WD.mainWindow.HomeInternalFrame.OrderKitting.Click();
+            Thread.Sleep(5000);
             WD.mainWindow.SelectAnOrderToKittingFrame.StartKitButton.Click();
             Base_Assert.AreEqual(WD.MessageDialog.Lable.AttachedText, "Please select an order to kit.");
             WD.mainWindow.GetSnapshot(Resultpath + "no_order_startkitting.PNG");
             WD.MessageDialog.OKButton.Click();
             Thread.Sleep(2000);
             WD.MessageDialog.OKButton.Click();
-
-            //web report
-            Web_Fuction.gotoTab(WDWebTab.report);
-            driver.FindElement("//div[text()='Label Reprint']").Click();
-            driver.FindElement("//button[text()='Generate Report']").Click();
-            int labelReport = driver.FindElements("//td[text()='test1000000000000024']/..").Count;
+   
             LogStep(@"3.click reprint last label.");
             WD.mainWindow.SelectAnOrderToKittingFrame.printButton.Click();
+            if (WD.ErrorDialog.IsExist())
+            {
+                WD.ErrorDialog.OKButton.Click();
+            }
             WD.MessageDialog.OKButton.Click();
-            WD_Fuction.Close();
+            Thread.Sleep(2000);
+            Web_Fuction.gotoTab(WDWebTab.report);
+            //web report
+            driver.FindElement("//div[text()='Label Reprint']").Click();
+            Web_Fuction.gotoTab(WDWebTab.report);
+            Thread.Sleep(2000);
             driver.FindElement("//button[text()='Generate Report']").Click();
-            Base_Assert.AreEqual(driver.FindElements("//td[text()='test1000000000000024']/..").Count, labelReport+1);
+            Thread.Sleep(5000);
+            ArrayList firstReportData2 = new ArrayList();
+            foreach (var data in driver.FindElements("//*[@class='Report_Paper_Border_Shading']/tbody/tr[4]/td/table/tbody/tr[2]/td"))
+            {
+                firstReportData2.Add(data.Text);
+            }
+            firstReportData2.RemoveAt(0);
+            Base_Assert.AreEqual(driver.FindElements("//*[@class='Report_Paper_Border_Shading']/tbody/tr[4]/td/table/tbody/tr").Count, labelReport + 1);
+            for (int a = 0; a < firstReportData1.Count; a++)
+            {
+                Base_Assert.AreEqual(firstReportData1[a],firstReportData2[a]);
+            }
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "report.PNG");
 
         }

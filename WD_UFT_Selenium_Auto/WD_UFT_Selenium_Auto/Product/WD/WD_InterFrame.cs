@@ -197,8 +197,10 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public UFT_Button printButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnReprint']");
         //public UFT_List ScaleList => new UFT_List(_UFT_InterFrame, "//List[@ObjectName = 'cbxScales']");
         public UFT_Table orderTable => new UFT_Table(_UFT_InterFrame, "//Table[@TagName = 'Orders:']");
+        public UFT_Table KitTable => new UFT_Table(_UFT_InterFrame, "//Table[@TagName = 'Kit Assembly']");
         public UFT_Label selectedOrder => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'dispLblOrder']");
         public UFT_Editor barcodeEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@ObjectName = 'txtBarCode']");
+        public UFT_Button accept => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnAccept']");
     }
     public class CampaignSelection_InterFrame : ClassMainInterFrame
     {

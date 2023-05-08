@@ -39,10 +39,11 @@ namespace WD_UFT_Selenium_Auto.TestCase
             LogStep(@"2.with plate empty, click Zero button");
             WD.mainWindow.CheckWeightInternalFrame.zero.Click();
             
-            LogStep(@"3.the weight is out of Precision range(weight<595 or weight >605)");
+            LogStep(@"3.the weight is out of Precision range(weight<95 or weight >105)");
             WD.SimulatorWindow.weight.SetText("400");
             WD.SimulatorWindow.OK.Click();
             WD.mainWindow.GetSnapshot(Resultpath + "WD_Scalcheck.PNG");
+            //var now_time = DateTime.Now.ToString("yyyy/M/d tth:mm:ss");
             WD.mainWindow.CheckWeightInternalFrame.readScale.ClickSignle();
             var now_time = DateTime.Now.ToString("yyyy/M/d tth:mm:ss");
             // no message
@@ -71,7 +72,10 @@ namespace WD_UFT_Selenium_Auto.TestCase
             driver.FindElement("//*[text()='Generate Report']").Click();
             Thread.Sleep(5000);
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Report.PNG");
-            var result = driver.FindElement("//td[text()='" + now_time + "'/../td[5]]").Text;
+            //System.IO.File.WriteAllText("C:/Users/qaone1/Desktop/eee.txt", now_time);
+            var result = driver.FindElement("//table[@class='Report_Paper_Border_Shading']/tbody/tr[4]/td/table/tbody/tr[2]/td[5]").Text;
+            //var result = driver.FindElement("//td[(text()='" + now_time + "']/../td[5]").Text;
+
             Base_Assert.AreEqual(result, "Failure");
 
         }

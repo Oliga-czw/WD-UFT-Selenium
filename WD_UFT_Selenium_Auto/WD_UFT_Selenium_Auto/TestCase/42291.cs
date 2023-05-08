@@ -25,6 +25,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
         [TestMethod]
         public void VSTS_42291()
         {
+            string Resultpath = Base_Directory.ResultsDir + CaseID;
             Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
             Web_Fuction.gotoWDWeb(driver);
             driver.Wait();
@@ -37,7 +38,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             // add a type
             driver.FindElement("//div[text()='Types']").Click();
             Thread.Sleep(3000);
-            var beforeAdded_types = driver.FindElements("//tr[@class='List_Background_Color']/../tr[@class !='List_Background_Color']");
+            var beforeAdded_types = driver.FindElements("//*[@id='WDView']/table/tbody/tr[3]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[@class !='List_Background_Color']");
             driver.FindElement("//a[text()='Add a Type']").Click();
             driver.FindElement("//input[@name='CleanRule_Type']").Click();
             driver.FindElement("//input[@name='CleanRule_Type']").SendKeys(Keys.Control + "A");
@@ -49,7 +50,8 @@ namespace WD_UFT_Selenium_Auto.TestCase
             driver.FindElement("//textarea[@name='CleanRule_Instructions']").Click();
             driver.FindElement("//textarea[@name='Description']").SendKeys("for test");
             driver.FindElement("//button[text()='Apply']").Click();
-            var afterAdded_types = driver.FindElements("//tr[@class='List_Background_Color']/../tr[@class !='List_Background_Color']");
+            Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Added_an_Type.PNG");
+            var afterAdded_types = driver.FindElements("//*[@id='WDView']/table/tbody/tr[3]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[@class !='List_Background_Color']");
             Assert.AreEqual(afterAdded_types.Count(), beforeAdded_types.Count() + 1);
 
             //move up a type
@@ -58,57 +60,51 @@ namespace WD_UFT_Selenium_Auto.TestCase
             var now_typeList = driver.FindElements("//tr[@class='List_Background_Color']/../tr[@class !='List_Background_Color']");
             int type_index = now_typeList.IndexOf(driver.FindElement("//tr[@id='clicked_Row_Style']"));
             Assert.AreEqual(type_index, afterAdded_types.Count() - 2);
-            var move_up_state = driver.FindElement("//a[text()='Move Up']").GetAttribute("class");
-            if (move_up_state.Contains("Disable"))
+            //var move_up_state = driver.FindElement("//a[text()='Move Up']").GetAttribute("class");
+            do
             {
-                var only_move_down = driver.FindElements("//tr[@class='List_Background_Color']/../tr[@class !='List_Background_Color']");
-                int now_index = only_move_down.IndexOf(driver.FindElement("//tr[@id='clicked_Row_Style']"));
-                Assert.AreEqual(now_index, 0);
+                Web.CleanRules_Page.MoveUp.Click();
             }
-            else
-            {
-                driver.FindElement("//a[text()='Move Up']").Click();
-            }
+            while (Web.CleanRules_Page.MoveUp.GetAttribute("class").Contains("Disable") is false);
+            Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "MoveUp_an_Type.PNG");
+            var only_move_up = driver.FindElements("//tr[@class='List_Background_Color']/../tr[@class !='List_Background_Color']");
+            int now_index = only_move_up.IndexOf(driver.FindElement("//tr[@id='clicked_Row_Style']"));
+            Base_Assert.AreEqual(now_index, 0);
+            
             //move down a type
             driver.FindElement("//a[text()='Move Down']").Click();
             Thread.Sleep(2000);
             var nowdown_eventList = driver.FindElements("//tr[@class='List_Background_Color']/../tr[@class !='List_Background_Color']");
             int eventDown_index = nowdown_eventList.IndexOf(driver.FindElement("//tr[@id='clicked_Row_Style']"));
-            Assert.AreEqual(eventDown_index, 1);
-            var move_down_state = driver.FindElement("//a[text()='Move Up']").GetAttribute("class");
-            if (move_down_state.Contains("Disable"))
+            Base_Assert.AreEqual(eventDown_index, 1);
+            do
             {
-                var only_move_up = driver.FindElements("//tr[@class='List_Background_Color']/../tr[@class !='List_Background_Color']");
-                int now_downindex = only_move_up.IndexOf(driver.FindElement("//tr[@id='clicked_Row_Style']"));
-                Assert.AreEqual(now_downindex, afterAdded_types.Count() - 1);
+                Web.CleanRules_Page.MoveDown.Click();
             }
-            else
-            {
-                driver.FindElement("//a[text()='Move Down']").Click();
-            }
-            driver.FindElements("//table[@class='List_Table_Border_Style']/tbody/tr/td/img[@class='gwt-Image']")[0].Click();
-            Thread.Sleep(2000);
-            driver.FindElement("//button[@class='gwt-Button OkStyle']").Click();
-            Thread.Sleep(2000);
-            var now_EventList = driver.FindElements("//tr[@class='List_Background_Color']/../tr[@class !='List_Background_Color']");
-            Assert.AreEqual(now_EventList.Count(), afterAdded_types.Count() - 1);
+            while (Web.CleanRules_Page.MoveDown.GetAttribute("class").Contains("Disable") is false);
+            Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "MoveDown_an_Type.PNG");
+            var only_move_down = driver.FindElements("//tr[@class='List_Background_Color']/../tr[@class !='List_Background_Color']");
+            int now_downindex = only_move_down.IndexOf(driver.FindElement("//tr[@id='clicked_Row_Style']"));
+            Base_Assert.AreEqual(now_downindex, afterAdded_types.Count() - 1);
 
             //edit the type
             driver.FindElement("//*[@id='clicked_Row_Style']/td[2]/img").Click();
             Thread.Sleep(2000);
             driver.FindElement("//textarea[@name='CleanRule_Instructions']").Click();
             driver.FindElement("//textarea[@name='CleanRule_Instructions']").SendKeys("this is for test");
-            driver.FindElement("//textarea[@name='CleanRule_Instructions']").SendKeys(Keys.Enter);
+            driver.FindElement("//textarea[@name='CleanRule_Instructions']").SendKeys(Keys.Tab);
             driver.FindElement("//button[text()='Apply']").Click();
-            Assert.IsTrue(driver.FindElement("//*[@id='clicked_Row_Style']/td[5]/table/tbody/tr/td").Text.Contains("this is for test"));
+            Base_Assert.IsTrue(driver.FindElement("//*[@id='clicked_Row_Style']/td[5]/table/tbody/tr/td").Text.Contains("this is for test"));
+            Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Edit_an_Type.PNG");
             var before_delete = driver.FindElements("//tr[@class='List_Background_Color']/../tr[@class !='List_Background_Color']");
             // delete a type
             driver.FindElement("//*[@id='clicked_Row_Style']/td[6]/img").Click();
             Thread.Sleep(2000);
-            Assert.IsTrue(driver.FindElement("//div[@class='gwt-Label Alert_Label']").Text.Contains("Are you sure you want to delete"));
+            Base_Assert.IsTrue(driver.FindElement("//div[@class='gwt-Label Alert_Label']").Text.Contains("Are you sure you want to delete"));
             driver.FindElement("//button[@class='gwt-Button OkStyle']").Click();
+            Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "delete_an_Type.PNG");
             var after_delete = driver.FindElements("//tr[@class='List_Background_Color']/../tr[@class !='List_Background_Color']");
-            Assert.AreEqual(before_delete.Count(), after_delete.Count() + 1);
+            Base_Assert.AreEqual(before_delete.Count(), after_delete.Count() + 1);
         }
 
        

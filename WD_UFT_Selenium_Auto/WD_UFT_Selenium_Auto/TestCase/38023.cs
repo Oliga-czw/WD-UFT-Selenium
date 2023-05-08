@@ -36,6 +36,22 @@ namespace WD_UFT_Selenium_Auto.TestCase
             driver.Wait();
             Web_Fuction.gotoTab(WDWebTab.order);
             Web_Fuction.active_order(order);
+            driver.FindElement("//button[@class='WDAnchor_Common_Image16_Style Refresh_Image']").Click();
+            driver.FindElement("//button[@class='WDAnchor_Common_Image16_Style Refresh_Image']").Click();
+            Thread.Sleep(5000);
+            driver.FindElement("//td[text()='test1']/../td[1]/span/input").Click();
+            driver.FindElement("//a[text()='Create Campaign']").Click();
+            driver.FindElement("//input[@class='WD_TextBox']").SendKeys("testCampaign");
+            driver.FindElement("//button[@id='Dialogbox_Bottom_OK_Button_Id']").Click();
+            Thread.Sleep(2000);
+            driver.FindElement("//button[@class='gwt-Button OkStyle']").Click();
+            driver.FindElement("//div[text()='Campaigns']").Click();
+            driver.FindElement("//td[text()='testCampaign']/../td[9]/img[@class='gwt-Image']").Click();
+            Thread.Sleep(2000);
+            driver.FindElements("//tr/td[@class='Table_Header_Center']//span/input[@type='checkbox']")[1].Click();
+            driver.FindElement("//a[text()='Assign to Campaign']").Click();
+            Thread.Sleep(2000);
+            driver.FindElement("//button[text()='Apply']").Click();
             LogStep(@"1. Open Wd client and login");
             Application.LaunchWDAndLogin();
             Thread.Sleep(5000);
@@ -52,7 +68,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             var materialRowsCount = materialsTable._UFT_Table.Rows.Count;
             if (materialRowsCount > 0) {
                 //System.IO.File.WriteAllText("C:/Users/qaone1/Desktop/eee.txt", materialsTable._UFT_Table.GetVisibleText());
-                Base_Assert.AreEqual(materialsTable._UFT_Table.Rows.Count,2);
+                Base_Assert.AreEqual(materialsTable._UFT_Table.Rows.Count,1);
                 //for (int a = 0; a < materialRowsCount; a = a + 1)
                 //{
                 //    Base_Assert.AreEqual(materialsTable._UFT_Table.GetCell(a, "a3").Value.ToString(),"X0125");
@@ -65,7 +81,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             // Order Dispensing
             WD.mainWindow.HomeInternalFrame.OrderDispensing.Click();
             var orderListtable = WD.mainWindow.DispensingInternalFrame.orderTable;
-            WD.mainWindow.DispensingInternalFrame.Search.SetText("test3");
+            WD.mainWindow.DispensingInternalFrame.Search.SetText("test1");
 
             WD.mainWindow.DispensingInternalFrame.SearchButton.Click();
 

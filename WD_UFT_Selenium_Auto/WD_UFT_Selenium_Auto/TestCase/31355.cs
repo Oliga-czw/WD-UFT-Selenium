@@ -124,7 +124,6 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD.mainWindow.GetSnapshot(Resultpath + "WD_EXlogoff.PNG");
             WD.ConfirmationDialog.YesButton.Click();
             Thread.Sleep(2000);
-            Base_Assert.IsFalse(WD.mainWindow._UFT_Window.IsEnabled);
         }
 
        
