@@ -43,7 +43,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             driver.FindElement("//input[@name='CleanRule_Type']").Click();
             driver.FindElement("//input[@name='CleanRule_Type']").SendKeys(Keys.Control + "A");
             driver.FindElement("//input[@name='CleanRule_Type']").SendKeys(Keys.Delete);
-            driver.FindElement("//input[@name='CleanRule_Type']").SendKeys("testType");
+            driver.FindElement("//input[@name='CleanRule_Type']").SendKeys("testType_42291");
             driver.FindElement("//textarea[@name='Description']").Click();
             driver.FindElement("//textarea[@name='Description']").SendKeys("for test");
             driver.FindElement("//select[@name='CleanRule_Event']/option[text()='Full Clean']").Click();
