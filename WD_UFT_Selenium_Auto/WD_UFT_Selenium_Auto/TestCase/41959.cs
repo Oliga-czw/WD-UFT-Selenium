@@ -43,7 +43,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Thread.Sleep(3000);
 
             var standardizationlabel = WD.mainWindow.CheckWeightInternalFrame.Standardization_label;
-
+            WD.mainWindow.GetSnapshot(Resultpath + "standardizationlabel.PNG");
             Assert.AreEqual(standardizationlabel._UFT_Label.Text, Selectedstandardization);
             //Click cancel
             WD.mainWindow.CheckWeightInternalFrame.cancelButton.Click();
@@ -64,7 +64,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             
             Assert.AreEqual(WD.mainWindow.CheckWeightInternalFrame.ScaleResult_Label._UFT_Label.Text, "0.0 G");
             Assert.IsFalse(WD.mainWindow.CheckWeightInternalFrame.zero.IsEnabled);
-            
+            WD.mainWindow.GetSnapshot(Resultpath + "click zero.PNG");
             Assert.IsTrue(WD.mainWindow.CheckWeightInternalFrame.readScale.IsEnabled);
             //Click Cancel
             WD.mainWindow.CheckWeightInternalFrame.cancelButton.Click();

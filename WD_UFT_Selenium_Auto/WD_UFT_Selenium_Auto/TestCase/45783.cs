@@ -37,6 +37,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Base_Assert.IsTrue(WD.mainWindow.HomeInternalFrame.IsEnabled);
             LogStep(@"2. click Booth Cleaning button");
             WD.mainWindow.HomeInternalFrame.BoothCleaning.Click();
+            WD.mainWindow.GetSnapshot(Resultpath + "booth cleaning.PNG");
             Base_Assert.IsTrue(WD.mainWindow.BoothCleanInternalFrame.IsEnabled);
             Thread.Sleep(5000);
             WD.mainWindow.BoothCleanInternalFrame.HomeButton.Click();
@@ -57,11 +58,13 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD.mainWindow.DispensingInternalFrame.HomeButton.Click();
             LogStep(@"6. click Order Kitting button");
             WD.mainWindow.HomeInternalFrame.OrderKitting.Click();
+            WD.mainWindow.GetSnapshot(Resultpath + "OrderKitting.PNG");
             Base_Assert.IsTrue(WD.mainWindow.SelectAnOrderToKittingFrame.IsEnabled);
             Thread.Sleep(5000);
             WD.mainWindow.SelectAnOrderToKittingFrame.HomeButton.Click();
             LogStep(@"7. click Open Weighing button");
             WD.mainWindow.HomeInternalFrame.OpenWeigh.Click();
+            WD.mainWindow.GetSnapshot(Resultpath + "Open Weighing.PNG");
             Base_Assert.IsTrue(WD.mainWindow.OpenWeighInternalFrame.IsEnabled);
             WD_Fuction.Close();
         }
