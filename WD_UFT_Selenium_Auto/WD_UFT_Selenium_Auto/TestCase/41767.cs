@@ -86,7 +86,8 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD_Fuction.Close();
             driver.Close();
             LogStep(@"5. Check signature in batch");
-
+            Application.LaunchBatchDetailDisplay();
+            Batch_Fuction.findBatch(order);
         }
     }
 }

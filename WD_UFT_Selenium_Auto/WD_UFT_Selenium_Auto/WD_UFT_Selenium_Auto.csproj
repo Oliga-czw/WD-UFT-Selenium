@@ -85,6 +85,8 @@
     <Compile Include="Library\UFTLibrary\UFT_Label.cs" />
     <Compile Include="Product\AFW\AFW_Fuction.cs" />
     <Compile Include="Product\AFW\AFW_Window.cs" />
+    <Compile Include="Product\Batch\Batch_Fuction.cs" />
+    <Compile Include="Product\Batch\Batch_Window.cs" />
     <Compile Include="Product\MOC\MOC_Window.cs" />
     <Compile Include="Product\MOC\MOC_Repository.cs" />
     <Compile Include="Product\MOC\MOC_InterFrame.cs" />
