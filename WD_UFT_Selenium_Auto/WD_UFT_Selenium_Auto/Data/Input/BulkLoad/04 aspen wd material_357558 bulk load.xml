@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MaterialInformation xmlns="http://www.wbf.org/xml/B2MML-V0401">
+  
+  <MaterialDefinition>
+    <ID>X0125</ID>
+    <Description>X0125 Description</Description>
+    <MaterialDefinitionProperty>
+      <ID>Status</ID>
+      <Value>
+        <ValueString>In Use</ValueString>
+        <DataType>string</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>UOM</ID>
+      <Value>
+        <ValueString>KG</ValueString>
+        <DataType>string</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>ToKg</ID>
+      <Value>
+        <ValueString>1.000</ValueString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>NfpaHealth</ID>
+      <Value>
+        <ValueString>3</ValueString>
+        <DataType>integer</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>NfpaFlame</ID>
+      <Value>
+        <ValueString>1</ValueString>
+        <DataType>integer</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>NfpaInstable</ID>
+      <Value>
+        <ValueString>2</ValueString>
+        <DataType>integer</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>NfpaSpecial</ID>
+      <Value>
+        <ValueString>ALK</ValueString>
+        <DataType>string</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>WeighType</ID>
+      <Value>
+        <ValueString>Net,Net removal,Source as target,Whole issue,Gross,Double check,Manual</ValueString>
+        <DataType>string</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>UpperTolerance</ID>
+      <Value>
+        <ValueString>1</ValueString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>LowerTolerance</ID>
+      <Value>
+        <ValueString>1</ValueString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>LotEndTolerance</ID>
+      <Value>
+        <ValueString>1</ValueString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>ScalePrecision</ID>
+      <Value>
+        <ValueString>false</ValueString>
+        <DataType>boolean</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>SourceGross</ID>
+      <Value>
+        <ValueString>470</ValueString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>SourceTare</ID>
+      <Value>
+        <ValueString>10</ValueString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>TargetType</ID>
+      <Value>
+        <ValueString>Large bag</ValueString>
+        <DataType>string</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>TargetTare</ID>
+      <Value>
+        <ValueString>145.5</ValueString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>MaxTare</ID>
+      <Value>
+        <ValueString>300</ValueString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>MinTare</ID>
+      <Value>
+        <ValueString>1</ValueString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>MultiLot</ID>
+      <Value>
+        <ValueString>false</ValueString>
+        <DataType>boolean</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>WarningDays</ID>
+      <Value>
+        <ValueString>20</ValueString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>EffectiveDate</ID>
+      <Value>
+        <ValueString>2013-08-26T01:25:00.0</ValueString>
+        <DataType>DateTime</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialClassID>Intermediate</MaterialClassID>
+  </MaterialDefinition>
+ </MaterialInformation>

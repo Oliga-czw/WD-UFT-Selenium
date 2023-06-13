@@ -68,6 +68,8 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public Selenium_WebElement General => new Selenium_WebElement(_Selenium_Driver, "//div[text()='General']");
         public Selenium_WebElement Signatures => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Signatures']");
         public Selenium_WebElement Permissions => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Permissions']");
+        public Selenium_WebElement UserExits => new Selenium_WebElement(_Selenium_Driver, "//div[text()='User Exits']");
+        
 
 
         public Selenium_WebElement Apply => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Apply']");
@@ -86,6 +88,16 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public Selenium_WebElement deviation_table => new Selenium_WebElement(_Selenium_Driver, "//table[@class='Permission_Table_body_Style']/tbody", 0);
 
         #endregion
+        #region UserExits
+        public Selenium_WebElement ERPDownload => new Selenium_WebElement(_Selenium_Driver, "//div[text()='ERP Download']");
+
+
+
+        public Selenium_WebElement ERPInventoryDownload => new Selenium_WebElement(_Selenium_Driver, "//div[text()='ERP Inventory Download']");
+        public Selenium_WebElement ERPOrderDownload => new Selenium_WebElement(_Selenium_Driver, "//div[text()='ERP Order Download']");
+        public Selenium_WebElement ERPMaterialDownload => new Selenium_WebElement(_Selenium_Driver, "//div[text()='ERP Material Download']");
+        #endregion
+
         #region General
         public Selenium_WebElement log_on_required_chx => new Selenium_WebElement(_Selenium_Driver, "//label[text()='Log on required for Execution System']/../input");
 

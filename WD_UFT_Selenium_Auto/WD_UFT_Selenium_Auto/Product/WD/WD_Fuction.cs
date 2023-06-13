@@ -104,6 +104,13 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             helper.ExecuteNonQuery(delete);
             Base_logger.Message("Clean Inventory Data successfully in DB!");
         }
+        public static void CleanMaterialData()
+        {
+            SqlHelper helper = new SqlHelper();
+            string delete = $"DELETE FROM EBR_WD_MATERIAL_HANDLING_CHARACTERISTICS WHERE MATERIAL_TAG <> '<Default>'";
+            helper.ExecuteNonQuery(delete);
+            Base_logger.Message("Clean Material Data successfully in DB!");
+        }
 
         public static void CleanWeighHistory()
         {

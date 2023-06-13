@@ -108,6 +108,11 @@ namespace WD_UFT_Selenium_Auto.Library.SeleniumLibrary
             IJavaScriptExecutor js = (IJavaScriptExecutor)_Selenium_Driver;
             js.ExecuteScript(script);
         }
+        public object execute_script_return(string script)
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)_Selenium_Driver;
+            return js.ExecuteScript(script);
+        }
 
         public void execute_script(string script,IWebElement element)
         {

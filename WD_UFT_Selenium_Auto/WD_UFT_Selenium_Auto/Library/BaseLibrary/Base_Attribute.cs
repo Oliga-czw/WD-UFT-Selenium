@@ -213,6 +213,11 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
     {
         public const string Net = "Net weigh";
         public const string Manual = "Manual";
+        public const string Netremoval = "Net removal";
+        public const string Gross = "Gross";
+        public const string Doublecheck = "Double check";
+        public const string Wholeissue = "Whole issue";
+        public const string SourceAsTarget = "Source As Target";
 
 
     }
@@ -220,7 +225,10 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
     public class WDMaterial
     {
         public const string X0125 = "X0125";
+        public const string M801890 = "M801890";
+        public const string x1072 = "1072";
 
+        
 
     }
 

@@ -99,6 +99,9 @@
     <Compile Include="TestCase\31169.cs" />
     <Compile Include="TestCase\31355.cs" />
     <Compile Include="TestCase\34274.cs" />
+    <Compile Include="TestCase\41767.cs" />
+    <Compile Include="TestCase\357558.cs" />
+    <Compile Include="TestCase\357573.cs" />
     <Compile Include="TestCase\37391.cs" />
     <Compile Include="TestCase\37516.cs" />
     <Compile Include="TestCase\37819.cs" />
@@ -108,6 +111,7 @@
     <Compile Include="TestCase\41964.cs" />
     <Compile Include="TestCase\42291.cs" />
     <Compile Include="TestCase\42345.cs" />
+    <Compile Include="TestCase\357570.cs" />
     <Compile Include="TestCase\728667.cs" />
     <Compile Include="TestCase\121316.cs" />
     <Compile Include="TestCase\121313.cs" />
