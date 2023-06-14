@@ -148,4 +148,21 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
         //});
     }
 
+
+    public class BatchCharacteristic_Dialog : STD_Dialog
+    {
+        public BatchCharacteristic_Dialog(string xpath) : base(xpath)
+        {
+        }
+        public IEditor Value => _STD_Dialog.Describe<IEditor>(new EditorDescription
+        {
+            AttachedText = @"Value:",
+            Index = 0
+        });
+        //public new IButton Cancel => _STD_Dialog.Describe<IButton>(new ButtonDescription
+        //{
+        //    Text = @"Cancel"
+        //});
+
     }
+}

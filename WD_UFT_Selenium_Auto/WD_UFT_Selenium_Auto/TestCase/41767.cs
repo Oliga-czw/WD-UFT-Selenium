@@ -26,7 +26,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID+"-";
             string xml = "10 aspen wd signautres_41767 bulk load.xml";
-            string order = "test2";
+            string order = "test4";
             string material = WDMaterial.X0125;
             string method = WDMethod.Net;
             string barcode = "X0125001";
@@ -88,6 +88,21 @@ namespace WD_UFT_Selenium_Auto.TestCase
             LogStep(@"5. Check signature in batch");
             Application.LaunchBatchDetailDisplay();
             Batch_Fuction.findBatch(order);
+            WD.BatchMainWindow.TreeView.GetNode("Batch").Expand();
+            WD.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1]").Expand();
+            WD.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1];BOM [1]").Expand();
+            WD.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1];BOM [1];Material [1]").Expand();
+            WD.BatchMainWindow.TreeView.Selete("Batch;WEIGH_AND_DISPENSE [1];BOM [1];Material [1];Action [1]");
+            //wait for loading
+            Thread.Sleep(5000);
+            WD.BatchMainWindow.ListView._STD_ListView.ActivateItem("Signer_1");
+            Base_Assert.AreEqual("qaone1 (qaone1)", WD.BatchMainWindow.BatchCharacteristicDialog.Value.Text, "Signature1");
+            WD.BatchMainWindow.BatchCharacteristicDialog.Cancel.Click();
+            WD.BatchMainWindow.GetSnapshot(Resultpath + "Batch Signature.PNG");
+            WD.BatchMainWindow.ListView._STD_ListView.ActivateItem("Signer_2");
+            Base_Assert.AreEqual("qaone2 (qaone2)", WD.BatchMainWindow.BatchCharacteristicDialog.Value.Text, "Signature2");
+            WD.BatchMainWindow.BatchCharacteristicDialog.Cancel.Click();
+            WD.BatchMainWindow.Close();
         }
     }
 }

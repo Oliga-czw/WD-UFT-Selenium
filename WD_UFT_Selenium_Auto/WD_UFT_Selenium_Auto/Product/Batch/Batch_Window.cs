@@ -28,8 +28,9 @@ namespace WD_UFT_Selenium_Auto.Product.WD
 
         public STD_TreeView TreeView => new STD_TreeView(_STD_Window, "//Treeview[@NativeClass = 'SysTreeView32']");
 
-        public STD_ListView ListView => new STD_ListView(_STD_Window, "//Treeview[@NativeClass = 'SysListView32']");
+        public STD_ListView ListView => new STD_ListView(_STD_Window, "//Treeview[@NativeClass = 'SysListView32' and @Index = '0']");
 
+        public BatchCharacteristic_Dialog BatchCharacteristicDialog => new BatchCharacteristic_Dialog("//Dialog[@Text = 'Modify Characteristic']");
 
         public STD_Dialog AFWCloseDialog => new STD_Dialog("//Dialog[@Text = 'Microsoft Management Console']");
 

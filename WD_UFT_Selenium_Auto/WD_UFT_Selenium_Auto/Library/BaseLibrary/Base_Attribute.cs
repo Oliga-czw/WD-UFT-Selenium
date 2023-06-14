@@ -217,7 +217,7 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
         public const string Gross = "Gross";
         public const string Doublecheck = "Double check";
         public const string Wholeissue = "Whole issue";
-        public const string SourceAsTarget = "Source As Target";
+        public const string SourceAsTarget = "Source as target";
 
 
     }

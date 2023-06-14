@@ -123,7 +123,13 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
             }
         }
 
-        public object SelectedItems { get; internal set; }
+        public ReadOnlyCollection<IListItem> SelectedItems
+        {
+            get
+            {
+                return _UFT_IList.SelectedItems;
+            }
+        }
 
         protected TChild Describe<TChild>(IDescription description) where TChild : class, ITestObject
         {

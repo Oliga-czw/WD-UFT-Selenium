@@ -101,6 +101,7 @@
     <Compile Include="TestCase\31169.cs" />
     <Compile Include="TestCase\31355.cs" />
     <Compile Include="TestCase\34274.cs" />
+    <Compile Include="TestCase\39772.cs" />
     <Compile Include="TestCase\41767.cs" />
     <Compile Include="TestCase\357558.cs" />
     <Compile Include="TestCase\357573.cs" />
