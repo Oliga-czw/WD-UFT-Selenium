@@ -17,6 +17,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
 
         public Selenium_WebElement body => new Selenium_WebElement(_Selenium_Driver, "//body");
         public Selenium_WebElement Message => new Selenium_WebElement(_Selenium_Driver, "//div[@title='Message']");
+        public Selenium_WebElement Confirm => new Selenium_WebElement(_Selenium_Driver, "//div[@title='Confirm']");
 
     }
     public class Login_Page : Web_Page
@@ -167,12 +168,22 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         }
         public Selenium_WebElement Refresh => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Refresh']");
         public Selenium_WebElement Activate => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Activate']");
+        public Selenium_WebElement CreateCampaign => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Create Campaign']");
         public Selenium_WebElement Redispense => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Redispense a Material']");
         public Selenium_WebElement ReprintLable => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Reprint Label']");
         //ReprintLable
         public Selenium_WebElement ReprintContainerLabel => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Reprint Container Label']");
         public Selenium_WebElement ReprintLableClose => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Close']");
+        //Tab
+        public Selenium_WebElement Campaigns => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Campaigns']");
+        public Selenium_WebElement DeviationManagement => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Deviation Management']");
+        public Selenium_WebElement Orders => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Orders' and @class='Tab_Label']");
 
+        //Campaign
+        public Selenium_WebElement Apply => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Apply']");
+
+        public Selenium_WebElement AssigntoCampaign => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Assign to Campaign']");
+      
 
     }
     public class CleanRules_Page : Web_Page
