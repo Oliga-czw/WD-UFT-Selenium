@@ -56,8 +56,8 @@ namespace WD_UFT_Selenium_Auto.TestCase
             if (WD.MessageDialog.IsExist())
             {
                 WD.MessageDialog.OKButton.Click();
-                WD.mainWindow.ScaleWeightInternalFrame.scale.SelectItems(scale);
             }
+            WD.mainWindow.ScaleWeightInternalFrame.scale.SelectItems(scale);
             //zeor
             WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
             //tare

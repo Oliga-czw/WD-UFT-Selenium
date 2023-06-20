@@ -130,6 +130,10 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public UFT_Label Expiration => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'dispLblExpiration']");
         public UFT_Label Potency => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'dispLblPotency']");
         public UFT_Editor net_editor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Net:']");
+
+        //target container
+        public UFT_Label tareLable => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'lblTare']");
+
     }
     public class OpenWeight_InterFrame : ClassMainInterFrame
     {

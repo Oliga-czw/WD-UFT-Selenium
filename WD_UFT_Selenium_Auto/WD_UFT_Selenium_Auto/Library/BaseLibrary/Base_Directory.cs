@@ -21,6 +21,7 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
 
         public static string BDDDir = @"C:\Program Files (x86)\AspenTech\Batch.21\Client\BatchDetailDisplay.exe";
 
+
         public static string WDBulkload
         {
             get
@@ -118,6 +119,12 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
         public static string MaterialDownloadDir => "C:\\ProgramData\\AspenTech\\AeBRS\\WDDownload\\Pending\\Material";
         public static string OrdersDownloadDir => "C:\\ProgramData\\AspenTech\\AeBRS\\WDDownload\\Pending\\Orders";
 
+
+        public static string ConfigDir => @"C:\Program Files\AspenTech\AeBRS\cfg_source\";
+        public static string Codify_all = @"C:\Program Files\AspenTech\AeBRS\cfg_source\codify_all.cmd";
+        public static string ConfigDirx86 => @"C:\Program Files (x86)\AspenTech\AeBRS\cfg_source\";
+
+        public static string Codify_allx86 = @"C:\Program Files (x86)\AspenTech\AeBRS\cfg_source\codify_all.cmd";
 
 
     }
