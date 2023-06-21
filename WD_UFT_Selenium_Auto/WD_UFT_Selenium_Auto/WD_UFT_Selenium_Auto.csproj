@@ -101,6 +101,7 @@
     <Compile Include="TestCase\31169.cs" />
     <Compile Include="TestCase\31355.cs" />
     <Compile Include="TestCase\34274.cs" />
+    <Compile Include="TestCase\748053.cs" />
     <Compile Include="TestCase\748225.cs" />
     <Compile Include="TestCase\748207.cs" />
     <Compile Include="TestCase\748200.cs" />
@@ -162,7 +163,6 @@
     <Compile Include="Product\WEB\Web_Fuction.cs" />
     <Compile Include="Product\WEB\Web_Page.cs" />
     <Compile Include="Product\WEB\Web_Repository.cs" />
-    <Compile Include="TestCase\CodeFile1.cs" />
     <Compile Include="UftDeveloperSeleniumTest.cs" />
   </ItemGroup>
   <ItemGroup>

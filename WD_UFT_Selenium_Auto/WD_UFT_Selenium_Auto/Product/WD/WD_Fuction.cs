@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
 using WD_UFT_Selenium_Auto.Library.BaseLibrary;
@@ -128,6 +129,15 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             helper.ExecuteNonQuery(delete2);
             Base_logger.Message("Clean Orders Data successfully in DB!");
         }
+
+        public static List<List<string>> GetBeginEndSource()
+        {
+            SqlHelper helper = new SqlHelper();
+            string sql = $"SELECT BEGIN_SOURCE_GROSS,END_SOURCE_GROSS FROM EBR_WD_WEIGH_HISTORY";
+            var dt = helper.Execute(sql);
+            return dt;
+        }
+
         public static void Close()
         {
 

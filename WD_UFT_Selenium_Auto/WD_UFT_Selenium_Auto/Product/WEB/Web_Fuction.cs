@@ -516,5 +516,24 @@ namespace WD_UFT_Selenium_Auto.Product.WD
 
 
         #endregion
+
+        #region inventory function
+        public static string getcelldata(string barcode,string headname)
+        {
+            string data = "";
+            var heads = Web.Iventory_Page.body._Selenium_WebElement.FindElements(By.XPath("//th[@colspan='1']/p"));
+            //var SourceData = driver.FindElements("//div[text()='X0125001']/../../../td");
+            for (int i = 0; i < heads.Count; i++)
+            {
+                if (heads[i].Text == headname)// "Nominal"
+                {
+                    data = Web.Iventory_Page.body._Selenium_WebElement.FindElement(By.XPath("//div[text()='" + barcode + $"']/../../../td[{i + 1}]/div/div")).Text;
+                    break;
+                }
+            }
+            
+            return data;
+        }
+        #endregion
     }
 }
