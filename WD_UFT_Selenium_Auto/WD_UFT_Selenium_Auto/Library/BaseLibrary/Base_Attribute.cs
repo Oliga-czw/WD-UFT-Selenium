@@ -122,6 +122,13 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
         public const string qaone2 = "qae\\qaone2(qaone2)";
 
     }
+    public class userNameforReport
+    {
+        public const string qaone1 = "qaone1(qaone1)";
+        public const string qaone2 = "qaone2(qaone2)";
+
+    }
+
     public class PassWord
     {
         public const string qaone1 = "Aspen111";

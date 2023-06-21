@@ -74,7 +74,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             driver.FindElement("//button[text()='Zero']").Click();
             driver.Wait();
             Type.FindElement(By.XPath("//option[text()='Container']")).Click();
-            Operator.FindElement(By.XPath("//option[text()='qaone1(qaone1)']")).Click();
+            Operator.FindElement(By.XPath($"//option[text()='{userNameforReport.qaone1})']")).Click();
             Web.Report_Page.End_Time.Click();
             driver.FindElement("//button[text()='Now']").Click();
             driver.Wait();
@@ -84,7 +84,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             LogStep(@"5.check report");
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Reprint Label Report.PNG");
             var column = new List<string>() { "MaterialID", "Type", "Operator","Order" };
-            var datatext = new List<string>() { "X0125", "Container", "qaone1(qaone1)", "test2" };
+            var datatext = new List<string>() { "X0125", "Container", userNameforReport.qaone1, "test2" };
             //check date
             Web_Fuction.check_report_date(execute_time);
             //check data
@@ -99,7 +99,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Print Report.PNG");
             driver.FindElement("//button[text()='Close']").Click();
             //The searchList can't contain ' '
-            var searchList = new List<string>() { "Container", "qaone1(qaone1)", "test2" };
+            var searchList = new List<string>() { "Container", userNameforReport.qaone1, "test2" };
             Web_Fuction.Check_PDF(Base_Directory.DownloadFileDir, "*LABELREPRINT*", searchList);
             driver.Close();
         }

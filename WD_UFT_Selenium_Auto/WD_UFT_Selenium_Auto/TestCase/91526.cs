@@ -108,7 +108,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             driver.Wait();
             Booth.FindElement(By.XPath("//option[text()='booth1']")).Click();
             Type.FindElement(By.XPath("//option[text()='Full Clean']")).Click();
-            Operator.FindElement(By.XPath("//option[text()='qaone1(qaone1)']")).Click();
+            Operator.FindElement(By.XPath($"//option[text()='{userNameforReport.qaone1}']")).Click();
             Web.Report_Page.End_Time.Click();
             driver.FindElement("//button[text()='Now']").Click();
             driver.Wait();
@@ -116,7 +116,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             //5.check report
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Clean Report.PNG");
             var column = new List<string>() { "Booth", "Type", "Operator" };
-            var datatext = new List<string>() { "booth1", "Full Clean", "qaone1(qaone1)" };
+            var datatext = new List<string>() { "booth1", "Full Clean", userNameforReport.qaone1 };
             //check date
             Web_Fuction.check_report_date(execute_time);
             //check data
