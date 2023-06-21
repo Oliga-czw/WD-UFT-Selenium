@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using WD_UFT_Selenium_Auto.Library.BaseLibrary;
 using WD_UFT_Selenium_Auto.Library.UFTLibrary;
-using WD_UFT_Selenium_Auto.Product.WD;
+
 using static WD_UFT_Selenium_Auto.Product.WD.ClassMainWindow;
 
 namespace WD_UFT_Selenium_Auto.Product.WD
@@ -107,7 +107,13 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         #region AFW Window
         public static AFWMainWindow AFWMainWindow => new AFWMainWindow("//Window[@WindowTitleRegExp = 'AFW Security Manager']");
 
-        
+
+
+        #endregion
+        #region Batch Window
+        public static BatchMainWindow BatchMainWindow => new BatchMainWindow("//Window[@WindowTitleRegExp = ' aspenONE']");
+
+
 
         #endregion
     }

@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.ServiceProcess;
+using System.Text.RegularExpressions;
 
 namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
 {
@@ -30,6 +31,32 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
             
         }
 
+        public static void AddConfigKey(string path,string Key)
+        {
+            //add key
+            FileStream fs = new FileStream(path, FileMode.Append);//
+            StreamWriter sw = new StreamWriter(fs);
+            sw.WriteLine(Key);//"NET_REMOVAL_REQUIRE_TARGET_TARE = 0"
+            sw.Close();
+            Base_logger.Info("Add config key successfully.");
+
+        }
+
+        public static void DeleteConfigKey(string path,string Key)
+        {
+            //NET_REMOVAL_REQUIRE_TARGET_TARE = 0
+            //string KeyName = Key.Split('=')[0];
+
+            //delete key
+            string all = File.ReadAllText(path);
+            //string pattern = $"{KeyName} = " + @"\d{1}";
+            string pattern = Key;
+            all = Regex.Replace(all, pattern, "");//@"NET_REMOVAL_REQUIRE_TARGET_TARE = \d{1}"
+            //Console.WriteLine(all);
+            File.WriteAllText(path, all);
+            Base_logger.Info("Delete config key successfully.");
+
+        }
     }        
 }
 

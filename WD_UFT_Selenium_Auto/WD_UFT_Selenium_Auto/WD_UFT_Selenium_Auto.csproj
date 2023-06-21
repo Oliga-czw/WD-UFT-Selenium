@@ -85,6 +85,8 @@
     <Compile Include="Library\UFTLibrary\UFT_Label.cs" />
     <Compile Include="Product\AFW\AFW_Fuction.cs" />
     <Compile Include="Product\AFW\AFW_Window.cs" />
+    <Compile Include="Product\Batch\Batch_Fuction.cs" />
+    <Compile Include="Product\Batch\Batch_Window.cs" />
     <Compile Include="Product\MOC\MOC_Window.cs" />
     <Compile Include="Product\MOC\MOC_Repository.cs" />
     <Compile Include="Product\MOC\MOC_InterFrame.cs" />
@@ -99,6 +101,16 @@
     <Compile Include="TestCase\31169.cs" />
     <Compile Include="TestCase\31355.cs" />
     <Compile Include="TestCase\34274.cs" />
+    <Compile Include="TestCase\748225.cs" />
+    <Compile Include="TestCase\748207.cs" />
+    <Compile Include="TestCase\748200.cs" />
+    <Compile Include="TestCase\39772.cs" />
+    <Compile Include="TestCase\91525.cs" />
+    <Compile Include="TestCase\40978.cs" />
+    <Compile Include="TestCase\91526.cs" />
+    <Compile Include="TestCase\41767.cs" />
+    <Compile Include="TestCase\357558.cs" />
+    <Compile Include="TestCase\357573.cs" />
     <Compile Include="TestCase\37391.cs" />
     <Compile Include="TestCase\37516.cs" />
     <Compile Include="TestCase\37819.cs" />
@@ -107,6 +119,8 @@
     <Compile Include="TestCase\41959.cs" />
     <Compile Include="TestCase\41964.cs" />
     <Compile Include="TestCase\42291.cs" />
+    <Compile Include="TestCase\42345.cs" />
+    <Compile Include="TestCase\357570.cs" />
     <Compile Include="TestCase\728667.cs" />
     <Compile Include="TestCase\121316.cs" />
     <Compile Include="TestCase\121313.cs" />
@@ -124,6 +138,7 @@
     <Compile Include="TestCase\45752.cs" />
     <Compile Include="TestCase\43325.cs" />
     <Compile Include="TestCase\45783.cs" />
+    <Compile Include="TestCase\748922.cs" />
     <Compile Include="TestCase\818432.cs" />
     <Compile Include="TestCase\Base_ProductBase.cs" />
     <Compile Include="Library\BaseLibrary\Base_Registry.cs" />
@@ -147,6 +162,7 @@
     <Compile Include="Product\WEB\Web_Fuction.cs" />
     <Compile Include="Product\WEB\Web_Page.cs" />
     <Compile Include="Product\WEB\Web_Repository.cs" />
+    <Compile Include="TestCase\CodeFile1.cs" />
     <Compile Include="UftDeveloperSeleniumTest.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -163,10 +179,10 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Selenium.WebDriver.IEDriver.4.8.1\build\Selenium.WebDriver.IEDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.IEDriver.4.8.1\build\Selenium.WebDriver.IEDriver.targets'))" />
-    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.112.0.5615.4900\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.112.0.5615.4900\build\Selenium.WebDriver.ChromeDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.114.0.5735.9000\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.114.0.5735.9000\build\Selenium.WebDriver.ChromeDriver.targets'))" />
   </Target>
   <Import Project="..\packages\Selenium.WebDriver.IEDriver.4.8.1\build\Selenium.WebDriver.IEDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.IEDriver.4.8.1\build\Selenium.WebDriver.IEDriver.targets')" />
-  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.112.0.5615.4900\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.112.0.5615.4900\build\Selenium.WebDriver.ChromeDriver.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.114.0.5735.9000\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.114.0.5735.9000\build\Selenium.WebDriver.ChromeDriver.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

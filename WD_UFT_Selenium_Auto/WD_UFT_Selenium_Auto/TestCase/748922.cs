@@ -32,7 +32,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             string barcode2 = "X0125002";
             string tare = "10";
             string net = "454.4";
-            //defect 875266--new source
+            
 
 
             LogStep(@"1. Open WD web and login");
@@ -51,10 +51,12 @@ namespace WD_UFT_Selenium_Auto.TestCase
             LogStep(@"4. do Reset,Cancel,New Source, Partial dispense and Accept");
             //click reset
             set_weight("10", "100");
+            WD.mainWindow.GetSnapshot(Resultpath + "Before reset.PNG");
             WD.mainWindow.ScaleWeightInternalFrame.reset.Click();
             //click cancel
             WD_Fuction.SelectMehod(method, barcode);
             set_weight("15", "165");
+            WD.mainWindow.GetSnapshot(Resultpath + "Before cancel.PNG");
             WD.mainWindow.ScaleWeightInternalFrame.cancel.Click();
             Thread.Sleep(2000);
             WD.mainWindow.MaterialInternalFrame.materialTable.Row(material).Click();
@@ -62,18 +64,21 @@ namespace WD_UFT_Selenium_Auto.TestCase
             //click new source
             WD_Fuction.SelectMehod(method, barcode);
             set_weight("20", "120");
+            WD.mainWindow.GetSnapshot(Resultpath + "Before NewSource.PNG");
             WD.mainWindow.ScaleWeightInternalFrame.NewSource.Click();
             //click partial dispense
             WD.mainWindow.ScaleWeightInternalFrame.barcode.SendKeys(barcode2);
             WD.SimulatorWindow.weight.SetText("200");
             WD.SimulatorWindow.OK.Click();
+            WD.mainWindow.GetSnapshot(Resultpath + "Before Partial.PNG");
             WD.mainWindow.ScaleWeightInternalFrame.Partial.Click();
             if (WD.ErrorDialog.IsExist())
             {
                 WD.ErrorDialog.OKButton.Click();
             }
             //click accept
-            set_weight("10", "254.4");
+            set_weight_one("10", "274.4");
+            WD.mainWindow.GetSnapshot(Resultpath + "Before accept.PNG");
             WD.mainWindow.ScaleWeightInternalFrame.accept.Click();
             if (WD.ErrorDialog.IsExist())
             {
@@ -86,6 +91,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Web_Fuction.gotoTab(WDWebTab.report);
             Web.Report_Page.Weighing.Click();
             Web.Report_Page.Generate_Report.Click();
+            Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Weight Report.PNG");
 
             var columns = new List<string>() { "Begin Source", "End Source" };
             var datatexts = new List<string>() { "", "" };
@@ -147,6 +153,18 @@ namespace WD_UFT_Selenium_Auto.TestCase
         {
             //zeor
             WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
+            //tare
+            WD.SimulatorWindow.weight.SetText(tare);
+            WD.SimulatorWindow.OK.Click();
+            WD.mainWindow.ScaleWeightInternalFrame.tare.Click();
+            //weight
+            WD.SimulatorWindow.weight.SetText(net);
+            WD.SimulatorWindow.OK.Click();
+        }
+        public void set_weight_one(string tare, string net)
+        {
+            //zeor
+            WD.mainWindow.ScaleWeightInternalFrame.zero.ClickSignle();
             //tare
             WD.SimulatorWindow.weight.SetText(tare);
             WD.SimulatorWindow.OK.Click();

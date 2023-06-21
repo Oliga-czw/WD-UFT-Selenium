@@ -104,6 +104,13 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             helper.ExecuteNonQuery(delete);
             Base_logger.Message("Clean Inventory Data successfully in DB!");
         }
+        public static void CleanMaterialData()
+        {
+            SqlHelper helper = new SqlHelper();
+            string delete = $"DELETE FROM EBR_WD_MATERIAL_HANDLING_CHARACTERISTICS WHERE MATERIAL_TAG <> '<Default>'";
+            helper.ExecuteNonQuery(delete);
+            Base_logger.Message("Clean Material Data successfully in DB!");
+        }
 
         public static void CleanWeighHistory()
         {
@@ -253,12 +260,13 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             string signature = "10 aspen wd signautres bulk load.xml";
             string deviation = "14 aspen wd deviation bulk load.xml";
             string orders = "07 aspen wd orders bulk load.xml";
+            string booth_group = "17 aspen wd booth groups bulk load.xml";
 
             string scale = "02 aspen wd scales bulk load.xml";
             string booth = "01 aspen wd booths bulk load.xml";
             string permission = "09 aspen wd permissions bulk load.xml";
             string inventory = "05 aspen wd inventory bulk load.xml";
-            string[] files = new string[] { signature, deviation, orders};
+            string[] files = new string[] { signature, deviation, orders, booth_group };
             string[] overwrite = new string[] { booth, scale, permission, inventory };
             WD_Fuction.Bulkload(files);
             Thread.Sleep(5000);

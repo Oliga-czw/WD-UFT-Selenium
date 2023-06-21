@@ -31,6 +31,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
         {
             Base_logger.GenerateLogFile(CaseID);
             Base_logger.Info("Test Initialize");
+            Base_Test.KillProcess("BatchDetailDisplay");
             //Base_Test.KillProcess("javaw");
             Base_File.CleanWorkFolder(Base_Directory.GenerateOutputFileDir(CaseID, ""));
             //Initial data
@@ -54,6 +55,10 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Base_Test.KillProcess("javaw");
             Base_Test.KillProcess("chrome");
             
+            
+
+
+
         }
 
         public string CaseID => this.GetType().Name == null ? throw new ArgumentNullException() : TestCaseManage.GetCase(this.TestContext.TestName).CaseID;

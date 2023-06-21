@@ -40,7 +40,6 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD.mainWindow.BoothCleanInternalFrame.cleanComplete.Click();
             //get execute time
             DateTime execute_time = DateTime.Now;
-            Console.WriteLine(execute_time);
             LogStep(@"2. Open WD web and login");
             Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
             Web_Fuction.gotoWDWeb(driver);

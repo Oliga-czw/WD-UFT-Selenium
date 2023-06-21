@@ -46,7 +46,6 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public UFT_Button CampaignDispense => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnCampaignDispense']");
         public UFT_Button OrderKitting => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnOrderKitting']");
         public UFT_Button MaterialDispensing => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnMaterialDispense']");
-        public UFT_Button CampaignDispensing => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnCampaignDispense']");
         public UFT_Button LogOff => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnLogOff']");
         public UFT_Button Exit => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnExit']");
         public UFT_Label weightBooth => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'expOrderQty']");
@@ -77,6 +76,8 @@ namespace WD_UFT_Selenium_Auto.Product.WD
 
         public UFT_Table materialTable => new UFT_Table(_UFT_InterFrame, "//Table[@AttachedText = 'Materials:']");
         public UFT_Button next => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'MaterialNext']");
+        public UFT_Button cancel => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'CancelDispense']");
+
     }
 
     public class BoothClean_InterFrame : ClassMainInterFrame
@@ -87,7 +88,15 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public UFT_Button cleanComplete => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Cleaning']");
 
         public UFT_Button HomeButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Button0']");
-        
+
+        //Current status
+        public UFT_Label Status => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'DisplayLabel0']");
+        public UFT_Label PreviousClean => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'DisplayLabel1']");
+        //Last Dispense
+        public UFT_Label Material => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'DisplayLabel2']");
+        public UFT_Label Order => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'DisplayLabel3']");
+        public UFT_Label Product => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'DisplayLabel4']");
+
     }
     public class Handle_Information_InterFrame : ClassMainInterFrame
     {
@@ -121,6 +130,10 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public UFT_Label Expiration => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'dispLblExpiration']");
         public UFT_Label Potency => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'dispLblPotency']");
         public UFT_Editor net_editor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Net:']");
+
+        //target container
+        public UFT_Label tareLable => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'lblTare']");
+
     }
     public class OpenWeight_InterFrame : ClassMainInterFrame
     {
@@ -212,6 +225,8 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public UFT_Editor Search => new UFT_Editor(_UFT_InterFrame, "//Editor[@ObjectName = 'txtSearch']");
         public UFT_Button SearchButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnSearch']");
         public UFT_Table CampaignsTable => new UFT_Table(_UFT_InterFrame, "//Table[@TagName = 'Campaigns:']");
+        public UFT_Button nextButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName='btnNext']");
+        
     }
    
     //Handing_InterFrame

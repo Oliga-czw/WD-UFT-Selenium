@@ -18,6 +18,10 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
 
         public static string AFWDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\AspenTech\Aspen Security\AFW Security Manager(64-bit).lnk";
         public static string MOCDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Aspen Production Execution Manager MOC.lnk";
+
+        public static string BDDDir = @"C:\Program Files (x86)\AspenTech\Batch.21\Client\BatchDetailDisplay.exe";
+
+
         public static string WDBulkload
         {
             get
@@ -108,6 +112,20 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
 
         //public static string DownloadFileDir => "C:\\Users\\" + RegistryHive.CurrentUser + "\\Downloads";
         public static string DownloadFileDir => "C:\\Users\\"+ Environment.UserName + "\\Downloads";
-        
+
+        public static string BulkLoadDir => Base_Directory.ProjectDir + "Data\\Input\\BulkLoad\\";
+
+        public static string InventoryDownloadDir => "C:\\ProgramData\\AspenTech\\AeBRS\\WDDownload\\Pending\\Inventory";
+        public static string MaterialDownloadDir => "C:\\ProgramData\\AspenTech\\AeBRS\\WDDownload\\Pending\\Material";
+        public static string OrdersDownloadDir => "C:\\ProgramData\\AspenTech\\AeBRS\\WDDownload\\Pending\\Orders";
+
+
+        public static string ConfigDir => @"C:\Program Files\AspenTech\AeBRS\cfg_source\";
+        public static string Codify_all = @"C:\Program Files\AspenTech\AeBRS\cfg_source\codify_all.cmd";
+        public static string ConfigDirx86 => @"C:\Program Files (x86)\AspenTech\AeBRS\cfg_source\";
+
+        public static string Codify_allx86 = @"C:\Program Files (x86)\AspenTech\AeBRS\cfg_source\codify_all.cmd";
+
+
     }
 }

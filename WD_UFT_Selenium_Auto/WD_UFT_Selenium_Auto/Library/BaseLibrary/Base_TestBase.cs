@@ -176,6 +176,14 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
             MOC.MocmainWindow.LogonInternalFrame.loginbutton.ClickSignle();
         }
 
+        public static void LaunchBatchDetailDisplay()
+        {
+            Base_Test.LaunchApp(Base_Directory.BDDDir);
+            SdkConfiguration config = new SdkConfiguration();
+            SDK.Init(config);
+            Thread.Sleep(5000);
+         }
+
         public static void KillWD()
         {
             Base_Test.KillProcess(application);

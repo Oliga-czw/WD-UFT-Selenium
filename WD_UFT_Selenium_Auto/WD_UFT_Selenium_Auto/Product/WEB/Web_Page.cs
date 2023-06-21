@@ -17,6 +17,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
 
         public Selenium_WebElement body => new Selenium_WebElement(_Selenium_Driver, "//body");
         public Selenium_WebElement Message => new Selenium_WebElement(_Selenium_Driver, "//div[@title='Message']");
+        public Selenium_WebElement Confirm => new Selenium_WebElement(_Selenium_Driver, "//div[@title='Confirm']");
 
     }
     public class Login_Page : Web_Page
@@ -68,6 +69,8 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public Selenium_WebElement General => new Selenium_WebElement(_Selenium_Driver, "//div[text()='General']");
         public Selenium_WebElement Signatures => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Signatures']");
         public Selenium_WebElement Permissions => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Permissions']");
+        public Selenium_WebElement UserExits => new Selenium_WebElement(_Selenium_Driver, "//div[text()='User Exits']");
+        
 
 
         public Selenium_WebElement Apply => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Apply']");
@@ -86,6 +89,16 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public Selenium_WebElement deviation_table => new Selenium_WebElement(_Selenium_Driver, "//table[@class='Permission_Table_body_Style']/tbody", 0);
 
         #endregion
+        #region UserExits
+        public Selenium_WebElement ERPDownload => new Selenium_WebElement(_Selenium_Driver, "//div[text()='ERP Download']");
+
+
+
+        public Selenium_WebElement ERPInventoryDownload => new Selenium_WebElement(_Selenium_Driver, "//div[text()='ERP Inventory Download']");
+        public Selenium_WebElement ERPOrderDownload => new Selenium_WebElement(_Selenium_Driver, "//div[text()='ERP Order Download']");
+        public Selenium_WebElement ERPMaterialDownload => new Selenium_WebElement(_Selenium_Driver, "//div[text()='ERP Material Download']");
+        #endregion
+
         #region General
         public Selenium_WebElement log_on_required_chx => new Selenium_WebElement(_Selenium_Driver, "//label[text()='Log on required for Execution System']/../input");
 
@@ -125,6 +138,8 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public Selenium_WebElement Cleaning => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Cleaning']");
         public Selenium_WebElement Weighing => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Weighing']");
         public Selenium_WebElement ScaleCheck => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Scale Check']");
+        public Selenium_WebElement LabelReprint => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Label Reprint']");
+        
         public Selenium_WebElement Permissions => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Permissions']");
         #endregion
         public Selenium_WebElement Start_Time => new Selenium_WebElement(_Selenium_Driver, "//input[@class='Date_TextBox_Style']/../../td/img",0);
@@ -153,9 +168,23 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         }
         public Selenium_WebElement Refresh => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Refresh']");
         public Selenium_WebElement Activate => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Activate']");
+        public Selenium_WebElement CreateCampaign => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Create Campaign']");
         public Selenium_WebElement Redispense => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Redispense a Material']");
-        
-        
+        public Selenium_WebElement ReprintLable => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Reprint Label']");
+        //ReprintLable
+        public Selenium_WebElement ReprintContainerLabel => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Reprint Container Label']");
+        public Selenium_WebElement ReprintLableClose => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Close']");
+        //Tab
+        public Selenium_WebElement Campaigns => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Campaigns']");
+        public Selenium_WebElement DeviationManagement => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Deviation Management']");
+        public Selenium_WebElement Orders => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Orders' and @class='Tab_Label']");
+
+        //Campaign
+        public Selenium_WebElement Apply => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Apply']");
+
+        public Selenium_WebElement AssigntoCampaign => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Assign to Campaign']");
+      
+
     }
     public class CleanRules_Page : Web_Page
 

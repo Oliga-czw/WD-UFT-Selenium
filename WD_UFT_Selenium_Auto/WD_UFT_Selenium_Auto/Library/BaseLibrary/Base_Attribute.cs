@@ -122,6 +122,13 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
         public const string qaone2 = "qae\\qaone2(qaone2)";
 
     }
+    public class userNameforReport
+    {
+        public const string qaone1 = "qaone1(qaone1)";
+        public const string qaone2 = "qaone2(qaone2)";
+
+    }
+
     public class PassWord
     {
         public const string qaone1 = "Aspen111";
@@ -213,6 +220,11 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
     {
         public const string Net = "Net weigh";
         public const string Manual = "Manual";
+        public const string Netremoval = "Net removal";
+        public const string Gross = "Gross";
+        public const string Doublecheck = "Double check";
+        public const string Wholeissue = "Whole issue";
+        public const string SourceAsTarget = "Source as target";
 
 
     }
@@ -220,7 +232,10 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
     public class WDMaterial
     {
         public const string X0125 = "X0125";
+        public const string M801890 = "M801890";
+        public const string x1072 = "1072";
 
+        
 
     }
 
