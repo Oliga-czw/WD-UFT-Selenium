@@ -123,6 +123,7 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
             }
         }
 
+        //public ReadOnlyCollection<IListItem> SelectedItems { get; internal set; }
         public ReadOnlyCollection<IListItem> SelectedItems
         {
             get

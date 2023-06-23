@@ -17,27 +17,13 @@
   </GenericItem>
   <GenericItem>
     <Value>
-      <ValueString>ERP_AUTO_ACTIVATE_ORDERS</ValueString>
-      <DataType>string</DataType>
-      <UnitOfMeasure>unitless</UnitOfMeasure>
-      <Key>ConfigKey</Key>
-    </Value>
-    <Value>
-      <ValueString />
-      <DataType>string</DataType>
-      <UnitOfMeasure>unitless</UnitOfMeasure>
-      <Key>ConfigValue</Key>
-    </Value>
-  </GenericItem>
-  <GenericItem>
-    <Value>
       <ValueString>ERP_REPLACE_INVENTORY_ON_DOWNLOAD</ValueString>
       <DataType>string</DataType>
       <UnitOfMeasure>unitless</UnitOfMeasure>
       <Key>ConfigKey</Key>
     </Value>
     <Value>
-      <ValueString />
+      <ValueString>false</ValueString>
       <DataType>string</DataType>
       <UnitOfMeasure>unitless</UnitOfMeasure>
       <Key>ConfigValue</Key>
@@ -52,6 +38,20 @@
     </Value>
     <Value>
       <ValueString>C:\ProgramData\AspenTech\AeBRS\WDDownload</ValueString>
+      <DataType>string</DataType>
+      <UnitOfMeasure>unitless</UnitOfMeasure>
+      <Key>ConfigValue</Key>
+    </Value>
+  </GenericItem>
+  <GenericItem>
+    <Value>
+      <ValueString>ERP_AUTO_ACTIVATE_ORDERS</ValueString>
+      <DataType>string</DataType>
+      <UnitOfMeasure>unitless</UnitOfMeasure>
+      <Key>ConfigKey</Key>
+    </Value>
+    <Value>
+      <ValueString>false</ValueString>
       <DataType>string</DataType>
       <UnitOfMeasure>unitless</UnitOfMeasure>
       <Key>ConfigValue</Key>

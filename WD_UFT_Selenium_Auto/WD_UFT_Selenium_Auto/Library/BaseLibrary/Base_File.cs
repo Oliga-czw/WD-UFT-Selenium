@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Xml;
 
 namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
 {
@@ -133,13 +135,14 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
                 }
                 targetFilePath = Path.Combine(targetFilePath, pFileName);
             }
-            else
-            {
-                targetFilePath = fileTargerDir;
-            }
+            string fileName = Path.GetFileName(sourceName);
+            string targetPath = Path.Combine(directoryPath, fileName);
 
-            File.Copy(fileSourceDir, targetFilePath, IsOverwrite);
-            return targetFilePath;
+            FileInfo file = new FileInfo(sourceName);
+            if (file.Exists)
+            {
+                file.CopyTo(targetPath, IsOverwrite);
+            }
         }
         public static bool VerifyFileContents(string targetFile, string textContents)
         {
@@ -228,7 +231,7 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
             DeleteFolder(folderPath);
             try
             {
-                System.IO.Directory.CreateDirectory(folderPath);
+                Directory.CreateDirectory(folderPath);
             }
             catch (Exception e)
             {
@@ -421,7 +424,52 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
                 return dtStart.AddSeconds(Convert.ToInt64(timestamp));
             }
         }
-        
+        public static List<string> ReadCsv(string filePath)
+        {
+            var reader = new StreamReader(File.OpenRead(filePath));
+            List<string> listA = new List<string>();
+            List<string> listB = new List<string>();
+            int t = 1;
+            while (!reader.EndOfStream)
+            {
+                var line = reader.ReadLine();
+                var values = line.Split(';');
+                listA.Add(values[0]);
+                foreach (var coloumn1 in listA)
+                {
+                    if (t != 1 && t != 2)
+                    {
+                        listB.Add(coloumn1);
+                    }
+                    t++;
+
+                }
+            }
+            return listB;
+        }
+        public static string ReadXml(string filePath,int index)
+        {
+            //string path = @"C:\ProgramData\AspenTech\AeBRS\WDUpload\";
+            string[] files = Directory.GetFiles(filePath);
+            List<string> list = new List<string>(files);
+            // List<string> list = new List<string>(files.OrderBy(f => f.Length));
+            ArrayList al = new ArrayList();
+            list.Sort(new Comparison<string>(delegate (string a, string b)
+            {
+                return File.GetCreationTime(a).CompareTo(File.GetCreationTime(b));
+
+            }));
+            foreach (string f in list)
+            {
+                al.Add(f);
+            }
+            string XMLName = al[index].ToString();
+            StreamReader myFile = new StreamReader(XMLName, Encoding.Default);//注意System.Text.Encoding.Default
+            string myString = myFile.ReadToEnd();//myString是读出的字符串
+            myFile.Close();
+            return myString;
+        }
+
     }
 
 

@@ -31,7 +31,6 @@ namespace WD_UFT_Selenium_Auto.Product.WD
 
         public static void FinishDiapense(string method,string barcode)
         {
-
             WD.mainWindow.ScaleWeightInternalFrame.dispense_method.SelectItems(method);
             WD.mainWindow.ScaleWeightInternalFrame.barcode.SendKeys(barcode);
             WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
@@ -127,6 +126,29 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             helper.ExecuteNonQuery(delete);
             helper.ExecuteNonQuery(delete2);
             Base_logger.Message("Clean Orders Data successfully in DB!");
+        }
+        public static void CleanDeviationData()
+        {
+            SqlHelper helper = new SqlHelper();
+            string delete = $"DELETE FROM EBR_WD_DEVIATION";
+            string delete1 = $"DELETE FROM EBR_WD_DEVIATION_ACTION";
+            string delete2 = $"DELETE FROM EBR_WD_DEVIATION_ACCEPT";
+            helper.ExecuteNonQuery(delete);
+            helper.ExecuteNonQuery(delete1);
+            helper.ExecuteNonQuery(delete2);
+            Base_logger.Message("Clean Orders DeviationData successfully in DB!");
+        }
+        //EBR_WD_CAMPAIGN
+        public static void CleanCampaignData()
+        {
+            SqlHelper helper = new SqlHelper();
+            string delete = $"DELETE FROM EBR_WD_CAMPAIGN";
+            string delete1 = $"DELETE FROM EBR_WD_CAMPAIGN_AUDIT";
+            string delete2 = $"DELETE FROM EBR_WD_CAMPAIGN_ORDER";
+            helper.ExecuteNonQuery(delete);
+            helper.ExecuteNonQuery(delete1);
+            helper.ExecuteNonQuery(delete2);
+            Base_logger.Message("Clean Orders CampaignData successfully in DB!");
         }
         public static void Close()
         {
@@ -257,6 +279,8 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         {
             WD_Fuction.CleanOrdersData();
             CleanWeighHistory();
+            WD_Fuction.CleanDeviationData();
+            WD_Fuction.CleanCampaignData();
             string signature = "10 aspen wd signautres bulk load.xml";
             string deviation = "14 aspen wd deviation bulk load.xml";
             string orders = "07 aspen wd orders bulk load.xml";

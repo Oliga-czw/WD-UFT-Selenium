@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using WD_UFT_Selenium_Auto.Library.BaseLibrary;
 using WD_UFT_Selenium_Auto.Library.UFTLibrary;
-
+using WD_UFT_Selenium_Auto.Product.WD;
 using static WD_UFT_Selenium_Auto.Product.WD.ClassMainWindow;
 
 namespace WD_UFT_Selenium_Auto.Product.WD

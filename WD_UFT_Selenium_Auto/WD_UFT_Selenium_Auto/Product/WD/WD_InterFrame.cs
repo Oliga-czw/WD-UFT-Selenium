@@ -77,7 +77,6 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public UFT_Table materialTable => new UFT_Table(_UFT_InterFrame, "//Table[@AttachedText = 'Materials:']");
         public UFT_Button next => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'MaterialNext']");
         public UFT_Button cancel => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'CancelDispense']");
-
     }
 
     public class BoothClean_InterFrame : ClassMainInterFrame
@@ -129,6 +128,9 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public UFT_Label Status => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'dispLblStatus']");
         public UFT_Label Expiration => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'dispLblExpiration']");
         public UFT_Label Potency => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'dispLblPotency']");
+        public UFT_Button comment => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'sbtnComment']");
+        public UFT_UiObject weighBar => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@ObjectName = 'WeighBar']");
+        //WeighBar
         public UFT_Editor net_editor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Net:']");
 
         //target container
@@ -179,6 +181,17 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public UFT_Button homeButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName='Button0']");
         public UFT_List StandardizationList => new UFT_List(_UFT_InterFrame, "//List[@ObjectName = 'cbxStandzn']");
         public UFT_Button startcheck => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnStartCheck']");
+        public UFT_Button testScale => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnTestScale']");
+    }
+    //TestScale_InterFrame
+    public class TestScale_InterFrame : ClassMainInterFrame
+    {
+        public TestScale_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+
+        public UFT_Editor RangeMin => new UFT_Editor(_UFT_InterFrame, "//Editor[@ObjectName = 'txtRangeMin']");
+        public UFT_Button Apply => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnSaveScale']");
     }
     public class CheckWeight_InterFrame : ClassMainInterFrame
     {
@@ -197,6 +210,8 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public UFT_Button zero => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnZero']");
         public UFT_Button readScale => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnReadScale']");
         public UFT_Button accept => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnAccept']");
+        
+        
         public UFT_Table checkTable => new UFT_Table(_UFT_InterFrame, "//Table[@AttachedText = 'Expiration date:']");
     }
     public class SelectAnOrderToKitting_InterFrame : ClassMainInterFrame
@@ -222,6 +237,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         }
 
         public UFT_Button homeButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName='btnHome']");
+        public UFT_Button nextButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName='btnNext']");
         public UFT_Editor Search => new UFT_Editor(_UFT_InterFrame, "//Editor[@ObjectName = 'txtSearch']");
         public UFT_Button SearchButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnSearch']");
         public UFT_Table CampaignsTable => new UFT_Table(_UFT_InterFrame, "//Table[@TagName = 'Campaigns:']");
@@ -236,6 +252,15 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         {
         }
         public UFT_Button AcknowledgeButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnAcknowledge']");
+    }
+    //Comment_InterFrame
+    public class Comment_InterFrame : ClassMainInterFrame
+    {
+        public Comment_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+        public UFT_Editor commentEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@ObjectName = 'Comment:']");
+        public UFT_Button OKButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'CommentOkBtn']");
     }
 }
 
