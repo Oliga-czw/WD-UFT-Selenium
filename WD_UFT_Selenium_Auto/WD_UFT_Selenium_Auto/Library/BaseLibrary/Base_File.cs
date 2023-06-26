@@ -114,26 +114,13 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
             File.Copy(inputFilePath, outputFilePath);
             return outputFilePath;
         }
-        public static string CopyFile(string fileSourceDir, string fileTargerDir, bool IsOverwrite)
+        public static void CopyFile(string sourceName, string directoryPath, bool IsOverwrite)
         {
-            int lastIndex = fileTargerDir.LastIndexOf("\\");
-            string pFilePath = fileTargerDir.Substring(0, lastIndex);
-            string pFileName = fileTargerDir.Substring(lastIndex + 1);
-            string targetFilePath = string.Empty;
-
-            if (pFilePath.Contains('\\'))
+            //string sourceName = @"C:\WD_UFT_Selenium_Git\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\Data\Input\BulkLoad\07 aspen wd orders bulk load.xml";
+            //string directoryPath = @"C:\ProgramData\AspenTech\AeBRS\WDDownload\Pending\Orders";
+            if (!Directory.Exists(directoryPath))
             {
-                string[] subfolders = pFilePath.Split('\\');
-                targetFilePath = subfolders[0];
-                for (int i = 1; i < subfolders.Count(); ++i)
-                {
-                    targetFilePath = targetFilePath + "\\" + subfolders[i];
-                    if (!Directory.Exists(targetFilePath))
-                    {
-                        Directory.CreateDirectory(targetFilePath);
-                    }
-                }
-                targetFilePath = Path.Combine(targetFilePath, pFileName);
+                Directory.CreateDirectory(directoryPath);
             }
             string fileName = Path.GetFileName(sourceName);
             string targetPath = Path.Combine(directoryPath, fileName);
