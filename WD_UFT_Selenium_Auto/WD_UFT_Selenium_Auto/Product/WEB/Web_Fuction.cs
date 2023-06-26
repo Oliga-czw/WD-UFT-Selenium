@@ -69,6 +69,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
 
         public static void administration_Apply(string text)
         {
+            Thread.Sleep(4000);
             if (Web.Administration_Page.Apply.isEnable())
             {
                 Web.Administration_Page.Apply.Click();

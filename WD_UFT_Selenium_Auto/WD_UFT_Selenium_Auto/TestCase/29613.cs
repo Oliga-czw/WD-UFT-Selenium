@@ -68,6 +68,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             }
             WD.mainWindow.HandingInternalFrame.AcknowledgeButton.ClickSignle();
             WD.mainWindow.ScaleWeightInternalFrame.barcode.SendKeys("M801890001");
+            Thread.Sleep(2000);
             if (WD.ConfirmationDialog._UFT_Dialog.IsEnabled)
             {
                 WD.ConfirmationDialog.YesButton.Click();

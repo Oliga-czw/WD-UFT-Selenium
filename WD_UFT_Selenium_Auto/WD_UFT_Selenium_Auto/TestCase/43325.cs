@@ -97,6 +97,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD.mainWindow.DispensingInternalFrame.next.Click();
             WD.mainWindow.MaterialInternalFrame.materialTable.Row(material).Click();
             WD.mainWindow.MaterialInternalFrame.next.Click();
+            Thread.Sleep(2000);
             WD.mainWindow.BoothCleanInternalFrame.cleanComplete.Click();
             //check error
             WD.mainWindow.GetSnapshot(Resultpath + "clean booth error.PNG");

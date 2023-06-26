@@ -71,7 +71,9 @@ namespace WD_UFT_Selenium_Auto.TestCase
                 WD.mainWindow.BoothCleanInternalFrame.cleanComplete.Click();
             }
             WD.mainWindow.ScaleWeightInternalFrame.barcode.SendKeys("X0125001");
+            Thread.Sleep(6000);
             WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
+            Thread.Sleep(2000);
             WD.mainWindow.ScaleWeightInternalFrame.tare.Click();
             WD.SimulatorWindow.weight.SetText("444");
 

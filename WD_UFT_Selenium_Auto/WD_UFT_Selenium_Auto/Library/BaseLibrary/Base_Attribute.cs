@@ -108,6 +108,7 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
     {
         public const string qaone1 = "qae\\qaone1";
         public const string qaone2 = "qae\\qaone2";
+        public const string qaone3 = "qae\\qaone3";
 
     }
     public class FulluserNameWeb
@@ -133,6 +134,7 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
     {
         public const string qaone1 = "Aspen111";
         public const string qaone2 = "Aspen111";
+        public const string qaone3 = "Aspen111";
 
     }
  

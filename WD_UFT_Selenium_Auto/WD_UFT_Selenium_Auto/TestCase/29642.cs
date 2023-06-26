@@ -201,7 +201,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
 
             driver1.FindElement("//div[text()='Permissions']").Click();
             Thread.Sleep(5000);
-            Web_Fuction.RestorePermission(Selenium_Driver._Selenium_Driver);
+            //Web_Fuction.RestorePermission(Selenium_Driver._Selenium_Driver);
             var role_list = driver1.FindElements("//select/option");
             ArrayList roleNameList = new ArrayList();
             foreach (var roleName in role_list)

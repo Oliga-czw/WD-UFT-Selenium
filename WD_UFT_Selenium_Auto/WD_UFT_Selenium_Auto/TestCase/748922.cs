@@ -30,8 +30,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             string method = WDMethod.Net;
             string barcode = "X0125001";
             string barcode2 = "X0125002";
-            string tare = "10";
-            string net = "454.4";
+            
             
 
 

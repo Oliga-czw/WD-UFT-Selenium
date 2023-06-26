@@ -241,7 +241,6 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public UFT_Editor Search => new UFT_Editor(_UFT_InterFrame, "//Editor[@ObjectName = 'txtSearch']");
         public UFT_Button SearchButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnSearch']");
         public UFT_Table CampaignsTable => new UFT_Table(_UFT_InterFrame, "//Table[@TagName = 'Campaigns:']");
-        public UFT_Button nextButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName='btnNext']");
         
     }
    
@@ -259,7 +258,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public Comment_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
         {
         }
-        public UFT_Editor commentEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@ObjectName = 'Comment:']");
+        public UFT_Editor commentEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@TagName = 'Comment:']");
         public UFT_Button OKButton => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'CommentOkBtn']");
     }
 }

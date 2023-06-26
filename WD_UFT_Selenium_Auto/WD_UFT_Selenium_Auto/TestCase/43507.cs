@@ -52,7 +52,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD.SimulatorWindow.weight.SetText("444");
 
             WD.SimulatorWindow.OK.Click();
-
+            Thread.Sleep(2000);
             WD.mainWindow.ScaleWeightInternalFrame.accept.Click();
             if (WD.ErrorDialog.IsExist())
             {

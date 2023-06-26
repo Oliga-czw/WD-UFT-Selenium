@@ -143,7 +143,11 @@ namespace WD_UFT_Selenium_Auto.TestCase
                     List<string> list = new List<string>(files);
                     Base_Assert.AreNotEqual(list.Count(), 0);
                 }
-                
+
+                Web.Administration_Page.folder_for_upload.Clear();
+                Web.Administration_Page.folder_for_upload.SendKeys("C:\\ProgramData\\AspenTech\\AeBRS\\WDUpload");
+                Thread.Sleep(2000);
+                Web_Fuction.administration_Apply("Configuration successfully saved");
             }
             
         }

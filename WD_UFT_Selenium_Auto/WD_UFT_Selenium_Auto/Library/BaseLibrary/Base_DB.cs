@@ -13,7 +13,7 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
         static string server = Environment.MachineName;
         static string database = "AeBRS";
         static string user = "sa";
-        static string password = "Aspen000";
+        static string password = "Aspen100";
         //private string ConStr = "Data Source = " + server + "; Database=" + database + "; User Id = " + user + "; Password = " + password;
         private string ConStr = $"Data Source ={server}; Database={database};User Id={user};Password={password}";
         //private string server2 = "Oliga-2022-2";
