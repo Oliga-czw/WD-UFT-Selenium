@@ -70,7 +70,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public static void administration_Apply(string text)
         {
             Thread.Sleep(4000);
-            if (Web.Administration_Page.Apply.isEnable())
+            if (Web.Administration_Page.Apply.GetAttribute("disabled") is null)
             {
                 Web.Administration_Page.Apply.Click();
                 string message = Web.Web_Page.Message._Selenium_WebElement.FindElement(By.XPath("//div[@class='gwt-Label Alert_Label']")).Text;

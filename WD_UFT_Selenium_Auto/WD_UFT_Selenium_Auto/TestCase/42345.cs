@@ -39,6 +39,8 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Web_Fuction.login();
             driver.Wait();
             Web_Fuction.gotoTab(WDWebTab.order);
+            Web.Order_Page.Refresh.Click();
+            Thread.Sleep(6000);
             Web_Fuction.active_order(order);
             LogStep(@"2. Open WD client and finish weight");
             Application.LaunchWDAndLogin();

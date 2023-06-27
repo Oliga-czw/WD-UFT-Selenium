@@ -35,10 +35,11 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Web_Fuction.login();
             driver.Wait();
             Web_Fuction.gotoTab(WDWebTab.order);
+            Web.Order_Page.Refresh.Click();
+            Thread.Sleep(6000);
             Web_Fuction.active_order(order);
-            driver.FindElement("//button[@class='WDAnchor_Common_Image16_Style Refresh_Image']").Click();
-            driver.FindElement("//button[@class='WDAnchor_Common_Image16_Style Refresh_Image']").Click();
-            Thread.Sleep(5000);
+            Web.Order_Page.Refresh.Click();
+            Thread.Sleep(6000);
             driver.FindElement("//td[text()='test1']/../td[1]/span/input").Click();
             driver.FindElement("//a[text()='Create Campaign']").Click();
             driver.FindElement("//input[@class='WD_TextBox']").SendKeys("testCampaign");

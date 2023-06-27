@@ -101,15 +101,21 @@ namespace WD_UFT_Selenium_Auto.TestCase
             //    Thread.Sleep(2000);
             //}
             WD.mainWindow.ScaleWeightInternalFrame.barcode.SendKeys("X0125001");
+            Thread.Sleep(5000);
+            if (WD.ErrorDialog.IsExist())
+            {
+                WD.ErrorDialog.OKButton.Click();
+            }
+            WD.mainWindow.ScaleWeightInternalFrame.comment.ClickSignle();
             Thread.Sleep(2000);
-            WD.mainWindow.ScaleWeightInternalFrame.comment.Click();
-            Thread.Sleep(2000);
-            WD.mainWindow.CommentInternalFrame.commentEditor.SetText("For Test");
+            WD.mainWindow.CommentInternalFrame.commentEditor.SendKeys("For Test");
             WD.mainWindow.CommentInternalFrame.OKButton.Click();
             Thread.Sleep(2000);
             WD.mainWindow.GetSnapshot(Resultpath + "Comment_Signature.PNG");
             WD.mainWindow.Dialog.Password.SetSecure(PassWord.qaone1);
             WD.mainWindow.Dialog.OK.Click();
+            Thread.Sleep(3000);
+            WD.mainWindow.ScaleWeightInternalFrame.scale.SelectItems("simulator");
             WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
             WD.mainWindow.ScaleWeightInternalFrame.tare.Click();
             WD.SimulatorWindow.weight.SetText("400");
@@ -131,7 +137,8 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD.mainWindow.Dialog.OK.Click();
             Thread.Sleep(2000);
             WD.mainWindow.ScaleWeightInternalFrame.barcode.SendKeys("X0125001");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
+            WD.mainWindow.ScaleWeightInternalFrame.scale.SelectItems("simulator");
             WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
             WD.mainWindow.ScaleWeightInternalFrame.tare.Click();
             WD.SimulatorWindow.weight.SetText("444");
@@ -150,11 +157,12 @@ namespace WD_UFT_Selenium_Auto.TestCase
             {
                 WD.ConfirmationDialog.YesButton.Click();
             }
+            Thread.Sleep(2000);
             if (WD.ErrorDialog.IsExist())
             {
                 WD.ErrorDialog.OKButton.Click();
             }
-
+            Thread.Sleep(2000);
             WD.mainWindow.MaterialInternalFrame.materialTable.SelectRows(0);
             WD.mainWindow.MaterialInternalFrame.next.Click();
             if (WD.mainWindow.BoothCleanInternalFrame.IsEnabled)
@@ -163,11 +171,14 @@ namespace WD_UFT_Selenium_Auto.TestCase
 
             }
             WD.mainWindow.HandingInternalFrame.AcknowledgeButton.ClickSignle();
+            Thread.Sleep(4000);
             WD.mainWindow.ScaleWeightInternalFrame.barcode.SendKeys("M801890001");
+            Thread.Sleep(4000);
             if (WD.ConfirmationDialog._UFT_Dialog.IsEnabled)
             {
                 WD.ConfirmationDialog.YesButton.Click();
             }
+            Thread.Sleep(5000);
             WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
             WD.mainWindow.ScaleWeightInternalFrame.tare.Click();
             WD.SimulatorWindow.weight.SetText("180");
@@ -175,12 +186,16 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD.SimulatorWindow.OK.Click();
 
             WD.mainWindow.ScaleWeightInternalFrame.accept.Click();
+            Thread.Sleep(4000);
+            WD.mainWindow.Dialog.UserID.SetText(UserName.qaone1);
+            WD.mainWindow.Dialog.Password.SetSecure(PassWord.qaone1);
+            WD.mainWindow.Dialog.OK.Click();
+            Thread.Sleep(2000);
             if (WD.ErrorDialog.IsExist())
             {
                 WD.ErrorDialog.OKButton.Click();
             }
-
-
+            Thread.Sleep(4000);
             WD.mainWindow.MaterialInternalFrame.materialTable.SelectRows(0);
             WD.mainWindow.MaterialInternalFrame.next.Click();
             if (WD.mainWindow.BoothCleanInternalFrame.IsEnabled)
@@ -189,11 +204,13 @@ namespace WD_UFT_Selenium_Auto.TestCase
 
             }
             WD.mainWindow.HandingInternalFrame.AcknowledgeButton.ClickSignle();
+            Thread.Sleep(4000);
             WD.mainWindow.ScaleWeightInternalFrame.barcode.SendKeys("1072003");
             if (WD.ConfirmationDialog._UFT_Dialog.IsEnabled)
             {
                 WD.ConfirmationDialog.YesButton.Click();
             }
+            Thread.Sleep(4000);
             WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
             WD.mainWindow.ScaleWeightInternalFrame.tare.Click();
             WD.SimulatorWindow.weight.SetText("180");
@@ -201,6 +218,11 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD.SimulatorWindow.OK.Click();
 
             WD.mainWindow.ScaleWeightInternalFrame.accept.Click();
+            Thread.Sleep(4000);
+            WD.mainWindow.Dialog.UserID.SetText(UserName.qaone1);
+            WD.mainWindow.Dialog.Password.SetSecure(PassWord.qaone1);
+            WD.mainWindow.Dialog.OK.Click();
+            Thread.Sleep(2000);
             if (WD.ErrorDialog.IsExist())
             {
                 WD.ErrorDialog.OKButton.Click();
@@ -229,8 +251,8 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD.mainWindow.Dialog.OK.Click();
             Thread.Sleep(2000);
             WD.mainWindow.GetSnapshot(Resultpath + "OrderKitting_Manager_Signature.PNG");
-            WD.mainWindow.Dialog.UserID.SetText("qae\\qaone3");
-            WD.mainWindow.Dialog.Password.SetSecure(PassWord.qaone1);
+            WD.mainWindow.Dialog.UserID.SetText(UserName.qaone3);
+            WD.mainWindow.Dialog.Password.SetSecure(PassWord.qaone3);
             WD.mainWindow.Dialog.Comment.SetText("For Test");
             WD.mainWindow.Dialog.OK.Click();
             Thread.Sleep(2000);

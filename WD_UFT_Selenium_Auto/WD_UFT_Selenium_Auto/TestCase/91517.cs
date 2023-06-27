@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using WD_UFT_Selenium_Auto.Library.BaseLibrary;
 using WD_UFT_Selenium_Auto.Library.SeleniumLibrary;
 using WD_UFT_Selenium_Auto.Product.WD;
+using Keys = OpenQA.Selenium.Keys;
 
 namespace WD_UFT_Selenium_Auto.TestCase
 {
@@ -61,11 +62,16 @@ namespace WD_UFT_Selenium_Auto.TestCase
             {
                 Web.Administration_Page.folder_for_upload.Clear();
                 Web.Administration_Page.folder_for_upload.SendKeys(folders[i]);
+                Web.Administration_Page.folder_for_upload.SendKeys(Keys.Enter);
                 Thread.Sleep(2000);
                 Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "folder"+i.ToString() + ".PNG");
-                Console.Write(driver.FindElement("//button[text()='Apply']").GetAttribute("disabled"));
-                Web_Fuction.administration_Apply("Configuration successfully saved");
-                Thread.Sleep(3000);
+                //Console.Write(driver.FindElement("//button[text()='Apply']").GetAttribute("disabled"));
+                if (i!=0)
+                {
+                    Web_Fuction.administration_Apply("Configuration successfully saved");
+                    Thread.Sleep(3000);
+                }
+                
                 if (Directory.Exists(folders[i]))
                 {
                     Base_File.ClearFolder(folders[i]);
@@ -91,6 +97,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
                     WD.mainWindow.HandleInformationInterFrame.Acknowledge.ClickSignle();
                 }
                 WD.mainWindow.ScaleWeightInternalFrame.barcode.SendKeys(barcodes[i]);
+
                 if (WD.ConfirmationDialog._UFT_Dialog.Exists())
                 {
                     WD.ConfirmationDialog.YesButton.Click();
@@ -98,7 +105,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
                 WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
                 WD.mainWindow.ScaleWeightInternalFrame.tare.Click();
                 WD.SimulatorWindow.weight.SetText("90");
-
+                Thread.Sleep(2000);
                 WD.SimulatorWindow.OK.Click();
                 WD.mainWindow.ScaleWeightInternalFrame.accept.Click(); 
 
@@ -144,10 +151,10 @@ namespace WD_UFT_Selenium_Auto.TestCase
                     Base_Assert.AreNotEqual(list.Count(), 0);
                 }
 
-                Web.Administration_Page.folder_for_upload.Clear();
-                Web.Administration_Page.folder_for_upload.SendKeys("C:\\ProgramData\\AspenTech\\AeBRS\\WDUpload");
-                Thread.Sleep(2000);
-                Web_Fuction.administration_Apply("Configuration successfully saved");
+                //Web.Administration_Page.folder_for_upload.Clear();
+                //Web.Administration_Page.folder_for_upload.SendKeys("C:\\ProgramData\\AspenTech\\AeBRS\\WDUpload");
+                //Thread.Sleep(2000);
+                //Web_Fuction.administration_Apply("Configuration successfully saved");
             }
             
         }

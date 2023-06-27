@@ -151,6 +151,8 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Web_Fuction.gotoTab(WDWebTab.order);
             Web.Order_Page.Refresh.Click();
             Thread.Sleep(3000);
+            Web.Order_Page.Refresh.Click();
+            Thread.Sleep(3000);
             Base_Assert.AreEqual(driver.FindElement("//td[text()='test1']/../td[7]").Text, "Completed");
             driver.FindElement("//td[text()='test1']/../td[3]/img").Click();
             Base_Assert.IsFalse(driver.FindElement("//a[text()='Redispense a Material']").GetAttribute("class").Contains("Disable"));

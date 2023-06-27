@@ -281,6 +281,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             CleanWeighHistory();
             WD_Fuction.CleanDeviationData();
             WD_Fuction.CleanCampaignData();
+            string integration = "11 aspen wd integration bulk load.xml";
             string signature = "10 aspen wd signautres bulk load.xml";
             string deviation = "14 aspen wd deviation bulk load.xml";
             string orders = "07 aspen wd orders bulk load.xml";
@@ -290,7 +291,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             string booth = "01 aspen wd booths bulk load.xml";
             string permission = "09 aspen wd permissions bulk load.xml";
             string inventory = "05 aspen wd inventory bulk load.xml";
-            string[] files = new string[] { signature, deviation, orders, booth_group };
+            string[] files = new string[] { integration,signature, deviation, orders, booth_group };
             string[] overwrite = new string[] { booth, scale, permission, inventory };
             WD_Fuction.Bulkload(files);
             Thread.Sleep(5000);

@@ -51,8 +51,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             code.SendKeys("testStates");
             driver.FindElement("//button[text()='Apply']").Click();
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "state.PNG");
-
-
+            Thread.Sleep(3000);
             // add an Evevt
             Web.Administration_Page.Transitions.Click();
             Thread.Sleep(3000);
