@@ -245,6 +245,22 @@ namespace WD_UFT_Selenium_Auto.Product.WD
 
         #endregion
     }
+
+
+    public class Iventory_Page : Web_Page
+
+    {
+        public Iventory_Page(IWebDriver driver) : base(driver)
+        {
+        }
+
+
+        
+
+
+
+
+    }
 }
 
 

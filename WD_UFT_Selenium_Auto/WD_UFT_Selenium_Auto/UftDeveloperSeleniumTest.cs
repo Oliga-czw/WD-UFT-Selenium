@@ -4,6 +4,8 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support;
 using System;
 using System.Drawing;
+using System.IO;
+using System.Text.RegularExpressions;
 using WD_UFT_Selenium_Auto.Library.BaseLibrary;
 using WD_UFT_Selenium_Auto.Product.WD;
 
@@ -27,13 +29,43 @@ namespace WD_UFT_Selenium_Auto
         {
             //Application.LaunchBatchDetailDisplay();
             //Batch_Fuction.findBatch("test2");
-            SdkConfiguration config = new SdkConfiguration();
-            SDK.Init(config);
-            WD.BatchMainWindow.TreeView.GetNode("Batch").Expand();
-            WD.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1]").Expand();
-            WD.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1];BOM [1]").Expand();
-            WD.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1];BOM [1];Material [1]").Expand();
-            WD.BatchMainWindow.TreeView.Selete("Batch;WEIGH_AND_DISPENSE [1];BOM [1];Material [1];Action [1]");
+            //SdkConfiguration config = new SdkConfiguration();
+            //SDK.Init(config);
+
+            SqlHelper helper = new SqlHelper();
+            string sql = $"SELECT BEGIN_SOURCE_GROSS,END_SOURCE_GROSS FROM EBR_WD_WEIGH_HISTORY";
+            var dt = helper.Execute(sql);
+            Console.WriteLine(dt[0][0]);
+
+            ////add key
+            //FileStream fs = new FileStream(path, FileMode.Append);
+            //StreamWriter sw = new StreamWriter(fs);
+            //sw.WriteLine("NET_REMOVAL_REQUIRE_TARGET_TARE = 1");
+            //sw.Close();
+
+            ////delete key
+            //string all = File.ReadAllText(path);
+            //all = Regex.Replace(all, @"NET_REMOVAL_REQUIRE_TARGET_TARE = \d{1}", "");
+            //Console.WriteLine(all);
+            //File.WriteAllText(path, all);
+
+            ////search
+            //string[] str = File.ReadAllLines(path);
+            //foreach (string text in str)
+            //{
+            //    if(Regex.Match(text, @"NET_REMOVAL_REQUIRE_TARGET_TARE = \d{1}") != null)
+            //    {
+            //        Console.WriteLine(Regex.Match(text, @"NET_REMOVAL_REQUIRE_TARGET_TARE = \d{1}$"));
+            //    }
+
+            //}
+
+
+
+            //StreamReader sr = new StreamReader(path);
+            //string content = sr.ReadToEnd();
+            //sr.Close();
+            //Console.WriteLine(content);
         }
         [TestCleanup]
         public void TestCleanup()
