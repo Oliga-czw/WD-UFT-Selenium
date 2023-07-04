@@ -70,7 +70,8 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public Selenium_WebElement Signatures => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Signatures']");
         public Selenium_WebElement Permissions => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Permissions']");
         public Selenium_WebElement UserExits => new Selenium_WebElement(_Selenium_Driver, "//div[text()='User Exits']");
-        
+        public Selenium_WebElement Integration => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Integration']");
+
 
 
         public Selenium_WebElement Apply => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Apply']");
@@ -84,7 +85,10 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public Selenium_WebElement Types => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Types']");
         public Selenium_WebElement Transitions => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Transitions']");
         #endregion
+        #region General
+        public Selenium_WebElement log_on_required_chx => new Selenium_WebElement(_Selenium_Driver, "//label[text()='Log on required for Execution System']/../input");
 
+        #endregion
         #region deviations
         public Selenium_WebElement deviation_table => new Selenium_WebElement(_Selenium_Driver, "//table[@class='Permission_Table_body_Style']/tbody", 0);
 
@@ -99,8 +103,10 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public Selenium_WebElement ERPMaterialDownload => new Selenium_WebElement(_Selenium_Driver, "//div[text()='ERP Material Download']");
         #endregion
 
-        #region General
-        public Selenium_WebElement log_on_required_chx => new Selenium_WebElement(_Selenium_Driver, "//label[text()='Log on required for Execution System']/../input");
+        #region Integration
+        public Selenium_WebElement Automatically_checkbox => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Automatically activate Released orders']/../../td[1]/span/input");
+        public Selenium_WebElement folder_for_Download => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Folder directory for XML download:']/../../td[2]/input");
+        public Selenium_WebElement folder_for_upload => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Folder directory for upload file:']/../../td[2]/input");
 
         #endregion
     }
@@ -170,6 +176,10 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public Selenium_WebElement Activate => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Activate']");
         public Selenium_WebElement CreateCampaign => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Create Campaign']");
         public Selenium_WebElement Redispense => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Redispense a Material']");
+        public Selenium_WebElement Cancel => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Cancel']");
+        public Selenium_WebElement Archive => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Archive']");
+        public Selenium_WebElement Finish => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Finish']");
+
         public Selenium_WebElement ReprintLable => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Reprint Label']");
         //ReprintLable
         public Selenium_WebElement ReprintContainerLabel => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Reprint Container Label']");

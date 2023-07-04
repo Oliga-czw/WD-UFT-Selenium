@@ -55,7 +55,9 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Thread.Sleep(3000);
             LogStep(@"3. go to web and redispense");
             Web.Order_Page.Refresh.Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(6000);
+            Web.Order_Page.Refresh.Click();
+            Thread.Sleep(6000);
             Web_Fuction.edit_order(order);
             Web.Order_Page.Redispense.Click();
             //select all material to redispense

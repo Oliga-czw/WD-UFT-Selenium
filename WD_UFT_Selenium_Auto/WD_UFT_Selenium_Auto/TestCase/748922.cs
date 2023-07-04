@@ -30,8 +30,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             string method = WDMethod.Net;
             string barcode = "X0125001";
             string barcode2 = "X0125002";
-            string tare = "10";
-            string net = "454.4";
+            
             
 
 
@@ -90,6 +89,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             LogStep(@"4. Check weight report");
             Web_Fuction.gotoTab(WDWebTab.report);
             Web.Report_Page.Weighing.Click();
+            Thread.Sleep(5000);
             Web.Report_Page.Generate_Report.Click();
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Weight Report.PNG");
 

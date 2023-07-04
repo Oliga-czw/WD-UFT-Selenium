@@ -88,6 +88,8 @@ namespace WD_UFT_Selenium_Auto.TestCase
             LogStep(@"5. Check signature in batch");
             Application.LaunchBatchDetailDisplay();
             Batch_Fuction.findBatch(order);
+            //wait for loading
+            Thread.Sleep(40000);
             WD.BatchMainWindow.TreeView.GetNode("Batch").Expand();
             WD.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1]").Expand();
             WD.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1];BOM [1]").Expand();

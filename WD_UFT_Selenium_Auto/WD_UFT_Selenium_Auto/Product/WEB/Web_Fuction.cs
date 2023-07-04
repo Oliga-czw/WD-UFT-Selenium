@@ -69,7 +69,8 @@ namespace WD_UFT_Selenium_Auto.Product.WD
 
         public static void administration_Apply(string text)
         {
-            if (Web.Administration_Page.Apply.isEnable())
+            Thread.Sleep(4000);
+            if (Web.Administration_Page.Apply.GetAttribute("disabled") is null)
             {
                 Web.Administration_Page.Apply.Click();
                 string message = Web.Web_Page.Message._Selenium_WebElement.FindElement(By.XPath("//div[@class='gwt-Label Alert_Label']")).Text;
@@ -494,6 +495,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             Thread.Sleep(2000);
             string xpath = "//td[text()='" + ordername + "']";
             //get order
+            Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath("//input[@class='Tab_Manu_bar_Margin Tab_Menu_Bar_Search_Box']")).Clear();
             Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath("//input[@class='Tab_Manu_bar_Margin Tab_Menu_Bar_Search_Box']")).SendKeys(ordername);
             Thread.Sleep(2000);
             var order = Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath(xpath));
@@ -506,6 +508,47 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             }
             Thread.Sleep(2000);
             Base_Assert.AreEqual("Active", order.FindElement(By.XPath("../td[7]")).Text,"Active order");
+            Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath("//input[@class='Tab_Manu_bar_Margin Tab_Menu_Bar_Search_Box']")).Clear();
+
+        }
+        public static void Archive_order(string ordername)
+        {
+            Thread.Sleep(2000);
+            string xpath = "//td[text()='" + ordername + "']";
+            //get order
+            Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath("//input[@class='Tab_Manu_bar_Margin Tab_Menu_Bar_Search_Box']")).Clear();
+            Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath("//input[@class='Tab_Manu_bar_Margin Tab_Menu_Bar_Search_Box']")).SendKeys(ordername);
+            Thread.Sleep(2000);
+            var order = Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath(xpath));
+            //check order status and archive
+            string status = order.FindElement(By.XPath("../td[7]")).Text;
+            if (status == "Cancelled")
+            {
+                order.FindElement(By.XPath("..//td/span[@class='gwt-CheckBox']")).Click();
+                Web.Order_Page.Archive.Click();
+            }
+            Thread.Sleep(2000);
+            Base_Assert.AreEqual("Archived", order.FindElement(By.XPath("../td[7]")).Text, "Archive order");
+            Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath("//input[@class='Tab_Manu_bar_Margin Tab_Menu_Bar_Search_Box']")).Clear();
+        }
+        public static void cancel_order(string ordername)
+        {
+            Thread.Sleep(2000);
+            string xpath = "//td[text()='" + ordername + "']";
+            //get order
+            Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath("//input[@class='Tab_Manu_bar_Margin Tab_Menu_Bar_Search_Box']")).Clear();
+            Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath("//input[@class='Tab_Manu_bar_Margin Tab_Menu_Bar_Search_Box']")).SendKeys(ordername);
+            Thread.Sleep(2000);
+            var order = Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath(xpath));
+            //check order status and active
+            string status = order.FindElement(By.XPath("../td[7]")).Text;
+            if (status == "Planned")
+            {
+                order.FindElement(By.XPath("..//td/span[@class='gwt-CheckBox']")).Click();
+                Web.Order_Page.Cancel.Click();
+            }
+            Thread.Sleep(2000);
+            Base_Assert.AreEqual("Cancelled", order.FindElement(By.XPath("../td[7]")).Text, "Cancell order");
 
         }
         public static void edit_order(string order)

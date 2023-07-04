@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProductionSchedule xmlns="http://www.wbf.org/xml/B2MML-V0401">
+  <ProductionRequest>
+    <ID>testCampaign</ID>
+    <SegmentRequirement>
+      <ID>WD</ID>
+      <ProductionParameter>
+        <Parameter>
+          <ID>Recipe</ID>
+          <Value>
+            <ValueString>WD_RPL1</ValueString>
+            <DataType>string</DataType>
+            <UnitOfMeasure />
+          </Value>
+        </Parameter>
+      </ProductionParameter>
+      <MaterialRequirement>
+        <MaterialDefinitionID>1902</MaterialDefinitionID>
+        <Description>25mM HEPS, 100mM NaCI, pH 8.00</Description>
+        <MaterialUse>Produced</MaterialUse>
+        <Quantity>
+          <QuantityString>800.000</QuantityString>
+          <DataType>decimal</DataType>
+          <UnitOfMeasure>G</UnitOfMeasure>
+        </Quantity>
+      </MaterialRequirement>
+      <MaterialRequirement>
+        <MaterialDefinitionID>X0125</MaterialDefinitionID>
+        <Description>X0125 Description</Description>
+        <MaterialUse>Consumable</MaterialUse>
+      </MaterialRequirement>
+      <MaterialRequirement>
+        <MaterialDefinitionID>M801890</MaterialDefinitionID>
+        <Description>M801890 Description</Description>
+        <MaterialUse>Consumable</MaterialUse>
+      </MaterialRequirement>
+      <MaterialRequirement>
+        <MaterialDefinitionID>1072</MaterialDefinitionID>
+        <Description>L-Lysine Monohydrochloride</Description>
+        <MaterialUse>Consumable</MaterialUse>
+      </MaterialRequirement>
+      <SegmentRequirement>
+        <ID>test1</ID>
+        <MaterialRequirement>
+          <MaterialDefinitionID>1902</MaterialDefinitionID>
+          <MaterialLotID>001P</MaterialLotID>
+          <Description>25mM HEPS, 100mM NaCI, pH 8.00</Description>
+          <MaterialUse>Produced</MaterialUse>
+        </MaterialRequirement>
+      </SegmentRequirement>
+    </SegmentRequirement>
+    <RequestState>Released</RequestState>
+  </ProductionRequest>
+</ProductionSchedule>

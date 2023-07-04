@@ -38,16 +38,16 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public Login_InterFrame LogonInternalFrame => new Login_InterFrame(_UFT_Window, "//InterFrame[@ObjectName = 'LOGON']");
         public Home_InterFrame HomeInternalFrame => new Home_InterFrame(_UFT_Window, "//InterFrame[@ObjectName = 'HOME']");
         public Dispensing_InterFrame DispensingInternalFrame => new Dispensing_InterFrame(_UFT_Window, "//InterFrame[@ObjectName = 'OrderList']");
-        //order/campagin diapense
         public Material_InterFrame MaterialInternalFrame => new Material_InterFrame(_UFT_Window, "//InterFrame[@ObjectName = 'Material_Selection']");
         public BoothClean_InterFrame BoothCleanInternalFrame => new BoothClean_InterFrame(_UFT_Window, "//InterFrame[@ObjectName = 'Main']");
         public Handle_Information_InterFrame HandleInformationInterFrame => new Handle_Information_InterFrame(_UFT_Window, "//InterFrame[@Label = 'Handle Information']");
         public ScaleWeight_InterFrame ScaleWeightInternalFrame => new ScaleWeight_InterFrame(_UFT_Window, "//InterFrame[@ObjectName = 'MATERIAL_DISPENSE']");
         public OpenWeight_InterFrame OpenWeighInternalFrame => new OpenWeight_InterFrame(_UFT_Window, "//InterFrame[@ObjectName = 'OPENCONSOLE']");
-        //material dispense
         public Material_Selection_InterFrame Material_SelectionInternalFrame => new Material_Selection_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Material Selection']");
         public ScaleCheck_InterFrame ScaleCheckInternalFrame => new ScaleCheck_InterFrame(_UFT_Window, "//InterFrame[@ObjectName = 'SCALECHECK']");
+        public TestScale_InterFrame TestScaleInternalFrame => new TestScale_InterFrame(_UFT_Window, "//InterFrame[@ObjectName = 'TESTSCALE']");
         public CheckWeight_InterFrame CheckWeightInternalFrame => new CheckWeight_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Check Weight']");
+        public Comment_InterFrame CommentInternalFrame => new Comment_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Comment']");
         public SelectAnOrderToKitting_InterFrame SelectAnOrderToKittingFrame => new SelectAnOrderToKitting_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Select an order to kitting']");
         public CampaignSelection_InterFrame CampaignSelectionInternalFrame => new CampaignSelection_InterFrame(_UFT_Window, "//InterFrame[@ObjectName = 'MAIN']");
         //public CheckWeight_InterFrame CheckWeightInternalFrame => new CheckWeight_InterFrame(_UFT_Window, "//InterFrame[@ObjectName = 'SCALECHECK2']");

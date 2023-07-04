@@ -25,7 +25,6 @@ namespace WD_UFT_Selenium_Auto.TestCase
         public void VSTS_40988()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID;
-
             LogStep(@"1. Login WD execution, click 'Scale check'");
             Application.LaunchWDAndLogin();
             Thread.Sleep(5000);
@@ -44,7 +43,6 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Thread.Sleep(3000);
             var standardizationlabel = WD.mainWindow.CheckWeightInternalFrame.Standardization_label;
             System.IO.File.WriteAllText("C:/Users/qaone1/Desktop/eee.txt", standardizationlabel._UFT_Label.Text);
-            WD.mainWindow.GetSnapshot(Resultpath + "standardizationlabel.PNG");
             Base_Assert.AreEqual(standardizationlabel._UFT_Label.Text, Selectedstandardization);
             WD.mainWindow.CheckWeightInternalFrame.cancelButton.Click();
             Thread.Sleep(2000);
@@ -62,7 +60,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             WD.SimulatorWindow.OK.Click();
             WD.mainWindow.CheckWeightInternalFrame.readScale.ClickSignle();
             var expirationDateTable = WD.mainWindow.CheckWeightInternalFrame.checkTable;
-            WD.mainWindow.GetSnapshot(Resultpath + "read sacle.PNG");
+
             Base_Assert.AreEqual(expirationDateTable.GetCell(0, "Actual").Value.ToString(), "100.0 G");
             Base_Assert.IsTrue(WD.mainWindow.CheckWeightInternalFrame.CheckResult._UFT_Label.Text.Contains("click Read Scale"));
             LogStep(@"6.Click Cancel when NOT all weights are checked");

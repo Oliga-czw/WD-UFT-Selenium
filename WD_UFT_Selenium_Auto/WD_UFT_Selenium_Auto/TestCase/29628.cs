@@ -51,8 +51,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             code.SendKeys("testStates");
             driver.FindElement("//button[text()='Apply']").Click();
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "state.PNG");
-
-
+            Thread.Sleep(3000);
             // add an Evevt
             Web.Administration_Page.Transitions.Click();
             Thread.Sleep(3000);
@@ -125,38 +124,8 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Thread.Sleep(2000);
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "test_Rules.PNG");
             Base_Assert.AreEqual(driver.FindElement("//div[text()='Final State:']/../../td[2]/div").Text, "Clean");
+
             driver.FindElement("//button[text()='Close']").Click();
-
-            //delete added data
-            //action
-            driver.FindElement("//div[text()='Actions']").Click();
-            Thread.Sleep(3000);
-            driver.FindElements("//table[@class='List_Table_Border_Style']//img[@class='gwt-Image']")[0].Click();
-            Thread.Sleep(2000);
-            driver.FindElement("//button[@class='gwt-Button OkStyle']").Click();
-            //types
-            driver.FindElement("//div[text()='Types']").Click();
-            Thread.Sleep(3000);
-            driver.FindElements("//table[@class='List_Table_Border_Style']//img[@class='gwt-Image']")[0].Click();
-            Thread.Sleep(2000);
-            driver.FindElement("//button[@class='gwt-Button OkStyle']").Click();
-            //states
-            driver.FindElement("//div[text()='States']").Click();
-            Thread.Sleep(3000);
-            driver.FindElements("//table[@class='List_Table_Border_Style']//img[@class='gwt-Image']")[0].Click();
-            Thread.Sleep(2000);
-            driver.FindElement("//button[@class='gwt-Button OkStyle']").Click();
-            //Transitions
-            Web.Administration_Page.Transitions.Click();
-            Thread.Sleep(3000);
-            driver.FindElements("//table[@class='List_Table_Border_Style']//img[@class='gwt-Image']")[0].Click();
-            Thread.Sleep(2000);
-            driver.FindElement("//button[@class='gwt-Button OkStyle']").Click();
-            driver.FindElement("//button[text()='Save Rules']").Click();
-            Thread.Sleep(2000);
-            driver.FindElement("//button[@class='gwt-Button OkStyle']").Click();
-
-
         }
 
   

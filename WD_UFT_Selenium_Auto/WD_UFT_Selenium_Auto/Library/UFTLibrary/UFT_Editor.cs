@@ -78,6 +78,7 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
         public void SendKeys(string text)
         {
             _UFT_Editor.SendKeys(text);
+            
             Keyboard.PressKey(Keyboard.Keys.Enter);
         }
 
