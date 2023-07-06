@@ -38,6 +38,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public static UFT_Dialog ConfirmationDialog => new UFT_Dialog(window, "//Dialog[@Title = 'Confirmation']");
         public static UFT_Dialog reopenMessageDialog => new UFT_Dialog("//Dialog[@Title = 'Module Already Running']");
 
+        public static License_Dialog LicenseMessageDialog => new License_Dialog("//Dialog[@Title = 'Licensing problems']");
         #endregion
         #region WD_Controls
         //EX button

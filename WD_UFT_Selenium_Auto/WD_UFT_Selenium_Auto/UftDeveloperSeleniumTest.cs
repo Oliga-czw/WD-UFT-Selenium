@@ -1,4 +1,5 @@
 ﻿using HP.LFT.SDK;
+using HP.LFT.SDK.WPF;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support;
@@ -6,8 +7,10 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Threading;
 using WD_UFT_Selenium_Auto.Library.BaseLibrary;
 using WD_UFT_Selenium_Auto.Product.WD;
+using IWindow = HP.LFT.SDK.WPF.IWindow;
 
 namespace WD_UFT_Selenium_Auto
 {
@@ -27,15 +30,40 @@ namespace WD_UFT_Selenium_Auto
         [TestMethod]
         public void TestMethod1()
         {
-            //Application.LaunchBatchDetailDisplay();
+            Application.LaunchSLM();
+            SLM.SLMmainWindow.SLMConfigurationWizard.Click();
+            //remove
+            SLM.SLMConfigWindow.RemoveServer.Click();
+            SLM.SLMConfigWindow.Apply.Click();
+            //wait for applying
+            Thread.Sleep(5000);
+
+
+
+            ////add
+            //SLM.SLMConfigWindow.ServerEdit.SendKeys("shslmtest");
+            //SLM.SLMConfigWindow.AddServer.Click();
+            ////wait for adding
+            //Thread.Sleep(5000);
+            //SLM.SLMConfigWindow.Apply.Click();
+            ////wait for applying
+            //Thread.Sleep(5000);
+
+
+            //SLM.SLMConfigWindow.Close();
+            //Thread.Sleep(2000);
+            //SLM.SLMmainWindow.Close();
+
+
+
             //Batch_Fuction.findBatch("test2");
             //SdkConfiguration config = new SdkConfiguration();
             //SDK.Init(config);
 
-            SqlHelper helper = new SqlHelper();
-            string sql = $"SELECT BEGIN_SOURCE_GROSS,END_SOURCE_GROSS FROM EBR_WD_WEIGH_HISTORY";
-            var dt = helper.Execute(sql);
-            Console.WriteLine(dt[0][0]);
+            //SqlHelper helper = new SqlHelper();
+            //string sql = $"SELECT BEGIN_SOURCE_GROSS,END_SOURCE_GROSS FROM EBR_WD_WEIGH_HISTORY";
+            //var dt = helper.Execute(sql);
+            //Console.WriteLine(dt[0][0]);
 
             ////add key
             //FileStream fs = new FileStream(path, FileMode.Append);

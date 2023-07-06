@@ -73,6 +73,7 @@ C:\p4\qe\dev\AUTOMATION\AeBRS\Version_V14.0\WD_UFT_Selenium_Auto\WD_UFT_Selenium
 C:\p4\qe\dev\AUTOMATION\AeBRS\Version_V14.0\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\obj\Debug\WD_UFT_Selenium_Auto.csproj.CopyComplete
 C:\p4\qe\dev\AUTOMATION\AeBRS\Version_V14.0\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\obj\Debug\WD_UFT_Selenium_Auto.dll
 C:\p4\qe\dev\AUTOMATION\AeBRS\Version_V14.0\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\obj\Debug\WD_UFT_Selenium_Auto.pdb
+C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\obj\Debug\WD_UFT_Selenium_Auto.csproj.CoreCompileInputs.cache
 C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\bin\Debug\WD_UFT_Selenium_Auto.dll
 C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\bin\Debug\WD_UFT_Selenium_Auto.pdb
 C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\bin\Debug\HP.LFT.Common.dll
@@ -96,8 +97,7 @@ C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\WD_UF
 C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\bin\Debug\LeanFTForSelenium.xml
 C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\bin\Debug\Spire.Pdf.xml
 C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\bin\Debug\WebDriver.xml
-C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\obj\Debug\WD_UFT_Selenium_Auto.csproj.AssemblyReference.cache
-C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\obj\Debug\WD_UFT_Selenium_Auto.csproj.CoreCompileInputs.cache
 C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\obj\Debug\WD_UFT_Selenium_Auto.csproj.CopyComplete
 C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\obj\Debug\WD_UFT_Selenium_Auto.dll
 C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\obj\Debug\WD_UFT_Selenium_Auto.pdb
+C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\obj\Debug\WD_UFT_Selenium_Auto.csproj.AssemblyReference.cache

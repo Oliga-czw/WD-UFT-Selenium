@@ -82,7 +82,9 @@
     <Compile Include="Library\UFTLibrary\STD_TreeView.cs" />
     <Compile Include="Library\UFTLibrary\STD_Window.cs" />
     <Compile Include="Library\UFTLibrary\STD_Xpath.cs" />
+    <Compile Include="Library\UFTLibrary\WPF_Window.cs" />
     <Compile Include="Library\UFTLibrary\UFT_Label.cs" />
+    <Compile Include="Library\UFTLibrary\UFT_UiObject.cs" />
     <Compile Include="Product\AFW\AFW_Fuction.cs" />
     <Compile Include="Product\AFW\AFW_Window.cs" />
     <Compile Include="Product\Batch\Batch_Fuction.cs" />
@@ -91,20 +93,39 @@
     <Compile Include="Product\MOC\MOC_Repository.cs" />
     <Compile Include="Product\MOC\MOC_InterFrame.cs" />
     <Compile Include="Product\MOC\MOC_Fuction.cs" />
+    <Compile Include="Product\SLM\SLM_Repository.cs" />
+    <Compile Include="Product\SLM\SLM_Window.cs" />
+    <Compile Include="TestCase\29621.cs" />
+    <Compile Include="TestCase\29606.cs" />
     <Compile Include="TestCase\29607.cs" />
+    <Compile Include="TestCase\29608.cs" />
     <Compile Include="TestCase\29613.cs" />
     <Compile Include="TestCase\29614.cs" />
     <Compile Include="TestCase\29628.cs" />
     <Compile Include="TestCase\29642.cs" />
+    <Compile Include="TestCase\29844.cs" />
     <Compile Include="TestCase\30985.cs" />
     <Compile Include="TestCase\31095.cs" />
     <Compile Include="TestCase\31169.cs" />
     <Compile Include="TestCase\31355.cs" />
     <Compile Include="TestCase\34274.cs" />
+    <Compile Include="TestCase\36403.cs" />
+    <Compile Include="TestCase\40707.cs" />
+    <Compile Include="TestCase\41180.cs" />
+    <Compile Include="TestCase\42354.cs" />
+    <Compile Include="TestCase\42801.cs" />
+    <Compile Include="TestCase\42955.cs" />
+    <Compile Include="TestCase\43371.cs" />
+    <Compile Include="TestCase\43372.cs" />
+    <Compile Include="TestCase\43507.cs" />
+    <Compile Include="TestCase\45750.cs" />
+    <Compile Include="TestCase\748053.cs" />
     <Compile Include="TestCase\748225.cs" />
     <Compile Include="TestCase\748207.cs" />
     <Compile Include="TestCase\748200.cs" />
     <Compile Include="TestCase\39772.cs" />
+    <Compile Include="TestCase\91516.cs" />
+    <Compile Include="TestCase\91517.cs" />
     <Compile Include="TestCase\91525.cs" />
     <Compile Include="TestCase\40978.cs" />
     <Compile Include="TestCase\91526.cs" />
@@ -162,7 +183,6 @@
     <Compile Include="Product\WEB\Web_Fuction.cs" />
     <Compile Include="Product\WEB\Web_Page.cs" />
     <Compile Include="Product\WEB\Web_Repository.cs" />
-    <Compile Include="TestCase\CodeFile1.cs" />
     <Compile Include="UftDeveloperSeleniumTest.cs" />
   </ItemGroup>
   <ItemGroup>

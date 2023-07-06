@@ -107,5 +107,17 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
 
     }
 
-  
+
+    public class License_Dialog : UFT_Dialog
+    {
+        public License_Dialog(string xpath) : base(xpath)
+        {
+        }
+
+        public ILabel LicenseLable => _UFT_Dialog.Describe<ILabel>(new LabelDescription
+        {
+            ObjectName = @"OptionPane.label",
+            Index = 0
+        });
+    }
 }

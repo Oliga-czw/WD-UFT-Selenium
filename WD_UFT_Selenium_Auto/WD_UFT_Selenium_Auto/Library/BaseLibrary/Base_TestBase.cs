@@ -184,6 +184,15 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
             Thread.Sleep(5000);
          }
 
+
+        public static void LaunchSLM()
+        {
+            Base_Test.LaunchApp(Base_Directory.SLMDir);
+            SdkConfiguration config = new SdkConfiguration();
+            SDK.Init(config);
+            Thread.Sleep(5000);
+        }
+
         public static void KillWD()
         {
             Base_Test.KillProcess(application);

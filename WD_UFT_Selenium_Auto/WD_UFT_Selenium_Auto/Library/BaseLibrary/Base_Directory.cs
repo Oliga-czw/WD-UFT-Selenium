@@ -19,6 +19,7 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
         public static string AFWDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\AspenTech\Aspen Security\AFW Security Manager(64-bit).lnk";
         public static string MOCDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Aspen Production Execution Manager MOC.lnk";
 
+        public static string SLMDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\aspenONE SLM License Manager.lnk";
         public static string BDDDir = @"C:\Program Files (x86)\AspenTech\Batch.21\Client\BatchDetailDisplay.exe";
 
 
