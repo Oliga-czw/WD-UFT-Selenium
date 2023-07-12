@@ -112,6 +112,9 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
         //}
 
         //public static string DownloadFileDir => "C:\\Users\\" + RegistryHive.CurrentUser + "\\Downloads";
+
+        public static string LabelPrintFileDir => "C:\\Users\\" + Environment.UserName + @"\AppData\Local\Temp\2";
+
         public static string DownloadFileDir => "C:\\Users\\"+ Environment.UserName + "\\Downloads";
 
         public static string BulkLoadDir => Base_Directory.ProjectDir + "Data\\Input\\BulkLoad\\";

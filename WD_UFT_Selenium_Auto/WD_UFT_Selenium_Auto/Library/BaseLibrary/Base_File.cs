@@ -352,6 +352,21 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
                 File.SetAttributes(targetfile, FileAttributes.Normal);
             }
         }
+
+        public static void MoveFile(string sourcefile, string targetfile)
+        {
+            if (!File.Exists(sourcefile))
+                throw new FileNotFoundException("cannot find source file: " + sourcefile);
+
+            if (!sourcefile.Equals(targetfile, StringComparison.CurrentCultureIgnoreCase))
+            {
+                if (File.Exists(targetfile)) {
+                    File.Delete(targetfile);
+                }
+                File.Move(sourcefile, targetfile);
+                File.SetAttributes(targetfile, FileAttributes.Normal);
+            }
+        }
         public static void CopyFolder(string sourcefolder, string targetfolder)
         {
             DirectoryInfo directoryInfo = new DirectoryInfo(sourcefolder);
@@ -380,6 +395,7 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
             DirectoryInfo directoryInfo = new DirectoryInfo(folderPath);
             foreach (FileInfo fileInfo in directoryInfo.GetFiles())
             {
+ 
                 File.SetAttributes(fileInfo.FullName, FileAttributes.Normal);
             }
         }

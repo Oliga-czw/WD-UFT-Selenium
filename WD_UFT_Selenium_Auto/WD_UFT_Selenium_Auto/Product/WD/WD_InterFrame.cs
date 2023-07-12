@@ -130,11 +130,21 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public UFT_Label Potency => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'dispLblPotency']");
         public UFT_Button comment => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'sbtnComment']");
         public UFT_UiObject weighBar => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@ObjectName = 'WeighBar']");
+
+        public UFT_Label WeightNumber => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'lblNumber']");
         //WeighBar
         public UFT_Editor net_editor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Net:']");
 
+
+        public UFT_Button start => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'tareBtn']");
         //target container
         public UFT_Label tareLable => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'lblTare']");
+
+        //Weighing Info --Source as target
+        public UFT_Label InitailGross => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'lblTare']");
+        public UFT_Label FinalGross => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'lblNet']");
+        public UFT_Label Diffenence => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'lblGross']");
+        public UFT_Editor SourceTare => new UFT_Editor(_UFT_InterFrame, "//Editor[@ObjectName = 'txtSourceTare']");
 
     }
     public class OpenWeight_InterFrame : ClassMainInterFrame

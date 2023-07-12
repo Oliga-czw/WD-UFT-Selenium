@@ -18,5 +18,14 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
             _UFT_Label = UFT_Xpath.GetChildObject<ILabel>(parentObject, xpath);
         }
         
+
+        public string AttachedText
+        {
+            get
+            {
+                return _UFT_Label.AttachedText;
+            }
+            
+        }
     }
 }

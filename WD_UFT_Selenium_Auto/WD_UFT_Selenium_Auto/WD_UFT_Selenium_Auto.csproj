@@ -120,6 +120,8 @@
     <Compile Include="TestCase\43507.cs" />
     <Compile Include="TestCase\45750.cs" />
     <Compile Include="TestCase\748053.cs" />
+    <Compile Include="TestCase\38243.cs" />
+    <Compile Include="TestCase\823916.cs" />
     <Compile Include="TestCase\748225.cs" />
     <Compile Include="TestCase\748207.cs" />
     <Compile Include="TestCase\748200.cs" />
