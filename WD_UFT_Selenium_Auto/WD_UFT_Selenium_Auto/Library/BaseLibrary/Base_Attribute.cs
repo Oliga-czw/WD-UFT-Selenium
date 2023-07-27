@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 using DescriptionAttribute = Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute;
 
@@ -127,7 +128,7 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
     {
         public const string qaone1 = "qaone1(qaone1)";
         public const string qaone2 = "qaone2(qaone2)";
-
+        
     }
 
     public class PassWord
@@ -137,7 +138,19 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
         public const string qaone3 = "Aspen111";
 
     }
- 
+    public class DBInfo
+    {
+        public static Dictionary<string, string> Info = new Dictionary<string, string>
+        {
+            {"username", "sa"},
+            {"password", "Aspen000"},
+            {"DB", "AeBRS"}
+        };
+
+    }
+
+    
+
 
     /// <summary>
     /// Test case owner

@@ -92,8 +92,18 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
             AttachedText = @"Description:",
             NativeClass = @"Edit"
         });
-        
+
+        public IStatic StaticText => _STD_Dialog.Describe<IStatic>(new StaticDescription
+        {
+            NativeClass = @"Static"
+        });
+
+
+
     }
+
+
+    #region afw dialog
     public class Login_Dialog : STD_Dialog
     {
         public Login_Dialog(string xpath) : base(xpath)
@@ -106,7 +116,7 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
         });
     }
 
-        public class Property_Dialog : STD_Dialog
+    public class Property_Dialog : STD_Dialog
     {
         public Property_Dialog(string xpath) : base(xpath)
         {
@@ -147,8 +157,11 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
         //    Text = @"OK"
         //});
     }
+    #endregion
 
 
+    #region APRM batch dialog
+    //batch data
     public class BatchCharacteristic_Dialog : STD_Dialog
     {
         public BatchCharacteristic_Dialog(string xpath) : base(xpath)
@@ -165,4 +178,171 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
         //});
 
     }
+    //batch option
+    public class Option_Dialog : STD_Dialog
+    {
+        public Option_Dialog(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+        public IComboBox DataSource => _STD_Dialog.Describe<IComboBox>(new ComboBoxDescription
+        {
+            NativeClass = @"ComboBox",
+            AttachedText = @"Production Record Manager data &source:"
+        });
+
+        public IComboBox DataArea => _STD_Dialog.Describe<IComboBox>(new ComboBoxDescription
+        {
+            NativeClass = @"ComboBox",
+            AttachedText = @"&Area:"
+        });
+
+        public IButton SetAsDefaultButton => _STD_Dialog.Describe<IButton>(new ButtonDescription
+        {
+            NativeClass = @"Button",
+            Text = @"Set as &default"
+        });
+
+
+    }
+    //aprm admin
+    public class Open_Dialog : STD_Dialog
+    {
+        public Open_Dialog(ITestObject parentObject,string xpath) : base(parentObject,xpath)
+        {
+        }
+        public IEditField Filename => _STD_Dialog.Describe<IEditField>(new EditFieldDescription
+        {
+            NativeClass = @"Edit",
+            AttachedText = @"File &name:"
+        });
+
+    }
+
+
+
+
+    #endregion
+
+    #region apem dialog
+    //apem admin
+    public class ExtractorProperty_Dialog : STD_Dialog
+    {
+        public ExtractorProperty_Dialog(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+        public IComboBox DataSource => _STD_Dialog.Describe<IComboBox>(new ComboBoxDescription
+        {
+            NativeClass = @"ComboBox",
+            AttachedText = @"APRM Data Source:"
+        });
+
+        public IComboBox DataArea => _STD_Dialog.Describe<IComboBox>(new ComboBoxDescription
+        {
+            NativeClass = @"ComboBox",
+            WindowId = 315
+        });
+
+        public IButton SetupButton => _STD_Dialog.Describe<IButton>(new ButtonDescription
+        {
+            NativeClass = @"Button",
+            Text = @"Setup"
+        });
+
+        public IButton TestConnectionButton => _STD_Dialog.Describe<IButton>(new ButtonDescription
+        {
+            NativeClass = @"Button",
+            Text = @"Test Connection"
+        });
+
+    }
+
+    #endregion
+    #region wizard dialog
+    public class WizardData_Dialog : STD_Dialog
+    {
+        public WizardData_Dialog(string xpath) : base(xpath)
+        {
+        }
+        #region provider
+        public IListView DBDataList => _STD_Dialog.Describe<IListView>(new ListViewDescription
+        {
+            AttachedText = @"Select the data you want to connect to:"
+        });
+
+
+        public HP.LFT.SDK.UIAPro.IText DBserver => _STD_Dialog.Describe<HP.LFT.SDK.UIAPro.IList>(new HP.LFT.SDK.UIAPro.ListDescription
+        {
+            Name = @"Select the data you want to connect to:",
+            Path = @"Window;Pane;List"
+        })
+            .Describe<HP.LFT.SDK.UIAPro.IListItem>(new HP.LFT.SDK.UIAPro.ListItemDescription
+            {
+                Name = @"Microsoft OLE DB Provider for SQL Server"
+            })
+            .Describe<HP.LFT.SDK.UIAPro.IText>(new HP.LFT.SDK.UIAPro.TextDescription
+            {
+                Name = @"Microsoft OLE DB Provider for SQL Server"
+            });
+
+        public IButton next => _STD_Dialog.Describe<IButton>(new ButtonDescription
+        {
+            Text = @"&Next >>"
+        });
+
+        #endregion
+
+        #region connection
+        public IEditField servername => _STD_Dialog.Describe<IEditField>(new EditFieldDescription
+        {
+            NativeClass = @"Edit",
+            AttachedText = @"1. Select or enter a s&erver name:"
+
+        });
+        public IEditField username => _STD_Dialog.Describe<IEditField>(new EditFieldDescription
+        {
+            NativeClass = @"Edit",
+            AttachedText = @"User &name:"
+        });
+
+        public IEditField password => _STD_Dialog.Describe<IEditField>(new EditFieldDescription
+        {
+            NativeClass = @"Edit",
+            AttachedText = @"&Password:"
+        });
+
+        public ICheckBox savingPWD => _STD_Dialog.Describe<ICheckBox>(new CheckBoxDescription
+        {
+            Text = @"Allow &saving password"
+        });
+
+           
+        public IButton TestConnection => _STD_Dialog.Describe<IButton>(new ButtonDescription
+        {
+            Text = @"&Test Connection"
+        });
+
+        public IEditField DataBase => _STD_Dialog.Describe<IEditField>(new EditFieldDescription
+        {
+            NativeClass = @"Edit",
+            WindowId = 1001,
+            Index = 1
+        });
+
+
+            
+        public ITabControl TabControl => _STD_Dialog.Describe<ITabControl>(new TabControlDescription
+        {
+            NativeClass = @"SysTabControl32"
+        });
+
+
+
+        #endregion
+
+
+    }
+
+
+
+    #endregion
 }

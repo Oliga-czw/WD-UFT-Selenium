@@ -63,6 +63,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
     <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
     </Reference>
@@ -82,17 +83,26 @@
     <Compile Include="Library\UFTLibrary\STD_TreeView.cs" />
     <Compile Include="Library\UFTLibrary\STD_Window.cs" />
     <Compile Include="Library\UFTLibrary\STD_Xpath.cs" />
+    <Compile Include="Library\UFTLibrary\WinForms_Window.cs" />
     <Compile Include="Library\UFTLibrary\WPF_Window.cs" />
     <Compile Include="Library\UFTLibrary\UFT_Label.cs" />
     <Compile Include="Library\UFTLibrary\UFT_UiObject.cs" />
+    <Compile Include="PreparationCase\Prepare.cs" />
     <Compile Include="Product\AFW\AFW_Fuction.cs" />
     <Compile Include="Product\AFW\AFW_Window.cs" />
-    <Compile Include="Product\Batch\Batch_Fuction.cs" />
-    <Compile Include="Product\Batch\Batch_Window.cs" />
-    <Compile Include="Product\MOC\MOC_Window.cs" />
-    <Compile Include="Product\MOC\MOC_Repository.cs" />
-    <Compile Include="Product\MOC\MOC_InterFrame.cs" />
-    <Compile Include="Product\MOC\MOC_Fuction.cs" />
+    <Compile Include="Product\APEM\APEMAdmin_Window.cs" />
+    <Compile Include="Product\APRM\APRM_Fuction.cs" />
+    <Compile Include="Product\APRM\APRM_DB.cs" />
+    <Compile Include="Product\APRM\APRM_Repository.cs" />
+    <Compile Include="Product\APRM\Wizard_Repository.cs" />
+    <Compile Include="Product\APRM\Wizard_Window.cs" />
+    <Compile Include="Product\APRM\APRMAdmin_Window.cs" />
+    <Compile Include="Product\BatchDetail\Batch_Fuction.cs" />
+    <Compile Include="Product\BatchDetail\Batch_Window.cs" />
+    <Compile Include="Product\APEM\MOC_Window.cs" />
+    <Compile Include="Product\APEM\MOC_Repository.cs" />
+    <Compile Include="Product\APEM\MOC_InterFrame.cs" />
+    <Compile Include="Product\APEM\MOC_Fuction.cs" />
     <Compile Include="Product\SLM\SLM_Repository.cs" />
     <Compile Include="Product\SLM\SLM_Window.cs" />
     <Compile Include="TestCase\29621.cs" />
@@ -185,6 +195,7 @@
     <Compile Include="Product\WEB\Web_Fuction.cs" />
     <Compile Include="Product\WEB\Web_Page.cs" />
     <Compile Include="Product\WEB\Web_Repository.cs" />
+    <Compile Include="TestCase\CodeFile1.cs" />
     <Compile Include="UftDeveloperSeleniumTest.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -4,309 +4,6 @@
         <name>HP.LFT.Report</name>
     </assembly>
     <members>
-        <member name="T:HP.LFT.Report.IReporter">
-            <summary>
-            Accesses the UFT Developer HTML Report.
-            </summary>
-        </member>
-        <member name="M:HP.LFT.Report.IReporter.ReportEvent(System.String,System.String,HP.LFT.Report.Status,System.String)">
-            <summary>
-            Adds a custom step to the UFT Developer report including the image from the specified path. 
-            </summary>
-            <param name="stepName">The name of the reported step. This name is the label of the step node in the report.</param>
-            <param name="description">The description of the reported step. The description is displayed in the Details pane of the report.</param>
-            <param name="status">The <see cref="P:HP.LFT.Report.IReporter.Status"/> for the step.</param>
-            <param name="imagePath">The full path of the image to display for the step. Supported image types: BMP, GIF, JPEG, PNG, TIFF</param>
-        </member>
-        <member name="M:HP.LFT.Report.IReporter.ReportEvent(System.String,System.String,HP.LFT.Report.Status,System.Drawing.Image)">
-            <summary>
-            Adds a custom step to the UFT Developer report including the provided image object.
-            </summary>
-            <param name="stepName">The name of the reported step. This name is the label of the step node in the report.</param>
-            <param name="description">The description of the reported step. The description is displayed in the Details pane of the report.</param>
-            <param name="status">The <see cref="P:HP.LFT.Report.IReporter.Status"/> for the step.</param>
-            <param name="image">The <see cref="T:System.Drawing.Image"/> to use for the step.</param>
-        </member>
-        <member name="M:HP.LFT.Report.IReporter.ReportEvent(System.String,System.String)">
-            <summary>
-            Adds a custom step to the UFT Developer with default status "Passed".
-            </summary>
-            <param name="stepName">The name of the reported step. This name is the label of the step node in the report.</param>
-            <param name="description">The description of the reported step. The description is displayed in the Details pane of the report.</param>
-        </member>
-        <member name="M:HP.LFT.Report.IReporter.ReportEvent(System.String,System.String,HP.LFT.Report.Status,System.Exception,System.String)">
-            <summary>
-            Adds a custom step to the UFT Developer including exception details and the image from the specified path.
-            </summary>
-            <param name="stepName">The name of the reported step. This name is the label of the step node in the report.</param>
-            <param name="description">The description of the reported step. The description is displayed in the Details pane of the report.</param>
-            <param name="status">The <see cref="P:HP.LFT.Report.IReporter.Status"/> for the step.</param>
-            <param name="ex">The exception that occurred.</param>
-            <param name="imagePath">The full path of the image to display for the step. Supported image types: BMP, GIF, JPEG, PNG, TIFF</param>
-        </member>
-        <member name="M:HP.LFT.Report.IReporter.ReportEvent(System.String,System.String,HP.LFT.Report.Status,System.Exception,System.Drawing.Image)">
-            <summary>
-            Adds a custom step to the UFT Developer including the provided exception and image object.
-            </summary>
-            <param name="stepName">The name of the reported step. This name is the label of the step node in the report.</param>
-            <param name="description">The description of the reported step. The description is displayed in the Details pane of the report.</param>
-            <param name="status">The <see cref="P:HP.LFT.Report.IReporter.Status"/> for the step.</param>
-            <param name="ex">The exception that occurred.</param>
-            <param name="image">The <see cref="T:System.Drawing.Image"/> to use for the step.</param>
-        </member>
-        <member name="M:HP.LFT.Report.IReporter.ReportEvent(System.String,HP.LFT.Report.ReportAdditionalInfo)">
-            <summary>
-            Adds a custom step to the UFT Developer including the information about the step as a <see cref="T:HP.LFT.Report.ReportAdditionalInfo"/> object.
-            </summary>
-            <param name="stepName"></param> the name of the reported step. This name is the label of the step node in the report.
-            <param name="reportAdditionalInfo"></param> object which contains the information to describe the event.
-        </member>
-        <member name="M:HP.LFT.Report.IReporter.ReportVerification(HP.LFT.Report.Status,HP.LFT.Report.VerificationData)">
-            <summary>Adds a custom verification step to the UFT Developer report.</summary>
-            <param name="reportStatus">The <see cref="P:HP.LFT.Report.IReporter.Status"/> for the verification.</param>
-            <param name="verificationData">The <see cref="T:HP.LFT.Report.VerificationData"/> data.</param>
-            <exception cref="T:System.ArgumentNullException"><paramref name="verificationData"/> is <c>NULL</c>.</exception>
-        </member>
-        <member name="M:HP.LFT.Report.IReporter.AddRunInformation(System.String,System.String)">
-            <summary>
-            Adds a custom entry to the top section of the UFT Developer report.
-            </summary>
-            <param name="fieldName">The entry name.</param>
-            <param name="fieldValue">The entry value.</param>
-        </member>
-        <member name="M:HP.LFT.Report.IReporter.StartReportingContext(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
-            <summary>
-            Starts a named section in the UFT Developer report.
-            </summary>
-            <param name="contextName">The section name.</param>
-            <param name="contextDescription">Optional. The section description.  Blank by default.</param>
-            <param name="additionalData">Optional. The dictionary containing additional custom information.  Blank by default.</param>
-        </member>
-        <member name="M:HP.LFT.Report.IReporter.StartReportingContext(System.String,HP.LFT.Report.ReportContextInfo)">
-            <summary>
-            Starts a named section in the UFT Developer report.
-            </summary>
-            <param name="contextName">The section name.</param>
-            <param name="reportContextInfo">The <see cref="T:HP.LFT.Report.ReportAdditionalInfo"/> object which contains the information to describe the section.</param>
-        </member>
-        <member name="M:HP.LFT.Report.IReporter.EndReportingContext">
-            <summary>
-            Ends the section in the UFT Developer report.
-            </summary>
-        </member>
-        <member name="M:HP.LFT.Report.IReporter.StartTest(System.String,System.String)">
-            <summary>
-            Starts a new test node in the UFT Developer report test flow tree.
-            </summary>
-            <remarks>
-            Required only when using <see cref="T:HP.LFT.Report.IReporter"/> in a class that does not inherit from UnitTestBase.
-            </remarks>
-            <param name="testName">The test name.</param>
-            <param name="testDescription">Optional. The test description. Default = blank.</param>
-        </member>
-        <member name="M:HP.LFT.Report.IReporter.EndTest(HP.LFT.Report.Status)">
-            <summary>
-            Ends the current test level and optionally sets the status for the test.
-            </summary>
-            <remarks>
-            Required only when using <see cref="T:HP.LFT.Report.IReporter"/> in a test class that does not inherit from UnitTestBase.
-            </remarks>
-            <param name="status">Optional. The <see cref="P:HP.LFT.Report.IReporter.Status"/> for the current test.  Default = Passed.</param>
-        </member>
-        <member name="M:HP.LFT.Report.IReporter.Init(HP.LFT.Report.ReportConfiguration)">
-            <summary>
-            Initializes the specified ReportConfiguration.
-            </summary>
-            <remarks>
-            Required only when using <see cref="T:HP.LFT.Report.IReporter"/> in a test class that does not inherit from UnitTestBase.
-            </remarks>
-            <param name="configuration">The configuration to use for the report.</param>
-        </member>
-        <member name="M:HP.LFT.Report.IReporter.GenerateReport">
-            <summary>
-            Generates the UFT Developer report.
-            </summary>
-            <remarks>
-            Required only when using <see cref="T:HP.LFT.Report.IReporter"/> in a test class that does not inherit from UnitTestBase.
-            </remarks> 
-            <returns>The path of the generated report folder.</returns>
-        </member>
-        <member name="M:HP.LFT.Report.IReporter.GetCurrentExecutionContextStatus">
-            <summary>
-            Returns the status of the current execution context. The execution context is equivalent to any superior structure that contains operations (e.g.: test method, reporting context, etc.).
-            </summary>
-            <returns>The status of the current execution context as a <see cref="T:HP.LFT.Report.ReportLevel"/> object.</returns>
-        </member>
-        <member name="M:HP.LFT.Report.IReporter.StartScreenRecording(System.Boolean,System.String)">
-            <summary>
-            Starts screen recording.
-            </summary>
-            <param name="useCompression">if <code>true</code> the recorded video represents a time lapse of the recorded scene, otherwise the full scene gets recorded</param>
-            <param name="outputPath">target location for the recorded video</param>
-        </member>
-        <member name="M:HP.LFT.Report.IReporter.StartScreenRecording(System.String)">
-            <summary>
-            Starts screen recording. Compression is ON.
-            </summary>
-            <param name="outputPath">target location for the recorded video</param>
-        </member>
-        <member name="M:HP.LFT.Report.IReporter.StartScreenRecording(System.Boolean)">
-            <summary>
-            Starts screen recording.
-            </summary>
-            <param name="useCompression">if <code>true</code> the recorded video represents a time lapse of the recorded scene, otherwise the full scene gets recorded</param>
-        </member>
-        <member name="M:HP.LFT.Report.IReporter.StartScreenRecording">
-            <summary>
-            Starts screen recording. Compression is ON. Output see report folder.
-            </summary>
-        </member>
-        <member name="M:HP.LFT.Report.IReporter.StopScreenRecording">
-            <summary>
-            Stops screen recording.
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.IReporter.ReportConfiguration">
-            <summary>
-            Returns the ReportConfiguration interface, which enables you to customize the UFT Developer report behavior.
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.IReporter.ReportDescription">
-            <summary>
-            The UFT Developer report description.  The description appears directly below the title in the UFT Developer report.  By default, the description is empty.
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.IReporter.ReportTitle">
-            <summary>
-            The UFT Developer report title.  Default = Run Results.
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.IReporter.ReportLevel">
-            <summary>
-            The report level used to generate the UFT Developer report.
-            <value>
-            Possible values: <see cref="T:HP.LFT.Report.ReportLevel"/>.
-            </value>
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.IReporter.SnapshotCaptureLevel">
-            <summary>
-            The snapshot capture level used to generate the UFT Developer report.
-            </summary>
-            <value>
-            Possible values: <see cref="T:HP.LFT.Report.CaptureLevel"/>
-            </value>
-        </member>
-        <member name="P:HP.LFT.Report.IReporter.Status">
-            <summary>
-            The runtime status of the UFT Developer report.
-            </summary>
-            <value>
-            Possible values: <see cref="T:HP.LFT.Report.Status"/>
-            </value>
-        </member>
-        <member name="M:HP.LFT.Report.IReporterInternal.AddNodeToReportModel(HP.LFT.Report.IRunUnitNodeBase)">
-            <summary>
-            Add the node to model
-            </summary>
-            <param name="node"></param>
-        </member>
-        <member name="M:HP.LFT.Report.IReporterInternal.FlushOperationsToXml(System.String)">
-            <summary>
-            Generates the UFT Developer report.
-            </summary>
-            <remarks>
-            Required only when using <see cref="T:HP.LFT.Report.IReporter"/> in a test class that does not inherit from UnitTestBase.
-            </remarks> 
-            <returns>The path of the generated report folder.</returns>
-        </member>
-        <member name="M:HP.LFT.Report.IReporterInternal.AddEnvironmentData(System.Collections.Generic.IDictionary{System.String,System.Object})">
-            <summary>
-            Adds environment data to report from not from the runtime engine
-            </summary>
-            <param name="environmentData"></param>
-        </member>
-        <member name="P:HP.LFT.Report.IReporterInternal.RuntimeSettings">
-            <summary>
-            Report Configuration accessor
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.IReporterInternal.ReportModel">
-            <summary>
-            Gets the report model.
-            </summary>
-            <value>
-            The report model.
-            </value>
-        </member>
-        <member name="M:HP.LFT.Report.IUnitTestReport.OpenReportLevel(System.String,HP.LFT.Report.ReportEventType,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
-            <summary>
-            Adds the report level.
-            </summary>
-        </member>
-        <member name="M:HP.LFT.Report.IUnitTestReport.CloseCurrentReportLevel">
-            <summary>
-            Closes the report level.
-            </summary>
-        </member>
-        <member name="M:HP.LFT.Report.IUnitTestReport.CloseCurrentReportLevel(HP.LFT.Report.ReportEventType)">
-            <summary>
-            Closes the report level.
-            </summary>
-        </member>
-        <member name="M:HP.LFT.Report.IUnitTestReport.CloseCurrentReportLevel(HP.LFT.Report.Status)">
-            <summary>
-            Closes the report level with specific status.
-            </summary>
-        </member>
-        <member name="M:HP.LFT.Report.IUnitTestReport.CloseCurrentReportLevel(HP.LFT.Report.ReportEventType,HP.LFT.Report.Status)">
-            <summary>
-            Closes the report level.
-            </summary>
-        </member>
-        <member name="M:HP.LFT.Report.IUnitTestReport.CloseAllReportLevels">
-            <summary>
-            Closes the report level.
-            </summary>
-        </member>
-        <member name="M:HP.LFT.Report.IUnitTestReport.UpdateReportStatus(HP.LFT.Report.Status)">
-            <summary>
-            Updates the report status.
-            </summary>
-            <param name="nodeStatus">The node status.</param>
-        </member>
-        <member name="M:HP.LFT.Report.IUnitTestReport.Init(HP.LFT.Report.ReportConfiguration)">
-            <summary>
-            Initializes the specified configuration.
-            </summary>
-            <param name="configuration">The configuration.</param>
-        </member>
-        <member name="M:HP.LFT.Report.IUnitTestReport.Init(HP.LFT.Report.ReportConfiguration,System.String)">
-            <summary>
-            Initializes the specified configuration.
-            </summary>
-            <param name="configuration">The configuration.</param>
-            <param name="frameworkWorkDirectory">The framework TestContext work directory</param>
-        </member>
-        <member name="M:HP.LFT.Report.IUnitTestReport.AddXmlNode(System.String)">
-            <summary>
-            Adding xml content that contains only operations
-            </summary>
-            <param name="xmlNode"></param>
-        </member>
-        <member name="M:HP.LFT.Report.IUnitTestReport.Clear">
-            <summary>
-            Clears the report content 
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.IUnitTestReport.CurrentTestFailed">
-            <summary>
-            Gets a value indicating whether this instance is failed.
-            </summary>
-            <value>
-              <c>true</c> if this instance is failed; otherwise, <c>false</c>.
-            </value>
-        </member>
         <member name="T:HP.LFT.Report.StructureOpenedEventHandler">
             <summary>
             Event that indicates a structure event is added to the report.
@@ -396,6 +93,20 @@
             <param name="argument">argument to present.</param>
             <returns>JSON representation of the argument.</returns>
         </member>
+        <member name="M:HP.LFT.Report.Presenters.ICollectionArgumentPresenter.PresentArgumentValue(System.Object)">
+            <summary>
+            Present only the argument name
+            </summary>
+            <param name="argument"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HP.LFT.Report.Presenters.ICollectionArgumentPresenter.PresentArgumentName(System.Object)">
+            <summary>
+            Present only the argument value
+            </summary>
+            <param name="argument"></param>
+            <returns></returns>
+        </member>
         <member name="T:HP.LFT.Report.ReportAdditionalInfo">
             <summary>
             Represents the information used to describe a custom step.
@@ -441,12 +152,6 @@
             The constructor of <see cref="T:HP.LFT.Report.ReportContextInfo"/>.
             </summary>
         </member>
-        <member name="M:HP.LFT.Report.ReportContextInfo.VerificationMode">
-            <summary>
-            Sets the mode of the reporting context to Verification.
-            </summary>
-            <returns>An <see cref="T:HP.LFT.Report.ReportContextInfo"/> object which can be used as a builder to set other fields.</returns>
-        </member>
         <member name="P:HP.LFT.Report.ReportContextInfo.Description">
             <summary>
             The description of the reporting context.
@@ -461,6 +166,12 @@
             <summary>
             The mode of the reporting context.
             </summary>
+        </member>
+        <member name="M:HP.LFT.Report.ReportContextInfo.VerificationMode">
+            <summary>
+            Sets the mode of the reporting context to Verification.
+            </summary>
+            <returns>An <see cref="T:HP.LFT.Report.ReportContextInfo"/> object which can be used as a builder to set other fields.</returns>
         </member>
         <member name="T:HP.LFT.Report.ReportContextMode">
             <summary>
@@ -516,193 +227,6 @@
         <member name="P:HP.LFT.Report.Resource.APIFalied">
             <summary>
               Looks up a localized string similar to The API test includes one or more failed steps or checkpoints..
-            </summary>
-        </member>
-        <member name="T:HP.LFT.Report.IReportEventArgs">
-            <summary>
-            A general event to be reported.
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.IReportEventArgs.Name">
-            <summary>
-            Gets the completely specified name of the test.
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.IReportEventArgs.EventType">
-            <summary>
-            Gets a string representing the type of test, e.g.: "Test Case"
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.IReportEventArgs.Duration">
-            <summary>
-            Duration of the current node
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.IReportEventArgs.Status">
-            <summary>
-            Gets or sets the status.
-            </summary>
-            <value>
-            The status.
-            </value>
-        </member>
-        <member name="P:HP.LFT.Report.IReportEventArgs.Time">
-            <summary>
-            Gets the time.
-            </summary>
-            <value>
-            The time.
-            </value>
-        </member>
-        <member name="P:HP.LFT.Report.IReportEventArgs.Exception">
-            <summary>
-            Gets or sets the exception.
-            </summary>
-            <value>
-            The exception.
-            </value>
-        </member>
-        <member name="P:HP.LFT.Report.IReportEventArgs.Id">
-            <summary>
-            Gets or sets the unique identifier.
-            </summary>
-            <value>
-            The unique identifier.
-            </value>
-        </member>
-        <member name="P:HP.LFT.Report.IReportEventArgs.ParentId">
-            <summary>
-            Gets or sets the unique identifier of the parent event.
-            </summary>
-            <value>
-            The unique identifier of the parent event.
-            </value>
-        </member>
-        <member name="P:HP.LFT.Report.IReportEventArgs.ReportAdditionalData">
-            <summary>
-            Gets or sets the report additional data
-            </summary>
-            <value>
-            The snapshot in base64 format.
-            </value>
-        </member>
-        <member name="M:HP.LFT.Report.IRunUnitNodeBase.CloseLevel">
-            <summary>
-            Closes the current test.
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.IRunUnitNodeBase.Name">
-            <summary>
-            Gets the completely specified name of the test.
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.IRunUnitNodeBase.EventType">
-            <summary>
-            Gets a string representing the type of test, e.g.: "Test Case"
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.IRunUnitNodeBase.Duration">
-            <summary>
-            Duration of the current node
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.IRunUnitNodeBase.Status">
-            <summary>
-            Gets or sets the status.
-            </summary>
-            <value>
-            The status.
-            </value>
-        </member>
-        <member name="P:HP.LFT.Report.IRunUnitNodeBase.Exception">
-            <summary>
-            Gets or sets the exception.
-            </summary>
-            <value>
-            The exception.
-            </value>
-        </member>
-        <member name="P:HP.LFT.Report.IRunUnitNodeBase.Id">
-            <summary>
-            Gets or sets the unique identifier.
-            </summary>
-            <value>
-            The unique identifier.
-            </value>
-        </member>
-        <member name="P:HP.LFT.Report.IRunUnitNodeBase.ReportAdditionalData">
-            <summary>
-            Gets or sets the report additional data
-            </summary>
-            <value>
-            The snapshot in base64 format.
-            </value>
-        </member>
-        <member name="P:HP.LFT.Report.IRunUnitNodeBase.Description">
-            <summary>
-            Return the description field. 
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.IRunUnitNodeBase.HtmlDescription">
-            <summary>
-            Returns the html string containing the formatted description.
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.IRunUnitNodeBase.State">
-            <summary>
-            Gets or sets the state.
-            </summary>
-            <value>
-            The state.
-            </value>
-        </member>
-        <member name="P:HP.LFT.Report.IRunUnitNodeBase.ImageDetails">
-            <summary>
-            Gets or sets the image details.
-            </summary>
-            <value>
-            The image details.
-            </value>
-        </member>
-        <member name="P:HP.LFT.Report.IRunUnitNodeBase.MovieCapturePath">
-            <summary>
-            Gets or sets the movie capture path.
-            </summary>
-            <value>
-            The movie capture path.
-            </value>
-        </member>
-        <member name="P:HP.LFT.Report.IRunUnitNodeBase.NestingAllowed">
-            <summary>
-            Gets a value indicating whether the node type could be nested.
-            </summary>
-            <value>
-              <c>true</c> if [allow nesting]; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="T:HP.LFT.Report.IReportCustomEventArgs">
-            <summary>
-            A custom report event created by the user.
-            </summary>
-        </member>
-        <member name="T:HP.LFT.Report.IReportEventWithSnapshotArgs">
-            <summary>
-            A report event that has an image/snapshot attached to it.
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.IReportEventWithSnapshotArgs.SnapshotData">
-            <summary>
-            The snapshot data attached to the report event.
-            </summary>
-        </member>
-        <member name="T:HP.LFT.Report.IReportEventWithDescription">
-            <summary>
-            A report event that has a description.
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.IReportEventWithDescription.Description">
-            <summary>
-            The description of the event.
             </summary>
         </member>
         <member name="T:HP.LFT.Report.IReportVerificationEventArgs">
@@ -913,19 +437,39 @@
             'description' element
             </summary>
         </member>
-        <member name="M:HP.LFT.Report.Presenters.ICollectionArgumentPresenter.PresentArgumentValue(System.Object)">
+        <member name="P:HP.LFT.Report.IReporterInternal.RuntimeSettings">
             <summary>
-            Present only the argument name
+            Report Configuration accessor
             </summary>
-            <param name="argument"></param>
-            <returns></returns>
         </member>
-        <member name="M:HP.LFT.Report.Presenters.ICollectionArgumentPresenter.PresentArgumentName(System.Object)">
+        <member name="P:HP.LFT.Report.IReporterInternal.ReportModel">
             <summary>
-            Present only the argument value
+            Gets the report model.
             </summary>
-            <param name="argument"></param>
-            <returns></returns>
+            <value>
+            The report model.
+            </value>
+        </member>
+        <member name="M:HP.LFT.Report.IReporterInternal.AddNodeToReportModel(HP.LFT.Report.IRunUnitNodeBase)">
+            <summary>
+            Add the node to model
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:HP.LFT.Report.IReporterInternal.FlushOperationsToXml(System.String)">
+            <summary>
+            Generates the UFT Developer report.
+            </summary>
+            <remarks>
+            Required only when using <see cref="T:HP.LFT.Report.IReporter"/> in a test class that does not inherit from UnitTestBase.
+            </remarks> 
+            <returns>The path of the generated report folder.</returns>
+        </member>
+        <member name="M:HP.LFT.Report.IReporterInternal.AddEnvironmentData(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Adds environment data to report from not from the runtime engine
+            </summary>
+            <param name="environmentData"></param>
         </member>
         <member name="T:HP.LFT.Report.ReportConfiguration">
             <summary>
@@ -1034,6 +578,11 @@
             <summary>
             Provides the means to report custom events, additional data, and configuration for the report.
             This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="P:HP.LFT.Report.Reporter.ReportConfiguration">
+            <summary>
+            The report configuration used for generating the report.
             </summary>
         </member>
         <member name="M:HP.LFT.Report.Reporter.ReportEvent(System.String,System.String,HP.LFT.Report.Status,System.String)">
@@ -1148,52 +697,6 @@
             </remarks> 
             <returns>The path of the generated report folder.</returns>
         </member>
-        <member name="M:HP.LFT.Report.Reporter.ReportVerification(HP.LFT.Report.Status,HP.LFT.Report.VerificationData)">
-            <summary>Adds a custom verification step to the LeanFT report.</summary>
-            <param name="reportStatus">The <see cref="T:HP.LFT.Report.Status"/> for the verification.</param>
-            <param name="verificationData">The <see cref="T:HP.LFT.Report.VerificationData"/> data.</param>
-            <exception cref="T:System.ArgumentNullException"><paramref name="verificationData"/> is <c>NULL</c>.</exception>
-        </member>
-        <member name="M:HP.LFT.Report.Reporter.GetCurrentExecutionContextStatus">
-            <summary>
-            Returns the status of the current execution context. The execution context is equivalent to any superior structure that contains operations (e.g.: test method, reporting context, etc.).
-            </summary>
-            <returns>The status of the current execution context as a <see cref="T:HP.LFT.Report.ReportLevel"/> object.</returns>
-        </member>
-        <member name="M:HP.LFT.Report.Reporter.StartScreenRecording(System.Boolean,System.String)">
-            <summary>
-            Starts screen recording.
-            </summary>
-            <param name="useCompression">if <code>true</code> the recorded video represents a time lapse of the recorded scene, otherwise the full scene gets recorded</param>
-            <param name="outputPath">target location for the recorded video</param>
-        </member>
-        <member name="M:HP.LFT.Report.Reporter.StartScreenRecording(System.String)">
-            <summary>
-            Starts screen recording. Compression is ON.
-            </summary>
-            <param name="outputPath">target location for the recorded video</param>
-        </member>
-        <member name="M:HP.LFT.Report.Reporter.StartScreenRecording(System.Boolean)">
-            <summary>
-            Starts screen recording.
-            </summary>
-            <param name="useCompression">if <code>true</code> the recorded video represents a time lapse of the recorded scene, otherwise the full scene gets recorded</param>
-        </member>
-        <member name="M:HP.LFT.Report.Reporter.StartScreenRecording">
-            <summary>
-            Starts screen recording. Compression is ON. Output see report folder.
-            </summary>
-        </member>
-        <member name="M:HP.LFT.Report.Reporter.StopScreenRecording">
-            <summary>
-            Stops screen recording.
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.Reporter.ReportConfiguration">
-            <summary>
-            The report configuration used for generating the report.
-            </summary>
-        </member>
         <member name="P:HP.LFT.Report.Reporter.ReportDescription">
             <summary>
             The LeanFT report description.  The description appears directly below the title in the LeanFT report.  By default, the description is empty.
@@ -1219,6 +722,47 @@
             <value>
             Possible values: <see cref="T:HP.LFT.Report.CaptureLevel"/>
             </value>
+        </member>
+        <member name="M:HP.LFT.Report.Reporter.ReportVerification(HP.LFT.Report.Status,HP.LFT.Report.VerificationData)">
+            <summary>Adds a custom verification step to the LeanFT report.</summary>
+            <param name="reportStatus">The <see cref="T:HP.LFT.Report.Status"/> for the verification.</param>
+            <param name="verificationData">The <see cref="T:HP.LFT.Report.VerificationData"/> data.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="verificationData"/> is <c>NULL</c>.</exception>
+        </member>
+        <member name="M:HP.LFT.Report.Reporter.GetCurrentExecutionContextStatus">
+            <summary>
+            Returns the status of the current execution context. The execution context is equivalent to any superior structure that contains operations (e.g.: test method, reporting context, etc.).
+            </summary>
+            <returns>The status of the current execution context as a <see cref="T:HP.LFT.Report.ReportLevel"/> object.</returns>
+        </member>
+        <member name="M:HP.LFT.Report.Reporter.StartScreenRecording(System.Boolean,System.String)">
+            <summary>
+            Starts screen recording. The recording file format is ".avi".
+            </summary>
+            <param name="useCompression">if <code>true</code> the recorded video represents a time lapse of the recorded scene, otherwise the full scene gets recorded</param>
+            <param name="outputPath">target location for the recorded video</param>
+        </member>
+        <member name="M:HP.LFT.Report.Reporter.StartScreenRecording(System.String)">
+            <summary>
+            Starts screen recording. Compression is ON. The recording file format is ".avi".
+            </summary>
+            <param name="outputPath">target location for the recorded video</param>
+        </member>
+        <member name="M:HP.LFT.Report.Reporter.StartScreenRecording(System.Boolean)">
+            <summary>
+            Starts a screen recording which will be saved to the report folder. The recording file format is ".avi".
+            </summary>
+            <param name="useCompression">if <code>true</code> the recorded video represents a time lapse of the recorded scene, otherwise the full scene gets recorded</param>
+        </member>
+        <member name="M:HP.LFT.Report.Reporter.StartScreenRecording">
+            <summary>
+            Starts a screen recording which will be saved to the report folder. Compression is ON. The recording file format is ".avi".
+            </summary>
+        </member>
+        <member name="M:HP.LFT.Report.Reporter.StopScreenRecording">
+            <summary>
+            Stops screen recording.
+            </summary>
         </member>
         <member name="F:HP.LFT.Report.ReportEventHandler._currentState">
             <summary>Use a dedicated state per thread.</summary>
@@ -1266,6 +810,11 @@
             The exceptions thrown when errors occur in Reporter objects.
             </summary>
         </member>
+        <member name="P:HP.LFT.Report.ReportException.ErrorCode">
+            <summary>
+            The error code associated with the exception, if applicable.
+            </summary>
+        </member>
         <member name="M:HP.LFT.Report.ReportException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
             <summary>
             Initializes a new instance of the ReportException class with serialized data.
@@ -1291,9 +840,205 @@
             </summary>
             <param name="message">The error message with the reason for this exception. </param>
         </member>
-        <member name="P:HP.LFT.Report.ReportException.ErrorCode">
+        <member name="T:HP.LFT.Report.IReporter">
             <summary>
-            The error code associated with the exception, if applicable.
+            Accesses the UFT Developer HTML Report.
+            </summary>
+        </member>
+        <member name="P:HP.LFT.Report.IReporter.ReportConfiguration">
+            <summary>
+            Returns the ReportConfiguration interface, which enables you to customize the UFT Developer report behavior.
+            </summary>
+        </member>
+        <member name="M:HP.LFT.Report.IReporter.ReportEvent(System.String,System.String,HP.LFT.Report.Status,System.String)">
+            <summary>
+            Adds a custom step to the UFT Developer report including the image from the specified path. 
+            </summary>
+            <param name="stepName">The name of the reported step. This name is the label of the step node in the report.</param>
+            <param name="description">The description of the reported step. The description is displayed in the Details pane of the report.</param>
+            <param name="status">The <see cref="P:HP.LFT.Report.IReporter.Status"/> for the step.</param>
+            <param name="imagePath">The full path of the image to display for the step. Supported image types: BMP, GIF, JPEG, PNG, TIFF</param>
+        </member>
+        <member name="M:HP.LFT.Report.IReporter.ReportEvent(System.String,System.String,HP.LFT.Report.Status,System.Drawing.Image)">
+            <summary>
+            Adds a custom step to the UFT Developer report including the provided image object.
+            </summary>
+            <param name="stepName">The name of the reported step. This name is the label of the step node in the report.</param>
+            <param name="description">The description of the reported step. The description is displayed in the Details pane of the report.</param>
+            <param name="status">The <see cref="P:HP.LFT.Report.IReporter.Status"/> for the step.</param>
+            <param name="image">The <see cref="T:System.Drawing.Image"/> to use for the step.</param>
+        </member>
+        <member name="M:HP.LFT.Report.IReporter.ReportEvent(System.String,System.String)">
+            <summary>
+            Adds a custom step to the UFT Developer with default status "Passed".
+            </summary>
+            <param name="stepName">The name of the reported step. This name is the label of the step node in the report.</param>
+            <param name="description">The description of the reported step. The description is displayed in the Details pane of the report.</param>
+        </member>
+        <member name="M:HP.LFT.Report.IReporter.ReportEvent(System.String,System.String,HP.LFT.Report.Status,System.Exception,System.String)">
+            <summary>
+            Adds a custom step to the UFT Developer including exception details and the image from the specified path.
+            </summary>
+            <param name="stepName">The name of the reported step. This name is the label of the step node in the report.</param>
+            <param name="description">The description of the reported step. The description is displayed in the Details pane of the report.</param>
+            <param name="status">The <see cref="P:HP.LFT.Report.IReporter.Status"/> for the step.</param>
+            <param name="ex">The exception that occurred.</param>
+            <param name="imagePath">The full path of the image to display for the step. Supported image types: BMP, GIF, JPEG, PNG, TIFF</param>
+        </member>
+        <member name="M:HP.LFT.Report.IReporter.ReportEvent(System.String,System.String,HP.LFT.Report.Status,System.Exception,System.Drawing.Image)">
+            <summary>
+            Adds a custom step to the UFT Developer including the provided exception and image object.
+            </summary>
+            <param name="stepName">The name of the reported step. This name is the label of the step node in the report.</param>
+            <param name="description">The description of the reported step. The description is displayed in the Details pane of the report.</param>
+            <param name="status">The <see cref="P:HP.LFT.Report.IReporter.Status"/> for the step.</param>
+            <param name="ex">The exception that occurred.</param>
+            <param name="image">The <see cref="T:System.Drawing.Image"/> to use for the step.</param>
+        </member>
+        <member name="M:HP.LFT.Report.IReporter.ReportEvent(System.String,HP.LFT.Report.ReportAdditionalInfo)">
+            <summary>
+            Adds a custom step to the UFT Developer including the information about the step as a <see cref="T:HP.LFT.Report.ReportAdditionalInfo"/> object.
+            </summary>
+            <param name="stepName"></param> the name of the reported step. This name is the label of the step node in the report.
+            <param name="reportAdditionalInfo"></param> object which contains the information to describe the event.
+        </member>
+        <member name="M:HP.LFT.Report.IReporter.ReportVerification(HP.LFT.Report.Status,HP.LFT.Report.VerificationData)">
+            <summary>Adds a custom verification step to the UFT Developer report.</summary>
+            <param name="reportStatus">The <see cref="P:HP.LFT.Report.IReporter.Status"/> for the verification.</param>
+            <param name="verificationData">The <see cref="T:HP.LFT.Report.VerificationData"/> data.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="verificationData"/> is <c>NULL</c>.</exception>
+        </member>
+        <member name="M:HP.LFT.Report.IReporter.AddRunInformation(System.String,System.String)">
+            <summary>
+            Adds a custom entry to the top section of the UFT Developer report.
+            </summary>
+            <param name="fieldName">The entry name.</param>
+            <param name="fieldValue">The entry value.</param>
+        </member>
+        <member name="M:HP.LFT.Report.IReporter.StartReportingContext(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Starts a named section in the UFT Developer report.
+            </summary>
+            <param name="contextName">The section name.</param>
+            <param name="contextDescription">Optional. The section description.  Blank by default.</param>
+            <param name="additionalData">Optional. The dictionary containing additional custom information.  Blank by default.</param>
+        </member>
+        <member name="M:HP.LFT.Report.IReporter.StartReportingContext(System.String,HP.LFT.Report.ReportContextInfo)">
+            <summary>
+            Starts a named section in the UFT Developer report.
+            </summary>
+            <param name="contextName">The section name.</param>
+            <param name="reportContextInfo">The <see cref="T:HP.LFT.Report.ReportAdditionalInfo"/> object which contains the information to describe the section.</param>
+        </member>
+        <member name="M:HP.LFT.Report.IReporter.EndReportingContext">
+            <summary>
+            Ends the section in the UFT Developer report.
+            </summary>
+        </member>
+        <member name="M:HP.LFT.Report.IReporter.StartTest(System.String,System.String)">
+            <summary>
+            Starts a new test node in the UFT Developer report test flow tree.
+            </summary>
+            <remarks>
+            Required only when using <see cref="T:HP.LFT.Report.IReporter"/> in a class that does not inherit from UnitTestBase.
+            </remarks>
+            <param name="testName">The test name.</param>
+            <param name="testDescription">Optional. The test description. Default = blank.</param>
+        </member>
+        <member name="M:HP.LFT.Report.IReporter.EndTest(HP.LFT.Report.Status)">
+            <summary>
+            Ends the current test level and optionally sets the status for the test.
+            </summary>
+            <remarks>
+            Required only when using <see cref="T:HP.LFT.Report.IReporter"/> in a test class that does not inherit from UnitTestBase.
+            </remarks>
+            <param name="status">Optional. The <see cref="P:HP.LFT.Report.IReporter.Status"/> for the current test.  Default = Passed.</param>
+        </member>
+        <member name="M:HP.LFT.Report.IReporter.Init(HP.LFT.Report.ReportConfiguration)">
+            <summary>
+            Initializes the specified ReportConfiguration.
+            </summary>
+            <remarks>
+            Required only when using <see cref="T:HP.LFT.Report.IReporter"/> in a test class that does not inherit from UnitTestBase.
+            </remarks>
+            <param name="configuration">The configuration to use for the report.</param>
+        </member>
+        <member name="M:HP.LFT.Report.IReporter.GenerateReport">
+            <summary>
+            Generates the UFT Developer report.
+            </summary>
+            <remarks>
+            Required only when using <see cref="T:HP.LFT.Report.IReporter"/> in a test class that does not inherit from UnitTestBase.
+            </remarks> 
+            <returns>The path of the generated report folder.</returns>
+        </member>
+        <member name="M:HP.LFT.Report.IReporter.GetCurrentExecutionContextStatus">
+            <summary>
+            Returns the status of the current execution context. The execution context is equivalent to any superior structure that contains operations (e.g.: test method, reporting context, etc.).
+            </summary>
+            <returns>The status of the current execution context as a <see cref="T:HP.LFT.Report.ReportLevel"/> object.</returns>
+        </member>
+        <member name="P:HP.LFT.Report.IReporter.ReportDescription">
+            <summary>
+            The UFT Developer report description.  The description appears directly below the title in the UFT Developer report.  By default, the description is empty.
+            </summary>
+        </member>
+        <member name="P:HP.LFT.Report.IReporter.ReportTitle">
+            <summary>
+            The UFT Developer report title.  Default = Run Results.
+            </summary>
+        </member>
+        <member name="P:HP.LFT.Report.IReporter.ReportLevel">
+            <summary>
+            The report level used to generate the UFT Developer report.
+            <value>
+            Possible values: <see cref="T:HP.LFT.Report.ReportLevel"/>.
+            </value>
+            </summary>
+        </member>
+        <member name="P:HP.LFT.Report.IReporter.SnapshotCaptureLevel">
+            <summary>
+            The snapshot capture level used to generate the UFT Developer report.
+            </summary>
+            <value>
+            Possible values: <see cref="T:HP.LFT.Report.CaptureLevel"/>
+            </value>
+        </member>
+        <member name="P:HP.LFT.Report.IReporter.Status">
+            <summary>
+            The runtime status of the UFT Developer report.
+            </summary>
+            <value>
+            Possible values: <see cref="T:HP.LFT.Report.Status"/>
+            </value>
+        </member>
+        <member name="M:HP.LFT.Report.IReporter.StartScreenRecording(System.Boolean,System.String)">
+            <summary>
+            Starts screen recording. The recording file format is ".avi".
+            </summary>
+            <param name="useCompression">if <code>true</code> the recorded video represents a time lapse of the recorded scene, otherwise the full scene gets recorded</param>
+            <param name="outputPath">target location for the recorded video</param>
+        </member>
+        <member name="M:HP.LFT.Report.IReporter.StartScreenRecording(System.String)">
+            <summary>
+            Starts screen recording. Compression is ON. The recording file format is ".avi".
+            </summary>
+            <param name="outputPath">target location for the recorded video</param>
+        </member>
+        <member name="M:HP.LFT.Report.IReporter.StartScreenRecording(System.Boolean)">
+            <summary>
+            Starts a screen recording which will be saved to the report folder. The recording file format is ".avi".
+            </summary>
+            <param name="useCompression">if <code>true</code> the recorded video represents a time lapse of the recorded scene, otherwise the full scene gets recorded</param>
+        </member>
+        <member name="M:HP.LFT.Report.IReporter.StartScreenRecording">
+            <summary>
+            Starts a screen recording which will be saved to the report folder. Compression is ON. The recording file format is ".avi".
+            </summary>
+        </member>
+        <member name="M:HP.LFT.Report.IReporter.StopScreenRecording">
+            <summary>
+            Stops screen recording.
             </summary>
         </member>
         <member name="T:HP.LFT.Report.Status">
@@ -1340,62 +1085,6 @@
             <summary>
             Internal interface which represents the Report Model.
             </summary>
-        </member>
-        <member name="M:HP.LFT.Report.IReportModel.AddRunUnitNode(HP.LFT.Report.IRunUnitNodeBase)">
-            <summary>
-            Adds the run unit node.
-            </summary>
-            <param name="runUnitNode">The run unit node.</param>
-        </member>
-        <member name="M:HP.LFT.Report.IReportModel.CloseCurrentRunUnitNode">
-            <summary>
-            Ends the run unit node.
-            </summary>
-            <returns><seealso cref="T:HP.LFT.Report.IRunUnitNodeBase"/></returns>
-        </member>
-        <member name="M:HP.LFT.Report.IReportModel.CloseCurrentRunUnitNode(HP.LFT.Report.Status)">
-            <summary>
-            Ends the current run unit node with status.
-            </summary>
-            <param name="status">The type.</param>
-        </member>
-        <member name="M:HP.LFT.Report.IReportModel.CloseRootRunUnitNode">
-            <summary>
-            Closes the root run unit node.
-            </summary>
-        </member>
-        <member name="M:HP.LFT.Report.IReportModel.CloseCurrentRunUnitNode(HP.LFT.Report.ReportEventType)">
-            <summary>
-            Closes the current run unit node by specific type
-            </summary>
-            <param name="type">The type.</param>
-        </member>
-        <member name="M:HP.LFT.Report.IReportModel.CloseCurrentRunUnitNode(HP.LFT.Report.ReportEventType,HP.LFT.Report.Status)">
-            <summary>
-            Closes the current run unit node by specific type
-            </summary>
-            <param name="type">The type.</param>
-            <param name="status">The type.</param>
-        </member>
-        <member name="M:HP.LFT.Report.IReportModel.AddGeneralInfo(System.String,System.String)">
-            <summary>
-            Adds the general information.
-            </summary>
-            <param name="title">General info title</param>
-            <param name="description">General info description</param>
-        </member>
-        <member name="M:HP.LFT.Report.IReportModel.AddEnvironmentInfo(System.String,System.String)">
-            <summary>
-            Adds an environment info.
-            </summary>
-            <param name="title">Environment info title</param>
-            <param name="description">Environment info description</param>
-        </member>
-        <member name="M:HP.LFT.Report.IReportModel.AddEnvironmentInfo(System.Collections.Generic.IDictionary{System.String,System.String})">
-            <summary>
-            Adds multiple entries of environment info.
-            </summary>
-            <param name="infoTitleAndDescription">Dictionary of environment infos</param>
         </member>
         <member name="E:HP.LFT.Report.IReportModel.UnitNodeAdded">
             <summary>
@@ -1463,6 +1152,12 @@
             The enviroment information.
             </value>
         </member>
+        <member name="M:HP.LFT.Report.IReportModel.AddRunUnitNode(HP.LFT.Report.IRunUnitNodeBase)">
+            <summary>
+            Adds the run unit node.
+            </summary>
+            <param name="runUnitNode">The run unit node.</param>
+        </member>
         <member name="P:HP.LFT.Report.IReportModel.CurrentTestFailed">
             <summary>
             Gets a value indicating whether this instance is failed.
@@ -1471,22 +1166,60 @@
               <c>true</c> if this instance is failed; otherwise, <c>false</c>.
             </value>
         </member>
+        <member name="M:HP.LFT.Report.IReportModel.CloseCurrentRunUnitNode">
+            <summary>
+            Ends the run unit node.
+            </summary>
+            <returns><seealso cref="T:HP.LFT.Report.IRunUnitNodeBase"/></returns>
+        </member>
+        <member name="M:HP.LFT.Report.IReportModel.CloseCurrentRunUnitNode(HP.LFT.Report.Status)">
+            <summary>
+            Ends the current run unit node with status.
+            </summary>
+            <param name="status">The type.</param>
+        </member>
+        <member name="M:HP.LFT.Report.IReportModel.CloseRootRunUnitNode">
+            <summary>
+            Closes the root run unit node.
+            </summary>
+        </member>
+        <member name="M:HP.LFT.Report.IReportModel.CloseCurrentRunUnitNode(HP.LFT.Report.ReportEventType)">
+            <summary>
+            Closes the current run unit node by specific type
+            </summary>
+            <param name="type">The type.</param>
+        </member>
+        <member name="M:HP.LFT.Report.IReportModel.CloseCurrentRunUnitNode(HP.LFT.Report.ReportEventType,HP.LFT.Report.Status)">
+            <summary>
+            Closes the current run unit node by specific type
+            </summary>
+            <param name="type">The type.</param>
+            <param name="status">The type.</param>
+        </member>
+        <member name="M:HP.LFT.Report.IReportModel.AddGeneralInfo(System.String,System.String)">
+            <summary>
+            Adds the general information.
+            </summary>
+            <param name="title">General info title</param>
+            <param name="description">General info description</param>
+        </member>
+        <member name="M:HP.LFT.Report.IReportModel.AddEnvironmentInfo(System.String,System.String)">
+            <summary>
+            Adds an environment info.
+            </summary>
+            <param name="title">Environment info title</param>
+            <param name="description">Environment info description</param>
+        </member>
+        <member name="M:HP.LFT.Report.IReportModel.AddEnvironmentInfo(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Adds multiple entries of environment info.
+            </summary>
+            <param name="infoTitleAndDescription">Dictionary of environment infos</param>
+        </member>
         <member name="T:HP.LFT.Report.IRunUnitNode">
             <summary>
             
             </summary>
-        </member>
-        <member name="T:HP.LFT.Report.IReportStructureEventArgs">
-            <summary>
-            A structure (for ex: Class or Test) event to be reported.
-            </summary>
-        </member>
-        <member name="M:HP.LFT.Report.IRunUnitNode.AddNode(HP.LFT.Report.IRunUnitNodeBase)">
-            <summary>
-            Adds the node.
-            </summary>
-            <param name="node">The node.</param>
-            <returns></returns>
         </member>
         <member name="P:HP.LFT.Report.IRunUnitNode.EnviromentInfo">
             <summary>
@@ -1522,6 +1255,273 @@
             The current test.
             </value>
         </member>
+        <member name="M:HP.LFT.Report.IRunUnitNode.AddNode(HP.LFT.Report.IRunUnitNodeBase)">
+            <summary>
+            Adds the node.
+            </summary>
+            <param name="node">The node.</param>
+            <returns></returns>
+        </member>
+        <member name="T:HP.LFT.Report.IReportEventArgs">
+            <summary>
+            A general event to be reported.
+            </summary>
+        </member>
+        <member name="P:HP.LFT.Report.IReportEventArgs.Name">
+            <summary>
+            Gets the completely specified name of the test.
+            </summary>
+        </member>
+        <member name="P:HP.LFT.Report.IReportEventArgs.EventType">
+            <summary>
+            Gets a string representing the type of test, e.g.: "Test Case"
+            </summary>
+        </member>
+        <member name="P:HP.LFT.Report.IReportEventArgs.Duration">
+            <summary>
+            Duration of the current node
+            </summary>
+        </member>
+        <member name="P:HP.LFT.Report.IReportEventArgs.Status">
+            <summary>
+            Gets or sets the status.
+            </summary>
+            <value>
+            The status.
+            </value>
+        </member>
+        <member name="P:HP.LFT.Report.IReportEventArgs.Time">
+            <summary>
+            Gets the time.
+            </summary>
+            <value>
+            The time.
+            </value>
+        </member>
+        <member name="P:HP.LFT.Report.IReportEventArgs.Exception">
+            <summary>
+            Gets or sets the exception.
+            </summary>
+            <value>
+            The exception.
+            </value>
+        </member>
+        <member name="P:HP.LFT.Report.IReportEventArgs.Id">
+            <summary>
+            Gets or sets the unique identifier.
+            </summary>
+            <value>
+            The unique identifier.
+            </value>
+        </member>
+        <member name="P:HP.LFT.Report.IReportEventArgs.ParentId">
+            <summary>
+            Gets or sets the unique identifier of the parent event.
+            </summary>
+            <value>
+            The unique identifier of the parent event.
+            </value>
+        </member>
+        <member name="P:HP.LFT.Report.IReportEventArgs.ReportAdditionalData">
+            <summary>
+            Gets or sets the report additional data
+            </summary>
+            <value>
+            The snapshot in base64 format.
+            </value>
+        </member>
+        <member name="T:HP.LFT.Report.IReportStructureEventArgs">
+            <summary>
+            A structure (for ex: Class or Test) event to be reported.
+            </summary>
+        </member>
+        <member name="T:HP.LFT.Report.IReportEventWithSnapshotArgs">
+            <summary>
+            A report event that has an image/snapshot attached to it.
+            </summary>
+        </member>
+        <member name="P:HP.LFT.Report.IReportEventWithSnapshotArgs.SnapshotData">
+            <summary>
+            The snapshot data attached to the report event.
+            </summary>
+        </member>
+        <member name="T:HP.LFT.Report.IReportEventWithDescription">
+            <summary>
+            A report event that has a description.
+            </summary>
+        </member>
+        <member name="P:HP.LFT.Report.IReportEventWithDescription.Description">
+            <summary>
+            The description of the event.
+            </summary>
+        </member>
+        <member name="T:HP.LFT.Report.IReportCustomEventArgs">
+            <summary>
+            A custom report event created by the user.
+            </summary>
+        </member>
+        <member name="P:HP.LFT.Report.IRunUnitNodeBase.Name">
+            <summary>
+            Gets the completely specified name of the test.
+            </summary>
+        </member>
+        <member name="P:HP.LFT.Report.IRunUnitNodeBase.EventType">
+            <summary>
+            Gets a string representing the type of test, e.g.: "Test Case"
+            </summary>
+        </member>
+        <member name="P:HP.LFT.Report.IRunUnitNodeBase.Duration">
+            <summary>
+            Duration of the current node
+            </summary>
+        </member>
+        <member name="P:HP.LFT.Report.IRunUnitNodeBase.Status">
+            <summary>
+            Gets or sets the status.
+            </summary>
+            <value>
+            The status.
+            </value>
+        </member>
+        <member name="P:HP.LFT.Report.IRunUnitNodeBase.Exception">
+            <summary>
+            Gets or sets the exception.
+            </summary>
+            <value>
+            The exception.
+            </value>
+        </member>
+        <member name="P:HP.LFT.Report.IRunUnitNodeBase.Id">
+            <summary>
+            Gets or sets the unique identifier.
+            </summary>
+            <value>
+            The unique identifier.
+            </value>
+        </member>
+        <member name="P:HP.LFT.Report.IRunUnitNodeBase.ReportAdditionalData">
+            <summary>
+            Gets or sets the report additional data
+            </summary>
+            <value>
+            The snapshot in base64 format.
+            </value>
+        </member>
+        <member name="P:HP.LFT.Report.IRunUnitNodeBase.Description">
+            <summary>
+            Return the description field. 
+            </summary>
+        </member>
+        <member name="P:HP.LFT.Report.IRunUnitNodeBase.HtmlDescription">
+            <summary>
+            Returns the html string containing the formatted description.
+            </summary>
+        </member>
+        <member name="P:HP.LFT.Report.IRunUnitNodeBase.State">
+            <summary>
+            Gets or sets the state.
+            </summary>
+            <value>
+            The state.
+            </value>
+        </member>
+        <member name="P:HP.LFT.Report.IRunUnitNodeBase.ImageDetails">
+            <summary>
+            Gets or sets the image details.
+            </summary>
+            <value>
+            The image details.
+            </value>
+        </member>
+        <member name="P:HP.LFT.Report.IRunUnitNodeBase.MovieCapturePath">
+            <summary>
+            Gets or sets the movie capture path.
+            </summary>
+            <value>
+            The movie capture path.
+            </value>
+        </member>
+        <member name="P:HP.LFT.Report.IRunUnitNodeBase.NestingAllowed">
+            <summary>
+            Gets a value indicating whether the node type could be nested.
+            </summary>
+            <value>
+              <c>true</c> if [allow nesting]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:HP.LFT.Report.IRunUnitNodeBase.CloseLevel">
+            <summary>
+            Closes the current test.
+            </summary>
+        </member>
+        <member name="P:HP.LFT.Report.IUnitTestReport.CurrentTestFailed">
+            <summary>
+            Gets a value indicating whether this instance is failed.
+            </summary>
+            <value>
+              <c>true</c> if this instance is failed; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:HP.LFT.Report.IUnitTestReport.OpenReportLevel(System.String,HP.LFT.Report.ReportEventType,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Adds the report level.
+            </summary>
+        </member>
+        <member name="M:HP.LFT.Report.IUnitTestReport.CloseCurrentReportLevel">
+            <summary>
+            Closes the report level.
+            </summary>
+        </member>
+        <member name="M:HP.LFT.Report.IUnitTestReport.CloseCurrentReportLevel(HP.LFT.Report.ReportEventType)">
+            <summary>
+            Closes the report level.
+            </summary>
+        </member>
+        <member name="M:HP.LFT.Report.IUnitTestReport.CloseCurrentReportLevel(HP.LFT.Report.Status)">
+            <summary>
+            Closes the report level with specific status.
+            </summary>
+        </member>
+        <member name="M:HP.LFT.Report.IUnitTestReport.CloseCurrentReportLevel(HP.LFT.Report.ReportEventType,HP.LFT.Report.Status)">
+            <summary>
+            Closes the report level.
+            </summary>
+        </member>
+        <member name="M:HP.LFT.Report.IUnitTestReport.CloseAllReportLevels">
+            <summary>
+            Closes the report level.
+            </summary>
+        </member>
+        <member name="M:HP.LFT.Report.IUnitTestReport.UpdateReportStatus(HP.LFT.Report.Status)">
+            <summary>
+            Updates the report status.
+            </summary>
+            <param name="nodeStatus">The node status.</param>
+        </member>
+        <member name="M:HP.LFT.Report.IUnitTestReport.Init(HP.LFT.Report.ReportConfiguration)">
+            <summary>
+            Initializes the specified configuration.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="M:HP.LFT.Report.IUnitTestReport.Init(HP.LFT.Report.ReportConfiguration,System.String)">
+            <summary>
+            Initializes the specified configuration.
+            </summary>
+            <param name="configuration">The configuration.</param>
+            <param name="frameworkWorkDirectory">The framework TestContext work directory</param>
+        </member>
+        <member name="M:HP.LFT.Report.IUnitTestReport.AddXmlNode(System.String)">
+            <summary>
+            Adding xml content that contains only operations
+            </summary>
+            <param name="xmlNode"></param>
+        </member>
+        <member name="M:HP.LFT.Report.IUnitTestReport.Clear">
+            <summary>
+            Clears the report content 
+            </summary>
+        </member>
         <member name="T:HP.LFT.Report.ReporterInstance">
             <summary>
             The class for accessing the LeanFT HTML Report.
@@ -1532,11 +1532,61 @@
             Initializes a new instance of the <see cref="T:HP.LFT.Report.Reporter"/> class.
             </summary>
         </member>
+        <member name="P:HP.LFT.Report.ReporterInstance.Instance">
+            <summary>  
+            Provides the single instance of the <seealso cref="T:HP.LFT.Report.Reporter"/> class.
+            <remarks>When using </remarks>
+            </summary>
+        </member>
+        <member name="P:HP.LFT.Report.ReporterInstance.ReportConfiguration">
+            <summary>
+            The report configuration used for generating the report.
+            </summary>
+        </member>
+        <member name="P:HP.LFT.Report.ReporterInstance.ReportDescription">
+            <summary>
+            The LeanFT report description.  The description appears directly below the title in the LeanFT report.  By default, the description is empty.
+            </summary>
+        </member>
+        <member name="P:HP.LFT.Report.ReporterInstance.ReportTitle">
+            <summary>
+            The LeanFT report title.  Default = Run Results.
+            </summary>
+        </member>
+        <member name="P:HP.LFT.Report.ReporterInstance.ReportLevel">
+            <summary>
+            The report level used to generate the LeanFT report.
+            <value>
+            Possible values: <see cref="T:HP.LFT.Report.ReportLevel"/>.
+            </value>
+            </summary>
+        </member>
+        <member name="P:HP.LFT.Report.ReporterInstance.SnapshotCaptureLevel">
+            <summary>
+            The snapshot capture level used to generate the LeanFT report.
+            </summary>
+            <value>
+            Possible values: <see cref="T:HP.LFT.Report.CaptureLevel"/>
+            </value>
+        </member>
+        <member name="P:HP.LFT.Report.ReporterInstance.Status">
+            <summary>
+            The runtime status of the LeanFT report.
+            <value>
+            Possible values: <see cref="T:HP.LFT.Report.Status"/>.
+            </value>
+            </summary>
+        </member>
         <member name="M:HP.LFT.Report.ReporterInstance.SetReportModel(HP.LFT.Report.IReportModel)">
             <summary>
             for unittesting
             </summary>
             <param name="reportModel"></param>
+        </member>
+        <member name="P:HP.LFT.Report.ReporterInstance.HP#LFT#Report#IUnitTestReport#CurrentTestFailed">
+            <summary>
+            Indicates whether the current test has a failed status.
+            </summary>
         </member>
         <member name="M:HP.LFT.Report.ReporterInstance.Init(HP.LFT.Report.ReportConfiguration)">
             <summary>
@@ -1675,56 +1725,6 @@
             Releases the Reporter instance and optionally, free managed resources.
             </summary>
             <param name="disposing">If true, frees managed resources.</param>
-        </member>
-        <member name="P:HP.LFT.Report.ReporterInstance.Instance">
-            <summary>  
-            Provides the single instance of the <seealso cref="T:HP.LFT.Report.Reporter"/> class.
-            <remarks>When using </remarks>
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.ReporterInstance.ReportConfiguration">
-            <summary>
-            The report configuration used for generating the report.
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.ReporterInstance.ReportDescription">
-            <summary>
-            The LeanFT report description.  The description appears directly below the title in the LeanFT report.  By default, the description is empty.
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.ReporterInstance.ReportTitle">
-            <summary>
-            The LeanFT report title.  Default = Run Results.
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.ReporterInstance.ReportLevel">
-            <summary>
-            The report level used to generate the LeanFT report.
-            <value>
-            Possible values: <see cref="T:HP.LFT.Report.ReportLevel"/>.
-            </value>
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.ReporterInstance.SnapshotCaptureLevel">
-            <summary>
-            The snapshot capture level used to generate the LeanFT report.
-            </summary>
-            <value>
-            Possible values: <see cref="T:HP.LFT.Report.CaptureLevel"/>
-            </value>
-        </member>
-        <member name="P:HP.LFT.Report.ReporterInstance.Status">
-            <summary>
-            The runtime status of the LeanFT report.
-            <value>
-            Possible values: <see cref="T:HP.LFT.Report.Status"/>.
-            </value>
-            </summary>
-        </member>
-        <member name="P:HP.LFT.Report.ReporterInstance.HP#LFT#Report#IUnitTestReport#CurrentTestFailed">
-            <summary>
-            Indicates whether the current test has a failed status.
-            </summary>
         </member>
         <member name="P:HP.LFT.Report.ReporterInstance.RuntimeSettingsImpl.GeneratedReportPath">
             <summary>
@@ -1867,16 +1867,6 @@
             This data is displayed to UFT Developer report.
             </summary>
         </member>
-        <member name="M:HP.LFT.Report.ReportParameter.#ctor">
-            <summary>Create a new instance of the <see cref="T:HP.LFT.Report.ReportParameter"/> class.</summary>
-        </member>
-        <member name="M:HP.LFT.Report.ReportParameter.#ctor(System.String,System.Object)">
-            <summary>
-            Creates a new instance of <see cref="T:HP.LFT.Report.ReportParameter"/>.
-            </summary>
-            <param name="name">the name of the <see cref="T:HP.LFT.Report.ReportParameter"/>.</param>
-            <param name="value">the value of the <see cref="T:HP.LFT.Report.ReportParameter"/>.</param>
-        </member>
         <member name="P:HP.LFT.Report.ReportParameter.Name">
             <summary>
             The name of the parameter.
@@ -1886,6 +1876,16 @@
             <summary>
             The value of the parameter that will be displayed into UFT Developer report.
             </summary>
+        </member>
+        <member name="M:HP.LFT.Report.ReportParameter.#ctor">
+            <summary>Create a new instance of the <see cref="T:HP.LFT.Report.ReportParameter"/> class.</summary>
+        </member>
+        <member name="M:HP.LFT.Report.ReportParameter.#ctor(System.String,System.Object)">
+            <summary>
+            Creates a new instance of <see cref="T:HP.LFT.Report.ReportParameter"/>.
+            </summary>
+            <param name="name">the name of the <see cref="T:HP.LFT.Report.ReportParameter"/>.</param>
+            <param name="value">the value of the <see cref="T:HP.LFT.Report.ReportParameter"/>.</param>
         </member>
         <member name="T:HP.LFT.Report.UnitNodeEventArgs">
             <summary>

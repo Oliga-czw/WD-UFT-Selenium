@@ -13,16 +13,16 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public static void AuditClose()
         {
 
-            MOC.MOCAuditWindow.Close();
-            MOC.CloseDialog.YesButton.Click();
+            APEM.MOCAuditWindow.Close();
+            APEM.CloseDialog.YesButton.Click();
 
         }
 
         public static void MocClose()
         {
 
-            MOC.MocmainWindow.Close();
-            MOC.CloseDialog.YesButton.Click();
+            APEM.MocmainWindow.Close();
+            APEM.CloseDialog.YesButton.Click();
 
         }
     }

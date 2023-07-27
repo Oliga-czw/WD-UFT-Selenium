@@ -22,6 +22,13 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
         public static string SLMDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\aspenONE SLM License Manager.lnk";
         public static string BDDDir = @"C:\Program Files (x86)\AspenTech\Batch.21\Client\BatchDetailDisplay.exe";
 
+        public static string APRMDir = @"C:\APRM";
+
+        public static string WizrdDir = @"C:\Program Files (x86)\Common Files\AspenTech Shared\DatabaseWizard\DatabaseWizard.exe";
+
+        public static string AprmAdminDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Aspen Production Record Manager Administrator (batch).lnk";
+        public static string APEMAdminDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Aspen Manufacturing Execution\Aspen Production Execution Manager Administrator.lnk";
+
 
         public static string WDBulkload
         {
@@ -131,5 +138,7 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
         public static string Codify_allx86 = @"C:\Program Files (x86)\AspenTech\AeBRS\cfg_source\codify_all.cmd";
 
 
+
+        public static string WDBatch = @"C:\Program Files (x86)\AspenTech\AeBRS\Templates\WeighDispense.xml";
     }
 }

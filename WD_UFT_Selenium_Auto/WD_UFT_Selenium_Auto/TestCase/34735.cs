@@ -44,16 +44,16 @@ namespace WD_UFT_Selenium_Auto.TestCase
             driver.Close();
             LogStep(@"4. open Audit to check error");
             Application.LaunchMocAndLogin();
-            MOC.MocmainWindow.Audit_moudle.ClickSignle();
-            MOC.MOCAuditWindow.Users_Failures.ClickSignle();
+            APEM.MocmainWindow.Audit_moudle.ClickSignle();
+            APEM.MOCAuditWindow.Users_Failures.ClickSignle();
             Thread.Sleep(2000);
 
-            var a = MOC.MOCAuditWindow.LoginFailureInterFrame.auditTable.Rowscount();
-            MOC.MOCAuditWindow.LoginFailureInterFrame.auditTable.SelectRows(a - 1);
+            var a = APEM.MOCAuditWindow.LoginFailureInterFrame.auditTable.Rowscount();
+            APEM.MOCAuditWindow.LoginFailureInterFrame.auditTable.SelectRows(a - 1);
             Thread.Sleep(2000);
-            MOC.MOCAuditWindow.GetSnapshot(Resultpath + "Audit result.PNG");
-            var b = MOC.MOCAuditWindow.LoginFailureInterFrame.auditTable.GetCell(a - 1, "Module").Value;
-            var c = MOC.MOCAuditWindow.LoginFailureInterFrame.auditTable.GetCell(a - 1, "Reason").Value;
+            APEM.MOCAuditWindow.GetSnapshot(Resultpath + "Audit result.PNG");
+            var b = APEM.MOCAuditWindow.LoginFailureInterFrame.auditTable.GetCell(a - 1, "Module").Value;
+            var c = APEM.MOCAuditWindow.LoginFailureInterFrame.auditTable.GetCell(a - 1, "Reason").Value;
             Base_Assert.IsTrue("WDServer" == b.ToString() ||"Aspen WD Web Service" == b.ToString(), "in audit");
             Base_Assert.AreEqual(message, c, "in audit");
             MOC_Fuction.AuditClose();

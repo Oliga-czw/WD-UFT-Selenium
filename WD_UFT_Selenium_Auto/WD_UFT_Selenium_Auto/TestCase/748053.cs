@@ -106,9 +106,9 @@ namespace WD_UFT_Selenium_Auto.TestCase
             //Base_Assert.AreEqual("1000.0", data[0][0]);
             //Base_Assert.AreEqual("1000.0", data[0][1]);
             LogStep(@"6. Check begin/end sourcein batch");
-            //Application.LaunchBatchDetailDisplay();
+            Application.LaunchBatchDetailDisplay();
             //Batch_Fuction.findBatch(order);
-            //WD.BatchMainWindow.TreeView.GetNode("Batch").Expand();
+            APRM.BatchMainWindow.TreeView.GetNode("Batch").Expand();
             //WD.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1]").Expand();
             //WD.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1];BOM [1]").Expand();
             //WD.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1];BOM [1];Material [1]").Expand();

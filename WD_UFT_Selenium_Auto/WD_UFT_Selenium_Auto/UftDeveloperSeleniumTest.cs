@@ -1,16 +1,21 @@
 ﻿using HP.LFT.SDK;
-using HP.LFT.SDK.WPF;
+using HP.LFT.SDK.StdWin;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Drawing;
 using System.IO;
+using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Windows.Forms;
 using WD_UFT_Selenium_Auto.Library.BaseLibrary;
 using WD_UFT_Selenium_Auto.Product.WD;
-using IWindow = HP.LFT.SDK.WPF.IWindow;
+using IWindow = HP.LFT.SDK.StdWin.IWindow;
 
 namespace WD_UFT_Selenium_Auto
 {
@@ -30,15 +35,57 @@ namespace WD_UFT_Selenium_Auto
         [TestMethod]
         public void TestMethod1()
         {
-            Application.LaunchSLM();
-            SLM.SLMmainWindow.SLMConfigurationWizard.Click();
-            //remove
-            SLM.SLMConfigWindow.RemoveServer.Click();
-            SLM.SLMConfigWindow.Apply.Click();
-            //wait for applying
-            Thread.Sleep(5000);
+            //APRM_Fuction.CleanAprmDB();
+            //APRM_Fuction.WizardAprmDB();
+            //APRM_Fuction.ImportAprmAdmin();
 
 
+            //Application.LaunchBatchDetailDisplay();
+            //Batch_Fuction.setOptionData();
+            //APRM_Fuction.InitailAPRM();
+            APRM_Fuction.ConfigAPEMAdmin();
+
+            //SdkConfiguration config = new SdkConfiguration();
+            //SDK.Init(config);
+
+
+            //var closeButton = Desktop.Describe<IWindow>(new WindowDescription
+            //{
+            //	WindowTitleRegExp = @"Aspen Database Wizard"
+            //})
+            //.Describe<IButton>(new ButtonDescription
+            //{
+            //	WindowTitleRegExp = @"C&lose"
+            //});
+            //Console.WriteLine(closeButton.IsEnabled);
+
+            //Console.WriteLine(Wizard.WizardWindow.btnClose.IsEnabled);
+
+
+            //         var grossText = WD.BatchMainWindow.ListView._STD_ListView
+            //.Describe<IListItem>(new ListItemDescription
+            //{
+            //	ProcessName = @"BatchDetailDisplay",
+            //	Name = @"Gross",
+            //	Path = @"Window;Pane;Pane;Pane;Pane;Pane;Pane;List;ListItem",
+            //	SupportedPatterns = new string[] { @"Invoke", @"LegacyIAccessible", @"ScrollItem", @"SelectionItem" },
+            //	FrameworkId = @"Win32",
+            //	ControlType = @"ListItem",
+            //	AutomationId = @"ListViewItem-8"
+            //})
+            //.Describe<IText>(new TextDescription
+            //{
+            //	ProcessName = @"BatchDetailDisplay",
+            //	Name = @"Gross",
+            //	Path = @"Window;Pane;Pane;Pane;Pane;Pane;Pane;List;ListItem;Text",
+            //	SupportedPatterns = new string[] { @"GridItem", @"LegacyIAccessible", @"TableItem" },
+            //	FrameworkId = @"Win32",
+            //	ControlType = @"Text",
+            //	AutomationId = @"ListViewSubItem-0"
+            //});
+
+            //Console.WriteLine(grossText.Name);
+            //grossText.Click();
 
             ////add
             //SLM.SLMConfigWindow.ServerEdit.SendKeys("shslmtest");
@@ -104,5 +151,7 @@ namespace WD_UFT_Selenium_Auto
         public static void ClassCleanup()
         {
         }
+        public string CaseID = "prepareInitial";
     }
 }
+        

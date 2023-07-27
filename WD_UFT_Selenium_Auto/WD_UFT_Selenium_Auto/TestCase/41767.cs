@@ -90,21 +90,21 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Batch_Fuction.findBatch(order);
             //wait for loading
             Thread.Sleep(40000);
-            WD.BatchMainWindow.TreeView.GetNode("Batch").Expand();
-            WD.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1]").Expand();
-            WD.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1];BOM [1]").Expand();
-            WD.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1];BOM [1];Material [1]").Expand();
-            WD.BatchMainWindow.TreeView.Selete("Batch;WEIGH_AND_DISPENSE [1];BOM [1];Material [1];Action [1]");
+            APRM.BatchMainWindow.TreeView.GetNode("Batch").Expand();
+            APRM.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1]").Expand();
+            APRM.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1];BOM [1]").Expand();
+            APRM.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1];BOM [1];Material [1]").Expand();
+            APRM.BatchMainWindow.TreeView.Select("Batch;WEIGH_AND_DISPENSE [1];BOM [1];Material [1];Action [1]");
             //wait for loading
             Thread.Sleep(5000);
-            WD.BatchMainWindow.ListView._STD_ListView.ActivateItem("Signer_1");
-            Base_Assert.AreEqual("qaone1 (qaone1)", WD.BatchMainWindow.BatchCharacteristicDialog.Value.Text, "Signature1");
-            WD.BatchMainWindow.BatchCharacteristicDialog.Cancel.Click();
-            WD.BatchMainWindow.GetSnapshot(Resultpath + "Batch Signature.PNG");
-            WD.BatchMainWindow.ListView._STD_ListView.ActivateItem("Signer_2");
-            Base_Assert.AreEqual("qaone2 (qaone2)", WD.BatchMainWindow.BatchCharacteristicDialog.Value.Text, "Signature2");
-            WD.BatchMainWindow.BatchCharacteristicDialog.Cancel.Click();
-            WD.BatchMainWindow.Close();
+            APRM.BatchMainWindow.ListView._STD_ListView.ActivateItem("Signer_1");
+            Base_Assert.AreEqual("qaone1 (qaone1)", APRM.BatchMainWindow.BatchCharacteristicDialog.Value.Text, "Signature1");
+            APRM.BatchMainWindow.BatchCharacteristicDialog.Cancel.Click();
+            APRM.BatchMainWindow.GetSnapshot(Resultpath + "Batch Signature.PNG");
+            APRM.BatchMainWindow.ListView._STD_ListView.ActivateItem("Signer_2");
+            Base_Assert.AreEqual("qaone2 (qaone2)", APRM.BatchMainWindow.BatchCharacteristicDialog.Value.Text, "Signature2");
+            APRM.BatchMainWindow.BatchCharacteristicDialog.Cancel.Click();
+            APRM.BatchMainWindow.Close();
         }
     }
 }

@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
 {
-    public class SqlHelper
+    public class APRMSqlHelper
     {
         static string server = Environment.MachineName;
-        static string database = DBInfo.Info["DB"];
-        static string user = DBInfo.Info["username"];
-        static string password = DBInfo.Info["password"];
+        static string database = "AspenBatch";
+        static string user = "sa";
+        static string password = "Aspen000";
         //private string ConStr = "Data Source = " + server + "; Database=" + database + "; User Id = " + user + "; Password = " + password;
         private string ConStr = $"Data Source ={server}; Database={database};User Id={user};Password={password}";
         //private string server2 = "Oliga-2022-2";

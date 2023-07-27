@@ -405,7 +405,13 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
                                 objectDescription.Index = uint.Parse(propValue);
                                 break;
                             case "WindowTitleRegExp":
-                                objectDescription.WindowTitleRegExp = propValue;
+                                objectDescription.WindowTitleRegExp = As.RegExp(propValue);
+                                break;
+                            case "WindowId":
+                                objectDescription.WindowId = int.Parse(propValue);
+                                break;
+                            case "WindowStyle":
+                                objectDescription.WindowStyle = (WindowStyles?)long.Parse(propValue);
                                 break;
                             default:
                                 throw new Exception($"Cannot Find the Property Name '{propName}', please confirm the format of xpath is valid");
@@ -431,7 +437,13 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
                                 objectDescription.IsFocused = Convert.ToBoolean(propValue);
                                 break;
                             case "WindowTitleRegExp":
-                                objectDescription.WindowTitleRegExp = propValue;
+                                objectDescription.WindowTitleRegExp = As.RegExp(propValue);
+                                break;
+                            case "WindowId":
+                                objectDescription.WindowId = int.Parse(propValue);
+                                break;
+                            case "WindowStyle":
+                                objectDescription.WindowStyle = (WindowStyles?)long.Parse(propValue);
                                 break;
                             default:
                                 throw new Exception($"Cannot Find the Property Name '{ propName }', please confirm the format of xpath is valid");

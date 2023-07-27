@@ -31,7 +31,7 @@ namespace WD_UFT_Selenium_Auto.Library.UFTLibrary
             return _STD_TreeView.GetNode(item);
         }
 
-        public void Selete(string item)
+        public void Select(string item)
         {
             _STD_TreeView.Select(item);
         }

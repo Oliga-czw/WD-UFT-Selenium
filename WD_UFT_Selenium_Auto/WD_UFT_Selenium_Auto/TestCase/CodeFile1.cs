@@ -30,6 +30,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
         [TestMethod]
         public void VSTS_9999()
         {
+            Application.LaunchWDAndLogin();
             //string order = "test1";
             //string material = "X0125";
             //string method = "Net weigh";

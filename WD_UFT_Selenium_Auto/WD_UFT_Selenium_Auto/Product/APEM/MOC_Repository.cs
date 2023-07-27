@@ -14,7 +14,7 @@ using static WD_UFT_Selenium_Auto.Product.WD.ClassMainWindow;
 
 namespace WD_UFT_Selenium_Auto.Product.WD
 {
-    public  class MOC
+    public  class APEM
     {
         #region MOC windows
 
@@ -29,7 +29,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
 
         #endregion
 
-        #region WD Dialog
+        #region MOC Dialog
         public static UFT_Dialog CloseDialog => new UFT_Dialog("//Dialog[@Title = 'Close the Application']");
         public static UFT_Dialog ErrorDialog => new UFT_Dialog("//Dialog[@Title = 'Error']");
         public static UFT_Dialog MessageDialog => new UFT_Dialog("//Dialog[@Title = 'Message']");
@@ -37,7 +37,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         #endregion
  
 
-        #region WD_Methods
+        #region MOC_Methods
         //EX select order...
         //public static void ExitApplication(bool isSave = false, bool isSaveAsApw = false, string filePath = null)
         //{
@@ -87,6 +87,13 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         }
         #endregion
 
+        #region APEMAdmin windows
+
+        public static APEMAdmin_Window APEMAdminWindow => new APEMAdmin_Window("//Window[@WindowTitleRegExp = 'Aspen Production Execution Manager Administrator.*'] ");
+
+
+        public static STD_Dialog PropertyDialog => new STD_Dialog("//Dialog[@Text = 'Audit & Compliance Extractor - Properties' and @Index='1']");
+        #endregion
     }
 }
 

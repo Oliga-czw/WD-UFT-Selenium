@@ -111,12 +111,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
 
 
         #endregion
-        #region Batch Window
-        public static BatchMainWindow BatchMainWindow => new BatchMainWindow("//Window[@WindowTitleRegExp = ' aspenONE']");
-
-
-
-        #endregion
+       
     }
 }
 

@@ -67,11 +67,26 @@
             </summary>
             <remarks>This class encapsulates all the functionality related to running UFT Developer tests and creating the UFT Developer HTML report.</remarks>
         </member>
-        <member name="T:HP.LFT.UnitTesting.UnitTestBase">
+        <member name="M:HP.LFT.UnitTesting.NUnit3UnitTestBase.TestSuiteTearDown">
             <summary>
-            The base class of the UFT Developer Visual Studio template classes that are provided when creating a new UFT Developer test project.
+            This method is called by UFT Developer Visual Studio templates' GlobalTeardown to clean up the NUnit 3 test class.
             </summary>
-            <remarks>This class encapsulates all the functionality related to running UFT Developer tests and creating the UFT Developer HTML report.</remarks>
+        </member>
+        <member name="M:HP.LFT.UnitTesting.NUnit3UnitTestBase.Init(System.String)">
+            <summary>
+            Cancels the initialization of the SDK and Reporter.
+            </summary>
+        </member>
+        <member name="T:HP.LFT.UnitTesting.ParametersAttribute">
+            <summary>
+            Attribute of test method which defines input parameter names for this method
+            </summary>
+        </member>
+        <member name="M:HP.LFT.UnitTesting.ParametersAttribute.#ctor(System.String[])">
+            <summary>
+            ParametersAttribute constructor
+            </summary>
+            <param name="almParameterNames">Sequence of input parameter names</param>
         </member>
         <member name="T:HP.LFT.UnitTesting.UnitTestSuiteBase">
             <summary>
@@ -130,99 +145,6 @@
             <remarks>By default, returns the Assembly representing the app.config of the current assembly. 
             <para>When overriding, you can provide a <see cref="T:System.Reflection.Assembly"/> instance with the assembly of another test, for example a central settings assembly that all tests use.</para></remarks>
             <returns><see cref="T:System.Reflection.Assembly"/></returns>
-        </member>
-        <member name="M:HP.LFT.UnitTesting.UnitTestBase.TestSuiteSetup(System.String)">
-            <summary>
-            This method is called by UFT Developer Visual Studio templates' GlobalSetup to initialize the test class.  
-            </summary>
-        </member>
-        <member name="M:HP.LFT.UnitTesting.UnitTestBase.GetAlternativeTestName">
-            <summary>
-            Returns the alternative Test name that is used whenever framework errors occur.  
-            </summary>
-            <remarks>This can be useful to set the start and end points of a test in your class if the runner you are using does not successfully pass UFT Developer test names to the UFT Developer report.  
-            <para>In this case, by default the UFT Developer report displays: [Undefined]. Override to provide an alternative test method name.</para></remarks> 
-            <returns>The alternative test name.</returns>
-        </member>
-        <member name="M:HP.LFT.UnitTesting.UnitTestBase.GetAlternativeClassName">
-            <summary>
-            Returns the alternative Class name that is used whenever framework errors occur.  
-            </summary>
-            <remarks>This can be useful to set the start and end points of a class in your project if the runner you are using does not successfully pass UFT Developer class names to the UFT Developer report.  
-            <para>In this case, by default the HTML report displays: [Undefined]. Override to provide an alternative test method name.</para></remarks> 
-            <returns>The alternative test name.</returns>
-        </member>
-        <member name="M:HP.LFT.UnitTesting.UnitTestBase.TestSetUp">
-            <summary>
-            This method is called by UFT Developer Visual Studio templates' BasicSetUp, which runs before each test method.
-            </summary>
-        </member>
-        <member name="M:HP.LFT.UnitTesting.UnitTestBase.TestTearDown">
-            <summary>
-            This method is called by UFT Developer Visual Studio templates' BasicTearDown, which runs after each test method.
-            </summary>
-        </member>
-        <member name="M:HP.LFT.UnitTesting.UnitTestBase.GetClassName">
-            <summary>
-            This method is implemented in UFT Developer Visual Studio templates to get the running class name provided by the selected framework (NUnit/MSTest) TestContext.
-            </summary>
-            <returns>The running class name.</returns>
-        </member>
-        <member name="M:HP.LFT.UnitTesting.UnitTestBase.GetTestName">
-            <summary>
-            This method is implemented in UFT Developer Visual Studio templates to get the running test name provided by the selected framework (NUnit/MSTest) TestContext.
-            </summary>
-            <returns>The running test name.</returns>
-        </member>
-        <member name="M:HP.LFT.UnitTesting.UnitTestBase.GetFrameworkTestResult">
-            <summary>
-            This method is implemented in UFT Developer Visual Studio templates to get the running test/class status provided by the selected framework (NUnit/MSTest) TestContext.
-            </summary>
-            <returns>The running test status.</returns>
-        </member>
-        <member name="M:HP.LFT.UnitTesting.UnitTestBase.GetTestParameters">
-            <summary>
-            This method is implemented in UFT Developer Visual Studio template to get the running test parameters provided by MSTest TestContext.
-            </summary>
-            <returns>The running test parameters.</returns>
-        </member>
-        <member name="P:HP.LFT.UnitTesting.UnitTestBase.ALM">
-            <summary>
-            The default ALM data-source for data-driven UFT Developer tests.
-            <remarks>Use for NUnit 2.6x tests.</remarks>
-            </summary>
-        </member>
-        <member name="P:HP.LFT.UnitTesting.UnitTestBase.ALMStatic">
-            <summary>
-            The static ALM data-source for data-driven UFT Developer tests.
-            <remarks>Use for NUnit 3.x tests.</remarks>
-            </summary>
-        </member>
-        <member name="P:HP.LFT.UnitTesting.UnitTestBase.Reporter">
-            <summary>
-            Returns the Reporter of type <seealso cref="T:HP.LFT.Report.IReporter"/> used for reporting events.
-            </summary>
-        </member>
-        <member name="M:HP.LFT.UnitTesting.NUnit3UnitTestBase.TestSuiteTearDown">
-            <summary>
-            This method is called by UFT Developer Visual Studio templates' GlobalTeardown to clean up the NUnit 3 test class.
-            </summary>
-        </member>
-        <member name="M:HP.LFT.UnitTesting.NUnit3UnitTestBase.Init(System.String)">
-            <summary>
-            Cancels the initialization of the SDK and Reporter.
-            </summary>
-        </member>
-        <member name="T:HP.LFT.UnitTesting.ParametersAttribute">
-            <summary>
-            Attribute of test method which defines input parameter names for this method
-            </summary>
-        </member>
-        <member name="M:HP.LFT.UnitTesting.ParametersAttribute.#ctor(System.String[])">
-            <summary>
-            ParametersAttribute constructor
-            </summary>
-            <param name="almParameterNames">Sequence of input parameter names</param>
         </member>
         <member name="T:HP.LFT.UnitTesting.OutputParameters">
             <summary>
@@ -330,6 +252,84 @@
             <summary>
               Looks up a localized string similar to Unable to write output parameters: data source path is empty..
             </summary>
+        </member>
+        <member name="T:HP.LFT.UnitTesting.UnitTestBase">
+            <summary>
+            The base class of the UFT Developer Visual Studio template classes that are provided when creating a new UFT Developer test project.
+            </summary>
+            <remarks>This class encapsulates all the functionality related to running UFT Developer tests and creating the UFT Developer HTML report.</remarks>
+        </member>
+        <member name="M:HP.LFT.UnitTesting.UnitTestBase.TestSuiteSetup(System.String)">
+            <summary>
+            This method is called by UFT Developer Visual Studio templates' GlobalSetup to initialize the test class.  
+            </summary>
+        </member>
+        <member name="M:HP.LFT.UnitTesting.UnitTestBase.GetAlternativeTestName">
+            <summary>
+            Returns the alternative Test name that is used whenever framework errors occur.  
+            </summary>
+            <remarks>This can be useful to set the start and end points of a test in your class if the runner you are using does not successfully pass UFT Developer test names to the UFT Developer report.  
+            <para>In this case, by default the UFT Developer report displays: [Undefined]. Override to provide an alternative test method name.</para></remarks> 
+            <returns>The alternative test name.</returns>
+        </member>
+        <member name="M:HP.LFT.UnitTesting.UnitTestBase.GetAlternativeClassName">
+            <summary>
+            Returns the alternative Class name that is used whenever framework errors occur.  
+            </summary>
+            <remarks>This can be useful to set the start and end points of a class in your project if the runner you are using does not successfully pass UFT Developer class names to the UFT Developer report.  
+            <para>In this case, by default the HTML report displays: [Undefined]. Override to provide an alternative test method name.</para></remarks> 
+            <returns>The alternative test name.</returns>
+        </member>
+        <member name="M:HP.LFT.UnitTesting.UnitTestBase.TestSetUp">
+            <summary>
+            This method is called by UFT Developer Visual Studio templates' BasicSetUp, which runs before each test method.
+            </summary>
+        </member>
+        <member name="M:HP.LFT.UnitTesting.UnitTestBase.TestTearDown">
+            <summary>
+            This method is called by UFT Developer Visual Studio templates' BasicTearDown, which runs after each test method.
+            </summary>
+        </member>
+        <member name="P:HP.LFT.UnitTesting.UnitTestBase.ALM">
+            <summary>
+            The default ALM data-source for data-driven UFT Developer tests.
+            <remarks>Use for NUnit 2.6x tests.</remarks>
+            </summary>
+        </member>
+        <member name="P:HP.LFT.UnitTesting.UnitTestBase.ALMStatic">
+            <summary>
+            The static ALM data-source for data-driven UFT Developer tests.
+            <remarks>Use for NUnit 3.x tests.</remarks>
+            </summary>
+        </member>
+        <member name="P:HP.LFT.UnitTesting.UnitTestBase.Reporter">
+            <summary>
+            Returns the Reporter of type <seealso cref="T:HP.LFT.Report.IReporter"/> used for reporting events.
+            </summary>
+        </member>
+        <member name="M:HP.LFT.UnitTesting.UnitTestBase.GetClassName">
+            <summary>
+            This method is implemented in UFT Developer Visual Studio templates to get the running class name provided by the selected framework (NUnit/MSTest) TestContext.
+            </summary>
+            <returns>The running class name.</returns>
+        </member>
+        <member name="M:HP.LFT.UnitTesting.UnitTestBase.GetTestName">
+            <summary>
+            This method is implemented in UFT Developer Visual Studio templates to get the running test name provided by the selected framework (NUnit/MSTest) TestContext.
+            </summary>
+            <returns>The running test name.</returns>
+        </member>
+        <member name="M:HP.LFT.UnitTesting.UnitTestBase.GetFrameworkTestResult">
+            <summary>
+            This method is implemented in UFT Developer Visual Studio templates to get the running test/class status provided by the selected framework (NUnit/MSTest) TestContext.
+            </summary>
+            <returns>The running test status.</returns>
+        </member>
+        <member name="M:HP.LFT.UnitTesting.UnitTestBase.GetTestParameters">
+            <summary>
+            This method is implemented in UFT Developer Visual Studio template to get the running test parameters provided by MSTest TestContext.
+            </summary>
+            <returns>The running test parameters.</returns>
         </member>
     </members>
 </doc>

@@ -34,6 +34,8 @@ namespace WD_UFT_Selenium_Auto.Product.WD
 
         public STD_Dialog AFWCloseDialog => new STD_Dialog("//Dialog[@Text = 'Microsoft Management Console']");
 
+        public Option_Dialog OptionDialog => new Option_Dialog(_STD_Window, "//Window[@Text = 'Options']");
+
 
     }
 

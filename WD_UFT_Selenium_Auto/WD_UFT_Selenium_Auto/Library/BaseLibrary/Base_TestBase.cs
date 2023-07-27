@@ -151,8 +151,8 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
         public static void LaunchWDAndLogin()
         {
             Base_Test.LaunchApp(Base_Directory.WDDir);
-            //SdkConfiguration config = new SdkConfiguration();
-            //SDK.Init(config);
+            SdkConfiguration config = new SdkConfiguration();
+            SDK.Init(config);
             Thread.Sleep(5000);
             Base_Test.Login(UserName.qaone1, PassWord.qaone1);
         }
@@ -171,9 +171,9 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
             Base_Test.LaunchApp(Base_Directory.MOCDir);
             SdkConfiguration config = new SdkConfiguration();
             SDK.Init(config);
-            MOC.MocmainWindow.LogonInternalFrame.userNameEditor.SetText(UserName.qaone1);
-            MOC.MocmainWindow.LogonInternalFrame.passwordEditor.SetSecure(PassWord.qaone1);
-            MOC.MocmainWindow.LogonInternalFrame.loginbutton.ClickSignle();
+            APEM.MocmainWindow.LogonInternalFrame.userNameEditor.SetText(UserName.qaone1);
+            APEM.MocmainWindow.LogonInternalFrame.passwordEditor.SetSecure(PassWord.qaone1);
+            APEM.MocmainWindow.LogonInternalFrame.loginbutton.ClickSignle();
         }
 
         public static void LaunchBatchDetailDisplay()
@@ -193,6 +193,29 @@ namespace WD_UFT_Selenium_Auto.Library.BaseLibrary
             Thread.Sleep(5000);
         }
 
+        public static void LaunchWizrd()
+        {
+            Base_Test.LaunchApp(Base_Directory.WizrdDir);
+            SdkConfiguration config = new SdkConfiguration();
+            SDK.Init(config);
+            Thread.Sleep(5000);
+        }
+
+        public static void LaunchAprmAdmin()
+        {
+            Base_Test.LaunchApp(Base_Directory.AprmAdminDir);
+            SdkConfiguration config = new SdkConfiguration();
+            SDK.Init(config);
+            Thread.Sleep(5000);
+        }
+
+        public static void LaunchAPEMAdmin()
+        {
+            Base_Test.LaunchApp(Base_Directory.APEMAdminDir);
+            SdkConfiguration config = new SdkConfiguration();
+            SDK.Init(config);
+            Thread.Sleep(5000);
+        }
         public static void KillWD()
         {
             Base_Test.KillProcess(application);

@@ -17,6 +17,11 @@ namespace WD_UFT_Selenium_Auto.TestCase
         [ClassInitialize]
         public static void ClassInitialize(TestContext context)
         {
+            //create resultdir
+            if (!Directory.Exists(Base_Directory.ResultsDir))
+            {
+                Directory.CreateDirectory(Base_Directory.ResultsDir);
+            }
             GlobalSetup(context);
         }
 
@@ -36,11 +41,7 @@ namespace WD_UFT_Selenium_Auto.TestCase
             Base_File.CleanWorkFolder(Base_Directory.GenerateOutputFileDir(CaseID, ""));
             //Initial data
             WD_Fuction.initial_data();
-            //create resultdir
-            if (!Directory.Exists(Base_Directory.ResultsDir))
-            {
-                Directory.CreateDirectory(Base_Directory.ResultsDir);
-            }
+            
         }
 
         [TestCleanup]
