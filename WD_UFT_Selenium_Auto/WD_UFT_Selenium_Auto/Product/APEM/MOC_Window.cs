@@ -3,7 +3,7 @@ using HP.LFT.SDK.Java;
 
 using WD_UFT_Selenium_Auto.Library.UFTLibrary;
 
-namespace WD_UFT_Selenium_Auto.Product.WD
+namespace WD_UFT_Selenium_Auto.Product.APEM
 {
 
 
@@ -39,9 +39,6 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         }
 
         public UFT_Button Users_Failures => new UFT_Button(_UFT_Window, "//Button[@Label = 'Audit Users Failures' and @IsWrapped = 'True']");
-
-        public LoginFailure_InterFrame LoginFailureInterFrame => new LoginFailure_InterFrame(_UFT_Window, "//InterFrame[@Label = 'User Login Failure']");
-
     }
 
     }
