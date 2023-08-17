@@ -23,7 +23,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             }
             if (WD.mainWindow.HandleInformationInterFrame.IsExist())
             {
-                WD.mainWindow.HandleInformationInterFrame.Acknowledge.Click();
+                WD.mainWindow.HandleInformationInterFrame.Acknowledge.ClickSignle();
             }
 
         }
@@ -54,7 +54,11 @@ namespace WD_UFT_Selenium_Auto.Product.WD
 
             WD.mainWindow.ScaleWeightInternalFrame.dispense_method.SelectItems(method);
             WD.mainWindow.ScaleWeightInternalFrame.barcode.SendKeys(barcode);
-            
+            if (WD.ConfirmationDialog.IsExist())
+            {
+                WD.ConfirmationDialog.YesButton.Click();
+            }
+
         }
 
         public static void FinishManualDiapense(string simulator,string tare,string net)
@@ -77,23 +81,31 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         public static void FinishNetDiapense(string tare, string net)
         {
             //WD.mainWindow.ScaleWeightInternalFrame.scale.SelectItems(simulator);
-            //zeor
+            //zero
             WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
             //tare
             WD.SimulatorWindow.weight.SetText(tare);
             WD.SimulatorWindow.OK.Click();
             WD.mainWindow.ScaleWeightInternalFrame.tare.Click();
+            Thread.Sleep(2000);
+            if (WD.mainWindow.Dialog.IsExist()) 
+            {
+                WD.mainWindow.Dialog.Password.SetSecure(PassWord.qaone1);
+                WD.mainWindow.Dialog.OK.Click();
+                Thread.Sleep(2000);
+            }
             //weight
             WD.SimulatorWindow.weight.SetText(net);
             WD.SimulatorWindow.OK.Click();
+            Thread.Sleep(1000);
             WD.mainWindow.ScaleWeightInternalFrame.accept.Click();
             if (WD.ErrorDialog.IsExist())
             {
                 WD.ErrorDialog.OKButton.Click();
             }
-            Thread.Sleep(5000);
+            Thread.Sleep(1000);
             //check Finish Dispense
-            Base_Assert.IsTrue(WD.mainWindow.Material_SelectionInternalFrame.IsExist() || WD.mainWindow.MaterialInternalFrame.IsExist(), "Finish Dispense");
+            Base_Assert.IsTrue(WD.mainWindow.Material_SelectionInternalFrame.IsExist() || WD.mainWindow.MaterialInternalFrame.IsExist() || WD.mainWindow.DispensingInternalFrame.IsExist(), "Finish Dispense");
         }
 
         public static void CleanInventoryData()

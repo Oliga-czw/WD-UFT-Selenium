@@ -522,13 +522,45 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             var order = Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath(xpath));
             //check order status and archive
             string status = order.FindElement(By.XPath("../td[7]")).Text;
-            if (status == "Cancelled")
-            {
-                order.FindElement(By.XPath("..//td/span[@class='gwt-CheckBox']")).Click();
-                Web.Order_Page.Archive.Click();
-            }
+            order.FindElement(By.XPath("..//td/span[@class='gwt-CheckBox']")).Click();
+            Web.Order_Page.Archive.Click();
             Thread.Sleep(2000);
             Base_Assert.AreEqual("Archived", order.FindElement(By.XPath("../td[7]")).Text, "Archive order");
+            Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath("//input[@class='Tab_Manu_bar_Margin Tab_Menu_Bar_Search_Box']")).Clear();
+        }
+        public static void Finish_order(string ordername)
+        {
+            Thread.Sleep(2000);
+            string xpath = "//td[text()='" + ordername + "']";
+            //get order
+            Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath("//input[@class='Tab_Manu_bar_Margin Tab_Menu_Bar_Search_Box']")).Clear();
+            Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath("//input[@class='Tab_Manu_bar_Margin Tab_Menu_Bar_Search_Box']")).SendKeys(ordername);
+            Thread.Sleep(2000);
+            var order = Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath(xpath));
+            string status = order.FindElement(By.XPath("../td[7]")).Text;
+            order.FindElement(By.XPath("..//td/span[@class='gwt-CheckBox']")).Click();
+            Web.Order_Page.Finish.Click();
+            Thread.Sleep(2000);
+            Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath("//input[@class='Tab_Manu_bar_Margin Tab_Menu_Bar_Search_Box']")).Clear();
+        }
+        public static void Redispense_order(string ordername)
+        {
+            Thread.Sleep(2000);
+            string xpath = "//td[text()='" + ordername + "']";
+            //get order
+            Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath("//input[@class='Tab_Manu_bar_Margin Tab_Menu_Bar_Search_Box']")).Clear();
+            Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath("//input[@class='Tab_Manu_bar_Margin Tab_Menu_Bar_Search_Box']")).SendKeys(ordername);
+            Thread.Sleep(2000);
+            var order = Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath(xpath));
+            order.FindElement(By.XPath("../td[3]/img")).Click();
+            Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath("//a[text()='Redispense a Material']")).Click();
+            Thread.Sleep(2000);
+            Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath("//td[text()='Non-FEFO']/../td[1]/span/input")).Click();
+            Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath("//button[text()='Redispense Material']")).Click();
+            Thread.Sleep(2000);
+            Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath("//input[@type='password']")).SendKeys(PassWord.qaone1);
+            Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath("//button[@id='Dialogbox_Bottom_OK_Button_Id']")).Click();
+            Thread.Sleep(2000);
             Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath("//input[@class='Tab_Manu_bar_Margin Tab_Menu_Bar_Search_Box']")).Clear();
         }
         public static void cancel_order(string ordername)
@@ -542,11 +574,8 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             var order = Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath(xpath));
             //check order status and active
             string status = order.FindElement(By.XPath("../td[7]")).Text;
-            if (status == "Planned")
-            {
-                order.FindElement(By.XPath("..//td/span[@class='gwt-CheckBox']")).Click();
-                Web.Order_Page.Cancel.Click();
-            }
+            order.FindElement(By.XPath("..//td/span[@class='gwt-CheckBox']")).Click();
+            Web.Order_Page.Cancel.Click();
             Thread.Sleep(2000);
             Base_Assert.AreEqual("Cancelled", order.FindElement(By.XPath("../td[7]")).Text, "Cancell order");
 
@@ -558,25 +587,6 @@ namespace WD_UFT_Selenium_Auto.Product.WD
         }
 
 
-        #endregion
-
-        #region inventory function
-        public static string getcelldata(string barcode,string headname)
-        {
-            string data = "";
-            var heads = Web.Iventory_Page.body._Selenium_WebElement.FindElements(By.XPath("//th[@colspan='1']/p"));
-            //var SourceData = driver.FindElements("//div[text()='X0125001']/../../../td");
-            for (int i = 0; i < heads.Count; i++)
-            {
-                if (heads[i].Text == headname)// "Nominal"
-                {
-                    data = Web.Iventory_Page.body._Selenium_WebElement.FindElement(By.XPath("//div[text()='" + barcode + $"']/../../../td[{i + 1}]/div/div")).Text;
-                    break;
-                }
-            }
-            
-            return data;
-        }
         #endregion
     }
 }
