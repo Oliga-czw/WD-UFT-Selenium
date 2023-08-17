@@ -95,7 +95,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
             {
                 Wizard.WizardWindow.btnClose.Click();
                 //log
-                Console.WriteLine("1");
+                //Console.WriteLine("Wizard APRM DB!");
             }
             else
             {
@@ -108,12 +108,14 @@ namespace WD_UFT_Selenium_Auto.Product.WD
                         Wizard.WizardWindow.btnClose.Click();
                         Console.WriteLine(i);
                         //log
+                        //Console.WriteLine("Wizard APRM DB!");
                         break;
                     }
                 }
 
             }
-            Console.WriteLine("Wizard APRM DB!");
+            StopService("Batch21Services");
+            StartService("Batch21Services");
         }
 
         public static void ImportAprmAdmin()
@@ -164,6 +166,7 @@ namespace WD_UFT_Selenium_Auto.Product.WD
                 //Base_Assert.IsTrue(APRM.APRMAdminWindow.WeightDispense.Exists(), "WeightDispense import successfully");
                 if (APRM.APRMAdminWindow.WeightDispense.Exists())
                 {
+                    //log
                     Console.WriteLine("WeightDispense import successfully");
                 }
 
