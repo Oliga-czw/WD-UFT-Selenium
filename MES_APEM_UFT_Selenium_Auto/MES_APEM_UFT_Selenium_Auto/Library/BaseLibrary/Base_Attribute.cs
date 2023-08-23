@@ -144,7 +144,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         {
             {"username", "sa"},
             {"password", "Aspen000"},
-            {"DB", "AeBRS"}
+            {"AeBRS", "AeBRS"},
+            {"AspenBatch", "AspenBatch"}
         };
 
     }

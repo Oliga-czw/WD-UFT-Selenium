@@ -11,7 +11,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
     public class SqlHelper
     {
         static string server = Environment.MachineName;
-        static string database = DBInfo.Info["DB"];
+        static string database = DBInfo.Info["AeBRS"];
         static string user = DBInfo.Info["username"];
         static string password = DBInfo.Info["password"];
         //private string ConStr = "Data Source = " + server + "; Database=" + database + "; User Id = " + user + "; Password = " + password;

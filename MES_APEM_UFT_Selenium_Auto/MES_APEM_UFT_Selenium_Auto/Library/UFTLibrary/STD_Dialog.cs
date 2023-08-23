@@ -59,7 +59,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
         //{
         //    return _STD_Dialog.FindChildren<T>();
         //}
-        
+
 
         public IButton OK => _STD_Dialog.Describe<IButton>(new ButtonDescription
         {
@@ -150,7 +150,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
         {
             WindowClassRegExp = @"RICHEDIT50W"
         });
-         
+
         //public IButton OK_selectUser => _STD_Dialog.Describe<IButton>(new ButtonDescription
         //{
         //    NativeClass = @"Button",
@@ -207,7 +207,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
     //aprm admin
     public class Open_Dialog : STD_Dialog
     {
-        public Open_Dialog(ITestObject parentObject,string xpath) : base(parentObject,xpath)
+        public Open_Dialog(ITestObject parentObject, string xpath) : base(parentObject, xpath)
         {
         }
         public IEditField Filename => _STD_Dialog.Describe<IEditField>(new EditFieldDescription
@@ -315,7 +315,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
             Text = @"Allow &saving password"
         });
 
-           
+
         public IButton TestConnection => _STD_Dialog.Describe<IButton>(new ButtonDescription
         {
             Text = @"&Test Connection"
@@ -329,7 +329,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
         });
 
 
-            
+
         public ITabControl TabControl => _STD_Dialog.Describe<ITabControl>(new TabControlDescription
         {
             NativeClass = @"SysTabControl32"
@@ -345,4 +345,22 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
 
 
     #endregion
+
+
+    #region mMDM dialog
+    //apem admin
+    public class Success_Dialog : STD_Dialog
+    {
+        public Success_Dialog(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+        public IStatic Message => _STD_Dialog.Describe<IStatic>(new StaticDescription
+        {
+            NativeClass = @"Static"
+        });
+
+
+    }
+    #endregion
+
 }

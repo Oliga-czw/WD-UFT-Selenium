@@ -11,9 +11,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
     public class APRMSqlHelper
     {
         static string server = Environment.MachineName;
-        static string database = "AspenBatch";
-        static string user = "sa";
-        static string password = "Aspen000";
+        static string database = DBInfo.Info["AspenBatch"];
+        static string user = DBInfo.Info["username"];
+        static string password = DBInfo.Info["password"];
         //private string ConStr = "Data Source = " + server + "; Database=" + database + "; User Id = " + user + "; Password = " + password;
         private string ConStr = $"Data Source ={server}; Database={database};User Id={user};Password={password}";
         //private string server2 = "Oliga-2022-2";

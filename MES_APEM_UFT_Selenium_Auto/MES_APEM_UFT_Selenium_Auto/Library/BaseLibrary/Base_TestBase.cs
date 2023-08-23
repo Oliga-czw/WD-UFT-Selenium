@@ -176,15 +176,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             APEM.MocmainWindow.LogonInternalFrame.loginbutton.ClickSignle();
         }
 
-        public static void LaunchBatchDetailDisplay()
-        {
-            Base_Test.LaunchApp(Base_Directory.BDDDir);
-            SdkConfiguration config = new SdkConfiguration();
-            SDK.Init(config);
-            Thread.Sleep(5000);
-         }
+        
 
-
+        #region SLM
         public static void LaunchSLM()
         {
             Base_Test.LaunchApp(Base_Directory.SLMDir);
@@ -192,7 +186,15 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             SDK.Init(config);
             Thread.Sleep(5000);
         }
-
+        #endregion
+        #region APRM
+        public static void LaunchBatchDetailDisplay()
+        {
+            Base_Test.LaunchApp(Base_Directory.BDDDir);
+            SdkConfiguration config = new SdkConfiguration();
+            SDK.Init(config);
+            Thread.Sleep(5000);
+        }
         public static void LaunchWizrd()
         {
             Base_Test.LaunchApp(Base_Directory.WizrdDir);
@@ -216,6 +218,31 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             SDK.Init(config);
             Thread.Sleep(5000);
         }
+        #endregion
+
+        #region GML
+        public static void LaunchmMDMAdmin()
+        {
+            Base_Test.LaunchApp(Base_Directory.mMDMAdminDir);
+            SdkConfiguration config = new SdkConfiguration();
+            SDK.Init(config);
+            Thread.Sleep(5000);
+        }
+        public static void LaunchmMDMBulkLoad()
+        {
+            Base_Test.LaunchApp(Base_Directory.mMDMBulkLoadDir);
+            SdkConfiguration config = new SdkConfiguration();
+            SDK.Init(config);
+            Thread.Sleep(5000);
+        }
+        public static void LaunchmMDMEditor()
+        {
+            Base_Test.LaunchApp(Base_Directory.mMDMEditorDir);
+            SdkConfiguration config = new SdkConfiguration();
+            SDK.Init(config);
+            Thread.Sleep(5000);
+        }
+        #endregion
         public static void KillWD()
         {
             Base_Test.KillProcess(application);

@@ -117,6 +117,8 @@
     <Compile Include="Product\APEM\MOC_Repository.cs" />
     <Compile Include="Product\APEM\MOC_InterFrame.cs" />
     <Compile Include="Product\APEM\MOC_Fuction.cs" />
+    <Compile Include="Product\mMDM\mMDM_Repository.cs" />
+    <Compile Include="Product\mMDM\mMDM_Window.cs" />
     <Compile Include="Product\SLM\SLM_Repository.cs" />
     <Compile Include="Product\SLM\SLM_Window.cs" />
     <Compile Include="TestCase\WD Cases\29611.cs" />

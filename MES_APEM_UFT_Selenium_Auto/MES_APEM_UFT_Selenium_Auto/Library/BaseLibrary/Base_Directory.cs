@@ -29,7 +29,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         public static string AprmAdminDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Aspen Production Record Manager Administrator (batch).lnk";
         public static string APEMAdminDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Aspen Manufacturing Execution\Aspen Production Execution Manager Administrator.lnk";
 
-
+        public static string mMDMAdminDir = @"C:\Program Files\AspenTech\mMDM\Bin\AtOdmAdministrator.exe";
+        public static string mMDMBulkLoadDir = @"C:\Program Files\AspenTech\mMDM\Bin\AtOdmBulkLoad.exe";
+        public static string mMDMEditorDir = @"C:\Program Files\AspenTech\mMDM\Bin\AtOdmEditor.exe";
         public static string WDBulkload
         {
             get
