@@ -1,6 +1,4 @@
 ﻿using OpenQA.Selenium;
-using Spire.Pdf;
-using Spire.Pdf.Texts;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,9 +6,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary;
 using MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary;
+using Spire.Pdf;
+using Spire.Pdf.Texts;
 
 namespace MES_APEM_UFT_Selenium_Auto.Product.WD
 {

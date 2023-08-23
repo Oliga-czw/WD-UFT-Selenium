@@ -57,8 +57,8 @@
     <Reference Include="OpenQA.Selenium.Winium, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\OpenQA.Selenium.Winium.1.0.0.4\lib\OpenQA.Selenium.Winium.dll</HintPath>
     </Reference>
-    <Reference Include="Spire.Pdf, Version=9.4.0.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
-      <HintPath>..\packages\Spire.PDF.9.4.0\lib\net40\Spire.Pdf.dll</HintPath>
+    <Reference Include="Spire.Pdf, Version=9.8.5.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.PDF.9.8.5\lib\net40\Spire.Pdf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -89,6 +89,7 @@
     <Compile Include="Library\UFTLibrary\STD_TreeView.cs" />
     <Compile Include="Library\UFTLibrary\STD_Window.cs" />
     <Compile Include="Library\UFTLibrary\STD_Xpath.cs" />
+    <Compile Include="Library\UFTLibrary\UFT_CheckBox.cs" />
     <Compile Include="Library\UFTLibrary\UFT_Menu.cs" />
     <Compile Include="Library\UFTLibrary\WinForms_Window.cs" />
     <Compile Include="Library\UFTLibrary\WPF_Window.cs" />
@@ -98,6 +99,8 @@
     <Compile Include="Product\AFW\AFW_Fuction.cs" />
     <Compile Include="Product\AFW\AFW_Window.cs" />
     <Compile Include="Product\APEM\APEMAdmin_Window.cs" />
+    <Compile Include="Product\APEM\APEM_Repository.cs" />
+    <Compile Include="Product\APEM\APEM_Window.cs" />
     <Compile Include="Product\APEM\MOC_AuditModule\MOC_AuditInterFrame.cs" />
     <Compile Include="Product\APEM\MOC_AuditModule\MOC_AuditWindow.cs" />
     <Compile Include="Product\APEM\MOC_ConfigModule\MOC_ConfigInterFrame.cs" />
@@ -108,15 +111,14 @@
     <Compile Include="Product\APRM\APRM_Fuction.cs" />
     <Compile Include="Product\APRM\APRM_DB.cs" />
     <Compile Include="Product\APRM\APRM_Repository.cs" />
-    <Compile Include="Product\APRM\Wizard_Repository.cs" />
-    <Compile Include="Product\APRM\Wizard_Window.cs" />
     <Compile Include="Product\APRM\APRMAdmin_Window.cs" />
     <Compile Include="Product\BatchDetail\Batch_Fuction.cs" />
     <Compile Include="Product\BatchDetail\Batch_Window.cs" />
-    <Compile Include="Product\APEM\MOC_Window.cs" />
-    <Compile Include="Product\APEM\MOC_Repository.cs" />
     <Compile Include="Product\APEM\MOC_InterFrame.cs" />
     <Compile Include="Product\APEM\MOC_Fuction.cs" />
+    <Compile Include="Product\DataBaseWizard\Wizard_Function.cs" />
+    <Compile Include="Product\DataBaseWizard\Wizard_Repository.cs" />
+    <Compile Include="Product\DataBaseWizard\Wizard_Window.cs" />
     <Compile Include="Product\mMDM\mMDM_Repository.cs" />
     <Compile Include="Product\mMDM\mMDM_Window.cs" />
     <Compile Include="Product\SLM\SLM_Repository.cs" />
@@ -217,6 +219,13 @@
     <Compile Include="UftDeveloperSeleniumTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\Input\BulkLoad\BulkLoadAll.bat" />
+    <None Include="Data\Input\BulkLoad\BulkLoadAllinventory.bat" />
+    <None Include="Data\Input\BulkLoad\BulkLoadAllOrder.bat" />
+    <None Include="Data\Input\BulkLoad\sign.cmd - Shortcut.lnk" />
+    <None Include="Data\Input\BulkLoad\WdBulkLoadTool.exe.config" />
+    <None Include="Data\Input\BulkLoad\WdWebServiceTester.exe.config" />
+    <None Include="Data\Input\TEMP.zip" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
   </ItemGroup>
@@ -224,6 +233,51 @@
     <Folder Include="TestCase\Mobile Cases\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\Input\BulkLoad\01 aspen wd booths bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\02 aspen wd scales bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\02 aspen wd scales_106684 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\02 aspen wd scales_106695 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\02 aspen wd scales_45752 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\02 aspen wd scales_728667 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\03 aspen wd configuration bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\04 aspen wd material bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\04 aspen wd material_357558 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\05 aspen wd inventory bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\05 aspen wd inventory_357570 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\06 aspen wd bom exception bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\07 aspen wd orders bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\08 aspen wd campaign bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\08 aspen wd campaigns bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\09 aspen wd permissions bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\10 aspen wd signautres bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\10 aspen wd signautres_106684 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\10 aspen wd signautres_106691 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\10 aspen wd signautres_106692 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\10 aspen wd signautres_121316 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\10 aspen wd signautres_40707 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\10 aspen wd signautres_41252 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\10 aspen wd signautres_41767 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\10 aspen wd signautres_42354 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\11 aspen wd integration bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\12 aspen wd clean rules bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\13 aspen wd user exits bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\13 aspen wd user exits_357558 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\13 aspen wd user exits_357570 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\13 aspen wd user exits_357573 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\14 aspen wd deviation bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\14 aspen wd deviation_106694 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\14 aspen wd deviation_106695 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\14 aspen wd deviation_121313 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\14 aspen wd deviation_42354 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\14 aspen wd deviation_43325 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\14 aspen wd deviation_728667 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\14 aspen wd deviation_818432 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\15 aspen wd printing bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\17 aspen wd booth groups bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\cleanup.sql" />
+    <Content Include="Data\Input\BulkLoad\WdBulkLoadTool.exe" />
+    <Content Include="Data\Input\BulkLoad\WdWebServiceTester.exe" />
+    <Content Include="MES_APEM_UFT_Selenium_Auto.user" />
     <Content Include="readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
