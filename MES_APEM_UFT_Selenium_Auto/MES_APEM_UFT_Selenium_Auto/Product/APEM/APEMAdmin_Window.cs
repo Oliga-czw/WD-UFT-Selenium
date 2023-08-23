@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary;
 
-namespace MES_APEM_UFT_Selenium_Auto.Product.WD
+namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
 {
     public class APEMAdmin_Window : STD_Window
     {
@@ -55,13 +55,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
                 Name = @"WeighDispense",
                 Path = @"Window;Pane;Window;Pane;Tree;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem"
             });
-
-
-
-    
-
-
-
 
     }
 

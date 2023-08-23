@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary;
 
 
-namespace MES_APEM_UFT_Selenium_Auto.Product.WD
+namespace MES_APEM_UFT_Selenium_Auto.Product.APRM
 {
     class Batch_Fuction
     {

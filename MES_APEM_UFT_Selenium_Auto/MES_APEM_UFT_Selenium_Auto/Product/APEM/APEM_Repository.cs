@@ -11,24 +11,27 @@ using MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary;
 using MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary;
 using MES_APEM_UFT_Selenium_Auto.Product.APEM;
 using MES_APEM_UFT_Selenium_Auto.Product.APEM.MOC_AuditModule;
-using MES_APEM_UFT_Selenium_Auto.Product.WD;
-using static MES_APEM_UFT_Selenium_Auto.Product.WD.ClassMainWindow;
+using MES_APEM_UFT_Selenium_Auto.Product.MOC_TemplatesModule;
 
-namespace MES_APEM_UFT_Selenium_Auto.Product.WD
+namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
 {
-    public  class APEM
+    public class APEM
     {
+        #region AeBRS_Methods
+        public static void AeBRSInstaller()
+        {
+            
+        }
+        #endregion
+        #region AeBRS Windows
+        public static APEMMainWindow APEMMainWindow => new APEMMainWindow("//JavaWindow[@ObjectName = 'Configuration']");
+        #endregion
         #region MOC windows
 
         public static MOCMainWindow MocmainWindow => new MOCMainWindow("//JavaWindow[@ObjectName = 'MOC']");
         public static MOC_AuditWindow MOCAuditWindow => new MOC_AuditWindow("//JavaWindow[@ObjectName = 'Audit']");
-
-        //public static MenuWindow menuWindow => new MenuWindow("//JavaWindow[@Title = 'Aspen Weigh and Dispense Execution']");
-
-        public static IWindow window = UFT_Xpath.GetDesktopWindow<IWindow>("//JavaWindow[@ObjectName = 'MOC']");
+        public static MOC_TemplatesWindow MOCTemplatesWindow => new MOC_TemplatesWindow("//JavaWindow[@ObjectName = 'Audit']");
         
- 
-
         #endregion
 
         #region MOC Dialog
@@ -37,42 +40,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         public static UFT_Dialog MessageDialog => new UFT_Dialog("//Dialog[@Title = 'Message']");
 
         #endregion
- 
 
+       
         #region MOC_Methods
-        //EX select order...
-        //public static void ExitApplication(bool isSave = false, bool isSaveAsApw = false, string filePath = null)
-        //{
-        //    var aspen = Process.GetProcessesByName("javaw");
-        //    MainWindow.SetActive();
-        //    window.Click();
-        //    window.SendKeys(FunctionKeys.F4, KeyModifier.Alt);
-        //    if (DialogWindow.IsExist())
-        //    {
-        //        if (isSave)
-        //        {
-        //            DialogWindow.YesButton.Click();
-
-        //            //if (filePath != null)
-        //            //{
-        //            //    MainWindow.SaveAsDialog.FileNameEditField.SetText(filePath);
-        //            //    MainWindow.SaveAsDialog.SaveButton.Click();
-        //            //}
-
-        //            if (isSaveAsApw)
-        //                DialogWindow.YesButton.Click();
-        //            else
-        //                DialogWindow.NoButton.Click();
-
-
-        //        }
-        //        else
-        //            DialogWindow.NoButton.Click();
-        //    }
-
-        //    try { aspen[0].WaitForExit(); }
-        //    catch { Base_Assert.Fail("Failed to close aspen plus."); }
-        //}
         public static void ExitApplication()
         {
             var aspen = Process.GetProcessesByName("javaw");

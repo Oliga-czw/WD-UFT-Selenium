@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary;
 
-namespace MES_APEM_UFT_Selenium_Auto.Product.WD
+namespace MES_APEM_UFT_Selenium_Auto.Product.APRM
 {
     public class APRMAdmin_Window : STD_Window
     {
