@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using MES_APEM_UFT_Selenium_Auto.Product.WD;
-
+using MES_APEM_UFT_Selenium_Auto.Product.APEM;
 
 namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 {
@@ -155,6 +155,13 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             SDK.Init(config);
             Thread.Sleep(5000);
             Base_Test.Login(UserName.qaone1, PassWord.qaone1);
+        }
+        public static void LaunchCMD()
+        {
+            Base_Test.LaunchApp(Base_Directory.CMDDir);
+            SdkConfiguration config = new SdkConfiguration();
+            SDK.Init(config);
+            Thread.Sleep(5000);
         }
         public static void LaunchAFW()
         {

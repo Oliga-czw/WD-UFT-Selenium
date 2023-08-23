@@ -12,7 +12,7 @@ using MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary;
 using MES_APEM_UFT_Selenium_Auto.Product.WD;
 using static MES_APEM_UFT_Selenium_Auto.Product.WD.ClassMainWindow;
 
-namespace MES_APEM_UFT_Selenium_Auto.Product.WD
+namespace MES_APEM_UFT_Selenium_Auto.Product.APRM
 {
     public  class APRM
     {

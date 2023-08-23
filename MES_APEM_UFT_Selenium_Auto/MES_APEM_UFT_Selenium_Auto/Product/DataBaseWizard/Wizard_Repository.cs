@@ -9,10 +9,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary;
 using MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary;
-using MES_APEM_UFT_Selenium_Auto.Product.WD;
+using MES_APEM_UFT_Selenium_Auto.Product.DataBaseWizard;
 using static MES_APEM_UFT_Selenium_Auto.Product.WD.ClassMainWindow;
 
-namespace MES_APEM_UFT_Selenium_Auto.Product.WD
+namespace MES_APEM_UFT_Selenium_Auto.Product.DataBaseWizard
 {
     public  class Wizard
     {

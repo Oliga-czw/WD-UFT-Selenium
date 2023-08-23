@@ -16,17 +16,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         static string password = DBInfo.Info["password"];
         //private string ConStr = "Data Source = " + server + "; Database=" + database + "; User Id = " + user + "; Password = " + password;
         private string ConStr = $"Data Source ={server}; Database={database};User Id={user};Password={password}";
-        //private string server2 = "Oliga-2022-2";
-        //private string database2 = "AeBRS";
-        //private string user2 = "sa";
-        //private string password2 = "Aspen000";
-        //private string Constr2
-        //{
-        //    get
-        //    {
-        //        return $"server={this.server2};uid={this.user2};pwd={this.password2}";
-        //    }
-        //}
         public SqlConnection SqlConnnection()
         {
             var SQLConnection = new SqlConnection(ConStr);

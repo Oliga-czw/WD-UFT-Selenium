@@ -7,7 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary;
 
-namespace MES_APEM_UFT_Selenium_Auto.Product.WD
+
+namespace MES_APEM_UFT_Selenium_Auto.Product.DataBaseWizard
 {
     public class Wizard_Window : WinForms_Window
     {
@@ -42,12 +43,19 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         {
             WindowTitleRegExp = @"Aspen Production Record Manager"
         });
+        public IRadioButton lstAPEM => _WinForms_Window.Describe<IRadioButton>(new RadioButtonDescription
+        {
+            WindowTitleRegExp = @"Aspen Production Execution Manager"
+        });
 
         public IEditField DBLocation => _WinForms_Window.Describe<IEditField>(new EditFieldDescription
         {
             ObjectName = @"txtDBLocation"
         });
-
+        public IEditField DBName => _WinForms_Window.Describe<IEditField>(new EditFieldDescription
+        {
+            ObjectName = @"txtDBName"
+        });
         public IEditField BatchEnterPassword => _WinForms_Window.Describe<IEditField>(new EditFieldDescription
         {
             ObjectName = @"txtPassword1"

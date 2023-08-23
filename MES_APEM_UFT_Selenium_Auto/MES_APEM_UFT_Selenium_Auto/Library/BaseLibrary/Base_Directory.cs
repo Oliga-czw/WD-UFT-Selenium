@@ -13,7 +13,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         internal const string OutputFolder = "Data\\Output";
 
 
-
+        public static string CMDDir = @"C:\Windows\System32\cmd.exe";
         public static string WDDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Aspen Manufacturing Execution\Aspen Weigh and Dispense Execution.lnk";
 
         public static string AFWDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\AspenTech\Aspen Security\AFW Security Manager(64-bit).lnk";
@@ -23,6 +23,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         public static string BDDDir = @"C:\Program Files (x86)\AspenTech\Batch.21\Client\BatchDetailDisplay.exe";
 
         public static string APRMDir = @"C:\APRM";
+        public static string DBDir = @"C:\DB";
 
         public static string WizrdDir = @"C:\Program Files (x86)\Common Files\AspenTech Shared\DatabaseWizard\DatabaseWizard.exe";
 
