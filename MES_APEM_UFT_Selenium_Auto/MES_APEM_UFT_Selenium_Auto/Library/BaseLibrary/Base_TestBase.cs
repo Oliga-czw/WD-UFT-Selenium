@@ -233,21 +233,22 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             Base_Test.LaunchApp(Base_Directory.mMDMAdminDir);
             SdkConfiguration config = new SdkConfiguration();
             SDK.Init(config);
-            Thread.Sleep(5000);
+            Thread.Sleep(3000);
         }
         public static void LaunchmMDMBulkLoad()
         {
-            Base_Test.LaunchApp(Base_Directory.mMDMBulkLoadDir);
             SdkConfiguration config = new SdkConfiguration();
             SDK.Init(config);
-            Thread.Sleep(5000);
+            Base_Test.LaunchApp(Base_Directory.mMDMBulkLoadDir);
+            Thread.Sleep(3000);
+
         }
         public static void LaunchmMDMEditor()
         {
-            Base_Test.LaunchApp(Base_Directory.mMDMEditorDir);
             SdkConfiguration config = new SdkConfiguration();
             SDK.Init(config);
-            Thread.Sleep(5000);
+            Base_Test.LaunchApp(Base_Directory.mMDMEditorDir);
+            Thread.Sleep(3000);
         }
         #endregion
         public static void KillWD()

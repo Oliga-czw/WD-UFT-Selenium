@@ -1,5 +1,5 @@
 ﻿using HP.LFT.SDK;
-using HP.LFT.SDK.StdWin;
+using HP.LFT.SDK.WinForms;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
@@ -17,6 +17,7 @@ using MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary;
 using MES_APEM_UFT_Selenium_Auto.Product.WD;
 using IWindow = HP.LFT.SDK.StdWin.IWindow;
 using Application = MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary.Application;
+using MES_APEM_UFT_Selenium_Auto.Product.APEM;
 
 namespace MES_APEM_UFT_Selenium_Auto
 {
@@ -36,7 +37,10 @@ namespace MES_APEM_UFT_Selenium_Auto
         [TestMethod]
         public void TestMethod1()
         {
-            GML();
+
+            mMDM_Fuction.GML_Configure_mMDM_Editor();
+
+
 
             //APRM_Fuction.CleanAprmDB();
             //APRM_Fuction.WizardAprmDB();
@@ -62,7 +66,7 @@ namespace MES_APEM_UFT_Selenium_Auto
             //});
             //Console.WriteLine(closeButton.IsEnabled);
 
-            //Console.WriteLine(Wizard.WizardWindow.btnClose.IsEnabled);
+            //Console.WriteLine(Wizard.AdminWizardWindow.btnClose.IsEnabled);
 
 
             //         var grossText = WD.BatchMainWindow.ListView._STD_ListView
@@ -147,54 +151,11 @@ namespace MES_APEM_UFT_Selenium_Auto
         }
 
 
-        public void GML_Configure_mMDM_1()
-        {
-            Application.LaunchmMDMAdmin();
-            //SdkConfiguration config = new SdkConfiguration();
-            //SDK.Init(config);
-            mMDM.WizardWindow.Next.Click();
-            //select DB
-            mMDM.WizardWindow.DirectDbConn.Click();
-            mMDM.WizardWindow.Next.Click();
-            mMDM.WizardWindow.Finish.Click();
-            //Wait mMDM Administrator Wizard re-pops up.
-            //select DB server
-            mMDM.WizardWindow.SQLServer.Click();
-            mMDM.WizardWindow.ServerName.SendKeys(Environment.MachineName);
-            mMDM.WizardWindow.Next.Click();
-            //set username,password and test
-            mMDM.WizardWindow.UserName.SetText(DBInfo.Info["username"]);
-            mMDM.WizardWindow.Password.SetSecure(DBInfo.Info["password"]);
-            mMDM.WizardWindow.Test.Click();
-            //check success
-            string message = mMDM.SuccessDialog.Message.Text;
-            Assert.AreEqual("Successful!", message);
-            mMDM.SuccessDialog.OK.Click();
-            //input DB name
-            mMDM.WizardWindow.DBName.SendKeys("ODM");
-            if (mMDM.WizardWindow.EmptyDatabase.IsEnabled)
-            {
-                mMDM.WizardWindow.EmptyDatabase.Click();
-                mMDM.WizardWindow.Create.Click();
-            }
-            mMDM.WizardWindow.Next.Click();
-            mMDM.WizardWindow.Next.Click();
-            //finish
-            mMDM.WizardWindow.Finish.Click();
-            //check sucess
-            Assert.IsTrue(mMDM.mMDMWindow.CreatingDatabaseWindow.Exists(3000));
-            mMDM.mMDMWindow.CreatingDatabaseWindow.Close();
-            mMDM.mMDMWindow.Close();
-        }
-        public void GML()
-        {
-            //Application.LaunchmMDMBulkLoad();
-            SdkConfiguration config = new SdkConfiguration();
-            SDK.Init(config);
-        }
+      
         [TestCleanup]
         public void TestCleanup()
         {
+            
         }
 
         [ClassCleanup]

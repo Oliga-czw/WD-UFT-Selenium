@@ -94,5 +94,20 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
             Image image =  _WinForms_Window.GetSnapshot();
             image.Save(path, ImageFormat.Png);
         }
+
+        public IButton Next => _WinForms_Window.Describe<IButton>(new ButtonDescription
+        {
+            ObjectName = @"btnNext"
+        });
+
+        public IButton OK => _WinForms_Window.Describe<IButton>(new ButtonDescription
+        {
+            Text = @"OK"
+        });
+
+        public IButton Finish => _WinForms_Window.Describe<IButton>(new ButtonDescription
+        {
+            Text = @"&Finish"
+        });
     }
 }

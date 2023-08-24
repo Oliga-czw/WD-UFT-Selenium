@@ -102,14 +102,29 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
 
     }
 
+    public class OpenFile_Dialog : STD_Dialog
+    {
+        public OpenFile_Dialog(string xpath) : base(xpath)
+        {
+        }
+        public IButton Open => _STD_Dialog.Describe<IButton>(new ButtonDescription
+        {
+            NativeClass = @"Button",
+            Text = @"&Open"
+        });
+        public IEditField FileName => _STD_Dialog.Describe<IEditField>(new EditFieldDescription
+        {
+            NativeClass = @"Edit"
+        });
 
+    }
     #region afw dialog
     public class Login_Dialog : STD_Dialog
     {
         public Login_Dialog(string xpath) : base(xpath)
         {
         }
-        public IButton OK => _STD_Dialog.Describe<IButton>(new ButtonDescription
+        public new IButton OK => _STD_Dialog.Describe<IButton>(new ButtonDescription
         {
             NativeClass = @"Button",
             Text = @"&OK"

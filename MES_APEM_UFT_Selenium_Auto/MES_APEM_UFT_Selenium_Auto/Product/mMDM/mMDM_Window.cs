@@ -9,15 +9,11 @@ using MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary;
 
 namespace MES_APEM_UFT_Selenium_Auto.Product.WD
 {
-    public class mMDM_Window : WinForms_Window
+    //mMDM Admin
+    public class mMDMAdmin_Window : WinForms_Window
     {
 
-
-        //public Wizard_Window()
-        //{
-        //}
-
-        public mMDM_Window(IWindow window) : base(window)
+        public mMDMAdmin_Window(IWindow window) : base(window)
         {
         }
 
@@ -27,34 +23,17 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         });
 
     }
-
-    public class mMDMWizard_Window : WinForms_Window
+    public class AdminWizard_Window : WinForms_Window
     {
 
-
-        //public Wizard_Window()
-        //{
-        //}
-
-        public mMDMWizard_Window(IWindow window) : base(window)
+        public AdminWizard_Window(IWindow window) : base(window)
         {
         }
-
-
-        public IButton Next => _WinForms_Window.Describe<IButton>(new ButtonDescription
-        {
-            ObjectName = @"btnNext"
-        });
 
         public IRadioButton DirectDbConn => _WinForms_Window.Describe<IRadioButton>(new RadioButtonDescription
         {
             WindowTitleRegExp = @"Direct &database connection",
             ObjectName = @"radioButtonDatasourceDatabase"
-        });
-
-        public IButton Finish => _WinForms_Window.Describe<IButton>(new ButtonDescription
-        {
-            Text = @"&Finish"
         });
 
         public IRadioButton SQLServer => _WinForms_Window.Describe<IRadioButton>(new RadioButtonDescription
@@ -100,6 +79,95 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
 
     }
 
-    
-    
+    //mMDM BulkLoad
+    public class mMDMBulkLoad_Window : WinForms_Window
+    {
+
+        public mMDMBulkLoad_Window(IWindow window) : base(window)
+        {
+        }
+
+        public IWindow CreatingDatabaseWindow => _WinForms_Window.Describe<IWindow>(new WindowDescription
+        {
+            WindowTitleRegExp = @"Creating Database Schema"
+        });
+
+        public IButton SaveButton => _WinForms_Window.Describe<IButton>(new ButtonDescription
+        {
+            Text = @" &Save"
+        });
+
+            
+    }
+    public class BulkLoadWizard_Window : WinForms_Window
+    {
+
+        public BulkLoadWizard_Window(IWindow window) : base(window)
+        {
+        }
+
+        public IRadioButton ImportDataFromOneOrMoreBulkLoadFiles => _WinForms_Window.Describe<IRadioButton>(new RadioButtonDescription
+        {
+            WindowTitleRegExp = @"&Import data from one or more Bulk Load files into an mMDM datastore.",
+            ObjectName = @"radioButtonLoadData"
+        });
+
+        public IButton Select => _WinForms_Window.Describe<IButton>(new ButtonDescription
+        {
+            Text = @"&Select..."
+        });
+
+        public IRadioButton SQLServer => _WinForms_Window.Describe<IRadioButton>(new RadioButtonDescription
+        {
+            WindowTitleRegExp = @"Microsoft SQL Server"
+        });
+
+    }
+    public class AspenWorkSpace_Window : WinForms_Window
+    {
+
+        public AspenWorkSpace_Window(IWindow window) : base(window)
+        {
+        }
+
+        public IButton Advanced => _WinForms_Window.Describe<IButton>(new ButtonDescription
+        {
+            ObjectName = @"buttonAdvanced"
+        });
+        public ICheckBox ConnectToASpecificWorkspace => _WinForms_Window.Describe<ICheckBox>(new CheckBoxDescription
+        {
+            Text = @"Connect to a specific Workspace:"
+        });
+
+        public IComboBox WorkspaceComboBox => _WinForms_Window.Describe<IComboBox>(new ComboBoxDescription
+        {
+            ObjectName = @"comboBoxWorkspace"
+        });
+
+        
+    }
+    public class BulkLoadImportWizard_Window : WinForms_Window
+    {
+
+        public BulkLoadImportWizard_Window(IWindow window) : base(window)
+        {
+        }
+
+        public IRadioButton importDataFromOneOrMoreBulkLoadFiles => _WinForms_Window.Describe<IRadioButton>(new RadioButtonDescription
+        {
+            WindowTitleRegExp = @"&Import data from one or more Bulk Load files into an mMDM datastore.",
+            ObjectName = @"radioButtonLoadData"
+        });
+
+        public IButton Add => _WinForms_Window.Describe<IButton>(new ButtonDescription
+        {
+            Text = @"Add..."
+        });
+
+        public IRadioButton SQLServer => _WinForms_Window.Describe<IRadioButton>(new RadioButtonDescription
+        {
+            WindowTitleRegExp = @"Microsoft SQL Server"
+        });
+
+    }
 }

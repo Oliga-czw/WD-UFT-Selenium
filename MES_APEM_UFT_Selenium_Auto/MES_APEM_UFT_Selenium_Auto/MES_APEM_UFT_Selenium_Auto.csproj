@@ -53,6 +53,7 @@
     <Reference Include="HP.LFT.Verifications, Version=14.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="LeanFTForSelenium, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\LeanFT.Selenium.1.0.1\lib\net45\LeanFTForSelenium.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="OpenQA.Selenium.Winium, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\OpenQA.Selenium.Winium.1.0.0.4\lib\OpenQA.Selenium.Winium.dll</HintPath>
@@ -72,6 +73,7 @@
     </Reference>
     <Reference Include="WebDriver.Support, Version=2.53.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Selenium.Support.2.53.1\lib\net40\WebDriver.Support.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -119,6 +121,7 @@
     <Compile Include="Product\DataBaseWizard\Wizard_Function.cs" />
     <Compile Include="Product\DataBaseWizard\Wizard_Repository.cs" />
     <Compile Include="Product\DataBaseWizard\Wizard_Window.cs" />
+    <Compile Include="Product\mMDM\mMDM_Fuction.cs" />
     <Compile Include="Product\mMDM\mMDM_Repository.cs" />
     <Compile Include="Product\mMDM\mMDM_Window.cs" />
     <Compile Include="Product\SLM\SLM_Repository.cs" />
