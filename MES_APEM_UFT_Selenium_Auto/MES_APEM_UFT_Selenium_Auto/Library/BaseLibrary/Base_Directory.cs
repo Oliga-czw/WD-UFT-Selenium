@@ -12,7 +12,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         internal const string InputFolder = "Data\\Input";
         internal const string OutputFolder = "Data\\Output";
 
-
+         
         public static string CMDDir = @"C:\Windows\System32\cmd.exe";
         public static string WDDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Aspen Manufacturing Execution\Aspen Weigh and Dispense Execution.lnk";
 
@@ -128,7 +128,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         public static string DownloadFileDir => "C:\\Users\\"+ Environment.UserName + "\\Downloads";
 
         public static string BulkLoadDir => Base_Directory.ProjectDir + "Data\\Input\\BulkLoad\\";
-
+        public static string AeBRSInstallerDir => Base_Directory.ProjectDir + "Data\\Input\\AeBRSInstaller.bat";
         public static string InventoryDownloadDir => "C:\\ProgramData\\AspenTech\\AeBRS\\WDDownload\\Pending\\Inventory";
         public static string MaterialDownloadDir => "C:\\ProgramData\\AspenTech\\AeBRS\\WDDownload\\Pending\\Material";
         public static string OrdersDownloadDir => "C:\\ProgramData\\AspenTech\\AeBRS\\WDDownload\\Pending\\Orders";

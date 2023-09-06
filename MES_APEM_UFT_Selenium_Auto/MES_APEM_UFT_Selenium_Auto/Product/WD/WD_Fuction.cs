@@ -289,10 +289,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
 
         public static void initial_data()
         {
-            WD_Fuction.CleanOrdersData();
+            CleanOrdersData();
             CleanWeighHistory();
-            WD_Fuction.CleanDeviationData();
-            WD_Fuction.CleanCampaignData();
+            CleanDeviationData();
+            CleanCampaignData();
             string integration = "11 aspen wd integration bulk load.xml";
             string signature = "10 aspen wd signautres bulk load.xml";
             string deviation = "14 aspen wd deviation bulk load.xml";
@@ -305,11 +305,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
             string inventory = "05 aspen wd inventory bulk load.xml";
             string[] files = new string[] { integration,signature, deviation, orders, booth_group };
             string[] overwrite = new string[] { booth, scale, permission, inventory };
-            WD_Fuction.Bulkload(files);
+            Bulkload(files);
             Thread.Sleep(5000);
-            WD_Fuction.Bulkload_Overwrite(overwrite);
+            Bulkload_Overwrite(overwrite);
             Thread.Sleep(5000);
-            //WD_Fuction.WDSign();
+           
         }
     }
 

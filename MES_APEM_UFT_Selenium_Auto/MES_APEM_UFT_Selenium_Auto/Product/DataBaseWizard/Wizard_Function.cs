@@ -13,10 +13,9 @@ using MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary;
 
 namespace MES_APEM_UFT_Selenium_Auto.Product.DataBaseWizard
 {
-    class APRM_Fuction
+    class Wizard_Fuction
     {
         static string server = Environment.MachineName;
-        static string database = DBInfo.Info["DB"];
         static string user = DBInfo.Info["username"];
         static string password = DBInfo.Info["password"];
         public static void CreateApemDB(string ApemDBName)

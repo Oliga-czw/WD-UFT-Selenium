@@ -166,31 +166,6 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
 
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "No_modify.PNG");
             driver.Close();
-            LogStep(@"5. ADD a new role in AFW");
-
-            //Application.LaunchAFW();
-            //Thread.Sleep(6000);
-            //// AFW_Fuction.addRole("qaone", "qae\\qaone1");
-            //if (WD.AFWMainWindow.AFWSubWindow.TreeView.GetNode("Console Root;AFW Security Manager").IsExpanded)
-            //{
-            //    WD.AFWMainWindow.AFWSubWindow.TreeView._STD_TreeView.Select("Console Root;AFW Security Manager;Roles");
-            //}
-            //else
-            //{
-            //    WD.AFWMainWindow.AFWSubWindow.TreeView.GetNode("Console Root;AFW Security Manager").Expand();
-
-            //    WD.AFWMainWindow.AFWSubWindow.TreeView._STD_TreeView.Select("Console Root;AFW Security Manager;Roles");
-            //}
-            //WD.AFWMainWindow.AFWSubWindow.TreeView._STD_TreeView.Select("Console Root;AFW Security Manager;Roles", HP.LFT.SDK.MouseButton.Right);
-            ////WD.AFWMainWindow.toolbar.PressButton("&Action");
-            //WD.AFWMainWindow.AFWSubWindow.TreeView._STD_TreeView.Select("Console Root;AFW Security Manager;Roles",);
-
-            //WD.AFWMainWindow.AFWAddRoleDialog.nameEditField.SetText("qaone");
-            //WD.AFWMainWindow.AFWAddRoleDialog.descriptionEditField.SetText("for test");
-            //WD.AFWMainWindow.AFWAddRoleDialog.OK.Click();
-            //WD.AFWMainWindow.GetSnapshot(Resultpath + "new_role.PNG");
-            //AFW_Fuction.closeAFW();
-
             Selenium_Driver driver1 = new Selenium_Driver(Browser.chrome);
             Web_Fuction.gotoWDWeb(driver1);
             driver1.Wait();
@@ -211,7 +186,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Base_Assert.IsTrue(roleNameList.Contains("qaone"));
             driver1.Close();
             Thread.Sleep(2000);
-            LogStep(@"6. delete the added role in AFW");
+            LogStep(@"5. delete the added role in AFW");
             Application.LaunchAFW();
             Thread.Sleep(6000);
             //AFW_Fuction.addRole("qaone", "qae\\qaone1");

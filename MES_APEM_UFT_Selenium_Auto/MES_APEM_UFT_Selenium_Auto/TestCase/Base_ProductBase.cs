@@ -23,6 +23,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Directory.CreateDirectory(Base_Directory.ResultsDir);
             }
             GlobalSetup(context);
+            AFW_Fuction.ReplaceAFWDB();
         }
 
         [ClassCleanup]

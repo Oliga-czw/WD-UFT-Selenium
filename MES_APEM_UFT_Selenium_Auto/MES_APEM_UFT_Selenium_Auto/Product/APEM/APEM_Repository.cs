@@ -20,11 +20,43 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         #region AeBRS_Methods
         public static void AeBRSInstaller()
         {
-            
+            string password = DBInfo.Info["password"];
+            Base_Test.LaunchApp(Base_Directory.AeBRSInstallerDir);
+            SdkConfiguration config = new SdkConfiguration();
+            SDK.Init(config);
+            Thread.Sleep(5000);
+            APEM.APEMMainWindow.Password.SendKeys(password);
+            APEM.APEMMainWindow.EnterPasswordAgain.SendKeys(password);
+            APEM.APEMMainWindow.OKButton.ClickSignle();
+            Thread.Sleep(5000);
+            APEM.APEMMainWindow.UID.SendKeys("123");
+            APEM.APEMMainWindow.OKButton.ClickSignle();
+            Thread.Sleep(600000);
+            if (APEM.CompletedDialog.IsExist())
+            {
+                APEM.CompletedDialog.OKButton.Click();
+            }
+            else
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    Thread.Sleep(5000);
+                    if (APEM.CompletedDialog.IsExist())
+                    {
+                        APEM.CompletedDialog.OKButton.Click();
+                        break;
+                    }
+                }
+            }
+            APEM.APEMMainWindow.Close();
+            APEM.CloseDialog.YesButton.Click();
         }
         #endregion
         #region AeBRS Windows
         public static APEMMainWindow APEMMainWindow => new APEMMainWindow("//JavaWindow[@ObjectName = 'Configuration']");
+        #endregion
+        #region AeBRS Dialog
+        public static UFT_Dialog CompletedDialog => new UFT_Dialog("//Dialog[@Title = 'Configuration Process Completed']");
         #endregion
         #region MOC windows
 
