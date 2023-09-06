@@ -244,10 +244,5 @@ C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto
 C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\bin\Debug\System.Xml.XmlSerializer.dll
 C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\bin\Debug\System.Xml.XPath.dll
 C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\bin\Debug\System.Xml.XPath.XDocument.dll
-C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\bin\Debug\LeanFTForSelenium.dll
 C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\bin\Debug\OpenQA.Selenium.Winium.dll
-C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\bin\Debug\WebDriver.Support.dll
-C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\bin\Debug\LeanFTForSelenium.xml
 C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\bin\Debug\OpenQA.Selenium.Winium.pdb
-C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\bin\Debug\WebDriver.Support.xml
-C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\obj\Debug\MES_APEM_UFT_Selenium_Auto.csproj.AssemblyReference.cache
