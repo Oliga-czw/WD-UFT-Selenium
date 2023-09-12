@@ -19,7 +19,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
     class APRM_Fuction
     {
         static string server = Environment.MachineName;
-        static string database = DBInfo.Info["DB"];
+        static string database = DBInfo.Info["AeBRS"];
         static string user = DBInfo.Info["username"];
         static string password = DBInfo.Info["password"];
 
@@ -92,36 +92,16 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             }
             //finish and wait 80 seconds for config conpleted
             Wizard.WizardWindow.Finish.Click();
-            Thread.Sleep(80000);
             //check install finish
-            if (Wizard.WizardWindow.btnClose.IsEnabled)
-            {
-                Wizard.WizardWindow.btnClose.Click();
+            Wizard.WizardWindow.btnClose.WaitUntilEnabled(80000);
+            Wizard.WizardWindow.btnClose.Click();
                 //log
                 //Console.WriteLine("Wizard APRM DB!");
-            }
-            else
-            {
-                //wait another 50 seconds
-                for (int i = 0; i < 10; i++)          
-                {
-                    Thread.Sleep(5000);
-                    if (Wizard.WizardWindow.btnClose.IsEnabled)
-                    {
-                        Wizard.WizardWindow.btnClose.Click();
-                        Console.WriteLine(i);
-                        //log
-                        //Console.WriteLine("Wizard APRM DB!");
-                        break;
-                    }
-                }
-
-            }
             StopService("Batch21Services");
             StartService("Batch21Services");
         }
 
-        public static void ImportAprmAdmin()
+        public static void WDImportAprmAdmin()
         {
             string servername = Environment.MachineName;//OLIGA-2022-2
             //open aprm admin
@@ -174,13 +154,97 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
                 }
 
             }
-
             APRM.APRMAdminWindow.Close();
 
         }
 
+        public static void GMLImportAprmAdmin()
+        {
+            string servername = Environment.MachineName;//OLIGA-2022-2
+            //open aprm admin
+            Application.LaunchAprmAdmin();
+            //expand node,check wd batch exit
+            APRM.APRMAdminWindow.TreeView.GetNode("Console Root;Production Record Manager").Expand();
+            APRM.APRMAdminWindow.TreeView.GetNode("Console Root;Production Record Manager;Data Sources").Expand();
+            APRM.APRMAdminWindow.TreeView.GetNode($"Console Root;Production Record Manager;Data Sources;{servername}").Expand();
+            APRM.APRMAdminWindow.TreeView.Select($"Console Root;Production Record Manager;Data Sources;{servername};Areas");
+            Console.WriteLine(APRM.APRMAdminWindow.TreeView.GetNode($"Console Root;Production Record Manager;Data Sources;{servername};Areas").HasChildren);
+            if (APRM.APRMAdminWindow.TreeView.GetNode($"Console Root;Production Record Manager;Data Sources;{servername};Areas").HasChildren)
+            {
+                APRM.APRMAdminWindow.TreeView.GetNode($"Console Root;Production Record Manager;Data Sources;{servername};Areas").Expand();
+                //batch
+                if (APRM.APRMAdminWindow.Batch.Exists())
+                {
+                    //Base_logger.Info("Batch has already existed");
+                    Console.WriteLine("Batch has already existed");
+                }
+                else
+                {
+                    //import APEM batch
+                    //BatchArea
+                    APRM.APRMAdminWindow.actionMenuItem.Click();
+                    Keyboard.PressKey(Keyboard.Keys.I);
+                    APRM.APRMAdminWindow.Open.Filename.SendKeys(Base_Directory.BatchArea);
+                    Keyboard.PressKey(Keyboard.Keys.Enter);
+                    Thread.Sleep(2000);
+                    //check APEM batch exit
+                    if (APRM.APRMAdminWindow.Batch.Exists())
+                    {
+                        Console.WriteLine("Batch import successfully");
+                    }
+                    // Base_Assert.IsTrue(APRM.APRMAdminWindow.Batch.Exists(), "Batch import successfully");
+                }
+                //Equipment
+                if (APRM.APRMAdminWindow.Equipment.Exists())
+                {
+                    //Base_logger.Info("Equipment has already existed");
+                    Console.WriteLine("Equipment has already existed");
+                }
+                else
+                {
+                    //import APEM batch
+                    //EquipmentArea
+                    APRM.APRMAdminWindow.actionMenuItem.Click();
+                    Keyboard.PressKey(Keyboard.Keys.I);
+                    APRM.APRMAdminWindow.Open.Filename.SendKeys(Base_Directory.EquipmentArea);
+                    Keyboard.PressKey(Keyboard.Keys.Enter);
+                    Thread.Sleep(2000);
+                    //check APEM batch exit
+                    if (APRM.APRMAdminWindow.Equipment.Exists())
+                    {
+                        Console.WriteLine("Equipment import successfully");
+                    }
+                    // Base_Assert.IsTrue(APRM.APRMAdminWindow.Equipment.Exists(), "Equipment import successfully");
+                }
+            }
+            else
+            {
+                //import APEM batch
+                //BatchArea
+                APRM.APRMAdminWindow.actionMenuItem.Click();
+                Keyboard.PressKey(Keyboard.Keys.I);
+                APRM.APRMAdminWindow.Open.Filename.SendKeys(Base_Directory.BatchArea);
+                Keyboard.PressKey(Keyboard.Keys.Enter);
+                Thread.Sleep(2000);
+                //EquipmentArea
+                APRM.APRMAdminWindow.actionMenuItem.Click();
+                Keyboard.PressKey(Keyboard.Keys.I);
+                APRM.APRMAdminWindow.Open.Filename.SendKeys(Base_Directory.EquipmentArea);
+                Keyboard.PressKey(Keyboard.Keys.Enter);
+                Thread.Sleep(2000);
+                //check APEM batch exit
+                APRM.APRMAdminWindow.TreeView.GetNode($"Console Root;Production Record Manager;Data Sources;{servername};Areas").Expand();
+                //Base_Assert.IsTrue(APRM.APRMAdminWindow.WeightDispense.Exists(), "WeightDispense import successfully");
+                if (APRM.APRMAdminWindow.Batch.Exists()&& APRM.APRMAdminWindow.Equipment.Exists())
+                {
+                    //log
+                    Console.WriteLine("Batch and Equipment import successfully");
+                }
 
-        public static void ConfigAPEMAdmin()
+            }
+            APRM.APRMAdminWindow.Close();
+        }
+            public static void ConfigAPEMAdmin()
         {
             string servername = System.Net.Dns.GetHostName();//Oliga-2022-2
             string servername2 = Environment.MachineName;//OLIGA-2022-2
@@ -255,15 +319,15 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             }
             APEM.APEMAdminWindow.Close();
         }
-
+        
         public static void InitailAPRM()
         {
             APRM_Fuction.DropAprmDB();
             APRM_Fuction.WizardAprmDB();
-            APRM_Fuction.ImportAprmAdmin();
+            APRM_Fuction.WDImportAprmAdmin();
+            //set BatchDetailDisplay area
             Application.LaunchBatchDetailDisplay();
             Batch_Fuction.setOptionData();
-            //Close batch detail
             APRM.BatchMainWindow.Close();
         }
 
@@ -276,10 +340,25 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             {
                 APRM_Fuction.WizardAprmDB();
             }
-            APRM_Fuction.ImportAprmAdmin();
+            APRM_Fuction.WDImportAprmAdmin();
             APRM_Fuction.ConfigAPEMAdmin();
         }
 
+        public static void GMLAPRMConfig()
+        {
+            //exit aprm db?
+            bool exits;
+            exits = File.Exists(Base_Directory.APRMDir + @"\AspenBatch_dat1.mdf");
+            if (!exits)
+            {
+                WizardAprmDB();
+            }
+            GMLImportAprmAdmin();
+            //set BatchDetailDisplay area
+            Application.LaunchBatchDetailDisplay();
+            Batch_Fuction.setOptionData("Batch");
+            APRM.BatchMainWindow.Close();
+        }
 
 
         public static void StopService(string serviceName)

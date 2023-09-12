@@ -56,9 +56,40 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APRM
                 Path = @"Window;Pane;Window;Pane;Tree;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem"
             });
 
+        public ITreeViewItem Batch => _STD_Window.Describe<IPane>(new PaneDescription
+        {
+            Name = @"Workspace",
+            Path = @"Window;Pane"
+        })
+            .Describe<ITreeViewItem>(new TreeViewItemDescription
+            {
+                Name = @"Areas",
+                Path = @"Window;Pane;Window;Pane;Tree;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem"
+            })
+            .Describe<ITreeViewItem>(new TreeViewItemDescription
+            {
+                Name = @"Batch",
+                Path = @"Window;Pane;Window;Pane;Tree;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem"
+            });
+
+        public ITreeViewItem Equipment => _STD_Window.Describe<IPane>(new PaneDescription
+        {
+            Name = @"Workspace",
+            Path = @"Window;Pane"
+        })
+            .Describe<ITreeViewItem>(new TreeViewItemDescription
+            {
+                Name = @"Areas",
+                Path = @"Window;Pane;Window;Pane;Tree;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem"
+            })
+            .Describe<ITreeViewItem>(new TreeViewItemDescription
+            {
+                Name = @"Equipment",
+                Path = @"Window;Pane;Window;Pane;Tree;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem"
+            });
 
 
-    
+
 
 
         //public IMenuItem importMenuItem => Desktop.Describe<IMenu>(new MenuDescription
@@ -73,7 +104,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APRM
 
     }
 
-            
+
 
 
 }

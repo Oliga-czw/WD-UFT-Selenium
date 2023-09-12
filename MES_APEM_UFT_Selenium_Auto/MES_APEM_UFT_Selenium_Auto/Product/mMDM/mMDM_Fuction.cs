@@ -98,17 +98,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             //save bulk load
             mMDM.BulkLoadaAfterImportWindow.SetActive();
             //wait for finish
-            for (int i = 0; i < 5; i++)
-                {
-                if (mMDM.BulkLoadaAfterImportWindow.SaveButton.IsEnabled)
-                {
-                    break;
-                }
-                else
-                {
-                    Thread.Sleep(2000);
-                }
-            }
+            mMDM.BulkLoadaAfterImportWindow.SaveButton.WaitUntilEnabled(10000);
             mMDM.BulkLoadaAfterImportWindow.SaveButton.Click();
             Thread.Sleep(2000);
             mMDM.BulkLoadaAfterImportWindow.Close();
@@ -151,6 +141,14 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             mMDM.mMDMDatabaseAdminWindow.RepopulatingWindow.Close();
             mMDM.mMDMDatabaseAdminWindow.Close();
             mMDM.mMDMAdminWindow.Close();
+        }
+
+        public static void GML_mMDMConfig()
+        {
+            GML_Configure_mMDM_Admin_1();
+            GML_Configure_mMDM_BulkLoad();
+            GML_Configure_mMDM_Editor();
+            GML_Configure_mMDM_Admin_2();
         }
     }
 }
