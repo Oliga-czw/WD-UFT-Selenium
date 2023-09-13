@@ -120,4 +120,14 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
             Index = 0
         });
     }
+
+    public class AddReason_Dialog : UFT_Dialog
+    {
+        public AddReason_Dialog(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+
+        public UFT_Editor Reason => new UFT_Editor(_UFT_Dialog, "//Editor[@AttachedText = 'Reason']");
+
+    }
 }

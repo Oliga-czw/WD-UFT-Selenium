@@ -151,5 +151,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         public static string mMDMWorkSpace => @"C:\ProgramData\AspenTech\mMDM\Workspaces";
 
         public static string GMLBackup = Base_Directory.ProjectDir + "Data\\Input\\GML\\mMDM UGM GML backup.xml";
+        //GML config 
+        public static string GMLConfig = Base_Directory.ProjectDir + "Data\\Input\\GML\\GMLConfig.ini";
+
+       
     }
 }

@@ -31,7 +31,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button RPLVerify => new UFT_Button(_UFT_Window, "//Button[@Label = 'Order Tracking' and @IsWrapped = 'True']");
         public UFT_Button BPLDesign => new UFT_Button(_UFT_Window, "//Button[@Label = 'Order Tracking' and @IsWrapped = 'True']");
         public UFT_Button Orders => new UFT_Button(_UFT_Window, "//Button[@Label = 'Order Tracking' and @IsWrapped = 'True']");
-        public UFT_Button Config_moudle => new UFT_Button(_UFT_Window, "//Button[@Label = 'Config Moudle' and @IsWrapped = 'True']");
+        public UFT_Button Config_moudle => new UFT_Button(_UFT_Window, "//Button[@Label = 'Config Module' and @IsWrapped = 'True']");
 
     }
     public class APEMMainWindow : UFT_JavaWindow
