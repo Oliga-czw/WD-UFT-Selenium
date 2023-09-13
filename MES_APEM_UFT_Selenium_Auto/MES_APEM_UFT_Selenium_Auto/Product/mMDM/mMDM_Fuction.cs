@@ -46,14 +46,23 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             {
                 mMDM.AdminWizardWindow.EmptyDatabase.Click();
                 mMDM.AdminWizardWindow.Create.Click();
+                mMDM.AdminWizardWindow.Next.Click();
+                mMDM.AdminWizardWindow.Next.Click();
+                //finish
+                mMDM.AdminWizardWindow.Finish.Click();
+                //check sucess
+                Assert.IsTrue(mMDM.mMDMAdminWindow.CreatingDatabaseWindow.Exists(3000));
+                mMDM.mMDMAdminWindow.CreatingDatabaseWindow.Close();
             }
-            mMDM.AdminWizardWindow.Next.Click();
-            mMDM.AdminWizardWindow.Next.Click();
-            //finish
-            mMDM.AdminWizardWindow.Finish.Click();
-            //check sucess
-            Assert.IsTrue(mMDM.mMDMAdminWindow.CreatingDatabaseWindow.Exists(3000));
-            mMDM.mMDMAdminWindow.CreatingDatabaseWindow.Close();
+            else
+            {
+                mMDM.AdminWizardWindow.Next.Click();
+                mMDM.AdminWizardWindow.Next.Click();
+                //finish
+                mMDM.AdminWizardWindow.Finish.Click();
+                
+            }
+            Thread.Sleep(2000);
             mMDM.mMDMAdminWindow.Close();
         }
 
@@ -89,17 +98,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             //save bulk load
             mMDM.BulkLoadaAfterImportWindow.SetActive();
             //wait for finish
-            for (int i = 0; i < 5; i++)
-                {
-                if (mMDM.BulkLoadaAfterImportWindow.SaveButton.IsEnabled)
-                {
-                    break;
-                }
-                else
-                {
-                    Thread.Sleep(2000);
-                }
-            }
+            mMDM.BulkLoadaAfterImportWindow.SaveButton.WaitUntilEnabled(10000);
             mMDM.BulkLoadaAfterImportWindow.SaveButton.Click();
             Thread.Sleep(2000);
             mMDM.BulkLoadaAfterImportWindow.Close();
@@ -108,6 +107,48 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         public static void GML_Configure_mMDM_Editor()
         {
             Application.LaunchmMDMEditor();
+            //select Equipment;Equipment Items
+            mMDM.EditorWindow.mMDMTreeView.GetNode("Aspen mMDM;Equipment").Expand();
+            mMDM.EditorWindow.mMDMTreeView.Select("Aspen mMDM;Equipment;Equipment Items");
+            //Right click right panel and select Change Active Date to Definition Date
+            mMDM.EditorWindow.mMDMTable.Click(MouseButton.Right);
+            mMDM.EditorWindow.TableMenuToolBar.Select("C&hange Active Time to Definition Start Time");
+            //Select Tools|Options... from menu.
+            mMDM.EditorWindow.MainMenuToolBar.ShowDropdown("Tools");
+            mMDM.EditorWindow.MainMenuToolBar.Select("Tools;Options...");
+            //select Set active date to current date on startup of the editor
+            mMDM.EditorOptionWindow.SetActiveDateCheckBox.Set(CheckedState.Checked);
+            mMDM.EditorOptionWindow.OK.Click();
+            mMDM.EditorWindow.Close();
+        }
+
+        public static void GML_Configure_mMDM_Admin_2()
+        {
+            Application.LaunchmMDMAdmin();
+            if (mMDM.AdminWizardWindow.IsExist(3000))
+            {
+                mMDM.AdminWizardWindow.Close();
+            }
+            mMDM.mMDMAdminWindow.MenuToolBar.ShowDropdown("Tools");
+            mMDM.mMDMAdminWindow.MenuToolBar.Select("Tools;Database Administrator...");
+            //select workspace and advance
+            mMDM.mMDMDatabaseAdminWindow.Workspaces.Select("BPCWebAdmin");
+            mMDM.mMDMDatabaseAdminWindow.Advance.Set(CheckedState.Checked);
+            //click repopulate
+            mMDM.mMDMDatabaseAdminWindow.Repopulate.Click();
+            //check sucess
+            Assert.IsTrue(mMDM.mMDMDatabaseAdminWindow.RepopulatingWindow.Exists(5000));
+            mMDM.mMDMDatabaseAdminWindow.RepopulatingWindow.Close();
+            mMDM.mMDMDatabaseAdminWindow.Close();
+            mMDM.mMDMAdminWindow.Close();
+        }
+
+        public static void GML_mMDMConfig()
+        {
+            GML_Configure_mMDM_Admin_1();
+            GML_Configure_mMDM_BulkLoad();
+            GML_Configure_mMDM_Editor();
+            GML_Configure_mMDM_Admin_2();
         }
     }
 }

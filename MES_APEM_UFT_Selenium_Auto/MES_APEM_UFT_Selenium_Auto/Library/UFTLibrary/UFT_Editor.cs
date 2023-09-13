@@ -2,6 +2,7 @@
 using HP.LFT.SDK;
 using HP.LFT.SDK.Java;
 using System.Threading;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
 {
@@ -48,12 +49,14 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
             if (TypeEnter == false)
             {
                 _UFT_Editor.SetText(text);
-                Base_Assert.AreEqual(text, _UFT_Editor.Text);
+                //Base_Assert.AreEqual(text, _UFT_Editor.Text);
+                Assert.AreEqual(text, _UFT_Editor.Text);
             }
             else
             {
                 _UFT_Editor.SetText(text);
-                Base_Assert.AreEqual(text, _UFT_Editor.Text);
+                //Base_Assert.AreEqual(text, _UFT_Editor.Text);
+                Assert.AreEqual(text, _UFT_Editor.Text);
                 Keyboard.PressKey(Keyboard.Keys.Enter);
             }
             return text;
@@ -64,12 +67,14 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
             if (TypeEnter == false)
             {
                 _UFT_Editor.SetSecure(text);
-                Base_Assert.AreEqual(text, _UFT_Editor.Text);
+                //Base_Assert.AreEqual(text, _UFT_Editor.Text);
+                Assert.AreEqual(text, _UFT_Editor.Text);
             }
             else
             {
                 _UFT_Editor.SetSecure(text);
-                Base_Assert.AreEqual(text, _UFT_Editor.Text);
+                //Base_Assert.AreEqual(text, _UFT_Editor.Text);
+                Assert.AreEqual(text, _UFT_Editor.Text);
                 Keyboard.PressKey(Keyboard.Keys.Enter);
             }
             return text;

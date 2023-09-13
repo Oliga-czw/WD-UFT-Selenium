@@ -44,7 +44,12 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APRM
             APRM.BatchMainWindow.FindBatchWindow.Textbox.SendKeys(ordername);
             APRM.BatchMainWindow.FindBatchWindow.OK.Click();
         }
-        public static void setOptionData()
+        /// <summary>
+        /// Input "WeighDispense" or "Batch".
+        /// "WeighDispense" is deafult.
+        /// </summary>
+        /// <param name="Area">"WeighDispense" or "Batch"</param>
+        public static void setOptionData(string Area = "WeighDispense")
         {
             //open option
             APRM.BatchMainWindow.SetActive();
@@ -56,10 +61,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APRM
 
             //set option
             APRM.BatchMainWindow.OptionDialog.DataSource.Select(Environment.MachineName);
-            APRM.BatchMainWindow.OptionDialog.DataArea.Select("WeighDispense");
+            APRM.BatchMainWindow.OptionDialog.DataArea.Select(Area);
             APRM.BatchMainWindow.OptionDialog.SetAsDefaultButton.Click();
             APRM.BatchMainWindow.OptionDialog.OK.Click();
-            Base_logger.Info("Default area is setting with 'WeighDispense' successfully.");
+            //log
+            Console.WriteLine($"Default area is setting with '{Area}' successfully.");
 
         }
 

@@ -32,6 +32,14 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             Text = As.RegExp("Aspen mMDM Administrator.*")
         });
         public static mMDMAdmin_Window mMDMAdminWindow => new mMDMAdmin_Window(Admin_Window);
+
+        private static IWindow mMDMDatabaseAdmin_Window = Desktop.Describe<IWindow>(new WindowDescription
+        {
+            WindowTitleRegExp = @"Database Administrator"
+        });
+        public static mMDMDatabaseAdmin_Window mMDMDatabaseAdminWindow => new mMDMDatabaseAdmin_Window(mMDMDatabaseAdmin_Window);
+
+        
         //mMDM BulkLoad
         private static IWindow BulkLoad_Window = Desktop.Describe<IWindow>(new WindowDescription
         {
@@ -62,6 +70,18 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             ObjectName = @"BulkloadForm"
         });
         public static mMDMBulkLoad_Window BulkLoadaAfterImportWindow => new mMDMBulkLoad_Window(BulkLoadaAfterImport_Window);
+
+        //mMDM Editor
+        private static IWindow Editor_Window = Desktop.Describe<IWindow>(new WindowDescription
+        {
+            Text = As.RegExp("Aspen mMDM Editor.*")
+        });
+        public static mMDMEditor_Window EditorWindow => new mMDMEditor_Window(Editor_Window);
+        private static IWindow EditorOption_Window = Desktop.Describe<IWindow>(new WindowDescription
+        {
+            WindowTitleRegExp = @"mMDM Editor Options"
+        });
+        public static mMDMEditorOption_Window EditorOptionWindow => new mMDMEditorOption_Window(EditorOption_Window);
 
         #endregion
 

@@ -143,11 +143,17 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 
 
         public static string WDBatch = @"C:\Program Files (x86)\AspenTech\AeBRS\Templates\WeighDispense.xml";
+        public static string BatchArea = @"C:\Program Files (x86)\AspenTech\AeBRS\Templates\BatchArea.xml";
+        public static string EquipmentArea = @"C:\Program Files (x86)\AspenTech\AeBRS\Templates\EquipmentArea.xml";
 
         //mMDM
         public static string MachineAliasConfig = Base_Directory.ProjectDir + "Data\\Input\\GML\\machine.alias.config";
         public static string mMDMWorkSpace => @"C:\ProgramData\AspenTech\mMDM\Workspaces";
 
         public static string GMLBackup = Base_Directory.ProjectDir + "Data\\Input\\GML\\mMDM UGM GML backup.xml";
+        //GML config 
+        public static string GMLConfig = Base_Directory.ProjectDir + "Data\\Input\\GML\\GMLConfig.ini";
+
+       
     }
 }

@@ -21,7 +21,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         {
             WindowTitleRegExp = @"Creating Database Schema"
         });
-
+        public IToolBar MenuToolBar => _WinForms_Window.Describe<IToolBar>(new ToolBarDescription
+        {
+            ObjectName = @"menuStrip1"
+        });
     }
     public class AdminWizard_Window : WinForms_Window
     {
@@ -78,7 +81,31 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         });
 
     }
+    public class mMDMDatabaseAdmin_Window : WinForms_Window
+    {
 
+        public mMDMDatabaseAdmin_Window(IWindow window) : base(window)
+        {
+        }
+        public IWindow RepopulatingWindow => _WinForms_Window.Describe<IWindow>(new WindowDescription
+        {
+            WindowTitleRegExp = @"Repopulating Class Structures"
+        });
+
+        public IComboBox Workspaces => _WinForms_Window.Describe<IComboBox>(new ComboBoxDescription
+        {
+            ObjectName = @"comboBoxWorkspaces"
+        });
+        public ICheckBox Advance => _WinForms_Window.Describe<ICheckBox>(new CheckBoxDescription
+        {
+            ObjectName = @"checkBoxShowRegenerateViews"
+        });
+        public IButton Repopulate => _WinForms_Window.Describe<IButton>(new ButtonDescription
+        {
+            ObjectName = @"buttonRegenerateDatabaseViews",
+            Text = @"&Repopulate"
+        });
+    }
     //mMDM BulkLoad
     public class mMDMBulkLoad_Window : WinForms_Window
     {
@@ -170,4 +197,49 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         });
 
     }
+
+    //mMDM Editor
+    public class mMDMEditor_Window : WinForms_Window
+    {
+
+        public mMDMEditor_Window(IWindow window) : base(window)
+        {
+        }
+        public ITreeView mMDMTreeView => _WinForms_Window.Describe<ITreeView>(new TreeViewDescription
+        {
+            ObjectName = @"treeDefinitions"
+        });
+        public ITable mMDMTable => _WinForms_Window.Describe<ITable>(new TableDescription
+        {
+            ObjectName = @"ultraGrid1"
+        });
+        public IToolBar TableMenuToolBar => _WinForms_Window.Describe<IToolBar>(new ToolBarDescription
+        {
+            ObjectName = @"contextMenuStrip1"
+        });
+        public IToolBar MainMenuToolBar => _WinForms_Window.Describe<IToolBar>(new ToolBarDescription
+        {
+            ObjectName = @"menuStripMain"
+        });
+
+        public IButton SaveButton => _WinForms_Window.Describe<IButton>(new ButtonDescription
+        {
+            Text = @" &Save"
+        });
+
+
+    }
+    public class mMDMEditorOption_Window : WinForms_Window
+    {
+
+        public mMDMEditorOption_Window(IWindow window) : base(window)
+        {
+        }
+
+        public ICheckBox SetActiveDateCheckBox => _WinForms_Window.Describe<ICheckBox>(new CheckBoxDescription
+        {
+            ObjectName = @"checkBoxCurrentDateOnStartup"
+        });
+    }
+
 }

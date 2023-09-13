@@ -34,6 +34,16 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         //    APEM.MOCTemplatesWindow.
 
         //}
+        //add reason
+        public static void AddReason_config()
+        {
+            if (APEM.MOCConfigWindow.AddReasonDialog.IsExist())
+            {
+                APEM.MOCConfigWindow.AddReasonDialog.Reason.SendKeys("GML Config");
+                APEM.MOCConfigWindow.AddReasonDialog.OK.Click();
+            }
+            
+        }
     }
 
     

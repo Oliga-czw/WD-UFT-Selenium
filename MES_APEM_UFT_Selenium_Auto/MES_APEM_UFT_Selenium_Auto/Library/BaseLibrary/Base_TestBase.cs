@@ -181,6 +181,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             APEM.MocmainWindow.LogonInternalFrame.userNameEditor.SetText(UserName.qaone1);
             APEM.MocmainWindow.LogonInternalFrame.passwordEditor.SetSecure(PassWord.qaone1);
             APEM.MocmainWindow.LogonInternalFrame.loginbutton.ClickSignle();
+            Thread.Sleep(2000);
         }
 
         
