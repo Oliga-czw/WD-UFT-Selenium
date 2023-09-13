@@ -91,6 +91,28 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
                 }
             }
         }
+        public void ExecuteNonQuery(string SQL,string database)
+        {
+            string ConStr = $"Data Source ={server}; Database={database};User Id={user};Password={password}";
+            var SQLConnection = new SqlConnection(ConStr);
+            using (var mySQLconnection = SQLConnection)
+            {
+                try
+                {
+                    mySQLconnection.Open();
+                    var SQLcommand = mySQLconnection.CreateCommand();
+                    SQLcommand.CommandType = CommandType.Text;
+                    SQLcommand.CommandText = SQL;
+                    int r = SQLcommand.ExecuteNonQuery();
+                    Console.WriteLine("({0} row affected)", r);
+                    mySQLconnection.Close();
+                }
+                catch (SqlException e)
+                {
+                    throw e;
+                }
+            }
+        }
     }
 
 

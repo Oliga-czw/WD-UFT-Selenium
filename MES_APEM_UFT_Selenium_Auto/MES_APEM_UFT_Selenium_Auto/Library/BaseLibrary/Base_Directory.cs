@@ -15,7 +15,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
          
         public static string CMDDir = @"C:\Windows\System32\cmd.exe";
         public static string WDDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Aspen Manufacturing Execution\Aspen Weigh and Dispense Execution.lnk";
-
+        public static string AeBRSClientConfigureDir = @"C:\Program Files (x86)\AspenTech\AeBRS\AeBRSClientConfigure.exe";
         public static string AFWDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\AspenTech\Aspen Security\AFW Security Manager(64-bit).lnk";
         public static string MOCDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Aspen Production Execution Manager MOC.lnk";
 

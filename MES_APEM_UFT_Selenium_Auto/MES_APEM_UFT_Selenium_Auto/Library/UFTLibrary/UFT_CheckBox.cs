@@ -11,19 +11,19 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
 {
     public class UFT_CheckBox
     {
-        public ITable _UFT_Table
+        public ICheckBox _UFT_CheckBox
         {
             get;
             private set;
         }
-        public UFT_CheckBox(ITable table)
+        public UFT_CheckBox(ICheckBox checkbox)
         {
-            _UFT_Table = table;
+            _UFT_CheckBox = checkbox;
         }
         public UFT_CheckBox(ITestObject parentObject, string xpath)
         {
 
-            _UFT_Table = UFT_Xpath.GetChildObject<ITable>(parentObject, xpath);
+            _UFT_CheckBox = UFT_Xpath.GetChildObject<ICheckBox>(parentObject, xpath);
         }
     }  
 }

@@ -41,12 +41,12 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
             _UFT_Dialog.Close();
         }
 
-        public bool IsExist(uint TimeoutSecond = 3)
+        public bool IsExist(uint TimeoutSecond = 3000)
         {
             bool isExist = false;
             for (int i = 0; i < TimeoutSecond && isExist == false; i++)
             {
-                isExist = _UFT_Dialog.Exists(1);
+                isExist = _UFT_Dialog.WaitUntilExists(1000);
             }
             return isExist;
         }

@@ -1,7 +1,7 @@
 ﻿using HP.LFT.SDK;
-using HP.LFT.SDK.Java;
-
+using HP.LFT.SDK.WinForms;
 using MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary;
+using WindowDescription = HP.LFT.SDK.WinForms.WindowDescription;
 
 namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
 {
@@ -53,10 +53,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Editor EnterPasswordAgain => new UFT_Editor(_UFT_Window, "//Editor[@AttachedText = 'Enter password again:']");
         public UFT_Button OKButton => new UFT_Button(_UFT_Window, "//Button[@Label = 'OK']");
         public UFT_Editor UID => new UFT_Editor(_UFT_Window, "//Editor[@AttachedText = 'UID used to uniquely identify Templates exported from this system']");
-        public UFT_CheckBox ImportGMLTemplates => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText='Import GML v14.0 template']");
+        public UFT_CheckBox ImportGMLTemplates => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText='Import GML v.* template']");
 
     }
-
+    
 
 
 }
