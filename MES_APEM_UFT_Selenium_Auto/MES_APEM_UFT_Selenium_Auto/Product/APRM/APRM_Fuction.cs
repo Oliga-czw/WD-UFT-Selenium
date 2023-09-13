@@ -344,21 +344,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             APRM_Fuction.ConfigAPEMAdmin();
         }
 
-        public static void GMLAPRMConfig()
-        {
-            //exit aprm db?
-            bool exits;
-            exits = File.Exists(Base_Directory.APRMDir + @"\AspenBatch_dat1.mdf");
-            if (!exits)
-            {
-                WizardAprmDB();
-            }
-            GMLImportAprmAdmin();
-            //set BatchDetailDisplay area
-            Application.LaunchBatchDetailDisplay();
-            Batch_Fuction.setOptionData("Batch");
-            APRM.BatchMainWindow.Close();
-        }
+        
 
 
         public static void StopService(string serviceName)

@@ -33,6 +33,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         public static string mMDMAdminDir = @"C:\Program Files\AspenTech\mMDM\Bin\AtOdmAdministrator.exe";
         public static string mMDMBulkLoadDir = @"C:\Program Files\AspenTech\mMDM\Bin\AtOdmBulkLoad.exe";
         public static string mMDMEditorDir = @"C:\Program Files\AspenTech\mMDM\Bin\AtOdmEditor.exe";
+
+        public static string IP21Dir = @"C:\Program Files\AspenTech\InfoPlus.21\db21\code\CimMgr.exe";
         public static string WDBulkload
         {
             get

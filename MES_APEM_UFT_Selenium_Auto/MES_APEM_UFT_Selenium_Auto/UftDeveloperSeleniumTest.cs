@@ -38,10 +38,10 @@ namespace MES_APEM_UFT_Selenium_Auto
         public void TestMethod1()
         {
 
-            mMDM_Fuction.GML_Configure_mMDM_Editor();
+            //mMDM_Fuction.GML_Configure_mMDM_Editor();
 
 
-
+            GML_Function.StartIP21();
             //APRM_Fuction.CleanAprmDB();
             //APRM_Fuction.WizardAprmDB();
             //APRM_Fuction.ImportAprmAdmin();

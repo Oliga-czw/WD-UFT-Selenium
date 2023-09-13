@@ -143,12 +143,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             mMDM.mMDMAdminWindow.Close();
         }
 
-        public static void GML_mMDMConfig()
-        {
-            GML_Configure_mMDM_Admin_1();
-            GML_Configure_mMDM_BulkLoad();
-            GML_Configure_mMDM_Editor();
-            GML_Configure_mMDM_Admin_2();
-        }
+        
     }
 }

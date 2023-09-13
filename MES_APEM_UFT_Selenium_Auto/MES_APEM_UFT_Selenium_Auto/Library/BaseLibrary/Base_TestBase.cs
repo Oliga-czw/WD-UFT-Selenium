@@ -251,6 +251,13 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             Base_Test.LaunchApp(Base_Directory.mMDMEditorDir);
             Thread.Sleep(3000);
         }
+        public static void LaunchIP21()
+        {
+            SdkConfiguration config = new SdkConfiguration();
+            SDK.Init(config);
+            Base_Test.LaunchApp(Base_Directory.IP21Dir);
+            Thread.Sleep(3000);
+        }
         #endregion
         public static void KillWD()
         {

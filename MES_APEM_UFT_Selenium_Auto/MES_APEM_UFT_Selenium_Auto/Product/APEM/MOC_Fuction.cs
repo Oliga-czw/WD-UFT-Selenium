@@ -25,6 +25,14 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             APEM.CloseDialog.YesButton.Click();
 
         }
+        
+        public static void ConfigClose()
+        {
+
+            APEM.MOCConfigWindow.Close();
+            APEM.CloseDialog.YesButton.Click();
+
+        }
         //public static void Importtemplates(string filename)
         //{
         //    APEM.MocmainWindow.Templates_moudle.Click();

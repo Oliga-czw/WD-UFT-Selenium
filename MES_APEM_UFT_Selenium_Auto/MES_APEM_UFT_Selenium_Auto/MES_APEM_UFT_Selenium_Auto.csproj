@@ -92,9 +92,12 @@
     <Compile Include="PreparationCase\Prepare.cs" />
     <Compile Include="Product\AFW\AFW_Fuction.cs" />
     <Compile Include="Product\AFW\AFW_Window.cs" />
+    <Compile Include="Product\APEM\AeBRS_Repository.cs" />
+    <Compile Include="Product\APEM\AeBRS_Window.cs" />
     <Compile Include="Product\APEM\APEMAdmin_Window.cs" />
     <Compile Include="Product\APEM\APEM_Repository.cs" />
     <Compile Include="Product\APEM\APEM_Window.cs" />
+    <Compile Include="Product\APEM\GML_Function.cs" />
     <Compile Include="Product\APEM\MOC_AuditModule\MOC_AuditInterFrame.cs" />
     <Compile Include="Product\APEM\MOC_AuditModule\MOC_AuditWindow.cs" />
     <Compile Include="Product\APEM\MOC_ConfigModule\MOC_ConfigInterFrame.cs" />
@@ -113,6 +116,8 @@
     <Compile Include="Product\DataBaseWizard\Wizard_Function.cs" />
     <Compile Include="Product\DataBaseWizard\Wizard_Repository.cs" />
     <Compile Include="Product\DataBaseWizard\Wizard_Window.cs" />
+    <Compile Include="Product\IP21\IP21_Repository.cs" />
+    <Compile Include="Product\IP21\IP21_Window.cs" />
     <Compile Include="Product\mMDM\mMDM_Fuction.cs" />
     <Compile Include="Product\mMDM\mMDM_Repository.cs" />
     <Compile Include="Product\mMDM\mMDM_Window.cs" />

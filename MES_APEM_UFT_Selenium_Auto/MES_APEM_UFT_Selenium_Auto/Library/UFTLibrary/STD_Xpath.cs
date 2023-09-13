@@ -407,6 +407,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
                             case "WindowTitleRegExp":
                                 objectDescription.WindowTitleRegExp = As.RegExp(propValue);
                                 break;
+                            case "WindowClassRegExp":
+                                objectDescription.WindowClassRegExp = As.RegExp(propValue);
+                                break;
                             case "WindowId":
                                 objectDescription.WindowId = int.Parse(propValue);
                                 break;
@@ -438,6 +441,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
                                 break;
                             case "WindowTitleRegExp":
                                 objectDescription.WindowTitleRegExp = As.RegExp(propValue);
+                                break;
+                            case "WindowClassRegExp":
+                                objectDescription.WindowClassRegExp = As.RegExp(propValue);
                                 break;
                             case "WindowId":
                                 objectDescription.WindowId = int.Parse(propValue);
