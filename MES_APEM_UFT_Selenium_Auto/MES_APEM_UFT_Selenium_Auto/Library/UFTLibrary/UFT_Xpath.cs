@@ -241,7 +241,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
         {
             List<string> objectDescription = new List<string>();
             string propName = xpath.Split(new char[2] { '@', '=' })[1].Trim();
-            string propValue = xpath.Split('\'')[1].Trim();
+            string propValue = xpath.Split('\'')[1];
 
             if (propValue.Contains("@") || propValue.Contains("]"))
                 throw new Exception("The format of xpath is not valid");

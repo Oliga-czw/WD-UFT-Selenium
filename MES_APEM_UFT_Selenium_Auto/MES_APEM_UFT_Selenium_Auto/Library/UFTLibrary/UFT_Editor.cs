@@ -111,7 +111,13 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
                 return _UFT_Editor.IsReadOnly;
             }
         }
-
+        public bool IsEnabled
+        {
+            get
+            {
+                return _UFT_Editor.IsEnabled;
+            }
+        }
         public string FontColor
         {
             get

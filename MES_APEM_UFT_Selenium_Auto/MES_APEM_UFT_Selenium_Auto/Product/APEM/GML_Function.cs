@@ -1,5 +1,6 @@
 ﻿using MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary;
 using MES_APEM_UFT_Selenium_Auto.Product.APRM;
+using MES_APEM_UFT_Selenium_Auto.Product.WD;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -106,6 +107,126 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
                 IP21.IP21MainWindow.Close();
             }
         }
+        public static void GML_UserTable()
+        {
+            //Copy pdf 
+            Base_File.CopyFolder(Base_Directory.GMLDOCDir, @"C:\DOCs");
+            Application.LaunchMocAndLogin();
+            APEM.MocmainWindow.Config_moudle.Click();
+            APEM.MOCConfigWindow.Table_Definition.ClickSignle();
+            //Edit Table_Definition
+            APEM.MOCConfigWindow.TableDefinitionInterFrame.Tables.Row("DOCUMENT").Click();
+            APEM.MOCConfigWindow.TableDefinitionInterFrame.DataView.ClickSignle();
+            //add doc1
+            bool S1 = APEM.MOCConfigWindow.TableDataInputInterFrame.Tables.Row("sop_1").Existing;
+            bool S2 = APEM.MOCConfigWindow.TableDataInputInterFrame.Tables.Row("sop_2").Existing;
+            bool S3 = APEM.MOCConfigWindow.TableDataInputInterFrame.Tables.Row("sop_3").Existing;
+            if (!(S1 && S2 && S3))
+            {
+                APEM.MOCConfigWindow.TableDataInputInterFrame.Insert.ClickSignle();
+            }
+            if (!S1)
+            {
+                APEM.MOCConfigWindow.TableDataInputInterFrame.DocumentEditor.SendKeys("sop_1");
+                APEM.MOCConfigWindow.TableDataInputInterFrame.DocumentEditor.SendKeys(@"C:\DOCs\sop_1.pdf");
+                //add reason
+                MOC_Fuction.AddReason_config();
+            }
+            //add doc2
+            if (!S2)
+            {
+                APEM.MOCConfigWindow.TableDataInputInterFrame.DocumentEditor.SendKeys("sop_2");
+                APEM.MOCConfigWindow.TableDataInputInterFrame.DocumentEditor.SendKeys(@"C:\DOCs\sop_2.pdf");
+                //add reason
+                MOC_Fuction.AddReason_config();
+            }
+            if (!S3)
+            {
+                //add doc3
+                APEM.MOCConfigWindow.TableDataInputInterFrame.DocumentEditor.SendKeys("sop_3");
+                APEM.MOCConfigWindow.TableDataInputInterFrame.DocumentEditor.SendKeys(@"C:\DOCs\sop_3.pdf");
+                //add reason
+                MOC_Fuction.AddReason_config();
+            }
+            if (!(S1 && S2 && S3))
+            {
+                APEM.MOCConfigWindow.TableDataInputInterFrame.Cancel.ClickSignle();
+            }
+            APEM.MOCConfigWindow.TableDataInputInterFrame.Close.ClickSignle();
+            //MOC_Fuction.ConfigClose();
+            //MOC_Fuction.MocClose();
+        }
 
+        public static void GML_Workstation()
+        {
+            Application.LaunchMocAndLogin();
+            APEM.MocmainWindow.Config_moudle.Click();
+            APEM.MOCConfigWindow.Workstations.ClickSignle();
+            //Edit MOC Workstation
+            APEM.MOCConfigWindow.WorkstationInterFrame.WorkstationTable.Row("WORKSTATION").Click();
+            APEM.MOCConfigWindow.WorkstationInterFrame.Edit.ClickSignle();
+            //Assign MOC Workstation to ProcessCellLine2
+            APEM.MOCConfigWindow.WorkstationEditInterFrame.Role.SelectItems(AFWRole.Admin);
+            APEM.MOCConfigWindow.WorkstationEditInterFrame.Site.SelectItems("Site02");
+            APEM.MOCConfigWindow.WorkstationEditInterFrame.ProcessArea.SelectItems("Packing");
+            APEM.MOCConfigWindow.WorkstationEditInterFrame.Workcenter.SelectItems("ProcessCellLine2");
+            APEM.MOCConfigWindow.WorkstationEditInterFrame.Confirm.ClickSignle();
+            //add reason
+            MOC_Fuction.AddReason_config();
+            APEM.MOCConfigWindow.WorkstationEditInterFrame.Close.ClickSignle();
+            //add Server Machine workstation
+            string workstation = Environment.MachineName + ".qae.aspentech.com";
+            if (!APEM.MOCConfigWindow.WorkstationInterFrame.WorkstationTable.Row(workstation).Existing)
+            {
+                APEM.MOCConfigWindow.WorkstationInterFrame.Insert.ClickSignle();
+                APEM.MOCConfigWindow.WorkstationInsertInterFrame.Workstation.SetText(workstation);
+                APEM.MOCConfigWindow.WorkstationInsertInterFrame.Role.SelectItems(AFWRole.Admin);
+                APEM.MOCConfigWindow.WorkstationInsertInterFrame.Site.SelectItems("Site02");
+                APEM.MOCConfigWindow.WorkstationInsertInterFrame.ProcessArea.SelectItems("Packing");
+                APEM.MOCConfigWindow.WorkstationInsertInterFrame.Workcenter.SelectItems("ProcessCellLine2");
+                APEM.MOCConfigWindow.WorkstationInsertInterFrame.Confirm.ClickSignle();
+                //add reason
+                MOC_Fuction.AddReason_config();
+                APEM.MOCConfigWindow.WorkstationInsertInterFrame.Close.ClickSignle();
+            }
+            else
+            {
+                APEM.MOCConfigWindow.WorkstationInterFrame.WorkstationTable.Row(workstation).Click();
+                APEM.MOCConfigWindow.WorkstationInterFrame.Edit.ClickSignle();
+                APEM.MOCConfigWindow.WorkstationEditInterFrame.Role.SelectItems(AFWRole.Admin);
+                APEM.MOCConfigWindow.WorkstationEditInterFrame.Site.SelectItems("Site02");
+                APEM.MOCConfigWindow.WorkstationEditInterFrame.ProcessArea.SelectItems("Packing");
+                APEM.MOCConfigWindow.WorkstationEditInterFrame.Workcenter.SelectItems("ProcessCellLine2");
+                APEM.MOCConfigWindow.WorkstationEditInterFrame.Confirm.ClickSignle();
+                //add reason
+                MOC_Fuction.AddReason_config();
+                APEM.MOCConfigWindow.WorkstationEditInterFrame.Close.ClickSignle();
+            }
+            MOC_Fuction.ConfigClose();
+            MOC_Fuction.MocClose();
+        }
+
+
+        public static void GML_ConfigAll()
+        {
+            //mMDM
+            GML_mMDMConfig();
+            //GML templates
+            APEM.AeBRSInstaller(true);
+            //AFW
+            AFW_Fuction.ReplaceAFWDB();
+            //APRM
+            GMLAPRMConfig();
+            //Environment
+            GML_ConfigEnviroment();
+            //IP21
+            StartIP21();
+            //Configure User Table
+            GML_UserTable();
+            //DB
+
+            //Workstation
+            GML_Workstation();
+        }
     }
 }

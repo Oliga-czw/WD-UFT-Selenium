@@ -18,7 +18,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
     public class APEM
     {
         #region AeBRS_Methods
-        public static void AeBRSInstaller(bool importGML)
+        public static void AeBRSInstaller(bool importGML = false)
         {
             string password = DBInfo.Info["password"];
             Base_Test.LaunchApp(Base_Directory.AeBRSInstallerDir);
@@ -29,7 +29,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             APEM.APEMMainWindow.EnterPasswordAgain.SendKeys(password);
             APEM.APEMMainWindow.OKButton.ClickSignle();
             Thread.Sleep(5000);
-            if (APEM.APEMMainWindow.UID.IsReadOnly is false) 
+            if (APEM.APEMMainWindow.UID.IsEnabled) 
             {
                 APEM.APEMMainWindow.UID.SendKeys("123");
             }

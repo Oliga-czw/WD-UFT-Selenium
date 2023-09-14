@@ -24,6 +24,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
             _STD_Window = STD_Xpath.GetChildObject<IWindow>(parentObject, xpath);
             _STD_Window.WaitUntilVisible();
         }
+
         public STD_Window(string xpath)
         {
             _STD_Window = STD_Xpath.GetDesktopWindow<IWindow>(xpath);

@@ -156,6 +156,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         //GML config 
         public static string GMLConfig = Base_Directory.ProjectDir + "Data\\Input\\GML\\GMLConfig.ini";
 
-       
+        //GML DOC
+        public static string GMLDOCDir = Base_Directory.ProjectDir + "Data\\Input\\GML\\DOCs";
+
     }
 }

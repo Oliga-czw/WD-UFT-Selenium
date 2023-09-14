@@ -39,9 +39,13 @@ namespace MES_APEM_UFT_Selenium_Auto
         {
 
             //mMDM_Fuction.GML_Configure_mMDM_Editor();
-
-
-            GML_Function.StartIP21();
+            //string a = "//Table[@AttachedText = 'Workstation  ']";
+            //Regex.Split(a, "' and ");
+            //string b = a.Split('\'')[1].TrimStart();
+            //Console.WriteLine(b);
+            //APEM.AeBRSInstaller(true);
+            GML_Function.GML_UserTable();
+            //GML_Function.StartIP21();
             //APRM_Fuction.CleanAprmDB();
             //APRM_Fuction.WizardAprmDB();
             //APRM_Fuction.ImportAprmAdmin();
