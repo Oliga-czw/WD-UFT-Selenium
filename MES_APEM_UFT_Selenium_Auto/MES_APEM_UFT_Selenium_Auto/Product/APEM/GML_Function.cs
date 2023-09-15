@@ -153,8 +153,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
                 APEM.MOCConfigWindow.TableDataInputInterFrame.Cancel.ClickSignle();
             }
             APEM.MOCConfigWindow.TableDataInputInterFrame.Close.ClickSignle();
-            //MOC_Fuction.ConfigClose();
-            //MOC_Fuction.MocClose();
+            MOC_Fuction.ConfigClose();
+            MOC_Fuction.MocClose();
         }
 
         public static void GML_Workstation()
@@ -223,7 +223,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             StartIP21();
             //Configure User Table
             GML_UserTable();
-            //DB
+            //config IP21 
 
             //Workstation
             GML_Workstation();
