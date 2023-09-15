@@ -124,7 +124,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
             Process.Start("cmd.exe", "/c iisreset");
             string sourceName = Base_Directory.ProjectDir + "Data\\Input\\AFWDB.mdb";
             string directoryPath = "C:\\Program Files (x86)\\AspenTech\\Local Security\\Access97";
-            Base_File.CopyFile(sourceName, directoryPath, false);
+            Base_File.CopyFile(sourceName, directoryPath, true);
         }
     }
 }
