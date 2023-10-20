@@ -159,5 +159,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         //GML DOC
         public static string GMLDOCDir = Base_Directory.ProjectDir + "Data\\Input\\GML\\DOCs";
 
+        //Tomcat
+
+        public static string MobileWebconfig = "C:\\Program Files\\Common Files\\AspenTech Shared\\Tomcat9.0.27\\webapps\\ApemMobile\\WEB-INF\\web.xml";
+
     }
 }

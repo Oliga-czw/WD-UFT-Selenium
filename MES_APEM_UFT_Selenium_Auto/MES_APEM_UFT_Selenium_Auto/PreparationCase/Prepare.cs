@@ -14,6 +14,7 @@ using MES_APEM_UFT_Selenium_Auto.Product.WD;
 using IWindow = HP.LFT.SDK.WinForms.IWindow;
 using MES_APEM_UFT_Selenium_Auto.Product.APEM;
 using MES_APEM_UFT_Selenium_Auto.Product.APRM;
+using MES_APEM_UFT_Selenium_Auto.Product.ApemMobile;
 
 namespace MES_APEM_UFT_Selenium_Auto
 {
@@ -38,6 +39,8 @@ namespace MES_APEM_UFT_Selenium_Auto
 
             //install  and config aprm
             APRM_Fuction.FirstInitailAPRM();
+            //wia to false
+            Mobile_Fuction.UpdateAutoLogin();
             //APRM_Fuction.InitailAPRM();
 
 
