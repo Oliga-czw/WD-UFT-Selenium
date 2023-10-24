@@ -19,10 +19,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         #region WD windows
 
         public static ClassMainWindow mainWindow => new ClassMainWindow("//JavaWindow[@Title = 'Aspen Weigh and Dispense Execution']");
-        //public static LoginWindow loginWindow => new LoginWindow("//JavaWindow[@Title = 'Aspen Weigh and Dispense Execution' and @NativeClass = 'wd.WDWorkstation']");
-
-        //public static MenuWindow menuWindow => new MenuWindow("//JavaWindow[@Title = 'Aspen Weigh and Dispense Execution']");
-
         public static IWindow window = UFT_Xpath.GetDesktopWindow<IWindow>("//JavaWindow[@Title = 'Aspen Weigh and Dispense Execution']");
         
         public static SimulatorWindow SimulatorWindow => new SimulatorWindow("//Window[@Title = 'simulator']");

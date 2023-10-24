@@ -1,74 +1,53 @@
-﻿using HP.LFT.SDK;
-using HP.LFT.SDK.WinForms;
-
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Drawing;
-using System.IO;
-using System.Net;
-using System.Text.RegularExpressions;
+﻿using System.Collections;
 using System.Threading;
-using System.Windows.Forms;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary;
-using MES_APEM_UFT_Selenium_Auto.Product.WD;
-using IWindow = HP.LFT.SDK.StdWin.IWindow;
-using Application = MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary.Application;
 using MES_APEM_UFT_Selenium_Auto.Product.APEM;
-using System.Diagnostics;
-using MES_APEM_UFT_Selenium_Auto.Product.DataBaseWizard;
-using HP.LFT.SDK.Java;
+using System;
+using HP.LFT.SDK;
 
-namespace MES_APEM_UFT_Selenium_Auto
+namespace MES_APEM_UFT_Selenium_Auto.TestCase
 {
-    [TestClass]
-    public class UftDeveloperSeleniumTest
+    public partial class APEM_TestCase
     {
-        [ClassInitialize]
-        public static void ClassInitialize(TestContext context)
-        {
-        }
-
-        [TestInitialize]
-        public void TestInitialize()
-        {
-        }
+        [TestCaseID(948794)]
+        [Title("UC822683_MOC_PFC editor_ The design structure displays on the center of the design window")]
+        [TestCategory(ProductArea.RecipeManagement)]
+        [Priority(CasePriority.Medium)]
+        [TestCategory(CaseState.Started)]
+        [TestCategory(AutomationTool.UFT_Selenium)]
+        [Owner(AutomationEngineer.Ziru)]
+        [Timeout(600000)]
 
         [TestMethod]
-        public void TestMethod1()
+        public void VSTS_948794()
         {
-            SdkConfiguration config = new SdkConfiguration();
-            SDK.Init(config);
+            Application.LaunchMocAndLogin();
+            Thread.Sleep(5000);
+            APEM.MocmainWindow.RPLDesign.ClickSignle();
+            APEM.MocmainWindow.RPLDesignInternalFrame.AddRPL_Button.ClickSignle();
+            Thread.Sleep(4000);
+            APEM.MocmainWindow.RPLManagementInternalFrame.RPLName.SendKeys("testRpl");
+            APEM.MocmainWindow.RPLManagementInternalFrame.RPLDescription.SendKeys("for testhahhah");
+            APEM.MocmainWindow.RPLManagementInternalFrame.ConfirmChanges_Button.ClickSignle();
+            if (APEM.MocmainWindow.AddReasonDialog.IsExist(4000))
+            {
+                APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("for UFT test");
+                APEM.MocmainWindow.AddReasonDialog.OK.Click();
+            }
+            Thread.Sleep(4000);
+            APEM.MocmainWindow.RPLManagementInternalFrame.RPLTabControl.Select("Basic Phase Libraries");
             Thread.Sleep(3000);
-            //Application.LaunchMocAndLogin();
-            //Thread.Sleep(5000);
-            //APEM.MocmainWindow.RPLDesign.ClickSignle();
-            //APEM.MocmainWindow.RPLDesignInternalFrame.AddRPL_Button.ClickSignle();
-            //Thread.Sleep(4000);
-            //APEM.MocmainWindow.RPLManagementInternalFrame.RPLName.SendKeys("testRpl");
-            //APEM.MocmainWindow.RPLManagementInternalFrame.RPLDescription.SendKeys("for testhahhah");
-            //APEM.MocmainWindow.RPLManagementInternalFrame.ConfirmChanges_Button.ClickSignle();
-            //if (APEM.MocmainWindow.AddReasonDialog.IsExist())
-            //{
-            //    APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("for UFT test");
-            //    APEM.MocmainWindow.AddReasonDialog.OK.Click();
-            //}
-            //Thread.Sleep(4000);
-            //APEM.MocmainWindow.RPLManagementInternalFrame.RPLTabControl.Select("Basic Phase Libraries");
-            //Thread.Sleep(3000);
-            //APEM.MocmainWindow.RPLManagementInternalFrame.SelectBPL_Button.ClickSignle();
-            //Thread.Sleep(5000);
-            //APEM.MocmainWindow.AvailableBPLDialog.AvailableBPLList.SelectItems("AAA_BPL (Version 1)");
-            //APEM.MocmainWindow.AvailableBPLDialog.OK.Click();
-            //Thread.Sleep(3000);
-            //APEM.MocmainWindow.RPLManagementInternalFrame.RPLTabControl.Select("RPL Data");
-            //Thread.Sleep(3000);
-            //APEM.MocmainWindow.RPLManagementInternalFrame.LoadDesigner_Button.ClickSignle();
-            //Thread.Sleep(3000);
-            //// UP
+            APEM.MocmainWindow.RPLManagementInternalFrame.SelectBPL_Button.ClickSignle();
+            Thread.Sleep(5000);
+            APEM.MocmainWindow.AvailableBPLDialog.AvailableBPLList.SelectItems("AAA_BPL (Version 1)");
+            APEM.MocmainWindow.AvailableBPLDialog.OK.Click();
+            Thread.Sleep(3000);
+            APEM.MocmainWindow.RPLManagementInternalFrame.RPLTabControl.Select("RPL Data");
+            Thread.Sleep(3000);
+            APEM.MocmainWindow.RPLManagementInternalFrame.LoadDesigner_Button.ClickSignle();
+            Thread.Sleep(3000);
+            // UP
             APEM.PFCEditorWindow.UnitProcedure._UFT_CheckBox.Click();
             Thread.Sleep(8000);
             Mouse.Click(APEM.PFCEditorWindow.PFCDesignAppInternalFrame.ControlLinkUiObject._UFT_UiObject.AbsoluteLocation);
@@ -240,27 +219,7 @@ namespace MES_APEM_UFT_Selenium_Auto
             Thread.Sleep(4000);
             MOC_Fuction.AssertDesignWindow();
 
-
-
-
-
-
-
         }
 
-
-
-        [TestCleanup]
-        public void TestCleanup()
-        {
-            
-        }
-
-        [ClassCleanup]
-        public static void ClassCleanup()
-        {
-        }
-        public string CaseID = "prepareInitial";
     }
 }
-        

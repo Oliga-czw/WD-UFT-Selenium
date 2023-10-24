@@ -28,6 +28,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             SqlHelper helper = new SqlHelper();
             string SQL1 = @"DROP LOGIN  AEBRS";
             string SQL2 = @"use master
+                            EXEC sp_addlogin  'AEBRS', 'Aspen000', 'AEBRS'
                             EXEC sp_addrolemember 'db_datawriter', 'AEBRS'
                             EXEC sp_addrolemember 'db_datareader', 'AEBRS'
                             EXEC sp_addrolemember 'db_owner', 'AEBRS'";
@@ -37,5 +38,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             helper.ExecuteNonQuery(SQL2, database);
             helper.ExecuteNonQuery(SQL3);
         }
+
     }
 }

@@ -19,7 +19,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             //can't start .cmd file
             //process.StartInfo.FileName = @"C:\Program Files\AspenTech\AeBRS\WD.cmd";
             process.Start();
-            Thread.Sleep(10000);
+            Thread.Sleep(20000);
             //process.WaitForInputIdle();
             //int i = 0;
             //while (process.MainWindowHandle == IntPtr.Zero)

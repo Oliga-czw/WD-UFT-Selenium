@@ -67,6 +67,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public static MOC_AuditWindow MOCAuditWindow => new MOC_AuditWindow("//JavaWindow[@ObjectName = 'Audit']");
         public static MOC_ConfigWindow MOCConfigWindow => new MOC_ConfigWindow("//JavaWindow[@ObjectName = 'Config']");
         public static MOC_TemplatesWindow MOCTemplatesWindow => new MOC_TemplatesWindow("//JavaWindow[@ObjectName = 'Templates']");
+        public static PFCEditorWindow PFCEditorWindow => new PFCEditorWindow("//JavaWindow[@ObjectName = 'Design Editor']");
         
 
         #endregion
@@ -75,11 +76,14 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public static UFT_Dialog CloseDialog => new UFT_Dialog("//Dialog[@Title = 'Close the Application']");
         public static UFT_Dialog ErrorDialog => new UFT_Dialog("//Dialog[@Title = 'Error']");
         public static UFT_Dialog MessageDialog => new UFT_Dialog("//Dialog[@Title = 'Message']");
+        public static UFT_Dialog CutElementDialog => new UFT_Dialog("//Dialog[@Title = 'Cut Element']");
+        public static UFT_Dialog LoseCopiedDialog => new UFT_Dialog("//Dialog[@Title = 'Lose Copied Element']");
+        public static UFT_Dialog AuditReasonDialog => new UFT_Dialog("//Dialog[@Title = 'Audit Reason']");
 
-
+        public static UFT_Dialog DesignSavedDialog => new UFT_Dialog("//Dialog[@Title = 'Design Is Saved']");
         #endregion
 
-       
+
         #region MOC_Methods
         public static void ExitApplication()
         {
