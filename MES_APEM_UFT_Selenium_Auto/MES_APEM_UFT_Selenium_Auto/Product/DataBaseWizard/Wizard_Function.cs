@@ -18,7 +18,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.DataBaseWizard
         static string server = Environment.MachineName;
         static string user = DBInfo.Info["username"];
         static string password = DBInfo.Info["password"];
-        public static void CreateApemDB(string ApemDBName)
+        public static void CreateApemDB()
         {
             Application.LaunchWizrd();
             Wizard.WizardWindow.next.Click();
@@ -39,7 +39,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.DataBaseWizard
             Wizard.DataLinkCheckDialog.OK.Click();
             Wizard.DataLinkPropertiesDialog.OK.Click();
             ////select folder
-            Wizard.WizardWindow.DBName.SetText(ApemDBName);
+            //Wizard.WizardWindow.DBName.SetText(ApemDBName);
             if (!Directory.Exists(Base_Directory.DBDir))
             {
                 Directory.CreateDirectory(Base_Directory.DBDir);

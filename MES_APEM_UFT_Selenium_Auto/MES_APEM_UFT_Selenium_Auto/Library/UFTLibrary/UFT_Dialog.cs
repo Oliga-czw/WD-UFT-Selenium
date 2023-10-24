@@ -128,6 +128,14 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
         }
 
         public UFT_Editor Reason => new UFT_Editor(_UFT_Dialog, "//Editor[@AttachedText = 'Reason']");
+    }
+    //AvailableBPL_Dialog
+    public class AvailableBPL_Dialog : UFT_Dialog
+    {
+        public AvailableBPL_Dialog(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
 
+        public UFT_List AvailableBPLList => new UFT_List(_UFT_Dialog, "//List[@AttachedText = 'Select Basic Phase Library']");
     }
 }

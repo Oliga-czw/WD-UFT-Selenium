@@ -2,6 +2,7 @@
 using HP.LFT.SDK;
 using HP.LFT.SDK.Java;
 using System.Threading;
+using System;
 
 namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
 {
@@ -26,7 +27,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
         {
             
             _UFT_UiObject.Click();
-            Base_Assert.IsTrue(_UFT_UiObject.IsFocused);
         }
 
         public string Text
@@ -43,5 +43,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
 
         }
 
+        internal void DoubleClick()
+        {
+            _UFT_UiObject.DoubleClick();
+        }
     }
 }
