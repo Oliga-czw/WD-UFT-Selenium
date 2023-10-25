@@ -9,7 +9,13 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
     class MOC_Fuction
     {
 
-       
+        public static void ConfigClose()
+        {
+
+            APEM.MOCConfigWindow.Close();
+            APEM.CloseDialog.YesButton.Click();
+
+        }
         public static void AuditClose()
         {
 

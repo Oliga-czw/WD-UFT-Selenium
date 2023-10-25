@@ -22,6 +22,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [TestMethod]
         public void VSTS_949084()
         {
+            string Resultpath = Base_Directory.ResultsDir + CaseID + "-";
             Application.LaunchMocAndLogin();
             Thread.Sleep(5000);
             APEM.MocmainWindow.RPLDesign.ClickSignle();
@@ -67,6 +68,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 APEM.AuditReasonDialog.OK.Click();
             }
             Thread.Sleep(5000);
+            APEM.PFCEditorWindow.GetSnapshot(Resultpath + "UnitProcedureSaved.PNG");
             Base_Assert.IsTrue(APEM.DesignSavedDialog.IsExist(3000));
             APEM.DesignSavedDialog.OKButton.Click();
             //OP
@@ -91,6 +93,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 APEM.AuditReasonDialog.OK.Click();
             }
             Thread.Sleep(5000);
+            APEM.PFCEditorWindow.GetSnapshot(Resultpath + "OperationSaved.PNG");
             Base_Assert.IsTrue(APEM.DesignSavedDialog.IsExist(3000));
             APEM.DesignSavedDialog.OKButton.Click();
             Thread.Sleep(2000);
@@ -116,6 +119,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 APEM.AuditReasonDialog.OK.Click();
             }
             Thread.Sleep(5000);
+            APEM.PFCEditorWindow.GetSnapshot(Resultpath + "PhaseSaved.PNG");
             Base_Assert.IsTrue(APEM.DesignSavedDialog.IsExist(3000));
             APEM.DesignSavedDialog.OKButton.Click();
             Thread.Sleep(2000);

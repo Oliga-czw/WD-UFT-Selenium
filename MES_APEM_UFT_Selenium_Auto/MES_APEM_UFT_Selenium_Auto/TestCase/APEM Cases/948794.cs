@@ -22,6 +22,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [TestMethod]
         public void VSTS_948794()
         {
+            string Resultpath = Base_Directory.ResultsDir + CaseID + "-";
             Application.LaunchMocAndLogin();
             Thread.Sleep(5000);
             APEM.MocmainWindow.RPLDesign.ClickSignle();
@@ -53,6 +54,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mouse.Click(APEM.PFCEditorWindow.PFCDesignAppInternalFrame.ControlLinkUiObject._UFT_UiObject.AbsoluteLocation);
             Thread.Sleep(3000);
             MOC_Fuction.AssertDesignWindow();
+            APEM.PFCEditorWindow.GetSnapshot(Resultpath + "UnitProcedure.PNG");
             //copy
             APEM.PFCEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject.Click();
             APEM.PFCEditorWindow.CopyButton.ClickSignle();
@@ -117,6 +119,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mouse.Click(APEM.PFCEditorWindow.PFCDesignAppInternalFrame.ControlLinkUiObject._UFT_UiObject.AbsoluteLocation);
             Thread.Sleep(3000);
             MOC_Fuction.AssertDesignWindow();
+            APEM.PFCEditorWindow.GetSnapshot(Resultpath + "Operation.PNG");
             //copy
             APEM.PFCEditorWindow.PFCDesignAppInternalFrame.OperationUiObject.Click();
             APEM.PFCEditorWindow.CopyButton.ClickSignle();
@@ -165,6 +168,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mouse.Click(APEM.PFCEditorWindow.PFCDesignAppInternalFrame.ControlLinkUiObject._UFT_UiObject.AbsoluteLocation);
             Thread.Sleep(3000);
             MOC_Fuction.AssertDesignWindow();
+            APEM.PFCEditorWindow.GetSnapshot(Resultpath + "Phase.PNG");
             //copy
             APEM.PFCEditorWindow.PFCDesignAppInternalFrame.PhaseUiObject.Click();
             APEM.PFCEditorWindow.CopyButton.ClickSignle();
@@ -215,6 +219,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.PFCEditorWindow.PFCDesignAppInternalFrame._UFT_InterFrame.Resize(325, 790);
             Thread.Sleep(4000);
             MOC_Fuction.AssertDesignWindow();
+            APEM.PFCEditorWindow.GetSnapshot(Resultpath + "Resize.PNG");
             APEM.PFCEditorWindow.PFCDesignAppInternalFrame._UFT_InterFrame.Resize(1104, 852);
             Thread.Sleep(4000);
             MOC_Fuction.AssertDesignWindow();

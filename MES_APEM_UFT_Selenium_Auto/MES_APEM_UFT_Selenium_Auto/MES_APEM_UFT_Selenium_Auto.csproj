@@ -107,7 +107,7 @@
     <Compile Include="Product\APEM\MOC_ConfigModule\MOC_ConfigInterFrame.cs" />
     <Compile Include="Product\APEM\MOC_ConfigModule\MOC_ConfigWindow.cs" />
     <Compile Include="Product\APEM\MOC_OrdersList.cs" />
-    <Compile Include="Product\APEM\MOC_TemplatesModule\MOC_TemplatesInterFrame.cs" />
+    <Compile Include="Product\APEM\MOC_TemplatesModule\MOC_TemplatesFunction.cs" />
     <Compile Include="Product\APEM\MOC_TemplatesModule\MOC_TemplatesWindow.cs" />
     <Compile Include="Product\APRM\APRM_Fuction.cs" />
     <Compile Include="Product\APRM\APRM_DB.cs" />
@@ -127,6 +127,8 @@
     <Compile Include="Product\mMDM\mMDM_Window.cs" />
     <Compile Include="Product\SLM\SLM_Repository.cs" />
     <Compile Include="Product\SLM\SLM_Window.cs" />
+    <Compile Include="TestCase\APEM Cases\VSTS948794.cs" />
+    <Compile Include="TestCase\APEM Cases\VSTS949084.cs" />
     <Compile Include="TestCase\WD Cases\29611.cs" />
     <Compile Include="TestCase\WD Cases\29621.cs" />
     <Compile Include="TestCase\WD Cases\29606.cs" />
@@ -223,13 +225,24 @@
     <Compile Include="UftDeveloperSeleniumTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\Input\AeBRSInstaller.bat" />
     <None Include="Data\Input\BulkLoad\BulkLoadAll.bat" />
     <None Include="Data\Input\BulkLoad\BulkLoadAllinventory.bat" />
     <None Include="Data\Input\BulkLoad\BulkLoadAllOrder.bat" />
     <None Include="Data\Input\BulkLoad\sign.cmd - Shortcut.lnk" />
     <None Include="Data\Input\BulkLoad\WdBulkLoadTool.exe.config" />
     <None Include="Data\Input\BulkLoad\WdWebServiceTester.exe.config" />
+    <None Include="Data\Input\GML\DOCs\sop_1.pdf" />
+    <None Include="Data\Input\GML\DOCs\sop_2.pdf" />
+    <None Include="Data\Input\GML\DOCs\sop_3.pdf" />
+    <None Include="Data\Input\GML\GMLConfig.ini" />
+    <None Include="Data\Input\GML\GMLConfigFuctionality.ini" />
+    <None Include="Data\Input\GML\machine.alias.config" />
+    <None Include="Data\Input\GML_DATABASE\aebrs.bak" />
+    <None Include="Data\Input\GML_DATABASE\APEMMMDMMVT.bak" />
+    <None Include="Data\Input\RPL_DERMS_PACK_01_02.CHK" />
     <None Include="Data\Input\TEMP.zip" />
+    <None Include="Data\Input\Template\TEMP.zip" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
   </ItemGroup>
@@ -237,6 +250,9 @@
     <Folder Include="TestCase\Mobile Cases\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\Input\AFWDB.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Data\Input\BulkLoad\01 aspen wd booths bulk load.xml" />
     <Content Include="Data\Input\BulkLoad\02 aspen wd scales bulk load.xml" />
     <Content Include="Data\Input\BulkLoad\02 aspen wd scales_106684 bulk load.xml" />
@@ -281,6 +297,7 @@
     <Content Include="Data\Input\BulkLoad\cleanup.sql" />
     <Content Include="Data\Input\BulkLoad\WdBulkLoadTool.exe" />
     <Content Include="Data\Input\BulkLoad\WdWebServiceTester.exe" />
+    <Content Include="Data\Input\GML\mMDM UGM GML backup.xml" />
     <Content Include="MES_APEM_UFT_Selenium_Auto.user" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
