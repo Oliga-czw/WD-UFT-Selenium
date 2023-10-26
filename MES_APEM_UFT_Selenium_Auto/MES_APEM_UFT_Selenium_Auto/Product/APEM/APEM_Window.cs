@@ -65,6 +65,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_CheckBox ImportGMLTemplates => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText='Import GML v.* template']");
 
     }
+    //RPL Design
     public class PFCEditorWindow : UFT_JavaWindow
     {
 
@@ -111,7 +112,22 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
 
 
     }
+    //BPL Design
+    public class BPLDesignEditorWindow : UFT_JavaWindow
+    {
+        public BPLDesignEditorWindow()
+        {
+        }
+        public BPLDesignEditorWindow(string xpath) : base(xpath)
+        {
+        }
 
+
+        public UFT_Button ExecuteButton => new UFT_Button(_UFT_Window, "//Button[@Label = 'Execute' and @IsWrapped = 'True']");
+
+        public BPLExecutionInterFrame BPLExecutionInterFrame => new BPLExecutionInterFrame(_UFT_Window, "//InterFrame[@NativeClass = 'runtime.vm.chkVMRuntimeMDI$RTFrame']");
+        public BPLExecutionMessageInterFrame MessageInterFrame => new BPLExecutionMessageInterFrame(_UFT_Window, "//InterFrame[@Label = 'Message']");
+    }
     public class OpenDesign_Dialog : UFT_Dialog
     {
         public OpenDesign_Dialog(ITestObject parentObject, string xpath) : base(parentObject, xpath)

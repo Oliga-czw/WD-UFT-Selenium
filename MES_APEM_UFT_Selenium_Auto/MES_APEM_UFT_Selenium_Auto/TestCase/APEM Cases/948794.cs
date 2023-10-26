@@ -31,7 +31,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MocmainWindow.RPLManagementInternalFrame.RPLName.SendKeys("testRpl");
             APEM.MocmainWindow.RPLManagementInternalFrame.RPLDescription.SendKeys("for testhahhah");
             APEM.MocmainWindow.RPLManagementInternalFrame.ConfirmChanges_Button.ClickSignle();
-            if (APEM.MocmainWindow.AddReasonDialog.IsExist(4000))
+            if (APEM.MocmainWindow.AddReasonDialog.IsExist(4))
             {
                 APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("for UFT test");
                 APEM.MocmainWindow.AddReasonDialog.OK.Click();
@@ -58,7 +58,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //copy
             APEM.PFCEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject.Click();
             APEM.PFCEditorWindow.CopyButton.ClickSignle();
-            if (APEM.LoseCopiedDialog.IsExist(3000))
+            if (APEM.LoseCopiedDialog.IsExist())
             {
                 APEM.LoseCopiedDialog.YesButton.Click();
             }
@@ -86,7 +86,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //delete
             APEM.PFCEditorWindow.PFCDesignAppInternalFrame.FirstLink.Click();
             APEM.PFCEditorWindow.PasteButton.ClickSignle();
-            if (APEM.PFCEditorWindow.PasteRenamedDialog.IsExist(3000))
+            if (APEM.PFCEditorWindow.PasteRenamedDialog.IsExist())
             {
                 APEM.PFCEditorWindow.PasteRenamedDialog.Close();
             }
@@ -123,7 +123,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //copy
             APEM.PFCEditorWindow.PFCDesignAppInternalFrame.OperationUiObject.Click();
             APEM.PFCEditorWindow.CopyButton.ClickSignle();
-            if (APEM.LoseCopiedDialog.IsExist(3000))
+            if (APEM.LoseCopiedDialog.IsExist())
             {
                 APEM.LoseCopiedDialog.YesButton.Click();
             }
@@ -132,7 +132,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
 
             APEM.PFCEditorWindow.PFCDesignAppInternalFrame.FirstLink.Click();
             APEM.PFCEditorWindow.PasteButton.ClickSignle();
-            if (APEM.PFCEditorWindow.PasteRenamedDialog.IsExist(3000))
+            if (APEM.PFCEditorWindow.PasteRenamedDialog.IsExist())
             {
                 APEM.PFCEditorWindow.PasteRenamedDialog.Close();
             }

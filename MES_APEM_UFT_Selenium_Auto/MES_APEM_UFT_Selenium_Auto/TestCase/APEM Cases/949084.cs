@@ -31,7 +31,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MocmainWindow.RPLManagementInternalFrame.RPLName.SendKeys("testRpl01");
             APEM.MocmainWindow.RPLManagementInternalFrame.RPLDescription.SendKeys("for testhahhah");
             APEM.MocmainWindow.RPLManagementInternalFrame.ConfirmChanges_Button.ClickSignle();
-            if (APEM.MocmainWindow.AddReasonDialog.IsExist(4000))
+            if (APEM.MocmainWindow.AddReasonDialog.IsExist(4))
             {
                 APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("for UFT test");
                 APEM.MocmainWindow.AddReasonDialog.OK.Click();
@@ -63,13 +63,13 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mouse.Click(APEM.PFCEditorWindow.PFCDesignAppInternalFrame.ControlLinkUiObject._UFT_UiObject.AbsoluteLocation);
             Thread.Sleep(3000);
             APEM.PFCEditorWindow.SaveButton.ClickSignle();
-            if (APEM.AuditReasonDialog.IsExist(3000))
+            if (APEM.AuditReasonDialog.IsExist())
             {
                 APEM.AuditReasonDialog.OK.Click();
             }
             Thread.Sleep(5000);
             APEM.PFCEditorWindow.GetSnapshot(Resultpath + "UnitProcedureSaved.PNG");
-            Base_Assert.IsTrue(APEM.DesignSavedDialog.IsExist(3000));
+            Base_Assert.IsTrue(APEM.DesignSavedDialog.IsExist());
             APEM.DesignSavedDialog.OKButton.Click();
             //OP
             APEM.PFCEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject1.DoubleClick();
@@ -88,17 +88,17 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mouse.Click(APEM.PFCEditorWindow.PFCDesignAppInternalFrame.ControlLinkUiObject._UFT_UiObject.AbsoluteLocation);
             Thread.Sleep(3000);
             APEM.PFCEditorWindow.SaveButton.ClickSignle();
-            if (APEM.AuditReasonDialog.IsExist(3000))
+            if (APEM.AuditReasonDialog.IsExist())
             {
                 APEM.AuditReasonDialog.OK.Click();
             }
             Thread.Sleep(5000);
             APEM.PFCEditorWindow.GetSnapshot(Resultpath + "OperationSaved.PNG");
-            Base_Assert.IsTrue(APEM.DesignSavedDialog.IsExist(3000));
+            Base_Assert.IsTrue(APEM.DesignSavedDialog.IsExist());
             APEM.DesignSavedDialog.OKButton.Click();
             Thread.Sleep(2000);
             APEM.PFCEditorWindow.DesignMenu.Save.Select();
-            Base_Assert.IsTrue(APEM.DesignSavedDialog.IsExist(3000));
+            Base_Assert.IsTrue(APEM.DesignSavedDialog.IsExist());
             APEM.DesignSavedDialog.OKButton.Click();
             Thread.Sleep(2000);
             //phase
@@ -114,17 +114,17 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mouse.Click(APEM.PFCEditorWindow.PFCDesignAppInternalFrame.FirstLink.AbsoluteLocation);
             Thread.Sleep(3000);
             APEM.PFCEditorWindow.SaveButton.ClickSignle();
-            if (APEM.AuditReasonDialog.IsExist(3000))
+            if (APEM.AuditReasonDialog.IsExist())
             {
                 APEM.AuditReasonDialog.OK.Click();
             }
             Thread.Sleep(5000);
             APEM.PFCEditorWindow.GetSnapshot(Resultpath + "PhaseSaved.PNG");
-            Base_Assert.IsTrue(APEM.DesignSavedDialog.IsExist(3000));
+            Base_Assert.IsTrue(APEM.DesignSavedDialog.IsExist());
             APEM.DesignSavedDialog.OKButton.Click();
             Thread.Sleep(2000);
             APEM.PFCEditorWindow.DesignMenu.Save.Select();
-            Base_Assert.IsTrue(APEM.DesignSavedDialog.IsExist(3000));
+            Base_Assert.IsTrue(APEM.DesignSavedDialog.IsExist());
             APEM.DesignSavedDialog.OKButton.Click();
             Thread.Sleep(2000);
 

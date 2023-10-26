@@ -127,8 +127,8 @@
     <Compile Include="Product\mMDM\mMDM_Window.cs" />
     <Compile Include="Product\SLM\SLM_Repository.cs" />
     <Compile Include="Product\SLM\SLM_Window.cs" />
-    <Compile Include="TestCase\APEM Cases\VSTS948794.cs" />
-    <Compile Include="TestCase\APEM Cases\VSTS949084.cs" />
+    <Compile Include="TestCase\APEM Cases\948794.cs" />
+    <Compile Include="TestCase\APEM Cases\949084.cs" />
     <Compile Include="TestCase\WD Cases\29611.cs" />
     <Compile Include="TestCase\WD Cases\29621.cs" />
     <Compile Include="TestCase\WD Cases\29606.cs" />

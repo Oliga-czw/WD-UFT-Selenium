@@ -18,6 +18,9 @@ using MES_APEM_UFT_Selenium_Auto.Product.WD;
 using IWindow = HP.LFT.SDK.StdWin.IWindow;
 using Application = MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary.Application;
 using MES_APEM_UFT_Selenium_Auto.Product.APEM;
+using MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary;
+using MES_APEM_UFT_Selenium_Auto.Product.ApemMobile;
+using MES_APEM_UFT_Selenium_Auto.Product.APEM.MOC_TemplatesModule;
 
 namespace MES_APEM_UFT_Selenium_Auto
 {
@@ -37,6 +40,35 @@ namespace MES_APEM_UFT_Selenium_Auto
         [TestMethod]
         public void TestMethod1()
         {
+            //Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
+            //Mobile_Fuction.gotoApemMobile(driver);
+            //Mobile_Fuction.login();
+            SdkConfiguration config = new SdkConfiguration();
+            SDK.Init(config);
+
+
+            Application.LaunchMocAndLogin();
+            MOC_TemplatesFunction.Importtemplates("EVENTLOG.zip");
+            APEM.MocmainWindow.BPLDesign.ClickSignle();
+            APEM.MocmainWindow.BPLListInternalFrame.Refresh_Button.ClickSignle();
+            APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row("EVENTLOG").Click();
+            APEM.MocmainWindow.BPLListInternalFrame.LoadDesigner_Button.ClickSignle();
+
+            APEM.BPLDesignEditorWindow.ExecuteButton.ClickSignle();
+
+            APEM.BPLDesignEditorWindow.BPLExecutionInterFrame.LogEventAutoButton.Click();
+
+            if (APEM.BPLDesignEditorWindow.MessageInterFrame.message.AttachedText == "Sucess")
+            {
+                //log
+                APEM.BPLDesignEditorWindow.MessageInterFrame.OKButton.ClickSignle();
+            }
+            //need click twice
+            APEM.BPLDesignEditorWindow.BPLExecutionInterFrame.OKButton.Click();
+            APEM.ExecutionFinishedDialog.OKButton.Click();
+            APEM.BPLDesignEditorWindow.Close();
+            APEM.CloseDialog.YesButton.Click();
+
 
             //mMDM_Fuction.GML_Configure_mMDM_Editor();
             //string a = "//Table[@AttachedText = 'Workstation  ']";
@@ -44,7 +76,7 @@ namespace MES_APEM_UFT_Selenium_Auto
             //string b = a.Split('\'')[1].TrimStart();
             //Console.WriteLine(b);
             //APEM.AeBRSInstaller(true);
-            GML_Function.GML_UserTable();
+            //GML_Function.GML_UserTable();
             //GML_Function.StartIP21();
             //APRM_Fuction.CleanAprmDB();
             //APRM_Fuction.WizardAprmDB();
@@ -56,8 +88,7 @@ namespace MES_APEM_UFT_Selenium_Auto
             //APRM_Fuction.InitailAPRM();
             //APRM_Fuction.ConfigAPEMAdmin();
 
-            //SdkConfiguration config = new SdkConfiguration();
-            //SDK.Init(config);
+
 
 
             //var closeButton = Desktop.Describe<IWindow>(new WindowDescription
@@ -155,7 +186,7 @@ namespace MES_APEM_UFT_Selenium_Auto
         }
 
 
-      
+
         [TestCleanup]
         public void TestCleanup()
         {

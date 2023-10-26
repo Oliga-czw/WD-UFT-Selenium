@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MES_APEM_UFT_Selenium_Auto.Product.APEM.MOC_TemplatesModule
 {
-    class TemplatesInterFrame
+    class MOC_TemplatesFunction
     {
         public static void Importtemplates(string filename)
         {
@@ -22,23 +22,23 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM.MOC_TemplatesModule
             string InputFile = Base_Directory.InputDir + "\\Template\\"+ filename;
             Console.WriteLine(InputFile);
             string[] sArray = InputFile.Split('\\');
-            for (int i = 1; i <= sArray.Length; i++)
+            for (int i = 1; i < sArray.Length; i++)
             {
                 Console.WriteLine(sArray[i].ToString());
                 APEM.MOCTemplatesWindow.FileImport.LookInList._UFT_IList.ActivateItem(sArray[i].ToString());
-                APEM.MOCTemplatesWindow.FileImport.FileImportButton.ClickSignle();
+                //APEM.MOCTemplatesWindow.FileImport.FileImportButton.ClickSignle();
             }
-            if (APEM.MOCTemplatesWindow.LogWindow.IsExist(10000))
+            if (APEM.MOCTemplatesWindow.LogWindow.IsExist(10))
             {
                 APEM.MOCTemplatesWindow.LogWindow.Close();
             }
             APEM.MOCTemplatesWindow.Check_Template.ClickSignle();
-            if (APEM.MOCTemplatesWindow.LogWindow.IsExist(10000))
+            if (APEM.MOCTemplatesWindow.LogWindow.IsExist(10))
             {
                 APEM.MOCTemplatesWindow.LogWindow.Close();
             }
             APEM.MOCTemplatesWindow.Execute_Template.ClickSignle();
-            if (APEM.MOCTemplatesWindow.LogWindow.IsExist(360000))
+            if (APEM.MOCTemplatesWindow.LogWindow.IsExist(360))
             {
                 APEM.MOCTemplatesWindow.LogWindow.Close();
             }
