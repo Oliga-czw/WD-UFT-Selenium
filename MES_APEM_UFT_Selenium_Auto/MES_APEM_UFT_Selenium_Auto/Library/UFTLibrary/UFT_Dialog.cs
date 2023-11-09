@@ -46,11 +46,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
             bool isExist = false;
             for (int i = 0; i < TimeoutSecond && isExist == false; i++)
             {
-<<<<<<< Updated upstream
-                isExist = _UFT_Dialog.WaitUntilExists(1);
-=======
                 isExist = _UFT_Dialog.Exists(1);
->>>>>>> Stashed changes
             }
             return isExist;
         }

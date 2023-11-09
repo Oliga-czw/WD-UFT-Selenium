@@ -27,34 +27,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Library.BaseLibrary.Application.LaunchMocAndLogin();
             Thread.Sleep(5000);
             APEM.MocmainWindow.RPLDesign.ClickSignle();
-<<<<<<< Updated upstream
-            APEM.MocmainWindow.RPLDesignInternalFrame.AddRPL_Button.ClickSignle();
-            Thread.Sleep(4000);
-            APEM.MocmainWindow.RPLManagementInternalFrame.RPLName.SendKeys("testRpl");
-            APEM.MocmainWindow.RPLManagementInternalFrame.RPLDescription.SendKeys("for testhahhah");
-            APEM.MocmainWindow.RPLManagementInternalFrame.ConfirmChanges_Button.ClickSignle();
-            if (APEM.MocmainWindow.AddReasonDialog.IsExist(4))
-            {
-                APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("for UFT test");
-                APEM.MocmainWindow.AddReasonDialog.OK.Click();
-            }
-            Thread.Sleep(4000);
-            APEM.MocmainWindow.RPLManagementInternalFrame.RPLTabControl.Select("Basic Phase Libraries");
-            Thread.Sleep(3000);
-            APEM.MocmainWindow.RPLManagementInternalFrame.SelectBPL_Button.ClickSignle();
-            Thread.Sleep(5000);
-            APEM.MocmainWindow.AvailableBPLDialog.AvailableBPLList.SelectItems("AAA_BPL (Version 1)");
-            APEM.MocmainWindow.AvailableBPLDialog.OK.Click();
-            Thread.Sleep(3000);
-            APEM.MocmainWindow.RPLManagementInternalFrame.RPLTabControl.Select("RPL Data");
-            Thread.Sleep(3000);
-            APEM.MocmainWindow.RPLManagementInternalFrame.LoadDesigner_Button.ClickSignle();
-            Thread.Sleep(3000);
-            // UP
-=======
             MOC_Fuction.AddRPL_OpenDesign("TESTRPL01");
             //UP
->>>>>>> Stashed changes
             APEM.PFCEditorWindow.UnitProcedure._UFT_CheckBox.Click();
             Thread.Sleep(8000);
             Base_Function.MouseClick(APEM.PFCEditorWindow.PFCDesignAppInternalFrame.ControlLinkUiObject._UFT_UiObject.AbsoluteLocation);

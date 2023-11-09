@@ -79,7 +79,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         });
         public UFT_Button ExecuteButton => new UFT_Button(_UFT_InterFrame, "//Button[@Label ='Execute' and @IsWrapped = 'True']");
     }
-    //RPL
     public class RPLDesign_InterFrame : MOCMainInterFrame
     {
         public RPLDesign_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
@@ -199,7 +198,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             NativeClass = @"PFCTree.View.ParallelDivergent"
         });
     }
-    //BPL
     public class BPLList_InterFrame : MOCMainInterFrame
     {
 
@@ -207,11 +205,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         {
         }
         public UFT_Button AddBPL_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Insert row' and @IsWrapped = 'True']");
-        public UFT_Button LoadDesigner_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Load designer' and @IsWrapped = 'True']");
-        public UFT_Button Refresh_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Refresh' and @IsWrapped = 'True']");
-
-        public UFT_Table BPLList_Table => new UFT_Table(_UFT_InterFrame, "//Table[@AttachedText = 'Name\\s\\s']");
-
     }
     public class BPLData_InterFrame : MOCMainInterFrame
     {
@@ -224,30 +217,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Editor BPLDescription => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Description']");
         public UFT_Button MakeUsable_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Make usable']");
     }
-<<<<<<< Updated upstream
-    public class BPLExecutionInterFrame : UFT_InterFrame
-    {
-
-        public BPLExecutionInterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
-        {
-        }
-
-        //logevent
-        public UFT_Button LogEventAutoButton => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Log Event Auto']");
-        public UFT_Button OKButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = '\\s{0,}OK\\s{0,}']");
-    }
-
-    public class BPLExecutionMessageInterFrame : UFT_InterFrame
-    {
-
-        public BPLExecutionMessageInterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
-        {
-        }
-
-        //logevent
-        public UFT_Button OKButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = '\\s{0,}OK\\s{0,}']");
-        public UFT_Label message => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'OptionPane.label']");
-=======
     public class Execution_InterFrame : MOCMainInterFrame
     {
 
@@ -318,7 +287,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
 
 
 
->>>>>>> Stashed changes
     }
 }
 

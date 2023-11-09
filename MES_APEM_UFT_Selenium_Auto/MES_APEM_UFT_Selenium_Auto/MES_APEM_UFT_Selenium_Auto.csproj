@@ -129,12 +129,9 @@
     <Compile Include="Product\SLM\SLM_Window.cs" />
     <Compile Include="TestCase\APEM Cases\948794.cs" />
     <Compile Include="TestCase\APEM Cases\949084.cs" />
-<<<<<<< Updated upstream
-=======
     <Compile Include="TestCase\APEM Cases\958262.cs" />
     <Compile Include="TestCase\APEM Cases\949087.cs" />
     <Compile Include="TestCase\GML Cases\31324.cs" />
->>>>>>> Stashed changes
     <Compile Include="TestCase\WD Cases\29611.cs" />
     <Compile Include="TestCase\WD Cases\29621.cs" />
     <Compile Include="TestCase\WD Cases\29606.cs" />

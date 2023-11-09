@@ -26,36 +26,9 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Application.LaunchMocAndLogin();
             Thread.Sleep(5000);
             APEM.MocmainWindow.RPLDesign.ClickSignle();
-<<<<<<< Updated upstream
-            APEM.MocmainWindow.RPLDesignInternalFrame.AddRPL_Button.ClickSignle();
-            Thread.Sleep(4000);
-            APEM.MocmainWindow.RPLManagementInternalFrame.RPLName.SendKeys("testRpl01");
-            APEM.MocmainWindow.RPLManagementInternalFrame.RPLDescription.SendKeys("for testhahhah");
-            APEM.MocmainWindow.RPLManagementInternalFrame.ConfirmChanges_Button.ClickSignle();
-            if (APEM.MocmainWindow.AddReasonDialog.IsExist(4))
-            {
-                APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("for UFT test");
-                APEM.MocmainWindow.AddReasonDialog.OK.Click();
-            }
-            Thread.Sleep(4000);
-            APEM.MocmainWindow.RPLManagementInternalFrame.RPLTabControl.Select("Basic Phase Libraries");
-            Thread.Sleep(3000);
-            APEM.MocmainWindow.RPLManagementInternalFrame.SelectBPL_Button.ClickSignle();
-            Thread.Sleep(5000);
-            APEM.MocmainWindow.AvailableBPLDialog.AvailableBPLList.SelectItems("AAA_BPL (Version 1)");
-            APEM.MocmainWindow.AvailableBPLDialog.OK.Click();
-            Thread.Sleep(3000);
-            APEM.MocmainWindow.RPLManagementInternalFrame.RPLTabControl.Select("RPL Data");
-            Thread.Sleep(3000);
-            APEM.MocmainWindow.RPLManagementInternalFrame.LoadDesigner_Button.ClickSignle();
-            Thread.Sleep(3000);
-            //Import the attached RPL
-            MOC_Fuction.ImportRPLDesign("RPL_DERMS_PACK_01_02.CHK");
-=======
             APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row("2BPLS").Click();
             Thread.Sleep(2000);
             APEM.MocmainWindow.RPLDesignInternalFrame.LoadDesigner_Button.ClickSignle();
->>>>>>> Stashed changes
             Thread.Sleep(5000);
             //add up and Tansition
             //up
@@ -76,11 +49,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             }
             Thread.Sleep(5000);
             APEM.PFCEditorWindow.GetSnapshot(Resultpath + "UnitProcedureSaved.PNG");
-<<<<<<< Updated upstream
-            Base_Assert.IsTrue(APEM.DesignSavedDialog.IsExist());
-=======
             Assert.IsTrue(APEM.DesignSavedDialog.IsExist());
->>>>>>> Stashed changes
             APEM.DesignSavedDialog.OKButton.Click();
             //OP
             APEM.PFCEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject0.DoubleClick();
@@ -105,20 +74,12 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             }
             Thread.Sleep(5000);
             APEM.PFCEditorWindow.GetSnapshot(Resultpath + "OperationSaved.PNG");
-<<<<<<< Updated upstream
-            Base_Assert.IsTrue(APEM.DesignSavedDialog.IsExist());
-            APEM.DesignSavedDialog.OKButton.Click();
-            Thread.Sleep(2000);
-            APEM.PFCEditorWindow.DesignMenu.Save.Select();
-            Base_Assert.IsTrue(APEM.DesignSavedDialog.IsExist());
-=======
             Assert.IsTrue(APEM.DesignSavedDialog.IsExist());
             APEM.DesignSavedDialog.OKButton.Click();
             Thread.Sleep(2000);
             APEM.PFCEditorWindow.DesignMenu.Save.Select();
             Thread.Sleep(4000);
             Assert.IsTrue(APEM.DesignSavedDialog.IsExist());
->>>>>>> Stashed changes
             APEM.DesignSavedDialog.OKButton.Click();
             Thread.Sleep(2000);
             //phase
@@ -136,20 +97,12 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             }
             Thread.Sleep(5000);
             APEM.PFCEditorWindow.GetSnapshot(Resultpath + "PhaseSaved.PNG");
-<<<<<<< Updated upstream
-            Base_Assert.IsTrue(APEM.DesignSavedDialog.IsExist());
-            APEM.DesignSavedDialog.OKButton.Click();
-            Thread.Sleep(2000);
-            APEM.PFCEditorWindow.DesignMenu.Save.Select();
-            Base_Assert.IsTrue(APEM.DesignSavedDialog.IsExist());
-=======
             Assert.IsTrue(APEM.DesignSavedDialog.IsExist());
             APEM.DesignSavedDialog.OKButton.Click();
             Thread.Sleep(2000);
             APEM.PFCEditorWindow.DesignMenu.Save.Select();
             Thread.Sleep(4000);
             Assert.IsTrue(APEM.DesignSavedDialog.IsExist());
->>>>>>> Stashed changes
             APEM.DesignSavedDialog.OKButton.Click();
             Thread.Sleep(2000);
 

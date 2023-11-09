@@ -51,12 +51,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
         }
 
 
-        public void Activate()
-        {
-            _UFT_InterFrame.Activate();
-        }
+       
         #region sub controller in mainclass
-
+ 
         //protected TChild Describe<TChild>(IDescription description) where TChild : class, ITestObject
         //{
         //    return _UFT_InterFrame.Describe<TChild>(description);
