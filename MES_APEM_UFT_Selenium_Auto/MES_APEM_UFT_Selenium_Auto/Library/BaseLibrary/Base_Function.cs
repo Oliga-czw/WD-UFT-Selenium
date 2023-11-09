@@ -1,8 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using HP.LFT.SDK;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Drawing;
 using System.IO;
 using System.ServiceProcess;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 {
@@ -39,6 +42,16 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             sw.WriteLine(Key);//"NET_REMOVAL_REQUIRE_TARGET_TARE = 0"
             sw.Close();
             Base_logger.Info("Add config key successfully.");
+
+        }
+        public static void MouseClick(Point point)
+        {
+            int WaitPoint_x = point.X - 70;
+            int WaitPoint_y = point.Y - 70;
+            Point WaitPoint =new Point(WaitPoint_x, WaitPoint_y);
+            Mouse.Move(WaitPoint);
+            Thread.Sleep(5000);
+            Mouse.Click(point);
 
         }
 

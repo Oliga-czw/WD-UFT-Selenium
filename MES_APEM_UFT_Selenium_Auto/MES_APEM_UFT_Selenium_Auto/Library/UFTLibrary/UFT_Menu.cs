@@ -73,5 +73,13 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
         {
             Label = @"Save"
         });
+        public IMenu Verify => _UFT_Menu.Describe<IMenu>(new MenuDescription
+        {
+            Label = @"Verify"
+        });
+        public IMenu Compile => _UFT_Menu.Describe<IMenu>(new MenuDescription
+        {
+            Label = @"Compile"
+        });
     }
 }
