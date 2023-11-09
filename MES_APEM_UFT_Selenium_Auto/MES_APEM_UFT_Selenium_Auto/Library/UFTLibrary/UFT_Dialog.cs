@@ -46,7 +46,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
             bool isExist = false;
             for (int i = 0; i < TimeoutSecond && isExist == false; i++)
             {
-                isExist = _UFT_Dialog.WaitUntilExists(1);
+                isExist = _UFT_Dialog.Exists(1);
             }
             return isExist;
         }
@@ -109,7 +109,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
             Image image = _UFT_Dialog.GetSnapshot();
             image.Save(path, ImageFormat.Png);
         }
-
+        public IEditor Reason => _UFT_Dialog.Describe<IEditor>(new EditorDescription
+        {
+            AttachedText = @"Reason"
+        }); 
     }
 
 

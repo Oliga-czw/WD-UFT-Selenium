@@ -32,9 +32,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button loginbutton => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'OK']");
     }
     //OrderTracking_InterFrame
-    public class WorkstationBP_InterFrame : MOCMainInterFrame
+    public class OrderTracking_InterFrame : MOCMainInterFrame
     {
-        public WorkstationBP_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        public OrderTracking_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
         {
         }
 
@@ -43,18 +43,42 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             AttachedText = @"Code  "
         });
         //public UFT_Editor CodeEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Code  ']");
-        public ITable CodeTable => _UFT_InterFrame.Describe<ITable>(new EditorDescription
-        {
-            AttachedText = @"Code  "
-        });
-        //public UFT_Table CodeTable => new UFT_Table(_UFT_InterFrame, "//Editor[@AttachedText = 'Code  ']");
+        //public ITable OrderTable => _UFT_InterFrame.Describe<ITable>(new EditorDescription
+        //{
+        //    AttachedText = @"Order  "
+        //});
+        public UFT_Table OrderTable => new UFT_Table(_UFT_InterFrame, "//Table[@NativeClass = 'm2r.Table.m2rTableView']");
         public IButton Filterbutton => _UFT_InterFrame.Describe<IButton>(new ButtonDescription
         {
             Label = @"Local filter",
             IsWrapped = true
-        }); 
+        });
+        public UFT_Button ExecuteButton => new UFT_Button(_UFT_InterFrame, "//Button[@Label ='Execute' and @IsWrapped = 'True']");
     }
-    //RPL
+
+    public class WorkstationBP_InterFrame : MOCMainInterFrame
+    {
+        public WorkstationBP_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+
+        public IEditor OrderEditor => _UFT_InterFrame.Describe<IEditor>(new EditorDescription
+        {
+            AttachedText = @"Order  "
+        });
+        //public UFT_Editor CodeEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Code  ']");
+        //public ITable OrderTable => _UFT_InterFrame.Describe<ITable>(new EditorDescription
+        //{
+        //    AttachedText = @"Order  "
+        //});
+        public UFT_Table OrderTable => new UFT_Table(_UFT_InterFrame, "//Table[@NativeClass = 'm2r.Table.m2rTableView']");
+        public IButton Filterbutton => _UFT_InterFrame.Describe<IButton>(new ButtonDescription
+        {
+            Label = @"Local filter",
+            IsWrapped = true
+        });
+        public UFT_Button ExecuteButton => new UFT_Button(_UFT_InterFrame, "//Button[@Label ='Execute' and @IsWrapped = 'True']");
+    }
     public class RPLDesign_InterFrame : MOCMainInterFrame
     {
         public RPLDesign_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
@@ -67,16 +91,15 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         });
 
         //public UFT_Editor CodeEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Code  ']");
-        public ITable RPLListTable => _UFT_InterFrame.Describe<ITable>(new EditorDescription
-        {
-            AttachedText = @"Name  "
-        });
         public UFT_Button VerifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Verify']");
+        public UFT_Table RPLListTable => new UFT_Table(_UFT_InterFrame, "//Table[@AttachedText = 'Name\\s\\s']");
         public IButton Filterbutton => _UFT_InterFrame.Describe<IButton>(new ButtonDescription
         {
             Label = @"Local filter",
             IsWrapped = true
         });
+        public UFT_Button LoadDesigner_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Load designer' and @IsWrapped = 'True']");
+        //public UFT_Button Verify_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Verify']");
     }
     public class RPLManagement_InterFrame : MOCMainInterFrame
     {
@@ -93,6 +116,35 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         });
         public UFT_Button SelectBPL_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Insert row' and @IsWrapped = 'True']");
         public UFT_Button LoadDesigner_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Load designer' and @IsWrapped = 'True']");
+    }
+    //OrderTrackingPFC_InterFrame
+    public class OrderTrackingPFC_InterFrame : MOCMainInterFrame
+    {
+        public OrderTrackingPFC_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+
+        public UFT_UiObject UnitProcedureUiObject => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@TagName = 'UnitProcedure']");
+        public IUiObject OperationUiObject1 => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription
+        {
+            NativeClass = @"PFCTree.View.Operation",
+            Index = 1
+        });
+        public IUiObject Script1 => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription
+        {
+            NativeClass = @"PFCTree.View.Script",
+            Index = 0
+        });
+        public IUiObject Script2 => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription
+        {
+            NativeClass = @"PFCTree.View.Script",
+            Index = 1
+        });
+        public IMenu ByPassCondition => _UFT_InterFrame.Describe<IMenu>(new MenuDescription {
+				Label = @"Bypass condition"
+			});
+		
+
     }
     public class PFCDesignApp_InterFrame : MOCMainInterFrame
     {
@@ -113,10 +165,20 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             NativeClass = @"PFCTree.View.ControlLink",
             Index = 1
         });
+        public IUiObject StartLink => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription
+        {
+            NativeClass = @"PFCTree.View.ControlLink",
+            Index = 0
+        });
         public IUiObject UnitProcedureUiObject1 => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription
         {
             NativeClass = @"PFCTree.View.UnitProcedure",
             Index = 1
+        });
+        public IUiObject UnitProcedureUiObject0 => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription
+        {
+            NativeClass = @"PFCTree.View.UnitProcedure",
+            Index = 0
         });
         public IUiObject OperationUiObject1 => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription
         {
@@ -125,14 +187,17 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         });
         public IUiObject LinkUiObject => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription {
 				NativeClass = @"PFCTree.View.Link",
-				Index = 2
+				Index = 1
 			});
         public IUiObject PhaseUiObject1 => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription {
 				NativeClass = @"PFCTree.View.Phase",
 				Index = 1
 			});
+        public IUiObject ParallelDivergent => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription
+        {
+            NativeClass = @"PFCTree.View.ParallelDivergent"
+        });
     }
-    //BPL
     public class BPLList_InterFrame : MOCMainInterFrame
     {
 
@@ -140,11 +205,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         {
         }
         public UFT_Button AddBPL_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Insert row' and @IsWrapped = 'True']");
-        public UFT_Button LoadDesigner_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Load designer' and @IsWrapped = 'True']");
-        public UFT_Button Refresh_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Refresh' and @IsWrapped = 'True']");
-
-        public UFT_Table BPLList_Table => new UFT_Table(_UFT_InterFrame, "//Table[@AttachedText = 'Name\\s\\s']");
-
     }
     public class BPLData_InterFrame : MOCMainInterFrame
     {
@@ -157,28 +217,76 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Editor BPLDescription => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Description']");
         public UFT_Button MakeUsable_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Make usable']");
     }
-    public class BPLExecutionInterFrame : UFT_InterFrame
+    public class Execution_InterFrame : MOCMainInterFrame
     {
 
-        public BPLExecutionInterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        public Execution_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
         {
         }
+        public UFT_Button OK_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'OK']");
+        public UFT_Button Cancel_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Cancel']");
+        public UFT_Editor UserIDEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'User ID:']");
+        public IEditor PHActualEditor => _UFT_InterFrame.Describe<IEditor>(new EditorDescription
+        {
+            AttachedText = @"Actual",
+            Index = 0
+        });
+        public IEditor TempActualEditor => _UFT_InterFrame.Describe<IEditor>(new EditorDescription
+        {
+            AttachedText = @"Actual",
+            Index = 1
+        });
+        public UFT_Editor PasswordEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Password:']");
+        public UFT_Table SelectBox => new UFT_Table(_UFT_InterFrame, "//Table[@TagName = 'chkTableView']");
+        public UFT_Button ViewSOP_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'View SOP']");
+        public UFT_Button Deviation_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Deviation']");
+        public UFT_Button Print_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Print']");
+        public UFT_List DeviationTypeList => new UFT_List(_UFT_InterFrame, "//List[@ObjectName = 'cmbDeviationType']");
+        public UFT_Editor DeviationDesEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Introduction']");
+        public UFT_List ProductionStoppedList => new UFT_List(_UFT_InterFrame, "//List[@ObjectName = 'cmbProductionStopped']");
+        public UFT_Editor ProductionResponseEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'By signing, the deviation will be recorded in the system.']");
 
-        //logevent
-        public UFT_Button LogEventAutoButton => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Log Event Auto']");
-        public UFT_Button OKButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = '\\s{0,}OK\\s{0,}']");
+
+
     }
 
-    public class BPLExecutionMessageInterFrame : UFT_InterFrame
+    
+    public class PopUp_InterFrame : MOCMainInterFrame
     {
 
-        public BPLExecutionMessageInterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        public PopUp_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
         {
         }
+        public UFT_Table SelectSOP => new UFT_Table(_UFT_InterFrame, "//Table[@TagName = 'Select the SOP Document']");
+        public UFT_Button Cancel_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Cancel']");
+        //public UFT_Editor UserIDEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'User ID:']");
+        //public UFT_Editor PasswordEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Password:']");
+        //public UFT_Table SelectBox => new UFT_Table(_UFT_InterFrame, "//Table[@TagName = 'chkTableView']");
+        //public UFT_Button ViewSOP_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'View SOP']");
+        //public UFT_Button Deviation_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Deviation']");
+        //public UFT_Button Print_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Print']");
 
-        //logevent
-        public UFT_Button OKButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = '\\s{0,}OK\\s{0,}']");
-        public UFT_Label message => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'OptionPane.label']");
+
+
+    }
+    
+    public class Confirmation_InterFrame : MOCMainInterFrame
+    {
+
+        public Confirmation_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+        public IButton YesButton => _UFT_InterFrame.Describe<IButton>(new ButtonDescription
+        {
+            AttachedText = @"	 	 	 	Yes	 	 	 	"
+        });
+        public IButton NoButton => _UFT_InterFrame.Describe<IButton>(new ButtonDescription
+        {
+            AttachedText = @"	 	 	 	No	 	 	 	"
+        });
+
+
+
     }
 
     public class EventLogList_InterFrame : UFT_InterFrame

@@ -19,7 +19,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
        // private IWindow Window = UFT_Xpath.GetDesktopWindow<IWindow>("//JavaWindow[@ObjectName = 'MOC']");
         #region interframe
         public User_InterFrame LogonInternalFrame => new User_InterFrame(_UFT_Window, "//InterFrame[@Label = 'User Identification']");
-        public WorkstationBP_InterFrame WorkstationBPInternalFrame => new WorkstationBP_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Order Tracking']");
+        public WorkstationBP_InterFrame WorkstationBPInternalFrame => new WorkstationBP_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Workstation']");
+        public OrderTracking_InterFrame OrderTrackingInternalFrame => new OrderTracking_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Order Tracking']");
+        public OrderTrackingPFC_InterFrame OrderTrackingPFCInternalFrame => new OrderTrackingPFC_InterFrame(_UFT_Window, "//InterFrame[@NativeClass = 'recipe.recipeViewer']");
         public RPLDesign_InterFrame RPLDesignInternalFrame => new RPLDesign_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Recipe Procedure Logic List']");
         public BPLList_InterFrame BPLListInternalFrame => new BPLList_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Basic Phase Library List']");
         public BPLData_InterFrame BPLDataInternalFrame => new BPLData_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Basic Phase Library Data*']");
@@ -71,7 +73,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_CheckBox ImportGMLTemplates => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText='Import GML v.* template']");
 
     }
-    //RPL Design
     public class PFCEditorWindow : UFT_JavaWindow
     {
 
@@ -113,27 +114,13 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         });
         public UFT_Dialog PasteRenamedDialog => new UFT_Dialog(_UFT_Window, "//Dialog[@Title = 'Copy/Paste Renamed Components List']");
         public UFT_Menu FileImport => new UFT_Menu(_UFT_Window, "//Menu[@Label = 'File']");
+        public UFT_Menu Build => new UFT_Menu(_UFT_Window, "//Menu[@Label = 'Build']");
         public UFT_Menu DesignMenu => new UFT_Menu(_UFT_Window, "//Menu[@Label = 'Design']");
         public OpenDesign_Dialog OpenDesignDialog => new OpenDesign_Dialog(_UFT_Window, "//Dialog[@Title = 'Open design ...']");
 
 
     }
-    //BPL Design
-    public class BPLDesignEditorWindow : UFT_JavaWindow
-    {
-        public BPLDesignEditorWindow()
-        {
-        }
-        public BPLDesignEditorWindow(string xpath) : base(xpath)
-        {
-        }
 
-
-        public UFT_Button ExecuteButton => new UFT_Button(_UFT_Window, "//Button[@Label = 'Execute' and @IsWrapped = 'True']");
-
-        public BPLExecutionInterFrame BPLExecutionInterFrame => new BPLExecutionInterFrame(_UFT_Window, "//InterFrame[@NativeClass = 'runtime.vm.chkVMRuntimeMDI$RTFrame']");
-        public BPLExecutionMessageInterFrame MessageInterFrame => new BPLExecutionMessageInterFrame(_UFT_Window, "//InterFrame[@Label = 'Message']");
-    }
     public class OpenDesign_Dialog : UFT_Dialog
     {
         public OpenDesign_Dialog(ITestObject parentObject, string xpath) : base(parentObject, xpath)
@@ -145,6 +132,50 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button OpenDesignButton => new UFT_Button(_UFT_Dialog, "//Button[@Label = 'Open design ...']");
 
     }
+
+    public class DesignVerificationWindow : UFT_JavaWindow
+    {
+
+        public DesignVerificationWindow()
+        {
+        }
+        public DesignVerificationWindow(string xpath) : base(xpath)
+        {
+        }
+
+ 
+        public UFT_List ErrorList => new UFT_List(_UFT_Window, "//List[@TagName = 'JList']");
+        
+
+
+    }
+    public class DesignCompilationWindow : UFT_JavaWindow
+    {
+
+        public DesignCompilationWindow()
+        {
+        }
+        public DesignCompilationWindow(string xpath) : base(xpath)
+        {
+        }
+
+
+        public UFT_List ErrorList => new UFT_List(_UFT_Window, "//List[@TagName = 'JList']");
+    }
+    public class PhaseExecWindow : UFT_JavaWindow
+    {
+
+        public PhaseExecWindow()
+        {
+        }
+        public PhaseExecWindow(string xpath) : base(xpath)
+        {
+        }
+
+        public Execution_InterFrame ExecutionInternalFrame => new Execution_InterFrame(_UFT_Window, "//InterFrame[@NativeClass = 'runtime.vm.chkRTFrame']");
+        public PopUp_InterFrame PopUpInternalFrame => new PopUp_InterFrame(_UFT_Window, "//InterFrame[@NativeClass = 'runtime.vm.chkVMRuntimeFrame$MDIFrameMessageInputSupport$2']");
+        public Confirmation_InterFrame ConfirmationInternalFrame => new Confirmation_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Confirmation']");
+    }
     
     public class MOC_Menu : UFT_Menu
     {
@@ -155,7 +186,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Menu EventLog => new UFT_Menu(_UFT_Menu, "//Menu[@Label = 'Event Log']");
 
     }
-
 
 
 }
