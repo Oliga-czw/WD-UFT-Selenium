@@ -180,5 +180,17 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button OKButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = '\\s{0,}OK\\s{0,}']");
         public UFT_Label message => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'OptionPane.label']");
     }
+
+    public class EventLogList_InterFrame : UFT_InterFrame
+    {
+
+        public EventLogList_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+
+        //logevent
+        public UFT_Button Delete => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Delete Selected View' and @IsWrapped = 'True']");
+        public UFT_Label message => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'OptionPane.label']");
+    }
 }
 

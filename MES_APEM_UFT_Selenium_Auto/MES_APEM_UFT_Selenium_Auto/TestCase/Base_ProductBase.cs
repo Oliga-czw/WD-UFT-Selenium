@@ -187,9 +187,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Base_logger.Info("Test Initialize");
             //Base_Test.KillProcess("BatchDetailDisplay");
             Base_Test.KillProcess("javaw");
+            Base_Test.KillProcess("chromedriver");
             Base_File.CleanWorkFolder(Base_Directory.GenerateOutputFileDir(CaseID, ""));
             //Initial data
-            WD_Fuction.initial_data();
+            //WD_Fuction.initial_data();
 
         }
 
@@ -232,5 +233,6 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         }
 
     }
+
 
 }

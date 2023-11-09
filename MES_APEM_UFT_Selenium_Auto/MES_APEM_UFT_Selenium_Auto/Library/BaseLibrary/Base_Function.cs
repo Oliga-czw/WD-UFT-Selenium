@@ -1,8 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Drawing;
 using System.IO;
 using System.ServiceProcess;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 {
@@ -56,6 +58,19 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             File.WriteAllText(path, all);
             Base_logger.Info("Delete config key successfully.");
 
+        }
+
+        public static void DesktopSnipping(string path)
+        {
+            Bitmap bitmap = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+            // 创建一个Graphics对象，使用bitmap对象作为画布  
+            using (Graphics g = Graphics.FromImage(bitmap))
+            {
+                // 将屏幕的内容复制到bitmap中  
+                g.CopyFromScreen(0, 0, 0, 0, Screen.PrimaryScreen.Bounds.Size);
+            }
+            // 保存bitmap到文件  
+            bitmap.Save(path);
         }
     }        
 }
