@@ -1,9 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using HP.LFT.SDK;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Drawing;
 using System.IO;
 using System.ServiceProcess;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
@@ -71,6 +73,16 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             }
             // 保存bitmap到文件  
             bitmap.Save(path);
+        }
+
+        public static void MouseClick(Point point)
+        {
+            int WaitPoint_x = point.X - 70;
+            int WaitPoint_y = point.Y - 70;
+            Point WaitPoint = new Point(WaitPoint_x, WaitPoint_y);
+            Mouse.Move(WaitPoint);
+            Thread.Sleep(5000);
+            Mouse.Click(point);
         }
     }        
 }

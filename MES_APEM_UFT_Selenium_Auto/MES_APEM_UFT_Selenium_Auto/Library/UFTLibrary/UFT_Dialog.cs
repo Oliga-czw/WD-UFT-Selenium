@@ -109,10 +109,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
             Image image = _UFT_Dialog.GetSnapshot();
             image.Save(path, ImageFormat.Png);
         }
-        public IEditor Reason => _UFT_Dialog.Describe<IEditor>(new EditorDescription
-        {
-            AttachedText = @"Reason"
-        }); 
     }
 
 

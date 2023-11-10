@@ -57,7 +57,9 @@
     <Reference Include="Spire.Pdf, Version=9.8.5.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
       <HintPath>..\packages\Spire.PDF.9.8.5\lib\net40\Spire.Pdf.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="Microsoft.CSharp" />
@@ -129,6 +131,9 @@
     <Compile Include="Product\SLM\SLM_Window.cs" />
     <Compile Include="TestCase\APEM Cases\948794.cs" />
     <Compile Include="TestCase\APEM Cases\949084.cs" />
+    <Compile Include="TestCase\APEM Cases\949087.cs" />
+    <Compile Include="TestCase\APEM Cases\958262.cs" />
+    <Compile Include="TestCase\GML Cases\31324.cs" />
     <Compile Include="TestCase\Mobile Cases\957446.cs" />
     <Compile Include="TestCase\WD Cases\29611.cs" />
     <Compile Include="TestCase\WD Cases\29621.cs" />

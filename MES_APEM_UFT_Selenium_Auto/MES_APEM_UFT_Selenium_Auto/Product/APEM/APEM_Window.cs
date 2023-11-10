@@ -176,7 +176,24 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public PopUp_InterFrame PopUpInternalFrame => new PopUp_InterFrame(_UFT_Window, "//InterFrame[@NativeClass = 'runtime.vm.chkVMRuntimeFrame$MDIFrameMessageInputSupport$2']");
         public Confirmation_InterFrame ConfirmationInternalFrame => new Confirmation_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Confirmation']");
     }
-    
+    //BPL Design
+    public class BPLDesignEditorWindow : UFT_JavaWindow
+    {
+        public BPLDesignEditorWindow()
+        {
+        }
+        public BPLDesignEditorWindow(string xpath) : base(xpath)
+        {
+        }
+
+
+        public UFT_Button ExecuteButton => new UFT_Button(_UFT_Window, "//Button[@Label = 'Execute' and @IsWrapped = 'True']");
+
+        public BPLExecutionInterFrame BPLExecutionInterFrame => new BPLExecutionInterFrame(_UFT_Window, "//InterFrame[@NativeClass = 'runtime.vm.chkVMRuntimeMDI$RTFrame']");
+        public BPLExecutionMessageInterFrame MessageInterFrame => new BPLExecutionMessageInterFrame(_UFT_Window, "//InterFrame[@Label = 'Message']");
+    }
+  
+
     public class MOC_Menu : UFT_Menu
     {
         public MOC_Menu(ITestObject parentObject, string xpath) : base(parentObject, xpath)

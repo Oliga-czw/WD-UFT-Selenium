@@ -70,8 +70,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public static PFCEditorWindow PFCEditorWindow => new PFCEditorWindow("//JavaWindow[@ObjectName = 'Design Editor']");
         public static BPLDesignEditorWindow BPLDesignEditorWindow => new BPLDesignEditorWindow("//JavaWindow[@Title = 'Aspen Production Execution Manager V.* - aspenONE - Design Editor.*']");
 
-
-
+        public static DesignVerificationWindow DesignVerificationWindow => new DesignVerificationWindow("//JavaWindow[@ObjectName = 'Design verification']");
+        public static DesignCompilationWindow DesignCompilationWindow => new DesignCompilationWindow("//JavaWindow[@ObjectName = 'Design compilation']");
+        public static PhaseExecWindow PhaseExecWindow => new PhaseExecWindow("//JavaWindow[@NativeClass = 'runtime.vm.frame.OperExecFrame']");
         #endregion
 
         #region MOC Dialog
@@ -88,6 +89,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public static UFT_Dialog RowSelectionDialog => new UFT_Dialog("//Dialog[@Title = 'Row selection']");
 
         public static UFT_Dialog DeleteEventLogDialog => new UFT_Dialog("//Dialog[@Title = 'Delete Event Log']");
+
+        public static UFT_Dialog DesignVerificationDialog => new UFT_Dialog("//Dialog[@Title = 'Design verification']");
+        public static UFT_Dialog DesignCompilationDialog => new UFT_Dialog("//Dialog[@Title = 'Design compilation']");
+        public static UFT_Dialog VerifyDialog => new UFT_Dialog("//Dialog[@Title = 'Verify']");
+        public static STD_Dialog PrintDialog => new STD_Dialog("//Dialog[@WindowTitleRegExp = 'Print']");
         #endregion
 
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MES_APEM_UFT_Selenium_Auto.Product.APEM.MOC_TemplatesModule
 {
-    class TemplatesInterFrame
+    class MOC_TemplatesFunction
     {
         public static void Importtemplates(string filename)
         {
