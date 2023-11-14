@@ -27,9 +27,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public BPLData_InterFrame BPLDataInternalFrame => new BPLData_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Basic Phase Library Data*']");
         public RPLManagement_InterFrame RPLManagementInternalFrame => new RPLManagement_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'RPL Management*']");
         public EventLogList_InterFrame EventLogListInterFrame => new EventLogList_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Event Log List']");
-
-
-        
         #endregion
 
         public UFT_Button Audit_moudle => new UFT_Button(_UFT_Window, "//Button[@Label = 'Audit Module' and @IsWrapped = 'True']");
@@ -41,15 +38,21 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button BPLDesign => new UFT_Button(_UFT_Window, "//Button[@Label = 'BPL Design' and @IsWrapped = 'True']");
         public UFT_Button Orders => new UFT_Button(_UFT_Window, "//Button[@Label = 'Orders' and @IsWrapped = 'True']");
         public UFT_Button Config_moudle => new UFT_Button(_UFT_Window, "//Button[@Label = 'Config Module' and @IsWrapped = 'True']");
-
-
         public MOC_Menu Tools => new MOC_Menu(_UFT_Window, "//Menu[@Label = 'Tools']");
+
         #region dialog
         public UFT_Dialog VerifyDialog => new UFT_Dialog("//Dialog[@Index = '0']");
         public OrderPlan_Dialog OrderPlanDialog => new OrderPlan_Dialog(_UFT_Window, "//Dialog[@Title = 'Plan']");
         public AddReason_Dialog AddReasonDialog => new AddReason_Dialog(_UFT_Window, "//Dialog[@Title = 'Audit Reason']");
         public AvailableBPL_Dialog AvailableBPLDialog => new AvailableBPL_Dialog(_UFT_Window, "//Dialog[@Title = 'Available Basic Phase Libraries']");
         #endregion
+    }
+    public class MOC_Menu : UFT_Menu
+    {
+        public MOC_Menu(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+        public UFT_Menu EventLog => new UFT_Menu(_UFT_Menu, "//Menu[@Label = 'Event Log']");
     }
     public class APEMMainWindow : UFT_JavaWindow
     {
@@ -73,18 +76,21 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_CheckBox ImportGMLTemplates => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText='Import GML v.* template']");
 
     }
-    public class PFCEditorWindow : UFT_JavaWindow
+    public class DesignEditorWindow : UFT_JavaWindow
     {
 
-        public PFCEditorWindow()
+        public DesignEditorWindow()
         {
         }
-        public PFCEditorWindow(string xpath) : base(xpath)
+        public DesignEditorWindow(string xpath) : base(xpath)
         {
         }
 
         #region interframe
         public PFCDesignApp_InterFrame PFCDesignAppInternalFrame => new PFCDesignApp_InterFrame(_UFT_Window, "//InterFrame[@NativeClass = 'design.designApp$1' ]");
+        public ExecuteMain_InterFrame ExecuteMainInternalFrame => new ExecuteMain_InterFrame(_UFT_Window, "//InterFrame[@ObjectName = 'Main' ]");
+        public BPLExecutionMessageInterFrame MessageInterFrame => new BPLExecutionMessageInterFrame(_UFT_Window, "//InterFrame[@Label = 'Message']");
+        public Confirmation_InterFrame ConfirmationInternalFrame => new Confirmation_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Confirmation']");
         #endregion
 
         public UFT_CheckBox UnitProcedure => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText = 'Unit Procedure' and @IsWrapped = 'True']");
@@ -96,6 +102,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button CutButton => new UFT_Button(_UFT_Window, "//Button[@Label = 'Cut' and @IsWrapped = 'True']");
         public UFT_Button BackButton => new UFT_Button(_UFT_Window, "//Button[@Label = 'Back to Code' and @IsWrapped = 'True']");
         public UFT_Button PasteButton => new UFT_Button(_UFT_Window, "//Button[@Label = 'Paste' and @IsWrapped = 'True']");
+        public UFT_Button ExecuteButton => new UFT_Button(_UFT_Window, "//Button[@Label = 'Execute' and @IsWrapped = 'True']");
         public UFT_CheckBox Operation => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText = 'Operation' and @IsWrapped = 'True']");
         //public UFT_CheckBox Phase => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText = 'Unit Procedure' and @IsWrapped = 'True']");
         public ITabControl TabbedPaneControl => _UFT_Window.Describe<ITabControl>(new TabControlDescription
@@ -176,33 +183,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public PopUp_InterFrame PopUpInternalFrame => new PopUp_InterFrame(_UFT_Window, "//InterFrame[@NativeClass = 'runtime.vm.chkVMRuntimeFrame$MDIFrameMessageInputSupport$2']");
         public Confirmation_InterFrame ConfirmationInternalFrame => new Confirmation_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Confirmation']");
     }
-    //BPL Design
-    public class BPLDesignEditorWindow : UFT_JavaWindow
-    {
-        public BPLDesignEditorWindow()
-        {
-        }
-        public BPLDesignEditorWindow(string xpath) : base(xpath)
-        {
-        }
-
-
-        public UFT_Button ExecuteButton => new UFT_Button(_UFT_Window, "//Button[@Label = 'Execute' and @IsWrapped = 'True']");
-
-        public BPLExecutionInterFrame BPLExecutionInterFrame => new BPLExecutionInterFrame(_UFT_Window, "//InterFrame[@NativeClass = 'runtime.vm.chkVMRuntimeMDI$RTFrame']");
-        public BPLExecutionMessageInterFrame MessageInterFrame => new BPLExecutionMessageInterFrame(_UFT_Window, "//InterFrame[@Label = 'Message']");
-    }
-  
-
-    public class MOC_Menu : UFT_Menu
-    {
-        public MOC_Menu(ITestObject parentObject, string xpath) : base(parentObject, xpath)
-        {
-        }
-
-        public UFT_Menu EventLog => new UFT_Menu(_UFT_Menu, "//Menu[@Label = 'Event Log']");
-
-    }
-
+    
 
 }

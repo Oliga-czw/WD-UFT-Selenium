@@ -1,36 +1,20 @@
 ﻿using HP.LFT.SDK;
-using HP.LFT.SDK.WinForms;
-
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Drawing;
-using System.IO;
-using System.Net;
-using System.Text.RegularExpressions;
 using System.Threading;
-using System.Windows.Forms;
-using MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary;
-using MES_APEM_UFT_Selenium_Auto.Product.WD;
-using IWindow = HP.LFT.SDK.StdWin.IWindow;
-using Application = MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary.Application;
 using MES_APEM_UFT_Selenium_Auto.Product.APEM;
+using System.Windows.Forms;
+using System;
+using MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary;
+using Application = MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary.Application;
 using MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary;
 using MES_APEM_UFT_Selenium_Auto.Product.ApemMobile;
-using MES_APEM_UFT_Selenium_Auto.Product.APEM.MOC_TemplatesModule;
+using OpenQA.Selenium;
 
 namespace MES_APEM_UFT_Selenium_Auto
 {
     [TestClass]
     public class UftDeveloperSeleniumTest
     {
-        [ClassInitialize]
-        public static void ClassInitialize(TestContext context)
-        {
-        }
 
         [TestInitialize]
         public void TestInitialize()
@@ -40,164 +24,175 @@ namespace MES_APEM_UFT_Selenium_Auto
         [TestMethod]
         public void TestMethod1()
         {
-            //Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
-            //Mobile_Fuction.gotoApemMobile(driver);
-            //Mobile_Fuction.login();
             SdkConfiguration config = new SdkConfiguration();
             SDK.Init(config);
-
+            Thread.Sleep(3000);
 
             Application.LaunchMocAndLogin();
-            MOC_TemplatesFunction.Importtemplates("EVENTLOG.zip");
+            Thread.Sleep(5000);
             APEM.MocmainWindow.BPLDesign.ClickSignle();
-            APEM.MocmainWindow.BPLListInternalFrame.Refresh_Button.ClickSignle();
-            APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row("EVENTLOG").Click();
-            APEM.MocmainWindow.BPLListInternalFrame.LoadDesigner_Button.ClickSignle();
-
-            APEM.BPLDesignEditorWindow.ExecuteButton.ClickSignle();
-
-            APEM.BPLDesignEditorWindow.BPLExecutionInterFrame.LogEventAutoButton.Click();
-
-            if (APEM.BPLDesignEditorWindow.MessageInterFrame.message.AttachedText == "Sucess")
+            APEM.MocmainWindow.BPLListInternalFrame.AddBPL_Button.ClickSignle();
+            Thread.Sleep(4000);
+            APEM.MocmainWindow.BPLDataInternalFrame.BPLName.SendKeys("TESTBP");
+            APEM.MocmainWindow.BPLDataInternalFrame.BPLDescription.SendKeys("for test");
+            APEM.MocmainWindow.BPLDataInternalFrame.ConfirmChanges_Button.ClickSignle();
+            if (APEM.MocmainWindow.AddReasonDialog.IsExist())
             {
-                //log
-                APEM.BPLDesignEditorWindow.MessageInterFrame.OKButton.ClickSignle();
+                APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("for UFT test");
+                APEM.MocmainWindow.AddReasonDialog.OK.Click();
             }
-            //need click twice
-            APEM.BPLDesignEditorWindow.BPLExecutionInterFrame.OKButton.Click();
+            Thread.Sleep(4000);
+            APEM.MocmainWindow.BPLDataInternalFrame.TabbedPaneControl.Select("Basic Phases");
+            Thread.Sleep(3000);
+            APEM.MocmainWindow.BPLDataInternalFrame.AddBP_Button.ClickSignle();
+            Thread.Sleep(2000);
+            APEM.MocmainWindow.BPLDataInternalFrame.NoEditor.SendKeys("1");
+            Thread.Sleep(2000);
+            Keyboard.PressKey(Keyboard.Keys.Enter);
+            APEM.MocmainWindow.BPLDataInternalFrame.NoEditor.SendKeys("testBp");
+            Thread.Sleep(2000);
+            Keyboard.PressKey(Keyboard.Keys.Enter);
+            Thread.Sleep(2000);
+            APEM.MocmainWindow.BPLDataInternalFrame.NoEditor.SendKeys("for test");
+            Thread.Sleep(2000);
+            Keyboard.PressKey(Keyboard.Keys.Enter);
+            Thread.Sleep(2000);
+            APEM.MocmainWindow.BPLDataInternalFrame.WebCheckBox.Click();
+            Thread.Sleep(2000);
+            APEM.MocmainWindow.BPLDataInternalFrame.ConfirmChanges_Button.ClickSignle();
+            Thread.Sleep(2000);
+            APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("test");
+            APEM.MocmainWindow.AddReasonDialog.OK.Click();
+            APEM.MocmainWindow.BPLDataInternalFrame.CancelChanges_Button.ClickSignle();
+            Thread.Sleep(2000);
+            APEM.MocmainWindow.BPLDataInternalFrame.LoadDesigner_Button.ClickSignle();
+            Thread.Sleep(3000);
+            MOC_Fuction.ImportCHKDesign("SOAPCALL01_1.CHK");
+            APEM.DesignEditorWindow.ExecuteButton.ClickSignle();
+            Thread.Sleep(8000);
+            APEM.DesignEditorWindow.ExecuteMainInternalFrame.SOAP_CALL2_EX_Button.Click();
+            Thread.Sleep(2000);
+            var testText = APEM.DesignEditorWindow.ExecuteMainInternalFrame.CheckField.Text;
+            Console.WriteLine(testText);
+            Assert.IsTrue(testText.Contains("中央电视台,央视高清电视,中国教育电视台"));
+            //APEM.DesignEditorWindow.GetSnapshot(Resultpath + "BPExecute.PNG");
+            APEM.DesignEditorWindow.ExecuteMainInternalFrame.Cancel_Button.ClickSignle();
+            Thread.Sleep(2000);
+            APEM.DesignEditorWindow.ConfirmationInternalFrame.YesButton.Click();
+            Thread.Sleep(6000);
             APEM.ExecutionFinishedDialog.OKButton.Click();
-            APEM.BPLDesignEditorWindow.Close();
-            APEM.CloseDialog.YesButton.Click();
+            APEM.DesignEditorWindow.SaveButton.ClickSignle();
+            APEM.DesignSavedDialog.OKButton.Click();
+            Thread.Sleep(2000);
+            MOC_Fuction.DesignEditorClose();
+            APEM.MocmainWindow.BPLDataInternalFrame.TabbedPaneControl.Select("BPL Data");
+            Thread.Sleep(3000);
+            APEM.MocmainWindow.BPLDataInternalFrame.MakeUsable_Button.ClickSignle();
+            if (APEM.MocmainWindow.AddReasonDialog.IsExist())
+            {
+                APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("for UFT test");
+                APEM.MocmainWindow.AddReasonDialog.OK.Click();
+            }
+            Thread.Sleep(2000);
+            APEM.MocmainWindow.RPLDesign.ClickSignle();
+            Thread.Sleep(5000);
+            MOC_Fuction.AddRPL_OpenDesign("916420A", "TESTBP (Version 1)");
+            APEM.DesignEditorWindow.UnitProcedure._UFT_CheckBox.Click();
+            Thread.Sleep(8000);
+            Base_Function.MouseClick(APEM.DesignEditorWindow.PFCDesignAppInternalFrame.ControlLinkUiObject._UFT_UiObject.AbsoluteLocation);
+            Thread.Sleep(3000);
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject.DoubleClick();
+            Thread.Sleep(8000);
+            APEM.DesignEditorWindow.Operation._UFT_CheckBox.Click();
+            Thread.Sleep(8000);
+            Base_Function.MouseClick(APEM.DesignEditorWindow.PFCDesignAppInternalFrame.ControlLinkUiObject._UFT_UiObject.AbsoluteLocation);
+            Thread.Sleep(3000);
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.OperationUiObject.DoubleClick();
+            Thread.Sleep(5000);
+            APEM.DesignEditorWindow.TabbedPaneControl.Select(1);
+            Thread.Sleep(2000);
+            APEM.DesignEditorWindow.First_Phase.Click();
+            Thread.Sleep(8000);
+            Base_Function.MouseClick(APEM.DesignEditorWindow.PFCDesignAppInternalFrame.ControlLinkUiObject._UFT_UiObject.AbsoluteLocation);
+            Thread.Sleep(3000);
+            APEM.DesignEditorWindow.SaveButton.ClickSignle();
+            APEM.DesignSavedDialog.OKButton.Click();
+            MOC_Fuction.DesignEditorClose();
+            APEM.MocmainWindow.RPLManagementInternalFrame.VerifyButton.ClickSignle();
+            Thread.Sleep(3000);
+            APEM.VerifyDialog.YesButton.Click();
+            Thread.Sleep(3000);
+            APEM.MocmainWindow.OrderPlanDialog.CodeEditor.SendKeys("ORDRE916420");
+            APEM.MocmainWindow.OrderPlanDialog.DescriptionEditor.SendKeys("test for 916420");
+            APEM.MocmainWindow.OrderPlanDialog.POEditor.SendKeys("PO");
+            APEM.MocmainWindow.OrderPlanDialog.POStepEditor.SendKeys("POStep");
+            APEM.MocmainWindow.OrderPlanDialog.ArticleEditor.SendKeys("Article");
+            APEM.MocmainWindow.OrderPlanDialog.BatchEditor.SendKeys("Batch");
+            APEM.MocmainWindow.OrderPlanDialog.QuantityEditor.SendKeys("123.65");
+            APEM.MocmainWindow.OrderPlanDialog.Quantity_unitEditor.SendKeys("kg");
+            APEM.MocmainWindow.OrderPlanDialog.DateEditor.SendKeys("12/12/22, 3:23:00 AM");
+            APEM.MocmainWindow.OrderPlanDialog.END_DateEditor.SendKeys("5/6/26, 10:23:34 PM");
+            APEM.MocmainWindow.OrderPlanDialog.WorkcenterList.Select("ProcessCellLine2");
+            Thread.Sleep(3000);
+            APEM.MocmainWindow.OrderPlanDialog.Auto_ActivateCheckBox.Click();
+            Thread.Sleep(3000);
+            APEM.MocmainWindow.OrderPlanDialog.OK.Click();
+            Thread.Sleep(3000);
+            APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("for test");
+            APEM.MocmainWindow.AddReasonDialog.OK.Click();
+            Thread.Sleep(3000);
+            APEM.MocmainWindow.WorkstationBP.ClickSignle();
+            Thread.Sleep(3000);
+            APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText("ORDRE916420");
+            APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();
+            APEM.MocmainWindow.WorkstationBPInternalFrame.OrderTable.Row("Ready for execution", "Status").Click();
+            APEM.MocmainWindow.WorkstationBPInternalFrame.ExecuteButton.ClickSignle();
+            Thread.Sleep(10000);
+            APEM.PhaseExecWindow.ExecutionInternalFrame.SOAP_CALL2_EX_Button.Click();
+            Thread.Sleep(2000);
+            var testText1 = APEM.PhaseExecWindow.ExecutionInternalFrame.CheckField.Text;
+            Console.WriteLine(testText1);
+            Assert.IsTrue(testText.Contains("中央电视台,央视高清电视,中国教育电视台"));
+            //APEM.PhaseExecWindow.GetSnapshot(Resultpath + "MOCExecute.PNG");
+            APEM.PhaseExecWindow.ExecutionInternalFrame.Cancel_Button.ClickSignle();
+            Thread.Sleep(2000);
+            APEM.PhaseExecWindow.ConfirmationInternalFrame.YesButton.Click();
+            Thread.Sleep(6000);
+            Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
+            Mobile_Fuction.gotoApemMobile(driver);
+            driver.Wait();
+            Thread.Sleep(5000);
+            Mobile_Fuction.login();
+            driver.Wait();
+            //driver.FindElement(By.XPath,"//div[contains(text(),'X_ORDER')]/../..//td/a/mat-icon").Click();
 
 
-            //mMDM_Fuction.GML_Configure_mMDM_Editor();
-            //string a = "//Table[@AttachedText = 'Workstation  ']";
-            //Regex.Split(a, "' and ");
-            //string b = a.Split('\'')[1].TrimStart();
-            //Console.WriteLine(b);
-            //APEM.AeBRSInstaller(true);
-            //GML_Function.GML_UserTable();
-            //GML_Function.StartIP21();
-            //APRM_Fuction.CleanAprmDB();
-            //APRM_Fuction.WizardAprmDB();
-            //APRM_Fuction.ImportAprmAdmin();
-
-
-            //Application.LaunchBatchDetailDisplay();
-            //Batch_Fuction.setOptionData();
-            //APRM_Fuction.InitailAPRM();
-            //APRM_Fuction.ConfigAPEMAdmin();
 
 
 
 
-            //var closeButton = Desktop.Describe<IWindow>(new WindowDescription
+
+            //SendKeys.SendWait("{Tab}");
+            //Keyboard.PressKey(Keyboard.Keys.Enter);
+            //Thread.Sleep(3000);
+            //APEM.MocmainWindow.BPLDataInternalFrame.NoEditor.SendKeys("for test");
+            //SendKeys.SendWait("{Enter}");
+            //Keyboard.PressKey(Keyboard.Keys.Enter);
+
+
+
+            //APEM.MocmainWindow.BPLDataInternalFrame.MakeUsable_Button.ClickSignle();
+            //if (APEM.MocmainWindow.AddReasonDialog.IsExist())
             //{
-            //	WindowTitleRegExp = @"Aspen Database Wizard"
-            //})
-            //.Describe<IButton>(new ButtonDescription
-            //{
-            //	WindowTitleRegExp = @"C&lose"
-            //});
-            //Console.WriteLine(closeButton.IsEnabled);
-
-            //Console.WriteLine(Wizard.AdminWizardWindow.btnClose.IsEnabled);
-
-
-            //         var grossText = WD.BatchMainWindow.ListView._STD_ListView
-            //.Describe<IListItem>(new ListItemDescription
-            //{
-            //	ProcessName = @"BatchDetailDisplay",
-            //	Name = @"Gross",
-            //	Path = @"Window;Pane;Pane;Pane;Pane;Pane;Pane;List;ListItem",
-            //	SupportedPatterns = new string[] { @"Invoke", @"LegacyIAccessible", @"ScrollItem", @"SelectionItem" },
-            //	FrameworkId = @"Win32",
-            //	ControlType = @"ListItem",
-            //	AutomationId = @"ListViewItem-8"
-            //})
-            //.Describe<IText>(new TextDescription
-            //{
-            //	ProcessName = @"BatchDetailDisplay",
-            //	Name = @"Gross",
-            //	Path = @"Window;Pane;Pane;Pane;Pane;Pane;Pane;List;ListItem;Text",
-            //	SupportedPatterns = new string[] { @"GridItem", @"LegacyIAccessible", @"TableItem" },
-            //	FrameworkId = @"Win32",
-            //	ControlType = @"Text",
-            //	AutomationId = @"ListViewSubItem-0"
-            //});
-
-            //Console.WriteLine(grossText.Name);
-            //grossText.Click();
-
-            ////add
-            //SLM.SLMConfigWindow.ServerEdit.SendKeys("shslmtest");
-            //SLM.SLMConfigWindow.AddServer.Click();
-            ////wait for adding
-            //Thread.Sleep(5000);
-            //SLM.SLMConfigWindow.Apply.Click();
-            ////wait for applying
-            //Thread.Sleep(5000);
-
-
-            //SLM.SLMConfigWindow.Close();
-            //Thread.Sleep(2000);
-            //SLM.SLMmainWindow.Close();
-
-
-
-            //Batch_Fuction.findBatch("test2");
-            //SdkConfiguration config = new SdkConfiguration();
-            //SDK.Init(config);
-
-            //SqlHelper helper = new SqlHelper();
-            //string sql = $"SELECT BEGIN_SOURCE_GROSS,END_SOURCE_GROSS FROM EBR_WD_WEIGH_HISTORY";
-            //var dt = helper.Execute(sql);
-            //Console.WriteLine(dt[0][0]);
-
-            ////add key
-            //FileStream fs = new FileStream(path, FileMode.Append);
-            //StreamWriter sw = new StreamWriter(fs);
-            //sw.WriteLine("NET_REMOVAL_REQUIRE_TARGET_TARE = 1");
-            //sw.Close();
-
-            ////delete key
-            //string all = File.ReadAllText(path);
-            //all = Regex.Replace(all, @"NET_REMOVAL_REQUIRE_TARGET_TARE = \d{1}", "");
-            //Console.WriteLine(all);
-            //File.WriteAllText(path, all);
-
-            ////search
-            //string[] str = File.ReadAllLines(path);
-            //foreach (string text in str)
-            //{
-            //    if(Regex.Match(text, @"NET_REMOVAL_REQUIRE_TARGET_TARE = \d{1}") != null)
-            //    {
-            //        Console.WriteLine(Regex.Match(text, @"NET_REMOVAL_REQUIRE_TARGET_TARE = \d{1}$"));
-            //    }
-
+            //    APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("for UFT test");
+            //    APEM.MocmainWindow.AddReasonDialog.OK.Click();
             //}
-
-
-
-            //StreamReader sr = new StreamReader(path);
-            //string content = sr.ReadToEnd();
-            //sr.Close();
-            //Console.WriteLine(content);
         }
 
 
 
-        [TestCleanup]
-        public void TestCleanup()
-        {
-            
-        }
 
-        [ClassCleanup]
-        public static void ClassCleanup()
-        {
-        }
-        public string CaseID = "prepareInitial";
+
     }
+
 }
-        

@@ -27,17 +27,17 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Library.BaseLibrary.Application.LaunchMocAndLogin();
             Thread.Sleep(5000);
             APEM.MocmainWindow.RPLDesign.ClickSignle();
-            MOC_Fuction.AddRPL_OpenDesign("TESTRPL01");
+            MOC_Fuction.AddRPL_OpenDesign("TESTRPL01", "AAA_BPL (Version 1)");
             //UP
-            APEM.PFCEditorWindow.UnitProcedure._UFT_CheckBox.Click();
+            APEM.DesignEditorWindow.UnitProcedure._UFT_CheckBox.Click();
             Thread.Sleep(8000);
-            Base_Function.MouseClick(APEM.PFCEditorWindow.PFCDesignAppInternalFrame.ControlLinkUiObject._UFT_UiObject.AbsoluteLocation);
+            Base_Function.MouseClick(APEM.DesignEditorWindow.PFCDesignAppInternalFrame.ControlLinkUiObject._UFT_UiObject.AbsoluteLocation);
             Thread.Sleep(3000);
             MOC_Fuction.AssertDesignWindow();
-            APEM.PFCEditorWindow.GetSnapshot(Resultpath + "UnitProcedure.PNG");
+            APEM.DesignEditorWindow.GetSnapshot(Resultpath + "UnitProcedure.PNG");
             //copy
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject.Click();
-            APEM.PFCEditorWindow.CopyButton.ClickSignle();
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject.Click();
+            APEM.DesignEditorWindow.CopyButton.ClickSignle();
             if (APEM.LoseCopiedDialog.IsExist())
             {
                 APEM.LoseCopiedDialog.YesButton.Click();
@@ -45,55 +45,55 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(5000);
             //paste
 
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.FirstLink.Click();
-            APEM.PFCEditorWindow.PasteButton.ClickSignle();
-            if (APEM.PFCEditorWindow.PasteRenamedDialog.IsExist())
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.FirstLink.Click();
+            APEM.DesignEditorWindow.PasteButton.ClickSignle();
+            if (APEM.DesignEditorWindow.PasteRenamedDialog.IsExist())
             {
-                APEM.PFCEditorWindow.PasteRenamedDialog.Close();
+                APEM.DesignEditorWindow.PasteRenamedDialog.Close();
             }
             MOC_Fuction.AssertDesignWindow();
             //drag to other location
-            var UnitProcedure1 = APEM.PFCEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject1;
+            var UnitProcedure1 = APEM.DesignEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject1;
             UnitProcedure1.Click();
-            Mouse.DragAndDrop(UnitProcedure1.AbsoluteLocation, APEM.PFCEditorWindow.PFCDesignAppInternalFrame.StartLink.AbsoluteLocation, MouseButton.Left);
+            Mouse.DragAndDrop(UnitProcedure1.AbsoluteLocation, APEM.DesignEditorWindow.PFCDesignAppInternalFrame.StartLink.AbsoluteLocation, MouseButton.Left);
             MOC_Fuction.AssertDesignWindow();
             //cut & paste
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject1.Click();
-            APEM.PFCEditorWindow.CutButton.ClickSignle();
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject1.Click();
+            APEM.DesignEditorWindow.CutButton.ClickSignle();
             Thread.Sleep(5000);
             APEM.CutElementDialog.YesButton.Click();
             MOC_Fuction.AssertDesignWindow();
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.FirstLink.Click();
-            APEM.PFCEditorWindow.PasteButton.ClickSignle();
-            if (APEM.PFCEditorWindow.PasteRenamedDialog.IsExist())
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.FirstLink.Click();
+            APEM.DesignEditorWindow.PasteButton.ClickSignle();
+            if (APEM.DesignEditorWindow.PasteRenamedDialog.IsExist())
             {
-                APEM.PFCEditorWindow.PasteRenamedDialog.Close();
+                APEM.DesignEditorWindow.PasteRenamedDialog.Close();
             }
             MOC_Fuction.AssertDesignWindow();
             //delete
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject1.Click();
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject1.Click();
             Thread.Sleep(2000);
             SendKeys.SendWait("{DELETE}");
             Thread.Sleep(5000);
             MOC_Fuction.AssertDesignWindow();
-            //APEM.PFCEditorWindow.Parallel._UFT_CheckBox.Click();
+            //APEM.DesignEditorWindow.Parallel._UFT_CheckBox.Click();
             //Thread.Sleep(5000);
-            //Base_Function.MouseClick(APEM.PFCEditorWindow.PFCDesignAppInternalFrame.StartLink.AbsoluteLocation);
+            //Base_Function.MouseClick(APEM.DesignEditorWindow.PFCDesignAppInternalFrame.StartLink.AbsoluteLocation);
             //Thread.Sleep(3000);
             
             //OP
             Thread.Sleep(3000);
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject.DoubleClick();
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject.DoubleClick();
             Thread.Sleep(8000);
-            APEM.PFCEditorWindow.Operation._UFT_CheckBox.Click();
+            APEM.DesignEditorWindow.Operation._UFT_CheckBox.Click();
             Thread.Sleep(8000);
-            Base_Function.MouseClick(APEM.PFCEditorWindow.PFCDesignAppInternalFrame.ControlLinkUiObject._UFT_UiObject.AbsoluteLocation);
+            Base_Function.MouseClick(APEM.DesignEditorWindow.PFCDesignAppInternalFrame.ControlLinkUiObject._UFT_UiObject.AbsoluteLocation);
             Thread.Sleep(3000);
             MOC_Fuction.AssertDesignWindow();
-            APEM.PFCEditorWindow.GetSnapshot(Resultpath + "Operation.PNG");
+            APEM.DesignEditorWindow.GetSnapshot(Resultpath + "Operation.PNG");
             //copy
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.OperationUiObject.Click();
-            APEM.PFCEditorWindow.CopyButton.ClickSignle();
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.OperationUiObject.Click();
+            APEM.DesignEditorWindow.CopyButton.ClickSignle();
             if (APEM.LoseCopiedDialog.IsExist())
             {
                 APEM.LoseCopiedDialog.YesButton.Click();
@@ -101,55 +101,55 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(5000);
             //paste
 
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.FirstLink.Click();
-            APEM.PFCEditorWindow.PasteButton.ClickSignle();
-            if (APEM.PFCEditorWindow.PasteRenamedDialog.IsExist())
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.FirstLink.Click();
+            APEM.DesignEditorWindow.PasteButton.ClickSignle();
+            if (APEM.DesignEditorWindow.PasteRenamedDialog.IsExist())
             {
-                APEM.PFCEditorWindow.PasteRenamedDialog.Close();
+                APEM.DesignEditorWindow.PasteRenamedDialog.Close();
             }
             MOC_Fuction.AssertDesignWindow();
             //drag to other location
-            var Operation1 = APEM.PFCEditorWindow.PFCDesignAppInternalFrame.OperationUiObject1;
+            var Operation1 = APEM.DesignEditorWindow.PFCDesignAppInternalFrame.OperationUiObject1;
             Operation1.Click();
-            Mouse.DragAndDrop(Operation1.AbsoluteLocation, APEM.PFCEditorWindow.PFCDesignAppInternalFrame.FirstLink.AbsoluteLocation, MouseButton.Left);
+            Mouse.DragAndDrop(Operation1.AbsoluteLocation, APEM.DesignEditorWindow.PFCDesignAppInternalFrame.FirstLink.AbsoluteLocation, MouseButton.Left);
             MOC_Fuction.AssertDesignWindow();
             //cut & paste
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.OperationUiObject1.Click();
-            APEM.PFCEditorWindow.CutButton.ClickSignle();
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.OperationUiObject1.Click();
+            APEM.DesignEditorWindow.CutButton.ClickSignle();
             Thread.Sleep(5000);
             APEM.CutElementDialog.YesButton.Click();
             MOC_Fuction.AssertDesignWindow();
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.FirstLink.Click();
-            APEM.PFCEditorWindow.PasteButton.ClickSignle();
-            if (APEM.PFCEditorWindow.PasteRenamedDialog.IsExist())
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.FirstLink.Click();
+            APEM.DesignEditorWindow.PasteButton.ClickSignle();
+            if (APEM.DesignEditorWindow.PasteRenamedDialog.IsExist())
             {
-                APEM.PFCEditorWindow.PasteRenamedDialog.Close();
+                APEM.DesignEditorWindow.PasteRenamedDialog.Close();
             }
             MOC_Fuction.AssertDesignWindow();
             //delete
             Thread.Sleep(5000);
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.OperationUiObject1.Click();
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.OperationUiObject1.Click();
             SendKeys.SendWait("{DELETE}");
             Thread.Sleep(5000);
             MOC_Fuction.AssertDesignWindow();
             //Phase
-            //APEM.PFCEditorWindow.Operation._UFT_CheckBox.Click();
+            //APEM.DesignEditorWindow.Operation._UFT_CheckBox.Click();
             //Thread.Sleep(8000);
-            //Base_Function.MouseClick(APEM.PFCEditorWindow.PFCDesignAppInternalFrame.ControlLinkUiObject._UFT_UiObject.AbsoluteLocation);
+            //Base_Function.MouseClick(APEM.DesignEditorWindow.PFCDesignAppInternalFrame.ControlLinkUiObject._UFT_UiObject.AbsoluteLocation);
             Thread.Sleep(3000);
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.OperationUiObject.DoubleClick();
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.OperationUiObject.DoubleClick();
             Thread.Sleep(5000);
-            APEM.PFCEditorWindow.TabbedPaneControl.Select(2);
+            APEM.DesignEditorWindow.TabbedPaneControl.Select(2);
             Thread.Sleep(2000);
-            APEM.PFCEditorWindow.First_Phase.Click();
+            APEM.DesignEditorWindow.First_Phase.Click();
             Thread.Sleep(8000);
-            Base_Function.MouseClick(APEM.PFCEditorWindow.PFCDesignAppInternalFrame.ControlLinkUiObject._UFT_UiObject.AbsoluteLocation);
+            Base_Function.MouseClick(APEM.DesignEditorWindow.PFCDesignAppInternalFrame.ControlLinkUiObject._UFT_UiObject.AbsoluteLocation);
             Thread.Sleep(3000);
             MOC_Fuction.AssertDesignWindow();
-            APEM.PFCEditorWindow.GetSnapshot(Resultpath + "Phase.PNG");
+            APEM.DesignEditorWindow.GetSnapshot(Resultpath + "Phase.PNG");
             //copy
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.PhaseUiObject.Click();
-            APEM.PFCEditorWindow.CopyButton.ClickSignle();
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.PhaseUiObject.Click();
+            APEM.DesignEditorWindow.CopyButton.ClickSignle();
             if (APEM.LoseCopiedDialog.IsExist())
             {
                 APEM.LoseCopiedDialog.YesButton.Click();
@@ -157,56 +157,56 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(5000);
             //paste
 
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.FirstLink.Click();
-            APEM.PFCEditorWindow.PasteButton.ClickSignle();
-            if (APEM.PFCEditorWindow.PasteRenamedDialog.IsExist())
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.FirstLink.Click();
+            APEM.DesignEditorWindow.PasteButton.ClickSignle();
+            if (APEM.DesignEditorWindow.PasteRenamedDialog.IsExist())
             {
-                APEM.PFCEditorWindow.PasteRenamedDialog.Close();
+                APEM.DesignEditorWindow.PasteRenamedDialog.Close();
             }
             MOC_Fuction.AssertDesignWindow();
             //drag to other location
-            var phaphase1 = APEM.PFCEditorWindow.PFCDesignAppInternalFrame.PhaseUiObject1;
+            var phaphase1 = APEM.DesignEditorWindow.PFCDesignAppInternalFrame.PhaseUiObject1;
             phaphase1.Click();
-            Mouse.DragAndDrop(phaphase1.AbsoluteLocation, APEM.PFCEditorWindow.PFCDesignAppInternalFrame.FirstLink.AbsoluteLocation, MouseButton.Left);
+            Mouse.DragAndDrop(phaphase1.AbsoluteLocation, APEM.DesignEditorWindow.PFCDesignAppInternalFrame.FirstLink.AbsoluteLocation, MouseButton.Left);
             MOC_Fuction.AssertDesignWindow();
             //cut & paste
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.PhaseUiObject1.Click();
-            APEM.PFCEditorWindow.CutButton.ClickSignle();
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.PhaseUiObject1.Click();
+            APEM.DesignEditorWindow.CutButton.ClickSignle();
             Thread.Sleep(5000);
             APEM.CutElementDialog.YesButton.Click();
             MOC_Fuction.AssertDesignWindow();
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.FirstLink.Click();
-            APEM.PFCEditorWindow.PasteButton.ClickSignle();
-            if (APEM.PFCEditorWindow.PasteRenamedDialog.IsExist())
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.FirstLink.Click();
+            APEM.DesignEditorWindow.PasteButton.ClickSignle();
+            if (APEM.DesignEditorWindow.PasteRenamedDialog.IsExist())
             {
-                APEM.PFCEditorWindow.PasteRenamedDialog.Close();
+                APEM.DesignEditorWindow.PasteRenamedDialog.Close();
             }
             MOC_Fuction.AssertDesignWindow();
             //delete
             Thread.Sleep(5000);
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.PhaseUiObject1.Click();
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.PhaseUiObject1.Click();
             SendKeys.SendWait("{DELETE}");
             
             Thread.Sleep(5000);
             MOC_Fuction.AssertDesignWindow();
             //Import the attached RPL and check its design structure at three levels in the PFC editor
-            APEM.PFCEditorWindow.BackButton.ClickSignle();
+            APEM.DesignEditorWindow.BackButton.ClickSignle();
             Thread.Sleep(2000);
-            APEM.PFCEditorWindow.BackButton.ClickSignle();
+            APEM.DesignEditorWindow.BackButton.ClickSignle();
             Thread.Sleep(2000);
-            MOC_Fuction.ImportRPLDesign("RPL_DERMS_PACK_01_02.CHK");
+            MOC_Fuction.ImportCHKDesign("RPL_DERMS_PACK_01_02.CHK");
             MOC_Fuction.AssertDesignWindow();
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject1.DoubleClick();
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject1.DoubleClick();
             Thread.Sleep(4000);
             MOC_Fuction.AssertDesignWindow();
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.OperationUiObject1.DoubleClick();
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.OperationUiObject1.DoubleClick();
             Thread.Sleep(4000);
             MOC_Fuction.AssertDesignWindow();
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame._UFT_InterFrame.Resize(325, 790);
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame._UFT_InterFrame.Resize(325, 790);
             Thread.Sleep(4000);
             MOC_Fuction.AssertDesignWindow();
-            APEM.PFCEditorWindow.GetSnapshot(Resultpath + "Resize.PNG");
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame._UFT_InterFrame.Resize(1104, 852);
+            APEM.DesignEditorWindow.GetSnapshot(Resultpath + "Resize.PNG");
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame._UFT_InterFrame.Resize(1104, 852);
             Thread.Sleep(4000);
             MOC_Fuction.AssertDesignWindow();
 

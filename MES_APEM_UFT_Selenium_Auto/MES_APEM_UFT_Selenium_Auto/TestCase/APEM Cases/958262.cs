@@ -26,17 +26,17 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Application.LaunchMocAndLogin();
             Thread.Sleep(5000);
             APEM.MocmainWindow.RPLDesign.ClickSignle();
-            MOC_Fuction.AddRPL_OpenDesign("TESTRPL");
-            MOC_Fuction.ImportRPLDesign("RPL_DERMS_PACK_01_02.CHK");
+            MOC_Fuction.AddRPL_OpenDesign("TESTRPL", "AAA_BPL (Version 1)");
+            MOC_Fuction.ImportCHKDesign("RPL_DERMS_PACK_01_02.CHK");
             Thread.Sleep(5000);
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject1.DoubleClick();
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject1.DoubleClick();
             Thread.Sleep(4000);
-            APEM.PFCEditorWindow.Transition._UFT_CheckBox.Click();
+            APEM.DesignEditorWindow.Transition._UFT_CheckBox.Click();
             Thread.Sleep(8000);
-            Mouse.Click(APEM.PFCEditorWindow.PFCDesignAppInternalFrame.StartLink.AbsoluteLocation);
+            Mouse.Click(APEM.DesignEditorWindow.PFCDesignAppInternalFrame.StartLink.AbsoluteLocation);
             Thread.Sleep(3000);
             //click verify
-            APEM.PFCEditorWindow.Build.Verify.Select();
+            APEM.DesignEditorWindow.Build.Verify.Select();
             Thread.Sleep(5000);
             Base_Assert.AreEqual(APEM.DesignVerificationWindow._UFT_Window.IsEnabled, true);
             var listVerifyMeaasge = APEM.DesignVerificationWindow.ErrorList._UFT_IList.GetVisibleText();
@@ -46,7 +46,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(3000);
             APEM.DesignVerificationWindow.Close();
             //click compile
-            APEM.PFCEditorWindow.Build.Compile.Select();
+            APEM.DesignEditorWindow.Build.Compile.Select();
             Thread.Sleep(5000);
             Base_Assert.AreEqual(APEM.DesignCompilationWindow._UFT_Window.IsEnabled, true);
             APEM.DesignCompilationWindow.GetSnapshot(Resultpath + "OPCompileError.PNG");
@@ -56,10 +56,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Base_Assert.IsTrue(listCompileMeaasge.Contains("Error: Components not found or not compiled:"));
             APEM.DesignCompilationWindow.Close();
             ////phase
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.OperationUiObject1.DoubleClick();
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.OperationUiObject1.DoubleClick();
             Thread.Sleep(4000);
             //click verify
-            APEM.PFCEditorWindow.Build.Verify.Select();
+            APEM.DesignEditorWindow.Build.Verify.Select();
             Thread.Sleep(5000);
             Base_Assert.AreEqual(APEM.DesignVerificationWindow._UFT_Window.IsEnabled, true);
             var listVerifyMeaasge1 = APEM.DesignVerificationWindow.ErrorList._UFT_IList.GetVisibleText();
@@ -70,7 +70,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.DesignVerificationWindow.Close();
             //click compile
             Thread.Sleep(2000);
-            APEM.PFCEditorWindow.Build.Compile.Select();
+            APEM.DesignEditorWindow.Build.Compile.Select();
             Thread.Sleep(5000);
             Base_Assert.AreEqual(APEM.DesignCompilationWindow._UFT_Window.IsEnabled, true);
             APEM.DesignCompilationWindow.GetSnapshot(Resultpath + "PhaseCompileError.PNG");

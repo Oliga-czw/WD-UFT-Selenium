@@ -3,7 +3,6 @@ using System;
 using System.Diagnostics;
 using System.Threading;
 using MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary;
-using Microsoft.Win32;
 
 namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
 {
@@ -32,26 +31,34 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             APEM.CloseDialog.YesButton.Click();
 
         }
-        public static void ImportRPLDesign(string filename)
+        public static void DesignEditorClose()
         {
-            APEM.PFCEditorWindow.FileImport.Import.Select();
+
+            APEM.DesignEditorWindow.Close();
+            APEM.CloseDialog.YesButton.Click();
+            Thread.Sleep(2000);
+
+        }
+        public static void ImportCHKDesign(string filename)
+        {
+            APEM.DesignEditorWindow.FileImport.Import.Select();
             Thread.Sleep(4000);
-            APEM.PFCEditorWindow.OpenDesignDialog.HomeButton.ClickSignle();
+            APEM.DesignEditorWindow.OpenDesignDialog.HomeButton.ClickSignle();
             Thread.Sleep(4000);
-            APEM.PFCEditorWindow.OpenDesignDialog.LookInList._UFT_IList.ActivateItem("This PC");
-            APEM.PFCEditorWindow.OpenDesignDialog.LookInList._UFT_IList.ActivateItem("Local Disk (C:)");
+            APEM.DesignEditorWindow.OpenDesignDialog.LookInList._UFT_IList.ActivateItem("This PC");
+            APEM.DesignEditorWindow.OpenDesignDialog.LookInList._UFT_IList.ActivateItem("Local Disk (C:)");
             string InputFile = Base_Directory.InputDir + "\\"+ filename;
             Console.WriteLine(InputFile);
             string[] sArray = InputFile.Split('\\');
             for (int i = 1; i < sArray.Length; i++)
             {
                 Console.WriteLine(sArray[i].ToString());
-                APEM.PFCEditorWindow.OpenDesignDialog.LookInList._UFT_IList.ActivateItem(sArray[i].ToString());
-                //APEM.PFCEditorWindow.OpenDesignDialog.OpenDesignButton.ClickSignle();
+                APEM.DesignEditorWindow.OpenDesignDialog.LookInList._UFT_IList.ActivateItem(sArray[i].ToString());
+                //APEM.DesignEditorWindow.OpenDesignDialog.OpenDesignButton.ClickSignle();
             }
             Thread.Sleep(4000);
         }
-        public static void AddRPL_OpenDesign(String RPLName)
+        public static void AddRPL_OpenDesign(String RPLName,String BPLName)
         {
             int Count = APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable._UFT_Table.Rows.Count;
             Console.WriteLine(Count.ToString());
@@ -81,7 +88,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
                 Thread.Sleep(3000);
                 APEM.MocmainWindow.RPLManagementInternalFrame.SelectBPL_Button.ClickSignle();
                 Thread.Sleep(5000);
-                APEM.MocmainWindow.AvailableBPLDialog.AvailableBPLList.SelectItems("AAA_BPL (Version 1)");
+                //"AAA_BPL (Version 1)"
+                APEM.MocmainWindow.AvailableBPLDialog.AvailableBPLList.SelectItems(BPLName);
                 APEM.MocmainWindow.AvailableBPLDialog.OK.Click();
                 Thread.Sleep(3000);
                 APEM.MocmainWindow.RPLManagementInternalFrame.RPLTabControl.Select("RPL Data");
@@ -123,22 +131,13 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         }
         public static void AssertDesignWindow()
         {
-            var BeginNode_X = APEM.PFCEditorWindow.PFCDesignAppInternalFrame.BeginNodeUiObject._UFT_UiObject.AbsoluteLocation.X;
-            var BeginNode_Width = APEM.PFCEditorWindow.PFCDesignAppInternalFrame.BeginNodeUiObject._UFT_UiObject.Size.Width;
-            var PFCDesign_X = APEM.PFCEditorWindow.PFCDesignAppInternalFrame._UFT_InterFrame.AbsoluteLocation.X;
-            var PFCDesign_Width = APEM.PFCEditorWindow.PFCDesignAppInternalFrame._UFT_InterFrame.Size.Width;
+            var BeginNode_X = APEM.DesignEditorWindow.PFCDesignAppInternalFrame.BeginNodeUiObject._UFT_UiObject.AbsoluteLocation.X;
+            var BeginNode_Width = APEM.DesignEditorWindow.PFCDesignAppInternalFrame.BeginNodeUiObject._UFT_UiObject.Size.Width;
+            var PFCDesign_X = APEM.DesignEditorWindow.PFCDesignAppInternalFrame._UFT_InterFrame.AbsoluteLocation.X;
+            var PFCDesign_Width = APEM.DesignEditorWindow.PFCDesignAppInternalFrame._UFT_InterFrame.Size.Width;
             var x = BeginNode_X - PFCDesign_X;
             var width = (PFCDesign_Width - BeginNode_Width) / 2;
             Base_Assert.ReferenceEquals(x, width);
-        }
-
-        public static void SkipRegister() {
-            //Base_Registry registry = new Base_Registry();
-            //registry.SkipRegister();
-
-            Registry.CurrentUser.OpenSubKey($"Software\\AspenTech").SetValue("DoNotRegister", "1");
-
-
         }
     }
 

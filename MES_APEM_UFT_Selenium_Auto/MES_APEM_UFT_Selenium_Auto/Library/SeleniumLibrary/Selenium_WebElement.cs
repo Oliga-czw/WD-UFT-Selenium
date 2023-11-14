@@ -36,7 +36,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
         {
             _Selenium_WebElement = driver.FindElements(By.XPath(xpaths))[index];
         }
-
         public void Click()
         {
             _Selenium_WebElement.Click();

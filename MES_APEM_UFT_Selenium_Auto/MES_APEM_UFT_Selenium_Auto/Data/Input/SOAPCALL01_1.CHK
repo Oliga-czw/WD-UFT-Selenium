@@ -1,0 +1,196 @@
+SOAPCALL01.1:library.component.chkRoutineContainer
+  design:
+    ReturnNo0:library.component.chkReturnNo
+      Bounds: 390,70,54,56
+    END
+    Main:library.component.chkScreen
+      bounds: 230,110,56,60
+      design:
+        B:library.component.chkLabel
+          caption: B
+          border: No
+          font: sansserif,0,12
+          fore_color: 0,0,0
+          alignment: 2
+          enabled: Yes
+          bounds: 210,10,90,30
+        END
+        TextArea0:library.component.chkTextArea
+          var: B
+          font: sansserif,0,12
+          fore_color: 0,0,0
+          back_color: 255,255,255
+          disabled_text_color: 142,143,145
+          linewrap: Yes
+          retstr: No
+          enterkey: Yes
+          record: No
+          enabled: Yes
+          bounds: 190,40,270,200
+        END
+        Button1:library.component.chkButton
+          caption: SOAP_CALL
+          bounds: 10,50,120,30
+          font: sansserif,0,12
+          fore_color: 0,0,0
+          back_color: 255,255,255
+          textPos: 11
+          action:
+            @               @               @               A := BUILD_ARRAY_CONSTANT(1,m1)
+            @               @               @               B := BUILD_ARRAY_CONSTANT(1,m2)
+            @               @               @               C := BUILD_ARRAY_CONSTANT(1,m3)
+            @               @               @               D := BUILD_ARRAY_CONSTANT(1,m4)
+            @               @               @               E := BUILD_ARRAY_CONSTANT(1,m5)
+            @               @               @               F := BUILD_ARRAY_CONSTANT(1,m6)
+            @               @               @               G := BUILD_ARRAY_CONSTANT(1,m7)
+            @               @               @               H := BUILD_ARRAY_CONSTANT(1,m8)
+            @               @               @               I := BUILD_ARRAY_CONSTANT(1,m9)
+            @               @               @               J := BUILD_ARRAY_CONSTANT(1,m10)
+            @               @               @               K := BUILD_ARRAY_CONSTANT(1,m11)
+            @               @               @               L := BUILD_ARRAY_CONSTANT(1,m12)
+            @               @               @               M := APPEND(A,B)
+            @               @               @               N := APPEND(M,C)
+            @               @               @               O := APPEND(N,D)
+            @               @               @               P := APPEND(O,E)
+            @               @               @               Q := APPEND(P,F)
+            @               @               @               R := APPEND(Q,G)
+            @               @               @               S := APPEND(R,H)
+            @               @               @               T := APPEND(S,I)
+            @               @               @               U := APPEND(T,J)
+            @               @               @               V := APPEND(U,K)
+            @               @               @               W := APPEND(V,L)
+            @               @               @               X := BUILT_LIST(W,"")
+            @               @               @               Y := SOAP_CALL("WS",X,YES)
+          end
+          enabled: Yes
+        END
+        Button0:library.component.chkButton
+          caption: SOAP_CALL2_EX
+          bounds: 10,110,160,30
+          font: sansserif,0,12
+          fore_color: 0,0,0
+          back_color: 255,255,255
+          textPos: 11
+          action:
+            @               @               @               A := SOAP_CALL2_EX(URL,URI,user,pswd,action,method,pn,pv)
+            @               @               @               B := A["tvStationID"]
+            @               @               @               C := A["tvStationName"]
+          end
+          enabled: Yes
+        END
+        Button3:library.component.chkButton
+          caption: SOAP_CALL2
+          bounds: 10,170,160,30
+          font: sansserif,0,12
+          fore_color: 0,0,0
+          back_color: 255,255,255
+          textPos: 11
+          action:
+            @               @               @               A := SOAP_CALL2("WS",action,method,pn,pv)
+            @               @               @               B := A["tvStationID"]
+            @               @               @               C := A["tvStationName"]
+          end
+          enabled: Yes
+        END
+        Label0:library.component.chkLabel
+          caption: C
+          border: No
+          font: sansserif,0,12
+          fore_color: 0,0,0
+          alignment: 2
+          enabled: Yes
+          bounds: 30,280,90,30
+        END
+        Field1:library.component.chkField
+          var: C
+          type: 5
+          format: -1
+          maxChar: 100
+          font: sansserif,0,12
+          fore_color: 0,0,0
+          back_color: 255,255,255
+          disabled_text_color: 95,95,95
+          alignment: 2
+          record: No
+          enabled: Yes
+          bounds: 50,280,320,30
+        END
+        Label1:library.component.chkLabel
+          caption: D
+          border: No
+          font: sansserif,0,12
+          fore_color: 0,0,0
+          alignment: 2
+          enabled: Yes
+          bounds: 380,280,90,30
+        END
+        ComboBox0:library.component.chkComboBox
+          bounds: 390,280,150,30
+          var: D
+          list: D
+          editable: No
+          font: sansserif,0,12
+          fore_color: 0,0,0
+          back_color: 255,255,255
+          record: No
+          enabled: Yes
+        END
+        CancelButton0:library.component.chkCancelButton
+          caption: Cancel
+          bounds: 340,340,120,30
+          font: sansserif,0,12
+          fore_color: 0,0,0
+          back_color: 255,255,255
+          textPos: 11
+          confirm: Yes
+          enabled: Yes
+        END
+        OkButton0:library.component.chkOkButton
+          caption: OK
+          bounds: 10,350,120,30
+          font: sansserif,0,12
+          fore_color: 0,0,0
+          back_color: 255,255,255
+          textPos: 11
+          enabled: Yes
+        END
+      END
+      breakpoint: Yes
+      height: 400
+      width: 549
+      grid_size: 10
+      screen_back_color: 192,192,192
+      links: ReturnNo0, ReturnYes0
+      linkYes: 1
+    END
+    ReturnYes0:library.component.chkReturnYes
+      Bounds: 380,160,54,56
+    END
+  END
+  width: 500
+  height: 400
+  grid_size: 10
+  arguments:
+    pn;19;{"theAreaID"};1;;;true
+    pv;19;{"-1"};2;;;true
+    URL;3;"http://ws.webxml.com.cn/webservices/ChinaTVprogramWebService.asmx?WSDL";3;;;false
+    URI;3;"http://WebXml.com.cn/";4;;;false
+    user;3;null;5;;;true
+    pswd;3;"";6;;;true
+    action;3;"";7;;;true
+    method;3;"getTVstationDataSet";8;;;false
+    m1;3;"<?xml version='1.0' ";9;;;true
+    m2;3;"encoding='UTF-8'?>";10;;;true
+    m3;3;"<soapenv:Envelope ";11;;;true
+    m4;3;"xmlns:soapenv='http://www.w3.or";12;;;true
+    m5;3;"g/2003/05/soap-envelope'>";13;;;true
+    m6;3;"<soapenv:Header/><soapenv:Body>";1;;;true
+    m7;3;"<getTVstationDataSet ";13;;;true
+    m8;3;"xmlns='http://WebXml.com.cn/'>";13;;;true
+    m9;3;"<theAreaID>-1</theAreaID>";13;;;true
+    m10;3;"</getTVstationDataSet>";13;;;true
+    m11;3;"</soapenv:Body>";13;;;true
+    m12;3;"</soapenv:Envelope>";13;;;true
+  end
+END
+CHECKSUM=230236237

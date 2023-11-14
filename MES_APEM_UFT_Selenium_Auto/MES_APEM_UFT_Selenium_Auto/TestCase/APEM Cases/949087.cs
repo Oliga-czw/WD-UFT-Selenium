@@ -33,58 +33,58 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(5000);
             //up
             //click verify
-            APEM.PFCEditorWindow.Build.Verify.Select();
+            APEM.DesignEditorWindow.Build.Verify.Select();
             Thread.Sleep(5000);
             APEM.AuditReasonDialog.Reason.SendKeys("for test");
             APEM.AuditReasonDialog.OK.Click();
             Thread.Sleep(4000);
-            APEM.PFCEditorWindow.GetSnapshot(Resultpath + "UnitProcedureVerify.PNG");
+            APEM.DesignEditorWindow.GetSnapshot(Resultpath + "UnitProcedureVerify.PNG");
             Base_Assert.AreEqual(APEM.DesignVerificationDialog._UFT_Dialog.IsEnabled, true);
             APEM.DesignVerificationDialog.OKButton.Click();
             ////click compile
-            APEM.PFCEditorWindow.Build.Compile.Select();
+            APEM.DesignEditorWindow.Build.Compile.Select();
             Thread.Sleep(5000);
             APEM.AuditReasonDialog.OK.Click();
             Thread.Sleep(2000);
-            APEM.PFCEditorWindow.GetSnapshot(Resultpath + "UnitProcedureCompile.PNG");
+            APEM.DesignEditorWindow.GetSnapshot(Resultpath + "UnitProcedureCompile.PNG");
             Base_Assert.IsTrue(APEM.DesignCompilationDialog._UFT_Dialog.IsEnabled);
             APEM.DesignCompilationDialog.OKButton.Click();
             //OP
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject1.DoubleClick();
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject1.DoubleClick();
             Thread.Sleep(4000);
             //click verify
-            APEM.PFCEditorWindow.Build.Verify.Select();
+            APEM.DesignEditorWindow.Build.Verify.Select();
             Thread.Sleep(5000);
             APEM.AuditReasonDialog.OK.Click();
             Thread.Sleep(2000);
-            APEM.PFCEditorWindow.GetSnapshot(Resultpath + "OperationVerify.PNG");
+            APEM.DesignEditorWindow.GetSnapshot(Resultpath + "OperationVerify.PNG");
             Base_Assert.IsTrue(APEM.DesignVerificationDialog._UFT_Dialog.IsEnabled);
             APEM.DesignVerificationDialog.OKButton.Click();
             //click compile
-            APEM.PFCEditorWindow.Build.Compile.Select();
+            APEM.DesignEditorWindow.Build.Compile.Select();
             Thread.Sleep(5000);
             APEM.AuditReasonDialog.OK.Click();
             Thread.Sleep(2000);
-            APEM.PFCEditorWindow.GetSnapshot(Resultpath + "OperationCompile.PNG");
+            APEM.DesignEditorWindow.GetSnapshot(Resultpath + "OperationCompile.PNG");
             Base_Assert.IsTrue(APEM.DesignCompilationDialog._UFT_Dialog.IsEnabled);
             APEM.DesignCompilationDialog.OKButton.Click();
             //phase
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.OperationUiObject1.DoubleClick();
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.OperationUiObject1.DoubleClick();
             Thread.Sleep(4000);
             //click verify
-            APEM.PFCEditorWindow.Build.Verify.Select();
+            APEM.DesignEditorWindow.Build.Verify.Select();
             Thread.Sleep(5000);
             APEM.AuditReasonDialog.OK.Click();
             Thread.Sleep(2000);
-            APEM.PFCEditorWindow.GetSnapshot(Resultpath + "PhaseVerify.PNG");
+            APEM.DesignEditorWindow.GetSnapshot(Resultpath + "PhaseVerify.PNG");
             Base_Assert.IsTrue(APEM.DesignVerificationDialog._UFT_Dialog.IsEnabled);
             APEM.DesignVerificationDialog.OKButton.Click();
             //click compile
-            APEM.PFCEditorWindow.Build.Compile.Select();
+            APEM.DesignEditorWindow.Build.Compile.Select();
             Thread.Sleep(5000);
             APEM.AuditReasonDialog.OK.Click();
             Thread.Sleep(2000);
-            APEM.PFCEditorWindow.GetSnapshot(Resultpath + "PhaseCompile.PNG");
+            APEM.DesignEditorWindow.GetSnapshot(Resultpath + "PhaseCompile.PNG");
             Base_Assert.IsTrue(APEM.DesignCompilationDialog._UFT_Dialog.IsEnabled);
             APEM.DesignCompilationDialog.OKButton.Click();
 

@@ -57,9 +57,7 @@
     <Reference Include="Spire.Pdf, Version=9.8.5.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
       <HintPath>..\packages\Spire.PDF.9.8.5\lib\net40\Spire.Pdf.dll</HintPath>
     </Reference>
-    <Reference Include="System">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll</HintPath>
-    </Reference>
+    <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="Microsoft.CSharp" />
@@ -131,8 +129,9 @@
     <Compile Include="Product\SLM\SLM_Window.cs" />
     <Compile Include="TestCase\APEM Cases\948794.cs" />
     <Compile Include="TestCase\APEM Cases\949084.cs" />
-    <Compile Include="TestCase\APEM Cases\949087.cs" />
+    <Compile Include="TestCase\APEM Cases\916420.cs" />
     <Compile Include="TestCase\APEM Cases\958262.cs" />
+    <Compile Include="TestCase\APEM Cases\949087.cs" />
     <Compile Include="TestCase\GML Cases\31324.cs" />
     <Compile Include="TestCase\Mobile Cases\957487y.cs" />
     <Compile Include="TestCase\Mobile Cases\957475.cs" />
@@ -249,8 +248,7 @@
     <None Include="Data\Input\GML_DATABASE\aebrs.bak" />
     <None Include="Data\Input\GML_DATABASE\APEMMMDMMVT.bak" />
     <None Include="Data\Input\RPL_DERMS_PACK_01_02.CHK" />
-    <None Include="Data\Input\TEMP.zip" />
-    <None Include="Data\Input\Template\EVENTLOGFUFT.zip" />
+    <None Include="Data\Input\SOAPCALL01_1.CHK" />
     <None Include="Data\Input\Template\TEMP.zip" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />

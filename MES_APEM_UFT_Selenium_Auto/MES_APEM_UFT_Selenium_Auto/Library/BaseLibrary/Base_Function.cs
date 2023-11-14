@@ -45,6 +45,16 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             Base_logger.Info("Add config key successfully.");
 
         }
+        public static void MouseClick(Point point)
+        {
+            int WaitPoint_x = point.X - 70;
+            int WaitPoint_y = point.Y - 70;
+            Point WaitPoint =new Point(WaitPoint_x, WaitPoint_y);
+            Mouse.Move(WaitPoint);
+            Thread.Sleep(5000);
+            Mouse.Click(point);
+
+        }
 
         public static void DeleteConfigKey(string path,string Key)
         {
@@ -61,7 +71,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             Base_logger.Info("Delete config key successfully.");
 
         }
-
         public static void DesktopSnipping(string path)
         {
             Bitmap bitmap = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
@@ -73,16 +82,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             }
             // 保存bitmap到文件  
             bitmap.Save(path);
-        }
-
-        public static void MouseClick(Point point)
-        {
-            int WaitPoint_x = point.X - 70;
-            int WaitPoint_y = point.Y - 70;
-            Point WaitPoint = new Point(WaitPoint_x, WaitPoint_y);
-            Mouse.Move(WaitPoint);
-            Thread.Sleep(5000);
-            Mouse.Click(point);
         }
     }        
 }
