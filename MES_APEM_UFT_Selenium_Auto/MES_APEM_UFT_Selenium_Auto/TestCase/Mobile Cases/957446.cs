@@ -22,7 +22,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("UC822659_APEM Mobile: Check event log page and its display")]
         [TestCategory(ProductArea.Mobile)]
         [Priority(CasePriority.High)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Created)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
         [Timeout(600000)]
@@ -33,7 +33,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             string Resultpath = Base_Directory.ResultsDir + CaseID + "-";
             
             Application.LaunchMocAndLogin();
-            //LogStep(@"1. import bpl");//import bpl
+            LogStep(@"1. import bpl");//import bpl
             //check bpl exit
             APEM.MocmainWindow.BPLDesign.ClickSignle();
             if (!APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row("EVENTLOG").Existing)
@@ -198,7 +198,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             LogStep(@"10. Change to consolidated");
             Mobile.Main_Page.Setting.Click();
             Mobile.Setting_Page.turnOn_mode(2);
-            LogStep(@"9. Check event log inconsolidated");
+            LogStep(@"11. Check event log inconsolidated");
             //check eventlog icon
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Event log icon in consolidated.PNG");
             try
@@ -220,7 +220,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             string McountCons = Mobile.EventLog_Page.EventLogTableRows.Count.ToString();
             //check data if same
             Base_Assert.AreEqual(McountCons, DBconut[0][0], "All data displays in consolidated.");
-            LogStep(@"6. Select some columns");
+            LogStep(@"12. Select some columns");
             //add fuction select all
             Mobile.EventLog_Page.Sellect_all_col();
             List<string> delete_col_cons = new List<string> { "Module", "Date" };

@@ -22,6 +22,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public Selenium_WebElement body => new Selenium_WebElement(_Selenium_Driver, "//body");
         public Selenium_WebElement Message => new Selenium_WebElement(_Selenium_Driver, "//div[@title='Message']");
         public Selenium_WebElement Confirm => new Selenium_WebElement(_Selenium_Driver, "//div[@title='Confirm']");
+        public Selenium_WebElement body_div => new Selenium_WebElement(_Selenium_Driver, "/html/body/div[@class='cdk-overlay-container']");
 
     }
 
@@ -264,8 +265,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
 
         public Selenium_WebElement SelectMenu => new Selenium_WebElement(_Selenium_Driver, "//button[@id='selectmenu']");
 
+        public Selenium_WebElement Search => new Selenium_WebElement(_Selenium_Driver, "//input[@id='ordersearch']");
 
-        
 
         public ReadOnlyCollection<IWebElement> EventLogTableRows => _Selenium_Driver.FindElements(By.XPath("//table/tbody/tr"));
         public ReadOnlyCollection<IWebElement> EventLogTableHeads => _Selenium_Driver.FindElements(By.XPath("//table/thead/tr/th"));

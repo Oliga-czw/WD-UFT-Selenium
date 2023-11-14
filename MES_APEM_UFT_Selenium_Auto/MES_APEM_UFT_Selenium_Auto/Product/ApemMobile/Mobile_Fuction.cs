@@ -27,7 +27,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
             string Url = $"http://{login_alter}{servername}.qae.aspentech.com/ApemMobile/";
             driver.Navigate(Url);
             driver.Maxsize();
-            Thread.Sleep(5000);
+            Thread.Sleep(10000);
         }
         public static void gotoWeb(Selenium_Driver driver, string url)
         {
