@@ -1,11 +1,13 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
+using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
@@ -119,6 +121,26 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
             IJavaScriptExecutor js = (IJavaScriptExecutor)_Selenium_Driver;
             js.ExecuteScript(script, element);
         }
+        public static bool is_element_exit(string xpath)
+        {
+            try
+            {
+                var element = _Selenium_Driver.FindElement(By.XPath(xpath));
 
+                return true;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
+        }
+        public void action_move_to_element(IWebElement element)
+        {
+            Actions action = new Actions(_Selenium_Driver);
+            int offsetX = (int)(element.Size.Width * (0.49 - 0.5));
+            int offsetY = (int)(element.Size.Height * (0.56 - 0.5));
+            action.MoveToElement(element, offsetX, offsetY).Click().Perform();
+            Thread.Sleep(5000);
+        }
     }
 }

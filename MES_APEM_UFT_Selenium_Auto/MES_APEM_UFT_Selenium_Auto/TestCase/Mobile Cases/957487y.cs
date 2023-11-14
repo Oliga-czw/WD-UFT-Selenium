@@ -48,23 +48,23 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MocmainWindow.BPLListInternalFrame.Refresh_Button.ClickSignle();
             APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row("EVENTLOG").Click();
             APEM.MocmainWindow.BPLListInternalFrame.LoadDesigner_Button.ClickSignle();
-            APEM.BPLDesignEditorWindow.ExecuteButton.ClickSignle();
+            APEM.DesignEditorWindow.ExecuteButton.ClickSignle();
             //add reason
             if (APEM.AuditReasonDialog.IsExist())
             {
                 APEM.AuditReasonDialog.Reason.SendKeys("Execute");
                 APEM.AuditReasonDialog.OK.Click();
             }
-            APEM.BPLDesignEditorWindow.BPLExecutionInterFrame.LogEventAutoButton.Click();
-            if (APEM.BPLDesignEditorWindow.MessageInterFrame.message.AttachedText == "Sucess")
+            APEM.DesignEditorWindow.ExecuteMainInternalFrame.LogEventAutoButton.Click();
+            if (APEM.DesignEditorWindow.MessageInterFrame.message.AttachedText == "Sucess")
             {
                 //log
-                APEM.BPLDesignEditorWindow.MessageInterFrame.OKButton.ClickSignle();
+                APEM.DesignEditorWindow.MessageInterFrame.OKButton.ClickSignle();
             }
             //need click OK twice
-            APEM.BPLDesignEditorWindow.BPLExecutionInterFrame.OKButton.Click();
+            APEM.DesignEditorWindow.ExecuteMainInternalFrame.OKButton.Click();
             APEM.ExecutionFinishedDialog.OKButton.Click();
-            APEM.BPLDesignEditorWindow.Close();
+            APEM.DesignEditorWindow.Close();
             APEM.CloseDialog.YesButton.Click();
             Thread.Sleep(3000);
 

@@ -321,6 +321,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button Delete => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Delete Selected View' and @IsWrapped = 'True']");
         public UFT_Label message => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'OptionPane.label']");
     }
+  
     public class Confirmation_InterFrame : MOCMainInterFrame
     {
 
