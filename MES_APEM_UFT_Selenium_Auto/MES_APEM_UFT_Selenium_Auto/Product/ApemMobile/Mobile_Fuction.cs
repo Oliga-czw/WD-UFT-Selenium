@@ -56,6 +56,12 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
             //time out node /session-config/session-timeout
 
         }
+        public static void TakeScreenshot(IWebDriver driver, string path)
+        {
+            ITakesScreenshot ssdriver = driver as ITakesScreenshot;
+            Screenshot screenshot = ssdriver.GetScreenshot();
+            screenshot.SaveAsFile(path, ScreenshotImageFormat.Png);
+        }
 
         //    public static void gotoTab(string tabname)
 

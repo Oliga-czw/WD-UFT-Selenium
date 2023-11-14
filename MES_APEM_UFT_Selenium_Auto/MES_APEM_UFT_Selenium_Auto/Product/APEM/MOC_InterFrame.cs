@@ -206,6 +206,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         {
         }
         public UFT_Button AddBPL_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Insert row' and @IsWrapped = 'True']");
+        public UFT_Button LoadDesigner_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Load designer' and @IsWrapped = 'True']");
+        public UFT_Button Refresh_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Refresh' and @IsWrapped = 'True']");
+        public UFT_Table BPLList_Table => new UFT_Table(_UFT_InterFrame, "//Table[@AttachedText = 'Name\\s\\s']");
     }
 
     public class BPLData_InterFrame : MOCMainInterFrame
@@ -278,6 +281,18 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button SOAP_CALL2_EX_Button => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Button0']");
         public UFT_Editor CheckField => new UFT_Editor(_UFT_InterFrame, "//Editor[@TagName = 'chkField']");
         public UFT_Button Cancel_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Cancel']");
+        //logevent
+        public UFT_Button LogEventAutoButton => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Log Event Auto']");
+        public UFT_Button OKButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = '\\s{0,}OK\\s{0,}']");
+    }
+    public class BPLExecutionMessageInterFrame : UFT_InterFrame
+    {
+        public BPLExecutionMessageInterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+        //logevent
+        public UFT_Button OKButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = '\\s{0,}OK\\s{0,}']");
+        public UFT_Label message => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'OptionPane.label']");
     }
 
     public class PopUp_InterFrame : MOCMainInterFrame
@@ -295,10 +310,17 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         //public UFT_Button Deviation_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Deviation']");
         //public UFT_Button Print_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Print']");
 
-
-
     }
-    
+
+    public class EventLogList_InterFrame : UFT_InterFrame
+    {
+        public EventLogList_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+        //logevent
+        public UFT_Button Delete => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Delete Selected View' and @IsWrapped = 'True']");
+        public UFT_Label message => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'OptionPane.label']");
+    }
     public class Confirmation_InterFrame : MOCMainInterFrame
     {
 

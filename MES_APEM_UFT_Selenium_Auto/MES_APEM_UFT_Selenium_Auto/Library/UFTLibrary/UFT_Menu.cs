@@ -28,7 +28,12 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
             _UFT_Menu.Click();
             Thread.Sleep(waitingTime);
         }
-
+        public void Select(int waitingTime = 1000)
+        {
+            _UFT_Menu.WaitUntilEnabled();
+            _UFT_Menu.Select();
+            Thread.Sleep(waitingTime);
+        }
         public void ClickSignle(int waitingTime = 1000)
         {
             _UFT_Menu.WaitUntilEnabled();

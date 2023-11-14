@@ -90,11 +90,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
             AttachedText = @"Password:"
         });
 
-        public IEditor Reason => _UFT_Dialog.Describe<IEditor>(new EditorDescription
-        {
-            AttachedText = @"Reason"
-        });
-
         public IEditor Comment => _UFT_Dialog.Describe<IEditor>(new EditorDescription
         {
             AttachedText = @"Comment:"
@@ -109,6 +104,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
             Image image = _UFT_Dialog.GetSnapshot();
             image.Save(path, ImageFormat.Png);
         }
+        public IEditor Reason => _UFT_Dialog.Describe<IEditor>(new EditorDescription
+        {
+            AttachedText = @"Reason"
+        }); 
     }
 
 
@@ -131,7 +130,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
         {
         }
 
-        public UFT_Editor Reason => new UFT_Editor(_UFT_Dialog, "//Editor[@AttachedText = 'Reason']");
+        //public UFT_Editor Reason => new UFT_Editor(_UFT_Dialog, "//Editor[@AttachedText = 'Reason']");
     }
     //AvailableBPL_Dialog
     public class AvailableBPL_Dialog : UFT_Dialog
