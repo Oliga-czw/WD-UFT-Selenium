@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics;
 using System.Threading;
 using MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary;
+using Microsoft.Win32;
 
 namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
 {
@@ -138,6 +139,15 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             var x = BeginNode_X - PFCDesign_X;
             var width = (PFCDesign_Width - BeginNode_Width) / 2;
             Base_Assert.ReferenceEquals(x, width);
+        }
+
+        public static void SkipRegister() {
+            //Base_Registry registry = new Base_Registry();
+            //registry.SkipRegister();
+
+            Registry.CurrentUser.OpenSubKey($"Software\\AspenTech").SetValue("DoNotRegister", "1");
+
+
         }
     }
 

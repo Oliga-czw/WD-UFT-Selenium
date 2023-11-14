@@ -210,6 +210,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         public const string GML = "Area.GML";
         public const string MOC = "Area.module_MOC";
         public const string RecipeManagement = "Area.Recipe Management";
+        public const string Mobile = "Area.APEM Mobile";
 
     }
 

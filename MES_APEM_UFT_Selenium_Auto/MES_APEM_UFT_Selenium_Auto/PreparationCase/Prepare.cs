@@ -38,7 +38,7 @@ namespace MES_APEM_UFT_Selenium_Auto
         {
 
             //install  and config aprm
-            APRM_Fuction.FirstInitailAPRM();
+            //APRM_Fuction.FirstInitailAPRM();
             //wia to false
             Mobile_Fuction.UpdateAutoLogin();
             //APRM_Fuction.InitailAPRM();

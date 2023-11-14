@@ -72,5 +72,13 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             return valueData.ToString();
         }
 
+        /// <summary>
+        /// skip register
+        /// </summary>
+        public void SkipRegister()
+        {
+            HKCU.OpenSubKey($"Software\\AspenTech").SetValue("DoNotRegister","1");
+        }
+
     }
 }

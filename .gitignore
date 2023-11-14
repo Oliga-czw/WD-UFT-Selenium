@@ -1,18 +1,19 @@
 TestResults/
-WD_UFT_Selenium_Auto/WD_UFT_Selenium_Auto/Results/
-WD_UFT_Selenium_Auto/WD_UFT_Selenium_Auto/Log/
-WD_UFT_Selenium_Auto/WD_UFT_Selenium_Auto/obj/
-WD_UFT_Selenium_Auto/WD_UFT_Selenium_Auto/bin/
+MES_APEM_UFT_Selenium_Auto/MES_APEM_UFT_Selenium_Auto/Results/
+MES_APEM_UFT_Selenium_Auto/MES_APEM_UFT_Selenium_Auto/Log/
+MES_APEM_UFT_Selenium_Auto/MES_APEM_UFT_Selenium_Auto/obj/
+MES_APEM_UFT_Selenium_Auto/MES_APEM_UFT_Selenium_Auto/bin/
 
-.vs/WD_UFT_Selenium_Auto/v16/
+.vs/MES_APEM_UFT_Selenium_Auto/v16/
 
 
-WD_UFT_Selenium_Auto\WD_UFT_Selenium_Auto\obj\Debug\WD_UFT_Selenium_Auto.dll
+MES_APEM_UFT_Selenium_Auto/MES_APEM_UFT_Selenium_Auto\obj\Debug\WD_UFT_Selenium_Auto.dll
 
 *.testlog
 *.testlog
 *.cache
 
-WD_UFT_Selenium_Auto/.vs/WD_UFT_Selenium_Auto/v16/.suo
+MES_APEM_UFT_Selenium_Auto/.vs/MES_APEM_UFT_Selenium_Auto/v16/.suo
 *.manifest
 *.pdb
+*.log
