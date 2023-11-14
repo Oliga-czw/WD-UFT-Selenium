@@ -32,75 +32,75 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(5000);
             //add up and Tansition
             //up
-            APEM.PFCEditorWindow.UnitProcedure._UFT_CheckBox.Click();
+            APEM.DesignEditorWindow.UnitProcedure._UFT_CheckBox.Click();
             Thread.Sleep(8000);
-            Base_Function.MouseClick(APEM.PFCEditorWindow.PFCDesignAppInternalFrame.FirstLink.AbsoluteLocation);
+            Base_Function.MouseClick(APEM.DesignEditorWindow.PFCDesignAppInternalFrame.FirstLink.AbsoluteLocation);
             Thread.Sleep(3000);
             //Tansition
-            APEM.PFCEditorWindow.Transition._UFT_CheckBox.Click();
+            APEM.DesignEditorWindow.Transition._UFT_CheckBox.Click();
             Thread.Sleep(8000);
-            Base_Function.MouseClick(APEM.PFCEditorWindow.PFCDesignAppInternalFrame.StartLink.AbsoluteLocation);
+            Base_Function.MouseClick(APEM.DesignEditorWindow.PFCDesignAppInternalFrame.StartLink.AbsoluteLocation);
             Thread.Sleep(3000);
-            APEM.PFCEditorWindow.SaveButton.ClickSignle();
+            APEM.DesignEditorWindow.SaveButton.ClickSignle();
             if (APEM.AuditReasonDialog.IsExist())
             {
                 APEM.AuditReasonDialog.Reason.SendKeys("for test");
                 APEM.AuditReasonDialog.OK.Click();
             }
             Thread.Sleep(5000);
-            APEM.PFCEditorWindow.GetSnapshot(Resultpath + "UnitProcedureSaved.PNG");
+            APEM.DesignEditorWindow.GetSnapshot(Resultpath + "UnitProcedureSaved.PNG");
             Assert.IsTrue(APEM.DesignSavedDialog.IsExist());
             APEM.DesignSavedDialog.OKButton.Click();
             //OP
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject0.DoubleClick();
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject0.DoubleClick();
             Thread.Sleep(4000);
             //add op and script
             //op
-            APEM.PFCEditorWindow.Operation._UFT_CheckBox.Click();
+            APEM.DesignEditorWindow.Operation._UFT_CheckBox.Click();
             Thread.Sleep(8000);
-            Base_Function.MouseClick(APEM.PFCEditorWindow.PFCDesignAppInternalFrame.StartLink.AbsoluteLocation);
+            Base_Function.MouseClick(APEM.DesignEditorWindow.PFCDesignAppInternalFrame.StartLink.AbsoluteLocation);
             Thread.Sleep(3000);
             //script
-            APEM.PFCEditorWindow.TabbedPaneControl.Select(1);
+            APEM.DesignEditorWindow.TabbedPaneControl.Select(1);
             Thread.Sleep(2000);
-            APEM.PFCEditorWindow.First_Phase.Click();
+            APEM.DesignEditorWindow.First_Phase.Click();
             Thread.Sleep(8000);
-            Base_Function.MouseClick(APEM.PFCEditorWindow.PFCDesignAppInternalFrame.StartLink.AbsoluteLocation);
+            Base_Function.MouseClick(APEM.DesignEditorWindow.PFCDesignAppInternalFrame.StartLink.AbsoluteLocation);
             Thread.Sleep(3000);
-            APEM.PFCEditorWindow.SaveButton.ClickSignle();
+            APEM.DesignEditorWindow.SaveButton.ClickSignle();
             if (APEM.AuditReasonDialog.IsExist())
             {
                 APEM.AuditReasonDialog.OK.Click();
             }
             Thread.Sleep(5000);
-            APEM.PFCEditorWindow.GetSnapshot(Resultpath + "OperationSaved.PNG");
+            APEM.DesignEditorWindow.GetSnapshot(Resultpath + "OperationSaved.PNG");
             Assert.IsTrue(APEM.DesignSavedDialog.IsExist());
             APEM.DesignSavedDialog.OKButton.Click();
             Thread.Sleep(2000);
-            APEM.PFCEditorWindow.DesignMenu.Save.Select();
+            APEM.DesignEditorWindow.DesignMenu.Save.Select();
             Thread.Sleep(4000);
             Assert.IsTrue(APEM.DesignSavedDialog.IsExist());
             APEM.DesignSavedDialog.OKButton.Click();
             Thread.Sleep(2000);
             //phase
-            APEM.PFCEditorWindow.PFCDesignAppInternalFrame.OperationUiObject1.DoubleClick();
+            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.OperationUiObject1.DoubleClick();
             Thread.Sleep(4000);
             //add parallel/serial
-            APEM.PFCEditorWindow.Parallel._UFT_CheckBox.Click();
+            APEM.DesignEditorWindow.Parallel._UFT_CheckBox.Click();
             Thread.Sleep(5000);
-            Base_Function.MouseClick(APEM.PFCEditorWindow.PFCDesignAppInternalFrame.ControlLinkUiObject._UFT_UiObject.AbsoluteLocation);
+            Base_Function.MouseClick(APEM.DesignEditorWindow.PFCDesignAppInternalFrame.ControlLinkUiObject._UFT_UiObject.AbsoluteLocation);
             Thread.Sleep(3000);
-            APEM.PFCEditorWindow.SaveButton.ClickSignle();
+            APEM.DesignEditorWindow.SaveButton.ClickSignle();
             if (APEM.AuditReasonDialog.IsExist())
             {
                 APEM.AuditReasonDialog.OK.Click();
             }
             Thread.Sleep(5000);
-            APEM.PFCEditorWindow.GetSnapshot(Resultpath + "PhaseSaved.PNG");
+            APEM.DesignEditorWindow.GetSnapshot(Resultpath + "PhaseSaved.PNG");
             Assert.IsTrue(APEM.DesignSavedDialog.IsExist());
             APEM.DesignSavedDialog.OKButton.Click();
             Thread.Sleep(2000);
-            APEM.PFCEditorWindow.DesignMenu.Save.Select();
+            APEM.DesignEditorWindow.DesignMenu.Save.Select();
             Thread.Sleep(4000);
             Assert.IsTrue(APEM.DesignSavedDialog.IsExist());
             APEM.DesignSavedDialog.OKButton.Click();

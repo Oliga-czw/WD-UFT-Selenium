@@ -28,11 +28,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
             driver.Navigate(Url);
             driver.Maxsize();
         }
-        public static void gotoWeb(Selenium_Driver driver, string url)
-        {
-            driver.Navigate(url);
-            driver.Maxsize();
-        }
+        //public static void gotoWeb(Selenium_Driver driver, string url)
+        //{
+        //    driver.Navigate(url);
+        //    driver.Maxsize();
+        //}
         public static void login()
         {
             Mobile.Login_Page.username.SendKeys(UserName.qaone1);

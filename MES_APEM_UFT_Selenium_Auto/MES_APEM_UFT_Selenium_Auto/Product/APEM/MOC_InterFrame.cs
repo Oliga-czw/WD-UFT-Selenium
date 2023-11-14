@@ -116,6 +116,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         });
         public UFT_Button SelectBPL_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Insert row' and @IsWrapped = 'True']");
         public UFT_Button LoadDesigner_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Load designer' and @IsWrapped = 'True']");
+        public UFT_Button VerifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Verify']");
     }
     //OrderTrackingPFC_InterFrame
     public class OrderTrackingPFC_InterFrame : MOCMainInterFrame
@@ -206,6 +207,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         }
         public UFT_Button AddBPL_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Insert row' and @IsWrapped = 'True']");
     }
+
     public class BPLData_InterFrame : MOCMainInterFrame
     {
 
@@ -213,9 +215,26 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         {
         }
         public UFT_Button ConfirmChanges_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Confirm changes' and @IsWrapped = 'True']");
+        public UFT_Button CancelChanges_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Cancel changes' and @IsWrapped = 'True']");
         public UFT_Editor BPLName => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Name']");
         public UFT_Editor BPLDescription => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Description']");
         public UFT_Button MakeUsable_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Make usable']");
+        public ITabControl TabbedPaneControl => _UFT_InterFrame.Describe<ITabControl>(new TabControlDescription
+        {
+            TagName = @"m2rTabbedPanel"
+        });
+        public UFT_Button AddBP_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Insert row' and @IsWrapped = 'True']");
+        public UFT_Table BPListTable => new UFT_Table(_UFT_InterFrame, "//Table[@AttachedText = 'No.\\s\\s']");
+        public IEditor NoEditor => _UFT_InterFrame.Describe<IEditor>(new EditorDescription {
+				AttachedText = @"No.  ",
+				IsWrapped = true
+			});
+        public ICheckBox WebCheckBox => _UFT_InterFrame.Describe<ICheckBox>(new CheckBoxDescription
+        {
+            AttachedText = @"No.  ",
+            IsWrapped = true
+        });
+        public UFT_Button LoadDesigner_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Load designer' and @IsWrapped = 'True']");
     }
     public class Execution_InterFrame : MOCMainInterFrame
     {
@@ -223,6 +242,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public Execution_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
         {
         }
+        public UFT_Button SOAP_CALL2_EX_Button => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Button0']");
+        public UFT_Editor CheckField => new UFT_Editor(_UFT_InterFrame, "//Editor[@TagName = 'chkField']");
+
         public UFT_Button OK_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'OK']");
         public UFT_Button Cancel_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Cancel']");
         public UFT_Editor UserIDEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'User ID:']");
@@ -245,12 +267,19 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Editor DeviationDesEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Introduction']");
         public UFT_List ProductionStoppedList => new UFT_List(_UFT_InterFrame, "//List[@ObjectName = 'cmbProductionStopped']");
         public UFT_Editor ProductionResponseEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'By signing, the deviation will be recorded in the system.']");
+    }
+    //ExecuteMain_InterFrame
+    public class ExecuteMain_InterFrame : MOCMainInterFrame
+    {
 
-
-
+        public ExecuteMain_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+        public UFT_Button SOAP_CALL2_EX_Button => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Button0']");
+        public UFT_Editor CheckField => new UFT_Editor(_UFT_InterFrame, "//Editor[@TagName = 'chkField']");
+        public UFT_Button Cancel_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Cancel']");
     }
 
-    
     public class PopUp_InterFrame : MOCMainInterFrame
     {
 

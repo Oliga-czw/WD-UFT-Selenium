@@ -68,7 +68,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public static MOC_AuditWindow MOCAuditWindow => new MOC_AuditWindow("//JavaWindow[@ObjectName = 'Audit']");
         public static MOC_ConfigWindow MOCConfigWindow => new MOC_ConfigWindow("//JavaWindow[@ObjectName = 'Config']");
         public static MOC_TemplatesWindow MOCTemplatesWindow => new MOC_TemplatesWindow("//JavaWindow[@ObjectName = 'Templates']");
-        public static PFCEditorWindow PFCEditorWindow => new PFCEditorWindow("//JavaWindow[@ObjectName = 'Design Editor']");
+        public static DesignEditorWindow DesignEditorWindow => new DesignEditorWindow("//JavaWindow[@ObjectName = 'Design Editor']");
         public static DesignVerificationWindow DesignVerificationWindow => new DesignVerificationWindow("//JavaWindow[@ObjectName = 'Design verification']");
         public static DesignCompilationWindow DesignCompilationWindow => new DesignCompilationWindow("//JavaWindow[@ObjectName = 'Design compilation']");
 
@@ -87,6 +87,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public static UFT_Dialog DesignVerificationDialog => new UFT_Dialog("//Dialog[@Title = 'Design verification']");
         public static UFT_Dialog DesignCompilationDialog => new UFT_Dialog("//Dialog[@Title = 'Design compilation']");
         public static UFT_Dialog VerifyDialog => new UFT_Dialog("//Dialog[@Title = 'Verify']");
+        public static UFT_Dialog ExecutionFinishedDialog => new UFT_Dialog("//Dialog[@Title = 'Execution Finished']");
         #endregion
 
 

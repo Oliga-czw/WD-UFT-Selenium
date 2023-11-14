@@ -67,18 +67,20 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_CheckBox ImportGMLTemplates => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText='Import GML v.* template']");
 
     }
-    public class PFCEditorWindow : UFT_JavaWindow
+    public class DesignEditorWindow : UFT_JavaWindow
     {
 
-        public PFCEditorWindow()
+        public DesignEditorWindow()
         {
         }
-        public PFCEditorWindow(string xpath) : base(xpath)
+        public DesignEditorWindow(string xpath) : base(xpath)
         {
         }
 
         #region interframe
         public PFCDesignApp_InterFrame PFCDesignAppInternalFrame => new PFCDesignApp_InterFrame(_UFT_Window, "//InterFrame[@NativeClass = 'design.designApp$1' ]");
+        public ExecuteMain_InterFrame ExecuteMainInternalFrame => new ExecuteMain_InterFrame(_UFT_Window, "//InterFrame[@ObjectName = 'Main' ]");
+        public Confirmation_InterFrame ConfirmationInternalFrame => new Confirmation_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Confirmation']");
         #endregion
 
         public UFT_CheckBox UnitProcedure => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText = 'Unit Procedure' and @IsWrapped = 'True']");
@@ -90,6 +92,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button CutButton => new UFT_Button(_UFT_Window, "//Button[@Label = 'Cut' and @IsWrapped = 'True']");
         public UFT_Button BackButton => new UFT_Button(_UFT_Window, "//Button[@Label = 'Back to Code' and @IsWrapped = 'True']");
         public UFT_Button PasteButton => new UFT_Button(_UFT_Window, "//Button[@Label = 'Paste' and @IsWrapped = 'True']");
+        public UFT_Button ExecuteButton => new UFT_Button(_UFT_Window, "//Button[@Label = 'Execute' and @IsWrapped = 'True']");
         public UFT_CheckBox Operation => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText = 'Operation' and @IsWrapped = 'True']");
         //public UFT_CheckBox Phase => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText = 'Unit Procedure' and @IsWrapped = 'True']");
         public ITabControl TabbedPaneControl => _UFT_Window.Describe<ITabControl>(new TabControlDescription
