@@ -164,7 +164,7 @@ namespace MES_APEM_UFT_Selenium_Auto
             Thread.Sleep(5000);
             Mobile_Fuction.login();
             driver.Wait();
-            driver.FindElement(By.XPath,"//div[contains(text(),'X_ORDER')]/../..//td/a/mat-icon").Click();
+            //driver.FindElement(By.XPath,"//div[contains(text(),'X_ORDER')]/../..//td/a/mat-icon").Click();
 
 
 
