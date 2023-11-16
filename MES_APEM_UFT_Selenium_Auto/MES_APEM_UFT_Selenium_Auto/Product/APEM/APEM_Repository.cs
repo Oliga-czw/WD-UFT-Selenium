@@ -29,7 +29,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             APEM.APEMMainWindow.EnterPasswordAgain.SendKeys(password);
             APEM.APEMMainWindow.OKButton.ClickSignle();
             Thread.Sleep(5000);
-            if (APEM.APEMMainWindow.UID.IsEnabled) 
+            if (APEM.APEMMainWindow.UID.IsEnabled)
             {
                 APEM.APEMMainWindow.UID.SendKeys("123");
             }
@@ -55,8 +55,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         #endregion
         #region AeBRS Windows
         public static APEMMainWindow APEMMainWindow => new APEMMainWindow("//JavaWindow[@ObjectName = 'Configuration']");
-       
-        
+
+
         #endregion
         #region AeBRS Dialog
         public static UFT_Dialog CompletedDialog => new UFT_Dialog("//Dialog[@Title = 'Configuration Process Completed']");
@@ -64,7 +64,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         #region MOC windows
 
         public static MOCMainWindow MocmainWindow => new MOCMainWindow("//JavaWindow[@ObjectName = 'MOC']");
-        public static PhaseExecWindow PhaseExecWindow => new PhaseExecWindow("//JavaWindow[@NativeClass = 'runtime.vm.frame.OperExecFrame']"); 
+        public static PhaseExecWindow PhaseExecWindow => new PhaseExecWindow("//JavaWindow[@NativeClass = 'runtime.vm.frame.OperExecFrame']");
         public static MOC_AuditWindow MOCAuditWindow => new MOC_AuditWindow("//JavaWindow[@ObjectName = 'Audit']");
         public static MOC_ConfigWindow MOCConfigWindow => new MOC_ConfigWindow("//JavaWindow[@ObjectName = 'Config']");
         public static MOC_TemplatesWindow MOCTemplatesWindow => new MOC_TemplatesWindow("//JavaWindow[@ObjectName = 'Templates']");
@@ -108,6 +108,21 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             try { aspen[0].WaitForExit(10000); }
             catch { Base_Assert.Fail("Failed to close moc."); }
         }
+
+        public static void setServerAndRegistration()
+        {
+            Base_Test.LaunchApp(Base_Directory.MOCDir);
+            SdkConfiguration config = new SdkConfiguration();
+            SDK.Init(config);
+            Thread.Sleep(5000);
+            AeBRS.AeBRSConfigureWindow.ServerName.SetText(Environment.MachineName);
+            AeBRS.AeBRSConfigureWindow.OkButton.Click();
+            Thread.Sleep(3000);
+            APEM.RegistrationWindow.doNotShowCheckBox.Click();
+            APEM.RegistrationWindow.Close();
+            Thread.Sleep(2000);
+            APEM.ExitApplication();
+        } 
         #endregion
 
         #region APEMAdmin windows
@@ -117,9 +132,22 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
 
         public static STD_Dialog PropertyDialog => new STD_Dialog("//Dialog[@Text = 'Audit & Compliance Extractor - Properties' and @Index='1']");
         public static STD_Dialog PrintDialog => new STD_Dialog("//Dialog[@WindowTitleRegExp = 'Print']");
-        
+
         #endregion
-    }
+
+
+        private static HP.LFT.SDK.WPF.IWindow aspenONERegistrationWindow = Desktop.Describe<HP.LFT.SDK.WPF.IWindow>(new HP.LFT.SDK.WPF.WindowDescription
+        {
+            ObjectName = @"aspenONE Registration"
+        });
+
+        public static RegistrationWindow RegistrationWindow => new RegistrationWindow(aspenONERegistrationWindow);
+
+
+
+
+} 
+
 }
 
 
