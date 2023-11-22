@@ -27,7 +27,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(5000);
             APEM.MocmainWindow.RPLDesign.ClickSignle();
             Thread.Sleep(5000);
-            APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row("2BPLS").Click();
+            APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row("HASDHSV").Click();
             Thread.Sleep(2000);
             APEM.MocmainWindow.RPLDesignInternalFrame.LoadDesigner_Button.ClickSignle();
             Thread.Sleep(5000);

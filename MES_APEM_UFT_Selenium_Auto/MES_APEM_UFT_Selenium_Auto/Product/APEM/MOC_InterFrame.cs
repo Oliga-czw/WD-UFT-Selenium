@@ -156,7 +156,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_UiObject BeginNodeUiObject => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@NativeClass = 'PFCTree.View.BeginNode']");
         public UFT_UiObject ControlLinkUiObject => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@NativeClass = 'PFCTree.View.ControlLink']");
         public UFT_UiObject EndNodeUiObject => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@NativeClass = 'PFCTree.View.EndNode']");
-        public UFT_UiObject ParallelDivergentUiObject => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@NativeClass = 'PFCTree.View.ParallelDivergent']");
+        public UFT_UiObject RPLDesignForm => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@NativeClass = 'runtime.Design.recipeDesignForm']");
         public UFT_UiObject UnitProcedureUiObject => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@TagName = 'UnitProcedure']");
         public UFT_UiObject OperationUiObject => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@TagName = 'Operation']");
         public UFT_UiObject PhaseUiObject => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@TagName = 'Phase']");
@@ -194,10 +194,23 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
 				NativeClass = @"PFCTree.View.Phase",
 				Index = 1
 			});
+        //PFCTree.View.Script
+        public IUiObject ScriptUiObject => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription
+        {
+            NativeClass = @"PFCTree.View.Script",
+            Index = 0
+        });
+        public IUiObject TransitionUiObject => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription
+        {
+            NativeClass = @"PFCTree.View.Transition",
+            Index = 0
+        });
         public IUiObject ParallelDivergent => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription
         {
             NativeClass = @"PFCTree.View.ParallelDivergent"
         });
+        //runtime.Design.recipeDesignForm
+
     }
     public class BPLList_InterFrame : MOCMainInterFrame
     {

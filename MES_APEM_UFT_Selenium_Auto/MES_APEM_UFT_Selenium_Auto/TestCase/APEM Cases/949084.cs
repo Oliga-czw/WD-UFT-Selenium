@@ -30,6 +30,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(2000);
             APEM.MocmainWindow.RPLDesignInternalFrame.LoadDesigner_Button.ClickSignle();
             Thread.Sleep(5000);
+            MOC_Fuction.ImportCHKDesign("RPL_DERMS_PACK_01_02.CHK");
             //add up and Tansition
             //up
             APEM.DesignEditorWindow.UnitProcedure._UFT_CheckBox.Click();
