@@ -26,7 +26,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Application.LaunchMocAndLogin();
             Thread.Sleep(5000);
             APEM.MocmainWindow.RPLDesign.ClickSignle();
-            MOC_Fuction.AddRPL_OpenDesign("TESTRPL", "AAA_BPL (Version 1)");
+            MOC_Fuction.AddRPL_OpenDesign("TESTRPL02", "AAA_BPL (Version 1)");
             MOC_Fuction.ImportCHKDesign("RPL_DERMS_PACK_01_02.CHK");
             Thread.Sleep(5000);
             APEM.DesignEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject1.DoubleClick();
