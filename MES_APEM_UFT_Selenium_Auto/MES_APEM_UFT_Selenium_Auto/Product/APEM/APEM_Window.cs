@@ -184,6 +184,28 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public PopUp_InterFrame PopUpInternalFrame => new PopUp_InterFrame(_UFT_Window, "//InterFrame[@NativeClass = 'runtime.vm.chkVMRuntimeFrame$MDIFrameMessageInputSupport$2']");
         public Confirmation_InterFrame ConfirmationInternalFrame => new Confirmation_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Confirmation']");
     }
-    
+
+    public class RegistrationWindow : WPF_Window
+    {
+
+        public RegistrationWindow()
+        {
+        }
+        public RegistrationWindow(HP.LFT.SDK.WPF.IWindow window) : base(window)
+        {
+        }
+        public HP.LFT.SDK.WPF.ICheckBox doNotShowCheckBox => _WPF_Window.Describe<HP.LFT.SDK.WPF.ICheckBox>(new HP.LFT.SDK.WPF.CheckBoxDescription
+        {
+            Text = @"Do not show me this dialog again",
+            Index = 1
+        });
+
+        public HP.LFT.SDK.WPF.IButton logInButton => _WPF_Window.Describe<HP.LFT.SDK.WPF.IButton>(new HP.LFT.SDK.WPF.ButtonDescription
+            {
+                Text = @"Log In"
+            });
+
+    }
+
 
 }
