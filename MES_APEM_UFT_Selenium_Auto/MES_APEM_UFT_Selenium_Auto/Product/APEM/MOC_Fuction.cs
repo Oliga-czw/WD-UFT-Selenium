@@ -47,7 +47,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             Thread.Sleep(4000);
             APEM.DesignEditorWindow.OpenDesignDialog.LookInList._UFT_IList.ActivateItem("This PC");
             APEM.DesignEditorWindow.OpenDesignDialog.LookInList._UFT_IList.ActivateItem("Local Disk (C:)");
-            string InputFile = Base_Directory.InputDir + "\\"+ filename;
+            string InputFile = Base_Directory.InputDir + "\\CHK\\" + filename;
             Console.WriteLine(InputFile);
             string[] sArray = InputFile.Split('\\');
             for (int i = 1; i < sArray.Length; i++)

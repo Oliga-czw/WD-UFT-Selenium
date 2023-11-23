@@ -55,7 +55,9 @@ namespace MES_APEM_UFT_Selenium_Auto
             //set apem server and registration
             APEM.setServerAndRegistration();
 
-
+            //install Msi
+            Base_Function.InstallMsi("soap3.0.msi");
+            Base_Function.InstallMsi("msxml6.msi");
 
             //SdkConfiguration config = new SdkConfiguration();
             //SDK.Init(config);

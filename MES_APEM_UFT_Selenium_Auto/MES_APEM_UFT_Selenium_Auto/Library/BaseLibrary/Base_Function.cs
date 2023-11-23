@@ -1,6 +1,7 @@
 ﻿using HP.LFT.SDK;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.ServiceProcess;
@@ -82,6 +83,20 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             }
             // 保存bitmap到文件  
             bitmap.Save(path);
+        }
+
+        public static void InstallMsi(string msiName)
+        {
+            string msiPath = Base_Directory.InputDir + "\\Msi\\" + msiName; 
+            Process process = new Process();
+            process.StartInfo.FileName = "msiexec.exe";
+            process.StartInfo.Arguments = $"/i {msiPath} /qn";
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.CreateNoWindow = true;
+            process.Start();
+            process.WaitForExit();
+
         }
     }
 
