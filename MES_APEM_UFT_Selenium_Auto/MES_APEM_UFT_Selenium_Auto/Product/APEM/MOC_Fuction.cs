@@ -58,6 +58,64 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             }
             Thread.Sleep(4000);
         }
+        public static void VerifyRPL(string RPLName)
+        {
+            APEM.MocmainWindow.RPLDesign.ClickSignle();
+            Thread.Sleep(5000);
+            APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row(RPLName).Click();
+            Thread.Sleep(2000);
+            APEM.MocmainWindow.RPLDesignInternalFrame.VerifyButton.ClickSignle();
+            Thread.Sleep(3000);
+            APEM.VerifyDialog.NoButton.Click();
+            Thread.Sleep(3000);
+            APEM.MocmainWindow.ConfirmDialog.PasswordEditor.SendKeys(PassWord.qaone1);
+            APEM.MocmainWindow.ConfirmDialog.Reason.SendKeys("Test");
+            APEM.MocmainWindow.ConfirmDialog.OK.Click();
+            Thread.Sleep(3000);
+        }
+        public static void CertifyRPL(string RPLName)
+        {
+            APEM.MocmainWindow.RPLDesign.ClickSignle();
+            Thread.Sleep(5000);
+            APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row(RPLName).Click();
+            Thread.Sleep(2000);
+            APEM.MocmainWindow.RPLDesignInternalFrame.CertifyButton.ClickSignle();
+            Thread.Sleep(3000);
+            APEM.CertifyDialog.YesButton.Click();
+            Thread.Sleep(3000);
+            APEM.MocmainWindow.ConfirmDialog.PasswordEditor.SendKeys(PassWord.qaone1);
+            APEM.MocmainWindow.ConfirmDialog.Reason.SendKeys("Test");
+            APEM.MocmainWindow.ConfirmDialog.OK.Click();
+            Thread.Sleep(3000);
+        }
+        //click plan from plan to create order 
+        public static void PlanFromRPL(string RPLName,string OrderName)
+        {
+            string RPLSelect = RPLName + "#1";
+            APEM.MocmainWindow.Orders.ClickSignle();
+            APEM.MocmainWindow.OrderListInternalFrame.PlanFromRPL_Button.ClickSignle();
+            Thread.Sleep(3000);
+            APEM.MocmainWindow.OrderPlanDialog.CodeEditor.SendKeys(OrderName);
+            APEM.MocmainWindow.OrderPlanDialog.DescriptionEditor.SendKeys("test");
+            APEM.MocmainWindow.OrderPlanDialog.RPLList.Select(RPLSelect);
+            APEM.MocmainWindow.OrderPlanDialog.POEditor.SendKeys("PO");
+            APEM.MocmainWindow.OrderPlanDialog.POStepEditor.SendKeys("POStep");
+            APEM.MocmainWindow.OrderPlanDialog.ArticleEditor.SendKeys("Article");
+            APEM.MocmainWindow.OrderPlanDialog.BatchEditor.SendKeys("Batch");
+            APEM.MocmainWindow.OrderPlanDialog.QuantityEditor.SendKeys("123.65");
+            APEM.MocmainWindow.OrderPlanDialog.Quantity_unitEditor.SendKeys("kg");
+            APEM.MocmainWindow.OrderPlanDialog.DateEditor.SendKeys("12/12/22, 3:23:00 AM");
+            APEM.MocmainWindow.OrderPlanDialog.END_DateEditor.SendKeys("5/6/26, 10:23:34 PM");
+            //APEM.MocmainWindow.OrderPlanDialog.WorkcenterList.Select("ProcessCellLine2");
+            Thread.Sleep(3000);
+            APEM.MocmainWindow.OrderPlanDialog.Auto_ActivateCheckBox.Click();
+            Thread.Sleep(3000);
+            APEM.MocmainWindow.OrderPlanDialog.OK.Click();
+            Thread.Sleep(3000);
+            APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("for test");
+            APEM.MocmainWindow.AddReasonDialog.OK.Click();
+            Thread.Sleep(3000);
+        }
         public static void AddRPL_OpenDesign(String RPLName,String BPLName)
         {
             int Count = APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable._UFT_Table.Rows.Count;

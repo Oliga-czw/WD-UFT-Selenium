@@ -141,4 +141,15 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
 
         public UFT_List AvailableBPLList => new UFT_List(_UFT_Dialog, "//List[@AttachedText = 'Select Basic Phase Library']");
     }
+    public class Confirm_Dialog : UFT_Dialog
+    {
+        public Confirm_Dialog(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+
+        public UFT_Editor PasswordEditor => new UFT_Editor(_UFT_Dialog, "//Editor[@TagName = 'Password']");
+        
+
+    }
+    
 }

@@ -25,6 +25,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public RPLDesign_InterFrame RPLDesignInternalFrame => new RPLDesign_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Recipe Procedure Logic List']");
         public BPLList_InterFrame BPLListInternalFrame => new BPLList_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Basic Phase Library List']");
         public BPLData_InterFrame BPLDataInternalFrame => new BPLData_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Basic Phase Library Data*']");
+        public OrderList_InterFrame OrderListInternalFrame => new OrderList_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Orders:*']");
         public RPLManagement_InterFrame RPLManagementInternalFrame => new RPLManagement_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'RPL Management*']");
         public EventLogList_InterFrame EventLogListInterFrame => new EventLogList_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Event Log List']");
         #endregion
@@ -45,6 +46,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public OrderPlan_Dialog OrderPlanDialog => new OrderPlan_Dialog(_UFT_Window, "//Dialog[@Title = 'Plan']");
         public AddReason_Dialog AddReasonDialog => new AddReason_Dialog(_UFT_Window, "//Dialog[@Title = 'Audit Reason']");
         public AvailableBPL_Dialog AvailableBPLDialog => new AvailableBPL_Dialog(_UFT_Window, "//Dialog[@Title = 'Available Basic Phase Libraries']");
+        //m2r.Window.m2rDialog$FixedSize
+        public Confirm_Dialog ConfirmDialog => new Confirm_Dialog(_UFT_Window, "//Dialog[@NativeClass = 'm2r.Window.m2rDialog$FixedSize']");
         #endregion
     }
     public class MOC_Menu : UFT_Menu
