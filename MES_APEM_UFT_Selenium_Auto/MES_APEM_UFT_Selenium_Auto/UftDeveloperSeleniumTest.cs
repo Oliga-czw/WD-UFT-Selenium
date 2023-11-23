@@ -29,90 +29,55 @@ namespace MES_APEM_UFT_Selenium_Auto
             SDK.Init(config);
             Thread.Sleep(3000);
 
-            //Application.LaunchMocAndLogin();
+            Application.LaunchMocAndLogin();
             //Thread.Sleep(5000);
-            //APEM.MocmainWindow.RPLDesign.ClickSignle();
-            //Thread.Sleep(5000);
-            //APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row("HASDHSV").Click();
-            //Thread.Sleep(2000);
-            //APEM.MocmainWindow.RPLDesignInternalFrame.LoadDesigner_Button.ClickSignle();
-            //Thread.Sleep(5000);
-            //APEM.DesignEditorWindow.PFCDesignAppInternalFrame.Script.Click();
-            ////copy
-            //APEM.DesignEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject.Click();
-            //APEM.DesignEditorWindow.CopyButton.ClickSignle();
-            //if (APEM.LoseCopiedDialog.IsExist())
-            //{
-            //    APEM.LoseCopiedDialog.YesButton.Click();
-            //}
-            //Thread.Sleep(5000);
-            //APEM.DesignEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject.DoubleClick();
-            //Thread.Sleep(2000);
-            //APEM.DesignEditorWindow.PFCDesignAppInternalFrame.FirstLink.Click();
-            //Thread.Sleep(2000);
-            //APEM.DesignEditorWindow.PasteButton.ClickSignle();
-            //if (APEM.DesignEditorWindow.PasteRenamedDialog.IsExist())
-            //{
-            //    APEM.DesignEditorWindow.PasteRenamedDialog.Close();
-            //}
-            ////APEM.DesignEditorWindow.GetSnapshot(Resultpath + "PasteOnOperation.PNG");
-            //Thread.Sleep(5000);
-            //APEM.DesignEditorWindow.PFCDesignAppInternalFrame.OperationUiObject.DoubleClick();
-            //Thread.Sleep(2000);
-            //APEM.DesignEditorWindow.PFCDesignAppInternalFrame.LinkUiObject.Click();
-            //Thread.Sleep(2000);
-            //APEM.DesignEditorWindow.PasteButton.ClickSignle();
-            //if (APEM.DesignEditorWindow.PasteRenamedDialog.IsExist())
-            //{
-            //    APEM.DesignEditorWindow.PasteRenamedDialog.Close();
-            //}
-            ////APEM.DesignEditorWindow.GetSnapshot(Resultpath + "PasteOnPhase.PNG");
-            //APEM.DesignEditorWindow.PFCDesignAppInternalFrame.RPLDesignForm.Click();
-
-            // Test1: failed
-            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.RPLDesignForm.Click();
+            APEM.MocmainWindow.RPLDesign.ClickSignle();
+            Thread.Sleep(5000);
+            APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row("PREPARERPL").Click();
             Thread.Sleep(2000);
-
-            //Keyboard.KeyDown(Keyboard.Keys.LeftControl);
-
-            // Test2:
-            //Keyboards.Control.Press();
-
-            var frame = APEM.DesignEditorWindow.PFCDesignAppInternalFrame;
-
-            frame.LinkUiObject.Click();
-            Thread.Sleep(500);
-            Keyboards.Esc.Click();
-            Thread.Sleep(2000);
-
-            frame.LinkUiObject.Click();
-            Thread.Sleep(500);
-
-            Keyboards.LControlKey.Press();
-            Thread.Sleep(500);
-
-            //frame.LinkUiObject.Click();
-            //Thread.Sleep(500);
-            ////Keyboards.Esc.Click();
-
-            //Keyboards.Control.Press();
-            //Keyboard.KeyDown(Keyboard.Keys.LeftControl);
-            //Thread.Sleep(2000);
-            frame.PhaseUiObject1.Click();
-            Thread.Sleep(2000);
-
-            ////Keyboard.KeyUp(Keyboard.Keys.LeftControl);
-            Keyboards.LControlKey.Release();
-
-            //Point oper1 = new Point{ X = 350, Y = 143 };
-            //Point oper2 = new Point { X = 1241, Y = 513 };
-            //Mouse.ButtonDown(oper1);
-            //Thread.Sleep(2000);
-            //Mouse.Move(oper2);
-            //Mouse.ButtonUp(oper1);
-            // Mouse.DragAndDrop(oper1,oper2);
-            //APEM.DesignEditorWindow.PFCDesignAppInternalFrame.RPLDesignForm.Click();
-            //APEM.DesignEditorWindow.PFCDesignAppInternalFrame._UFT_InterFrame.MouseDrag(350, 143, 1241, 513, "LEFT");
+            APEM.MocmainWindow.RPLDesignInternalFrame.VerifyButton.ClickSignle();
+            Thread.Sleep(3000);
+            APEM.VerifyDialog.NoButton.Click();
+            Thread.Sleep(3000);
+            //user&password
+            APEM.MocmainWindow.ConfirmDialog.PasswordEditor.SendKeys("Aspen111");
+            APEM.MocmainWindow.ConfirmDialog.Reason.SendKeys("Test");
+            APEM.MocmainWindow.ConfirmDialog.OK.Click();
+            Thread.Sleep(3000);
+            APEM.MocmainWindow.RPLDesignInternalFrame.CertifyButton.ClickSignle();
+            Thread.Sleep(3000);
+            APEM.CertifyDialog.YesButton.Click();
+            Thread.Sleep(3000);
+            //user & password
+            APEM.MocmainWindow.ConfirmDialog.PasswordEditor.SendKeys("Aspen111");
+            APEM.MocmainWindow.ConfirmDialog.Reason.SendKeys("Test");
+            APEM.MocmainWindow.ConfirmDialog.OK.Click();
+            Thread.Sleep(3000);
+            APEM.MocmainWindow.Orders.ClickSignle();
+            APEM.MocmainWindow.OrderListInternalFrame.PlanFromRPL_Button.ClickSignle();
+            Thread.Sleep(3000);
+            APEM.MocmainWindow.OrderPlanDialog.CodeEditor.SendKeys("hulala");
+            APEM.MocmainWindow.OrderPlanDialog.DescriptionEditor.SendKeys("test");
+            APEM.MocmainWindow.OrderPlanDialog.RPLList.Select("PREPARERPL#1");
+            APEM.MocmainWindow.OrderPlanDialog.POEditor.SendKeys("PO");
+            APEM.MocmainWindow.OrderPlanDialog.POStepEditor.SendKeys("POStep");
+            APEM.MocmainWindow.OrderPlanDialog.ArticleEditor.SendKeys("Article");
+            APEM.MocmainWindow.OrderPlanDialog.BatchEditor.SendKeys("Batch");
+            APEM.MocmainWindow.OrderPlanDialog.QuantityEditor.SendKeys("123.65");
+            APEM.MocmainWindow.OrderPlanDialog.Quantity_unitEditor.SendKeys("kg");
+            APEM.MocmainWindow.OrderPlanDialog.DateEditor.SendKeys("12/12/22, 3:23:00 AM");
+            APEM.MocmainWindow.OrderPlanDialog.END_DateEditor.SendKeys("5/6/26, 10:23:34 PM");
+            APEM.MocmainWindow.OrderPlanDialog.WorkcenterList.Select("ProcessCellLine2");
+            Thread.Sleep(3000);
+            APEM.MocmainWindow.OrderPlanDialog.Auto_ActivateCheckBox.Click();
+            Thread.Sleep(3000);
+            APEM.MocmainWindow.OrderPlanDialog.OK.Click();
+            Thread.Sleep(3000);
+            APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("for test");
+            APEM.MocmainWindow.AddReasonDialog.OK.Click();
+            Thread.Sleep(3000);
+            
+           
 
         }
 
