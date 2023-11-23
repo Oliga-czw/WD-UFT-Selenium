@@ -36,14 +36,14 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             LogStep(@"1. import bpl");//import bpl
             //check bpl exit
             APEM.MocmainWindow.BPLDesign.ClickSignle();
-            if (!APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row("EVENTLOG").Existing)
+            if (!APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row("EVENTLOG510").Existing)
             {
                 MOC_TemplatesFunction.Importtemplates("EVENTLOG510.zip");
             }
             LogStep(@"2. create event log");//create event log
             APEM.MocmainWindow.BPLDesign.ClickSignle();
             APEM.MocmainWindow.BPLListInternalFrame.Refresh_Button.ClickSignle();
-            APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row("EVENTLOG").Click();
+            APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row("EVENTLOG510").Click();
             APEM.MocmainWindow.BPLListInternalFrame.LoadDesigner_Button.ClickSignle();
             APEM.DesignEditorWindow.ExecuteButton.ClickSignle();
             //add reason
@@ -80,7 +80,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(2000);
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Event log data 200.PNG");
             //get event number
-            string Mcount = Mobile.EventLog_Page.EventLogTableRows.Count.ToString();
+            int Mcount = Mobile.EventLog_Page.EventLogTableRows.Count;
             //check Event log displays 200
             Base_Assert.AreEqual(Mcount, 200, "Event log displays 200.");
             //get 200 data text
@@ -107,7 +107,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(5000);
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Event log data 400.PNG");
             //get event number
-            Mcount = Mobile.EventLog_Page.EventLogTableRows.Count.ToString();
+            Mcount = Mobile.EventLog_Page.EventLogTableRows.Count;
             //check Event log displays 400
             Base_Assert.AreEqual(Mcount, 400, "Event log displays 400.");
             //get 400 data, original 200 results are existed.
@@ -124,7 +124,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(5000);
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Event log data 510.PNG");
             //get event number
-            Mcount = Mobile.EventLog_Page.EventLogTableRows.Count.ToString();
+            Mcount = Mobile.EventLog_Page.EventLogTableRows.Count;
             //check Event log displays 510
             Base_Assert.AreEqual(Mcount, 510, "Event log displays 510.");
             //get 510 data, original 400 results are existed.
@@ -141,7 +141,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(5000);
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Event log data back to TOP.PNG");
             //get event number
-            Mcount = Mobile.EventLog_Page.EventLogTableRows.Count.ToString();
+            Mcount = Mobile.EventLog_Page.EventLogTableRows.Count;
             //check Event log displays 510
             Base_Assert.AreEqual(Mcount, 510, "Event log displays 510 after go to top.");
             //get 510 data, original 510 results are existed.
