@@ -102,10 +102,33 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
                 Assert.AreEqual(IP21.IP21MainWindow.BarMessage.Text, "InfoPlus.21 has been started successfully.");
             }
 
-            if (IP21.IP21MainWindow.IsExist())
+            IP21.IP21MainWindow.Close();
+        }
+        public static void StopIP21()
+        {
+            Application.LaunchIP21();
+            IP21.IP21MainWindow.Stop.Click();
+            if (IP21.IP21MainWindow.StopDialog.IsExist())
             {
-                IP21.IP21MainWindow.Close();
+                IP21.IP21MainWindow.StopDialog.Yes.Click();
             }
+            int i = 1;
+            while (IP21.IP21MainWindow.BarMessage.Text != "InfoPlus.21 has been stopped successfully.")
+            {
+                Thread.Sleep(1000);
+                i++;
+                if (i > 60)
+                {
+                    break;
+                }
+
+            }
+            if (i < 60)
+            {
+                //log success
+                Assert.AreEqual(IP21.IP21MainWindow.BarMessage.Text, "InfoPlus.21 has been stopped successfully.");
+            }
+            IP21.IP21MainWindow.Close();
         }
         public static void GML_UserTable()
         {

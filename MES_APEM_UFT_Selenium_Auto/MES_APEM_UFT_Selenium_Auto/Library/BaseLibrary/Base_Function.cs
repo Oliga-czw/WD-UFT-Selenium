@@ -98,6 +98,18 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             process.WaitForExit();
 
         }
+
+        public static void ReplaceText(string path,string oldText,string newText)
+        {
+
+            // 读取文件内容  
+            string fileContent = File.ReadAllText(path);
+            // 替换旧文本为新文本  
+            string replacedContent = Regex.Replace(fileContent, oldText, newText);
+            // 将替换后的内容写回文件  
+            File.WriteAllText(path, replacedContent);
+        }
+       
     }
 
     public static class Keyboards

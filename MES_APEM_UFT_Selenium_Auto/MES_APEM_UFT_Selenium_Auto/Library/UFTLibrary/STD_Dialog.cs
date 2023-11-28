@@ -107,6 +107,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
         public OpenFile_Dialog(string xpath) : base(xpath)
         {
         }
+        public OpenFile_Dialog(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
         public IButton Open => _STD_Dialog.Describe<IButton>(new ButtonDescription
         {
             NativeClass = @"Button",
@@ -118,6 +121,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
         });
 
     }
+
+
     #region afw dialog
     public class Login_Dialog : STD_Dialog
     {

@@ -35,6 +35,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         public static string mMDMEditorDir = @"C:\Program Files\AspenTech\mMDM\Bin\AtOdmEditor.exe";
 
         public static string IP21Dir = @"C:\Program Files\AspenTech\InfoPlus.21\db21\code\CimMgr.exe";
+
+        public static string SQLPlusDir = @"C:\Program Files (x86)\AspenTech\InfoPlus.21\db21\code\sqlplus.exe";
+        
         public static string WDBulkload
         {
             get

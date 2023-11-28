@@ -5,6 +5,7 @@ using System.IO;
 using System.Threading;
 using MES_APEM_UFT_Selenium_Auto.Product.WD;
 using MES_APEM_UFT_Selenium_Auto.Product.APEM;
+using MES_APEM_UFT_Selenium_Auto.Product.SQLplus;
 
 namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 {
@@ -259,6 +260,20 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             Thread.Sleep(3000);
         }
         #endregion
+
+        public static void LaunchSQLPlus()
+        {
+            Base_Test.LaunchApp(Base_Directory.SQLPlusDir);
+            SdkConfiguration config = new SdkConfiguration();
+            SDK.Init(config);
+            Thread.Sleep(5000);
+            //fist open to select server
+            if (SQLplus.SQLplusWindow.selectSQLplusServerDialog.IsExist())
+            {
+                SQLplus.SQLplusWindow.selectSQLplusServerDialog.OK.Click();
+                Thread.Sleep(5000);
+            }
+        }
         public static void KillWD()
         {
             Base_Test.KillProcess(application);

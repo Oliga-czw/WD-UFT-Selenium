@@ -263,7 +263,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         }
         public UFT_Button PlanFromRPL_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Plan from RPL']");
         //public UFT_Button LoadDesigner_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Load designer' and @IsWrapped = 'True']");
-        //public UFT_Button Refresh_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Refresh' and @IsWrapped = 'True']");
+        public UFT_Button Refresh_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Refresh' and @IsWrapped = 'True']");
         public UFT_Table OrderList_Table => new UFT_Table(_UFT_InterFrame, "//Table[@AttachedText = 'Code\\s\\s']");
     }
     public class Execution_InterFrame : MOCMainInterFrame
