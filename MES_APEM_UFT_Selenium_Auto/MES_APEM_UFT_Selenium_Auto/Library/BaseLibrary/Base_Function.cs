@@ -289,7 +289,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 
 
         public readonly static ClassKeyboard Control = new ClassKeyboard(unchecked((byte)System.Windows.Forms.Keys.Control));
-
+        public readonly static ClassKeyboard Alt = new ClassKeyboard(unchecked((byte)System.Windows.Forms.Keys.Alt));
         public readonly static ClassKeyboard Shift = new ClassKeyboard((byte)System.Windows.Forms.Keys.ShiftKey);
 
         public readonly static ClassKeyboard Esc = new ClassKeyboard((byte)System.Windows.Forms.Keys.Escape);
@@ -326,6 +326,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 
         public readonly static ClassKeyboard X = new ClassKeyboard((byte)System.Windows.Forms.Keys.X);
 
+        public readonly static ClassKeyboard A = new ClassKeyboard((byte)System.Windows.Forms.Keys.A);
+        public readonly static ClassKeyboard S = new ClassKeyboard((byte)System.Windows.Forms.Keys.S);
     }
 
 }

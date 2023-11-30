@@ -140,11 +140,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
                 APEM.MocmainWindow.RPLManagementInternalFrame.RPLName.SendKeys(RPLName);
                 APEM.MocmainWindow.RPLManagementInternalFrame.RPLDescription.SendKeys("for testhahhah");
                 APEM.MocmainWindow.RPLManagementInternalFrame.ConfirmChanges_Button.ClickSignle();
-                if (APEM.MocmainWindow.AddReasonDialog.IsExist())
-                {
-                    APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("for UFT test");
-                    APEM.MocmainWindow.AddReasonDialog.OK.Click();
-                }
+                MOC_Fuction.AddReason();
                 Thread.Sleep(4000);
                 APEM.MocmainWindow.RPLManagementInternalFrame.RPLTabControl.Select("Basic Phase Libraries");
                 Thread.Sleep(3000);
@@ -165,10 +161,20 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         {
             if (APEM.MOCConfigWindow.AddReasonDialog.IsExist())
             {
-                APEM.MOCConfigWindow.AddReasonDialog.Reason.SendKeys("GML Config");
+                APEM.MOCConfigWindow.AddReasonDialog.Reason.SetText("GML Config");
                 APEM.MOCConfigWindow.AddReasonDialog.OK.Click();
             }
             
+        }
+
+        public static void AddReason()
+        {
+            if (APEM.MocmainWindow.AddReasonDialog.IsExist())
+            {
+                APEM.MocmainWindow.AddReasonDialog.Reason.SetText("for UFT test");
+                APEM.MocmainWindow.AddReasonDialog.OK.Click();
+            }
+
         }
         public static void Add_MakeUsableBPL(string BPLName,string BPLDescription)
         {
@@ -178,18 +184,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             APEM.MocmainWindow.BPLDataInternalFrame.BPLName.SendKeys(BPLName);
             APEM.MocmainWindow.BPLDataInternalFrame.BPLDescription.SendKeys(BPLDescription);
             APEM.MocmainWindow.BPLDataInternalFrame.ConfirmChanges_Button.ClickSignle();
-            if (APEM.MocmainWindow.AddReasonDialog.IsExist())
-            {
-                APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("for UFT test");
-                APEM.MocmainWindow.AddReasonDialog.OK.Click();
-            }
+            AddReason();
             Thread.Sleep(4000);
             APEM.MocmainWindow.BPLDataInternalFrame.MakeUsable_Button.ClickSignle();
-            if (APEM.MocmainWindow.AddReasonDialog.IsExist())
-            {
-                APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("for UFT test");
-                APEM.MocmainWindow.AddReasonDialog.OK.Click();
-            }
+            AddReason();
         }
         public static void AssertDesignWindow()
         {

@@ -49,7 +49,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             WD.mainWindow.CheckWeightInternalFrame.readScale.ClickSignle();
             //get check result
             var table = WD.mainWindow.CheckWeightInternalFrame.checkTable;
-            var header = WD.mainWindow.CheckWeightInternalFrame.checkTable.Columns;
+            var header = WD.mainWindow.CheckWeightInternalFrame.checkTable.Heads;
             var data_list = new List<List<string>>();
             for (int i = 0; i < table.Rowscount(); i++)
             {

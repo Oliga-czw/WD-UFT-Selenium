@@ -33,11 +33,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MocmainWindow.BPLDataInternalFrame.BPLName.SendKeys("TESTBP");
             APEM.MocmainWindow.BPLDataInternalFrame.BPLDescription.SendKeys("for test");
             APEM.MocmainWindow.BPLDataInternalFrame.ConfirmChanges_Button.ClickSignle();
-            if (APEM.MocmainWindow.AddReasonDialog.IsExist())
-            {
-                APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("for UFT test");
-                APEM.MocmainWindow.AddReasonDialog.OK.Click();
-            }
+            MOC_Fuction.AddReason();
             Thread.Sleep(4000);
             APEM.MocmainWindow.BPLDataInternalFrame.TabbedPaneControl.Select("Basic Phases");
             Thread.Sleep(3000);
@@ -85,11 +81,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MocmainWindow.BPLDataInternalFrame.TabbedPaneControl.Select("BPL Data");
             Thread.Sleep(3000);
             APEM.MocmainWindow.BPLDataInternalFrame.MakeUsable_Button.ClickSignle();
-            if (APEM.MocmainWindow.AddReasonDialog.IsExist())
-            {
-                APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("for UFT test");
-                APEM.MocmainWindow.AddReasonDialog.OK.Click();
-            }
+            MOC_Fuction.AddReason();
             Thread.Sleep(2000);
             APEM.MocmainWindow.RPLDesign.ClickSignle();
             Thread.Sleep(5000);

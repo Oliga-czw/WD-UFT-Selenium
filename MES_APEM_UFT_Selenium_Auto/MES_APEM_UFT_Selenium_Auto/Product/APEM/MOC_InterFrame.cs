@@ -264,7 +264,15 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button PlanFromRPL_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Plan from RPL']");
         //public UFT_Button LoadDesigner_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Load designer' and @IsWrapped = 'True']");
         public UFT_Button Refresh_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Refresh' and @IsWrapped = 'True']");
-        public UFT_Table OrderList_Table => new UFT_Table(_UFT_InterFrame, "//Table[@AttachedText = 'Code\\s\\s']");
+        public UFT_Button Filter_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Local filter' and @IsWrapped = 'True']");
+        public UFT_Button Visible_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Select visible rows' and @IsWrapped = 'True']");
+        public UFT_Editor Search => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Code\\s\\s']");
+        public UFT_Button Cancel_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Cancel Order']");
+        public UFT_Button Activate_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Activate']");
+        public UFT_Button Archive_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Archive']");
+        public UFT_Table OrderList_Table => new UFT_Table(_UFT_InterFrame, "//Table[@NativeClass = 'm2r.Table.m2rTableView']");
+
+
     }
     public class Execution_InterFrame : MOCMainInterFrame
     {

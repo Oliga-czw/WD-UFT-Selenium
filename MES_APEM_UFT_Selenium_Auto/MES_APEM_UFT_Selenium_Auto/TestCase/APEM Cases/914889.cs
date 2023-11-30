@@ -26,19 +26,22 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         public void VSTS_914889()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID + "-";
+            string order1 = "SqlPlusA1";
+            string order2 = "SqlPlusA2";
+            string RPL = "SIMPLE";
 
             Application.LaunchMocAndLogin();
             Thread.Sleep(5000);
             LogStep(@"1. import templete");
             //check bpl exit
             APEM.MocmainWindow.BPLDesign.ClickSignle();
-            if (!APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row("SIMPLE").Existing)
+            if (!APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row(RPL).Existing)
             {
                 MOC_TemplatesFunction.Importtemplates("SAMPLE.zip");
             }
             LogStep(@"2. create ORDER");
-            MOC_Fuction.PlanFromRPL("SIMPLE", "SqlPlusA1",false);
-            MOC_Fuction.PlanFromRPL("SIMPLE", "SqlPlusA2", false);
+            MOC_Fuction.PlanFromRPL(RPL, order1, false);
+            MOC_Fuction.PlanFromRPL(RPL, order2, false);
             //check order created
             APEM.MocmainWindow.GetSnapshot(Resultpath+"order created.PNG");
             LogStep(@"3. check axis2 jar in folder");
@@ -85,6 +88,9 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             SQLplus.SQLplusWindow.GetSnapshot(Resultpath + "basi1.PNG");
             string result2 = SQLplus.SQLplusWindow.ResultArea.Text;
             Base_Assert.IsTrue(result2.Contains("1"), "Result return 1!");
+            //check order1 delete
+            var lists1 = APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Columns("Code");
+            Base_Assert.IsFalse(lists1.Contains(order1));
             //OPEN file3
             SQLplus.SQLplusWindow.Toolbar.PressButton("2");
             SQLplus.SQLplusWindow.OpenFile_Dialog.FileName.SetText(file3);
@@ -106,7 +112,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //check order deleted
             APEM.MocmainWindow.OrderListInternalFrame.Refresh_Button.Click();
             APEM.MocmainWindow.GetSnapshot(Resultpath + "order deleted.PNG");
-
+            var lists2 = APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Columns("Code");
+            Base_Assert.IsFalse(lists2.Contains(order2));
             APEM.ExitApplication();
             SQLplus.cmdWindow.Close();
             GML_Function.StopIP21();

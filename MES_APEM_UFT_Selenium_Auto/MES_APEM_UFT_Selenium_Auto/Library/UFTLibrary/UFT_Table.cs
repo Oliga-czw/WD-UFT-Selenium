@@ -25,12 +25,22 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
 
             _UFT_Table = UFT_Xpath.GetChildObject<ITable>(parentObject, xpath);
         }
-        public List<string> Columns
+        public List<string> Heads
         {
             get
             {
                 return _UFT_Table.Rows[0].Cells.Select(anyColumn => anyColumn.ColumnHeader.Trim()).ToList();
             }
+        }
+        public List<string> Columns(string ColumnHeader)
+        {
+            List<string> columns = new List<string>();
+           foreach (var row in _UFT_Table.Rows)
+            {
+               var cells = row.Cells.Where(anyCell => anyCell.ColumnHeader == ColumnHeader);
+                columns.Add(cells.Select(anyCell => anyCell.Value.ToString().Trim()).ToList()[0]);
+            }
+            return columns;
         }
         public UFT_TableRow Row(string rowText, string ColumnHeader = null)
         {
@@ -61,6 +71,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
 
             return new UFT_TableRow(_UFT_Table, resultRow);
         }
+        
         public void Click()
         {
             _UFT_Table.Click();

@@ -48,6 +48,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public AvailableBPL_Dialog AvailableBPLDialog => new AvailableBPL_Dialog(_UFT_Window, "//Dialog[@Title = 'Available Basic Phase Libraries']");
         //m2r.Window.m2rDialog$FixedSize
         public Confirm_Dialog ConfirmDialog => new Confirm_Dialog(_UFT_Window, "//Dialog[@NativeClass = 'm2r.Window.m2rDialog$FixedSize']");
+
+        //orderlist
+        public UFT_Dialog CancelOrderDialog => new UFT_Dialog("//Dialog[@Title = 'Cancel Order']");
+        public UFT_Dialog ArchiveOrderDialog => new UFT_Dialog("//Dialog[@Title = 'Archive Order']");
+        public RowsView_Dialog RowsViewDialog => new RowsView_Dialog(_UFT_Window,"//Dialog[@Title = 'Rows to View']");
         #endregion
     }
     public class MOC_Menu : UFT_Menu
