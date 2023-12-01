@@ -122,7 +122,12 @@ public class UFT_TableRow
         var resultCell = new UFT_TableCell(_ITable, _ITableRow.Cells[0]);
         resultCell.Click();
     }
-    public string Value(string columnName)
+    public void DoubleClick()
+        {
+            var resultCell = new UFT_TableCell(_ITable, _ITableRow.Cells[0]);
+            resultCell.DoubleClick();
+        }
+        public string Value(string columnName)
     {
         return Cell(columnName).Value;
     }
@@ -162,16 +167,20 @@ public class UFT_TableCell
 
         _ITableCell.DragAndDropOn(_ITableCell);
 
-        //int clickX = _ITableCell.X + _ITableCell.Width / 2;
-        //int clickY = _ITableCell.Y + _ITableCell.Height / 2;
+            //int clickX = _ITableCell.X + _ITableCell.Width / 2;
+            //int clickY = _ITableCell.Y + _ITableCell.Height / 2;
 
-        //Console.WriteLine($"Click cell on point ({clickX}, {clickY})");
+            //Console.WriteLine($"Click cell on point ({clickX}, {clickY})");
 
-        //_ITable.Click(new ClickArgs
-        //{
-        //    Button = MouseButton.Left,
-        //    Location = new Location(Position.TopLeft, new Point(clickX, clickY))
-        //});
+            //_ITable.Click(new ClickArgs
+            //{
+            //    Button = MouseButton.Left,
+            //    Location = new Location(Position.TopLeft, new Point(clickX, clickY))
+            //});
+    }
+    public void DoubleClick() 
+    {
+        _ITableCell.DoubleClick();
     }
 
 }

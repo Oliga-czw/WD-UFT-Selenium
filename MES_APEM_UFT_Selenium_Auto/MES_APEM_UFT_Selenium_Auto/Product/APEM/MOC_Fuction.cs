@@ -93,8 +93,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         {
             string RPLSelect = RPLName + "#1";
             APEM.MocmainWindow.Orders.ClickSignle();
+            Thread.Sleep(2000);
             APEM.MocmainWindow.OrderListInternalFrame.PlanFromRPL_Button.ClickSignle();
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
             APEM.MocmainWindow.OrderPlanDialog.CodeEditor.SendKeys(OrderName);
             APEM.MocmainWindow.OrderPlanDialog.DescriptionEditor.SendKeys("test");
             APEM.MocmainWindow.OrderPlanDialog.RPLList.Select(RPLSelect);

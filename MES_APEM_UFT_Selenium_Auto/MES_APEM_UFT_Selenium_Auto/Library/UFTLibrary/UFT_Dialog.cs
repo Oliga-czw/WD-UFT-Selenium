@@ -98,7 +98,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
         {
             ObjectName = @"OptionPane.label"
         });
-
+        //public ITable DataTable => _UFT_Dialog.Describe<ITable>(new TableDescription
+        //{
+        //    NativeClass = @"m2r.Table.m2rTableView"
+        //});
+        public UFT_Table DataTable => new UFT_Table(_UFT_Dialog, "//Table[@NativeClass = 'm2r.Table.m2rTableView']");
         public void GetSnapshot(string path)
         {
             Image image = _UFT_Dialog.GetSnapshot();
@@ -149,7 +153,28 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
 
         public UFT_Editor PasswordEditor => new UFT_Editor(_UFT_Dialog, "//Editor[@TagName = 'Password']");
         
+    }
+    //RowsToView_Dialog
+    public class RowsToView_Dialog : UFT_Dialog
+    {
+        public RowsToView_Dialog(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+        public IRadioButton ViewAll => _UFT_Dialog.Describe<IRadioButton>(new RadioButtonDescription
+        {
+            AttachedText = @"View all"
+        });
+        //public UFT_Editor PasswordEditor => new UFT_Editor(_UFT_Dialog, "//Editor[@TagName = 'Password']");
 
     }
-    
+    //PrintReport_Dialog
+    public class PrintReport_Dialog : UFT_Dialog
+    {
+        public PrintReport_Dialog(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+        public UFT_Button Preview => new UFT_Button(_UFT_Dialog, "//Button[@Label = 'Preview']");
+        public UFT_Button Print => new UFT_Button(_UFT_Dialog, "//Button[@Label = 'Print']");
+
+    }
 }
