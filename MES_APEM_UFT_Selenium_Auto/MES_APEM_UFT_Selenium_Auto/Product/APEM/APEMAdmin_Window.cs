@@ -24,8 +24,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         }
 
         public ExtractorProperty_Dialog ExtractorProperty => new ExtractorProperty_Dialog(_STD_Window, "//Dialog[@Text = 'Audit & Compliance Extractor - Properties']");
-
-
+        public CreateArchive_Dialog CreateArchiveDialog => new CreateArchive_Dialog(_STD_Window, "//Dialog[@Text = 'Production Execution Archive and Restore']");
+        public SelectionConditions_Dialog SelectionConditionsDialog => new SelectionConditions_Dialog(_STD_Window, "//Dialog[@Text = 'Selection Conditions']");
+        public STD_Dialog Opensearchwarning => new STD_Dialog(_STD_Window, "//Dialog[@Text = 'Open search warning']");
+        public ArchiveBuilt_Dialog ArchiveBuiltDialog => new ArchiveBuilt_Dialog(_STD_Window, "//Dialog[@Text = 'Production Execution Archive Built']");
+        public ArchiveRestore_Dialog ArchiveRestoreDialog => new ArchiveRestore_Dialog(_STD_Window, "//Dialog[@Text = 'Production Execution Archive Restore']");
         public STD_TreeView TreeView => new STD_TreeView(_STD_Window, "//Treeview[@NativeClass = 'SysTreeView32']");
 
         public STD_ListView ListView => new STD_ListView(_STD_Window, "//Treeview[@NativeClass = 'SysListView32']");

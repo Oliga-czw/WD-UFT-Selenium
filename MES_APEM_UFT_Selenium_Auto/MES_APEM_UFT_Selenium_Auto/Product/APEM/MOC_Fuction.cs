@@ -89,7 +89,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             Thread.Sleep(3000);
         }
         //click plan from plan to create order 
-        public static void PlanFromRPL(string RPLName,string OrderName)
+        public static void PlanFromRPL(string RPLName,string OrderName,bool active = true)
         {
             string RPLSelect = RPLName + "#1";
             APEM.MocmainWindow.Orders.ClickSignle();
@@ -109,7 +109,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             APEM.MocmainWindow.OrderPlanDialog.END_DateEditor.SendKeys("5/6/26, 10:23:34 PM");
             //APEM.MocmainWindow.OrderPlanDialog.WorkcenterList.Select("ProcessCellLine2");
             Thread.Sleep(3000);
-            APEM.MocmainWindow.OrderPlanDialog.Auto_ActivateCheckBox.Click();
+            if (active)
+            {
+                APEM.MocmainWindow.OrderPlanDialog.Auto_ActivateCheckBox.Click();
+            }
             Thread.Sleep(3000);
             APEM.MocmainWindow.OrderPlanDialog.OK.Click();
             Thread.Sleep(3000);
@@ -137,11 +140,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
                 APEM.MocmainWindow.RPLManagementInternalFrame.RPLName.SendKeys(RPLName);
                 APEM.MocmainWindow.RPLManagementInternalFrame.RPLDescription.SendKeys("for testhahhah");
                 APEM.MocmainWindow.RPLManagementInternalFrame.ConfirmChanges_Button.ClickSignle();
-                if (APEM.MocmainWindow.AddReasonDialog.IsExist())
-                {
-                    APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("for UFT test");
-                    APEM.MocmainWindow.AddReasonDialog.OK.Click();
-                }
+                MOC_Fuction.AddReason();
                 Thread.Sleep(4000);
                 APEM.MocmainWindow.RPLManagementInternalFrame.RPLTabControl.Select("Basic Phase Libraries");
                 Thread.Sleep(3000);
@@ -162,10 +161,20 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         {
             if (APEM.MOCConfigWindow.AddReasonDialog.IsExist())
             {
-                APEM.MOCConfigWindow.AddReasonDialog.Reason.SendKeys("GML Config");
+                APEM.MOCConfigWindow.AddReasonDialog.Reason.SetText("GML Config");
                 APEM.MOCConfigWindow.AddReasonDialog.OK.Click();
             }
             
+        }
+
+        public static void AddReason()
+        {
+            if (APEM.MocmainWindow.AddReasonDialog.IsExist())
+            {
+                APEM.MocmainWindow.AddReasonDialog.Reason.SetText("for UFT test");
+                APEM.MocmainWindow.AddReasonDialog.OK.Click();
+            }
+
         }
         public static void Add_MakeUsableBPL(string BPLName,string BPLDescription)
         {
@@ -175,18 +184,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             APEM.MocmainWindow.BPLDataInternalFrame.BPLName.SendKeys(BPLName);
             APEM.MocmainWindow.BPLDataInternalFrame.BPLDescription.SendKeys(BPLDescription);
             APEM.MocmainWindow.BPLDataInternalFrame.ConfirmChanges_Button.ClickSignle();
-            if (APEM.MocmainWindow.AddReasonDialog.IsExist())
-            {
-                APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("for UFT test");
-                APEM.MocmainWindow.AddReasonDialog.OK.Click();
-            }
+            AddReason();
             Thread.Sleep(4000);
             APEM.MocmainWindow.BPLDataInternalFrame.MakeUsable_Button.ClickSignle();
-            if (APEM.MocmainWindow.AddReasonDialog.IsExist())
-            {
-                APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("for UFT test");
-                APEM.MocmainWindow.AddReasonDialog.OK.Click();
-            }
+            AddReason();
         }
         public static void AssertDesignWindow()
         {

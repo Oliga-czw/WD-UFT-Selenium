@@ -142,19 +142,12 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MocmainWindow.OrderTrackingPFCInternalFrame.Script1.Click(HP.LFT.SDK.MouseButton.Right);
             APEM.MocmainWindow.OrderTrackingPFCInternalFrame.ByPassCondition.Select();
             Thread.Sleep(3000);
-            if (APEM.MocmainWindow.AddReasonDialog.IsExist())
-            {
-                APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("for UFT test");
-                APEM.MocmainWindow.AddReasonDialog.OK.Click();
-            }
+            MOC_Fuction.AddReason();
             APEM.MocmainWindow.OrderTrackingPFCInternalFrame.Script2.Click();
             APEM.MocmainWindow.OrderTrackingPFCInternalFrame.Script2.Click(MouseButton.Right);
             APEM.MocmainWindow.OrderTrackingPFCInternalFrame.ByPassCondition.Select();
             Thread.Sleep(3000);
-            if (APEM.MocmainWindow.AddReasonDialog.IsExist())
-            {
-                APEM.MocmainWindow.AddReasonDialog.OK.Click();
-            }
+            MOC_Fuction.AddReason();
             Thread.Sleep(3000);
             APEM.MocmainWindow.OrderTrackingPFCInternalFrame._UFT_InterFrame.Close();
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderTable.Row("Ready for execution", "Status").Click();

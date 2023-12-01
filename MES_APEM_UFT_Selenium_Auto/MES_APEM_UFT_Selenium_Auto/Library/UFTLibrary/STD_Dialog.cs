@@ -107,6 +107,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
         public OpenFile_Dialog(string xpath) : base(xpath)
         {
         }
+        public OpenFile_Dialog(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
         public IButton Open => _STD_Dialog.Describe<IButton>(new ButtonDescription
         {
             NativeClass = @"Button",
@@ -118,6 +121,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
         });
 
     }
+
+
     #region afw dialog
     public class Login_Dialog : STD_Dialog
     {
@@ -270,7 +275,70 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
         });
 
     }
+    public class CreateArchive_Dialog : STD_Dialog
+    {
+        public CreateArchive_Dialog(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+      
 
+        public IEditField ArchiveName => _STD_Dialog.Describe<IEditField>(new EditFieldDescription
+        {
+            AttachedText = @"Archive Name:"
+        });
+
+        public IEditField Comments => _STD_Dialog.Describe<IEditField>(new EditFieldDescription
+        {
+            AttachedText = @"Comments:"
+        });
+        
+    }
+    public class SelectionConditions_Dialog : STD_Dialog
+    {
+        public SelectionConditions_Dialog(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+
+
+        public IEditField OrderCode => _STD_Dialog.Describe<IEditField>(new EditFieldDescription
+        {
+            AttachedText = @"Value:",
+            Index = 0
+        });
+
+
+    }
+    public class ArchiveBuilt_Dialog : STD_Dialog
+    {
+        public ArchiveBuilt_Dialog(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+
+
+        public ICheckBox DeleteAll => _STD_Dialog.Describe<ICheckBox>(new CheckBoxDescription
+        {
+            Text = @"Delete all orders from the Production Execution database NOW."
+        });
+        public IEditor Comments => _STD_Dialog.Describe<IEditor>(new EditorDescription
+        {
+            AttachedText = @"Comments:"
+        });
+
+    }
+    public class ArchiveRestore_Dialog : STD_Dialog
+    {
+        public ArchiveRestore_Dialog(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+
+
+        
+        public IEditor Comments => _STD_Dialog.Describe<IEditor>(new EditorDescription
+        {
+            NativeClass = @"Edit"
+        });
+
+    }
     #endregion
     #region wizard dialog
     public class WizardData_Dialog : STD_Dialog

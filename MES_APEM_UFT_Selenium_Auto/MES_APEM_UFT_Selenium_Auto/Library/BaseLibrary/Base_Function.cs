@@ -98,6 +98,18 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             process.WaitForExit();
 
         }
+
+        public static void ReplaceText(string path,string oldText,string newText)
+        {
+
+            // 读取文件内容  
+            string fileContent = File.ReadAllText(path);
+            // 替换旧文本为新文本  
+            string replacedContent = Regex.Replace(fileContent, oldText, newText);
+            // 将替换后的内容写回文件  
+            File.WriteAllText(path, replacedContent);
+        }
+       
     }
 
     public static class Keyboards
@@ -277,7 +289,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 
 
         public readonly static ClassKeyboard Control = new ClassKeyboard(unchecked((byte)System.Windows.Forms.Keys.Control));
-
+        public readonly static ClassKeyboard Alt = new ClassKeyboard(unchecked((byte)System.Windows.Forms.Keys.Alt));
         public readonly static ClassKeyboard Shift = new ClassKeyboard((byte)System.Windows.Forms.Keys.ShiftKey);
 
         public readonly static ClassKeyboard Esc = new ClassKeyboard((byte)System.Windows.Forms.Keys.Escape);
@@ -314,6 +326,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 
         public readonly static ClassKeyboard X = new ClassKeyboard((byte)System.Windows.Forms.Keys.X);
 
+        public readonly static ClassKeyboard A = new ClassKeyboard((byte)System.Windows.Forms.Keys.A);
+        public readonly static ClassKeyboard S = new ClassKeyboard((byte)System.Windows.Forms.Keys.S);
     }
 
 }

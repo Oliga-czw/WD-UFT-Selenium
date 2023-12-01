@@ -54,13 +54,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             IsWrapped = true
         });
         public UFT_Button ExecuteButton => new UFT_Button(_UFT_InterFrame, "//Button[@Label ='Execute' and @IsWrapped = 'True']");
-        public UFT_Button RefreshButton => new UFT_Button(_UFT_InterFrame, "//Button[@Label ='Refresh' and @IsWrapped = 'True']");
-        public UFT_Button StatusFilterButton => new UFT_Button(_UFT_InterFrame, "//Button[@Label ='Select visible rows' and @IsWrapped = 'True']");
-        public IMenu Ordertracking => _UFT_InterFrame.Describe<IMenu>(new MenuDescription
-        {
-            Label = @"Order tracking"
-        });
-
     }
 
     public class WorkstationBP_InterFrame : MOCMainInterFrame
@@ -135,8 +128,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         }
 
         public UFT_UiObject UnitProcedureUiObject => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@TagName = 'UnitProcedure']");
-        public UFT_UiObject OperationUiObject => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@TagName = 'Operation']");
-        public UFT_UiObject PhaseUiObject => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@TagName = 'Phase']");
         public IUiObject OperationUiObject1 => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription
         {
             NativeClass = @"PFCTree.View.Operation",
@@ -155,15 +146,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public IMenu ByPassCondition => _UFT_InterFrame.Describe<IMenu>(new MenuDescription {
 				Label = @"Bypass condition"
 			});
-        public IMenu ExecutionScreenshots => _UFT_InterFrame.Describe<IMenu>(new MenuDescription
-        {
-            Label = @"Execution screenshots"
-        });
-        public IMenu ExecuteButton => _UFT_InterFrame.Describe<IMenu>(new MenuDescription
-        {
-            Label = @"Execute"
-        });
-        public IToolBar FinishedToolBar => _UFT_InterFrame.Describe<IToolBar>(new ToolBarDescription { });
+		
 
     }
     public class PFCDesignApp_InterFrame : MOCMainInterFrame
@@ -209,11 +192,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
 				NativeClass = @"PFCTree.View.Link",
 				Index = 1
 			});
-        public IUiObject LinkUiObject2 => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription
-        {
-            NativeClass = @"PFCTree.View.Link",
-            Index = 2
-        });
         public IUiObject PhaseUiObject1 => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription {
 				NativeClass = @"PFCTree.View.Phase",
 				Index = 1
@@ -231,10 +209,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         });
         public IUiObject ParallelDivergent => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription
         {
-            NativeClass = @"PFCTree.View.ParallelDivergent",
-            Index = 1
+            NativeClass = @"PFCTree.View.ParallelDivergent"
         });
-       
+        //runtime.Design.recipeDesignForm
 
     }
     public class BPLList_InterFrame : MOCMainInterFrame
@@ -286,8 +263,16 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         }
         public UFT_Button PlanFromRPL_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Plan from RPL']");
         //public UFT_Button LoadDesigner_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Load designer' and @IsWrapped = 'True']");
-        //public UFT_Button Refresh_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Refresh' and @IsWrapped = 'True']");
+        public UFT_Button Refresh_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Refresh' and @IsWrapped = 'True']");
+        public UFT_Button Filter_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Local filter' and @IsWrapped = 'True']");
+        public UFT_Button Visible_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Select visible rows' and @IsWrapped = 'True']");
+        public UFT_Editor Search => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Code\\s\\s']");
+        public UFT_Button Cancel_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Cancel Order']");
+        public UFT_Button Activate_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Activate']");
+        public UFT_Button Archive_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Archive']");
         public UFT_Table OrderList_Table => new UFT_Table(_UFT_InterFrame, "//Table[@NativeClass = 'm2r.Table.m2rTableView']");
+
+
     }
     public class Execution_InterFrame : MOCMainInterFrame
     {

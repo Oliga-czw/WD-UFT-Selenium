@@ -22,7 +22,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
 
         public STD_Dialog ShutDownDialog => new STD_Dialog("//Dialog[@Text = 'InfoPlus.21 Shutdown Script Configuration Reminder']");
 
-
+        public STD_Dialog StopDialog => new STD_Dialog("//Dialog[@Text = 'InfoPlus.21 Manager']");
 
         public IButton Start => _STD_Window.Describe<IButton>(new ButtonDescription
         {
@@ -34,7 +34,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
             NativeClass = @"msctls_statusbar32"
         });
 
-
+        public IButton Stop => _STD_Window.Describe<IButton>(new ButtonDescription
+        {
+            Text = @"ST&OP InfoPlus.21"
+        });
 
 
 

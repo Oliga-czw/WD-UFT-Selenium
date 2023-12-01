@@ -96,4 +96,18 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         });
     }
 
-}
+
+    public class RowsView_Dialog : UFT_Dialog
+    {
+        public RowsView_Dialog(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        { 
+        }
+            public IRadioButton ViewAll => _UFT_Dialog.Describe<IRadioButton>(new RadioButtonDescription
+            {
+                AttachedText = @"View all"
+            }); 
+    
+    
+    }
+
+    }
