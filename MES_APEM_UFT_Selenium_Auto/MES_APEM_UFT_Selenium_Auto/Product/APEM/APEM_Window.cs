@@ -45,6 +45,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Dialog VerifyDialog => new UFT_Dialog("//Dialog[@Index = '0']");
         public OrderPlan_Dialog OrderPlanDialog => new OrderPlan_Dialog(_UFT_Window, "//Dialog[@Title = 'Plan']");
         public AddReason_Dialog AddReasonDialog => new AddReason_Dialog(_UFT_Window, "//Dialog[@Title = 'Audit Reason']");
+        public UFT_Dialog ReadOnly_Dialog => new UFT_Dialog("//Dialog[@Title = 'Read Only File']");
+        public UFT_Dialog ExeCancelDialog => new UFT_Dialog("//Dialog[@Title = 'Close Button Pressed: Execution Cancellation']");
         public AvailableBPL_Dialog AvailableBPLDialog => new AvailableBPL_Dialog(_UFT_Window, "//Dialog[@Title = 'Available Basic Phase Libraries']");
         //m2r.Window.m2rDialog$FixedSize
         public Confirm_Dialog ConfirmDialog => new Confirm_Dialog(_UFT_Window, "//Dialog[@NativeClass = 'm2r.Window.m2rDialog$FixedSize']");

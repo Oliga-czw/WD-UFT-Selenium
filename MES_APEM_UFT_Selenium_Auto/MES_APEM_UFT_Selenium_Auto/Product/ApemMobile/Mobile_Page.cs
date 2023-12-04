@@ -87,6 +87,18 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         //public Selenium_WebElement GotoTracking => new Selenium_WebElement(_Selenium_Driver, "//table/tbody/tr/td/a");
         public Selenium_WebElement ExecutionButton => new Selenium_WebElement(_Selenium_Driver, "//table/tbody/tr/td//a");
     }
+    //PrintReport_Page
+    public class PrintReport_Page : Mobile_Page
+
+    {
+        public PrintReport_Page(IWebDriver driver) : base(driver)
+        {
+        }
+        //public Selenium_WebElement OrderSearch => new Selenium_WebElement(_Selenium_Driver, "//input[@id='ordersearch']");
+
+        //public Selenium_WebElement GotoTracking => new Selenium_WebElement(_Selenium_Driver, "//table/tbody/tr/td/a");
+        public Selenium_WebElement ExecuteAPP => new Selenium_WebElement(_Selenium_Driver, "/html/body/p[6]");
+    }
     public class OrderExecution_Page : Mobile_Page
 
     {

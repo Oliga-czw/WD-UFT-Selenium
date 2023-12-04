@@ -48,9 +48,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         }
         public static void MouseClick(Point point)
         {
-            int WaitPoint_x = point.X - 70;
-            int WaitPoint_y = point.Y - 70;
-            Point WaitPoint = new Point(WaitPoint_x, WaitPoint_y);
+            //int WaitPoint_x = point.X - 70;
+            //int WaitPoint_y = point.Y - 70;
+            Point WaitPoint = new Point(200, 400);
             Mouse.Move(WaitPoint);
             Thread.Sleep(5000);
             Mouse.Click(point);
