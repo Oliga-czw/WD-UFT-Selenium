@@ -12,7 +12,7 @@ AFW = 'afw_cert=' || CreateObject('AspenSecurity.SecManager').Authentication.Sec
 MySoapClient = CreateObject('MSSOAP.SoapClient30');
 
 -- Change MSCLCWIN11 to the name of the AeBRS server machine and 
-MySoapClient.MSSoapInit('http://OLIGA-2022-2:8080/AeBRSserver/services/AeBRS_API?wsdl');
+MySoapClient.MSSoapInit('http://MachineName:8080/AeBRSserver/services/AeBRS_API?wsdl');
 
 MySoapClient.ConnectorProperty('Timeout')           = 120000;
 

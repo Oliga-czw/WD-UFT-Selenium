@@ -8,6 +8,7 @@ using HP.LFT.SDK.UIAPro;
 using MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary;
 using MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary;
 using MES_APEM_UFT_Selenium_Auto.Product.ApemMobile;
+using MES_APEM_UFT_Selenium_Auto.Product.SQLplus;
 
 namespace MES_APEM_UFT_Selenium_Auto
 {
@@ -26,48 +27,20 @@ namespace MES_APEM_UFT_Selenium_Auto
             SdkConfiguration config = new SdkConfiguration();
             SDK.Init(config);
             Thread.Sleep(3000);
+            string actual = SQLplus.SQLplusWindow.ResultArea.Text;
+            //string exepect = "CreateOrder: 1\nOrderState: PLAN\nOrderState: ACTIVE\nOrderState: FINISH\nresult: 0\nScript has completed!\n";
 
-            APEM.MocmainWindow.BPLDesign.ClickSignle();
-            APEM.MocmainWindow.BPLListInternalFrame.AddBPL_Button.ClickSignle();
-            Thread.Sleep(4000);
-            APEM.MocmainWindow.BPLDataInternalFrame.BPLName.SendKeys("TESTBP");
-            APEM.MocmainWindow.BPLDataInternalFrame.BPLDescription.SendKeys("for test");
-            APEM.MocmainWindow.BPLDataInternalFrame.ConfirmChanges_Button.ClickSignle();
-            if (APEM.MocmainWindow.AddReasonDialog.IsExist())
-            {
-                APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("for UFT test");
-                APEM.MocmainWindow.AddReasonDialog.OK.Click();
-            }
-            Thread.Sleep(4000);
-            APEM.MocmainWindow.BPLDataInternalFrame.TabbedPaneControl.Select("Basic Phases");
-            Thread.Sleep(3000);
-            APEM.MocmainWindow.BPLDataInternalFrame.AddBP_Button.ClickSignle();
-            Thread.Sleep(2000);
-            APEM.MocmainWindow.BPLDataInternalFrame.NoEditor.SendKeys("1");
-            Thread.Sleep(2000);
-            Keyboard.PressKey(Keyboard.Keys.Enter);
-            APEM.MocmainWindow.BPLDataInternalFrame.NoEditor.SendKeys("testBp");
-            Thread.Sleep(2000);
-            Keyboard.PressKey(Keyboard.Keys.Enter);
-            Thread.Sleep(2000);
-            APEM.MocmainWindow.BPLDataInternalFrame.NoEditor.SendKeys("for test");
-            Thread.Sleep(2000);
-            Keyboard.PressKey(Keyboard.Keys.Enter);
-            Thread.Sleep(2000);
-            APEM.MocmainWindow.BPLDataInternalFrame.WebCheckBox.Click();
-            Thread.Sleep(2000);
-            APEM.MocmainWindow.BPLDataInternalFrame.ConfirmChanges_Button.ClickSignle();
-            Thread.Sleep(2000);
-            APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("test");
-            APEM.MocmainWindow.AddReasonDialog.OK.Click();
-            APEM.MocmainWindow.BPLDataInternalFrame.CancelChanges_Button.ClickSignle();
-            Thread.Sleep(2000);
-            APEM.MocmainWindow.BPLDataInternalFrame.LoadDesigner_Button.ClickSignle();
-            Thread.Sleep(3000);
+            string exepect = @"CreateOrder: 1
+OrderState: PLAN
+OrderState: ACTIVE
+OrderState: FINISH
+result: 0
+Script has completed!";
 
-
-
-
+            Console.WriteLine("11"+ exepect + "11");
+            Console.WriteLine("11" + actual + "11");
+            bool a = SQLplus.SQLplusWindow.ResultArea.Text.Contains(exepect);
+            Console.WriteLine(a);
         }
 
 

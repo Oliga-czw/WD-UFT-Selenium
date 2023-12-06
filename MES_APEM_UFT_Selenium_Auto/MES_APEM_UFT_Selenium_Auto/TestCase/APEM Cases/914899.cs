@@ -46,8 +46,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             MOC_Fuction.PlanFromRPL("SIMPLE", ordername2);
             //view all orders
             APEM.MocmainWindow.OrderListInternalFrame.Visible_Button.ClickSignle();
-            APEM.MocmainWindow.RowsViewDialog.ViewAll.Click();
-            APEM.MocmainWindow.RowsViewDialog.OK.Click();
+            APEM.MocmainWindow.RowsToViewDialog.ViewAll.Click();
+            APEM.MocmainWindow.RowsToViewDialog.OK.Click();
             //archive cancel order1
             //search order
             APEM.MocmainWindow.OrderListInternalFrame.Search.SetText(ordername1);

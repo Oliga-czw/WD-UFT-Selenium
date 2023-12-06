@@ -132,6 +132,7 @@
     <Compile Include="TestCase\APEM Cases\863166.cs" />
     <Compile Include="TestCase\APEM Cases\863181.cs" />
     <Compile Include="TestCase\APEM Cases\876986.cs" />
+    <Compile Include="TestCase\APEM Cases\749572.cs" />
     <Compile Include="TestCase\APEM Cases\914899.cs" />
     <Compile Include="TestCase\APEM Cases\948794.cs" />
     <Compile Include="TestCase\APEM Cases\949084.cs" />

@@ -99,15 +99,15 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 
         }
 
-        public static void ReplaceText(string path,string oldText,string newText)
+        public static void ReplaceTextInNewFile(string oldPath,string newPath,string oldText,string newText)
         {
 
             // 读取文件内容  
-            string fileContent = File.ReadAllText(path);
+            string fileContent = File.ReadAllText(oldPath);
             // 替换旧文本为新文本  
             string replacedContent = Regex.Replace(fileContent, oldText, newText);
             // 将替换后的内容写回文件  
-            File.WriteAllText(path, replacedContent);
+            File.WriteAllText(newPath, replacedContent);
         }
        
     }
