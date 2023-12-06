@@ -8,6 +8,7 @@ using HP.LFT.SDK.UIAPro;
 using MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary;
 using MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary;
 using MES_APEM_UFT_Selenium_Auto.Product.ApemMobile;
+using OpenQA.Selenium;
 
 namespace MES_APEM_UFT_Selenium_Auto
 {
@@ -27,47 +28,37 @@ namespace MES_APEM_UFT_Selenium_Auto
             SDK.Init(config);
             Thread.Sleep(3000);
 
-            APEM.MocmainWindow.BPLDesign.ClickSignle();
-            APEM.MocmainWindow.BPLListInternalFrame.AddBPL_Button.ClickSignle();
-            Thread.Sleep(4000);
-            APEM.MocmainWindow.BPLDataInternalFrame.BPLName.SendKeys("TESTBP");
-            APEM.MocmainWindow.BPLDataInternalFrame.BPLDescription.SendKeys("for test");
-            APEM.MocmainWindow.BPLDataInternalFrame.ConfirmChanges_Button.ClickSignle();
-            if (APEM.MocmainWindow.AddReasonDialog.IsExist())
+            //MOC_Fuction.VerifyRPL("FOR_STATUS");
+            //MOC_Fuction.CertifyRPL("FOR_STATUS");
+            //Thread.Sleep(3000);
+            //MOC_Fuction.PlanFromRPL("FOR_STATUS", "ORDRE824732");
+            //APEM.MocmainWindow.OrderListInternalFrame.OrderTabControl.Select("Phases");
+            Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
+            Mobile_Fuction.gotoApemMobile(driver);
+            driver.Wait();
+            Mobile_Fuction.login();
+            driver.Wait();
+            Thread.Sleep(5000);
+            Mobile.OrderProcess_Page.OrderSearch.SendKeys("ORDRE824732");
+            Thread.Sleep(2000);
+            Mobile.OrderProcess_Page.GotoTracking.Click();
+            Thread.Sleep(3000);
+            int no = 0;
+            int i = 0;
+            foreach (IWebElement head in Mobile.OrderTracking_Page.OrderPhaseTableHeads)
             {
-                APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("for UFT test");
-                APEM.MocmainWindow.AddReasonDialog.OK.Click();
+                if (head.Text == "Status")
+                {
+                    no = i;
+                }
+                i++;
             }
-            Thread.Sleep(4000);
-            APEM.MocmainWindow.BPLDataInternalFrame.TabbedPaneControl.Select("Basic Phases");
-            Thread.Sleep(3000);
-            APEM.MocmainWindow.BPLDataInternalFrame.AddBP_Button.ClickSignle();
-            Thread.Sleep(2000);
-            APEM.MocmainWindow.BPLDataInternalFrame.NoEditor.SendKeys("1");
-            Thread.Sleep(2000);
-            Keyboard.PressKey(Keyboard.Keys.Enter);
-            APEM.MocmainWindow.BPLDataInternalFrame.NoEditor.SendKeys("testBp");
-            Thread.Sleep(2000);
-            Keyboard.PressKey(Keyboard.Keys.Enter);
-            Thread.Sleep(2000);
-            APEM.MocmainWindow.BPLDataInternalFrame.NoEditor.SendKeys("for test");
-            Thread.Sleep(2000);
-            Keyboard.PressKey(Keyboard.Keys.Enter);
-            Thread.Sleep(2000);
-            APEM.MocmainWindow.BPLDataInternalFrame.WebCheckBox.Click();
-            Thread.Sleep(2000);
-            APEM.MocmainWindow.BPLDataInternalFrame.ConfirmChanges_Button.ClickSignle();
-            Thread.Sleep(2000);
-            APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("test");
-            APEM.MocmainWindow.AddReasonDialog.OK.Click();
-            APEM.MocmainWindow.BPLDataInternalFrame.CancelChanges_Button.ClickSignle();
-            Thread.Sleep(2000);
-            APEM.MocmainWindow.BPLDataInternalFrame.LoadDesigner_Button.ClickSignle();
-            Thread.Sleep(3000);
-
-
-
-
+            foreach (IWebElement Phase in Mobile.OrderTracking_Page.OrderPhaseTableRows)
+            {
+                var Status = Phase.FindElements(By.TagName("td"))[no].Text;
+                Console.WriteLine(Status);
+                Assert.IsTrue((Status.Contains("Ready")) || (Status.Contains("Not ready")));
+            } 
         }
 
 

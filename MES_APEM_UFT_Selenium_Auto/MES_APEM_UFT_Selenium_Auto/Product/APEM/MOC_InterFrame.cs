@@ -271,7 +271,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button Activate_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Activate']");
         public UFT_Button Archive_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Archive']");
         public UFT_Table OrderList_Table => new UFT_Table(_UFT_InterFrame, "//Table[@NativeClass = 'm2r.Table.m2rTableView']");
-
+        public ITabControl OrderTabControl => _UFT_InterFrame.Describe<ITabControl>(new TabControlDescription
+        {
+            TagName = @"m2rTabbedPanel"
+        });
 
     }
     public class Execution_InterFrame : MOCMainInterFrame

@@ -82,9 +82,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public OrderTracking_Page(IWebDriver driver) : base(driver)
         {
         }
-        //public Selenium_WebElement OrderSearch => new Selenium_WebElement(_Selenium_Driver, "//input[@id='ordersearch']");
-       
-        //public Selenium_WebElement GotoTracking => new Selenium_WebElement(_Selenium_Driver, "//table/tbody/tr/td/a");
+        public ReadOnlyCollection<IWebElement> OrderPhaseTableRows => _Selenium_Driver.FindElements(By.XPath("//table/tbody/tr"));
+        public ReadOnlyCollection<IWebElement> OrderPhaseTableHeads => _Selenium_Driver.FindElements(By.XPath("//table/thead/tr/th/div/div[1]/div"));
+        public Selenium_WebElement SelectMenu => new Selenium_WebElement(_Selenium_Driver, "//button[@id='selectmenu']");
         public Selenium_WebElement ExecutionButton => new Selenium_WebElement(_Selenium_Driver, "//table/tbody/tr/td//a");
     }
     //PrintReport_Page
