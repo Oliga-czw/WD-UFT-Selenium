@@ -115,7 +115,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
             IJavaScriptExecutor js = (IJavaScriptExecutor)_Selenium_Driver;
             return js.ExecuteScript(script);
         }
-
+        public object execute_script_return(string script, IWebElement element)
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)_Selenium_Driver;
+            return js.ExecuteScript(script, element);
+        }
         public void execute_script(string script,IWebElement element)
         {
             IJavaScriptExecutor js = (IJavaScriptExecutor)_Selenium_Driver;

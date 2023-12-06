@@ -59,18 +59,23 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             string file2 = path + "axis2 basi script1.txt";
             string file3 = path + "axis2 AFW script0.txt";
             string file4 = path + "axis2 AFW script1.txt";
+            string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string newfile1 = desktop + "axis2 basi script0.txt";
+            string newfile2 = desktop + "axis2 basi script1.txt";
+            string newfile3 = desktop + "axis2 AFW script0.txt";
+            string newfile4 = desktop + "axis2 AFW script1.txt";
             string oldText = "MachineName";
             string newText = Environment.MachineName;
-            Base_Function.ReplaceText(file1, oldText, newText);
-            Base_Function.ReplaceText(file2, oldText, newText);
-            Base_Function.ReplaceText(file3, oldText, newText);
-            Base_Function.ReplaceText(file4, oldText, newText);
+            Base_Function.ReplaceTextInNewFile(file1, newfile1, oldText, newText);
+            Base_Function.ReplaceTextInNewFile(file2, newfile2, oldText, newText);
+            Base_Function.ReplaceTextInNewFile(file3, newfile3, oldText, newText);
+            Base_Function.ReplaceTextInNewFile(file4, newfile4, oldText, newText);
             //open SQLplus
             Application.LaunchSQLPlus();
             //OPEN file1
             SQLplus.SQLplusWindow.Toolbar.PressButton("2");
             //input filename
-            SQLplus.SQLplusWindow.OpenFile_Dialog.FileName.SetText(file1);
+            SQLplus.SQLplusWindow.OpenFile_Dialog.FileName.SetText(newfile1);
             SQLplus.SQLplusWindow.OpenFile_Dialog.Open.Click();
             //execute
             SQLplus.SQLplusWindow.Toolbar.PressButton("15");
@@ -81,7 +86,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Base_Assert.IsTrue(result1.Contains("0"),"Result return 0!");
             //OPEN file2
             SQLplus.SQLplusWindow.Toolbar.PressButton("2");
-            SQLplus.SQLplusWindow.OpenFile_Dialog.FileName.SetText(file2);
+            SQLplus.SQLplusWindow.OpenFile_Dialog.FileName.SetText(newfile2);
             SQLplus.SQLplusWindow.OpenFile_Dialog.Open.Click();
             SQLplus.SQLplusWindow.Toolbar.PressButton("15");
             Thread.Sleep(10000);
@@ -93,7 +98,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Base_Assert.IsFalse(lists1.Contains(order1));
             //OPEN file3
             SQLplus.SQLplusWindow.Toolbar.PressButton("2");
-            SQLplus.SQLplusWindow.OpenFile_Dialog.FileName.SetText(file3);
+            SQLplus.SQLplusWindow.OpenFile_Dialog.FileName.SetText(newfile3);
             SQLplus.SQLplusWindow.OpenFile_Dialog.Open.Click();
             SQLplus.SQLplusWindow.Toolbar.PressButton("15");
             Thread.Sleep(1000);
@@ -102,7 +107,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Base_Assert.IsTrue(result3.Contains("0"), "Result return 0!");
             //OPEN file4
             SQLplus.SQLplusWindow.Toolbar.PressButton("2");
-            SQLplus.SQLplusWindow.OpenFile_Dialog.FileName.SetText(file4);
+            SQLplus.SQLplusWindow.OpenFile_Dialog.FileName.SetText(newfile4);
             SQLplus.SQLplusWindow.OpenFile_Dialog.Open.Click();
             SQLplus.SQLplusWindow.Toolbar.PressButton("15");
             Thread.Sleep(10000);

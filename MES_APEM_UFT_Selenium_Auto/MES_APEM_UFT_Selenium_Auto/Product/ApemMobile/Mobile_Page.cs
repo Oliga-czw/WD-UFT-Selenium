@@ -158,15 +158,19 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public void delete_col(List<string> delete_col)
         {
             Mobile.EventLog_Page.SelectMenu.Click();
+            int i = 0;
             foreach (IWebElement col in Mobile.EventLog_Page.ColumnMenu)
             {
-                Console.WriteLine(col.Text.Trim());
-                if (delete_col.Contains(col.Text.Trim()))
+                //string script = $"\"//div[@role='menu']//div[@class='mat-list-text']\")[{i}].textContent";
+                //Console.WriteLine(driver.execute_script_return("arguments[0].textContent;", col));
+                //Console.WriteLine(col.GetAttribute("innerText"));
+                if (delete_col.Contains(col.GetAttribute("innerText").Trim()))
                 {
                     col.Click();
                     Thread.Sleep(1000);
                 }
                 Thread.Sleep(1000);
+                i++;
             }
             //press tab to infect
             Keyboard.KeyDown(Keyboard.Keys.Tab);

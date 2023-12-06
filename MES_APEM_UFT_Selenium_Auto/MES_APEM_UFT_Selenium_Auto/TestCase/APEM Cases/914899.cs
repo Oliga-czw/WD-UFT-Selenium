@@ -27,8 +27,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         public void VSTS_914899()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID + "-";
-            string ordername = "SOAP_914899";
-            //string ordername = "test1_914899";
+            string ordername1 = "SOAP_914899_1";
+            string ordername2 = "SOAP_914899_2";
+            string archivename = "SOAP_914899_";
+            //string ordername = "test_914899";
 
             Application.LaunchMocAndLogin();
             Thread.Sleep(5000);
@@ -39,14 +41,16 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             {
                 MOC_TemplatesFunction.Importtemplates("SAMPLE.zip");
             }
-            LogStep(@"2. create ORDER and cancell & archive");
-            MOC_Fuction.PlanFromRPL("SIMPLE", ordername);
+            LogStep(@"2. create two ORDERs and cancell & archive");
+            MOC_Fuction.PlanFromRPL("SIMPLE", ordername1);
+            MOC_Fuction.PlanFromRPL("SIMPLE", ordername2);
             //view all orders
             APEM.MocmainWindow.OrderListInternalFrame.Visible_Button.ClickSignle();
-            APEM.MocmainWindow.RowsViewDialog.ViewAll.Click();
-            APEM.MocmainWindow.RowsViewDialog.OK.Click();
+            APEM.MocmainWindow.RowsToViewDialog.ViewAll.Click();
+            APEM.MocmainWindow.RowsToViewDialog.OK.Click();
+            //archive cancel order1
             //search order
-            APEM.MocmainWindow.OrderListInternalFrame.Search.SetText(ordername);
+            APEM.MocmainWindow.OrderListInternalFrame.Search.SetText(ordername1);
             APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
             APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Row("Active").Click();
             //cancell
@@ -57,7 +61,23 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MocmainWindow.OrderListInternalFrame.Archive_Button.ClickSignle();
             APEM.MocmainWindow.ArchiveOrderDialog.YesButton.Click();
             MOC_Fuction.AddReason();
-            APEM.MocmainWindow.GetSnapshot(Resultpath + "archive order.PNG");
+            APEM.MocmainWindow.GetSnapshot(Resultpath + "archive order1.PNG");
+            //archive finish order2
+            APEM.MocmainWindow.WorkstationBP.ClickSignle();
+            APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText(ordername2);
+            APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();
+            APEM.MocmainWindow.WorkstationBPInternalFrame.OrderTable.Row("Ready for execution", "Status").Click();
+            APEM.MocmainWindow.WorkstationBPInternalFrame.ExecuteButton.ClickSignle();
+            Thread.Sleep(10000);
+            APEM.PhaseExecWindow.ExecutionInternalFrame.OK_Button.ClickSignle();
+            //archive
+            APEM.MocmainWindow.OrderListInternalFrame.Search.SetText(ordername2);
+            APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
+            APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Row("Finished").Click();
+            APEM.MocmainWindow.OrderListInternalFrame.Archive_Button.ClickSignle();
+            APEM.MocmainWindow.ArchiveOrderDialog.YesButton.Click();
+            MOC_Fuction.AddReason();
+            APEM.MocmainWindow.GetSnapshot(Resultpath + "archive order2.PNG");
             LogStep(@"3. open apem admin");
             string servername = System.Net.Dns.GetHostName();//Oliga-2022-2
             string servername2 = Environment.MachineName;//OLIGA-2022-2
@@ -74,17 +94,17 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //create archive
             action();
             Keyboard.PressKey(Keyboard.Keys.C);
-            APEM.APEMAdminWindow.CreateArchiveDialog.ArchiveName.SetText(ordername);
+            APEM.APEMAdminWindow.CreateArchiveDialog.ArchiveName.SetText(archivename);
             APEM.APEMAdminWindow.CreateArchiveDialog.Comments.SetText("test");
             APEM.APEMAdminWindow.CreateArchiveDialog.OK.Click();
             Thread.Sleep(3000);
             //select data
             APEM.APEMAdminWindow.TreeView.GetNode($"Console Root;Production Execution Administrator;{servername};Archive and Restore").Expand();
-            APEM.APEMAdminWindow.TreeView.Select($"Console Root;Production Execution Administrator;{servername};Archive and Restore;{ordername}");
+            APEM.APEMAdminWindow.TreeView.Select($"Console Root;Production Execution Administrator;{servername};Archive and Restore;{archivename}");
             Thread.Sleep(5000);
             action();
             Keyboard.PressKey(Keyboard.Keys.S);
-            APEM.APEMAdminWindow.SelectionConditionsDialog.OrderCode.SetText(ordername);
+            APEM.APEMAdminWindow.SelectionConditionsDialog.OrderCode.SetText(archivename);
             APEM.APEMAdminWindow.SelectionConditionsDialog.OK.Click();
             APEM.APEMAdminWindow.Opensearchwarning.Yes.Click();
             APEM.APEMAdminWindow.Opensearchwarning.Yes.Click();
@@ -100,10 +120,11 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.APEMAdminWindow.GetSnapshot(Resultpath + "delete archive order in apem admin.PNG");
             Base_Assert.IsTrue(APEM.APEMAdminWindow.ListView._STD_ListView.GetVisibleText().Contains("DELET"), "order status");
             //check order delete in moc
-            APEM.MocmainWindow.OrderListInternalFrame.Refresh_Button.Click();
+            APEM.MocmainWindow.OrderListInternalFrame.Search.SetText(archivename);
+            APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
             var lists1 = APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Columns("Status");
             APEM.MocmainWindow.GetSnapshot(Resultpath + "delete archive order in moc.PNG");
-            Base_Assert.IsFalse(lists1.Any(list => list.Contains("Ext.Archived")));
+            Base_Assert.IsFalse(lists1.Any(list => list.Contains("Ext.Archived")), "delete 2 archive orders in moc");
             LogStep(@"5. restore archive");
             //restore archive
             APEM.APEMAdminWindow.SetActive();
@@ -119,12 +140,12 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(10000);
             APEM.APEMAdminWindow.GetSnapshot(Resultpath + "resore archive order in apem admin.PNG");
             Base_Assert.IsTrue(APEM.APEMAdminWindow.ListView._STD_ListView.GetVisibleText().Contains("RESTO"), "order status");
-            //check order delete in moc
+            //check order restore in moc
             APEM.MocmainWindow.OrderListInternalFrame.Refresh_Button.Click();
             var lists2 = APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Columns("Status");
             APEM.MocmainWindow.GetSnapshot(Resultpath + "resore archive order in moc.PNG");
-            Base_Assert.IsTrue(lists2.Any(list => list.Contains("Ext.Archived")));
-
+            Base_Assert.IsTrue(lists2.Where(list => list.Contains("Ext.Archived")).Count()==2, "resore 2 archive orders in moc");
+            
 
             APEM.MocmainWindow.OrderListInternalFrame.Search.SetText("");
             APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();

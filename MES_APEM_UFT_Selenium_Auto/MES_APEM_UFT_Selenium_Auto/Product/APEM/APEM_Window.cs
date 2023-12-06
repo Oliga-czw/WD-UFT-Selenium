@@ -43,6 +43,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
 
         #region dialog
         public UFT_Dialog VerifyDialog => new UFT_Dialog("//Dialog[@Index = '0']");
+        public UFT_Dialog ScreenshotDialog => new UFT_Dialog("//Dialog[@Title = 'Screenshot Not Found']");
+        public PrintReport_Dialog PrintReportDialog => new PrintReport_Dialog(_UFT_Window, "//Dialog[@Title = 'Print Report']");
+        public UFT_Dialog PhaseExecutionsDialog => new UFT_Dialog(_UFT_Window, "//Dialog[@Title = 'Phase Executions']");
         public OrderPlan_Dialog OrderPlanDialog => new OrderPlan_Dialog(_UFT_Window, "//Dialog[@Title = 'Plan']");
         public AddReason_Dialog AddReasonDialog => new AddReason_Dialog(_UFT_Window, "//Dialog[@Title = 'Audit Reason']");
         public UFT_Dialog ReadOnly_Dialog => new UFT_Dialog("//Dialog[@Title = 'Read Only File']");
@@ -54,8 +57,38 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         //orderlist
         public UFT_Dialog CancelOrderDialog => new UFT_Dialog("//Dialog[@Title = 'Cancel Order']");
         public UFT_Dialog ArchiveOrderDialog => new UFT_Dialog("//Dialog[@Title = 'Archive Order']");
-        public RowsView_Dialog RowsViewDialog => new RowsView_Dialog(_UFT_Window,"//Dialog[@Title = 'Rows to View']");
+        public RowsToView_Dialog RowsToViewDialog => new RowsToView_Dialog(_UFT_Window, "//Dialog[@Title = 'Rows to View']");
         #endregion
+        //UIA Pro Webbrowser
+        public HP.LFT.SDK.UIAPro.IEdit BrowserURL => Desktop.Describe<HP.LFT.SDK.UIAPro.IWindow>(new HP.LFT.SDK.UIAPro.WindowDescription
+        {
+            ProcessName = @"iexplore",
+            Path = @"Window",
+            SupportedPatterns = new string[] { @"LegacyIAccessible", @"Transform", @"Window" },
+            FrameworkId = @"Win32",
+            ControlType = @"Window",
+            AutomationId = string.Empty
+        })
+            .Describe<HP.LFT.SDK.UIAPro.IPane>(new HP.LFT.SDK.UIAPro.PaneDescription
+            {
+                ProcessName = @"iexplore",
+                Name = @"Address Bar",
+                Path = @"Window;Pane;Pane;Pane",
+                SupportedPatterns = new string[] { @"LegacyIAccessible" },
+                FrameworkId = @"Win32",
+                ControlType = @"Pane",
+                AutomationId = @"41477"
+            })
+            .Describe<HP.LFT.SDK.UIAPro.IEdit>(new HP.LFT.SDK.UIAPro.EditDescription
+            {
+                ProcessName = @"iexplore",
+                Name = @"Address and search using Bing",
+                Path = @"Window;Pane;Pane;Pane;Edit",
+                SupportedPatterns = new string[] { @"LegacyIAccessible", @"Text", @"Text2", @"Value" },
+                FrameworkId = @"Win32",
+                ControlType = @"Edit",
+                AutomationId = string.Empty
+            });
     }
     public class MOC_Menu : UFT_Menu
     {
@@ -109,6 +142,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_CheckBox Serial => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText = 'Serial' and @IsWrapped = 'True']");
         public UFT_CheckBox Transition => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText = 'Transition' and @IsWrapped = 'True']");
         public UFT_Button CopyButton => new UFT_Button(_UFT_Window, "//Button[@Label = 'Copy' and @IsWrapped = 'True']");
+        public UFT_Button UndoButton => new UFT_Button(_UFT_Window, "//Button[@Label = 'Undo' and @IsWrapped = 'True']");
         public UFT_Button SaveButton => new UFT_Button(_UFT_Window, "//Button[@Label = 'Save' and @IsWrapped = 'True']");
         public UFT_Button CutButton => new UFT_Button(_UFT_Window, "//Button[@Label = 'Cut' and @IsWrapped = 'True']");
         public UFT_Button BackButton => new UFT_Button(_UFT_Window, "//Button[@Label = 'Back to Code' and @IsWrapped = 'True']");
