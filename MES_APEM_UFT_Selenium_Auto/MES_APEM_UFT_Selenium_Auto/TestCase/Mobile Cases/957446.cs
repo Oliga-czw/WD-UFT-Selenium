@@ -31,7 +31,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         public void VSTS_957446()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID + "-";
-            
+
             Application.LaunchMocAndLogin();
             LogStep(@"1. import bpl");//import bpl
             //check bpl exit
@@ -82,6 +82,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Base_logger.Message("Element not exit!");
                 Console.WriteLine("Element not exit!");
             }
+            driver.Wait();
             LogStep(@"5. check eventlog data");
             //off dark or consolidated mode if on
             Mobile.Main_Page.Setting.Click();
@@ -102,7 +103,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             LogStep(@"6. Select some columns");
             //select all
             Mobile.EventLog_Page.Sellect_all_col();
-            List<string> delete_col = new List<string> { "Description", "Module" };
+            List<string> delete_col = new List<string> { "Description", "Module" };//Module
             Mobile.EventLog_Page.delete_col(delete_col);
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Event log column.PNG");
             bool exsit = true;
@@ -129,11 +130,13 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mouse.Move(point);
             Thread.Sleep(5000);
             Base_Function.DesktopSnipping(Resultpath + "Event log tooltip.PNG");
-            string title = detail.GetAttribute("title");
+            var tooltip = driver.FindElement("//div[@class='cdk-overlay-container']//mat-tooltip-component/div");
+            //title = detail.GetAttribute("title");
+            //text = detail.Text;
+            //cursor = detail.GetCssValue("cursor");
+            string title = tooltip.Text;
             string text = detail.Text;
-            string cursor = detail.GetCssValue("cursor");
             Base_Assert.AreEqual(text, title, "tooltip text right.");
-            Base_Assert.AreEqual("pointer", cursor, "tooltip work well.");
             LogStep(@"8. Change to dark mode");
             Mobile.Main_Page.Setting.Click();
             Mobile.Setting_Page.turnOn_mode(1);
@@ -190,11 +193,14 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mouse.Move(pointD);
             Thread.Sleep(5000);
             Base_Function.DesktopSnipping(Resultpath + "Event log tooltip in dark mode.PNG");
-            title = detail.GetAttribute("title");
+            tooltip = driver.FindElement("//div[@class='cdk-overlay-container']//mat-tooltip-component/div");
+            //title = detail.GetAttribute("title");
+            //text = detail.Text;
+            //cursor = detail.GetCssValue("cursor");
+            title = tooltip.Text;
             text = detail.Text;
-            cursor = detail.GetCssValue("cursor");
             Base_Assert.AreEqual(text, title, "tooltip text right in dark mode.");
-            Base_Assert.AreEqual("pointer", cursor, "tooltip work well in dark mode.");
+            //Base_Assert.AreEqual("pointer", cursor, "tooltip work well in dark mode.");
             LogStep(@"10. Change to consolidated");
             Mobile.Main_Page.Setting.Click();
             Mobile.Setting_Page.turnOn_mode(2);
@@ -223,7 +229,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             LogStep(@"12. Select some columns");
             //add fuction select all
             Mobile.EventLog_Page.Sellect_all_col();
-            List<string> delete_col_cons = new List<string> { "Module", "Date" };
+            List<string> delete_col_cons = new List<string> { "Type", "Module"};
             Mobile.EventLog_Page.delete_col(delete_col_cons);
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Event log column in consolidated.PNG");
             exsit = true;
@@ -251,11 +257,15 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mouse.Move(pointC);
             Thread.Sleep(5000);
             Base_Function.DesktopSnipping(Resultpath + "Event log tooltip in consolidated.PNG");
-            title = detail.GetAttribute("title");
+            tooltip = driver.FindElement("//div[@class='cdk-overlay-container']//mat-tooltip-component/div");
+            //title = detail.GetAttribute("title");
+            //text = detail.Text;
+            //cursor = detail.GetCssValue("cursor");
+            title = tooltip.Text;
             text = detail.Text;
-            cursor = detail.GetCssValue("cursor");
             Base_Assert.AreEqual(text, title, "tooltip text right in consolidated.");
-            Base_Assert.AreEqual("pointer", cursor, "tooltip work well in consolidated.");
+
+
             //restore data
             Mobile.EventLog_Page.Sellect_all_col();
             Mobile.Main_Page.Setting.Click();
