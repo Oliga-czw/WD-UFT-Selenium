@@ -127,8 +127,12 @@
     <Compile Include="Product\mMDM\mMDM_Window.cs" />
     <Compile Include="Product\SLM\SLM_Repository.cs" />
     <Compile Include="Product\SLM\SLM_Window.cs" />
+    <Compile Include="Product\BatchQueryTool\BatchQueryTool_Repository.cs" />
+    <Compile Include="Product\BatchQueryTool\BatchQueryTool_Window.cs" />
     <Compile Include="Product\SQLplus\SQLplus_Repository.cs" />
     <Compile Include="Product\SQLplus\SQLplus_Window.cs" />
+    <Compile Include="TestCase\WD Cases\40816.cs" />
+    <Compile Include="TestCase\APEM Cases\915161.cs" />
     <Compile Include="TestCase\APEM Cases\863166.cs" />
     <Compile Include="TestCase\APEM Cases\863181.cs" />
     <Compile Include="TestCase\APEM Cases\876986.cs" />

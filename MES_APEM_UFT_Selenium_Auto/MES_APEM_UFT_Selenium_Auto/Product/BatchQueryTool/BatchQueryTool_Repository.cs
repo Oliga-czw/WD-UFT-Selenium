@@ -1,5 +1,5 @@
 ﻿using HP.LFT.SDK;
-using HP.LFT.SDK.WinForms;
+using HP.LFT.SDK.WPF;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,36 +12,26 @@ using MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary;
 using MES_APEM_UFT_Selenium_Auto.Product.WD;
 using static MES_APEM_UFT_Selenium_Auto.Product.WD.ClassMainWindow;
 
-namespace MES_APEM_UFT_Selenium_Auto.Product.APRM
+namespace MES_APEM_UFT_Selenium_Auto.Product.SQLplus
 {
-    public  class APRM
+    public  class BatchQueryTool
     {
+        #region SQLplus windows
 
 
-        #region APRMAdmin windows
 
-        public static APRMAdmin_Window APRMAdminWindow => new APRMAdmin_Window("//Window[@WindowTitleRegExp = 'Aspen Production Record Manager Administrator .*'] ");
-
+        public static BatchQueryToolWindow BatchQueryToolWindow => new BatchQueryToolWindow("//Window[@Text = 'Aspen Production Record Manager Batch Query Tool.*']");
         
 
-
         #endregion
 
-        #region Batch Window
-        public static BatchMainWindow BatchMainWindow => new BatchMainWindow("//Window[@Text = 'Aspen Production Record Manager Batch Detail Display.*']");
-
-
-
-        #endregion
-        #region Wizard Dialog
-        public static WizardData_Dialog DataDialog => new WizardData_Dialog("//Dialog[@Text = 'Data Link Properties']");
-
-        public static STD_Dialog DataLinkCheckDialog => new WizardData_Dialog("//Dialog[@Text = 'Microsoft Data Link']");
+        #region SLM Dialog
+        //public static UFT_Dialog CloseDialog => new UFT_Dialog("//Dialog[@Title = 'Close the Application']");
 
         #endregion
 
 
-        #region Wizard_Methods
+        #region SLM_Methods
 
         //public static void ExitApplication()
         //{

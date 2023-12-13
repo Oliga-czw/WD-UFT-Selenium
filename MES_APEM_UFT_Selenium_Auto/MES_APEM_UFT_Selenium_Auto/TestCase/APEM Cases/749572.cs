@@ -16,8 +16,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
     {
         [TestCaseID(749572)]
         [Title("UC730328_APEM Web Service ")]
-        [TestCategory(ProductArea.RecipeManagement)]
-        [Priority(CasePriority.Critical)]
+        [TestCategory(ProductArea.MOC)]
+        [Priority(CasePriority.High)]
         [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]

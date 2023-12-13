@@ -105,7 +105,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             // 读取文件内容  
             string fileContent = File.ReadAllText(oldPath);
             // 替换旧文本为新文本  
-            string replacedContent = Regex.Replace(fileContent, oldText, newText);
+            string replacedContent = fileContent.Replace(oldText, newText);
             // 将替换后的内容写回文件  
             File.WriteAllText(newPath, replacedContent);
         }
