@@ -77,6 +77,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
 
         #region MOC Dialog
         public static UFT_Dialog CloseDialog => new UFT_Dialog("//Dialog[@Title = 'Close the Application']");
+        public static UFT_Dialog ReactivateDialog => new UFT_Dialog("//Dialog[@Title = 'Reactivate']");
+        public static UFT_Dialog CancelBPDialog => new UFT_Dialog("//Dialog[@Title = 'Cancel']");
+        public static UFT_Dialog ActivateDialog => new UFT_Dialog("//Dialog[@Title = 'Activate Order']");
+        public static UFT_Dialog DisableBPDialog => new UFT_Dialog("//Dialog[@Title = 'Disable Phase']");
         public static UFT_Dialog ErrorDialog => new UFT_Dialog("//Dialog[@Title = 'Error']");
         public static UFT_Dialog MessageDialog => new UFT_Dialog("//Dialog[@Title = 'Message']");
         public static UFT_Dialog CutElementDialog => new UFT_Dialog("//Dialog[@Title = 'Cut Element']");
