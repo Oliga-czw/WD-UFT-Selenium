@@ -122,7 +122,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
                 else
                 {
                     //import wd batch
-                    APRM.APRMAdminWindow.actionMenuItem.Click();
+                    action();
                     Keyboard.PressKey(Keyboard.Keys.I);
                     APRM.APRMAdminWindow.Open.Filename.SendKeys(Base_Directory.WDBatch);
                     Keyboard.PressKey(Keyboard.Keys.Enter);
@@ -139,7 +139,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             else
             {
                 //import wd batch
-                APRM.APRMAdminWindow.actionMenuItem.Click();
+                action();
                 Keyboard.PressKey(Keyboard.Keys.I);
                 APRM.APRMAdminWindow.Open.Filename.SendKeys(Base_Directory.WDBatch);
                 Keyboard.PressKey(Keyboard.Keys.Enter);
@@ -154,6 +154,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
                 }
 
             }
+            Thread.Sleep(1000);
             APRM.APRMAdminWindow.Close();
 
         }
@@ -182,7 +183,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
                 {
                     //import APEM batch
                     //BatchArea
-                    APRM.APRMAdminWindow.actionMenuItem.Click();
+                    action();
                     Keyboard.PressKey(Keyboard.Keys.I);
                     APRM.APRMAdminWindow.Open.Filename.SendKeys(Base_Directory.BatchArea);
                     Keyboard.PressKey(Keyboard.Keys.Enter);
@@ -204,7 +205,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
                 {
                     //import APEM batch
                     //EquipmentArea
-                    APRM.APRMAdminWindow.actionMenuItem.Click();
+                    action();
                     Keyboard.PressKey(Keyboard.Keys.I);
                     APRM.APRMAdminWindow.Open.Filename.SendKeys(Base_Directory.EquipmentArea);
                     Keyboard.PressKey(Keyboard.Keys.Enter);
@@ -221,13 +222,13 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             {
                 //import APEM batch
                 //BatchArea
-                APRM.APRMAdminWindow.actionMenuItem.Click();
+                action();
                 Keyboard.PressKey(Keyboard.Keys.I);
                 APRM.APRMAdminWindow.Open.Filename.SendKeys(Base_Directory.BatchArea);
                 Keyboard.PressKey(Keyboard.Keys.Enter);
                 Thread.Sleep(2000);
                 //EquipmentArea
-                APRM.APRMAdminWindow.actionMenuItem.Click();
+                action();
                 Keyboard.PressKey(Keyboard.Keys.I);
                 APRM.APRMAdminWindow.Open.Filename.SendKeys(Base_Directory.EquipmentArea);
                 Keyboard.PressKey(Keyboard.Keys.Enter);
@@ -269,7 +270,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             Keyboard.PressKey(Keyboard.Keys.A);
             Keyboard.KeyUp(Keyboard.Keys.Alt);
             Keyboard.PressKey(Keyboard.Keys.P);
-            Keyboard.PressKey(Keyboard.Keys.Enter);
             //set property
             APEM.APEMAdminWindow.ExtractorProperty.SetupButton.Click();
             //set db
@@ -379,8 +379,13 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 
         }
 
+        public static void action()
+        {
+            Keyboard.KeyDown(Keyboard.Keys.Alt);
+            Keyboard.PressKey(Keyboard.Keys.A);
+            Keyboard.KeyUp(Keyboard.Keys.Alt);
+        }
 
 
-        
     }
 }

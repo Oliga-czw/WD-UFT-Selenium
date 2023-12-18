@@ -59,6 +59,15 @@ namespace MES_APEM_UFT_Selenium_Auto
             Base_Function.InstallMsi("soap3.0.msi");
             Base_Function.InstallMsi("msxml6.msi");
 
+            //WD
+            Web_Fuction.FirstGrantPermission();
+            //import material/bom exception xml
+            string material = "04 aspen wd material bulk load.xml";
+            string bomExc = "06 aspen wd bom exception bulk load.xml";
+            WD_Fuction.Bulkload(material);
+            WD_Fuction.Bulkload(bomExc);
+
+
             //SdkConfiguration config = new SdkConfiguration();
             //SDK.Init(config);
 

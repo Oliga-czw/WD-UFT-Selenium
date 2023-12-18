@@ -102,7 +102,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         public Selenium_WebElement ERPOrderDownload => new Selenium_WebElement(_Selenium_Driver, "//div[text()='ERP Order Download']");
         public Selenium_WebElement ERPMaterialDownload => new Selenium_WebElement(_Selenium_Driver, "//div[text()='ERP Material Download']");
         #endregion
-
         #region Integration
         public Selenium_WebElement Automatically_checkbox => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Automatically activate Released orders']/../../td[1]/span/input");
         public Selenium_WebElement folder_for_Download => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Folder directory for XML download:']/../../td[2]/input");

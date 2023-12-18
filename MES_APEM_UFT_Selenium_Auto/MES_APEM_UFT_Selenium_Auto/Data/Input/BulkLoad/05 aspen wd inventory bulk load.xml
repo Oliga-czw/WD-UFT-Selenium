@@ -8,7 +8,7 @@
     <MaterialLotProperty>
       <ID>Expiration</ID>
       <Value>
-        <ValueString>2023-11-26T01:25:00.000Z</ValueString>
+        <ValueString>2025-11-26T01:25:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -86,7 +86,7 @@
     <MaterialLotProperty>
       <ID>Expiration</ID>
       <Value>
-        <ValueString>2023-11-26T01:25:00.000Z</ValueString>
+        <ValueString>2025-11-26T01:25:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -148,7 +148,7 @@
     <MaterialLotProperty>
       <ID>Expiration</ID>
       <Value>
-        <ValueString>2023-11-26T01:25:00.000Z</ValueString>
+        <ValueString>2025-11-26T01:25:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -210,7 +210,7 @@
     <MaterialLotProperty>
       <ID>Expiration</ID>
       <Value>
-        <ValueString>2023-11-26T01:25:00.000Z</ValueString>
+        <ValueString>2025-11-26T01:25:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -304,7 +304,7 @@
     <MaterialLotProperty>
       <ID>Expiration</ID>
       <Value>
-        <ValueString>2023-11-26T01:25:00.000Z</ValueString>
+        <ValueString>2025-11-26T01:25:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -366,7 +366,7 @@
     <MaterialLotProperty>
       <ID>Expiration</ID>
       <Value>
-        <ValueString>2023-11-26T01:25:00.000Z</ValueString>
+        <ValueString>2025-11-26T01:25:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -492,7 +492,7 @@
     <MaterialLotProperty>
       <ID>Expiration</ID>
       <Value>
-        <ValueString>2023-11-26T01:25:00.000Z</ValueString>
+        <ValueString>2025-11-26T01:25:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -594,7 +594,7 @@
     <MaterialLotProperty>
       <ID>Expiration</ID>
       <Value>
-        <ValueString>2023-11-26T01:25:00.000Z</ValueString>
+        <ValueString>2025-11-26T01:25:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -696,7 +696,7 @@
     <MaterialLotProperty>
       <ID>Expiration</ID>
       <Value>
-        <ValueString>2023-11-26T01:25:00.000Z</ValueString>
+        <ValueString>2025-11-26T01:25:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -798,7 +798,7 @@
     <MaterialLotProperty>
       <ID>Expiration</ID>
       <Value>
-        <ValueString>2023-11-26T01:25:00.000Z</ValueString>
+        <ValueString>2025-11-26T01:25:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -893,6 +893,202 @@
     </MaterialSubLot>
   </MaterialLot>
   <MaterialLot>
+    <ID>A123</ID>
+    <Description>X0125 date update</Description>
+    <MaterialDefinitionID>X0125</MaterialDefinitionID>
+    <Status>Approved</Status>
+    <MaterialLotProperty>
+      <ID>Expiration</ID>
+      <Value>
+        <ValueString>2025-11-26T01:25:00.000Z</ValueString>
+        <DataType>DateTime</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialLotProperty>
+    <MaterialLotProperty>
+      <ID>Activity</ID>
+      <Value>
+        <ValueString>100</ValueString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialLotProperty>
+    <MaterialLotProperty>
+      <ID>UsageDate</ID>
+      <Value>
+        <ValueString>2013-08-27T01:25:00.000Z</ValueString>
+        <DataType>DateTime</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialLotProperty>
+    <MaterialLotProperty>
+      <ID>RetestDate</ID>
+      <Value>
+        <ValueString>2023-11-26T00:00:00.000Z</ValueString>
+        <DataType>DateTime</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialLotProperty>
+    <MaterialLotProperty>
+      <ID>Used</ID>
+      <Value>
+        <ValueString>true</ValueString>
+        <DataType>boolean</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialLotProperty>
+    <MaterialSubLot>
+      <ID>X0125005</ID>
+      <StorageLocation>WH1</StorageLocation>
+      <Quantity>
+        <QuantityString>1000</QuantityString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure>G</UnitOfMeasure>
+        <Key>Nominal</Key>
+      </Quantity>
+      <Quantity>
+        <QuantityString>1000</QuantityString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure>G</UnitOfMeasure>
+        <Key>Actual</Key>
+      </Quantity>
+    </MaterialSubLot>
+    <MaterialSubLot>
+      <ID>X0125006</ID>
+      <StorageLocation>WH1</StorageLocation>
+      <Quantity>
+        <QuantityString>500</QuantityString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure>G</UnitOfMeasure>
+        <Key>Nominal</Key>
+      </Quantity>
+      <Quantity>
+        <QuantityString>500</QuantityString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure>G</UnitOfMeasure>
+        <Key>Actual</Key>
+      </Quantity>
+    </MaterialSubLot>
+    <MaterialSubLot>
+      <ID>X0125007</ID>
+      <StorageLocation>WH1</StorageLocation>
+      <Quantity>
+        <QuantityString>600</QuantityString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure>G</UnitOfMeasure>
+        <Key>Nominal</Key>
+      </Quantity>
+      <Quantity>
+        <QuantityString>600</QuantityString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure>G</UnitOfMeasure>
+        <Key>Actual</Key>
+      </Quantity>
+    </MaterialSubLot>
+  </MaterialLot>
+  <MaterialLot>
+    <ID>B50877</ID>
+    <Description>X0125 Description</Description>
+    <MaterialDefinitionID>X0125</MaterialDefinitionID>
+    <Status>Approved</Status>
+    <MaterialLotProperty>
+      <ID>Expiration</ID>
+      <Value>
+        <ValueString>2025-11-26T01:25:00.000Z</ValueString>
+        <DataType>DateTime</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialLotProperty>
+    <MaterialLotProperty>
+      <ID>Activity</ID>
+      <Value>
+        <ValueString>90</ValueString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialLotProperty>
+    <MaterialLotProperty>
+      <ID>UsageDate</ID>
+      <Value>
+        <ValueString>2013-08-27T01:25:00.000Z</ValueString>
+        <DataType>DateTime</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialLotProperty>
+    <MaterialLotProperty>
+      <ID>Used</ID>
+      <Value>
+        <ValueString>true</ValueString>
+        <DataType>boolean</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialLotProperty>
+    <MaterialSubLot>
+      <ID>X0125001</ID>
+      <StorageLocation>WH1</StorageLocation>
+      <Quantity>
+        <QuantityString>1000</QuantityString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure>G</UnitOfMeasure>
+        <Key>Nominal</Key>
+      </Quantity>
+      <Quantity>
+        <QuantityString>1000</QuantityString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure>G</UnitOfMeasure>
+        <Key>Actual</Key>
+      </Quantity>
+    </MaterialSubLot>
+    <MaterialSubLot>
+      <ID>X0125002</ID>
+      <StorageLocation>WH1</StorageLocation>
+      <Quantity>
+        <QuantityString>1000</QuantityString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure>G</UnitOfMeasure>
+        <Key>Nominal</Key>
+      </Quantity>
+      <Quantity>
+        <QuantityString>1000</QuantityString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure>G</UnitOfMeasure>
+        <Key>Actual</Key>
+      </Quantity>
+    </MaterialSubLot>
+    <MaterialSubLot>
+      <ID>X0125003</ID>
+      <StorageLocation>WH1</StorageLocation>
+      <Quantity>
+        <QuantityString>150</QuantityString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure>G</UnitOfMeasure>
+        <Key>Nominal</Key>
+      </Quantity>
+      <Quantity>
+        <QuantityString>150</QuantityString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure>G</UnitOfMeasure>
+        <Key>Actual</Key>
+      </Quantity>
+    </MaterialSubLot>
+    <MaterialSubLot>
+      <ID>X0125004</ID>
+      <StorageLocation>M70BIN</StorageLocation>
+      <Quantity>
+        <QuantityString>30.000</QuantityString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure>KG</UnitOfMeasure>
+        <Key>Nominal</Key>
+      </Quantity>
+      <Quantity>
+        <QuantityString>30.000</QuantityString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure>KG</UnitOfMeasure>
+        <Key>Actual</Key>
+      </Quantity>
+    </MaterialSubLot>
+  </MaterialLot>
+  <MaterialLot>
     <ID>LOT1</ID>
     <Description>Abby2</Description>
     <MaterialDefinitionID>X0125</MaterialDefinitionID>
@@ -900,7 +1096,7 @@
     <MaterialLotProperty>
       <ID>Expiration</ID>
       <Value>
-        <ValueString>2016-08-15T01:25:00.000Z</ValueString>
+        <ValueString>2025-11-26T01:25:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -1028,202 +1224,6 @@
       </Quantity>
       <Quantity>
         <QuantityString>1200</QuantityString>
-        <DataType>decimal</DataType>
-        <UnitOfMeasure>G</UnitOfMeasure>
-        <Key>Actual</Key>
-      </Quantity>
-    </MaterialSubLot>
-  </MaterialLot>
-  <MaterialLot>
-    <ID>B50877</ID>
-    <Description>X0125 Description</Description>
-    <MaterialDefinitionID>X0125</MaterialDefinitionID>
-    <Status>Approved</Status>
-    <MaterialLotProperty>
-      <ID>Expiration</ID>
-      <Value>
-        <ValueString>2023-11-26T01:25:00.000Z</ValueString>
-        <DataType>DateTime</DataType>
-        <UnitOfMeasure />
-      </Value>
-    </MaterialLotProperty>
-    <MaterialLotProperty>
-      <ID>Activity</ID>
-      <Value>
-        <ValueString>90</ValueString>
-        <DataType>decimal</DataType>
-        <UnitOfMeasure />
-      </Value>
-    </MaterialLotProperty>
-    <MaterialLotProperty>
-      <ID>UsageDate</ID>
-      <Value>
-        <ValueString>2013-08-27T01:25:00.000Z</ValueString>
-        <DataType>DateTime</DataType>
-        <UnitOfMeasure />
-      </Value>
-    </MaterialLotProperty>
-    <MaterialLotProperty>
-      <ID>Used</ID>
-      <Value>
-        <ValueString>true</ValueString>
-        <DataType>boolean</DataType>
-        <UnitOfMeasure />
-      </Value>
-    </MaterialLotProperty>
-    <MaterialSubLot>
-      <ID>X0125001</ID>
-      <StorageLocation>WH1</StorageLocation>
-      <Quantity>
-        <QuantityString>1000</QuantityString>
-        <DataType>decimal</DataType>
-        <UnitOfMeasure>G</UnitOfMeasure>
-        <Key>Nominal</Key>
-      </Quantity>
-      <Quantity>
-        <QuantityString>1000</QuantityString>
-        <DataType>decimal</DataType>
-        <UnitOfMeasure>G</UnitOfMeasure>
-        <Key>Actual</Key>
-      </Quantity>
-    </MaterialSubLot>
-    <MaterialSubLot>
-      <ID>X0125002</ID>
-      <StorageLocation>WH1</StorageLocation>
-      <Quantity>
-        <QuantityString>1000</QuantityString>
-        <DataType>decimal</DataType>
-        <UnitOfMeasure>G</UnitOfMeasure>
-        <Key>Nominal</Key>
-      </Quantity>
-      <Quantity>
-        <QuantityString>1000</QuantityString>
-        <DataType>decimal</DataType>
-        <UnitOfMeasure>G</UnitOfMeasure>
-        <Key>Actual</Key>
-      </Quantity>
-    </MaterialSubLot>
-    <MaterialSubLot>
-      <ID>X0125003</ID>
-      <StorageLocation>WH1</StorageLocation>
-      <Quantity>
-        <QuantityString>150</QuantityString>
-        <DataType>decimal</DataType>
-        <UnitOfMeasure>G</UnitOfMeasure>
-        <Key>Nominal</Key>
-      </Quantity>
-      <Quantity>
-        <QuantityString>150</QuantityString>
-        <DataType>decimal</DataType>
-        <UnitOfMeasure>G</UnitOfMeasure>
-        <Key>Actual</Key>
-      </Quantity>
-    </MaterialSubLot>
-    <MaterialSubLot>
-      <ID>X0125004</ID>
-      <StorageLocation>M70BIN</StorageLocation>
-      <Quantity>
-        <QuantityString>30.000</QuantityString>
-        <DataType>decimal</DataType>
-        <UnitOfMeasure>KG</UnitOfMeasure>
-        <Key>Nominal</Key>
-      </Quantity>
-      <Quantity>
-        <QuantityString>30.000</QuantityString>
-        <DataType>decimal</DataType>
-        <UnitOfMeasure>KG</UnitOfMeasure>
-        <Key>Actual</Key>
-      </Quantity>
-    </MaterialSubLot>
-  </MaterialLot>
-  <MaterialLot>
-    <ID>A123</ID>
-    <Description>X0125 date update</Description>
-    <MaterialDefinitionID>X0125</MaterialDefinitionID>
-    <Status>Approved</Status>
-    <MaterialLotProperty>
-      <ID>Expiration</ID>
-      <Value>
-        <ValueString>2023-11-26T03:25:00.000Z</ValueString>
-        <DataType>DateTime</DataType>
-        <UnitOfMeasure />
-      </Value>
-    </MaterialLotProperty>
-    <MaterialLotProperty>
-      <ID>Activity</ID>
-      <Value>
-        <ValueString>100</ValueString>
-        <DataType>decimal</DataType>
-        <UnitOfMeasure />
-      </Value>
-    </MaterialLotProperty>
-    <MaterialLotProperty>
-      <ID>UsageDate</ID>
-      <Value>
-        <ValueString>2013-08-27T01:25:00.000Z</ValueString>
-        <DataType>DateTime</DataType>
-        <UnitOfMeasure />
-      </Value>
-    </MaterialLotProperty>
-    <MaterialLotProperty>
-      <ID>RetestDate</ID>
-      <Value>
-        <ValueString>2023-11-26T00:00:00.000Z</ValueString>
-        <DataType>DateTime</DataType>
-        <UnitOfMeasure />
-      </Value>
-    </MaterialLotProperty>
-    <MaterialLotProperty>
-      <ID>Used</ID>
-      <Value>
-        <ValueString>true</ValueString>
-        <DataType>boolean</DataType>
-        <UnitOfMeasure />
-      </Value>
-    </MaterialLotProperty>
-    <MaterialSubLot>
-      <ID>X0125005</ID>
-      <StorageLocation>WH1</StorageLocation>
-      <Quantity>
-        <QuantityString>1000</QuantityString>
-        <DataType>decimal</DataType>
-        <UnitOfMeasure>G</UnitOfMeasure>
-        <Key>Nominal</Key>
-      </Quantity>
-      <Quantity>
-        <QuantityString>1000</QuantityString>
-        <DataType>decimal</DataType>
-        <UnitOfMeasure>G</UnitOfMeasure>
-        <Key>Actual</Key>
-      </Quantity>
-    </MaterialSubLot>
-    <MaterialSubLot>
-      <ID>X0125006</ID>
-      <StorageLocation>WH1</StorageLocation>
-      <Quantity>
-        <QuantityString>500</QuantityString>
-        <DataType>decimal</DataType>
-        <UnitOfMeasure>G</UnitOfMeasure>
-        <Key>Nominal</Key>
-      </Quantity>
-      <Quantity>
-        <QuantityString>500</QuantityString>
-        <DataType>decimal</DataType>
-        <UnitOfMeasure>G</UnitOfMeasure>
-        <Key>Actual</Key>
-      </Quantity>
-    </MaterialSubLot>
-    <MaterialSubLot>
-      <ID>X0125007</ID>
-      <StorageLocation>WH1</StorageLocation>
-      <Quantity>
-        <QuantityString>600</QuantityString>
-        <DataType>decimal</DataType>
-        <UnitOfMeasure>G</UnitOfMeasure>
-        <Key>Nominal</Key>
-      </Quantity>
-      <Quantity>
-        <QuantityString>600</QuantityString>
         <DataType>decimal</DataType>
         <UnitOfMeasure>G</UnitOfMeasure>
         <Key>Actual</Key>

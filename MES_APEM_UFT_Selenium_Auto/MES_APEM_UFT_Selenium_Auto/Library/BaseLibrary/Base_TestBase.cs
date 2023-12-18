@@ -204,6 +204,13 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             SDK.Init(config);
             Thread.Sleep(5000);
         }
+        public static void LaunchBatchQueryTool()
+        {
+            Base_Test.LaunchApp(Base_Directory.BatchQueryToolDir);
+            SdkConfiguration config = new SdkConfiguration();
+            SDK.Init(config);
+            Thread.Sleep(5000);
+        }
         public static void LaunchWizrd()
         {
             Base_Test.LaunchApp(Base_Directory.WizrdDir);

@@ -346,6 +346,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button Cancel_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Cancel']");
         //logevent
         public UFT_Button LogEventAutoButton => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Log Event Auto']");
+        //Set Detail 915161
+        public UFT_Button SetDetailButton => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Set Detail']");
+        
         public UFT_Button OKButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = '\\s{0,}OK\\s{0,}']");
     }
     public class BPLExecutionMessageInterFrame : UFT_InterFrame

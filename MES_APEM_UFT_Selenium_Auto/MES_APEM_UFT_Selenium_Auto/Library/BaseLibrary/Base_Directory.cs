@@ -21,6 +21,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 
         public static string SLMDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\aspenONE SLM License Manager.lnk";
         public static string BDDDir = @"C:\Program Files (x86)\AspenTech\Batch.21\Client\BatchDetailDisplay.exe";
+        public static string BatchQueryToolDir = @"C:\Program Files (x86)\AspenTech\Batch.21\Client\BatchQueryTool.exe";
 
         public static string APRMDir = @"C:\APRM";
         public static string DBDir = @"C:\DB";

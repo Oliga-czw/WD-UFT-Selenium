@@ -145,6 +145,20 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
             Thread.Sleep(2000);
             driver.FindElement(By.XPath("//button[text()='OK']")).Click();
         }
+
+        public static void FirstGrantPermission()
+        {
+            //first grant all permission
+            Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
+            Web_Fuction.gotoWDWeb(driver);
+            driver.Wait();
+            Web_Fuction.login();
+            driver.Wait();
+            Web_Fuction.gotoTab(WDWebTab.admin);
+            Web.Administration_Page.Permissions.Click();
+            Web_Fuction.RestorePermission(Selenium_Driver._Selenium_Driver);
+            driver.Close();
+        }
         #endregion
 
         #region table fuction
