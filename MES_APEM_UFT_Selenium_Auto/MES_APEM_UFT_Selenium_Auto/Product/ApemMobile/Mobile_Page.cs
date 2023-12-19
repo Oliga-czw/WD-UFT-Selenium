@@ -108,8 +108,12 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public Selenium_WebElement OKButton => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' OK ']/../..");
         public Selenium_WebElement CancelButton => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' Cancel ']/../..");
         public Selenium_WebElement StopButton => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[data-mat-icon-name='toolbar_stop']");
+        //Soap
         public Selenium_WebElement SOAP_CALL2_EXButton => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' SOAP_CALL2_EX ']/../..");
+        public Selenium_WebElement SOAP_CALL2_Button => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' SOAP_CALL2 ']/../..");
+        public Selenium_WebElement BPC_Button => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' BPC ']/../..");
         public Selenium_WebElement MainField1 => new Selenium_WebElement(_Selenium_Driver, "//input[@id='Main.Field1']");
+        public Selenium_WebElement MainField0 => new Selenium_WebElement(_Selenium_Driver, "//input[@id='main.Field0']");
         public Selenium_WebElement ConfirmYesButton => new Selenium_WebElement(_Selenium_Driver, "//div[@id='dialog']/div/div[3]/button[1]");
     }
 

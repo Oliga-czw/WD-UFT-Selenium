@@ -304,8 +304,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public Execution_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
         {
         }
+        //Soap
         public UFT_Button SOAP_CALL2_EX_Button => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Button0']");
+        public UFT_Button SOAP_CALL2_Button => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Button3']");
         public UFT_Editor CheckField => new UFT_Editor(_UFT_InterFrame, "//Editor[@TagName = 'chkField']");
+        public UFT_Button BPC_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'BPC']");//TC916388
 
         public UFT_Button OK_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'OK']");
         public UFT_Button Cancel_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Cancel']");
@@ -337,9 +340,13 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public ExecuteMain_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
         {
         }
+        //Soap
         public UFT_Button SOAP_CALL2_EX_Button => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Button0']");
+        public UFT_Button SOAP_CALL2_Button => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Button3']");
         public UFT_Editor CheckField => new UFT_Editor(_UFT_InterFrame, "//Editor[@TagName = 'chkField']");
         public UFT_Button Cancel_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Cancel']");
+        public UFT_Button BPC_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'BPC']");//TC916388
+        
         //logevent
         public UFT_Button LogEventAutoButton => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Log Event Auto']");
         //Set Detail 915161

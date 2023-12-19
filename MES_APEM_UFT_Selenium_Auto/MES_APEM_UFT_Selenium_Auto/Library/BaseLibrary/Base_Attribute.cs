@@ -133,6 +133,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 
     public class PassWord
     {
+        public const string admin = "Aspen000";
         public const string qaone1 = "Aspen111";
         public const string qaone2 = "Aspen111";
         public const string qaone3 = "Aspen111";

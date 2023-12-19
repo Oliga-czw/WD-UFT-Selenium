@@ -46,6 +46,19 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             Base_logger.Info("Add config key successfully.");
 
         }
+        public static void EditConfigKey(string path, string Key)
+        {
+            //CDM_RESOURCE_SERVICE_ENABLE = 1
+            string KeyName = Key.Split('=')[0];
+            string KeyValue = Key.Split('=')[1];
+            //delete key
+            string all = File.ReadAllText(path);
+            string pattern = $"{KeyName}= " + @".+";
+            string replacedContent = Regex.Replace(all, pattern, Key);//@"CDM_RESOURCE_SERVICE_ENABLE = .+"
+            File.WriteAllText(path, replacedContent);
+            Base_logger.Info("Delete config key successfully.");
+
+        }
         public static void MouseClick(Point point)
         {
             //int WaitPoint_x = point.X - 70;
@@ -59,16 +72,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 
         public static void DeleteConfigKey(string path, string Key)
         {
-            //NET_REMOVAL_REQUIRE_TARGET_TARE = 0
-            //string KeyName = Key.Split('=')[0];
-
             //delete key
             string all = File.ReadAllText(path);
-            //string pattern = $"{KeyName} = " + @"\d{1}";
             string pattern = Key;
-            all = Regex.Replace(all, pattern, "");//@"NET_REMOVAL_REQUIRE_TARGET_TARE = \d{1}"
-            //Console.WriteLine(all);
-            File.WriteAllText(path, all);
+            string replacedContent = all.Replace(pattern, "");
+            File.WriteAllText(path, replacedContent);
             Base_logger.Info("Delete config key successfully.");
 
         }
