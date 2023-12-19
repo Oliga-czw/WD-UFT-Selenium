@@ -83,6 +83,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
         {
             _Selenium_Driver.Navigate().GoToUrl(url);
         }
+        public void Refresh()
+        {
+            _Selenium_Driver.Navigate().Refresh();
+        }
         public void Maxsize()
         {
             _Selenium_Driver.Manage().Window.Maximize();

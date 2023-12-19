@@ -289,9 +289,12 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button Visible_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Select visible rows' and @IsWrapped = 'True']");
         public UFT_Editor Search => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Code\\s\\s']");
         public UFT_Button Cancel_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Cancel Order']");
+        public UFT_Button CancelBP_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Cancel BP']");
+        public UFT_Button DisableBP_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Disable']");
         public UFT_Button Activate_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Activate']");
+        public UFT_Button Reactivate_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Reactivate']");
         public UFT_Button Archive_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Archive']");
-        public UFT_Table OrderList_Table => new UFT_Table(_UFT_InterFrame, "//Table[@NativeClass = 'm2r.Table.m2rTableView']");
+        public UFT_Table OrderList_Table => new UFT_Table(_UFT_InterFrame, "//Table[@NativeClass = 'm2r.Table.m2rTableView*']");
         public ITabControl OrderTabControl => _UFT_InterFrame.Describe<ITabControl>(new TabControlDescription
         {
             TagName = @"m2rTabbedPanel"
@@ -312,6 +315,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
 
         public UFT_Button OK_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'OK']");
         public UFT_Button Cancel_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Cancel']");
+        
         public UFT_Editor UserIDEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'User ID:']");
         public IEditor PHActualEditor => _UFT_InterFrame.Describe<IEditor>(new EditorDescription
         {
@@ -406,7 +410,30 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             AttachedText = @"	 	 	 	No	 	 	 	"
         });
 
+    }
+    public class UserConfirmation_InterFrame : MOCMainInterFrame
+    {
 
+        public UserConfirmation_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+        
+        public IEditor PassWord => _UFT_InterFrame.Describe<IEditor>(new EditorDescription
+        {
+            AttachedText = @"Password"
+        });
+        public IEditor Comment => _UFT_InterFrame.Describe<IEditor>(new EditorDescription
+        {
+            TagName = @"m2rTextBox"
+        });
+        public IButton OKButton => _UFT_InterFrame.Describe<IButton>(new ButtonDescription
+        {
+            AttachedText = @"OK"
+        });
+        public IButton CancelButton => _UFT_InterFrame.Describe<IButton>(new ButtonDescription
+        {
+            AttachedText = @"Cancel"
+        });
 
     }
 }

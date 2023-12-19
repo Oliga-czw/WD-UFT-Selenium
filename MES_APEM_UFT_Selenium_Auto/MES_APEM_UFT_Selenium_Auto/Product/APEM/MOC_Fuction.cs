@@ -64,14 +64,18 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             Thread.Sleep(5000);
             APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row(RPLName).Click();
             Thread.Sleep(2000);
-            APEM.MocmainWindow.RPLDesignInternalFrame.VerifyButton.ClickSignle();
-            Thread.Sleep(3000);
-            APEM.VerifyDialog.NoButton.Click();
-            Thread.Sleep(3000);
-            APEM.MocmainWindow.ConfirmDialog.PasswordEditor.SendKeys(PassWord.qaone1);
-            APEM.MocmainWindow.ConfirmDialog.Reason.SendKeys("Test");
-            APEM.MocmainWindow.ConfirmDialog.OK.Click();
-            Thread.Sleep(3000);
+            if (APEM.MocmainWindow.RPLDesignInternalFrame.VerifyButton.IsEnabled) 
+            {
+                APEM.MocmainWindow.RPLDesignInternalFrame.VerifyButton.ClickSignle();
+                Thread.Sleep(3000);
+                APEM.VerifyDialog.NoButton.Click();
+                Thread.Sleep(3000);
+                APEM.MocmainWindow.ConfirmDialog.PasswordEditor.SendKeys(PassWord.qaone1);
+                APEM.MocmainWindow.ConfirmDialog.Reason.SendKeys("Test");
+                APEM.MocmainWindow.ConfirmDialog.OK.Click();
+                Thread.Sleep(3000);
+            }
+            
         }
         public static void CertifyRPL(string RPLName)
         {
@@ -79,14 +83,18 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             Thread.Sleep(5000);
             APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row(RPLName).Click();
             Thread.Sleep(2000);
-            APEM.MocmainWindow.RPLDesignInternalFrame.CertifyButton.ClickSignle();
-            Thread.Sleep(3000);
-            APEM.CertifyDialog.YesButton.Click();
-            Thread.Sleep(3000);
-            APEM.MocmainWindow.ConfirmDialog.PasswordEditor.SendKeys(PassWord.qaone1);
-            APEM.MocmainWindow.ConfirmDialog.Reason.SendKeys("Test");
-            APEM.MocmainWindow.ConfirmDialog.OK.Click();
-            Thread.Sleep(3000);
+            if (APEM.MocmainWindow.RPLDesignInternalFrame.CertifyButton.IsEnabled) 
+            {
+                APEM.MocmainWindow.RPLDesignInternalFrame.CertifyButton.ClickSignle();
+                Thread.Sleep(3000);
+                APEM.CertifyDialog.YesButton.Click();
+                Thread.Sleep(3000);
+                APEM.MocmainWindow.ConfirmDialog.PasswordEditor.SendKeys(PassWord.qaone1);
+                APEM.MocmainWindow.ConfirmDialog.Reason.SendKeys("Test");
+                APEM.MocmainWindow.ConfirmDialog.OK.Click();
+                Thread.Sleep(3000);
+            }
+            
         }
         //click plan from plan to create order 
         public static void PlanFromRPL(string RPLName,string OrderName,bool active = true)

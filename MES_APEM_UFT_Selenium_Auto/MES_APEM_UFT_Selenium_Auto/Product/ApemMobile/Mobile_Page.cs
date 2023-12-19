@@ -58,6 +58,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public Selenium_WebElement Setting => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='settings']");
         public Selenium_WebElement Event => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='Event-List']");
         public Selenium_WebElement ss => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='Event-ss']");
+        public Selenium_WebElement Consolidated => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='consolidated']");
         //public static IWebElement Administration = _Selenium_Driver.FindElement(By.XPath("//div[text()='Administration']"));
 
         #endregion
@@ -75,6 +76,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public Selenium_WebElement SearchButton => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[data-mat-icon-name='search']");
         public Selenium_WebElement GotoTracking => new Selenium_WebElement(_Selenium_Driver,"//table/tbody/tr/td/a");
         public Selenium_WebElement ExecutionButton => new Selenium_WebElement(_Selenium_Driver, "//table/tbody/tr/td//a");
+        public ReadOnlyCollection<IWebElement> OrderPhaseTableRows => _Selenium_Driver.FindElements(By.XPath("//table/tbody/tr"));
+        public ReadOnlyCollection<IWebElement> OrderPhaseTableHeads => _Selenium_Driver.FindElements(By.XPath("//table/thead/tr/th/div/div[1]/div"));
     }
     public class OrderTracking_Page : Mobile_Page
 
@@ -86,8 +89,23 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public ReadOnlyCollection<IWebElement> OrderPhaseTableHeads => _Selenium_Driver.FindElements(By.XPath("//table/thead/tr/th/div/div[1]/div"));
         public Selenium_WebElement SelectMenu => new Selenium_WebElement(_Selenium_Driver, "//button[@id='selectmenu']");
         public Selenium_WebElement ExecutionButton => new Selenium_WebElement(_Selenium_Driver, "//table/tbody/tr/td//a");
+        public ReadOnlyCollection<IWebElement> OrderPhaseNames => _Selenium_Driver.FindElements(By.XPath("//div[@class='phase-name-text']"));
     }
-    //PrintReport_Page
+    //Consolidated_Page
+    public class Consolidated_Page : Mobile_Page
+
+    {
+        public Consolidated_Page(IWebDriver driver) : base(driver)
+        {
+        }
+        public Selenium_WebElement OrderSearch => new Selenium_WebElement(_Selenium_Driver, "//input[@id='ordersearch']");
+        public ReadOnlyCollection<IWebElement> OrderPhaseTableRows => _Selenium_Driver.FindElements(By.XPath("//table/tbody/tr"));
+        public Selenium_WebElement OrderPhaseTable => new Selenium_WebElement(_Selenium_Driver, "//table/tbody");
+        public ReadOnlyCollection<IWebElement> OrderPhaseTableHeads => _Selenium_Driver.FindElements(By.XPath("//table/thead/tr/th/div/div[1]/div"));
+        public Selenium_WebElement SelectMenu => new Selenium_WebElement(_Selenium_Driver, "//button[@id='selectmenu']");
+        public Selenium_WebElement ExecutionButton => new Selenium_WebElement(_Selenium_Driver, "//table/tbody/tr/td//a");
+        //public ReadOnlyCollection<IWebElement> OrderPhaseNames => _Selenium_Driver.FindElements(By.CssSelector("div.collapse-text order-name*"));
+    }
     public class PrintReport_Page : Mobile_Page
 
     {

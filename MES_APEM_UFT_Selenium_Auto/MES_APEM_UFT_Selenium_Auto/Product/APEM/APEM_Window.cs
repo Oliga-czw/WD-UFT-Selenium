@@ -227,6 +227,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public Execution_InterFrame ExecutionInternalFrame => new Execution_InterFrame(_UFT_Window, "//InterFrame[@NativeClass = 'runtime.vm.chkRTFrame']");
         public PopUp_InterFrame PopUpInternalFrame => new PopUp_InterFrame(_UFT_Window, "//InterFrame[@NativeClass = 'runtime.vm.chkVMRuntimeFrame$MDIFrameMessageInputSupport$2']");
         public Confirmation_InterFrame ConfirmationInternalFrame => new Confirmation_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Confirmation']");
+        public UserConfirmation_InterFrame UserConfirmationInternalFrame => new UserConfirmation_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'User Confirmation']");
+        public UFT_Button StopPhaseButton => new UFT_Button(_UFT_Window, "//Button[@Label = 'Stop phase' and @IsWrapped = 'True']");
+        public UFT_Button CancelPhaseButton => new UFT_Button(_UFT_Window, "//Button[@Label = 'Cancel phase' and @IsWrapped = 'True']");
     }
 
     public class RegistrationWindow : WPF_Window
