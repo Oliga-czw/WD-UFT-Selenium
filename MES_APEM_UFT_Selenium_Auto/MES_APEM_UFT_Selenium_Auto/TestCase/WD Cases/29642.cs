@@ -207,7 +207,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             WD.AFWSecuredDialog.Yes.Click();
             WD.AFWMainWindow.GetSnapshot(Resultpath + "delete_role.PNG");
             AFW_Fuction.closeAFW();
-            Base_Function.ResartServices("AfwSecCliSvc");
+            Base_Function.ResartServices(ServiceName.AFW);
             Selenium_Driver driver2 = new Selenium_Driver(Browser.chrome);
             Web_Fuction.gotoWDWeb(driver2);
             driver2.Wait();

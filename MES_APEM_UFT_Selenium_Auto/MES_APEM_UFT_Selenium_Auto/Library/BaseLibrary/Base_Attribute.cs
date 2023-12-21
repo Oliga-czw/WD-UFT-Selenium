@@ -264,5 +264,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         public const string Admin = "Production Execution Administrator";
 
     }
+    public class ServiceName
+    {
+        public const string Tomcat = "Tomcat9";
+        public const string AFW = "AfwSecCliSvc";
+        public const string SQL = "MSSQLSERVER";
 
+    }
 }

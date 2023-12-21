@@ -30,6 +30,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             string bpl = "BPL916388";
             string Classtext = "Geographical Address Class";
 
+
             string Flagpath = Base_Directory.ConfigDir + "flags.m2r_cfg";
             string Path = Base_Directory.ConfigDir + "path.m2r_cfg";
             string Modelpath = Base_Directory.ConfigDir + "resource_model.m2r_cfg";
@@ -51,7 +52,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 //codify all
                 Base_Test.LaunchApp(Base_Directory.Codify_all);
                 //restart tomcat
-                Base_Function.ResartServices("Tomcat9");
+                Base_Function.ResartServices(ServiceName.Tomcat);
 
                 LogStep(@"1. create mMDM");
                 Application.LaunchmMDMAdmin();
