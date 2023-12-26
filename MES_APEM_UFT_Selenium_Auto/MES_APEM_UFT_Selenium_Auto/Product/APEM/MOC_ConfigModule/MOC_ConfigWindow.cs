@@ -15,8 +15,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         }
         public UFT_Button Workstations => new UFT_Button(_UFT_Window, "//Button[@Label = 'Workstations' and @IsWrapped = 'True']");
         public UFT_Button Import_ReplaceMerge => new UFT_Button(_UFT_Window, "//Button[@Label = 'Import replace/merge' and @IsWrapped = 'True']");
+        public UFT_Button Export => new UFT_Button(_UFT_Window, "//Button[@Label = 'Export' and @IsWrapped = 'True']");
         public UFT_Button Table_Definition => new UFT_Button(_UFT_Window, "//Button[@Label = 'Table Definition' and @IsWrapped = 'True']");
         public ConfigImport_Dialog ConfigImportDialog => new ConfigImport_Dialog(_UFT_Window, "//Dialog[@Title = 'Import replace/merge from File']");
+        public ConfigExport_Dialog ConfigExportDialog => new ConfigExport_Dialog(_UFT_Window, "//Dialog[@Title = 'Export to File']");
         public WorkstationInterFrame WorkstationInterFrame => new WorkstationInterFrame(_UFT_Window, "//InterFrame[@TagName = 'Workstations']");
         public WorkstationEditInterFrame WorkstationEditInterFrame => new WorkstationEditInterFrame(_UFT_Window, "//InterFrame[@TagName = 'Workstation:*']");
         public WorkstationInsertInterFrame WorkstationInsertInterFrame => new WorkstationInsertInterFrame(_UFT_Window, "//InterFrame[@TagName = 'Workstation']");
@@ -37,7 +39,18 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
 
         public UFT_Editor FileName => new UFT_Editor(_UFT_Dialog, "//Editor[@AttachedText = 'File Name:']");
     }
+    
+    public class ConfigExport_Dialog : UFT_Dialog
+    {
+        public ConfigExport_Dialog(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
 
+        public UFT_Editor FileName => new UFT_Editor(_UFT_Dialog, "//Editor[@AttachedText = 'File Name:']");
+        public UFT_Button ExportToFileButton => new UFT_Button(_UFT_Dialog, "//Button[@Label = 'Export to File']");
+        public UFT_Button HomeButton => new UFT_Button(_UFT_Dialog, "//Button[@Label = 'Home']");
+
+    }
 
     public class ConfigInterFrame : UFT_InterFrame
     {

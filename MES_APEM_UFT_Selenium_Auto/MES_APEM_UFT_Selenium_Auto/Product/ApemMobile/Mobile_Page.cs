@@ -79,6 +79,15 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public ReadOnlyCollection<IWebElement> OrderPhaseTableRows => _Selenium_Driver.FindElements(By.XPath("//table/tbody/tr"));
         public ReadOnlyCollection<IWebElement> OrderPhaseTableHeads => _Selenium_Driver.FindElements(By.XPath("//table/thead/tr/th/div/div[1]/div"));
     }
+    public class BPList_Page : Mobile_Page
+
+    {
+        public BPList_Page(IWebDriver driver) : base(driver)
+        {
+        }
+        public ReadOnlyCollection<IWebElement> BPListTableRows => _Selenium_Driver.FindElements(By.XPath("//table/tbody/tr"));
+        public Selenium_WebElement BPListTable => new Selenium_WebElement(_Selenium_Driver, "//table/tbody");
+    }
     public class OrderTracking_Page : Mobile_Page
 
     {

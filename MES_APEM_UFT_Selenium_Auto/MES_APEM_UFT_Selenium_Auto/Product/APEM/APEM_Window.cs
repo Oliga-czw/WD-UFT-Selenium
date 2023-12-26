@@ -58,6 +58,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Dialog CancelOrderDialog => new UFT_Dialog("//Dialog[@Title = 'Cancel Order']");
         public UFT_Dialog ArchiveOrderDialog => new UFT_Dialog("//Dialog[@Title = 'Archive Order']");
         public RowsToView_Dialog RowsToViewDialog => new RowsToView_Dialog(_UFT_Window, "//Dialog[@Title = 'Rows to View']");
+        public UFT_Dialog ErrorDialog => new UFT_Dialog("//Dialog[@Title = 'Error']");
         #endregion
         //UIA Pro Webbrowser
         public HP.LFT.SDK.UIAPro.IEdit BrowserURL => Desktop.Describe<HP.LFT.SDK.UIAPro.IWindow>(new HP.LFT.SDK.UIAPro.WindowDescription
@@ -89,7 +90,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
                 ControlType = @"Edit",
                 AutomationId = string.Empty
             });
+        public STD_Window MicrosoftEdgeWindow => new STD_Window("//Window[@WindowTitleRegExp = ' Microsoft​ Edge']");
     }
+        
     public class MOC_Menu : UFT_Menu
     {
         public MOC_Menu(ITestObject parentObject, string xpath) : base(parentObject, xpath)
@@ -136,7 +139,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public ExecuteMain_InterFrame ExecuteMainInternalFrame => new ExecuteMain_InterFrame(_UFT_Window, "//InterFrame[@NativeClass = 'runtime.vm.chkVMRuntimeMDI$RTFrame']");
 
         #endregion
-
+        #region RPLDesign
         public UFT_CheckBox UnitProcedure => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText = 'Unit Procedure' and @IsWrapped = 'True']");
         public UFT_CheckBox Parallel => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText = 'Parallel' and @IsWrapped = 'True']");
         public UFT_CheckBox Serial => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText = 'Serial' and @IsWrapped = 'True']");
@@ -164,11 +167,22 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             IsWrapped = true,
             Index = 1
         });
+        #endregion
         public UFT_Dialog PasteRenamedDialog => new UFT_Dialog(_UFT_Window, "//Dialog[@Title = 'Copy/Paste Renamed Components List']");
         public UFT_Menu FileImport => new UFT_Menu(_UFT_Window, "//Menu[@Label = 'File']");
         public UFT_Menu Build => new UFT_Menu(_UFT_Window, "//Menu[@Label = 'Build']");
         public UFT_Menu DesignMenu => new UFT_Menu(_UFT_Window, "//Menu[@Label = 'Design']");
         public OpenDesign_Dialog OpenDesignDialog => new OpenDesign_Dialog(_UFT_Window, "//Dialog[@Title = 'Open design ...']");
+       
+        #region BPLDesign
+        public UFT_CheckBox Actions => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText = 'Actions' and @IsWrapped = 'True']");
+        public UFT_CheckBox Concurrent_Actions => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText = 'Concurrent actions' and @IsWrapped = 'True']");
+        public UFT_CheckBox Window => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText = 'Window' and @IsWrapped = 'True']");
+        public UFT_CheckBox FinishWithYES => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText = 'Finish with YES' and @IsWrapped = 'True']");
+        public UFT_CheckBox FinishWithNO => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText = 'Finish with NO' and @IsWrapped = 'True']");
+        public UFT_CheckBox LinkNode => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText = 'Link node' and @IsWrapped = 'True']");
+
+        #endregion
 
 
     }
@@ -230,6 +244,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UserConfirmation_InterFrame UserConfirmationInternalFrame => new UserConfirmation_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'User Confirmation']");
         public UFT_Button StopPhaseButton => new UFT_Button(_UFT_Window, "//Button[@Label = 'Stop phase' and @IsWrapped = 'True']");
         public UFT_Button CancelPhaseButton => new UFT_Button(_UFT_Window, "//Button[@Label = 'Cancel phase' and @IsWrapped = 'True']");
+        public Message_InterFrame MessageInternalFrame => new Message_InterFrame(_UFT_Window, "//InterFrame[@Label = 'Message']");
     }
 
     public class RegistrationWindow : WPF_Window

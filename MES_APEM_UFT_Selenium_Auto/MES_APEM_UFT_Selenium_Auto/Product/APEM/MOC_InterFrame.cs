@@ -170,7 +170,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public PFCDesignApp_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
         {
         }
-
+        #region RPLDesign
         public UFT_UiObject BeginNodeUiObject => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@NativeClass = 'PFCTree.View.BeginNode']");
         public UFT_UiObject ControlLinkUiObject => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@NativeClass = 'PFCTree.View.ControlLink']");
         public UFT_UiObject EndNodeUiObject => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@NativeClass = 'PFCTree.View.EndNode']");
@@ -232,8 +232,15 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         {
             NativeClass = @"PFCTree.View.ParallelDivergent"
         });
-        //runtime.Design.recipeDesignForm
-
+        #endregion
+        #region BPLDesign
+        public UFT_Button Action0 => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Actions: Action0']");
+        public UFT_Button Concurrent_Action0 => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Concurrent actions: Thread0']");
+        public UFT_Button Window0 => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Window: Window0']");
+        public UFT_Button FinishWithYES0 => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Finish with YES: ReturnYes0']");
+        public UFT_Button FinishWithNO0 => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Finish with NO: ReturnNo0']");
+        public UFT_Button LinkNode0 => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = ' LinkNodeName0*']");
+        #endregion
     }
     public class BPLList_InterFrame : MOCMainInterFrame
     {
@@ -266,7 +273,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Table BPListTable => new UFT_Table(_UFT_InterFrame, "//Table[@AttachedText = 'No.\\s\\s']");
         public IEditor NoEditor => _UFT_InterFrame.Describe<IEditor>(new EditorDescription {
 				AttachedText = @"No.  ",
-				IsWrapped = true
+				IsWrapped = true,
+                Index = 1
 			});
         public ICheckBox WebCheckBox => _UFT_InterFrame.Describe<ICheckBox>(new CheckBoxDescription
         {
@@ -333,6 +341,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Editor DeviationDesEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Introduction']");
         public UFT_List ProductionStoppedList => new UFT_List(_UFT_InterFrame, "//List[@ObjectName = 'cmbProductionStopped']");
         public UFT_Editor ProductionResponseEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'By signing, the deviation will be recorded in the system.']");
+        public UFT_Button ViewDOCURL_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'View doc URL']");
+        public UFT_Button LocalPdfView_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'local PDF view']");
+        public UFT_Button SharedUrlview_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Shared URL view']");
+        public UFT_Button InvalidError_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'invalid error message']");
     }
     //ExecuteMain_InterFrame
     public class ExecuteMain_InterFrame : MOCMainInterFrame
@@ -428,6 +440,19 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             AttachedText = @"Cancel"
         });
 
+    }
+    //Message_InterFrame
+    public class Message_InterFrame : MOCMainInterFrame
+    {
+
+        public Message_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+
+        public IButton OKButton => _UFT_InterFrame.Describe<IButton>(new ButtonDescription
+        {
+            AttachedText = @"	 	 	 	OK	 	 	 	"
+        });
     }
 }
 

@@ -96,7 +96,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
         });
         public ILabel Lable => _UFT_Dialog.Describe<ILabel>(new LabelDescription
         {
-            ObjectName = @"OptionPane.label"
+            ObjectName = @"OptionPane.label",
+            Index = 0
         });
         //public ITable DataTable => _UFT_Dialog.Describe<ITable>(new TableDescription
         //{

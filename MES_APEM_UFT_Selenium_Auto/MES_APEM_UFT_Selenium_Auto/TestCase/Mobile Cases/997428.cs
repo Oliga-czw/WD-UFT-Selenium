@@ -228,6 +228,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(4000);
             Base_Assert.AreEqual(Mobile.Consolidated_Page.OrderPhaseTable._Selenium_WebElement.Size.Height, 0);
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "OrderCanceled.PNG");
+            Mobile.Main_Page.Setting.Click();
+            Mobile.Setting_Page.turnOff_mode(2);
             driver.Close();
         }
     }

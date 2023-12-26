@@ -1,0 +1,1401 @@
+---------- Row Found ----------
+#0 : 
+Order : ORDER749627
+Order Desc : test
+Process Type : 
+Batch : Batch
+Product : Article
+Start Date : 12/12/22, 3:23:00 AM
+No. : 1
+Name : PHASE17
+Phase Code : 
+Status : Ready for execution
+Process Area : 
+Workcenter : 
+User Status : 
+-------------------------------
+剪切板中的内容为: This is a test PDF document. 
+If you can read this, you have Adobe Acrobat Reader installed on your computer. 
+剪切板中的内容为: This is a test PDF document. 
+If you can read this, you have Adobe Acrobat Reader installed on your computer. 
+剪切板中的内容为: User Guide
+Aspen Production Execution Manager
+Weigh and Dispense Execution
+Version Number: V8.8
+May 2015
+Copyright (c) 2014-2015 by Aspen Technology, Inc. All rights reserved.
+Aspen Production Execution Manager, Aspen Production Execution Manager Weigh and Dispense, aspenONE, and
+the aspen leaf logo are trademarks or registered trademarks of Aspen Technology, Inc., Bedford, MA.
+All other brand and product names are trademarks or registered trademarks of their respective companies.
+This document is intended as a guide to using AspenTech's software. This documentation contains AspenTech
+proprietary and confidential information and may not be disclosed, used, or copied without the prior consent of
+AspenTech or as set forth in the applicable license agreement. Users are solely responsible for the proper use of
+the software and the application of the results obtained.
+Although AspenTech has tested the software and reviewed the documentation, the sole warranty for the software
+may be found in the applicable license agreement between AspenTech and the user. ASPENTECH MAKES NO
+WARRANTY OR REPRESENTATION, EITHER EXPRESSED OR IMPLIED, WITH RESPECT TO THIS DOCUMENTATION,
+ITS QUALITY, PERFORMANCE, MERCHANTABILITY, OR FITNESS FOR A PARTICULAR PURPOSE.
+Aspen Technology, Inc.
+20 Crosby Drive
+Bedford, MA 01730
+USA
+Phone: (781) 221-6400
+Toll Free: (888) 996-7100
+URL: http://www.aspentech.com
+Contents iii
+Contents
+1 Introduction .........................................................................................................1
+This Manual .....................................................................................................2
+Related Documentation .....................................................................................2
+Manuals ................................................................................................2
+Help .....................................................................................................3
+Technical Support ............................................................................................3
+2 Getting Started with the Operator Console...........................................................5
+Starting the Operator Console............................................................................5
+Logging On............................................................................................5
+Assigning a Booth ..................................................................................5
+Booth Cleaning ................................................................................................6
+Scale Checking ................................................................................................7
+3 Dispensing Materials ..........................................................................................11
+Dispensing Methods........................................................................................ 11
+Net..................................................................................................... 11
+Net Removal........................................................................................ 13
+Source as Target .................................................................................. 14
+Whole Issue ........................................................................................ 15
+Weighing Gross.................................................................................... 15
+Double Check ...................................................................................... 16
+Manual................................................................................................ 18
+Reserving to Bind Material Consumption to the Correct BOM Item .............. 19
+Dispensing Logics........................................................................................... 20
+Main Active.......................................................................................... 20
+Scalable .............................................................................................. 20
+Compensation...................................................................................... 21
+Combination ........................................................................................ 21
+Executing Dispensing...................................................................................... 21
+Material Dispensing .............................................................................. 22
+Order Dispensing ................................................................................. 22
+Campaign Dispensing ........................................................................... 23
+User Interface Introduction.................................................................... 24
+4 Kitting Orders.....................................................................................................33
+Basic Steps ................................................................................................... 33
+User Interface Introduction.............................................................................. 34
+Order Kitting – Order Selection Page ...................................................... 34
+Order Kitting – Palletization Page ........................................................... 34
+iv Contents
+Index ....................................................................................................................37
+Contents v
+
+1 Introduction 1
+1 Introduction
+Aspen Weigh and Dispense is a new component of Aspen Production
+Execution Manager. This component is applicable to active drug, raw material
+and intermediate weighing and dispensing operations in both primary bulk
+active (API) and secondary drug product (DP) manufacturing settings.
+Aspen Weigh and Dispense consists of two parts:
+ Weigh and Dispense Management
+Aspen Weigh and Dispense Management (Management Web Site) is a
+web-based application. It is for operational managers to configure system
+settings and manage various data such as materials, orders, inventory,
+deviations, and so on. The initial information in Weigh and Dispense
+Management is mainly from ERP.
+Refer to the Aspen Weigh and Dispense Management Web Help for details
+about how to use the Management Web Site.
+ Weigh and Dispense Execution Console
+Aspen Weigh and Dispense Execution Console (Execution Console) is for
+plant floor operators to perform dispensing. The Execution Console
+references the data that is managed within the Management Web Site.
+Operators execute each dispensing step and update data in the Execution
+Console. The updated data are returned to database for further viewing or
+management within the Management Web Site.
+AspenTech Weigh and Dispense has the following features:
+ It is a complete weighing and dispensing solution for API and DP
+manufacture delivering. Weigh and Dispense solution includes
+comprehensive weighing and dispensing operations management and
+control, electronic signature and batch data recording, and label printing.
+ It fully compliance with US, EU and Japanese pharmaceutical
+manufacturing regulations.
+ It can integrate with a site’s ERP system. Weigh and Dispense can obtain
+master material updates, inventory status, and production orders from
+ERP. And then update inventory changes and completed orders back to
+ERP.
+ It is integrated with other MES software. As a part of Aspen Production
+Execution Manager, Weigh and Dispense also integrates with Aspen
+Production Record Manager and Aspen Audit and Compliance Manager.
+ It is modular and scalable to fit all operations from single dispensaries up
+to high complexity multi-site operations.
+2 1 Introduction
+ It is fully configurable. Weigh and Dispense enables the solution to
+represent user specific workflows and modes of operation. It
+accommodates all pharmaceutical weighing methodologies.
+This is how you benefit from using Weigh and Dispense:
+ Meet tightening regulatory standards, including 21CFR11 and cGMP
+guidelines governing weighing and dispensing, recording, traceability and
+accuracy.
+ Achieve financial benefits by impacting cycle times, reducing errors and
+reducing the costs of compliance.
+ Establish consistent workflows making it easier to transfer best practices
+between sites and reduce total cost of ownership.
+This Manual
+This user guide describes how to use Aspen Production Execution Manager
+Weigh and Dispense Operator Console. This manual contains the following:
+ Chapter 1 – Introduction – Overview of this manual and a list of related
+documentation.
+ Chapter 2 – Getting Started with the Operator ConsoleGetting Started
+with the Operator Console – Covers the preparations before starting to
+dispense materials.
+ Chapter 3 – Dispensing Materials – Introduces how to do material, order
+and campaign dispensing in the execution system.
+ Chapter 4 – Kitting Orders – Introduces how to place dispensed materials
+on pallets in the execution system.
+For details about how to use the web administrator, refer to the Aspen
+Production Execution Manager Weigh and Dispense Administrator Web Help.
+Related Documentation
+A number of documents have been produced to assist users to learn and use
+Aspen Production Execution Manager applications. The documentation set
+consists of the following:
+Manuals
+ Aspen Production Execution Manager Administration Guide
+ Aspen Production Execution Manager API Programmer Reference Guide
+ Aspen Production Execution Manager Design Reference Guide
+ Compliance Manager Installation, Configuration, and User Guide
+ General Manufacturing Library, Installation, Configuration, and User's
+Guide
+1 Introduction 3
+Help
+ Aspen Production Execution Manager Administrator Help
+ Aspen Production Execution Manager API Help
+ Aspen Production Execution Manager Config Help
+ Aspen Production Execution Manager Environment Help
+ Aspen Production Execution Manager Glossary Help
+ Aspen Production Execution Manager Manufacturing Operations and
+Control Help
+ Aspen Production Execution Manager Order Management and Execution
+Help
+ Aspen Production Execution Manager Templates Help
+ Aspen Production Execution Manager Weigh and Dispense Administrator
+Web Help
+Technical Support
+AspenTech customers with a valid license and software maintenance
+agreement can register to access the online AspenTech Support Center at:
+https://support.aspentech.com
+This Web support site allows you to:
+ Access current product documentation
+ Search for tech tips, solutions and frequently asked questions (FAQs)
+ Search for and download application examples
+ Search for and download service packs and product updates
+ Submit and track technical issues
+ Send suggestions
+ Report product defects
+ Review lists of known deficiencies and defects
+Registered users can also subscribe to our Technical Support
+e-Bulletins. These e-Bulletins are used to alert users to important technical
+support information such as:
+ Technical advisories
+ Product updates and releases
+Customer support is also available by phone, fax, and email. The most up-todate contact information is available at the AspenTech Support Center at
+https://support.aspentech.com.
+4 1 Introduction
+2 Getting Started with the Operator Console 5
+2 Getting Started with the
+Operator Console
+This chapter introduces how to get started with the Operator Console, and
+how to do booth cleaning and scale checking before weighing and dispensing.
+Starting the Operator Console
+Weigh and Dispense Operator Console must be installed together with APEM.
+For details about how to install the Operator Console, refer to the Aspen
+Execution Production Manager Installation Guide.
+Start the Operator Console from Start | All Programs | AspenTech |
+Aspen Manufacturing Suite | Aspen Production Execution Manager |
+Aspen Weigh and Dispense Execution.
+Logging On
+If log on is required, you must enter a valid user name and password, which
+is a user account granted Allow access permission to the execution system.
+If log on is not required, the Weigh and Dispense Home page appears
+directly after lauching the Execution, listing the tasks you can perform.
+Notes:
+ For setting the Operator Console log on, refer to the topic “Configuring
+General Information” in the Aspen Weigh and Dispense Administrator Web
+Help.
+ For granting the Operator Console access permission, refer to the topic
+“Configuring Permissions” in the Aspen Weigh and Dispense Administrator
+Web Help.
+Assigning a Booth
+One Weigh and Dispense Execution controls one booth. You must specify
+which booth a Weigh and Dispense Execution controls.
+6 2 Getting Started with the Operator Console
+To assign a booth to an Execution Console:
+ Specify the Machine Name when you set up a booth on the Equipment
+tab in the Management Web Site.
+For example, if the Execution Console is installed on a computer named
+WORKSTATION, and the WORKSTATION is selected as the Machine Name in
+the Management Web Site for booth SOL-1, the Execution Console on the
+computer WORKSTATION controls booth SOL-1.
+Note: Refer to the topic “Adding a Booth” in the Weigh and Dispense
+Administrator Web Help for details about how to add a new booth.
+Booth Cleaning
+The booth used to dispense materials must be clean for some types of
+materials. The booth cleaning function is to instruct the operator to finish the
+booth cleaning.
+Note: Booth cleaning can be executed only when no other activities are
+ongoing in the booth.
+To clean a booth:
+1. Click Booth Cleaning on the Weigh and Dispense Home page. The
+Booth Cleaning page appears.
+You can see the current status and last dispensed information for the
+booth the operator console controls.
+2. Select the cleaning type from the Type drop-down list in the Cleaning
+Operation area. Instructions about how to do the cleaning display in the
+Instructions box.
+3. Clean the booth according to the instructions and click Cleaning
+Complete.
+The booth status changes to the final booth state specified for the selected
+cleaning type. The new booth status displays on the Equipment tab of
+the Weigh and Dispense Administrator.
+Items on the Booth Cleaning page:
+ Current Status area
+Displays the current booth status. This area is read-only. The current
+status includes the following:
+o Status: the current booth status.
+o Previous Cleaning: the cleaning type, date and time of the last booth
+cleaning.
+ Last Dispensed area
+Displays the latest material dispensed in this booth. This area is read-only.
+The last dispensed information includes the following:
+o Material: last material dispensed in this booth.
+o Order: the order to which the last dispensed material belongs.
+2 Getting Started with the Operator Console 7
+o Product: the product that the last dispensed material is used to
+produce.
+ Cleaning Operation area
+Selects the cleaning type to execute the booth cleaning. The Cleaning
+Operation area includes the following:
+o Type: selects a cleaning type. Cleaning types are predefined in the
+Weigh and Dispense Administrator. Refer to the “Configuring Cleaning
+Rules” topic in the Weigh and Dispense Administrator Web Help for
+details about how to define cleaning rules.
+o Instructions: the instructions about how to do the booth cleaning for
+the selected type.
+Buttons on the Booth Cleaning page:
+ Cleaning Complete
+Acknowledges the completion of booth cleaning. The booth status changes
+to the final state specified for the selected cleaning type.
+ Home
+Returns to the Weigh and Dispense Home page.
+Scale Checking
+Besides booth cleaning, scale checking is the other preparation you need to
+do before dispensing materials. Scale checking is to ensure the accuracy of
+the scale. This is not required every time, but once the scale validation has
+expired, the scale checking must be done. Otherwise, the scale cannot be
+used.
+Note: Scale checking can be executed only when no other activities are
+ongoing in the booth.
+The scale checking or standardization period is specified by administrators in
+Weigh and Dispense Administrator. Refer to the topic “Adding a Scale” in the
+Aspen Weigh and Dispense Administrator Web Help for more details.
+To do the scale checking:
+1. On the Weigh and Dispense Home, click Scale Checking. The Scale
+Checking – Scale and Standardization page appears.
+2. Select the scale and standardization type. Then click Start Check. The
+Scale Checking – Check Weight page appears.
+3. Try some weights to verify the scale reading is in an acceptable range.
+If the Check Weight list is predefined, then every weight in the list must
+be tried and passed.
+4. Click Accept when the scale checking finishes.
+8 2 Getting Started with the Operator Console
+Items on the Scale Checking – Scale and Standardization
+page:
+The Scale Checking – Scale and Standardization page has the following
+fields:
+ Scale
+Selects the scale to be checked from the drop-down list.
+ Standardization Status
+Details about every standardization type. This area is read-only. No
+information is displayed if no standardization type is defined for a scale.
+ Standardization
+Selects a standardization type from the drop-down list. This must be
+selected to start the scale checking.
+Scale standardization types are predefined in the Weigh and Dispense
+Administrator by administrators. Refer to the topic “Adding a Scale” in the
+Aspen Weigh and Dispense Administrator Web Help for details.
+The Scale Checking – Scale and Standardization page has the following
+buttons:
+ Test Scale Connectivity…
+Verifies if the connection to the physical scale works.
+ Start Check
+Goes to the Scale Checking – Check Weight page to start scale
+checking.
+ Home
+Returns to the Weigh and Dispense Home.
+Items on the Scale Checking – Check Weight page:
+The Scale Checking – Check Weight page has the following fields:
+ Scale
+Display the scale name. This field is read-only.
+ Standardization
+The standardization type you select. This field is read-only.
+ SOP reference
+The standard operating procedure (SOP) file name of the selected
+standardization type. This information displays only when the SOP
+reference is uploaded.
+ Expiration period
+The expiration period in days of the scale checking. This field is read-only.
+ Last checked
+Last date and time when the scale was checked. This field is read-only.
+ Expiration date
+The time and date when last scale check is expired. This field is read-only.
+ Scale information
+Displays the minimum weight, maximum weight and precision of the
+scale.
+2 Getting Started with the Operator Console 9
+ Check Weight
+Lists the weights that must be tested to pass the scale checking, the
+minimum and maximum weight can be accepted to pass for each check
+weight and the actual weight for each check weight. These weights are
+predefined when you define the standardization type. Refer to the “Adding
+a Scale” topic in the Aspen Weigh and Dispense Administrator Web Help
+for how to define check weights.
+If the scale reading is acceptable, the appears, indicating this weight
+passes checking. Otherwise, the appears to indicate the check failure.
+The Scale Checking – Check Weight page has the following buttons:
+
+Returns the scale reading to zero.
+
+Shows the scale reading in the Scale information area.
+ View SOP
+Opens the uploaded SOP reference.
+ Accept
+Acknowledges the pass of the scale checking. The scale is valid to use.
+ Cancel
+Returns to the Scale Checking – Scale and Standardization page. If
+the scale check fails, a message prompts you to accept the scale check
+failure before returning to the previous page.
+2 Getting Started with the Operator Console 10
+3 Dispensing Materials 11
+3 Dispensing Materials
+This chapter explains how to dispense materials in the Weigh and Dispense
+Execution. The user interface you encounter during the execution is also
+introduced.
+When no other activities are being performed in the booth, material
+dispensation can be executed.
+For material dispensing, Weigh and Dispense Execution allows partial
+dispensation. When the source container gross is less than the order quantity,
+or the target container is not big enough for the entire order quantity, you
+can dispense part of the order material first and then dispense the rest using
+another source or target container in the same booth.
+Dispensing Methods
+Weigh and Dispense provides several predefined weighing methods to
+dispense materials.
+Net
+Net is the most commonly used weighing method. You put the target
+container on the scale and weigh the material to dispense the required
+amount of material.
+Basic Steps
+1. Select a scale. The scale that has the best-fit weight range to the order
+quantity is suggested by default.
+The execution system checks the selected scale to ensure it is valid to
+use. In addition, the system attempts to set the scale UOM to the material
+UOM used in the BOM.
+2. Scan the source container barcode to enter the source container
+information into the execution system.
+The execution system rejects the material if:
+o The material is incorrect.
+12 3 Dispensing Materials
+o The material does not match any material downloaded from ERP. The
+operator can manually accept the material if granted proper
+permission. A deviation is created.
+o The material is not released or is from an expired lot from ERP stock.
+o Quarantined material is not accepted, except if the material is
+specifically allowed.
+o The material is from a non-FEFO lot. A warning message prompts the
+operator to confirm whether or not to proceed. In addition, a non-FEFO
+fulfillment flag is created when running weighing reports.
+The BOM may require that the same material is dispensed several
+separate times. Under this circumstance, a list of BOM is displayed,
+requiring the operator to choose which BOM line this material dispensing
+is for, unless:
+o The material exists only once in the BOM.
+o Only one batch of the material is pending for dispensing.
+3. Zero the scale.
+4. Place the target container on the scale and press tare. The scale reads the
+tare weight of the target container.
+5. Accept the tare weight.
+The execution system rejects the tare weight if:
+o The tare weight violates the tare settings for the material.
+o The tare weight violates the tare settings for the scale.
+You can manually accept the tare. The execution system creates a
+deviation to record the violation.
+6. Weigh the material and accept the weight when the dispensing is
+complete.
+The source gross weight is updated after the material weight in the target
+container is accepted.
+7. Print the target container label.
+For partial dispensation, repeat the steps to dispense the remaining quantity.
+If the material is from the same source container as the last dispensation, the
+source container information entry is omitted.
+If the material quantity in the source container is less than the order material
+quantity, you need to use material in another source container to finish the
+dispensation:
+ After entering the new source container information, the dispensation
+continues using the same target container if:
+o The material in the new source container is from the same lot.
+Or
+o The material is from a different lot but the target container is allowed
+to contain materials of different lots.
+ If the material in the new source container is from a different lot and the
+target container is restricted to contain only one lot, the previously
+weighed material must be accepted and labeled. Repeat the procedure to
+finish dispensing the remaining quantity using a new target container.
+3 Dispensing Materials 13
+Net Removal
+Net removal is to dispense material from the source container. You put the
+source container on the scale and then remove the required amount of
+material from the source container to the target container. Send the target
+container to manufacturing.
+Basic Steps
+1. Select a scale. The scale that has the best-fit weight range to the gross
+weight of the source container is suggested by default.
+The execution system checks the selected scale to ensure it is valid to
+use. In addition, the system attempts to set the scale UOM to the material
+UOM used in the BOM.
+2. Scan the source container barcode to enter the source container
+information into the execution system.
+The execution system rejects the material if:
+o The material is incorrect.
+o The material does not match any material downloaded from ERP. The
+operator can manually accept the material if granted proper
+permission. A deviation is created.
+o The material is not released or is from an expired lot from ERP stock.
+o Quarantined material is not accepted, except if the material is
+specifically allowed.
+The material is from a non-FEFO lot. A warning message prompts the
+operator to confirm whether or not to proceed. In addition, a non-FEFO
+fulfillment flag is created when running weighing reports.
+The BOM may require that the same material is dispensed several
+separate times. Under this circumstance, a list of BOM presents, requiring
+the operator to choose which BOM line this material dispensing is for,
+unless:
+o The material exists only once in the BOM.
+o Only one batch of the material is pending for dispensing.
+3. Zero the scale.
+4. Place the source container on the scale. If the gross weight exceeds the
+weight range of the scale, the execution system rejects the gross weight.
+You can manually accept the gross weight. The execution system creates
+a deviation to record the violation.
+5. Manually enter the tare of the target container. If the tare weight violates
+the tare settings for the material, the execution system rejects the tare.
+You can manually accept the tare weight. The execution system creates a
+deviation to record the violation.
+6. Click Start and remove the material to the target container.
+Note that the scale reading you see after clicking Start is the material
+quantity moved to the target container
+7. Accept the weight when the dispensing is complete.
+8. Print the target container label.
+14 3 Dispensing Materials
+For partial dispensation, repeat steps 3 to 7 to dispense the remaining
+quantity. If the material is from the same source container as the last
+dispensation, step 3 can be omitted.
+If the material quantity in the source container is less than the order material
+quantity, you need to use material in another source container to finish the
+dispensation:
+ After entering the new source container information, the dispensation
+continues using the same target container if:
+o The material in the new source container is from the same lot.
+Or
+o The material is from a different lot but the target container is allowed
+to contain materials of different lots.
+ If the material in the new source container is from a different lot and the
+target container is restricted to contain only one lot, the previously
+weighed material must be accepted and labeled. Repeat the procedure to
+finish weighing the remaining quantity using a new target container.
+Source as Target
+Source as target is to send the source container to manufacturing after
+removing the excess quantity. The excess quantity of material is placed in a
+target container and sent back to warehouse as stock.
+Basic Steps
+1. Select a scale. The scale that has the best-fit weight range to the gross
+weight of the source container is suggested by default.
+The execution system checks the selected scale to ensure it is valid to
+use. In addition, the system attempts to set the scale UOM to the material
+UOM used in the BOM.
+2. Scan the source container barcode to enter the source container
+information into the execution system.
+The execution system rejects the material if:
+o The material is incorrect.
+o The material does not match any material downloaded from ERP. The
+operator can manually accept the material if granted proper
+permission. A deviation is created.
+o The material is not released or is from an expired lot from ERP stock.
+o Quarantined material is not accepted, except if the material is
+specifically allowed.
+The material is from a non-FEFO lot. A warning message prompts the
+operator to confirm whether or not to proceed. In addition, a non-FEFO
+fulfillment flag is created when running weighing reports.
+The BOM may require that the same material is dispensed several
+separate times. Under this circumstance, a list of BOM is dispalyed,
+requiring the operator to choose which BOM line this material dispensing
+is for, unless:
+o The material exists only once in the BOM.
+3 Dispensing Materials 15
+o Only one batch of the material is pending for dispensing.
+3. Zero the scale.
+4. Manually enter the tare of the source container as well as the target
+container. If the tares violate the tare settings for the material, the
+execution system rejects the tare.
+You can manually accept the tare weight. The execution system creates a
+deviation to record the violation.
+5. Place the source container on the scale and click Start to read the scale.
+If the gross weight of the source container exceeds the weight range of
+the scale, the execution system rejects the gross weight.
+You can manually accept the gross weight. The execution system creates
+a deviation to record the violation.
+The scale reading is the accepted gross weight minus the source tare
+weight.
+6. Remove the excess weight from the source container to the target
+container.
+7. Accept the weight when the dispensing is complete.
+8. Print labels for both the source container as well as the target container.
+For partial dispensation, repeat the procedure by using a new source
+container.
+Whole Issue
+Whole issue is to send the entire container to manufacturing without
+weighing. This method is used for materials required in large quantity, such
+as cellulose or sugar.
+The whole issue can be used when all the following requirements are met:
+ The material quantity required is greater than the nominal quantity of the
+source container.
+ The source container has not been opened.
+ The source container is from an approved vendor.
+The source container label should contain the general information such as the
+gross weight, tare, net weight, and so on.
+Weighing Gross
+Weighing gross is quite similar to whole issue. But the gross weight must be
+checked before the source container is sent to manufacturing.
+The weighing gross can be used when all the following requirements are met:
+ The material quantity required is greater than the nominal quantity of the
+source container.
+ The source container has not been opened.
+ The source container is from an approved vendor.
+16 3 Dispensing Materials
+Basic Steps
+1. Select a scale. The scale that has the best-fit weight range to the gross
+weight of the source container is suggested by default.
+The execution system checks the selected scale to ensure it is valid to
+use. In addition, the system attempts to set the scale UOM to the material
+UOM used in the BOM.
+2. Scan the source container barcode to enter the source container
+information into the execution system.
+The execution system rejects the material if:
+o The material is incorrect.
+o The material does not match any material downloaded from ERP. The
+operator can manually accept the material if granted proper
+permission. A deviation is created.
+o The material is not released or is from an expired lot from ERP stock.
+o Quarantined material is not accepted except if the material is
+specifically allowed.
+The material is from a non-FEFO lot. A warning message prompts the
+operator to conform whether or not to proceed. In addition, a nonFEFO fulfillment flag is created when running weighing reports.
+The BOM may require the same material is dispensed in several separate
+times. Under this circumstance, a list of BOM presents, requiring the
+operator to choose which BOM line this material dispensing is for, unless:
+o The material exists only once in the BOM.
+o Only one batch of the material is pending for dispensing.
+3. Zero the scale.
+4. Enter the tare weight of the source container. If the tare violates the tare
+settings for the material, the execution system rejects the tare.
+You can manually accept the tare weight. The execution system creates a
+deviation to record the violation.
+5. Place the source container on the scale. The scale reading is the gross
+weight of the source container.
+Note: The scale reading discounts the tare.
+6. Accept the gross weight. If the gross weight violates the gross weight
+settings for the material, the execution system rejects the tare.
+You can manually accept the gross weight. The execution system creates
+a deviation to record the violation.
+For partial dispensation, repeat the procedure by using a new source
+container.
+Double Check
+Double check is to compare the quantity of the weighed material with the
+source container weight difference to confirm you dispense the correct
+material quantity.
+3 Dispensing Materials 17
+Basic Steps
+1. Select a scale. The scale that has the best-fit weight range to the gross
+weight of the source container is suggested by default.
+The execution system checks the selected scale to ensure it is valid to
+use. In addition, the system attempts to set the scale UOM to the material
+UOM used in the BOM.
+2. Scan the source container barcode to enter the source container
+information into the execution system.
+The execution system rejects the material if:
+o The material is incorrect.
+o The material does not match any material downloaded from ERP. The
+operator can manually accept the material if granted proper
+permission. A deviation is created.
+o The material is not released or is from an expired lot from ERP stock.
+o Quarantined material is not accepted, except if the material is
+specifically allowed.
+The material is from a non-FEFO lot. A warning message prompts the
+operator to confirm whether or not to proceed. In addition, a non-FEFO
+fulfillment flag is created when running weighing reports.
+The BOM may require that the same material is dispensed several
+separate times. Under this circumstance, a list of BOM is displayed,
+requiring the operator to choose which BOM line this material dispensing
+is for, unless:
+o The material exists only once in the BOM.
+o Only one batch of the material is pending for dispensing.
+3. Zero the scale.
+4. Place the source container on the scale and click Weigh to read the
+source container gross weight. If the gross weight of the source container
+exceeds the weight range of the scale, the execution system rejects the
+gross weight.
+You can manually accept the gross weight. The execution system creates
+a deviation to record the violation.
+5. Remove the source container and select a scale. The scale that has the
+best-fit weight range to the order quantity is suggested by default. You
+can still use the scale you first chose.
+The execution system checks the selected scale to ensure it is valid to
+use. In addition, the system attempts to set the scale UOM to the material
+UOM used in the BOM.
+6. Zero the scale.
+7. Place the target container on the scale and read the tare.
+8. Click Tare to accept the tare.
+The execution system rejects the tare weight if:
+o The tare weight violates the tare settings for the material.
+o The tare weight violates the tare settings for the scale.
+You can manually accept the tare. The execution system creates a
+deviation to record the violation.
+18 3 Dispensing Materials
+9. Weigh the material and click Accept when the dispensing is complete.
+10.Remove the target container and zero the scale.
+11. Place the source container on the scale and click Weigh to read the
+source container gross weight. Accept the source container gross if the
+gross weight difference matches the dispensed quantity within defined
+tolerance. Otherwise, a deviation is created.
+For partial dispensation, if still using the same source container, then repeat
+steps 6 to 11. The source container initial gross is updated using last captured
+gross weight. Otherwise, go through the procedure again.
+If the material quantity in the source container is less than the order material
+quantity, you need to use material in another source container to finish the
+dispensation:
+ After entering the new source container information, the container gross
+checking is performed depending on whether source container checking
+scale is the same as the dispensing scale.
+ Source container information is not updated with newly read container
+information until the previous source container weight check is complete.
+ After entering the new source container information, the dispensation
+continues using the same target container if:
+o The material in the new source container is from the same lot.
+Or
+o The material is from a different lot but the target container is allowed
+to contain materials of different lots.
+ If the material in the new source container is from a different lot and the
+target container is restricted to contain only one lot, the previously
+weighed material must be accepted and labeled. Repeat the procedure to
+finish dispensing the remaining quantity using a new target container.
+Manual
+When using manual, you need to manually enter the tare and net weight of
+the dispensed container. This method is mainly used when the scale does not
+work properly, such as when it is disconnected from the system.
+Note: Weigh and Dispense still identifies the information of those
+disconnected scales. You can judge if the data you enter is acceptable
+according to the scale range minimum, range maximum, resolution, tare
+minimum, tare maximum, etc.
+Basic Steps
+1. Scan the source container barcode to enter the source container
+information into the execution system.
+The execution system rejects the material if:
+o The material is incorrect.
+o The material does not match any material downloaded from ERP. The
+operator can manually accept the material if granted proper
+permission. A deviation is created.
+3 Dispensing Materials 19
+o The material is not released or is from an expired lot from ERP stock.
+o Quarantined material is not accepted, except if the material is
+specifically allowed.
+The material is from a non-FEFO lot. A warning message prompts the
+operator to conform whether or not to proceed. In addition, a nonFEFO fulfillment flag is created when running weighing reports.
+The BOM may require that the same material is dispensed several
+separate times. Under this circumstance, a list of BOM is displayed,
+requiring the operator to choose which BOM line this material dispensing
+is for, unless:
+o The material exists only once in the BOM.
+o Only one batch of the material is pending for dispensing.
+2. Enter the tare and net weight of the target container. If the tare violates
+the tare settings for the material, the execution system rejects the tare.
+You can manually accept the gross weight. The execution system creates
+a deviation to record the violation.
+3. Click Accept to record the weight.
+For partial dispensation, repeat steps 2 and 3 if still using the same source
+container.
+If the material quantity in the source container is less than the order material
+quantity, you need to use material in another source container to finish the
+dispensation:
+ After entering the new source container information, the dispensation
+continues using the same target container if:
+o The material in the new source container is from the same lot.
+Or
+o The material is from a different lot but the target container is allowed
+to contain materials of different lots.
+ If the material in the new source container is from a different lot and the
+target container is restricted to contain only one lot, the previously
+weighed material must be accepted and labeled. Repeat the procedure to
+finish dispensing the remaining quantity using a new target container.
+Reserving to Bind Material Consumption to
+the Correct BOM Item
+If the same BOM material is listed more than once in a BOM, Weigh and
+Dispense supports the binding of the partial consumption of the material to
+the correct BOM item. For example:
+A BOM has the following three items:
+Sequence Material ID Quantity
+1 1072 200g
+2 2083 100g
+3 1072 300g
+20 3 Dispensing Materials
+If you partially dispense 100g of material 1072, you can specify whether the
+100g is for 1072 sequence 1 or for 1072 sequence 3. This is done by using
+the Reservation_Number and Reservation_Item_Number fields in the
+database.
+Dispensing Logics
+Besides dispensing methods, the execution system uses different dispensing
+logics to calculate the dispensed quantity of different types of materials.
+The execution system has four dispensing logics. Depending on the settings
+on the BOM Exceptions sub-tab of the Material tab in Weigh and Dispense
+Management, the execution system dispenses materials in the following
+sequence:
+ The main material
+ Materials in the scalable group
+ Materials in the compensation group
+ Materials in the combination group
+If the material is dispensed in a wrong sequence, the execution system will
+prompt you to dispense the correct material first.
+Main Active
+The main material is the first material to be dispensed in the execution
+system.
+When dispensing the main material, the execution system uses the main
+active logic to dispense the material.
+The total batch size is scaled according to the main material dispensed
+quantity. After the main material is dispensed, the batch size is recalculated
+based on actual quantity dispensed for the main material. The execution
+system checks the updated quantity with batch size limits specified from
+Material | BOM Exceptions in Weigh and Dispense Management. If the
+updated batch size is outside the tolerance range, the dispensing cannot be
+completed or a deviation is created.
+Scalable
+Materials in a scalable group are dispensed after the main material. The
+scalable logic is used when dispensing scalable materials.
+The scalable logic means quantities of materials in a scalable group are scaled
+by given factors. A factor is requested to be entered when the first material in
+the scalable group is to be dispensed. BOM quantities for all materials in the
+group are multiplied by this factor.
+If the factor for a group is changed half way, BOM quantities for materials not
+yet completely dispensed are rescaled according to the new factor.
+The scalable factor is specified using the Scale Factor button on the Weigh
+and Dispense page.
+3 Dispensing Materials 21
+Compensation
+Materials in a compensation group are dispensed after materials in a scalable
+group. The compensation logic is used when dispensing compensation
+materials.
+The compensation logic is that the actual quantities of active ingredients are
+compensated with excipient ingredients, so the total batch quantity remains
+constant.
+To dispense materials in a compensation group, the active material in the
+group must be all dispensed first. When the first excipient material in the
+group is about to be dispensed, the execution system recalculates the
+excipient quantities based on BOM nominal quantities, actual active material
+dispensed ones and defined compensation percentage for each excipient.
+Qtyexc=nominalexc-percentageexcx∑active(actual-nominal)
+The compensation percentage for each excipient can be defined from
+Material | BOM Exception in Weigh and Dispense Management. If the
+compensation percentages are not defined, all percentages are taken equally.
+Note: Refer to the topic “Adding a Material” in the Weigh and Dispense
+Management Web Help for details about where to specify compensation
+percentage.
+Combination
+Materials in a combination group are the last materials to be dispensed for an
+order. The combination logic is used when dispensing combination materials.
+The combination logic is that any combination of materials in the group may
+be used to complete the required quantity. The quantity is the total one
+required to be dispensed as a mixture of all the materials in the combination
+group, which means the BOM quantity is dispensed only once.
+By default, all materials in a combination group are defined with same
+required quantity in BOM.
+For example, if the remaining BOM quantity for a combination group is 200
+grams, and the combination group has five materials. Then the execution
+system dispenses 40 grams of each material, totally 200 grams for the
+combination group.
+Executing Dispensing
+You can dispense a material in three methods:
+ Material Dispensing
+ Order Dispensing
+ Campaign Dispensing
+Before dispensing begins, the execution system checks the following:
+ Booth cleanness. If the booth is not clean, you need to execute the Booth
+Cleaning procedure before proceeding.
+22 3 Dispensing Materials
+ Scale standardization validation. If the scale standardization is expired,
+then you need to execute the Scale Checking before proceeding.
+During the dispensation, a note of what to do for each step displays at the
+bottom, guiding the operator to finish the dispensation.
+The scale reading only presents the dispensed material quantity. The tare
+weight is excluded.
+Material Dispensing
+To use material dispensing:
+1. On the Weigh and Dispense Home, click Material Dispensing. The
+Material Dispensing – Material/Order Selection Page page appears.
+A list of all dispensing tasks available to the booth is presented.
+2. Select the line of material you want to dispense, and click Next. The
+material information page displays.
+Enter key words and click on the Material Dispensing –
+Material/Order Selection page to narrow down the materials list.
+3. Click Acknowledge after reading the safety information, H/P statements
+and weigh notes for the material. The Weigh and Dispense page
+displays.
+4. Select a dispense method and dispense the material according to the
+guidance displays at the bottom. The first available method is selected by
+default.
+Refer to the “Dispensing Methods” for how to execute each dispensing
+method.
+5. Click Accept when the dispensation is complete.
+o If the weighing quantity is below the lower limit of the accepted
+tolerance, you can either partially dispense the material or mark it as
+complete. A deviation is created if you mark the dispensation as
+complete.
+o If the weighing quantity is within the acceptable tolerance, you can
+directly accept the dispensation. Depending on the setting in Weigh
+and Dispense Management, you may be required to sign with your
+password.
+o If the weighing quantity is over the upper limit of the accepted
+tolerance, you must create a deviation to accept the dispensation.
+6. Enter comments and sign if required. This can be configured from
+Administration | Signatures in the Management Web Site.
+7. Print labels for containers.
+Order Dispensing
+To use order dispensing:
+1. On the Weigh and Dispense Home, click Order Dispensing. The
+Order Dispensing – Order Selection Page page displays.
+3 Dispensing Materials 23
+A list of all active dispensing orders available to the booth is displayed.
+2. Select the line of order you want to dispense, and click Next. The Order
+Dispensing – Material Selection Page page displays. A list of the order
+materials to be dispensed is displayed.
+Enter key words and click on the Order Dispensing – Order
+Selection page to narrow down the Order list.
+3. Select the line of material you want to dispense and click Next. The
+material information page displays.
+Note: All the order materials to be dispensed are presented, but some of
+the materials may not be available for execution in the booth due to
+user/workstation constraints or material being assigned to other booths.
+Enter key words and click on the Order Dispensing – Material
+Selection page to narrow down the material list.
+4. Click Acknowledge after reading the safety information, H/P statements
+and weigh notes for the material. The Weigh and Dispense page
+displays.
+5. Select a dispense method and dispense the material according to the
+guidance displays at the bottom. The first available method is selected by
+default.
+Refer to the “Dispensing Methods” for how to execute each dispensing
+method.
+6. Click Accept when the dispensation is complete.
+o If the weighing quantity is below the lower limit of the accepted
+tolerance, you can either partially dispense the material or mark it as
+complete. A deviation is created if you mark the dispensation as
+complete.
+o If the weighing quantity is within the acceptable tolerance, you can
+directly accept the dispensation. Depending on the setting in Weigh
+and Dispense Management, you may be required to sign with your
+password.
+o If the weighing quantity is over the upper limit of the accepted
+tolerance, you must create a deviation to accept the dispensation.
+7. Enter comments and sign if required. This can be configured from
+Administration | Signatures in the Management Web Site.
+8. Print labels for containers.
+Campaign Dispensing
+To use campaign dispensing:
+1. On the Weigh and Dispense Home, click Campaign Dispensing. The
+Campaign Dispensing – Campaign Selection Page page displays.
+A list of all active dispensing campaigns available to the booth is
+displayed.
+2. Select the line of campaign you want to dispense, and click Next. The
+Campaign Dispensing – Material Selection page displays. A list of
+24 3 Dispensing Materials
+shared materials to be dispensed with accumulated required quantities is
+displayed.
+Enter key words and click on the Campaign Dispensing –
+Campaign Selection page can narrow down the campaign list.
+3. Select the line of material you want to dispense and click Next. The
+material information page displays.
+Note: All the shared materials to be dispensed are presented, but some of
+the materials may not be available for execution in the booth due to
+user/workstation constraints or material being assigned to other booths.
+Enter key words and click on the Campaign Dispensing – Material
+Selection page to narrow down the material list.
+4. Click Acknowledge after reading the safety information, H/P statements
+and weigh notes for the material. The Weigh and Dispense page
+displays.
+5. Select a dispense method and dispense the material according to the
+guidance displays at the bottom. The first available method is selected by
+default.
+Refer to the “Dispensing Methods” for how to execute each dispensing
+method.
+6. Click Accept when the dispensation is complete.
+o If the weighing quantity is below the lower limit of the accepted
+tolerance, you can either partially dispense the material or mark it as
+complete. A deviation is created if you mark the dispensation as
+complete.
+o If the weighing quantity is within the acceptable tolerance, you can
+directly accept the dispensation. Depending on the setting in Weigh
+and Dispense Management, you may be required to sign with your
+password.
+o If the weighing quantity is over the upper limit of the accepted
+tolerance, you must create a deviation to accept the dispensation.
+7. Enter comments and sign if required. This can be configured from
+Administration | Signatures in the Management Web Site.
+8. Print labels for containers.
+User Interface Introduction
+This section introduces all the pages you might see during your operation.
+The pages you see during the operation depend on where you begin the
+dispensing.
+At the bottom of each page, guidance for what to do is displayed, helping you
+to finish the dispensing.
+Material Dispensing – Material/Order Selection Page
+When you begin dispensing from Material Dispensing, the Material
+Dispensing – Material/Order Selection page displays.
+3 Dispensing Materials 25
+The Material Dispensing – Material/Order Selection page has the
+following items:
+ Operator
+The operator’s name.
+ Weigh Booth
+The booth ID in which the dispensing is executed.
+ Materials
+A list of all dispensing tasks available to the booth.
+ Search
+A search bar for you to narrow down the list of materials.
+The Material Dispensing – Material/Order Selection page has the
+following buttons:
+ Refresh
+Updates the list of materials. Weigh and Dispense Execution cannot autoupdate information displayed. You must manually update the information
+using the Refresh button.
+ Reprint Last Label
+Prints the label for the last dispensed material again. The label is marked
+as reprint.
+ Next
+Goes to the material information page.
+ Home
+Goes back to the Weigh and Dispense Home page.
+Order Dispensing – Order Selection Page
+When you begin dispensing from Order Dispensing, the Order Dispensing
+– Order Selection page displays.
+The Order Dispensing – Order Selection page has the following items:
+ Operator
+The operator’s name.
+ Weigh Booth
+The booth ID in which the dispensing is executed.
+ Orders
+A list of active dispensing orders available to the booth.
+ Search
+A search bar for you to narrow down the list of orders.
+The Order Dispensing – Order Selection page has the following buttons:
+ Refresh
+Updates the list of orders. Weigh and Dispense Execution cannot autoupdate information displayed. You must manually update the information
+using the Refresh button.
+ Next
+Goes to the Order Dispensing – Material Selection page.
+26 3 Dispensing Materials
+ Home
+Goes back to the Weigh and Dispense Home page.
+Order Dispensing – Material Selection Page
+After you select the order to dispense from the Order Dispensing – Order
+Selection page and click Next, the Order Dispensing – Material Selection
+page displays.
+The Order Dispensing – Material Selection page has the following items:
+ Operator
+The operator’s name.
+ Weigh Booth
+The booth ID in which the dispensing is executed.
+ Materials
+A list of all the order materials to be dispensed. Some of the materials
+may not be available for execution in the booth due to user/workstation
+constraints or material being assigned to other booths.
+ Search
+A search bar for you to narrow down the list of materials.
+The Order Dispensing – Material Selection page has the following
+buttons:
+ Refresh
+Updates the list of materials. Weigh and Dispense Execution cannot autoupdate information displayed. You must manually update the information
+using the Refresh button.
+ Reprint Last Label
+Prints the label for the last dispensed material again. The label is
+remarked as reprint.
+ Next
+Goes to the material information page.
+ Cancel
+Goes back to the Order Dispensing – Order Selection page.
+Campaign Dispensing – Campaign Selection Page
+When you begin dispensing from Campaign Dispensing, the Campaign
+Dispensing – Campaign Selection page displays.
+The Campaign Dispensing – Campaign Selection page has the following
+items:
+ Operator
+The operator’s name.
+ Weigh Booth
+The booth ID in which the dispensing is executed.
+ Campaigns
+A list of active campaigns available to the booth.
+ Search
+3 Dispensing Materials 27
+A search bar for you to narrow down the list of campaigns.
+The Campaign Dispensing – Campaign Selection page has the
+following buttons:
+ Refresh
+Updates the list of campaigns. Weigh and Dispense Execution cannot
+auto-update information displayed. You must manually update the
+information using the Refresh button.
+ Next
+Goes to the Campaign Dispensing – Material Selection page.
+ Home
+Goes back to the Weigh and Dispense Home page.
+Campaign Dispensing – Material Selection Page
+After you select the order to dispense from the Campaign Dispensing –
+Campaign Selection page and click Next, the Campaign Dispensing –
+Material Selection page displays.
+The Campaign Dispensing – Material Selection page has the following
+items:
+ Operator
+The operator’s name.
+ Weigh Booth
+The booth ID in which the dispensing is executed.
+ Campaigns
+The campaign ID.
+ Product
+The product code.
+ Description
+The complete name of the product.
+ Order Count
+Number of orders the selected campaign includes.
+ Materials
+A list of shared materials to be dispensed with accumulated required
+quantities. Some of the materials may not be available for execution in
+the booth due to user/workstation constraints or material being assigned
+to other booths.
+ Search
+A search bar for you to narrow down the list of materials.
+The Campaign Dispensing – Material Selection page has the following
+buttons:
+ Refresh
+Updates the list of materials. Weigh and Dispense Execution cannot autoupdate information displayed. You must manually update the information
+using the Refresh button.
+28 3 Dispensing Materials
+ Reprint Last Label
+Prints the label for the last dispensed material again. The label is
+remarked as reprint.
+ Next
+Goes to the material information page.
+ Cancel
+Goes back to the Campaign Dispensing – Material Selection page.
+Material Information Page
+After selecting the material you want to dispense and clicking Next, the
+material information page displays. The important information about what
+should be paid attention to during the dispensing is listed.
+All the material information is predefined in Weigh and Dispense
+Management. Refer to the “Creating a Material” topic in the Weigh and
+Dispense Management Web Help for details.
+The Material Information page has the following items:
+ Operator
+The operator’s name.
+ Weigh Booth
+The booth ID in which the dispensing is executed.
+ Basic information
+The basic information includes the following:
+o Material code and name.
+o Order number and complete product name for which the material is
+dispensed.
+o BOM quantity: the material quantity in the BOM with UOM.
+o Adjusted BOM quantity: the actual quantity you need to dispense
+considering other factors such as potency.
+o Remaining quantity: the remaining material quantity should be
+dispensed with UOM.
+ Safety
+The pictograms predefined for the material in Weigh and Dispense
+Management.
+ H/P statements
+The hazard and precautionary statements predefined for the material in
+Weigh and Dispense Management.
+ Weigh Notes
+The weighing notes indicating what should be paid attention to during the
+dispensation. The notes are pre-entered in Weigh and Dispense
+Management.
+The Material Information page has the following buttons:
+ Acknowledge
+3 Dispensing Materials 29
+Acknowledges that you are clear about the material characteristics and
+know what should be paid attention to during the dispensation. Proceed to
+start the dispensing task.
+ Cancel
+Goes back to the Material Dispensing – Material/Order Selection
+page, Order Dispensing – Material Selection page or Campaign
+Dispensing – Material Selection page, depending on where you start
+the dispensation.
+Weigh and Dispense Page
+When you acknowledge the material information, the Weigh and Dispense
+page displays to start the dispensing task.
+The Weigh and Dispense page has the following items:
+The basic information includes the following:
+ Operator
+The operator’s name.
+ Weigh Booth
+The booth ID in which the dispensing is executed.
+ Basic information
+o Material code and name.
+o Order number and complete product name for which the material is
+dispensed.
+o BOM quantity: the material quantity in the BOM with UOM.
+o Adjusted BOM quantity: the actual quantity you need to dispense
+considering other factors such as potency.
+o Remaining quantity: the remaining material quantity should be
+dispensed with UOM.
+ Dispense method
+Select a method to dispense the material. The first available dispense
+method is selected by default.
+Refer to the “Dispensing Methods” section for details about each
+dispensing method.
+ Source Container Barcode
+Scans the source container barcode to enter the source container
+information into the execution system.
+You can also manually enter the barcode, but a deviation may be created
+depending on the setting in the Weigh and Dispense Management.
+Note: If you assign lots to BOM items in your ERP system, then a warning
+message appears if the material is not from the assigned lot.
+ Scale
+Selects a scale from the drop-down list. The scales in the booth are
+predefined in Weigh and Dispense Management. Refer to the “Creating a
+Scale” topic in the Weigh and Dispense Management Web Help for more
+information.
+ Source Container
+30 3 Dispensing Materials
+Displays the following basic information of the source container after
+entering the source container barcode:
+o Barcode: the barcode of the source container. The source container
+barcode can be scanned or manually entered into the execution
+system.
+o Lot: the lot number from which the material comes.
+o Avail quantity: the available quantity of the material in the source
+container.
+o Potency: the potency of the material. If the ERP_Potency_Adjust field
+in the database is set to 1, then the potency won’t be applied to
+calculate the Adjusted BOM quantity.
+o Status: the status of the source container.
+o Expiration: the expiration date of the material.
+o Container is now empty: indicates the source container is empty
+when this check box is selected. If this check box is not selected and a
+new source container is scanned for the same dispensation, a warning
+message prompts you to confirm if you need to mark the previous
+container as empty.
+ Scale information
+Display the minimum weight, maximum weight and precision of the scale
+as well as the scale reading. The minimum weight, maximum weight and
+scale precision are predefined in Weigh and Dispense Management. Refer
+to the “Creating a Scale” in the Weigh and Dispense Management Web
+Help for details.
+ Target Container
+Enter and display the following basic information of the target container:
+o Tare: the tare weight of the target container. This weight is
+discounted from the scale reading and weighing bar.
+o Net: the net weight of the material.
+o Gross: the gross weight of the target container.
+o Type: the type of the target container. This field is read-only.
+ Weighing bar
+Display the material weight in a bar view.
+o The bar is yellow when the weight is below the minimum acceptable
+weight to dispense.
+o The bar is green when the weight is within the acceptable range to
+dispense.
+o The bar is red when the weight is above the maximum acceptable
+weight to dispense.
+The Weigh and Dispense page has the following buttons:
+
+Zeroes the scale.
+
+3 Dispensing Materials 31
+Records the tare weight. This button changes depending on the dispensing
+method you select. It shows Weigh to record the source container gross
+weight when using Double Check.
+ Safety
+Displays the Material Dispensing – Safety dialog box for you to review
+the material safety information such as Pictograms, H/P Statements and
+Weigh Notes.
+ Comment
+Displays the Material Dispensing – Comments dialog box for you to
+enter extra comments for the dispensation. The comments are included in
+the order dispensation report.
+ History
+Displays the Material Dispensing – History dialog box for you to review
+the containers already dispensed for the order presented.
+ Reprint Label
+Reprints the last label. The label is remarked as reprint.
+ Scale Factor
+Displays the Material Dispensing - Scale Factor dialog box for you to
+enter the factor for a scalable group. This button is available only when
+you dispense materials in a scalable group.
+ Accept
+Accepts the dispensing. The dispensed weight is recorded in the data base
+and the system updates the order and inventory status.
+ Reset
+Restarts the weighing type flow from scanning the source container
+barcode.
+ Cancel
+Goes back to the Material Dispensing – Material/Order Selection
+page, Order Dispensing – Material Selection page or Campaign
+Dispensing – Material Selection page, depending on where you start
+the dispensation.
+3 Dispensing Materials 32
+4 Kitting Orders 33
+4 Kitting Orders
+After the materials are dispense, the dispensed materials should be placed on
+pallets and sent to manufacturing. This chapter describes how to place
+dispensed materials to pallets in Weigh and Dispense Execution.
+Basic Steps
+To kit orders:
+1. On the Weigh and Dispense Home page, click Order Kitting. The
+Order Kitting – Order Selection Page page displays, listing the orders
+that are ready for kitting.
+2. Select an order and click Start Kitting. The Order Kitting –
+Palletization Page page displays.
+3. Scan the pallet ID.
+Pallet IDs can be read any time during the kitting to configure each pallet.
+4. Scan labels of containers placed on the pallet one by one.
+The container label is rejected if:
+o The container does not belong to the selected order.
+o The container label has been scanned.
+5. Click Accept when kitting is complete. If missing dispensed containers are
+detected, a deviation is created.
+When kitting is complete, the execution system prints the pallet label. The
+assignment between pallets and containers is recorded and may be sent to
+ERP if so configured.
+The label format and barcode format are predefined in Weigh and Dispense
+Management. Refer to topics “Configuring Printing” and “Configuring User
+Exits” in the Weigh and Dispense Management Web Help for details.
+You are back to the Order Kitting – Order Selection page after the kitting
+is successfully complete. Failed kitting must be restarted.
+34 4 Kitting Orders
+User Interface Introduction
+Order Kitting – Order Selection Page
+The Order Kitting – Order Selection page displays after clicking Kitting
+Order from the Weigh and Dispense Home.
+The Order Kitting – Order Selection page has the following items:
+ Operator
+The operator’s name.
+ Weigh Booth
+The booth ID in which the kitting is executed.
+ Orders
+A list of orders that are ready for kitting.
+The Order Kitting – Order Selection page has the following buttons:
+ Reprint Last Label
+Reprint the last pallet label. The label is remarked as reprint.
+ Start Kitting
+Display the Order Kitting – Palletization page.
+ Home
+Go back to the Weigh and Dispense Home page.
+Order Kitting – Palletization Page
+The Order Kitting – Palletization page displays after you select an order
+from the Order Kitting – Order Selection page and start kitting.
+The Order Kitting – Palletization page has the following items:
+ Operator
+The operator’s name.
+ Weigh Booth
+The booth ID in which the kitting is executed.
+ Barcode
+Scan the pallet barcode.
+ Current pallet
+The last scanned pallet.
+ Current container
+The last scanned container.
+ Order
+The order to which the containers belong.
+ Batch
+Batch number of the order.
+ Recipe/BOM
+Order BOM/recipe code.
+4 Kitting Orders 35
+ Product
+Order product code.
+ Description
+The complete name of the order product.
+ Kit Assembly
+A list presents all the assignments between pallets and containers. A
+icon indicates the kitting is complete successfully.
+The Order Kitting – Palletization page has the following buttons:
+ Accept
+Accepts the kitting. Label is printed for the pallet and you return to the
+Order Kitting – Order Selection page.
+The assignment between pallets and containers is recorded and may be
+sent to ERP if so configured.
+ Cancel
+Goes back to the Order Kitting – Order Selection page.
+4 Kitting Orders 36
+Index 37
+Index
+A
+Aspen Production Execution Manager 1
+assign a booth 5
+B
+basic steps 11, 13, 14, 16, 17, 18, 33
+bind material consumption 19
+booth cleaning 6
+Booth Cleaning 6
+C
+campaign dispensing 23
+Campaign Dispensing - Campaign Selection 26
+Campaign Dispensing - Material Selection 27
+combination 21
+compensation 21
+D
+Dispensing Logics 20
+dispensing methods 11
+double check 16
+E
+execute dispensing 21
+Execution Console 1
+F
+features 1
+K
+kit orders 33
+38 Index
+L
+log on 5
+M
+main active 20
+Management Web Site 1
+manual 18
+material dispensing 22
+Material Dispensing - Material/Order Selection 25
+material information 28
+N
+net 11
+net removal 13
+O
+order dispensing 23
+Order Dispensing - Material Selection 26
+Order Dispensing - Order Selection 25
+Order Kitting - Order Selection 34
+Order Kitting - Palletization 34
+orders, kit 33
+R
+related documentation 2
+reservation 19
+S
+scalable 20
+scale checking 7
+Scale Checking - Scale and Standardization 7
+source as target 14
+T
+technical support 3
+U
+user interface 24
+User Interface 34
+W
+weigh and dispense 1
+Weigh and Dispense Page 29
+weighing gross 15
+whole issue 15
+Index 39

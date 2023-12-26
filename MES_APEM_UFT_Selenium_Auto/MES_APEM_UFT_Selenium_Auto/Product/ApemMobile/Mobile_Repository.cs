@@ -17,6 +17,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public static Main_Page Main_Page => new Main_Page(Selenium_Driver._Selenium_Driver);
         public static EventLog_Page EventLog_Page => new EventLog_Page(Selenium_Driver._Selenium_Driver);
         public static OrderProcess_Page OrderProcess_Page => new OrderProcess_Page(Selenium_Driver._Selenium_Driver);
+        public static BPList_Page BPList_Page => new BPList_Page(Selenium_Driver._Selenium_Driver);
         public static Consolidated_Page Consolidated_Page => new Consolidated_Page(Selenium_Driver._Selenium_Driver);
         public static PrintReport_Page PrintReport_Page => new PrintReport_Page(Selenium_Driver._Selenium_Driver);
         public static OrderTracking_Page OrderTracking_Page => new OrderTracking_Page(Selenium_Driver._Selenium_Driver);

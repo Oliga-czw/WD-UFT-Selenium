@@ -128,6 +128,37 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             APEM.MocmainWindow.AddReasonDialog.OK.Click();
             Thread.Sleep(3000);
         }
+        public static void PlanFromRPL_GML(string RPLName, string OrderName, bool active = true)
+        {
+            string RPLSelect = RPLName + "#1";
+            APEM.MocmainWindow.Orders.ClickSignle();
+            Thread.Sleep(2000);
+            APEM.MocmainWindow.OrderListInternalFrame.PlanFromRPL_Button.ClickSignle();
+            Thread.Sleep(2000);
+            APEM.MocmainWindow.OrderPlanDialog.CodeEditor.SendKeys(OrderName);
+            APEM.MocmainWindow.OrderPlanDialog.DescriptionEditor.SendKeys("test");
+            APEM.MocmainWindow.OrderPlanDialog.RPLList.Select(RPLSelect);
+            APEM.MocmainWindow.OrderPlanDialog.POEditor.SendKeys("PO");
+            APEM.MocmainWindow.OrderPlanDialog.POStepEditor.SendKeys("POStep");
+            APEM.MocmainWindow.OrderPlanDialog.ArticleEditor.SendKeys("Article");
+            APEM.MocmainWindow.OrderPlanDialog.BatchEditor.SendKeys("Batch");
+            APEM.MocmainWindow.OrderPlanDialog.QuantityEditor.SendKeys("123.65");
+            APEM.MocmainWindow.OrderPlanDialog.Quantity_unitEditor.SendKeys("kg");
+            APEM.MocmainWindow.OrderPlanDialog.DateEditor.SendKeys("12/12/22, 3:23:00 AM");
+            APEM.MocmainWindow.OrderPlanDialog.END_DateEditor.SendKeys("5/6/26, 10:23:34 PM");
+            APEM.MocmainWindow.OrderPlanDialog.WorkcenterList.Select("ProcessCellLine2");
+            Thread.Sleep(3000);
+            if (active)
+            {
+                APEM.MocmainWindow.OrderPlanDialog.Auto_ActivateCheckBox.Click();
+            }
+            Thread.Sleep(3000);
+            APEM.MocmainWindow.OrderPlanDialog.OK.Click();
+            Thread.Sleep(3000);
+            APEM.MocmainWindow.AddReasonDialog.Reason.SendKeys("for test");
+            APEM.MocmainWindow.AddReasonDialog.OK.Click();
+            Thread.Sleep(3000);
+        }
         public static void AddRPL_OpenDesign(String RPLName,String BPLName)
         {
             int Count = APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable._UFT_Table.Rows.Count;
