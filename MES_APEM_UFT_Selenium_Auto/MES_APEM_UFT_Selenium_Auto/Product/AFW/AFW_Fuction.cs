@@ -126,7 +126,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
             string directoryPath = "C:\\Program Files (x86)\\AspenTech\\Local Security\\Access97";
             Base_File.CopyFile(sourceName, directoryPath, true);
             Thread.Sleep(2000);
-            Base_Function.ResartServices("AfwSecCliSvc");
+            Base_Function.ResartServices(ServiceName.AFW);
         }
     }
 }

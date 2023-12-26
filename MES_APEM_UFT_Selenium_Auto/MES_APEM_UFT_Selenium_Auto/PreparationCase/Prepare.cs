@@ -39,8 +39,8 @@ namespace MES_APEM_UFT_Selenium_Auto
         {
 
             //start tomcat and sql service
-            Base_Function.ResartServices("MSSQLSERVER");
-            Base_Function.ResartServices("Tomcat9");
+            Base_Function.ResartServices(ServiceName.SQL);
+            Base_Function.ResartServices(ServiceName.Tomcat);
             //config apem DB
             Wizard_Fuction.CreateApemDB();
             //AeBRSInstaller

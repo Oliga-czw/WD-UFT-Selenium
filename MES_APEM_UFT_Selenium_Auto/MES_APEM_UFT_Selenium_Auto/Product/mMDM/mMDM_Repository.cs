@@ -83,6 +83,13 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         });
         public static mMDMEditorOption_Window EditorOptionWindow => new mMDMEditorOption_Window(EditorOption_Window);
 
+        
+        private static IWindow EditorDefinition_Window = Desktop.Describe<IWindow>(new WindowDescription
+        {
+            ObjectName = @"DefinitionEditorForm"
+        });
+        public static mMDMEditorDefinition_Window EditorDefinitionWindow => new mMDMEditorDefinition_Window(EditorDefinition_Window);
+
         #endregion
 
         #region mMDM Dialog

@@ -76,10 +76,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //MOC_Fuction.VerifyRPL("RPL916420");
             //MOC_Fuction.CertifyRPL("RPL916420");
             //Thread.Sleep(2000);
-            MOC_Fuction.PlanFromRPL("RPL916420", "ORDRE916420");
+            MOC_Fuction.PlanFromRPL("RPL916420", "ORDER916420");
             APEM.MocmainWindow.WorkstationBP.ClickSignle();
             Thread.Sleep(2000);
-            APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText("ORDRE916420");
+            APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText("ORDER916420");
             APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderTable.Row("Ready for execution", "Status").Click();
             APEM.MocmainWindow.WorkstationBPInternalFrame.ExecuteButton.ClickSignle();
@@ -99,7 +99,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             driver.Wait();
             Mobile_Fuction.login();
             driver.Wait();
-            Mobile.OrderProcess_Page.OrderSearch.SendKeys("ORDRE916420");
+            Mobile.OrderProcess_Page.OrderSearch.SendKeys("ORDER916420");
             Thread.Sleep(1000);
             Mobile.OrderProcess_Page.GotoTracking.Click();
             Thread.Sleep(1000);

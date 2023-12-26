@@ -133,6 +133,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 
     public class PassWord
     {
+        public const string admin = "Aspen000";
         public const string qaone1 = "Aspen111";
         public const string qaone2 = "Aspen111";
         public const string qaone3 = "Aspen111";
@@ -263,5 +264,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         public const string Admin = "Production Execution Administrator";
 
     }
+    public class ServiceName
+    {
+        public const string Tomcat = "Tomcat9";
+        public const string AFW = "AfwSecCliSvc";
+        public const string SQL = "MSSQLSERVER";
 
+    }
 }

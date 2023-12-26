@@ -114,6 +114,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Base_logger.Info("Test Initialize");
             Base_Test.KillProcess("BatchDetailDisplay");
             //Base_Test.KillProcess("javaw");
+            Base_Test.KillProcess("AtOdmAdministrator");
             Base_File.CleanWorkFolder(Base_Directory.GenerateOutputFileDir(CaseID, ""));
             //Initial data
             //GML_Function.GML_ConfigAll();
@@ -131,6 +132,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //report.GenerateReportFile(_Descrpt);
             Base_Test.KillProcess("javaw");
             Base_Test.KillProcess("chrome");
+            Base_Test.KillProcess("AtOdmAdministrator");
+            
 
         }
 

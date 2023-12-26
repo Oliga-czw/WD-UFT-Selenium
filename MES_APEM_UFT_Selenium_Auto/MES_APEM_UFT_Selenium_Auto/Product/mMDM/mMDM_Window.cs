@@ -61,6 +61,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
 
         public IButton Test => _WinForms_Window.Describe<IButton>(new ButtonDescription
         {
+            ObjectName = @"buttonTest",
             Text = @"Test"
         });
 
@@ -73,6 +74,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         public IRadioButton EmptyDatabase => _WinForms_Window.Describe<IRadioButton>(new RadioButtonDescription
         {
             WindowTitleRegExp = @"Empty database"
+        });
+
+        public IRadioButton SampleDatabase => _WinForms_Window.Describe<IRadioButton>(new RadioButtonDescription
+        {
+            WindowTitleRegExp = @"Sample database"
         });
 
         public IButton Create => _WinForms_Window.Describe<IButton>(new ButtonDescription
@@ -213,6 +219,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         {
             ObjectName = @"ultraGrid1"
         });
+        
         public IToolBar TableMenuToolBar => _WinForms_Window.Describe<IToolBar>(new ToolBarDescription
         {
             ObjectName = @"contextMenuStrip1"
@@ -241,5 +248,24 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
             ObjectName = @"checkBoxCurrentDateOnStartup"
         });
     }
+    public class mMDMEditorDefinition_Window : WinForms_Window
+    {
 
+        public mMDMEditorDefinition_Window(IWindow window) : base(window)
+        {
+        }
+
+        public IEditField Name => _WinForms_Window.Describe<IEditField>(new EditFieldDescription
+        {
+            ObjectName = @"txtName"
+        });
+
+
+        public IEditor Description => _WinForms_Window.Describe<IEditor>(new EditorDescription
+        {
+            WindowTitleRegExp = @"Geographical Address Class",
+            ObjectName = @"richTextBoxDescription"
+        });
+
+    }
 }
