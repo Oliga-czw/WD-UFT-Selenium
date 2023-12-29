@@ -213,6 +213,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         public const string RecipeManagement = "Area.Recipe Management";
         public const string Mobile = "Area.APEM Mobile";
         public const string API = "Area.API functions";
+        public const string Integration_APEM = "Area.Integration_APEM";
     }
 
     public class Browser

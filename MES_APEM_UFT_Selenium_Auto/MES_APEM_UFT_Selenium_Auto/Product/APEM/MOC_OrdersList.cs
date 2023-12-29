@@ -86,6 +86,12 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             Index = 9
         });
 
+        public IEditor Batch_AreaEditor => _UFT_Dialog.Describe<IEditor>(new EditorDescription
+        {
+            NativeClass = @"m2r.Card.m2rTextField",
+            Index = 12
+        });
+
         public IList WorkcenterList => _UFT_Dialog.Describe<IList>(new ListDescription
         {
             NativeClass = @"Order.chkOrderCard$4"

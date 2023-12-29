@@ -72,6 +72,38 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APRM
                 Path = @"Window;Pane;Window;Pane;Tree;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem"
             });
 
+        public ITreeViewItem BatchRPL => _STD_Window.Describe<IPane>(new PaneDescription
+        {
+            Name = @"Workspace",
+            Path = @"Window;Pane"
+        })
+            .Describe<ITreeViewItem>(new TreeViewItemDescription
+            {
+                Name = @"Areas",
+                Path = @"Window;Pane;Window;Pane;Tree;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem"
+            })
+            .Describe<ITreeViewItem>(new TreeViewItemDescription
+            {
+                Name = @"BatchRPL",
+                Path = @"Window;Pane;Window;Pane;Tree;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem"
+            });
+        public ITreeViewItem BatchAPI => _STD_Window.Describe<IPane>(new PaneDescription
+        {
+            Name = @"Workspace",
+            Path = @"Window;Pane"
+        })
+            .Describe<ITreeViewItem>(new TreeViewItemDescription
+            {
+                Name = @"Areas",
+                Path = @"Window;Pane;Window;Pane;Tree;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem"
+            })
+            .Describe<ITreeViewItem>(new TreeViewItemDescription
+            {
+                Name = @"BatchAPI",
+                Path = @"Window;Pane;Window;Pane;Tree;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem"
+            });
+
+
         public ITreeViewItem Equipment => _STD_Window.Describe<IPane>(new PaneDescription
         {
             Name = @"Workspace",

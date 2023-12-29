@@ -96,6 +96,31 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             }
             
         }
+        //into MR data
+        public static void VerifyMR()
+        {
+            //verify
+            APEM.MocmainWindow.MasterRecipeDataInterFrame.VerifyButton.Click();
+            APEM.CheckParametersDialog.OKButton.Click();
+            APEM.VerifyDialog.NoButton.Click();
+            APEM.MocmainWindow.ConfirmDialog.PasswordEditor.SendKeys(PassWord.qaone1);
+            APEM.MocmainWindow.ConfirmDialog.Reason.SendKeys("Test");
+            APEM.MocmainWindow.ConfirmDialog.OK.Click();
+            Thread.Sleep(3000);
+        }
+        //into MR data
+        public static void CertifyMR()
+        {
+            //certify
+            APEM.MocmainWindow.MasterRecipeDataInterFrame.CertifyButton.Click();
+            APEM.CheckParametersDialog.OKButton.Click();
+            APEM.CertifyDialog.YesButton.Click();
+            APEM.MocmainWindow.ConfirmDialog.PasswordEditor.SendKeys(PassWord.qaone1);
+            APEM.MocmainWindow.ConfirmDialog.Reason.SendKeys("Test");
+            APEM.MocmainWindow.ConfirmDialog.OK.Click();
+            Thread.Sleep(3000);
+        }
+
         //click plan from plan to create order 
         public static void PlanFromRPL(string RPLName,string OrderName,bool active = true)
         {

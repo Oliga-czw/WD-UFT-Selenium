@@ -48,7 +48,6 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 LogStep(@"1. import BPL");
                 Application.LaunchMocAndLogin();
                 APEM.MocmainWindow.BPLDesign.ClickSignle();
-                APEM.MocmainWindow.BPLDesign.ClickSignle();
                 if (!APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row(bpl).Existing)
                 {
                     MOC_TemplatesFunction.Importtemplates($"{bpl}.zip");

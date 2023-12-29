@@ -1,0 +1,21 @@
+<Definition xmlns='Aspentech.Batch21'>
+  <Area name='Batch'
+        description='Batch Product Area'
+        numberOfSubbatchLevels='5'
+        subbatchLevel1Caption='Batch'
+        subbatchLevel2Caption='Unit_Procedure'
+        subbatchLevel3Caption='Operation'
+        subbatchLevel4Caption='Phase'
+        subbatchLevel5Caption='Block'
+        batchDesignatorCharacteristic1='Process_Order_Number'
+        startTimeCharacteristic       ='Start_Time'
+        endTimeCharacteristic         ='End_Time'>
+    <BatchDefinition subbatchLevel='1'>
+      <CharacteristicDefinitions>
+        <CharacteristicDefinition name='Process_Order_Number' type='atCharacter' subbatchLevel='1' />
+        <CharacteristicDefinition name='Start_Time'           type='atTime'      subbatchLevel='1' displayFormat='' />
+        <CharacteristicDefinition name='End_Time'             type='atTime'      subbatchLevel='1' displayFormat='' />
+      </CharacteristicDefinitions>
+    </BatchDefinition>
+  </Area>
+</Definition>

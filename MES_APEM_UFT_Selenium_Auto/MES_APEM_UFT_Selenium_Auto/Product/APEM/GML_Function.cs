@@ -66,12 +66,12 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             APRM.APRM.BatchMainWindow.Close();
         }
 
-        public static void GML_ConfigEnviroment()
+        public static void ConfigEnviroment(string Path)
         {
             Application.LaunchMocAndLogin();
             APEM.MocmainWindow.Config_moudle.Click();
             APEM.MOCConfigWindow.Import_ReplaceMerge.ClickSignle();
-            APEM.MOCConfigWindow.ConfigImportDialog.FileName.SendKeys(Base_Directory.GMLConfig);
+            APEM.MOCConfigWindow.ConfigImportDialog.FileName.SendKeys(Path);
             //Add reason
             MOC_Fuction.AddReason_config();
             MOC_Fuction.ConfigClose();
@@ -241,7 +241,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             //APRM
             GMLAPRMConfig();
             //Environment
-            GML_ConfigEnviroment();
+            ConfigEnviroment(Base_Directory.GMLConfig);
             //IP21
             StartIP21();
             //Configure User Table
@@ -251,5 +251,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             //Workstation
             GML_Workstation();
         }
+
+
     }
 }
