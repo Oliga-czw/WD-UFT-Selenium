@@ -358,6 +358,14 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public Execution_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
         {
         }
+        //850433 Batch
+        public UFT_Button BatchRPLWriteRead_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Order850433:RPLArea(BATCH_RECORD_WRITE)']");
+        //850438 Batch
+        public UFT_Button BatchWriteRead_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Order850438:DefaultArea(BATCH_RECORD_WRITE)']");
+        //850407 Batch
+        public UFT_Button BatchAPIWriteRead_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Order850407:BatchAPI(BATCH_RECORD_WRITE)']");
+        //849596 Batch
+        public UFT_Button BatchDefault_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Order849596:Default area']");
         //850241 Batch
         public UFT_Button Batch_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Order850241:Batch same area with order']");
         public UFT_Button BatchSP_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Order850241SP:Specific batch-BatchAPI']");

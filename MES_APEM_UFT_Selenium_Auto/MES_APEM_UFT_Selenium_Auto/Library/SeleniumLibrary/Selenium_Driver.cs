@@ -95,7 +95,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
         {
             _Selenium_Driver.Close();
         }
-
+        public string  GetUrl()
+        {
+            return _Selenium_Driver.Url;
+        }
         public void Wait(double time = 1000)
         {
             _Selenium_Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(time);

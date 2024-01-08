@@ -64,6 +64,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             Application.LaunchBatchDetailDisplay();
             Batch_Fuction.setOptionData("Batch");
             APRM.APRM.BatchMainWindow.Close();
+            Thread.Sleep(30000);
         }
 
         public static void ConfigEnviroment(string Path)

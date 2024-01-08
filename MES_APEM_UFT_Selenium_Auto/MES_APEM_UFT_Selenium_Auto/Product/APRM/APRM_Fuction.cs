@@ -260,8 +260,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             if (APRM.APRMAdminWindow.TreeView.GetNode($"Console Root;Production Record Manager;Data Sources;{servername};Areas").HasChildren)
             {
                 APRM.APRMAdminWindow.TreeView.GetNode($"Console Root;Production Record Manager;Data Sources;{servername};Areas").Expand();
+                bool RPL = APRM.APRMAdminWindow.BatchRPL.Exists();
+                bool API = APRM.APRMAdminWindow.BatchAPI.Exists();
                 //batch
-                if (APRM.APRMAdminWindow.BatchRPL.Exists())
+                if (RPL)
                 {
                     //Base_logger.Info("Batch has already existed");
                     Console.WriteLine("RPL has already existed");
@@ -282,7 +284,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
                     // Base_Assert.IsTrue(APRM.APRMAdminWindow.Batch.Exists(), "Batch import successfully");
                 }
                 //API
-                if (APRM.APRMAdminWindow.BatchAPI.Exists())
+                Thread.Sleep(3000);
+                if (API)
                 {
                     //Base_logger.Info("Equipment has already existed");
                     Console.WriteLine("API has already existed");

@@ -104,8 +104,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         {
             var aspen = Process.GetProcessesByName("javaw");
             MocmainWindow.SetActive();
-            Keyboard.KeyDown(Keyboard.Keys.Alt);
-            Keyboard.PressKey(Keyboard.Keys.F4);
+            MocmainWindow.Close();
             if (CloseDialog.IsExist())
             {
                 CloseDialog.YesButton.Click();

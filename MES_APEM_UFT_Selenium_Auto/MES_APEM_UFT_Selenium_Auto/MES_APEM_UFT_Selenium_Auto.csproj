@@ -132,10 +132,15 @@
     <Compile Include="Product\SQLplus\SQLplus_Repository.cs" />
     <Compile Include="Product\SQLplus\SQLplus_Window.cs" />
     <Compile Include="TestCase\APEM Cases\749627.cs" />
+    <Compile Include="TestCase\APEM Cases\850433.cs" />
+    <Compile Include="TestCase\APEM Cases\850438.cs" />
+    <Compile Include="TestCase\APEM Cases\850407.cs" />
+    <Compile Include="TestCase\APEM Cases\849596.cs" />
     <Compile Include="TestCase\APEM Cases\850241.cs" />
     <Compile Include="TestCase\APEM Cases\916388.cs" />
     <Compile Include="TestCase\APEM Cases\916442.cs" />
     <Compile Include="TestCase\Mobile Cases\912584.cs" />
+    <Compile Include="TestCase\Mobile Cases\801579.cs" />
     <Compile Include="TestCase\WD Cases\40816.cs" />
     <Compile Include="TestCase\APEM Cases\915161.cs" />
     <Compile Include="TestCase\APEM Cases\863166.cs" />
@@ -332,10 +337,10 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Selenium.WebDriver.IEDriver.4.8.1\build\Selenium.WebDriver.IEDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.IEDriver.4.8.1\build\Selenium.WebDriver.IEDriver.targets'))" />
-    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.119.0.6045.10500\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.119.0.6045.10500\build\Selenium.WebDriver.ChromeDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.120.0.6099.10900\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.120.0.6099.10900\build\Selenium.WebDriver.ChromeDriver.targets'))" />
   </Target>
   <Import Project="..\packages\Selenium.WebDriver.IEDriver.4.8.1\build\Selenium.WebDriver.IEDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.IEDriver.4.8.1\build\Selenium.WebDriver.IEDriver.targets')" />
-  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.119.0.6045.10500\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.119.0.6045.10500\build\Selenium.WebDriver.ChromeDriver.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.120.0.6099.10900\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.120.0.6099.10900\build\Selenium.WebDriver.ChromeDriver.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
