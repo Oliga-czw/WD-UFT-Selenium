@@ -69,6 +69,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
 
             LogStep(@"3. Create data order from RPL and Execute ");
             APEM.MocmainWindow.Orders.ClickSignle();
+            if (APEM.RowSelectionDialog.IsExist())
+            {
+                APEM.RowSelectionDialog.YesButton.Click();
+            }
             Thread.Sleep(2000);
             //if exit order cancel it
             APEM.MocmainWindow.OrderListInternalFrame.Refresh_Button.Click();
@@ -115,6 +119,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(2000);
             LogStep(@"4. Create write order from RPL and Execute ");
             APEM.MocmainWindow.Orders.ClickSignle();
+            if (APEM.RowSelectionDialog.IsExist())
+            {
+                APEM.RowSelectionDialog.YesButton.Click();
+            }
             Thread.Sleep(2000);
             APEM.MocmainWindow.OrderListInternalFrame.PlanFromRPL_Button.ClickSignle();
             Thread.Sleep(2000);

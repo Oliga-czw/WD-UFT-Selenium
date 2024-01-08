@@ -88,6 +88,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //order
             APEM.MocmainWindow.Orders.ClickSignle();
             Thread.Sleep(2000);
+            if (APEM.RowSelectionDialog.IsExist())
+            {
+                APEM.RowSelectionDialog.YesButton.Click();
+            }
             //if exit order cancel it
             APEM.MocmainWindow.OrderListInternalFrame.Refresh_Button.Click();
             var count = APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Rowscount();
@@ -170,6 +174,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             LogStep(@"5.2 Create Order from RPL and MR");
             APEM.MocmainWindow.Orders.ClickSignle();
             Thread.Sleep(2000);
+            if (APEM.RowSelectionDialog.IsExist())
+            {
+                APEM.RowSelectionDialog.YesButton.Click();
+            }
             //if exit order cancel it
             APEM.MocmainWindow.OrderListInternalFrame.Refresh_Button.Click();
             count = APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Rowscount();

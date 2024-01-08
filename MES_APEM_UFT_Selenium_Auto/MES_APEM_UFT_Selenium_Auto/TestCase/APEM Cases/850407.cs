@@ -69,6 +69,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
 
             LogStep(@"4. Create base Order from RPL and Execute");
             APEM.MocmainWindow.Orders.ClickSignle();
+            if (APEM.RowSelectionDialog.IsExist())
+            {
+                APEM.RowSelectionDialog.YesButton.Click();
+            }
             Thread.Sleep(2000);
             //if exit order cancel it
             APEM.MocmainWindow.OrderListInternalFrame.Refresh_Button.Click();

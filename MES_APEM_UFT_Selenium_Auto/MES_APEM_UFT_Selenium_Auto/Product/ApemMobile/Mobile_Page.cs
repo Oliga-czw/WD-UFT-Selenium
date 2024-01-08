@@ -73,6 +73,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         {
         }
         public Selenium_WebElement OrderSearch => new Selenium_WebElement(_Selenium_Driver, "//input[@id='ordersearch']");
+        public Selenium_WebElement RefreshButton => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@svgicon='refresh']");
         public Selenium_WebElement SearchButton => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[data-mat-icon-name='search']");
         public Selenium_WebElement GotoTracking => new Selenium_WebElement(_Selenium_Driver,"//table/tbody/tr/td/a");
         public Selenium_WebElement ExecutionButton => new Selenium_WebElement(_Selenium_Driver, "//table/tbody/tr/td//a");

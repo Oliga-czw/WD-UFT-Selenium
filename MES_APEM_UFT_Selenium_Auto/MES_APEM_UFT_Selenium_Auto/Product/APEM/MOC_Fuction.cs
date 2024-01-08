@@ -127,6 +127,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             string RPLSelect = RPLName + "#1";
             APEM.MocmainWindow.Orders.ClickSignle();
             Thread.Sleep(2000);
+            if (APEM.RowSelectionDialog.IsExist())
+            {
+                APEM.RowSelectionDialog.YesButton.Click();
+            }
             //if exit order cancel it
             var count = APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Rowscount();
             for(int i = 0; i < count; i++)
@@ -171,6 +175,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             string RPLSelect = RPLName + "#1";
             APEM.MocmainWindow.Orders.ClickSignle();
             Thread.Sleep(2000);
+            if (APEM.RowSelectionDialog.IsExist())
+            {
+                APEM.RowSelectionDialog.YesButton.Click();
+            }
             APEM.MocmainWindow.OrderListInternalFrame.PlanFromRPL_Button.ClickSignle();
             Thread.Sleep(2000);
             APEM.MocmainWindow.OrderPlanDialog.CodeEditor.SendKeys(OrderName);

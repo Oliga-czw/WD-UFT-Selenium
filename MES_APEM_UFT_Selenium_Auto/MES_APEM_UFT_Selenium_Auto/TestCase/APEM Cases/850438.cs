@@ -54,6 +54,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             LogStep(@"3. Create data order from RPL and Execute ");
             APEM.MocmainWindow.Orders.ClickSignle();
             Thread.Sleep(2000);
+            if (APEM.RowSelectionDialog.IsExist())
+            {
+                APEM.RowSelectionDialog.YesButton.Click();
+            }
             //if exit order cancel it
             APEM.MocmainWindow.OrderListInternalFrame.Refresh_Button.Click();
             var count = APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Rowscount();
