@@ -16,7 +16,7 @@ using System.Collections.Generic;
 
 namespace MES_APEM_UFT_Selenium_Auto.TestCase
 {
-    public partial class WD_TestCase
+    public partial class APEM_TestCase
     {
         [TestCaseID(850438)]
         [Title("UC846822 _ Integration with APRM _ When the area of the API isn't specified and the batch area is determined by the area of the key APRM_AREA(Default area)")]
@@ -59,7 +59,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 APEM.RowSelectionDialog.YesButton.Click();
             }
             //if exit order cancel it
-            APEM.MocmainWindow.OrderListInternalFrame.Refresh_Button.Click();
+            APEM.MocmainWindow.OrderListInternalFrame.Search.SetText(OrderName1);//filter order
+            APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
             var count = APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Rowscount();
             for (int i = 0; i < count; i++)
             {

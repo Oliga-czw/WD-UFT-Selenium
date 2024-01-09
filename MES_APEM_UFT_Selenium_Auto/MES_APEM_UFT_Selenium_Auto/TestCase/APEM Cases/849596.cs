@@ -16,7 +16,7 @@ using System.Collections.Generic;
 
 namespace MES_APEM_UFT_Selenium_Auto.TestCase
 {
-    public partial class WD_TestCase
+    public partial class APEM_TestCase
     {
         [TestCaseID(849596)]
         [Title("UC846822 _ Integration with APRM _ When the batch area is determined by the value of the key APRM_AREA(Default area)")]
@@ -75,7 +75,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MocmainWindow.Orders.ClickSignle();
             Thread.Sleep(2000);
             //if exit order cancel it
-            APEM.MocmainWindow.OrderListInternalFrame.Refresh_Button.Click();
+            APEM.MocmainWindow.OrderListInternalFrame.Search.SetText(OrderName2);//filter order
+            APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
             var count = APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Rowscount();
             for (int i = 0; i < count; i++)
             {
@@ -115,6 +116,20 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //finish order
             APEM.PhaseExecWindow.ExecutionInternalFrame.OK_Button.Click();
             //
+            //if exit order cancel it
+            APEM.MocmainWindow.OrderListInternalFrame.Search.SetText(OrderName1);//filter order
+            APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
+            count = APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Rowscount();
+            for (int i = 0; i < count; i++)
+            {
+                APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.SelectRows(i);
+                if (APEM.MocmainWindow.OrderListInternalFrame.Cancel_Button.IsEnabled)
+                {
+                    APEM.MocmainWindow.OrderListInternalFrame.Cancel_Button.ClickSignle();
+                    APEM.MocmainWindow.CancelOrderDialog.YesButton.Click();
+                    MOC_Fuction.AddReason();
+                }
+            }
             //create order from RPL
             APEM.MocmainWindow.OrderListInternalFrame.PlanFromRPL_Button.ClickSignle();
             Thread.Sleep(2000);

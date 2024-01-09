@@ -132,6 +132,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
                 APEM.RowSelectionDialog.YesButton.Click();
             }
             //if exit order cancel it
+            APEM.MocmainWindow.OrderListInternalFrame.Search.SetText(OrderName);//filter order
+            APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
             var count = APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Rowscount();
             for(int i = 0; i < count; i++)
             {
@@ -178,6 +180,20 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             if (APEM.RowSelectionDialog.IsExist())
             {
                 APEM.RowSelectionDialog.YesButton.Click();
+            }
+            //if exit order cancel it
+            APEM.MocmainWindow.OrderListInternalFrame.Search.SetText(OrderName);//filter order
+            APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
+            var count = APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Rowscount();
+            for (int i = 0; i < count; i++)
+            {
+                APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.SelectRows(i);
+                if (APEM.MocmainWindow.OrderListInternalFrame.Cancel_Button.IsEnabled)
+                {
+                    APEM.MocmainWindow.OrderListInternalFrame.Cancel_Button.ClickSignle();
+                    APEM.MocmainWindow.CancelOrderDialog.YesButton.Click();
+                    MOC_Fuction.AddReason();
+                }
             }
             APEM.MocmainWindow.OrderListInternalFrame.PlanFromRPL_Button.ClickSignle();
             Thread.Sleep(2000);

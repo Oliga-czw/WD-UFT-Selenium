@@ -109,6 +109,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         {
         }
         public Selenium_WebElement OrderSearch => new Selenium_WebElement(_Selenium_Driver, "//input[@id='ordersearch']");
+        public Selenium_WebElement RefreshButton => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@svgicon='refresh']");
         public ReadOnlyCollection<IWebElement> OrderPhaseTableRows => _Selenium_Driver.FindElements(By.XPath("//table/tbody/tr"));
         public Selenium_WebElement OrderPhaseTable => new Selenium_WebElement(_Selenium_Driver, "//table/tbody");
         public ReadOnlyCollection<IWebElement> OrderPhaseTableHeads => _Selenium_Driver.FindElements(By.XPath("//table/thead/tr/th/div/div[1]/div"));

@@ -14,13 +14,14 @@ using System.Drawing;
 using System.Windows.Forms;
 using Application = MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary.Application;
 using System.Linq;
+using OpenQA.Selenium.Interactions;
 
 namespace MES_APEM_UFT_Selenium_Auto.TestCase
 {
     public partial class APEM_TestCase
     {
-        [TestCaseID(801579)]
-        [Title("UC801108_APEM mobile: Order list load and show 200 records one time on Process Order page.")]
+        [TestCaseID(801618)]
+        [Title("UC801108_APEM mobile: Order list load and show 200 records one time on consolidate page.")]
         [TestCategory(ProductArea.Mobile)]
         [Priority(CasePriority.Critical)]
         [TestCategory(CaseState.Accepted)]
@@ -29,7 +30,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Timeout(600000)]
 
         [TestMethod]
-        public void VSTS_801579()
+        public void VSTS_801618()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID + "-";
 
@@ -84,18 +85,26 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mobile_Fuction.gotoApemMobile(driver);
             Mobile_Fuction.login();
             LogStep(@"4. check default page");
-            driver.action_move_to_element(Mobile.OrderProcess_Page.OrderPhaseTableHeads[1]);
+            try
+            {
+            //change to consolidate 
+            Mobile.Main_Page.Setting.Click();
+            Mobile.Setting_Page.turnOn_mode(2);
+            //go to tracking page
+            Mobile.Main_Page.Consolidated.Click();
+            Thread.Sleep(5000);
+            driver.action_move_to_element(Mobile.Consolidated_Page.OrderPhaseTableHeads[1]);
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "default page.PNG");
             string url = driver.GetUrl();
-            Base_Assert.IsTrue(url.Contains("process-order"), "in process-order page") ;
+            Base_Assert.IsTrue(url.Contains("consolidated-view"), "in Order tracking/Execution page") ;
             LogStep(@"5. check first 200 orders load");
             //get order number
-            int Fcount = Mobile.OrderProcess_Page.OrderPhaseTableRows.Count;
+            int Fcount = Mobile.Consolidated_Page.OrderPhaseTableRows.Count;
             //check order displays 200
             Base_Assert.AreEqual(Fcount, 200, "Orders displays 200.");
             //check 200 order sort
             List<string> col = new List<string> { "Order / Batch Code" };
-            List<string> OrderName200 = new List<string> { };
+            List<string> OrderNameConsolidated200 = new List<string> { };
             int no = 0;
             int i = 2;// process order page start 2
             foreach (IWebElement head in Mobile.OrderProcess_Page.OrderPhaseTableHeads)
@@ -110,12 +119,12 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             var OrderName = driver.FindElements($"//table/tbody/tr/td[{no}]");
             foreach (var des in OrderName)
             {
-                OrderName200.Add(des.Text);
+                OrderNameConsolidated200.Add(des.Text);
             }
             //sort
-            List<string> OrderName200Sort = OrderName200.ToList();
-            OrderName200Sort.Sort();
-            bool same = OrderName200.SequenceEqual(OrderName200Sort);
+            List<string> OrderNameConsolidated200Sort = OrderNameConsolidated200.ToList();
+            OrderNameConsolidated200Sort.Sort();
+            bool same = OrderNameConsolidated200.SequenceEqual(OrderNameConsolidated200Sort);
             Base_Assert.IsTrue(same, "order list ascending by order name by default.");
             //check scroll bar at top
             var ScrollHeight = driver.execute_script_return("return document.getElementsByClassName('table-content scroll-bar full show-navigation desktop-mode')[0].scrollTop");
@@ -126,7 +135,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(5000);
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Orders 400.PNG");
             //get order number
-            int Ncount = Mobile.OrderProcess_Page.OrderPhaseTableRows.Count;
+            int Ncount = Mobile.Consolidated_Page.OrderPhaseTableRows.Count;
             //check order displays 400
             Base_Assert.AreEqual(Ncount, 400, "Orders displays 400.");
 
@@ -137,20 +146,20 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(5000);
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Orders more than 520.PNG");
             //get order number
-            int Lcount = Mobile.OrderProcess_Page.OrderPhaseTableRows.Count;
+            int Lcount = Mobile.Consolidated_Page.OrderPhaseTableRows.Count;
             //check order displays>=520
             Base_Assert.IsTrue(Lcount >= 520, "Orders displays>=520.");
             LogStep(@"7.Click Refresh button");
-            Mobile.OrderProcess_Page.RefreshButton.Click();
+            Mobile.Consolidated_Page.RefreshButton.Click();
             Thread.Sleep(10000);
-            driver.action_move_to_element(Mobile.OrderProcess_Page.OrderPhaseTableHeads[1]);
+            driver.action_move_to_element(Mobile.Consolidated_Page.OrderPhaseTableHeads[1]);
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Refresh OrderList.PNG");
             //check scroll bar at top
             var ScrollHeight2 = driver.execute_script_return("return document.getElementsByClassName('table-content scroll-bar full show-navigation desktop-mode')[0].scrollTop");
             Base_Assert.AreEqual(ScrollHeight2.ToString(), "0", "Scroll bar at top.");
             //check Orders will be reloaded
             //get order number
-            int Rcount = Mobile.OrderProcess_Page.OrderPhaseTableRows.Count;
+            int Rcount = Mobile.Consolidated_Page.OrderPhaseTableRows.Count;
             //check order displays 200
             Base_Assert.AreEqual(Rcount, 200, "Orders displays 200.");
             //same List
@@ -160,8 +169,15 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             {
                 OrderName200Last.Add(des.Text);
             }
-            bool same2 = OrderName200.SequenceEqual(OrderName200Last);
+            bool same2 = OrderNameConsolidated200.SequenceEqual(OrderName200Last);
             Base_Assert.IsTrue(same2, "Refresh order list.");
+            }
+            finally
+            {
+                //change to consolidate 
+                Mobile.Main_Page.Setting.Click();
+                Mobile.Setting_Page.turnOff_mode(2);
+            }
 
             driver.Close();
         }

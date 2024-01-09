@@ -150,6 +150,14 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
             Actions action = new Actions(_Selenium_Driver);
             int offsetX = (int)(element.Size.Width * (0.49 - 0.5));
             int offsetY = (int)(element.Size.Height * (0.56 - 0.5));
+            action.MoveToElement(element, offsetX, offsetY).Perform();
+            Thread.Sleep(5000);
+        }
+        public void action_move_to_element_click(IWebElement element)
+        {
+            Actions action = new Actions(_Selenium_Driver);
+            int offsetX = (int)(element.Size.Width * (0.49 - 0.5));
+            int offsetY = (int)(element.Size.Height * (0.56 - 0.5));
             action.MoveToElement(element, offsetX, offsetY).Click().Perform();
             Thread.Sleep(5000);
         }
