@@ -78,6 +78,7 @@
     <Compile Include="Library\BaseLibrary\Base_File.cs" />
     <Compile Include="Library\BaseLibrary\Base_Function.cs" />
     <Compile Include="Library\BaseLibrary\Base_Logger.cs" />
+    <Compile Include="Library\SeleniumLibrary\Selenium_WebElements.cs" />
     <Compile Include="Library\UFTLibrary\STD_Dialog.cs" />
     <Compile Include="Library\UFTLibrary\STD_ListView.cs" />
     <Compile Include="Library\UFTLibrary\STD_Toolbar.cs" />
@@ -139,6 +140,7 @@
     <Compile Include="TestCase\APEM Cases\850241.cs" />
     <Compile Include="TestCase\APEM Cases\916388.cs" />
     <Compile Include="TestCase\APEM Cases\916442.cs" />
+    <Compile Include="TestCase\Mobile Cases\782513.cs" />
     <Compile Include="TestCase\Mobile Cases\801618.cs" />
     <Compile Include="TestCase\Mobile Cases\912584.cs" />
     <Compile Include="TestCase\Mobile Cases\801579.cs" />

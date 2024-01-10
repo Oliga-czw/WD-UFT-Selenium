@@ -174,7 +174,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             }
             finally
             {
-                //change to consolidate 
+                //off to consolidate 
                 Mobile.Main_Page.Setting.Click();
                 Mobile.Setting_Page.turnOff_mode(2);
             }
