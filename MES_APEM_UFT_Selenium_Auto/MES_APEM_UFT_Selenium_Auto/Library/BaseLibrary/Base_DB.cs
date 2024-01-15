@@ -11,6 +11,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
     public class SqlHelper
     {
         static string server = Environment.MachineName;
+        //static string server = "ziru-2022-2.qae.aspentech.com";
         static string database = DBInfo.Info["AeBRS"];
         static string user = DBInfo.Info["username"];
         static string password = DBInfo.Info["password"];

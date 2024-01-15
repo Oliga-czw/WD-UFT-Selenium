@@ -161,5 +161,19 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
             action.MoveToElement(element, offsetX, offsetY).Click().Perform();
             Thread.Sleep(5000);
         }
+        public void action_move_element(IWebElement element)
+        {
+            Actions actions = new Actions(_Selenium_Driver);
+            actions.ClickAndHold(element).Build().Perform();
+
+            // 等待一定时间，以便拖拽操作能够生效（根据实际情况调整）  
+            Thread.Sleep(1000);
+
+            // 模拟鼠标移动到目标位置（这里以向右拖动为例）  
+            actions.MoveByOffset(0, 0).Build().Perform(); // 50 是向右移动的距离，根据需要调整  
+
+            // 模拟鼠标松开事件，完成拖拽操作  
+            actions.Release().Build().Perform();
+        }
     }
 }

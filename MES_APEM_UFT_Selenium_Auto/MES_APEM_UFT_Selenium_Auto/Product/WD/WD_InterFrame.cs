@@ -139,11 +139,17 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         public UFT_Button start => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'tareBtn']");
         //target container
         public UFT_Label tareLable => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'lblTare']");
-
+        //target container
+        //public UFT_Label Tare_Data => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'lblTareDis']");
+        //public UFT_Label Net_Data => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'lblNetDis']");
+        //public UFT_Label Gross_Data => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'dispLblGross']");
         //Weighing Info --Source as target
         public UFT_Label InitailGross => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'lblTare']");
         public UFT_Label FinalGross => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'lblNet']");
         public UFT_Label Diffenence => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'lblGross']");
+        public UFT_Label Data_InitailGross => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'lblTareDis']");
+        public UFT_Label Data_FinalGross => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'DisplayLabel9']");
+        public UFT_Label Data_Diffenence => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'DiffDisLabel0']");
         public UFT_Editor SourceTare => new UFT_Editor(_UFT_InterFrame, "//Editor[@ObjectName = 'txtSourceTare']");
 
     }

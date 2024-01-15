@@ -28,7 +28,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             APEM.APEMMainWindow.Password.SendKeys(password);
             APEM.APEMMainWindow.EnterPasswordAgain.SendKeys(password);
             APEM.APEMMainWindow.OKButton.ClickSignle();
-            Thread.Sleep(5000);
+            Thread.Sleep(15000);
             if (APEM.APEMMainWindow.UID.IsEnabled)
             {
                 APEM.APEMMainWindow.UID.SendKeys("123");

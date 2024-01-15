@@ -267,7 +267,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
     }
     public class ServiceName
     {
-        public const string Tomcat = "Tomcat9";
+        public const string Tomcat = "Tomcat10";
         public const string AFW = "AfwSecCliSvc";
         public const string SQL = "MSSQLSERVER";
 

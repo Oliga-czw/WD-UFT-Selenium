@@ -59,15 +59,31 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MOCConfigWindow.ConfigExportDialog.ExportToFileButton.ClickSignle();
             string filePath = "C:\\Users\\qaone1\\Desktop\\EN912584.ini";
             string newData = "#Executable BPs in Mobile\r\nWEB_EXECUTABLE_3 = BPL912584_1.CREATE\r\nWEB_EXECUTABLE_1 = BPL912584_2.BP_NONWEB\r\nWEB_EXECUTABLE_4 = BPL912584_3.BP_NOCERTIFY\r\nWEB_EXECUTABLE_2 = BPL912584_3.BP002";
+            string newData1 = "WEB_EXECUTABLE_3 = BPL912584_1.CREATE\r\nWEB_EXECUTABLE_1 = BPL912584_2.BP_NONWEB\r\nWEB_EXECUTABLE_4 = BPL912584_3.BP_NOCERTIFY\r\nWEB_EXECUTABLE_2 = BPL912584_3.BP002";
+            string iniContent = File.ReadAllText(filePath);
+            string searchString = "#Executable BPs in Mobile\r\n";
+            bool contains = iniContent.Contains(searchString);
             using (StreamWriter sw = new StreamWriter(filePath, true))
             {
-                sw.WriteLine(newData);
+                if (contains == false)
+                {
+                    sw.WriteLine(newData);
+                }
+                else
+                {
+                    if (iniContent.Contains("WEB_EXECUTABLE_1") == false)
+                    {
+                        sw.WriteLine(newData1);
+                    }
+                }
+
             }
             Console.WriteLine("数据已成功写入.ini文件末尾。");
             APEM.MOCConfigWindow.Import_ReplaceMerge.ClickSignle();
             APEM.MOCConfigWindow.ConfigImportDialog.FileName.SendKeys(filePath);
             MOC_Fuction.ConfigClose();
             Thread.Sleep(2000);
+            Mobile.BPList_Page.BPSearch.SendKeys("BPL912584");
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "ExecutableBPs.PNG");
             var BPLName = Mobile.BPList_Page.BPListTableRows[0].FindElements(By.TagName("td"))[0].Text;
             var BP_Name = Mobile.BPList_Page.BPListTableRows[0].FindElements(By.TagName("td"))[1].Text;
@@ -81,6 +97,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mobile.Setting_Page.turnOn_mode(1);
             Mobile.Main_Page.BPList.Click();
             Thread.Sleep(3000);
+            Mobile.BPList_Page.BPSearch.SendKeys("BPL912584");
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Dark_ExecutableBPs.PNG");
             var BPLName1 = Mobile.BPList_Page.BPListTableRows[0].FindElements(By.TagName("td"))[0].Text;
             var BP_Name1 = Mobile.BPList_Page.BPListTableRows[0].FindElements(By.TagName("td"))[1].Text;

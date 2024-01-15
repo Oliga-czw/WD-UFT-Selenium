@@ -178,8 +178,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         public Selenium_WebElement Cancel => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Cancel']");
         public Selenium_WebElement Archive => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Archive']");
         public Selenium_WebElement Finish => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Finish']");
-
+        public Selenium_WebElement SearchInput => new Selenium_WebElement(_Selenium_Driver, "//input[@class='Tab_Manu_bar_Margin Tab_Menu_Bar_Search_Box']");
+        public Selenium_WebElement orderCheckbox => new Selenium_WebElement(_Selenium_Driver, "//input[@name='!checkall']");
         public Selenium_WebElement ReprintLable => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Reprint Label']");
+        public Selenium_WebElement PrintReport => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Print Report']");
+        public Selenium_WebElement PreviewOrderReport => new Selenium_WebElement(_Selenium_Driver, "//div[@class='gwt-DialogBox Dialog_Background']");
         //ReprintLable
         public Selenium_WebElement ReprintContainerLabel => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Reprint Container Label']");
         public Selenium_WebElement ReprintLableClose => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Close']");

@@ -169,7 +169,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 
         //Tomcat
 
-        public static string MobileWebconfig = "C:\\Program Files\\Common Files\\AspenTech Shared\\Tomcat9.0.27\\webapps\\ApemMobile\\WEB-INF\\web.xml";
+        public static string MobileWebconfig = "C:\\Program Files\\Common Files\\AspenTech Shared\\Tomcat10.1.16\\webapps\\ApemMobile\\WEB-INF\\web.xml";
+        public static string WDReport = @"C:\Program Files\Common Files\AspenTech Shared\Tomcat10.1.16\WebApps\WeighDispense\Reports\PDFs\";
 
     }
 }

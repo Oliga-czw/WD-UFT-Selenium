@@ -10,13 +10,14 @@ using MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary;
 using MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary;
 using Spire.Pdf;
 using Spire.Pdf.Texts;
+using System.Drawing;
+using HP.LFT.SDK;
+using System.Windows.Forms;
 
 namespace MES_APEM_UFT_Selenium_Auto.Product.WD
 {
     class Web_Fuction
     {
-
-
         #region operate fuction
         public static void gotoWDWeb(Selenium_Driver driver)
         {
@@ -598,8 +599,26 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
             string xpath = "//td[text()='" + order + "']/../td[3]/img";
             Web.Equipment_Page.body._Selenium_WebElement.FindElement(By.XPath(xpath)).Click();
         }
+        public static string OrderPrint(string reportfile)
+        {
+            string pdfFilePath = Base_Directory.WDReport+reportfile;
+            PdfDocument doc = new PdfDocument();
+            doc.LoadFromFile(pdfFilePath);
+            StringBuilder content = new StringBuilder();
 
-
+            foreach (PdfPageBase page in doc.Pages)
+            {
+                //创建一个PdfTextExtractot 对象
+                PdfTextExtractor textExtractor = new PdfTextExtractor(page);
+                //创建一个 PdfTextExtractOptions 对象
+                PdfTextExtractOptions extractOptions = new PdfTextExtractOptions();
+                extractOptions.IsExtractAllText = true;
+                content.AppendLine(textExtractor.ExtractText(extractOptions));
+            }
+            string reportText = content.ToString();
+            Console.WriteLine(content.ToString());
+            return reportText;
+        }
         #endregion
     }
 }
