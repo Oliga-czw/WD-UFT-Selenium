@@ -192,12 +192,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
             AttachedText = @"Value:",
             Index = 0
         });
-
-        public ICalendar ValueCalendar => _STD_Dialog.Describe<ICalendar>(new CalendarDescription
-        {
-            NativeClass = @"SysDateTimePick32",
-            Index = 0
-        });
         //public new IButton Cancel => _STD_Dialog.Describe<IButton>(new ButtonDescription
         //{
         //    Text = @"Cancel"

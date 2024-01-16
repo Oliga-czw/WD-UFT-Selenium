@@ -91,9 +91,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         {
         }
         public UFT_Button AddRPL_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Insert row' and @IsWrapped = 'True']");
-        public UFT_Button Paste_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Paste row' and @IsWrapped = 'True']");
-        public UFT_Button Copy_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Copy row' and @IsWrapped = 'True']");
-        
         public IEditor NameEditor => _UFT_InterFrame.Describe<IEditor>(new EditorDescription
         {
             AttachedText = @"Name  "
@@ -120,7 +117,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button ConfirmChanges_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Confirm changes' and @IsWrapped = 'True']");
         public UFT_Editor RPLName => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Name']");
         public UFT_Editor RPLDescription => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Description']");
-        public UFT_Editor RPLBatchArea => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Batch Area']");
         public ITabControl RPLTabControl => _UFT_InterFrame.Describe<ITabControl>(new TabControlDescription
         {
             TagName = @"m2rTabbedPanel"
@@ -129,44 +125,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button LoadDesigner_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Load designer' and @IsWrapped = 'True']");
         public UFT_Button VerifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Verify']");
         
-    }
-    //MasterRecipe_InterFrame
-    public class MasterRecipe_InterFrame : MOCMainInterFrame
-    {
-        public MasterRecipe_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
-        {
-        }
-        public UFT_Button Add_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Insert row' and @IsWrapped = 'True']");
-        public IEditor NameEditor => _UFT_InterFrame.Describe<IEditor>(new EditorDescription
-        {
-            AttachedText = @"Name  "
-        });
-
-        //public UFT_Editor CodeEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Code  ']");
-        public UFT_Button VerifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Verify']");
-        public UFT_Button CertifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Certify']");
-        public UFT_Table ListTable => new UFT_Table(_UFT_InterFrame, "//Table[@AttachedText = 'Name\\s\\s']");
-        public IButton Filterbutton => _UFT_InterFrame.Describe<IButton>(new ButtonDescription
-        {
-            Label = @"Local filter",
-            IsWrapped = true
-        });
-
-    }
-    public class MasterRecipeData_InterFrame : MOCMainInterFrame
-    {
-
-        public MasterRecipeData_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
-        {
-        }
-        public UFT_Button ConfirmChanges_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Confirm changes' and @IsWrapped = 'True']");
-        public UFT_Editor Name => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Name']");
-        public UFT_Editor Description => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Description']");
-        public UFT_List RPLList => new UFT_List(_UFT_InterFrame, "//List[@AttachedText = 'RPL']");
-        public UFT_Editor BatchArea => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Batch Area']");
-        public UFT_Button VerifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Verify']");
-        public UFT_Button CertifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Certify']");
-
     }
     //OrderTrackingPFC_InterFrame
     public class OrderTrackingPFC_InterFrame : MOCMainInterFrame
@@ -333,7 +291,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         {
         }
         public UFT_Button PlanFromRPL_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Plan from RPL']");
-        public UFT_Button PlanFromMRecipe_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Plan from M.Recipe']");
         //public UFT_Button LoadDesigner_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Load designer' and @IsWrapped = 'True']");
         public UFT_Button Refresh_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Refresh' and @IsWrapped = 'True']");
         public UFT_Button Filter_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Local filter' and @IsWrapped = 'True']");
@@ -358,18 +315,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public Execution_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
         {
         }
-        //850433 Batch
-        public UFT_Button BatchRPLWriteRead_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Order850433:RPLArea(BATCH_RECORD_WRITE)']");
-        //850438 Batch
-        public UFT_Button BatchWriteRead_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Order850438:DefaultArea(BATCH_RECORD_WRITE)']");
-        //850407 Batch
-        public UFT_Button BatchAPIWriteRead_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Order850407:BatchAPI(BATCH_RECORD_WRITE)']");
-        //849596 Batch
-        public UFT_Button BatchDefault_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Order849596:Default area']");
-        //850241 Batch
-        public UFT_Button Batch_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Order850241:Batch same area with order']");
-        public UFT_Button BatchSP_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Order850241SP:Specific batch-BatchAPI']");
-
         //Soap
         public UFT_Button SOAP_CALL2_EX_Button => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Button0']");
         public UFT_Button SOAP_CALL2_Button => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Button3']");
@@ -510,11 +455,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public Message_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
         {
         }
-
-        public ILabel Label => _UFT_InterFrame.Describe<ILabel>(new LabelDescription
-        {
-            ObjectName = @"OptionPane.label"
-        });
 
         public IButton OKButton => _UFT_InterFrame.Describe<IButton>(new ButtonDescription
         {

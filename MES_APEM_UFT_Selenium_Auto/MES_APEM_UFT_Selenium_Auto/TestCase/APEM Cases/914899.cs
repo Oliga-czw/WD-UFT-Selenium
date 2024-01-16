@@ -157,9 +157,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         {
             Keyboard.KeyDown(Keyboard.Keys.Alt);
             Keyboard.PressKey(Keyboard.Keys.A);
-            Thread.Sleep(1000);
             Keyboard.KeyUp(Keyboard.Keys.Alt);
-            Thread.Sleep(1000);
         }
     }
 }

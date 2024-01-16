@@ -38,7 +38,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             string net = "454.4";
 
             LogStep(@"1. config APRM admin and apem admin");
-            APRM_Fuction.FirstInitailAPRMWD();
+            APRM_Fuction.FirstInitailAPRM();
             LogStep(@"2. Execute order ");
             Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
             Web_Fuction.gotoWDWeb(driver);
@@ -57,8 +57,29 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             LogStep(@"3. Open Batch query tool ");
             Application.LaunchBatchQueryTool();
             //open new query
-            BatchQueryTool.NewQuery();
+            BatchQueryTool.BatchQueryToolWindow.SetActive();
+            Keyboard.KeyDown(Keyboard.Keys.Control);
+            Keyboard.PressKey(Keyboard.Keys.N);
+            Keyboard.KeyUp(Keyboard.Keys.Control);
+            //dialog message
+            if (BatchQueryTool.BatchQueryToolWindow.NoDefaultData_Dialog.IsExist())
+            {
+                BatchQueryTool.BatchQueryToolWindow.NoDefaultData_Dialog.OK.Click();
+            }
+            //click advance
+            var point = BatchQueryTool.BatchQueryToolWindow.ConfigQueryWindow._STD_Window.Location;
+            Console.WriteLine(point.X + "," + point.Y);
+            point.X += 400;
+            point.Y += 40;
+            Mouse.Click(point);
+            //send range
+            BatchQueryTool.BatchQueryToolWindow.ConfigQueryWindow.Start.SendKeys("1");
+            BatchQueryTool.BatchQueryToolWindow.ConfigQueryWindow.End.SendKeys("10000");
+            BatchQueryTool.BatchQueryToolWindow.ConfigQueryWindow.OK.Click();
+            //Execute
+            Keyboard.PressKey(Keyboard.Keys.F9);
             //check record from aprm
+            Thread.Sleep(8000);
             BatchQueryTool.BatchQueryToolWindow.GetSnapshot(Resultpath + "APRM record.PNG");
             //open batch detail display
             BatchQueryTool.BatchQueryToolWindow.ListView._STD_ListView.ActivateItem(order);
