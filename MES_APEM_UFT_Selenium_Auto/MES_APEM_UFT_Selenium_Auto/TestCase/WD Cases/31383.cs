@@ -52,8 +52,24 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //edit xml security
             XmlDocument document = new XmlDocument();
             document.Load(files[0]);
-            string ordername = document.SelectSingleNode("ProductionPerformance/ProductionResponse/ProductionRequestID").InnerText;
-            Console.WriteLine(ordername);
+            //get namespace
+            string ns = document.DocumentElement.Attributes["xmlns"].Value;
+            //add namespace
+            XmlNamespaceManager nsMgr = new XmlNamespaceManager(document.NameTable);
+            nsMgr.AddNamespace("ns", ns);
+            // 获取ProductionRequestID节点下的内容  
+            XmlNode ordername = document.SelectSingleNode("//ns:ProductionRequestID", nsMgr);
+            if (ordername != null)
+            {
+                string productionRequestID = ordername.InnerText;
+                Console.WriteLine("ProductionRequestID: " + productionRequestID);
+            }
+            else
+            {
+                Console.WriteLine("ProductionRequestID node not found.");
+            }
+
+
 
             LogStep(@"2. Open WD client and do scale check");
             Application.LaunchWDAndLogin();
