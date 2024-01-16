@@ -38,6 +38,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(3000);
             APEM.MocmainWindow.Orders.ClickSignle();
             Thread.Sleep(2000);
+            if (APEM.RowSelectionDialog.IsExist())
+            {
+                APEM.RowSelectionDialog.YesButton.Click();
+            }
             MOC_Fuction.PlanFromRPL("FOR_STATUS", "ORDRE997428", false);
             APEM.MocmainWindow.OrderListInternalFrame.OrderTabControl.Select("Phases");
             Selenium_Driver driver = new Selenium_Driver(Browser.chrome);

@@ -184,7 +184,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                             }
                             Thread.Sleep(1000);
                         }
-                        driver.action_move_to_element(filter);
+                        driver.action_move_to_element_click(filter);
                     }
                     Thread.Sleep(2000);
 
@@ -249,7 +249,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                             }
                             Thread.Sleep(1000);
                         }
-                        driver.action_move_to_element(filter);
+                        driver.action_move_to_element_click(filter);
                     }
                     Thread.Sleep(2000);
 

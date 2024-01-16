@@ -73,6 +73,10 @@ Script has completed!";
 
             //check order status 
             APEM.MocmainWindow.Orders.ClickSignle();
+            if (APEM.RowSelectionDialog.IsExist())
+            {
+                APEM.RowSelectionDialog.YesButton.Click();
+            }
             APEM.MocmainWindow.OrderListInternalFrame.Search.SetText(order);
             APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
             APEM.MocmainWindow.GetSnapshot(Resultpath + "order status.PNG");

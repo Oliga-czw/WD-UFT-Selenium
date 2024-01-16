@@ -178,4 +178,14 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
         public UFT_Button Print => new UFT_Button(_UFT_Dialog, "//Button[@Label = 'Print']");
 
     }
+    //
+    public class SelectMasterRecipe_Dialog : UFT_Dialog
+    {
+        public SelectMasterRecipe_Dialog(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+        public UFT_Table MRTable => new UFT_Table(_UFT_Dialog, "//Table[@AttachedText = 'Name\\s\\s']");
+        public UFT_Button Print => new UFT_Button(_UFT_Dialog, "//Button[@Label = 'Print']");
+
+    }
 }

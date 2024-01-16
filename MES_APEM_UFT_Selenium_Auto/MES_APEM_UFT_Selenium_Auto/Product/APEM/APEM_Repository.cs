@@ -28,7 +28,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             APEM.APEMMainWindow.Password.SendKeys(password);
             APEM.APEMMainWindow.EnterPasswordAgain.SendKeys(password);
             APEM.APEMMainWindow.OKButton.ClickSignle();
-            Thread.Sleep(15000);
+            Thread.Sleep(5000);
             if (APEM.APEMMainWindow.UID.IsEnabled)
             {
                 APEM.APEMMainWindow.UID.SendKeys("123");
@@ -91,10 +91,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public static UFT_Dialog DesignVerificationDialog => new UFT_Dialog("//Dialog[@Title = 'Design verification']");
         public static UFT_Dialog DesignCompilationDialog => new UFT_Dialog("//Dialog[@Title = 'Design compilation']");
         public static UFT_Dialog VerifyDialog => new UFT_Dialog("//Dialog[@Title = 'Verify']");
-        public static UFT_Dialog CertifyDialog => new UFT_Dialog("//Dialog[@Title = 'Certify RPL']");
+        public static UFT_Dialog CertifyDialog => new UFT_Dialog("//Dialog[@Title = 'Certify*']");
         public static UFT_Dialog ExecutionFinishedDialog => new UFT_Dialog("//Dialog[@Title = 'Execution Finished']");
         public static UFT_Dialog RowSelectionDialog => new UFT_Dialog("//Dialog[@Title = 'Row selection']");
         public static UFT_Dialog DeleteEventLogDialog => new UFT_Dialog("//Dialog[@Title = 'Delete Event Log']");
+        public static UFT_Dialog CheckParametersDialog => new UFT_Dialog("//Dialog[@Title = 'Check Parameters']");
         #endregion
 
 
@@ -103,8 +104,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         {
             var aspen = Process.GetProcessesByName("javaw");
             MocmainWindow.SetActive();
-            Keyboard.KeyDown(Keyboard.Keys.Alt);
-            Keyboard.PressKey(Keyboard.Keys.F4);
+            MocmainWindow.Close();
             if (CloseDialog.IsExist())
             {
                 CloseDialog.YesButton.Click();

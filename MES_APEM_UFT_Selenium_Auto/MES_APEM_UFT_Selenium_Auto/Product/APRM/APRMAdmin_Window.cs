@@ -1,7 +1,7 @@
 ﻿
 using HP.LFT.SDK;
 using HP.LFT.SDK.UIAPro;
-using HP.LFT.SDK.WinForms;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -72,7 +72,124 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APRM
                 Path = @"Window;Pane;Window;Pane;Tree;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem"
             });
 
-        public ITreeViewItem Equipment => _STD_Window.Describe<IPane>(new PaneDescription
+        public ITreeViewItem BatchRPL => _STD_Window.Describe<IPane>(new PaneDescription
+        {
+            Name = @"Workspace",
+            Path = @"Window;Pane"
+        })
+            .Describe<ITreeViewItem>(new TreeViewItemDescription
+            {
+                Name = @"Areas",
+                Path = @"Window;Pane;Window;Pane;Tree;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem"
+            })
+            .Describe<ITreeViewItem>(new TreeViewItemDescription
+            {
+                Name = @"BatchRPL",
+                Path = @"Window;Pane;Window;Pane;Tree;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem"
+            });
+        public ITreeViewItem BatchAPI => _STD_Window.Describe<IPane>(new PaneDescription
+		{
+			ProcessName = @"mmc",
+			Name = @"Workspace",
+			Path = @"Window;Pane",
+			SupportedPatterns = new string[] { },
+			FrameworkId = @"Win32",
+			ControlType = @"Pane",
+			AutomationId = @"59648"
+		})
+			.Describe<IWindow>(new WindowDescription
+			{
+				ProcessName = @"mmc",
+				Name = @"Console Root\Production Record Manager\Data Sources\OLIGA-2022-2\Areas",
+				Path = @"Window;Pane;Window",
+				SupportedPatterns = new string[] { @"Transform", @"Window" },
+				FrameworkId = @"Win32",
+				ControlType = @"Window",
+				AutomationId = @"65280"
+			})
+			.Describe<IPane>(new PaneDescription
+			{
+				ProcessName = @"mmc",
+				Name = @"Console Embedded Window",
+				Path = @"Window;Pane;Window;Pane",
+				SupportedPatterns = new string[] { },
+				FrameworkId = @"Win32",
+				ControlType = @"Pane",
+				AutomationId = @"59648"
+			})
+			.Describe<ITreeView>(new TreeViewDescription
+			{
+				ProcessName = @"mmc",
+				Name = @"Console Embedded Window Tree",
+				Path = @"Window;Pane;Window;Pane;Tree",
+				SupportedPatterns = new string[] { @"Selection" },
+				FrameworkId = @"Win32",
+				ControlType = @"Tree",
+				AutomationId = @"12785"
+			})
+			.Describe<ITreeViewItem>(new TreeViewItemDescription
+			{
+				ProcessName = @"mmc",
+				Name = @"Console Root",
+				Path = @"Window;Pane;Window;Pane;Tree;TreeItem",
+				SupportedPatterns = new string[] { },
+				FrameworkId = string.Empty,
+				ControlType = @"TreeItem",
+				AutomationId = string.Empty
+			})
+			.Describe<ITreeViewItem>(new TreeViewItemDescription
+			{
+				ProcessName = @"mmc",
+				Name = @"Production Record Manager",
+				Path = @"Window;Pane;Window;Pane;Tree;TreeItem;TreeItem",
+				SupportedPatterns = new string[] { },
+				FrameworkId = string.Empty,
+				ControlType = @"TreeItem",
+				AutomationId = string.Empty
+			})
+			.Describe<ITreeViewItem>(new TreeViewItemDescription
+			{
+				ProcessName = @"mmc",
+				Name = @"Data Sources",
+				Path = @"Window;Pane;Window;Pane;Tree;TreeItem;TreeItem;TreeItem",
+				SupportedPatterns = new string[] { },
+				FrameworkId = string.Empty,
+				ControlType = @"TreeItem",
+				AutomationId = string.Empty
+			})
+			.Describe<ITreeViewItem>(new TreeViewItemDescription
+			{
+				ProcessName = @"mmc",
+				Name = @"OLIGA-2022-2",
+				Path = @"Window;Pane;Window;Pane;Tree;TreeItem;TreeItem;TreeItem;TreeItem",
+				SupportedPatterns = new string[] { },
+				FrameworkId = string.Empty,
+				ControlType = @"TreeItem",
+				AutomationId = string.Empty
+			})
+			.Describe<ITreeViewItem>(new TreeViewItemDescription
+			{
+				ProcessName = @"mmc",
+				Name = @"Areas",
+				Path = @"Window;Pane;Window;Pane;Tree;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem",
+				SupportedPatterns = new string[] { },
+				FrameworkId = string.Empty,
+				ControlType = @"TreeItem",
+				AutomationId = string.Empty
+			})
+			.Describe<ITreeViewItem>(new TreeViewItemDescription
+			{
+				ProcessName = @"mmc",
+				Name = @"BatchAPI",
+				Path = @"Window;Pane;Window;Pane;Tree;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem",
+				SupportedPatterns = new string[] { },
+				FrameworkId = string.Empty,
+				ControlType = @"TreeItem",
+				AutomationId = string.Empty
+			});
+
+
+		public ITreeViewItem Equipment => _STD_Window.Describe<IPane>(new PaneDescription
         {
             Name = @"Workspace",
             Path = @"Window;Pane"

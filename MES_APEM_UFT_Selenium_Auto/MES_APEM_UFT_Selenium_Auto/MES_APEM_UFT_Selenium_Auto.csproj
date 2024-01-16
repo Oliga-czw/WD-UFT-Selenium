@@ -78,6 +78,7 @@
     <Compile Include="Library\BaseLibrary\Base_File.cs" />
     <Compile Include="Library\BaseLibrary\Base_Function.cs" />
     <Compile Include="Library\BaseLibrary\Base_Logger.cs" />
+    <Compile Include="Library\SeleniumLibrary\Selenium_WebElements.cs" />
     <Compile Include="Library\UFTLibrary\STD_Dialog.cs" />
     <Compile Include="Library\UFTLibrary\STD_ListView.cs" />
     <Compile Include="Library\UFTLibrary\STD_Toolbar.cs" />
@@ -132,10 +133,18 @@
     <Compile Include="Product\SQLplus\SQLplus_Repository.cs" />
     <Compile Include="Product\SQLplus\SQLplus_Window.cs" />
     <Compile Include="TestCase\APEM Cases\749627.cs" />
+    <Compile Include="TestCase\APEM Cases\849596.cs" />
+    <Compile Include="TestCase\APEM Cases\850241.cs" />
+    <Compile Include="TestCase\APEM Cases\850407.cs" />
+    <Compile Include="TestCase\APEM Cases\850433.cs" />
+    <Compile Include="TestCase\APEM Cases\850438.cs" />
     <Compile Include="TestCase\APEM Cases\916388.cs" />
     <Compile Include="TestCase\APEM Cases\916442.cs" />
+    <Compile Include="TestCase\Mobile Cases\801579.cs" />
+    <Compile Include="TestCase\Mobile Cases\801618.cs" />
     <Compile Include="TestCase\Mobile Cases\912651.cs" />
     <Compile Include="TestCase\Mobile Cases\912584.cs" />
+    <Compile Include="TestCase\WD Cases\31383.cs" />
     <Compile Include="TestCase\WD Cases\40816.cs" />
     <Compile Include="TestCase\APEM Cases\915161.cs" />
     <Compile Include="TestCase\APEM Cases\863166.cs" />

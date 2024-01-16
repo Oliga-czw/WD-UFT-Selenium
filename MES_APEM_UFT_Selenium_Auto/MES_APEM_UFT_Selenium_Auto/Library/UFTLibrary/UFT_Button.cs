@@ -22,9 +22,16 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
         public void Click(int waitingTime = 1000)
         {
             _UFT_Button.WaitUntilEnabled();
-            _UFT_Button.Click();
-            Thread.Sleep(waitingTime);
-            _UFT_Button.Click();
+            if (!_UFT_Button.IsFocused)
+            {
+                _UFT_Button.Click();
+                Thread.Sleep(waitingTime);
+            }
+            if (_UFT_Button.IsEnabled)
+            {
+                _UFT_Button.Click();
+            }
+            
             Thread.Sleep(waitingTime);
         }
 

@@ -49,7 +49,7 @@ namespace MES_APEM_UFT_Selenium_Auto
             AFW_Fuction.ReplaceAFWDB();
 
             //install  and config aprm
-            APRM_Fuction.FirstInitailAPRM();
+            APRM_Fuction.FirstInitailAPRMWD();
             //wia to false
             Mobile_Fuction.UpdateAutoLogin();
             //set apem server and registration

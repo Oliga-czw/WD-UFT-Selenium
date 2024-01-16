@@ -38,7 +38,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         });
         public IList RPLList => _UFT_Dialog.Describe<IList>(new ListDescription
         {
-            TagName = @"m2rMultiComboBox"
+            TagName = @"m2rMultiComboBox",
+            NativeClass = @"m2r.Card.m2rMultiComboBox"
         });
         public IEditor POEditor => _UFT_Dialog.Describe<IEditor>(new EditorDescription
         {
@@ -84,6 +85,12 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         {
             NativeClass = @"m2r.Card.m2rTextField",
             Index = 9
+        });
+
+        public IEditor Batch_AreaEditor => _UFT_Dialog.Describe<IEditor>(new EditorDescription
+        {
+            NativeClass = @"m2r.Card.m2rTextField",
+            Index = 12
         });
 
         public IList WorkcenterList => _UFT_Dialog.Describe<IList>(new ListDescription

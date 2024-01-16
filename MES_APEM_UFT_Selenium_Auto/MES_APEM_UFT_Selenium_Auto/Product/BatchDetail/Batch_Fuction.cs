@@ -56,9 +56,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APRM
             Keyboard.KeyDown(Keyboard.Keys.Alt);
             Keyboard.KeyDown(Keyboard.Keys.T);
             Keyboard.PressKey(Keyboard.Keys.O);
+            Thread.Sleep(1000);
             Keyboard.KeyUp(Keyboard.Keys.Alt);
             Keyboard.KeyUp(Keyboard.Keys.T);
-
+            Thread.Sleep(1000);
             //set option
             APRM.BatchMainWindow.OptionDialog.DataSource.Select(Environment.MachineName);
             APRM.BatchMainWindow.OptionDialog.DataArea.Select(Area);
