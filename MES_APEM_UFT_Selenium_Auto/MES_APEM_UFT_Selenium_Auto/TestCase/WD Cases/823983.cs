@@ -99,22 +99,62 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Base_Assert.AreEqual(Initial_gross, "320.0");
                 Base_Assert.AreEqual(Finial_gross,"300.0");
                 Base_Assert.AreEqual(Difference,"220.0");
-                WD.mainWindow.ScaleWeightInternalFrame.cancel.Click();
+                //click accept dispense
+                WD.mainWindow.ScaleWeightInternalFrame.accept.ClickSignle();
+                if (WD.ErrorDialog.IsExist())
+                {
+                    WD.ErrorDialog.OKButton.Click();
+                }
+                if (WD.ErrorDialog.IsExist())
+                {
+                    WD.ErrorDialog.OKButton.Click();
+                }
+                Thread.Sleep(3000);
+                //WD.mainWindow.ScaleWeightInternalFrame.cancel.Click();
                 LogStep(@"4. Open Batch query tool ");
                 Application.LaunchBatchQueryTool();
-                
+                Thread.Sleep(3000);
+                //open new query
+                BatchQueryTool.BatchQueryToolWindow.SetActive();
+                Keyboard.KeyDown(Keyboard.Keys.Control);
+                Keyboard.PressKey(Keyboard.Keys.N);
+                Keyboard.KeyUp(Keyboard.Keys.Control);
+                //dialog message
+                if (BatchQueryTool.BatchQueryToolWindow.NoDefaultData_Dialog.IsExist())
+                {
+                    BatchQueryTool.BatchQueryToolWindow.NoDefaultData_Dialog.OK.Click();
+                }
+                //click advance
+                var point = BatchQueryTool.BatchQueryToolWindow.ConfigQueryWindow._STD_Window.Location;
+                Console.WriteLine(point.X + "," + point.Y);
+                point.X += 400;
+                point.Y += 40;
+                Mouse.Click(point);
+                //send range
+                BatchQueryTool.BatchQueryToolWindow.ConfigQueryWindow.Start.SendKeys("1");
+                BatchQueryTool.BatchQueryToolWindow.ConfigQueryWindow.End.SendKeys("10000");
+                BatchQueryTool.BatchQueryToolWindow.ConfigQueryWindow.OK.Click();
+                //Execute
+                Keyboard.PressKey(Keyboard.Keys.F9);
+                Thread.Sleep(8000);
+                //open batch detail display
+                BatchQueryTool.BatchQueryToolWindow.ListView._STD_ListView.ActivateItem(order);
+                //wait for loading
+                Thread.Sleep(15000);
+                APRM.BatchMainWindow.TreeView.GetNode("Batch").Expand();
+                APRM.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1]").Expand();
+                APRM.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1];BOM [1]").Expand();
+                APRM.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1];BOM [1];Material [1]").Expand();
+                APRM.BatchMainWindow.TreeView.Select("Batch;WEIGH_AND_DISPENSE [1];BOM [1];Material [1];Container [1]");
+                //wait for loading
+                Thread.Sleep(5000);
+                APRM.BatchMainWindow.GetSnapshot(Resultpath + "APRM Batch detail.PNG");
+                //Net:depend on tare and net
+                APRM.BatchMainWindow.ListView._STD_ListView.ActivateItem("End Source Gross");
+                Base_Assert.AreEqual("320", APRM.BatchMainWindow.BatchCharacteristicDialog.Value.Text, "End Source Gross");
+                APRM.BatchMainWindow.BatchCharacteristicDialog.Cancel.Click();
 
-                ////click accept dispense
-                //WD.mainWindow.ScaleWeightInternalFrame.accept.ClickSignle();
-                //if (WD.ErrorDialog.IsExist())
-                //{
-                //    WD.ErrorDialog.OKButton.Click();
-                //}
-                //if (WD.ErrorDialog.IsExist())
-                //{
-                //    WD.ErrorDialog.OKButton.Click();
-                //}
-                //Thread.Sleep(3000);
+                
                 //WD_Fuction.Close();
 
 

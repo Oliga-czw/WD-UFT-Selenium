@@ -86,7 +86,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             Wizard.WizardWindow.next.Click();
             if (Wizard.ADSAExitDialog.IsExist())
             {
-                Thread.Sleep(1000);
                 Wizard.ADSAExitDialog.OK.Click();
                 Wizard.WizardWindow.chkCreateADSA.Click();
                 Wizard.WizardWindow.next.Click();
@@ -246,93 +245,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             }
             APRM.APRMAdminWindow.Close();
         }
-        public static void ImportBatchAprmAdmin()
-        {
-            string servername = Environment.MachineName;//OLIGA-2022-2
-            //open aprm admin
-            Application.LaunchAprmAdmin();
-            //expand node,check wd batch exit
-            APRM.APRMAdminWindow.TreeView.GetNode("Console Root;Production Record Manager").Expand();
-            APRM.APRMAdminWindow.TreeView.GetNode("Console Root;Production Record Manager;Data Sources").Expand();
-            APRM.APRMAdminWindow.TreeView.GetNode($"Console Root;Production Record Manager;Data Sources;{servername}").Expand();
-            APRM.APRMAdminWindow.TreeView.Select($"Console Root;Production Record Manager;Data Sources;{servername};Areas");
-            Console.WriteLine(APRM.APRMAdminWindow.TreeView.GetNode($"Console Root;Production Record Manager;Data Sources;{servername};Areas").HasChildren);
-            if (APRM.APRMAdminWindow.TreeView.GetNode($"Console Root;Production Record Manager;Data Sources;{servername};Areas").HasChildren)
-            {
-                APRM.APRMAdminWindow.TreeView.GetNode($"Console Root;Production Record Manager;Data Sources;{servername};Areas").Expand();
-                bool RPL = APRM.APRMAdminWindow.BatchRPL.Exists();
-                bool API = APRM.APRMAdminWindow.BatchAPI.Exists();
-                //batch
-                if (RPL)
-                {
-                    //Base_logger.Info("Batch has already existed");
-                    Console.WriteLine("RPL has already existed");
-                }
-                else
-                {
-                    //BatchRPLArea
-                    action();
-                    Keyboard.PressKey(Keyboard.Keys.I);
-                    APRM.APRMAdminWindow.Open.Filename.SendKeys(Base_Directory.BatchRPLArea);
-                    Keyboard.PressKey(Keyboard.Keys.Enter);
-                    Thread.Sleep(2000);
-                    //check APEM batch exit
-                    if (APRM.APRMAdminWindow.BatchRPL.Exists())
-                    {
-                        Console.WriteLine("Batch import successfully");
-                    }
-                    // Base_Assert.IsTrue(APRM.APRMAdminWindow.Batch.Exists(), "Batch import successfully");
-                }
-                //API
-                Thread.Sleep(3000);
-                if (API)
-                {
-                    //Base_logger.Info("Equipment has already existed");
-                    Console.WriteLine("API has already existed");
-                }
-                else
-                {
-                    //BatchAPI
-                    action();
-                    Keyboard.PressKey(Keyboard.Keys.I);
-                    APRM.APRMAdminWindow.Open.Filename.SendKeys(Base_Directory.BatchAPIArea);
-                    Keyboard.PressKey(Keyboard.Keys.Enter);
-                    Thread.Sleep(2000);
-                    //check APEM batch exit
-                    if (APRM.APRMAdminWindow.BatchAPI.Exists())
-                    {
-                        Console.WriteLine("API import successfully");
-                    }
-                    // Base_Assert.IsTrue(APRM.APRMAdminWindow.Equipment.Exists(), "Equipment import successfully");
-                }
-            }
-            else
-            {
-                //RPLArea
-                action();
-                Keyboard.PressKey(Keyboard.Keys.I);
-                APRM.APRMAdminWindow.Open.Filename.SendKeys(Base_Directory.BatchRPLArea);
-                Keyboard.PressKey(Keyboard.Keys.Enter);
-                Thread.Sleep(2000);
-                //APIArea
-                action();
-                Keyboard.PressKey(Keyboard.Keys.I);
-                APRM.APRMAdminWindow.Open.Filename.SendKeys(Base_Directory.BatchAPIArea);
-                Keyboard.PressKey(Keyboard.Keys.Enter);
-                Thread.Sleep(2000);
-                //check APEM batch exit
-                APRM.APRMAdminWindow.TreeView.GetNode($"Console Root;Production Record Manager;Data Sources;{servername};Areas").Expand();
-                //Base_Assert.IsTrue(APRM.APRMAdminWindow.WeightDispense.Exists(), "WeightDispense import successfully");
-                if (APRM.APRMAdminWindow.BatchRPL.Exists() && APRM.APRMAdminWindow.BatchAPI.Exists())
-                {
-                    //log
-                    Console.WriteLine("Batch and API import successfully");
-                }
-
-            }
-            APRM.APRMAdminWindow.Close();
-        }
-        public static void ConfigAPEMAdmin()
+            public static void ConfigAPEMAdmin()
         {
             string servername = System.Net.Dns.GetHostName();//Oliga-2022-2
             string servername2 = Environment.MachineName;//OLIGA-2022-2
@@ -348,18 +261,14 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             if (!APEM.APEMAdminWindow.ListView._STD_ListView.GetVisibleText().Contains("Stopped")) {
                 Keyboard.KeyDown(Keyboard.Keys.Alt);
                 Keyboard.PressKey(Keyboard.Keys.A);
-                Thread.Sleep(1000);
                 Keyboard.KeyUp(Keyboard.Keys.Alt);
-                Thread.Sleep(1000);
                 Keyboard.PressKey(Keyboard.Keys.S);
                 Thread.Sleep(1000);
             }
             //open property
             Keyboard.KeyDown(Keyboard.Keys.Alt);
             Keyboard.PressKey(Keyboard.Keys.A);
-            Thread.Sleep(1000);
             Keyboard.KeyUp(Keyboard.Keys.Alt);
-            Thread.Sleep(1000);
             Keyboard.PressKey(Keyboard.Keys.P);
             //set property
             APEM.APEMAdminWindow.ExtractorProperty.SetupButton.Click();
@@ -396,9 +305,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             APEM.APEMAdminWindow.TreeView.Select($"Console Root;Production Execution Administrator;{servername};Extraction Service;Server");
             Keyboard.KeyDown(Keyboard.Keys.Alt);
             Keyboard.PressKey(Keyboard.Keys.A);
-            Thread.Sleep(1000);
             Keyboard.KeyUp(Keyboard.Keys.Alt);
-            Thread.Sleep(1000);
             Keyboard.PressKey(Keyboard.Keys.S);
             Thread.Sleep(1000);
             //check extarct start
@@ -413,7 +320,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             APEM.APEMAdminWindow.Close();
         }
         
-        public static void InitailAPRMWD()
+        public static void InitailAPRM()
         {
             APRM_Fuction.DropAprmDB();
             APRM_Fuction.WizardAprmDB();
@@ -424,7 +331,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             APRM.BatchMainWindow.Close();
         }
 
-        public static void FirstInitailAPRMWD()
+        public static void FirstInitailAPRM()
         {
             //exit aprm db
             bool exits;
@@ -476,9 +383,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         {
             Keyboard.KeyDown(Keyboard.Keys.Alt);
             Keyboard.PressKey(Keyboard.Keys.A);
-            Thread.Sleep(1000);
             Keyboard.KeyUp(Keyboard.Keys.Alt);
-            Thread.Sleep(1000);
         }
 
 

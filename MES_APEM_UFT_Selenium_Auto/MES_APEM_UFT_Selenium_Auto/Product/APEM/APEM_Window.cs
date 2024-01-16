@@ -27,8 +27,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public BPLData_InterFrame BPLDataInternalFrame => new BPLData_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Basic Phase Library Data*']");
         public OrderList_InterFrame OrderListInternalFrame => new OrderList_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Orders*']");
         public RPLManagement_InterFrame RPLManagementInternalFrame => new RPLManagement_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'RPL Management*']");
-        public MasterRecipe_InterFrame MasterRecipeInterFrame => new MasterRecipe_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Master Recipe List']");
-        public MasterRecipeData_InterFrame MasterRecipeDataInterFrame => new MasterRecipeData_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Master Recipe Data*']");
         public EventLogList_InterFrame EventLogListInterFrame => new EventLogList_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Event Log List']");
         #endregion
 
@@ -40,7 +38,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button RPLVerify => new UFT_Button(_UFT_Window, "//Button[@Label = 'RPL Verify' and @IsWrapped = 'True']");
         public UFT_Button BPLDesign => new UFT_Button(_UFT_Window, "//Button[@Label = 'BPL Design' and @IsWrapped = 'True']");
         public UFT_Button Orders => new UFT_Button(_UFT_Window, "//Button[@Label = 'Orders' and @IsWrapped = 'True']");
-        public UFT_Button MasterRecipes => new UFT_Button(_UFT_Window, "//Button[@Label = 'Master Recipes' and @IsWrapped = 'True']");
         public UFT_Button Config_moudle => new UFT_Button(_UFT_Window, "//Button[@Label = 'Config Module' and @IsWrapped = 'True']");
         public MOC_Menu Tools => new MOC_Menu(_UFT_Window, "//Menu[@Label = 'Tools']");
 
@@ -56,8 +53,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public AvailableBPL_Dialog AvailableBPLDialog => new AvailableBPL_Dialog(_UFT_Window, "//Dialog[@Title = 'Available Basic Phase Libraries']");
         //m2r.Window.m2rDialog$FixedSize
         public Confirm_Dialog ConfirmDialog => new Confirm_Dialog(_UFT_Window, "//Dialog[@NativeClass = 'm2r.Window.m2rDialog$FixedSize']");
-        public SelectMasterRecipe_Dialog SelectMasterRecipeDialog => new SelectMasterRecipe_Dialog(_UFT_Window, "//Dialog[@Title = 'Select Master Recipe']");
-
 
         //orderlist
         public UFT_Dialog CancelOrderDialog => new UFT_Dialog("//Dialog[@Title = 'Cancel Order']");

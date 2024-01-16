@@ -95,10 +95,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
         {
             _Selenium_Driver.Close();
         }
-        public string  GetUrl()
-        {
-            return _Selenium_Driver.Url;
-        }
+
         public void Wait(double time = 1000)
         {
             _Selenium_Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(time);
@@ -146,14 +143,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
             }
         }
         public void action_move_to_element(IWebElement element)
-        {
-            Actions action = new Actions(_Selenium_Driver);
-            int offsetX = (int)(element.Size.Width * (0.49 - 0.5));
-            int offsetY = (int)(element.Size.Height * (0.56 - 0.5));
-            action.MoveToElement(element, offsetX, offsetY).Perform();
-            Thread.Sleep(5000);
-        }
-        public void action_move_to_element_click(IWebElement element)
         {
             Actions action = new Actions(_Selenium_Driver);
             int offsetX = (int)(element.Size.Width * (0.49 - 0.5));

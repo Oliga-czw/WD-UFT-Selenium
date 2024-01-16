@@ -138,7 +138,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         public static string InventoryDownloadDir => "C:\\ProgramData\\AspenTech\\AeBRS\\WDDownload\\Pending\\Inventory";
         public static string MaterialDownloadDir => "C:\\ProgramData\\AspenTech\\AeBRS\\WDDownload\\Pending\\Material";
         public static string OrdersDownloadDir => "C:\\ProgramData\\AspenTech\\AeBRS\\WDDownload\\Pending\\Orders";
-        public static string WDUploadDir => @"C:\ProgramData\AspenTech\AeBRS\WDUpload";
 
 
         public static string ConfigDir => @"C:\Program Files\AspenTech\AeBRS\cfg_source\";
@@ -151,8 +150,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 
         public static string WDBatch = @"C:\Program Files (x86)\AspenTech\AeBRS\Templates\WeighDispense.xml";
         public static string BatchArea = @"C:\Program Files (x86)\AspenTech\AeBRS\Templates\BatchArea.xml";
-        public static string BatchRPLArea = Base_Directory.ProjectDir + "Data\\Input\\GML\\BatchRPLArea.xml";
-        public static string BatchAPIArea = Base_Directory.ProjectDir + "Data\\Input\\GML\\BatchAPIArea.xml";
         public static string EquipmentArea = @"C:\Program Files (x86)\AspenTech\AeBRS\Templates\EquipmentArea.xml";
 
         //mMDM
@@ -163,7 +160,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         //GML config 
         public static string GMLConfig = Base_Directory.ProjectDir + "Data\\Input\\GML\\GMLConfig.ini";
 
-        public static string BatchConfig = Base_Directory.ProjectDir + "Data\\Input\\GML\\BatchConfig.ini";
         //GML DOC
         public static string GMLDOCDir = Base_Directory.ProjectDir + "Data\\Input\\GML\\DOCs";
 
