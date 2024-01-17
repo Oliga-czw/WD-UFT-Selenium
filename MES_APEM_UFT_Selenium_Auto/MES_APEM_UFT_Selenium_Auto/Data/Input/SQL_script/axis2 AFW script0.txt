@@ -1,0 +1,27 @@
+local MySoapClient;
+local MySessionID;
+local AFW;
+local result;
+
+AFW = 'afw_cert=' || CreateObject('AspenSecurity.SecManager').Authentication.SecCtxt;
+--write 'AFW: ' || AFW;
+
+-- *************************************
+-- Setting up Soap Client Environment ...
+-- *************************************
+MySoapClient = CreateObject('MSSOAP.SoapClient30');
+
+-- Change MSCLCWIN11 to the name of the AeBRS server machine and 
+MySoapClient.MSSoapInit('http://MachineName:8080/AeBRSserver/services/AeBRS_API?wsdl');
+
+MySoapClient.ConnectorProperty('Timeout')           = 120000;
+
+MySoapClient.ConnectorProperty('RequestHTTPHeader') = 'cookie:' || AFW;
+
+MySessionID = MySoapClient.OpenUserConnection;
+
+result=MySoapClient.DeleteOrder('SQLPLUSA0','1');
+
+write 'result: ' || result;
+
+--write 'Script has completed!';

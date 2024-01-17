@@ -1,0 +1,65 @@
+(6 row affected)
+(18 row affected)
+(2 row affected)
+(0 row affected)
+(0 row affected)
+(0 row affected)
+(0 row affected)
+(0 row affected)
+(0 row affected)
+http://ZIRU-2022-1.qae.aspentech.com/WeighDispense/
+---------- Row Found ----------
+Order : test1
+Sequence : 1
+Material : X0125
+Material Description : X0125 Description
+Status : Pending
+BOM Quantity : 400.000
+Remaining Quantity : 400
+UOM : G
+Clean Required : Yes
+-------------------------------
+---------- Row Found ----------
+Order : test1
+Sequence : 2
+Material : M801890
+Material Description : M801890 Description
+Status : Pending
+BOM Quantity : 200.000
+Remaining Quantity : 90
+UOM : G
+Clean Required : Yes
+-------------------------------
+ORDER_qaone1_Data01102024093536PM8A0736640219C542.pdf
+Evaluation Warning : The document was created with Spire.PDF for .NET.                                                                                        ORDER REPORT                                                                                                        Page 1 of 1
+                                                                                                                                                                                                  1/10/24, 9:35:36 PM
+
+
+
+  Order:                test1                         Product:                1902                                                      Quantity:        800.000 KG                      IN PROGRESS
+  Batch:                001P                          Description:            25mM HEPS, 100mM NaCI, pH 8.00                            Status:          Started
+  Start Time:           1/9/24, 9:45:30 PM            End Time:
+  Scheduled Start:                                    Scheduled End:
+
+DISPENSING
+Seq  Material       Description                                                      Req. Quantity
+                    Lot            Container          Potency  Type         Tare              Net          Operator                Booth      Scale                     Date                      Barcode      Pallet
+                                                                                            Total UOM                  Total active UOM                       Deviation
+1      X0125        X0125 Description                                                     400.000 G
+                    B50877         X0125001            90.00%  Source as 100.0              200.0 G        qaone1(qaone1)          booth1     simulator                 1/10/24, 9:34:03 PM       test100
+                                                                  target                                                                                                                          0000001
+                                                                                                                                                                                                  0000000017
+                                                                      Begin Source          320.0 G
+                                                                       End Source           300.0 G
+                                                                        Difference          220.0 G
+                                                                                            200.0 G                          180.0 G                           -55.00%
+2      M801890      M801890 Description                                                   200.000 G
+                    C0555          M801890001          100.00%  Net          0.0            200.0 G        qaone1(qaone1)          booth1     simulator                 1/10/24, 9:35:02 PM       test100
+                                                                                                                                                                                                  0000002
+                                                                                                                                                                                                  0000000019
+                                                                                            200.0 G                          200.0 G                             0.00%
+3      1072         L-Lysine Monohydrochloride                                            200.000 G
+                                                               Total weight:                0.380 KG                                                                    Total container & pallets:      2           0
+
+
+

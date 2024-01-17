@@ -1,0 +1,25 @@
+local MySoapClient;
+local MySessionID;
+local result;
+
+-- *************************************
+-- Setting up Soap Client Environment ...
+-- *************************************
+MySoapClient = CreateObject('MSSOAP.SoapClient30');
+
+-- Change MSCLCWIN11 to the name of the AeBRS server machine
+MySoapClient.MSSoapInit('http://MachineName:8080/AeBRSserver/services/AeBRS_API?wsdl');
+
+-- Change the user name and associated password below ...
+MySoapClient.ConnectorProperty('WinHTTPAuthScheme') = 1;
+MySoapClient.ConnectorProperty('AuthUser')          = 'qae\qaone1';
+MySoapClient.ConnectorProperty('AuthPassword')      = 'Aspen111';
+MySoapClient.ConnectorProperty('Timeout')           = 120000;
+
+MySessionID = MySoapClient.OpenUserConnection;
+
+result = MySoapClient.DeleteOrder('SQLPLUSA0','1');
+
+write 'result: ' || result;
+
+--write 'Script has completed!';

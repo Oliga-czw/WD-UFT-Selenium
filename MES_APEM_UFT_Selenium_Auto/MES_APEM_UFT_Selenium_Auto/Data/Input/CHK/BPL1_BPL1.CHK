@@ -1,0 +1,98 @@
+BPL1.BPL1:library.component.chkRoutineContainer
+  design:
+    main:library.component.chkScreen
+      bounds: 230,50,56,60
+      design:
+        OkButton0:library.component.chkOkButton
+          caption: OK
+          bounds: 340,30,120,30
+          font: sansserif,0,12
+          fore_color: 0,0,0
+          back_color: 255,255,255
+          textPos: 11
+          enabled: Yes
+        END
+        Button0:library.component.chkButton
+          caption: View doc URL
+          bounds: 100,70,180,30
+          font: sansserif,0,12
+          fore_color: 0,0,0
+          back_color: 255,255,255
+          textPos: 11
+          action: @               @               @               VIEW_DOC("https://s2.q4cdn.com/498544986/files/doc_downloads/test.pdf")
+          enabled: Yes
+        END
+        CancelButton0:library.component.chkCancelButton
+          caption: Cancel
+          bounds: 350,140,120,30
+          font: sansserif,0,12
+          fore_color: 0,0,0
+          back_color: 255,255,255
+          textPos: 11
+          confirm: Yes
+          enabled: Yes
+        END
+        Button1:library.component.chkButton
+          caption: local PDF view
+          bounds: 100,160,170,30
+          font: sansserif,0,12
+          fore_color: 0,0,0
+          back_color: 255,255,255
+          textPos: 11
+          action:
+            @               @               @               message("DOC view")
+            @               @               @               VIEW_DOC("C:\PDF\AspenWeigh&DispenseV8_8-Usr.pdf")
+          end
+          enabled: Yes
+        END
+        Button4:library.component.chkButton
+          caption: password
+          bounds: 300,240,90,30
+          font: sansserif,0,12
+          fore_color: 0,0,0
+          back_color: 255,255,255
+          textPos: 11
+          action: @               @               @               VIEW_DOC("C:\PDF\test-password.pdf")
+          enabled: Yes
+        END
+        Button2:library.component.chkButton
+          caption: Shared URL view
+          bounds: 110,250,150,30
+          font: sansserif,0,12
+          fore_color: 0,0,0
+          back_color: 255,255,255
+          textPos: 11
+          action: @               @               @               VIEW_DOC("\\zhang1\WD_Media\AspenWeigh&DispenseV8_8-Usr.pdf")
+          enabled: Yes
+        END
+        Button3:library.component.chkButton
+          caption: invalid error message
+          bounds: 110,320,160,30
+          font: sansserif,0,12
+          fore_color: 0,0,0
+          back_color: 255,255,255
+          textPos: 11
+          action: @               @               @               VIEW_DOC("C:\PDF\123.pdf")
+          enabled: Yes
+        END
+      END
+      breakpoint: Yes
+      height: 400
+      width: 500
+      grid_size: 10
+      screen_back_color: 192,192,192
+      links: ReturnNo0, ReturnYes0
+      linkYes: 1
+    END
+    ReturnYes0:library.component.chkReturnYes
+      Bounds: 170,170,54,56
+    END
+    ReturnNo0:library.component.chkReturnNo
+      Bounds: 320,170,54,56
+    END
+  END
+  width: 500
+  height: 400
+  grid_size: 10
+END
+CHECKSUM=3897665715

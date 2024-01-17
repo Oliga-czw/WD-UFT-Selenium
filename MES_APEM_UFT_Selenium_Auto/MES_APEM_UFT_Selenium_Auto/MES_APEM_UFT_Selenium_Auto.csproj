@@ -1,0 +1,455 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{280D9718-0CC3-411D-A490-43CF2902649C}</ProjectGuid>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MES_APEM_UFT_Selenium_Auto</RootNamespace>
+    <AssemblyName>MES_APEM_UFT_Selenium_Auto</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HP.LFT.Common, Version=14.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HP.LFT.Communication.SocketClient, Version=14.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HP.LFT.Report, Version=14.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HP.LFT.Resources, Version=14.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HP.LFT.SDK, Version=14.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HP.LFT.UnitTesting, Version=14.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="HP.LFT.Verifications, Version=14.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="OpenQA.Selenium.Winium, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenQA.Selenium.Winium.1.0.0.4\lib\OpenQA.Selenium.Winium.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Pdf, Version=9.8.5.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.PDF.9.8.5\lib\net40\Spire.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Library\BaseLibrary\Base_Assert.cs" />
+    <Compile Include="Library\BaseLibrary\Base_Attribute.cs" />
+    <Compile Include="Library\BaseLibrary\Base_CaseManager.cs" />
+    <Compile Include="Library\BaseLibrary\Base_DB.cs" />
+    <Compile Include="Library\BaseLibrary\Base_Directory.cs" />
+    <Compile Include="Library\BaseLibrary\Base_File.cs" />
+    <Compile Include="Library\BaseLibrary\Base_Function.cs" />
+    <Compile Include="Library\BaseLibrary\Base_Logger.cs" />
+    <Compile Include="Library\SeleniumLibrary\Selenium_WebElements.cs" />
+    <Compile Include="Library\UFTLibrary\STD_Dialog.cs" />
+    <Compile Include="Library\UFTLibrary\STD_ListView.cs" />
+    <Compile Include="Library\UFTLibrary\STD_Toolbar.cs" />
+    <Compile Include="Library\UFTLibrary\STD_TreeView.cs" />
+    <Compile Include="Library\UFTLibrary\STD_Window.cs" />
+    <Compile Include="Library\UFTLibrary\STD_Xpath.cs" />
+    <Compile Include="Library\UFTLibrary\UFT_CheckBox.cs" />
+    <Compile Include="Library\UFTLibrary\UFT_Menu.cs" />
+    <Compile Include="Library\UFTLibrary\WinForms_Window.cs" />
+    <Compile Include="Library\UFTLibrary\WPF_Window.cs" />
+    <Compile Include="Library\UFTLibrary\UFT_Label.cs" />
+    <Compile Include="Library\UFTLibrary\UFT_UiObject.cs" />
+    <Compile Include="PreparationCase\Prepare.cs" />
+    <Compile Include="Product\AFW\AFW_Fuction.cs" />
+    <Compile Include="Product\AFW\AFW_Window.cs" />
+    <Compile Include="Product\ApemMobile\Mobile_Fuction.cs" />
+    <Compile Include="Product\ApemMobile\Mobile_Page.cs" />
+    <Compile Include="Product\ApemMobile\Mobile_Repository.cs" />
+    <Compile Include="Product\APEM\AeBRS_Repository.cs" />
+    <Compile Include="Product\APEM\AeBRS_Window.cs" />
+    <Compile Include="Product\APEM\APEMAdmin_Window.cs" />
+    <Compile Include="Product\APEM\APEM_Repository.cs" />
+    <Compile Include="Product\APEM\APEM_Window.cs" />
+    <Compile Include="Product\APEM\GML_Function.cs" />
+    <Compile Include="Product\APEM\MOC_AuditModule\MOC_AuditInterFrame.cs" />
+    <Compile Include="Product\APEM\MOC_AuditModule\MOC_AuditWindow.cs" />
+    <Compile Include="Product\APEM\MOC_ConfigModule\MOC_ConfigInterFrame.cs" />
+    <Compile Include="Product\APEM\MOC_ConfigModule\MOC_ConfigWindow.cs" />
+    <Compile Include="Product\APEM\MOC_OrdersList.cs" />
+    <Compile Include="Product\APEM\MOC_TemplatesModule\MOC_TemplatesFunction.cs" />
+    <Compile Include="Product\APEM\MOC_TemplatesModule\MOC_TemplatesWindow.cs" />
+    <Compile Include="Product\APRM\APRM_Fuction.cs" />
+    <Compile Include="Product\APRM\APRM_DB.cs" />
+    <Compile Include="Product\APRM\APRM_Repository.cs" />
+    <Compile Include="Product\APRM\APRMAdmin_Window.cs" />
+    <Compile Include="Product\BatchDetail\Batch_Fuction.cs" />
+    <Compile Include="Product\BatchDetail\Batch_Window.cs" />
+    <Compile Include="Product\APEM\MOC_InterFrame.cs" />
+    <Compile Include="Product\APEM\MOC_Fuction.cs" />
+    <Compile Include="Product\DataBaseWizard\Wizard_Function.cs" />
+    <Compile Include="Product\DataBaseWizard\Wizard_Repository.cs" />
+    <Compile Include="Product\DataBaseWizard\Wizard_Window.cs" />
+    <Compile Include="Product\IP21\IP21_Repository.cs" />
+    <Compile Include="Product\IP21\IP21_Window.cs" />
+    <Compile Include="Product\mMDM\mMDM_Fuction.cs" />
+    <Compile Include="Product\mMDM\mMDM_Repository.cs" />
+    <Compile Include="Product\mMDM\mMDM_Window.cs" />
+    <Compile Include="Product\SLM\SLM_Repository.cs" />
+    <Compile Include="Product\SLM\SLM_Window.cs" />
+    <Compile Include="Product\BatchQueryTool\BatchQueryTool_Repository.cs" />
+    <Compile Include="Product\BatchQueryTool\BatchQueryTool_Window.cs" />
+    <Compile Include="Product\SQLplus\SQLplus_Repository.cs" />
+    <Compile Include="Product\SQLplus\SQLplus_Window.cs" />
+    <Compile Include="TestCase\APEM Cases\749627.cs" />
+    <Compile Include="TestCase\APEM Cases\849596.cs" />
+    <Compile Include="TestCase\APEM Cases\850241.cs" />
+    <Compile Include="TestCase\APEM Cases\850407.cs" />
+    <Compile Include="TestCase\APEM Cases\850433.cs" />
+    <Compile Include="TestCase\APEM Cases\850438.cs" />
+    <Compile Include="TestCase\APEM Cases\916388.cs" />
+    <Compile Include="TestCase\APEM Cases\916442.cs" />
+    <Compile Include="TestCase\Mobile Cases\801579.cs" />
+    <Compile Include="TestCase\Mobile Cases\801618.cs" />
+    <Compile Include="TestCase\Mobile Cases\912651.cs" />
+    <Compile Include="TestCase\Mobile Cases\912584.cs" />
+    <Compile Include="TestCase\WD Cases\40816.cs" />
+    <Compile Include="TestCase\APEM Cases\915161.cs" />
+    <Compile Include="TestCase\APEM Cases\863166.cs" />
+    <Compile Include="TestCase\APEM Cases\863181.cs" />
+    <Compile Include="TestCase\APEM Cases\876986.cs" />
+    <Compile Include="TestCase\APEM Cases\749572.cs" />
+    <Compile Include="TestCase\APEM Cases\914899.cs" />
+    <Compile Include="TestCase\APEM Cases\948794.cs" />
+    <Compile Include="TestCase\APEM Cases\949084.cs" />
+    <Compile Include="TestCase\APEM Cases\916420.cs" />
+    <Compile Include="TestCase\APEM Cases\958133.cs" />
+    <Compile Include="TestCase\APEM Cases\914889.cs" />
+    <Compile Include="TestCase\APEM Cases\958262.cs" />
+    <Compile Include="TestCase\APEM Cases\949087.cs" />
+    <Compile Include="TestCase\GML Cases\31324.cs" />
+    <Compile Include="TestCase\Mobile Cases\997428.cs" />
+    <Compile Include="TestCase\Mobile Cases\824732.cs" />
+    <Compile Include="TestCase\Mobile Cases\963540.cs" />
+    <Compile Include="TestCase\Mobile Cases\957487.cs" />
+    <Compile Include="TestCase\Mobile Cases\957475.cs" />
+    <Compile Include="TestCase\Mobile Cases\957446.cs" />
+    <Compile Include="TestCase\WD Cases\29611.cs" />
+    <Compile Include="TestCase\WD Cases\29621.cs" />
+    <Compile Include="TestCase\WD Cases\29606.cs" />
+    <Compile Include="TestCase\WD Cases\29607.cs" />
+    <Compile Include="TestCase\WD Cases\29608.cs" />
+    <Compile Include="TestCase\WD Cases\29613.cs" />
+    <Compile Include="TestCase\WD Cases\29614.cs" />
+    <Compile Include="TestCase\WD Cases\29626.cs" />
+    <Compile Include="TestCase\WD Cases\29628.cs" />
+    <Compile Include="TestCase\WD Cases\29642.cs" />
+    <Compile Include="TestCase\WD Cases\29844.cs" />
+    <Compile Include="TestCase\WD Cases\30985.cs" />
+    <Compile Include="TestCase\WD Cases\31095.cs" />
+    <Compile Include="TestCase\WD Cases\31169.cs" />
+    <Compile Include="TestCase\WD Cases\31355.cs" />
+    <Compile Include="TestCase\WD Cases\34274.cs" />
+    <Compile Include="TestCase\WD Cases\36403.cs" />
+    <Compile Include="TestCase\WD Cases\40707.cs" />
+    <Compile Include="TestCase\WD Cases\41180.cs" />
+    <Compile Include="TestCase\WD Cases\42354.cs" />
+    <Compile Include="TestCase\WD Cases\42801.cs" />
+    <Compile Include="TestCase\WD Cases\42955.cs" />
+    <Compile Include="TestCase\WD Cases\43371.cs" />
+    <Compile Include="TestCase\WD Cases\43372.cs" />
+    <Compile Include="TestCase\WD Cases\43507.cs" />
+    <Compile Include="TestCase\WD Cases\45750.cs" />
+    <Compile Include="TestCase\WD Cases\748053.cs" />
+    <Compile Include="TestCase\WD Cases\38243.cs" />
+    <Compile Include="TestCase\WD Cases\823983.cs" />
+    <Compile Include="TestCase\WD Cases\823971.cs" />
+    <Compile Include="TestCase\WD Cases\823970.cs" />
+    <Compile Include="TestCase\WD Cases\823922.cs" />
+    <Compile Include="TestCase\WD Cases\823916.cs" />
+    <Compile Include="TestCase\WD Cases\748225.cs" />
+    <Compile Include="TestCase\WD Cases\748207.cs" />
+    <Compile Include="TestCase\WD Cases\748200.cs" />
+    <Compile Include="TestCase\WD Cases\39772.cs" />
+    <Compile Include="TestCase\WD Cases\91516.cs" />
+    <Compile Include="TestCase\WD Cases\91517.cs" />
+    <Compile Include="TestCase\WD Cases\91525.cs" />
+    <Compile Include="TestCase\WD Cases\40978.cs" />
+    <Compile Include="TestCase\WD Cases\91526.cs" />
+    <Compile Include="TestCase\WD Cases\41767.cs" />
+    <Compile Include="TestCase\WD Cases\357558.cs" />
+    <Compile Include="TestCase\WD Cases\357573.cs" />
+    <Compile Include="TestCase\WD Cases\37391.cs" />
+    <Compile Include="TestCase\WD Cases\37516.cs" />
+    <Compile Include="TestCase\WD Cases\37819.cs" />
+    <Compile Include="TestCase\WD Cases\38023.cs" />
+    <Compile Include="TestCase\WD Cases\40988.cs" />
+    <Compile Include="TestCase\WD Cases\41959.cs" />
+    <Compile Include="TestCase\WD Cases\41964.cs" />
+    <Compile Include="TestCase\WD Cases\42291.cs" />
+    <Compile Include="TestCase\WD Cases\42345.cs" />
+    <Compile Include="TestCase\WD Cases\357570.cs" />
+    <Compile Include="TestCase\WD Cases\728667.cs" />
+    <Compile Include="TestCase\WD Cases\121316.cs" />
+    <Compile Include="TestCase\WD Cases\121313.cs" />
+    <Compile Include="TestCase\WD Cases\106695.cs" />
+    <Compile Include="TestCase\WD Cases\106694.cs" />
+    <Compile Include="TestCase\WD Cases\106692.cs" />
+    <Compile Include="TestCase\WD Cases\106691.cs" />
+    <Compile Include="TestCase\WD Cases\41745.cs" />
+    <Compile Include="TestCase\WD Cases\38246.cs" />
+    <Compile Include="TestCase\WD Cases\39755.cs" />
+    <Compile Include="TestCase\WD Cases\29461.cs" />
+    <Compile Include="TestCase\WD Cases\34735.cs" />
+    <Compile Include="TestCase\WD Cases\41252.cs" />
+    <Compile Include="TestCase\WD Cases\106684.cs" />
+    <Compile Include="TestCase\WD Cases\45752.cs" />
+    <Compile Include="TestCase\WD Cases\43325.cs" />
+    <Compile Include="TestCase\WD Cases\45783.cs" />
+    <Compile Include="TestCase\WD Cases\748922.cs" />
+    <Compile Include="TestCase\WD Cases\818432.cs" />
+    <Compile Include="TestCase\Base_ProductBase.cs" />
+    <Compile Include="Library\BaseLibrary\Base_Registry.cs" />
+    <Compile Include="Library\BaseLibrary\Base_report.cs" />
+    <Compile Include="Library\BaseLibrary\Base_TestBase.cs" />
+    <Compile Include="TestCase\Base_UnitTestBase.cs" />
+    <Compile Include="Library\SeleniumLibrary\Selenium_Driver.cs" />
+    <Compile Include="Library\SeleniumLibrary\Selenium_WebElement.cs" />
+    <Compile Include="Library\UFTLibrary\UFT_Button.cs" />
+    <Compile Include="Library\UFTLibrary\UFT_Dialog.cs" />
+    <Compile Include="Library\UFTLibrary\UFT_Editor.cs" />
+    <Compile Include="Library\UFTLibrary\UFT_InterFrame.cs" />
+    <Compile Include="Library\UFTLibrary\UFT_JavaWindow.cs" />
+    <Compile Include="Library\UFTLibrary\UFT_List.cs" />
+    <Compile Include="Library\UFTLibrary\UFT_Table.cs" />
+    <Compile Include="Library\UFTLibrary\UFT_Xpath.cs" />
+    <Compile Include="Product\WD\WD_Fuction.cs" />
+    <Compile Include="Product\WD\WD_InterFrame.cs" />
+    <Compile Include="Product\WD\WD_Repository.cs" />
+    <Compile Include="Product\WD\WD_Window.cs" />
+    <Compile Include="Product\WEB\Web_Fuction.cs" />
+    <Compile Include="Product\WEB\Web_Page.cs" />
+    <Compile Include="Product\WEB\Web_Repository.cs" />
+    <Compile Include="TestCase\CodeFile1.cs" />
+    <Compile Include="UftDeveloperSeleniumTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\Input\AeBRSInstaller.bat" />
+    <None Include="Data\Input\BulkLoad\BulkLoadAll.bat" />
+    <None Include="Data\Input\BulkLoad\BulkLoadAllinventory.bat" />
+    <None Include="Data\Input\BulkLoad\BulkLoadAllOrder.bat" />
+    <None Include="Data\Input\BulkLoad\sign.cmd - Shortcut.lnk" />
+    <None Include="Data\Input\BulkLoad\WdBulkLoadTool.exe.config" />
+    <None Include="Data\Input\BulkLoad\WdWebServiceTester.exe.config" />
+    <None Include="Data\Input\CHK\749627_TESTBP.CHK" />
+    <None Include="Data\Input\CHK\BPL1_BPL1.CHK" />
+    <None Include="Data\Input\CHK\RPL_DERMS_PACK_01_02.CHK" />
+    <None Include="Data\Input\CHK\SOAPCALL01_1.CHK" />
+    <None Include="Data\Input\GML\DOCs\sop_1.pdf" />
+    <None Include="Data\Input\GML\DOCs\sop_2.pdf" />
+    <None Include="Data\Input\GML\DOCs\sop_3.pdf" />
+    <None Include="Data\Input\GML\GMLConfig.ini" />
+    <None Include="Data\Input\GML\GMLConfigFuctionality.ini" />
+    <None Include="Data\Input\GML\machine.alias.config" />
+    <None Include="Data\Input\GML_DATABASE\aebrs.bak" />
+    <None Include="Data\Input\GML_DATABASE\APEMMMDMMVT.bak" />
+    <None Include="Data\Input\Msi\msxml6.msi" />
+    <None Include="Data\Input\Msi\soap3.0.msi" />
+    <None Include="Data\Input\Template\912651.zip" />
+    <None Include="Data\Input\Template\BPL915161.zip" />
+    <None Include="Data\Input\Template\BPL916388.zip" />
+    <None Include="Data\Input\Template\BPL916420.zip" />
+    <None Include="Data\Input\Template\EVENTLOG510.zip" />
+    <None Include="Data\Input\Template\EVENTLOGFUFT.zip" />
+    <None Include="Data\Input\Template\SAMPLE.zip" />
+    <None Include="Data\Input\Template\TEMP.zip" />
+    <None Include="Data\Input\Template\TEMP749627.zip" />
+    <None Include="Data\Input\Template\TEMP912584.zip" />
+    <None Include="Data\Input\TestFile\test.pdf" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Data\Input\AFWDB.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Input\BulkLoad\01 aspen wd booths bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\02 aspen wd scales bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\02 aspen wd scales_106684 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\02 aspen wd scales_106695 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\02 aspen wd scales_45752 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\02 aspen wd scales_728667 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\03 aspen wd configuration bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\04 aspen wd material bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\04 aspen wd material_357558 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\05 aspen wd inventory bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\05 aspen wd inventory_357570 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\06 aspen wd bom exception bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\07 aspen wd orders bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\08 aspen wd campaign bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\08 aspen wd campaigns bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\09 aspen wd permissions bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\10 aspen wd signautres bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\10 aspen wd signautres_106684 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\10 aspen wd signautres_106691 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\10 aspen wd signautres_106692 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\10 aspen wd signautres_121316 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\10 aspen wd signautres_40707 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\10 aspen wd signautres_41252 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\10 aspen wd signautres_41767 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\10 aspen wd signautres_42354 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\11 aspen wd integration bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\12 aspen wd clean rules bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\13 aspen wd user exits bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\13 aspen wd user exits_357558 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\13 aspen wd user exits_357570 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\13 aspen wd user exits_357573 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\14 aspen wd deviation bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\14 aspen wd deviation_106694 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\14 aspen wd deviation_106695 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\14 aspen wd deviation_121313 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\14 aspen wd deviation_42354 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\14 aspen wd deviation_43325 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\14 aspen wd deviation_728667 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\14 aspen wd deviation_818432 bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\15 aspen wd printing bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\17 aspen wd booth groups bulk load.xml" />
+    <Content Include="Data\Input\BulkLoad\cleanup.sql" />
+    <Content Include="Data\Input\BulkLoad\WdBulkLoadTool.exe" />
+    <Content Include="Data\Input\BulkLoad\WdWebServiceTester.exe" />
+    <Content Include="Data\Input\GML\mMDM UGM GML backup.xml" />
+    <Content Include="Data\Input\SQL_script\axis2 AFW script0.txt" />
+    <Content Include="Data\Input\SQL_script\axis2 AFW script1.txt" />
+    <Content Include="Data\Input\SQL_script\axis2 basi script0.txt" />
+    <Content Include="Data\Input\SQL_script\axis2 basi script1.txt" />
+    <Content Include="Data\Input\SQL_script\Web service.txt" />
+    <Content Include="MES_APEM_UFT_Selenium_Auto.user" />
+    <Content Include="Results\29461logon_required.PNG" />
+    <Content Include="Results\29461logon_without_username.PNG" />
+    <Content Include="Results\749627-InvalidError.PNG" />
+    <Content Include="Results\749627-LocalPdfView.PNG" />
+    <Content Include="Results\749627-SharedPdfView.PNG" />
+    <Content Include="Results\749627-ViewDOCUrl.PNG" />
+    <Content Include="Results\823922SourceAsTarget.PNG" />
+    <Content Include="Results\823922weight_1.PNG" />
+    <Content Include="Results\823922weight_removal.PNG" />
+    <Content Include="Results\823970SourceAsTarget.PNG" />
+    <Content Include="Results\823970weight_1.PNG" />
+    <Content Include="Results\823970weight_removal.PNG" />
+    <Content Include="Results\824732-Active.PNG" />
+    <Content Include="Results\824732-cancel.PNG" />
+    <Content Include="Results\824732-Disabled.PNG" />
+    <Content Include="Results\824732-Executing.PNG" />
+    <Content Include="Results\824732-Finished.PNG" />
+    <Content Include="Results\824732-Interrupted.PNG" />
+    <Content Include="Results\824732-OrderCanceled.PNG" />
+    <Content Include="Results\824732-Planned.PNG" />
+    <Content Include="Results\863166-OPAdded.PNG" />
+    <Content Include="Results\863166-Operation.PNG" />
+    <Content Include="Results\863166-OPHighlight.PNG" />
+    <Content Include="Results\863166-PHAdded.PNG" />
+    <Content Include="Results\863166-Phase.PNG" />
+    <Content Include="Results\863166-PHHighlight.PNG" />
+    <Content Include="Results\863166-UnitProcedure.PNG" />
+    <Content Include="Results\863166-UPAdded.PNG" />
+    <Content Include="Results\863166-UPHighlight.PNG" />
+    <Content Include="Results\863181-DragDrop.PNG" />
+    <Content Include="Results\863181-DragFollow.PNG" />
+    <Content Include="Results\863181-DragHighlight.PNG" />
+    <Content Include="Results\863181-DragParallel.PNG" />
+    <Content Include="Results\863181-Undo.PNG" />
+    <Content Include="Results\876986-executed_multiple_times.PNG" />
+    <Content Include="Results\876986-Finished.PNG" />
+    <Content Include="Results\876986-Moc_cancel_Preview.PNG" />
+    <Content Include="Results\876986-NoScreenshot.PNG" />
+    <Content Include="Results\876986-Preview.PNG" />
+    <Content Include="Results\912584-BPListDisplayed.PNG" />
+    <Content Include="Results\912584-BPListDisplayed_Consolidated.PNG" />
+    <Content Include="Results\912584-BPList_NoData.PNG" />
+    <Content Include="Results\912584-Dark_ExecutableBPs.PNG" />
+    <Content Include="Results\912584-ExecutableBPs.PNG" />
+    <Content Include="Results\912651-BP_Executing.PNG" />
+    <Content Include="Results\912651-dark_BP_Executing.PNG" />
+    <Content Include="Results\916420-BPExecute.PNG" />
+    <Content Include="Results\916420-MobileExecute.PNG" />
+    <Content Include="Results\916420-MOCExecute.PNG" />
+    <Content Include="Results\948794-Operation.PNG" />
+    <Content Include="Results\948794-Phase.PNG" />
+    <Content Include="Results\948794-Resize.PNG" />
+    <Content Include="Results\948794-UnitProcedure.PNG" />
+    <Content Include="Results\949084-OperationSaved.PNG" />
+    <Content Include="Results\949084-PhaseSaved.PNG" />
+    <Content Include="Results\949084-UnitProcedureSaved.PNG" />
+    <Content Include="Results\949087-OperationCompile.PNG" />
+    <Content Include="Results\949087-OperationVerify.PNG" />
+    <Content Include="Results\949087-PhaseCompile.PNG" />
+    <Content Include="Results\949087-PhaseVerify.PNG" />
+    <Content Include="Results\949087-UnitProcedureCompile.PNG" />
+    <Content Include="Results\949087-UnitProcedureVerify.PNG" />
+    <Content Include="Results\958133-PasteOnOperation.PNG" />
+    <Content Include="Results\958133-PasteOnPhase%282%29.PNG" />
+    <Content Include="Results\958133-PasteOnPhase.PNG" />
+    <Content Include="Results\958133-PasteOnUP.PNG" />
+    <Content Include="Results\958262-OPCompileError.PNG" />
+    <Content Include="Results\958262-OPVerifyError.PNG" />
+    <Content Include="Results\958262-PhaseCompileError.PNG" />
+    <Content Include="Results\958262-PhaseVerifyError.PNG" />
+    <Content Include="Results\997428-Active.PNG" />
+    <Content Include="Results\997428-cancel.PNG" />
+    <Content Include="Results\997428-Disabled.PNG" />
+    <Content Include="Results\997428-Executing.PNG" />
+    <Content Include="Results\997428-Finished.PNG" />
+    <Content Include="Results\997428-Interrupted.PNG" />
+    <Content Include="Results\997428-OrderCanceled.PNG" />
+    <Content Include="Results\997428-Planned.PNG" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.IEDriver.4.8.1\build\Selenium.WebDriver.IEDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.IEDriver.4.8.1\build\Selenium.WebDriver.IEDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.120.0.6099.10900\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.120.0.6099.10900\build\Selenium.WebDriver.ChromeDriver.targets'))" />
+  </Target>
+  <Import Project="..\packages\Selenium.WebDriver.IEDriver.4.8.1\build\Selenium.WebDriver.IEDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.IEDriver.4.8.1\build\Selenium.WebDriver.IEDriver.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.120.0.6099.10900\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.120.0.6099.10900\build\Selenium.WebDriver.ChromeDriver.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
