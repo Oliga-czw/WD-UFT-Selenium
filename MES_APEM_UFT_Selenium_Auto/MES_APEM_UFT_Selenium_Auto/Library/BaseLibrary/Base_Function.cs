@@ -19,11 +19,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             //string serviceName = "Tomcat9";
             int timeoutMilliseconds = 200000;
             ServiceController service = new ServiceController(serviceName);
-            int millisec1 = 0;
+            int millisec1 = Environment.TickCount; ;
             TimeSpan timeout;
             if (service.Status == ServiceControllerStatus.Running)
             {
-                millisec1 = Environment.TickCount;
+                
                 timeout = TimeSpan.FromMilliseconds(timeoutMilliseconds);
                 service.Stop();
                 service.WaitForStatus(ServiceControllerStatus.Stopped, timeout);

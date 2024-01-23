@@ -152,7 +152,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
             //first grant all permission
             Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
             Web_Fuction.gotoWDWeb(driver);
-            driver.Wait();
+            driver.Wait(30000);
             Web_Fuction.login();
             driver.Wait();
             Web_Fuction.gotoTab(WDWebTab.admin);
