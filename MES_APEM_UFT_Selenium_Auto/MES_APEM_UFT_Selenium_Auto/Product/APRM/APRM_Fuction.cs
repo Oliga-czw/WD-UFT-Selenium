@@ -422,6 +422,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             Application.LaunchBatchDetailDisplay();
             Batch_Fuction.setOptionData();
             APRM.BatchMainWindow.Close();
+            APRM_Fuction.ConfigAPEMAdmin();
         }
 
         public static void FirstInitailAPRMWD()
