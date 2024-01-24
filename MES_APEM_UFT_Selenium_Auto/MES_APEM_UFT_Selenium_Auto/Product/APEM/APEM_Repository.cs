@@ -120,12 +120,38 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             SdkConfiguration config = new SdkConfiguration();
             SDK.Init(config);
             Thread.Sleep(5000);
-            AeBRS.AeBRSConfigureWindow.ServerName.SetText(Environment.MachineName);
-            AeBRS.AeBRSConfigureWindow.OkButton.Click();
-            Thread.Sleep(3000);
-            APEM.RegistrationWindow.doNotShowCheckBox.Click();
-            APEM.RegistrationWindow.Close();
+            if (AeBRS.AeBRSConfigureWindow.IsExist())
+            {
+                AeBRS.AeBRSConfigureWindow.ServerName.SetText(Environment.MachineName);
+                AeBRS.AeBRSConfigureWindow.OkButton.Click();
+                Thread.Sleep(3000);
+            }
+            if (APEM.RegistrationWindow.IsExist())
+            {
+                APEM.RegistrationWindow.doNotShowCheckBox.Click();
+                APEM.RegistrationWindow.Close();
+                Thread.Sleep(2000);
+            }
+            //add workstation
+            APEM.MocmainWindow.LogonInternalFrame.userNameEditor.SetText(UserName.qaone1);
+            APEM.MocmainWindow.LogonInternalFrame.passwordEditor.SetSecure(PassWord.qaone1);
+            APEM.MocmainWindow.LogonInternalFrame.loginbutton.ClickSignle();
             Thread.Sleep(2000);
+            APEM.MocmainWindow.Config_moudle.Click();
+            APEM.MOCConfigWindow.Workstations.ClickSignle();
+            //add Server Machine workstation
+            string workstation = Environment.MachineName + ".qae.aspentech.com";
+            if (!APEM.MOCConfigWindow.WorkstationInterFrame.WorkstationTable.Row(workstation).Existing)
+            {
+                APEM.MOCConfigWindow.WorkstationInterFrame.Insert.ClickSignle();
+                APEM.MOCConfigWindow.WorkstationInsertInterFrame.Workstation.SetText(workstation);
+                APEM.MOCConfigWindow.WorkstationInsertInterFrame.Role.SelectItems(AFWRole.Admin);
+                APEM.MOCConfigWindow.WorkstationInsertInterFrame.Confirm.ClickSignle();
+                //add reason
+                MOC_Fuction.AddReason_config();
+                APEM.MOCConfigWindow.WorkstationInsertInterFrame.Close.ClickSignle();
+            }
+            MOC_Fuction.ConfigClose();
             APEM.ExitApplication();
         } 
         #endregion

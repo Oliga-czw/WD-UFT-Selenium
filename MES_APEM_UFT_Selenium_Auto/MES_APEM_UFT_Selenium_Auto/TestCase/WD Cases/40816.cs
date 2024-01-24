@@ -38,7 +38,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             string net = "454.4";
 
             LogStep(@"1. config APRM admin and apem admin");
-            APRM_Fuction.FirstInitailAPRMWD();
+            APRM_Fuction.InitailAPRMWD();
             LogStep(@"2. Execute order ");
             Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
             Web_Fuction.gotoWDWeb(driver);
