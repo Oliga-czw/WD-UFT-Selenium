@@ -32,7 +32,7 @@
     <MaterialLotProperty>
       <ID>RetestDate</ID>
       <Value>
-        <ValueString>2023-11-26T00:00:00.000Z</ValueString>
+        <ValueString>2025-11-26T00:00:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -110,7 +110,7 @@
     <MaterialLotProperty>
       <ID>RetestDate</ID>
       <Value>
-        <ValueString>2023-11-26T00:00:00.000Z</ValueString>
+        <ValueString>2025-11-26T00:00:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -172,7 +172,7 @@
     <MaterialLotProperty>
       <ID>RetestDate</ID>
       <Value>
-        <ValueString>2023-11-26T00:00:00.000Z</ValueString>
+        <ValueString>2025-11-26T00:00:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -234,7 +234,7 @@
     <MaterialLotProperty>
       <ID>RetestDate</ID>
       <Value>
-        <ValueString>2023-11-26T00:00:00.000Z</ValueString>
+        <ValueString>2025-11-26T00:00:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -328,7 +328,7 @@
     <MaterialLotProperty>
       <ID>RetestDate</ID>
       <Value>
-        <ValueString>2023-11-26T00:00:00.000Z</ValueString>
+        <ValueString>2025-11-26T00:00:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -390,7 +390,7 @@
     <MaterialLotProperty>
       <ID>RetestDate</ID>
       <Value>
-        <ValueString>2023-11-26T00:00:00.000Z</ValueString>
+        <ValueString>2025-11-26T00:00:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -924,7 +924,7 @@
     <MaterialLotProperty>
       <ID>RetestDate</ID>
       <Value>
-        <ValueString>2023-11-26T00:00:00.000Z</ValueString>
+        <ValueString>2025-11-26T00:00:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>

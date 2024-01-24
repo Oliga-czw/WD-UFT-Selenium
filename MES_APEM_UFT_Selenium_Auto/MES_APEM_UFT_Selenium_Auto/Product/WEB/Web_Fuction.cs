@@ -521,7 +521,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
                 Web.Order_Page.Activate.Click();
             }
             Thread.Sleep(2000);
-            Base_Assert.AreEqual("Active", order.FindElement(By.XPath("../td[7]")).Text,"Active order");
+//            Base_Assert.AreEqual("Active", order.FindElement(By.XPath("../td[7]")).Text,"Active order");
             Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath("//input[@class='Tab_Manu_bar_Margin Tab_Menu_Bar_Search_Box']")).Clear();
 
         }

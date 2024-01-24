@@ -47,7 +47,6 @@ namespace MES_APEM_UFT_Selenium_Auto
             APEM.AeBRSInstaller();
             //update afw
             AFW_Fuction.ReplaceAFWDB();
-
             //install  and config aprm
             APRM_Fuction.FirstInitailAPRMWD();
             //wia to false

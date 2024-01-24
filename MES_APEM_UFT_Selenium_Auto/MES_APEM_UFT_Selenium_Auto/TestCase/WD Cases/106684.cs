@@ -93,7 +93,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //check date
             Web_Fuction.check_report_date(execute_time);
             var head_list = new List<string>();
-            var head = Web.Report_Page.Report_Table._Selenium_WebElement.FindElements(By.XPath("//table[@class='Report_Paper_Border_Shading']/tbody/tr[4]/td/table/tbody/tr/td/div//a[@class='Report_Head_Style']"));
+            var head = Web.Report_Page.Report_Heads;
             //get head list
             foreach (var h in head)
             {

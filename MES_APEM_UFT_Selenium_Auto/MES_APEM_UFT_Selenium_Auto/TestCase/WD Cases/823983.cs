@@ -43,10 +43,12 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             try
             {
                 LogStep(@"1. Set key in config file");
-                //Base_Function.AddConfigKey(Configpath,ConfigKey);
+                Base_Function.AddConfigKey(Configpath, ConfigKey);
                 //codify all
-                //Base_Test.LaunchApp(Base_Directory.Codify_allx86);
-                LogStep(@"2. Active orders");
+                Base_Test.LaunchApp(Base_Directory.Codify_allx86);
+                LogStep(@"2. config APRM admin and apem admin");
+                APRM_Fuction.InitailAPRMWD();
+                LogStep(@"3. Active orders");
                 Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
                 Web_Fuction.gotoWDWeb(driver);
                 driver.Wait();
@@ -55,7 +57,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Web_Fuction.gotoTab(WDWebTab.order);
                 Web_Fuction.active_order(order);
                 driver.Close();
-                LogStep(@"3. Open WD client");
+                LogStep(@"5. Open WD client");
                 Application.LaunchWDAndLogin();
                 WD.mainWindow.HomeInternalFrame.MaterialDispensing.Click();
                 WD.mainWindow.Material_SelectionInternalFrame.materialTable.Row("X0125").Click();
@@ -110,37 +112,89 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                     WD.ErrorDialog.OKButton.Click();
                 }
                 Thread.Sleep(3000);
-                //WD.mainWindow.ScaleWeightInternalFrame.cancel.Click();
-                LogStep(@"4. Open Batch query tool ");
+                //cancel weighing
+                WD.mainWindow.Material_SelectionInternalFrame.materialTable.Row("M801890").Click();
+                WD.mainWindow.Material_SelectionInternalFrame.next.Click();
+                Thread.Sleep(3000);
+                if (WD.mainWindow.BoothCleanInternalFrame.IsExist())
+                {
+                    WD.mainWindow.BoothCleanInternalFrame.cleanComplete.Click();
+                }
+                if (WD.mainWindow.HandleInformationInterFrame.IsExist())
+                {
+                    WD.mainWindow.HandleInformationInterFrame.Acknowledge.ClickSignle();
+                }
+                Thread.Sleep(3000);
+                //select method and input barcode
+                WD_Fuction.SelectMehod(method, "M801890001");
+                if (WD.ConfirmationDialog.IsExist())
+                {
+                    WD.ConfirmationDialog.YesButton.Click();
+                }
+                if (WD.MessageDialog.IsExist())
+                {
+                    WD.MessageDialog.OKButton.Click();
+                }
+                WD.mainWindow.ScaleWeightInternalFrame.scale.SelectItems(scale);
+                Thread.Sleep(3000);
+                WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
+                Thread.Sleep(2000);
+                WD.mainWindow.ScaleWeightInternalFrame.SourceTare.SendKeys("100");
+                //start weight
+                WD.SimulatorWindow.weight.SetText(source_start);
+                WD.SimulatorWindow.OK.Click();
+                WD.mainWindow.ScaleWeightInternalFrame.tare.Click();
+                //input remove weight
+                WD.SimulatorWindow.weight.SetText(source_left);
+                WD.SimulatorWindow.OK.Click();
+                WD.mainWindow.ScaleWeightInternalFrame.cancel.Click();
+                //reset weighing   1072
+                WD.mainWindow.Material_SelectionInternalFrame.materialTable.Row("1072").Click();
+                WD.mainWindow.Material_SelectionInternalFrame.next.Click();
+                Thread.Sleep(3000);
+                if (WD.mainWindow.BoothCleanInternalFrame.IsExist())
+                {
+                    WD.mainWindow.BoothCleanInternalFrame.cleanComplete.Click();
+                }
+                if (WD.mainWindow.HandleInformationInterFrame.IsExist())
+                {
+                    WD.mainWindow.HandleInformationInterFrame.Acknowledge.ClickSignle();
+                }
+                Thread.Sleep(3000);
+                //select method and input barcode
+                WD_Fuction.SelectMehod(method, "1072003");
+                if (WD.ConfirmationDialog.IsExist())
+                {
+                    WD.ConfirmationDialog.YesButton.Click();
+                }
+                if (WD.MessageDialog.IsExist())
+                {
+                    WD.MessageDialog.OKButton.Click();
+                }
+                WD.mainWindow.ScaleWeightInternalFrame.scale.SelectItems(scale);
+                Thread.Sleep(3000);
+                WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
+                Thread.Sleep(2000);
+                WD.mainWindow.ScaleWeightInternalFrame.SourceTare.SendKeys("100");
+                //start weight
+                WD.SimulatorWindow.weight.SetText(source_start);
+                WD.SimulatorWindow.OK.Click();
+                WD.mainWindow.ScaleWeightInternalFrame.tare.Click();
+                //input remove weight
+                WD.SimulatorWindow.weight.SetText(source_left);
+                WD.SimulatorWindow.OK.Click();
+                WD.mainWindow.ScaleWeightInternalFrame.reset.Click();
+                Thread.Sleep(5000);
+                //LogStep(@"6. Open Batch query tool ");
                 Application.LaunchBatchQueryTool();
                 Thread.Sleep(3000);
                 //open new query
-                BatchQueryTool.BatchQueryToolWindow.SetActive();
-                Keyboard.KeyDown(Keyboard.Keys.Control);
-                Keyboard.PressKey(Keyboard.Keys.N);
-                Keyboard.KeyUp(Keyboard.Keys.Control);
-                //dialog message
-                if (BatchQueryTool.BatchQueryToolWindow.NoDefaultData_Dialog.IsExist())
-                {
-                    BatchQueryTool.BatchQueryToolWindow.NoDefaultData_Dialog.OK.Click();
-                }
-                //click advance
-                var point = BatchQueryTool.BatchQueryToolWindow.ConfigQueryWindow._STD_Window.Location;
-                Console.WriteLine(point.X + "," + point.Y);
-                point.X += 400;
-                point.Y += 40;
-                Mouse.Click(point);
-                //send range
-                BatchQueryTool.BatchQueryToolWindow.ConfigQueryWindow.Start.SendKeys("1");
-                BatchQueryTool.BatchQueryToolWindow.ConfigQueryWindow.End.SendKeys("10000");
-                BatchQueryTool.BatchQueryToolWindow.ConfigQueryWindow.OK.Click();
-                //Execute
-                Keyboard.PressKey(Keyboard.Keys.F9);
-                Thread.Sleep(8000);
+                BatchQueryTool.NewQuery();
                 //open batch detail display
                 BatchQueryTool.BatchQueryToolWindow.ListView._STD_ListView.ActivateItem(order);
                 //wait for loading
                 Thread.Sleep(15000);
+                //X0125:Begin_Source_Gross is 320 and End_Source_Gross is 300
                 APRM.BatchMainWindow.TreeView.GetNode("Batch").Expand();
                 APRM.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1]").Expand();
                 APRM.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1];BOM [1]").Expand();
@@ -148,23 +202,56 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 APRM.BatchMainWindow.TreeView.Select("Batch;WEIGH_AND_DISPENSE [1];BOM [1];Material [1];Container [1]");
                 //wait for loading
                 Thread.Sleep(5000);
-                APRM.BatchMainWindow.GetSnapshot(Resultpath + "APRM Batch detail.PNG");
-                //Net:depend on tare and net
-                APRM.BatchMainWindow.ListView._STD_ListView.ActivateItem("End Source Gross");
-                Base_Assert.AreEqual("320", APRM.BatchMainWindow.BatchCharacteristicDialog.Value.Text, "End Source Gross");
+                APRM.BatchMainWindow.GetSnapshot(Resultpath + "APRM Batch detail(Accept).PNG");
+                APRM.BatchMainWindow.ListView._STD_ListView.ActivateItem("End Source Gross"); 
+                Base_Assert.AreEqual("300", APRM.BatchMainWindow.BatchCharacteristicDialog.Value.Text, "End Source Gross");
                 APRM.BatchMainWindow.BatchCharacteristicDialog.Cancel.Click();
-
-                
-                //WD_Fuction.Close();
-
+                APRM.BatchMainWindow.ListView._STD_ListView.ActivateItem("Begin Source Gross");
+                Base_Assert.AreEqual("320", APRM.BatchMainWindow.BatchCharacteristicDialog.Value.Text, "Begin Source Gross");
+                APRM.BatchMainWindow.BatchCharacteristicDialog.Cancel.Click();
+                //M801890:Cancel the weigh.The Quantity should be reduced for End source.
+                APRM.BatchMainWindow.TreeView.GetNode("Batch").Expand();
+                APRM.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1]").Expand();
+                APRM.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1];BOM [1]").Expand();
+                APRM.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1];BOM [1];Material [2]").Expand();
+                APRM.BatchMainWindow.TreeView.Select("Batch;WEIGH_AND_DISPENSE [1];BOM [1];Material [2];Action [1]");
+                //wait for loading
+                Thread.Sleep(5000);
+                APRM.BatchMainWindow.GetSnapshot(Resultpath + "APRM Batch detail(Cancel).PNG");
+                APRM.BatchMainWindow.ListView._STD_ListView.ActivateItem("End Source Gross");
+                string Cancel_End_source_Gross = APRM.BatchMainWindow.BatchCharacteristicDialog.Value.Text;
+                APRM.BatchMainWindow.BatchCharacteristicDialog.Cancel.Click();
+                APRM.BatchMainWindow.ListView._STD_ListView.ActivateItem("Begin Source Gross");
+                string Cancel_Begin_source_Gross = APRM.BatchMainWindow.BatchCharacteristicDialog.Value.Text;
+                APRM.BatchMainWindow.BatchCharacteristicDialog.Cancel.Click();
+                Base_Assert.IsTrue(int.Parse(Cancel_End_source_Gross)< int.Parse(Cancel_Begin_source_Gross), "The Quantity should be reduced for End source.");
+                //1072:Reset the weigh.The Quantity should be the same.
+                APRM.BatchMainWindow.TreeView.GetNode("Batch").Expand();
+                APRM.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1]").Expand();
+                APRM.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1];BOM [1]").Expand();
+                APRM.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1];BOM [1];Material [3]").Expand();
+                APRM.BatchMainWindow.TreeView.Select("Batch;WEIGH_AND_DISPENSE [1];BOM [1];Material [3];Action [1]");
+                //wait for loading
+                Thread.Sleep(5000);
+                APRM.BatchMainWindow.GetSnapshot(Resultpath + "APRM Batch detail(Reset).PNG");
+                APRM.BatchMainWindow.ListView._STD_ListView.ActivateItem("End Source Gross");
+                string Reset_End_source_Gross = APRM.BatchMainWindow.BatchCharacteristicDialog.Value.Text;
+                APRM.BatchMainWindow.BatchCharacteristicDialog.Cancel.Click();
+                APRM.BatchMainWindow.ListView._STD_ListView.ActivateItem("Begin Source Gross");
+                string Reset_Begin_source_Gross = APRM.BatchMainWindow.BatchCharacteristicDialog.Value.Text;
+                APRM.BatchMainWindow.BatchCharacteristicDialog.Cancel.Click();
+                Base_Assert.AreEqual(Reset_End_source_Gross, Reset_Begin_source_Gross, "The Quantity should be the same.");
+                APRM.BatchMainWindow.Close();
+                BatchQueryTool.BatchQueryToolWindow.Close();
+                BatchQueryTool.BatchQueryToolWindow.Save_Dialog.NO.Click();
 
             }
             finally
             {
                 LogStep(@"4.delete config key ");
-                //Base_Function.DeleteConfigKey(Configpath, ConfigKey);
-                ////codify all
-                //Base_Test.LaunchApp(Base_Directory.Codify_allx86);
+                Base_Function.DeleteConfigKey(Configpath, ConfigKey);
+                //codify all
+                Base_Test.LaunchApp(Base_Directory.Codify_allx86);
             }
             
 

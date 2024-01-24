@@ -1,0 +1,87 @@
+(0 row affected)
+(0 row affected)
+(0 row affected)
+(0 row affected)
+(0 row affected)
+(0 row affected)
+(0 row affected)
+(0 row affected)
+(0 row affected)
+WeightDispense import successfully
+Default area is setting with 'WeighDispense' successfully.
+Test connection successful !
+Start extraction server success!
+http://ZIRU-2022-1.qae.aspentech.com/WeighDispense/
+---------- Row Found ----------
+Order : test1
+Sequence : 1
+Material : X0125
+Material Description : X0125 Description
+Status : Pending
+BOM Quantity : 400.000
+Remaining Quantity : 400
+UOM : G
+Clean Required : Yes
+-------------------------------
+---------- Row Found ----------
+Order : test1
+Sequence : 1
+Material : X0125
+Material Description : X0125 Description
+Status : Partially Dispensed
+BOM Quantity : 400.000
+Remaining Quantity : 40
+UOM : G
+Clean Required : No
+-------------------------------
+---------- Row Found ----------
+Order : test1
+Sequence : 2
+Material : M801890
+Material Description : M801890 Description
+Status : Pending
+BOM Quantity : 200.000
+Remaining Quantity : 360
+UOM : G
+Clean Required : Yes
+-------------------------------
+682,290
+682,290
+http://ZIRU-2022-1.qae.aspentech.com/WeighDispense/
+ORDER_qaone1_Data01222024094355PM874A7ADD878E76D1.pdf
+Evaluation Warning : The document was created with Spire.PDF for .NET.                                                                                        ORDER REPORT                                                                                                        Page 1 of 1
+                                                                                                                                                                                                  1/22/24, 9:43:57 PM
+
+
+
+  Order:                test1                         Product:                1902                                                      Quantity:        800.000 KG                      IN PROGRESS
+  Batch:                001P                          Description:            25mM HEPS, 100mM NaCI, pH 8.00                            Status:          Started
+  Start Time:           1/9/24, 9:45:30 PM            End Time:
+  Scheduled Start:                                    Scheduled End:
+
+DISPENSING
+Seq  Material       Description                                                      Req. Quantity
+                    Lot            Container          Potency  Type         Tare              Net          Operator                Booth      Scale                     Date                      Barcode      Pallet
+                                                                                            Total UOM                  Total active UOM                       Deviation
+1      X0125        X0125 Description                                                     400.000 G
+                    B50877         X0125001            90.00%  Net           50.0           400.0 G        qaone1(qaone1)          booth1     simulator                 1/22/24, 9:36:59 PM       test100
+                                                                  removal                                                                                                                         0000001
+                                                                                                                                                                                                  0000000091
+                                                                      Begin Source         1,000.0 G
+                                                                       End Source           600.0 G
+                    B50877         X0125002            90.00%  Net           0.0            400.0 G        qaone1(qaone1)          booth1     simulator                 1/22/24, 9:39:59 PM       test100
+                                                                  removal                                                                                                                         0000002
+                                                                                                                                                                                                  0000000093
+                                                                      Begin Source         1,000.0 G
+                                                                       End Source           600.0 G
+                                                                                            800.0 G                          720.0 G                            80.00%
+2      M801890      M801890 Description                                                   200.000 G
+                    C0555          M801890001          100.00%  Net          0.0            200.0 G        qaone1(qaone1)          booth1     simulator                 1/22/24, 9:41:18 PM       test100
+                                                                                                                                                                                                  0000003
+                                                                                                                                                                                                  0000000095
+                                                                                            200.0 G                          200.0 G                             0.00%
+3      1072         L-Lysine Monohydrochloride                                            200.000 G
+                                                               Total weight:                0.920 KG                                                                    Total container & pallets:      3           0
+
+
+

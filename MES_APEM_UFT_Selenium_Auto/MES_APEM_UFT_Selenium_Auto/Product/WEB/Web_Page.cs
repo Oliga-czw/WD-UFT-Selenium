@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary;
 using MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary;
+using System.Collections.ObjectModel;
 
 namespace MES_APEM_UFT_Selenium_Auto.Product.WD
 {
@@ -156,8 +157,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         public Selenium_WebElement Generate_Report => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Generate Report']");
         public Selenium_WebElement Generate_Audit => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Generate Audit']");
         public Selenium_WebElement Report_Table => new Selenium_WebElement(_Selenium_Driver, "//table[@class='Order_Table_body_Style_Collapse']/tbody");
-
-
+        public ReadOnlyCollection<IWebElement> Report_Heads => _Selenium_Driver.FindElements(By.XPath("//a[@class='Report_Head_Style']"));
+        public ReadOnlyCollection<IWebElement> Report_Table_Rows => _Selenium_Driver.FindElements(By.XPath("//td[@class='Inner_Column_Left']/.."));
         public Selenium_WebElement SaveAs => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Save As']");
         public Selenium_WebElement Print => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Print']");
         public Selenium_WebElement difference => new Selenium_WebElement(_Selenium_Driver, "//label[text()='Show Difference Only']");
@@ -186,6 +187,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         //ReprintLable
         public Selenium_WebElement ReprintContainerLabel => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Reprint Container Label']");
         public Selenium_WebElement ReprintLableClose => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Close']");
+        public Selenium_WebElement printreportDialogCloseButton => new Selenium_WebElement(_Selenium_Driver, "//div[@class='gwt-DialogBox Dialog_Background']//img[@class='gwt-Image']");
         //Tab
         public Selenium_WebElement Campaigns => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Campaigns']");
         public Selenium_WebElement DeviationManagement => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Deviation Management']");
@@ -256,12 +258,17 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         {
         }
 
+    }
+    public class Signature_Page : Web_Page
 
-        
-
-
-
-
+    {
+        public Signature_Page(IWebDriver driver) : base(driver)
+        {
+        }
+        public Selenium_WebElement Apply => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Apply']");
+        public Selenium_WebElement Apply_OK => new Selenium_WebElement(_Selenium_Driver, "//button[@class='gwt-Button OkStyle']"); 
+        public ReadOnlyCollection<IWebElement> Reset_Cancel_Weighing_signatures => _Selenium_Driver.FindElements(By.XPath("//div[text()='Reset/Cancel Weighing']/../../td"));
+        public ReadOnlyCollection<IWebElement> NewSource_Signatures => _Selenium_Driver.FindElements(By.XPath("//div[text()='New Source']/../../td"));
     }
 }
 
