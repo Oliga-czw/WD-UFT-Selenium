@@ -30,6 +30,7 @@ namespace MES_APEM_UFT_Selenium_Auto
         [TestInitialize]
         public void TestInitialize()
         {
+            Base_logger.GenerateLogFile("Prepare");
         }
 
 
@@ -47,12 +48,16 @@ namespace MES_APEM_UFT_Selenium_Auto
             APEM.AeBRSInstaller();
             //update afw
             AFW_Fuction.ReplaceAFWDB();
+            //restart tomcat server 
+            Base_Function.ResartServices(ServiceName.Tomcat);
             //install  and config aprm
             APRM_Fuction.FirstInitailAPRMWD();
             //wia to false
             Mobile_Fuction.UpdateAutoLogin();
             //set apem server and registration
-            APEM.setServerAndRegistration();
+            APEM.setServerAndConfig();
+
+
 
             //install SoapMsi
             Base_Function.InstallMsi("soap3.0.msi");
@@ -67,8 +72,7 @@ namespace MES_APEM_UFT_Selenium_Auto
             WD_Fuction.Bulkload(bomExc);
 
 
-            //SdkConfiguration config = new SdkConfiguration();
-            //SDK.Init(config);
+            
 
 
         }
