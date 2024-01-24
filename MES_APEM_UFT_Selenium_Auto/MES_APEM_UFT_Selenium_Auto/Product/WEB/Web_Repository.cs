@@ -21,5 +21,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         public static Order_Page Order_Page => new Order_Page(Selenium_Driver._Selenium_Driver);
         public static Report_Page Report_Page => new Report_Page(Selenium_Driver._Selenium_Driver);
         public static CleanRules_Page CleanRules_Page => new CleanRules_Page(Selenium_Driver._Selenium_Driver);
+        public static Signature_Page Signature_Page => new Signature_Page(Selenium_Driver._Selenium_Driver);
     }
 }

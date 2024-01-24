@@ -84,6 +84,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             Wizard.WizardWindow.next.Click();
             //ceate ADSA
             Wizard.WizardWindow.next.Click();
+            Thread.Sleep(2000);
             if (Wizard.ADSAExitDialog.IsExist())
             {
                 Thread.Sleep(1000);
@@ -379,7 +380,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             Wizard.DataLinkPropertiesDialog.OK.Click();
             //test connection
             APEM.APEMAdminWindow.ExtractorProperty.TestConnectionButton.Click();
-            if(APEM.PropertyDialog.StaticText.Text== "Test connection succeeded.")
+            if (APEM.PropertyDialog.StaticText.Text == "Test connection succeeded.")
             {
                 APEM.PropertyDialog.OK.Click();
                 Console.WriteLine("Test connection successful !");

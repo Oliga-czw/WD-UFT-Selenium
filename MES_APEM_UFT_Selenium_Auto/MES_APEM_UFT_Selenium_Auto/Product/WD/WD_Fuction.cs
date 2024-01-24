@@ -190,6 +190,27 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
             p.Close();
             Base_logger.Message("impot xml" + output);
         }
+        public static void Bulkload_Export(string file)
+        {
+            string path = Base_Directory.WDBulkload;
+            Process p = new Process();
+            p.StartInfo.FileName = "cmd.exe";
+            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.RedirectStandardInput = true;
+            p.StartInfo.RedirectStandardOutput = true;
+            p.StartInfo.RedirectStandardError = true;
+            p.StartInfo.CreateNoWindow = false;
+            p.Start();
+            p.StandardInput.WriteLine("cd " + path);
+            string no = file.Substring(0, 2);
+            string project = Base_Directory.ProjectDir + "Data\\Input\\BulkLoad\\";
+            string xml = $"wdbulkloadtool -w localhost -e{no} \"{project}{file}\"";
+            p.StandardInput.WriteLine(xml + "&exit");
+            string output = p.StandardOutput.ReadLine();
+            p.WaitForExit();
+            p.Close();
+           // Base_logger.Message("Export xml" + output);
+        }
         public static void Bulkload(Array files)
         {
             string path = Base_Directory.WDBulkload;
