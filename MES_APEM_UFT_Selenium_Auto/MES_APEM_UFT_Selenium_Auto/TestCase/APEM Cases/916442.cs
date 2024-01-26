@@ -74,6 +74,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 LogStep(@"3. create order and execute");
                 MOC_Fuction.PlanFromRPL("RPL916420", ordername);
                 APEM.MocmainWindow.WorkstationBP.ClickSignle();
+                MOC_Fuction.CheckRowSelection();
                 Thread.Sleep(2000);
                 APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText(ordername);
                 APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();

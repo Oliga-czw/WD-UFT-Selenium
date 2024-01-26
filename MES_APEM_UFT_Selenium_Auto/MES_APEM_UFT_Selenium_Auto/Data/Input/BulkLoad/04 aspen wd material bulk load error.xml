@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MaterialInformation xmlns="http://www.wbf.org/xml/B2MML-V0401">
+  <MaterialDefinition>
+    <ID>1072</ID>
+    <Description>L-Lysine Monohydrochloride</Description>
+    <MaterialDefinitionProperty>
+      <ID>Status</ID>
+      <Value>
+        <ValueString>In Use</ValueString>
+        <DataType>string</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>UOM</ID>
+      <Value>
+        <ValueString>G</ValueString>
+        <DataType>string</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>ToKg</ID>
+      <Value>
+        <ValueString>0.001</ValueString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>WeighNotes</ID>
+      <Value>
+        <ValueString>Use mask and gloves</ValueString>
+        <DataType>string</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>HpStatement</ID>
+      <Value>
+        <ValueString>H301,H315</ValueString>
+        <DataType>string</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+    <MaterialDefinitionProperty>
+      <ID>NfpaHealth</ID>
+      <Value>
+        <ValueString>3</ValueString>
+        <DataType>integer</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialDefinitionProperty>
+  

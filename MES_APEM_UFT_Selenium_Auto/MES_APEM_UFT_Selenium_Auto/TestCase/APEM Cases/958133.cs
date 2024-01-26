@@ -108,6 +108,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(3000);
             MOC_Fuction.PlanFromRPL("PREPARERPL", "ORDER958133");
             APEM.MocmainWindow.WorkstationBP.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             Thread.Sleep(3000);
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText("ORDER958133");
             APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();

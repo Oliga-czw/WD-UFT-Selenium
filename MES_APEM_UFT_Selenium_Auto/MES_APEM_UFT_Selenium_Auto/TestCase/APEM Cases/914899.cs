@@ -64,6 +64,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MocmainWindow.GetSnapshot(Resultpath + "archive order1.PNG");
             //archive finish order2
             APEM.MocmainWindow.WorkstationBP.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText(ordername2);
             APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderTable.Row("Ready for execution", "Status").Click();

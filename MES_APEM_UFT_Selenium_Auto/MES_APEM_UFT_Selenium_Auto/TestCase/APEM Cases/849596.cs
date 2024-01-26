@@ -73,6 +73,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             MOC_Fuction.CertifyMR();
             LogStep(@"4. Create Order from RPL and MR");
             APEM.MocmainWindow.Orders.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             Thread.Sleep(2000);
             //if exit order cancel it
             APEM.MocmainWindow.OrderListInternalFrame.Search.SetText(OrderName2);//filter order
@@ -107,6 +108,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(3000);
             //Execute order from MR
             APEM.MocmainWindow.WorkstationBP.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             Thread.Sleep(2000);
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText(OrderName2);
             APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();
@@ -166,6 +168,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
 
             LogStep(@"5. Execute Order from RPL");
             APEM.MocmainWindow.WorkstationBP.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             Thread.Sleep(2000);
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText(OrderName1);
             APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();

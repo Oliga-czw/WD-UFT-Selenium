@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MaterialInformation xmlns="http://www.wbf.org/xml/B2MML-V0401">
+  <MaterialLot>
+    <ID>A122</ID>
+    <Description>L-Lysine Monohydrochloride</Description>
+    <MaterialDefinitionID>1072</MaterialDefinitionID>
+    <Status>Non-released</Status>
+    <MaterialLotProperty>
+      <ID>Expiration</ID>
+      <Value>
+        <ValueString>2025-11-26T01:25:00.000Z</ValueString>
+        <DataType>DateTime</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialLotProperty>
+    <MaterialLotProperty>
+      <ID>Activity</ID>
+      <Value>
+        <ValueString>100</ValueString>
+        <DataType>decimal</DataType>
+        <UnitOfMeasure />
+      </Value>
+    </MaterialLotProperty>
+    <MaterialLotProperty>
+      <ID>UsageDate</ID>
+      <Value>
+        <ValueString>2013-08-27T01:25:00.000Z</ValueString>
+   

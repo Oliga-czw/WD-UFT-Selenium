@@ -88,10 +88,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //order
             APEM.MocmainWindow.Orders.ClickSignle();
             Thread.Sleep(2000);
-            if (APEM.RowSelectionDialog.IsExist())
-            {
-                APEM.RowSelectionDialog.YesButton.Click();
-            }
+            MOC_Fuction.CheckRowSelection();
             //if exit order cancel it
             APEM.MocmainWindow.OrderListInternalFrame.Search.SetText(OrderName2);//filter order
             APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
@@ -143,6 +140,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
 
             LogStep(@"4. Execute OrderSP from RPL");
             APEM.MocmainWindow.WorkstationBP.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             Thread.Sleep(2000);
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText(OrderName2);
             APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();
@@ -175,10 +173,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             LogStep(@"5.2 Create Order from RPL and MR");
             APEM.MocmainWindow.Orders.ClickSignle();
             Thread.Sleep(2000);
-            if (APEM.RowSelectionDialog.IsExist())
-            {
-                APEM.RowSelectionDialog.YesButton.Click();
-            }
+            MOC_Fuction.CheckRowSelection();
             //if exit order cancel it
             APEM.MocmainWindow.OrderListInternalFrame.Search.SetText(OrderName3);//filter order
             APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
@@ -212,6 +207,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(3000);
             //Execute order from MR
             APEM.MocmainWindow.WorkstationBP.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             Thread.Sleep(2000);
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText(OrderName3);
             APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();
@@ -271,6 +267,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
 
             LogStep(@"5.3 Execute Order from RPL");
             APEM.MocmainWindow.WorkstationBP.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             Thread.Sleep(2000);
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText(OrderName1);
             APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();

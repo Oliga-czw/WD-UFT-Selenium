@@ -36,6 +36,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //MOC_TemplatesFunction.Importtemplates("TEMP749627.zip");
             MOC_Fuction.PlanFromRPL("RPL749627", "ORDER749627");
             APEM.MocmainWindow.WorkstationBP.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             Thread.Sleep(3000);
             //LogStep(@"Execute the order");
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText("ORDER749627");

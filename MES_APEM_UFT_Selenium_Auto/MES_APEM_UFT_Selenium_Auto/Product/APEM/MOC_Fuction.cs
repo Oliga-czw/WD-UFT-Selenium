@@ -127,10 +127,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             string RPLSelect = RPLName + "#1";
             APEM.MocmainWindow.Orders.ClickSignle();
             Thread.Sleep(2000);
-            if (APEM.RowSelectionDialog.IsExist())
-            {
-                APEM.RowSelectionDialog.YesButton.Click();
-            }
+            MOC_Fuction.CheckRowSelection();
             //if exit order cancel it
             APEM.MocmainWindow.OrderListInternalFrame.Search.SetText(OrderName);//filter order
             APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
@@ -177,10 +174,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             string RPLSelect = RPLName + "#1";
             APEM.MocmainWindow.Orders.ClickSignle();
             Thread.Sleep(2000);
-            if (APEM.RowSelectionDialog.IsExist())
-            {
-                APEM.RowSelectionDialog.YesButton.Click();
-            }
+            MOC_Fuction.CheckRowSelection();
             //if exit order cancel it
             APEM.MocmainWindow.OrderListInternalFrame.Search.SetText(OrderName);//filter order
             APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
@@ -300,7 +294,16 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             var width = (PFCDesign_Width - BeginNode_Width) / 2;
             Base_Assert.ReferenceEquals(x, width);
         }
-    }
+
+        public static void CheckRowSelection()
+        {
+            if (APEM.RowSelectionDialog.IsExist())
+            {
+                APEM.RowSelectionDialog.YesButton.Click();
+            }
+        }
+        
+}
 
     
 }
