@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary;
 using MES_APEM_UFT_Selenium_Auto.Product.ApemMobile;
+using MES_APEM_UFT_Selenium_Auto.Product.APEM.MOC_TemplatesModule;
 
 namespace MES_APEM_UFT_Selenium_Auto.TestCase
 {
@@ -26,51 +27,24 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [TestMethod]
         public void VSTS_876986()
         {
+            string OrderName = "ORDER876986";
             string Resultpath = Base_Directory.ResultsDir + CaseID + "-";
             Library.BaseLibrary.Application.LaunchMocAndLogin();
             Thread.Sleep(5000);
-            APEM.MocmainWindow.RPLDesign.ClickSignle();
-            MOC_Fuction.AddRPL_OpenDesign("RPL876986", "AAA_BPL (Version 1)");
-            APEM.DesignEditorWindow.UnitProcedure._UFT_CheckBox.Click();
-            Thread.Sleep(8000);
-            Base_Function.MouseClick(APEM.DesignEditorWindow.PFCDesignAppInternalFrame.ControlLinkUiObject._UFT_UiObject.AbsoluteLocation);
-            Thread.Sleep(3000);
-            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.UnitProcedureUiObject.DoubleClick();
-            Thread.Sleep(8000);
-            APEM.DesignEditorWindow.Operation._UFT_CheckBox.Click();
-            Thread.Sleep(8000);
-            Base_Function.MouseClick(APEM.DesignEditorWindow.PFCDesignAppInternalFrame.ControlLinkUiObject._UFT_UiObject.AbsoluteLocation);
-            Thread.Sleep(3000);
-            APEM.DesignEditorWindow.PFCDesignAppInternalFrame.OperationUiObject.DoubleClick();
-            Thread.Sleep(5000);
-            APEM.DesignEditorWindow.TabbedPaneControl.Select(2);
-            Thread.Sleep(2000);
-            APEM.DesignEditorWindow.First_Phase.Click();
-            Thread.Sleep(8000);
-            Base_Function.MouseClick(APEM.DesignEditorWindow.PFCDesignAppInternalFrame.ControlLinkUiObject._UFT_UiObject.AbsoluteLocation);
-            Thread.Sleep(3000);
-            APEM.DesignEditorWindow.SaveButton.ClickSignle();
-            if (APEM.AuditReasonDialog.IsExist())
+            //check rpl exit
+            APEM.MocmainWindow.BPLDesign.ClickSignle();
+            if (!APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row("RPL876986").Existing)
             {
-                APEM.AuditReasonDialog.Reason.SendKeys("for test");
-                APEM.AuditReasonDialog.OK.Click();
+                MOC_TemplatesFunction.Importtemplates("CASE876986.zip");
             }
-            Thread.Sleep(5000);
-            Assert.IsTrue(APEM.DesignSavedDialog.IsExist());
-            APEM.DesignSavedDialog.OKButton.Click();
-            MOC_Fuction.DesignEditorClose();
-            Thread.Sleep(2000);
-            APEM.MocmainWindow.RPLManagementInternalFrame._UFT_InterFrame.Close();
-            MOC_Fuction.VerifyRPL("RPL876986");
-            MOC_Fuction.CertifyRPL("RPL876986");
-            MOC_Fuction.PlanFromRPL("RPL876986", "ORDER876986");
+            MOC_Fuction.PlanFromRPL("RPL876986", OrderName);
             APEM.MocmainWindow.OrderTracking.ClickSignle();
             MOC_Fuction.CheckRowSelection();
             Thread.Sleep(2000);
             APEM.MocmainWindow.OrderTrackingInternalFrame.StatusFilterButton.ClickSignle();
             APEM.MocmainWindow.RowsToViewDialog.ViewAll.Click();
             APEM.MocmainWindow.RowsToViewDialog.OK.Click();
-            APEM.MocmainWindow.OrderTrackingInternalFrame.CodeEditor.SetText("ORDER876986");
+            APEM.MocmainWindow.OrderTrackingInternalFrame.CodeEditor.SetText(OrderName);
             APEM.MocmainWindow.OrderTrackingInternalFrame.Filterbutton.Click();
             Thread.Sleep(2000);
             APEM.MocmainWindow.OrderTrackingInternalFrame.OrderTable.Row("Active").Click();
@@ -97,7 +71,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mobile_Fuction.login();
             driver.Wait();
             Thread.Sleep(20000);
-            Mobile.OrderProcess_Page.OrderSearch.SendKeys("ORDER876986");
+            Mobile.OrderProcess_Page.OrderSearch.SendKeys(OrderName);
             Thread.Sleep(5000);
             Mobile.OrderProcess_Page.GotoTracking.Click();
             Thread.Sleep(5000);
@@ -136,6 +110,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(3000);
             APEM.MocmainWindow.PrintReportDialog.Preview.ClickSignle();
             Thread.Sleep(4000);
+            APEM.MocmainWindow.OrderTrackingPFCInternalFrame._UFT_InterFrame.Close();
             var addressAndSearchUsingBingEdit = APEM.MocmainWindow.BrowserURL;
             var url = addressAndSearchUsingBingEdit.LegacyIAccessiblePattern.Value;
             Console.WriteLine(url);
@@ -148,14 +123,14 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Console.WriteLine(ExecuteAPP);
             Base_Assert.IsTrue(ExecuteAPP.Contains("APEM Mobile"));
             Base_Test.KillProcess("iexplore");
-            MOC_Fuction.PlanFromRPL("RPL876986", "ORDER876986");
+            MOC_Fuction.PlanFromRPL("RPL876986", OrderName);
             APEM.MocmainWindow.OrderTracking.ClickSignle();
             MOC_Fuction.CheckRowSelection();
             Thread.Sleep(2000);
             APEM.MocmainWindow.OrderTrackingInternalFrame.StatusFilterButton.ClickSignle();
             APEM.MocmainWindow.RowsToViewDialog.ViewAll.Click();
             APEM.MocmainWindow.RowsToViewDialog.OK.Click();
-            APEM.MocmainWindow.OrderTrackingInternalFrame.CodeEditor.SetText("ORDER876986");
+            APEM.MocmainWindow.OrderTrackingInternalFrame.CodeEditor.SetText(OrderName);
             APEM.MocmainWindow.OrderTrackingInternalFrame.Filterbutton.Click();
             Thread.Sleep(2000);
             APEM.MocmainWindow.OrderTrackingInternalFrame.OrderTable.Row("Active").Click();
@@ -182,7 +157,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mobile_Fuction.login();
             driver2.Wait();
             Thread.Sleep(20000);
-            Mobile.OrderProcess_Page.OrderSearch.SendKeys("ORDER876986");
+            Mobile.OrderProcess_Page.OrderSearch.SendKeys(OrderName);
             Thread.Sleep(5000);
             Mobile.OrderProcess_Page.GotoTracking.Click();
             Thread.Sleep(5000);
