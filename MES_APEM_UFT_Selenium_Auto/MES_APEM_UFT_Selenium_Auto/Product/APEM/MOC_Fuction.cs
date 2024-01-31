@@ -312,7 +312,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
                 APEM.MocmainWindow.EventLogListInterFrame.Delete.ClickSignle();
                 APEM.DeleteEventLogDialog.YesButton.Click();
             }
-
         }
     }
    

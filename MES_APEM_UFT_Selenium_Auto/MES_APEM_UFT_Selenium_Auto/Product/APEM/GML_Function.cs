@@ -242,7 +242,12 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             //APRM
             GMLAPRMConfig();
             //Environment
-            ConfigEnviroment(Base_Directory.GMLConfig);
+            string oldfile = Base_Directory.GMLConfig;
+            string newFile = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\GMLConfig.ini";
+            string oldText = "MachineName";
+            string newText = Environment.MachineName;
+            Base_Function.ReplaceTextInNewFile(oldfile, newFile, oldText, newText);
+            GML_Function.ConfigEnviroment(newFile);
             //IP21
             StartIP21();
             //Configure User Table

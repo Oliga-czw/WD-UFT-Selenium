@@ -45,7 +45,12 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //import batchRPL and batchAPI
             APRM_Fuction.ImportBatchAprmAdmin();
             //Environment
-            GML_Function.ConfigEnviroment(Base_Directory.BatchConfig);
+            string oldfile = Base_Directory.BatchConfig;
+            string newFile = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\BatchConfig.ini";
+            string oldText = "MachineName";
+            string newText = Environment.MachineName;
+            Base_Function.ReplaceTextInNewFile(oldfile, newFile, oldText, newText);
+            GML_Function.ConfigEnviroment(newFile);
             LogStep(@"2. import BPL and copy RPL to add Batch Area");
             Application.LaunchMocAndLogin();
             //check bpl exit
