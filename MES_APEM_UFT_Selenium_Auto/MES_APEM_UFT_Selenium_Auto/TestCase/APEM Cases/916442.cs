@@ -20,7 +20,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [TestCategory(CaseState.Started)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
-        [Timeout(600000)]
+        [Timeout(1500000)]
 
         [TestMethod]
         public void VSTS_916442()

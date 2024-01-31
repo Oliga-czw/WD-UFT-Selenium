@@ -32,22 +32,29 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             string sourceName = Base_Directory.ProjectDir + "Data\\Input\\TestFile\\test.pdf";
             string directoryPath = @"C:\";
             Base_File.CopyFile(sourceName, directoryPath, true);
-            //LogStep(@"Create an active order from recipe");
-            //MOC_TemplatesFunction.Importtemplates("TEMP749627.zip");
+            LogStep(@"Create an active order from recipe");
+            APEM.MocmainWindow.BPLDesign.Click();
+            if (!APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row("BPL749627").Existing)
+            {
+                MOC_TemplatesFunction.Importtemplates("TEMP749627.zip");
+            }
             MOC_Fuction.PlanFromRPL("RPL749627", "ORDER749627");
             APEM.MocmainWindow.WorkstationBP.ClickSignle();
             MOC_Fuction.CheckRowSelection();
             Thread.Sleep(3000);
-            //LogStep(@"Execute the order");
+            LogStep(@"Execute the order");
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText("ORDER749627");
             APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();
             //Excution
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderTable.Row("Ready for execution").Click();
             APEM.MocmainWindow.WorkstationBPInternalFrame.ExecuteButton.ClickSignle();
             Thread.Sleep(3000);
-            //LogStep(@"click the ViewDOCURL Button");
+            LogStep(@"click the ViewDOCURL Button");
             APEM.PhaseExecWindow.ExecutionInternalFrame.ViewDOCURL_Button.Click();
-            Thread.Sleep(10000);
+            //press enter
+            Thread.Sleep(2000);
+            Keyboard.KeyDown(Keyboard.Keys.Enter);
+            Thread.Sleep(15000);
             APEM.MocmainWindow.MicrosoftEdgeWindow._STD_Window.Click();
             APEM.MocmainWindow.MicrosoftEdgeWindow.GetSnapshot(Resultpath + "ViewDOCUrl.PNG");
             Keyboard.KeyDown(Keyboard.Keys.Control);
@@ -60,11 +67,14 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Console.WriteLine("剪切板中的内容为: " + clipboardText);
             Assert.IsTrue(clipboardText.Contains("This is a test PDF document."));
             //local pdf view
-            //LogStep(@"click the local pdf view Button");
+            LogStep(@"click the local pdf view Button");
             APEM.PhaseExecWindow.ExecutionInternalFrame.LocalPdfView_Button.Click();
             Thread.Sleep(3000);
             APEM.PhaseExecWindow.MessageInternalFrame.OKButton.Click();
-            Thread.Sleep(10000);
+            //press enter
+            Thread.Sleep(2000);
+            Keyboard.KeyDown(Keyboard.Keys.Enter);
+            Thread.Sleep(15000);
             APEM.MocmainWindow.MicrosoftEdgeWindow._STD_Window.Click();
             APEM.MocmainWindow.MicrosoftEdgeWindow.GetSnapshot(Resultpath + "LocalPdfView.PNG");
             Keyboard.KeyDown(Keyboard.Keys.Control);
@@ -77,9 +87,12 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Console.WriteLine("剪切板中的内容为: " + LocalText);
             Assert.IsTrue(LocalText.Contains("This is a test PDF document."));
             //shared pdf view
-            //LogStep(@"click the shared pdf view Button");
+            LogStep(@"click the shared pdf view Button");
             APEM.PhaseExecWindow.ExecutionInternalFrame.SharedUrlview_Button.Click();
-            Thread.Sleep(10000);
+            //press enter
+            Thread.Sleep(2000);
+            Keyboard.KeyDown(Keyboard.Keys.Enter);
+            Thread.Sleep(15000);
             APEM.MocmainWindow.MicrosoftEdgeWindow._STD_Window.Click();
             APEM.MocmainWindow.MicrosoftEdgeWindow.GetSnapshot(Resultpath + "SharedPdfView.PNG");
             Keyboard.KeyDown(Keyboard.Keys.Control);
@@ -92,7 +105,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Console.WriteLine("剪切板中的内容为: " + sharedText);
             Assert.IsTrue(sharedText.Contains("Aspen Production Execution Manager"));
             //Error message
-            //LogStep(@"click the Error message Button");
+            LogStep(@"click the Error message Button");
             APEM.PhaseExecWindow.ExecutionInternalFrame.InvalidError_Button.Click();
             Thread.Sleep(4000);
             APEM.MocmainWindow.GetSnapshot(Resultpath + "InvalidError.PNG");
@@ -103,6 +116,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.PhaseExecWindow.ExecutionInternalFrame.Cancel_Button.ClickSignle();
             Thread.Sleep(2000);
             APEM.PhaseExecWindow.ConfirmationInternalFrame.YesButton.Click();
+            APEM.MocmainWindow.MicrosoftEdgeWindow.Close();
         }
 
     }

@@ -141,6 +141,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(10000);
             APEM.APEMAdminWindow.GetSnapshot(Resultpath + "resore archive order in apem admin.PNG");
             Base_Assert.IsTrue(APEM.APEMAdminWindow.ListView._STD_ListView.GetVisibleText().Contains("RESTO"), "order status");
+            APEM.APEMAdminWindow.Close();
             //check order restore in moc
             APEM.MocmainWindow.OrderListInternalFrame.Refresh_Button.Click();
             var lists2 = APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Columns("Status");
@@ -150,7 +151,6 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
 
             APEM.MocmainWindow.OrderListInternalFrame.Search.SetText("");
             APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
-            APEM.APEMAdminWindow.Close();
             APEM.ExitApplication();
 
         }

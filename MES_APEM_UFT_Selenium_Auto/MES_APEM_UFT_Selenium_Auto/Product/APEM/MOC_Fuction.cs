@@ -217,11 +217,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         }
         public static void AddRPL_OpenDesign(String RPLName,String BPLName)
         {
-            int Count = APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable._UFT_Table.Rows.Count;
-            Console.WriteLine(Count.ToString());
-            var tableText = APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable._UFT_Table.GetVisibleText();
-            Console.WriteLine(tableText);
-            if (tableText.Contains(RPLName))
+
+            if (APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row(RPLName).Existing)
             {
                 APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row(RPLName).Click();
                 Thread.Sleep(2000);

@@ -45,7 +45,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //check order created
             APEM.MocmainWindow.GetSnapshot(Resultpath+"order created.PNG");
             LogStep(@"3. check axis2 jar in folder");
-            string directoryPath = @"C:\Program Files\Common Files\AspenTech Shared\Tomcat9.0.27\webapps\AeBRSserver\WEB-INF\lib";
+            string directoryPath = Base_Directory.TomactPath + @"\webapps\AeBRSserver\WEB-INF\lib";
             string searchPattern = "axis2*.jar";
             string[] files = Directory.GetFiles(directoryPath, searchPattern);
             Base_Assert.IsTrue(files.Length > 0, "axis2 exist");
