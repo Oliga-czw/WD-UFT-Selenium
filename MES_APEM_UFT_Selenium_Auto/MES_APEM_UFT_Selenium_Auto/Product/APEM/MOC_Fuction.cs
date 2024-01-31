@@ -302,8 +302,19 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
                 APEM.RowSelectionDialog.YesButton.Click();
             }
         }
-        
-}
+        public static void DeleteEventLog()
+        {
+            //delete event log
+            APEM.MocmainWindow.Tools.EventLog.Select();
+            APEM.RowSelectionDialog.YesButton.Click();
+            if (APEM.MocmainWindow.EventLogListInterFrame.Delete.IsEnabled)
+            {
+                APEM.MocmainWindow.EventLogListInterFrame.Delete.ClickSignle();
+                APEM.DeleteEventLogDialog.YesButton.Click();
+            }
 
-    
+        }
+    }
+   
+
 }

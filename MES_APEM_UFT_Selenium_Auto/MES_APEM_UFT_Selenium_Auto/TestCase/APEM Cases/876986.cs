@@ -65,6 +65,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             MOC_Fuction.CertifyRPL("RPL876986");
             MOC_Fuction.PlanFromRPL("RPL876986", "ORDER876986");
             APEM.MocmainWindow.OrderTracking.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             Thread.Sleep(2000);
             APEM.MocmainWindow.OrderTrackingInternalFrame.StatusFilterButton.ClickSignle();
             APEM.MocmainWindow.RowsToViewDialog.ViewAll.Click();
@@ -108,6 +109,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Finished.PNG");
             Thread.Sleep(3000);
             APEM.MocmainWindow.OrderTracking.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             Thread.Sleep(2000);
             APEM.MocmainWindow.OrderTrackingInternalFrame.RefreshButton.ClickSignle();
             Thread.Sleep(4000);
@@ -148,6 +150,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Base_Test.KillProcess("iexplore");
             MOC_Fuction.PlanFromRPL("RPL876986", "ORDER876986");
             APEM.MocmainWindow.OrderTracking.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             Thread.Sleep(2000);
             APEM.MocmainWindow.OrderTrackingInternalFrame.StatusFilterButton.ClickSignle();
             APEM.MocmainWindow.RowsToViewDialog.ViewAll.Click();

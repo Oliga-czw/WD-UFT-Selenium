@@ -41,37 +41,44 @@ namespace MES_APEM_UFT_Selenium_Auto
             //SdkConfiguration config = new SdkConfiguration();
             //SDK.Init(config);
             //Thread.Sleep(3000);
+            string DownloadPath = @"C:\41380Download";
+            string DownloadPathBefore = @"C:\ProgramData\AspenTech\AeBRS\WDDownload";
+
+            string errorName1 = Base_Directory.ProjectDir + @"Data\Input\BulkLoad\07 aspen wd orders bulk load error.xml";
+            string errorName2 = Base_Directory.ProjectDir + @"Data\Input\BulkLoad\05 aspen wd inventory bulk load errror.xml";
+            string errorName3 = Base_Directory.ProjectDir + @"Data\Input\BulkLoad\04 aspen wd material bulk load error.xml";
+            string sucessName1 = Base_Directory.ProjectDir + @"Data\Input\BulkLoad\07 aspen wd orders bulk load.xml";
+            string sucessName2 = Base_Directory.ProjectDir + @"Data\Input\BulkLoad\05 aspen wd inventory bulk load.xml";
+            string sucessName3 = Base_Directory.ProjectDir + @"Data\Input\BulkLoad\04 aspen wd material bulk load.xml";
+            string directoryPath1 = DownloadPath + @"\Pending\Orders";
+            string directoryPath2 = DownloadPath + @"\Pending\Inventory";
+            string directoryPath3 = DownloadPath + @"\Pending\Material";
+            Base_File.CopyFile(sucessName1, directoryPath1, false);
+            Base_File.CopyFile(sucessName2, directoryPath2, false);
+            Base_File.CopyFile(sucessName3, directoryPath3, false);
+            Console.WriteLine(File.Exists(directoryPath2 + @"\05 aspen wd inventory bulk load.xml"));
+            Console.WriteLine(File.Exists(directoryPath1 + @"\07 aspen wd orders bulk load.xml"));
+            Console.WriteLine(File.Exists(directoryPath3 + @"\04 aspen wd material bulk load.xml"));
 
             Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
             Web_Fuction.gotoWDWeb(driver);
             driver.Wait();
             Web_Fuction.login();
             driver.Wait();
-            // LogStep(@"2. Go and admin and signature");
-            Web_Fuction.gotoTab(WDWebTab.admin);
-            Web.Administration_Page.Signatures.Click();
-            Thread.Sleep(3000);
-            Web.Signature_Page.Reset_Cancel_Weighing_signatures[3].FindElement(By.TagName("input")).Click();
-            Web.Signature_Page.NewSource_Signatures[3].FindElement(By.TagName("input")).Click();
-            Thread.Sleep(3000);
-            Web.Signature_Page.Apply.Click();
-            Thread.Sleep(3000);
-            Web.Signature_Page.Apply_OK.Click();
-            Thread.Sleep(5000);
-            string signautres_file = "10 aspen wd signautres_32414 bulk load.xml";
-            WD_Fuction.Bulkload_Export(signautres_file);
-            Web.Signature_Page.Reset_Cancel_Weighing_signatures[1].FindElement(By.TagName("input")).Click();
-            Web.Signature_Page.NewSource_Signatures[1].FindElement(By.TagName("input")).Click();
-            Thread.Sleep(3000);
-            Web.Signature_Page.Apply.Click();
-            Thread.Sleep(3000);
-            Web.Signature_Page.Apply_OK.Click();
-            WD_Fuction.Bulkload(signautres_file);
-            driver.Refresh();
-            Thread.Sleep(5000);
-            
-            Assert.IsNotNull(Web.Signature_Page.Reset_Cancel_Weighing_signatures[3].FindElement(By.TagName("input")).GetAttribute("checked"));
-            Assert.IsNotNull(Web.Signature_Page.NewSource_Signatures[3].FindElement(By.TagName("input")).GetAttribute("checked"));
+            Web_Fuction.gotoTab(WDWebTab.order);
+            Thread.Sleep(10000);
+            Assert.IsTrue(driver.FindElements("//table[@class='Order_Table_body_Style_Collapse']/tbody/tr").Count > 0, "order Downloaded sucess");
+            //inventory
+            Web_Fuction.gotoTab(WDWebTab.inventory);
+            Thread.Sleep(10000);
+            Assert.IsTrue(driver.FindElements("//div[text()='1072']").Count > 0, "Inventory Downloaded sucess");
+            //material
+            Web_Fuction.gotoTab(WDWebTab.material);
+            Thread.Sleep(10000);
+            Assert.IsTrue(driver.FindElements("//td[text()='X0125']").Count > 0, "Material Downloaded sucess");
+            //Console.WriteLine(File.Exists(DownloadPath + @"\Rejected\Inventory\05 aspen wd inventory bulk load errror.xml"));
+            //Console.WriteLine(File.Exists(DownloadPath + @"\Rejected\Orders\07 aspen wd orders bulk load error.xml"));
+            //Console.WriteLine(File.Exists(DownloadPath + @"\Rejected\Material\04 aspen wd material bulk load error.xml"));
         }
 
 

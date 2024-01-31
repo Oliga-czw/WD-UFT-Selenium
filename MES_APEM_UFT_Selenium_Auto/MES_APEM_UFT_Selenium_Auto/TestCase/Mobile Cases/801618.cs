@@ -106,7 +106,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             List<string> col = new List<string> { "Order / Batch Code" };
             List<string> OrderNameConsolidated200 = new List<string> { };
             int no = 0;
-            int i = 2;// process order page start 2
+            int i = 1;// process order page start 1
             foreach (IWebElement head in Mobile.OrderProcess_Page.OrderPhaseTableHeads)
             {
                 if (col.Contains(head.Text))

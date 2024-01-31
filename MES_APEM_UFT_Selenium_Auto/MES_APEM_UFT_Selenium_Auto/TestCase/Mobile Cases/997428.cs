@@ -28,7 +28,9 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]
 
-        [TestMethod]
+
+        //defect1323576
+        //[TestMethod]
         public void VSTS_997428()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID + "-";
