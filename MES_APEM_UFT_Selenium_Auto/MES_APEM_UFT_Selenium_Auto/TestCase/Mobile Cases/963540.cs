@@ -40,7 +40,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             {
                 MOC_TemplatesFunction.Importtemplates("EVENTLOG510.zip");
             }
-            LogStep(@"2. create event log");//create event log
+            LogStep(@"2. create event log");
+            //delete event log
+            MOC_Fuction.DeleteEventLog();
+            //create event log
             APEM.MocmainWindow.BPLDesign.ClickSignle();
             APEM.MocmainWindow.BPLListInternalFrame.Refresh_Button.ClickSignle();
             APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row("EVENTLOG510").Click();
@@ -158,10 +161,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //restore data
             driver.Close();
 
-            APEM.MocmainWindow.Tools.EventLog.Select();
-            APEM.RowSelectionDialog.YesButton.Click();
-            APEM.MocmainWindow.EventLogListInterFrame.Delete.ClickSignle();
-            APEM.DeleteEventLogDialog.YesButton.Click();
+            MOC_Fuction.DeleteEventLog();
             APEM.ExitApplication();
         }
 

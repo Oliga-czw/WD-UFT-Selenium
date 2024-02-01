@@ -27,9 +27,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         public void VSTS_914899()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID + "-";
-            string ordername1 = "SOAP_914899_1";
-            string ordername2 = "SOAP_914899_2";
-            string archivename = "SOAP_914899_";
+            string randomstring = Base_Function.RandomString(4);
+            string ordername1 = "SOAP_914899_" + randomstring + "_1";
+            string ordername2 = "SOAP_914899_" + randomstring + "_2";
+            string archivename = "SOAP_914899_" + randomstring;
             //string ordername = "test_914899";
 
             Application.LaunchMocAndLogin();
@@ -64,6 +65,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MocmainWindow.GetSnapshot(Resultpath + "archive order1.PNG");
             //archive finish order2
             APEM.MocmainWindow.WorkstationBP.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText(ordername2);
             APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderTable.Row("Ready for execution", "Status").Click();
@@ -140,16 +142,13 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(10000);
             APEM.APEMAdminWindow.GetSnapshot(Resultpath + "resore archive order in apem admin.PNG");
             Base_Assert.IsTrue(APEM.APEMAdminWindow.ListView._STD_ListView.GetVisibleText().Contains("RESTO"), "order status");
+            APEM.APEMAdminWindow.Close();
             //check order restore in moc
             APEM.MocmainWindow.OrderListInternalFrame.Refresh_Button.Click();
             var lists2 = APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Columns("Status");
             APEM.MocmainWindow.GetSnapshot(Resultpath + "resore archive order in moc.PNG");
-            Base_Assert.IsTrue(lists2.Where(list => list.Contains("Ext.Archived")).Count()==2, "resore 2 archive orders in moc");
-            
+            Base_Assert.IsTrue(lists2.Where(list => list.Contains("Ext.Archived")).Count() == 2, "resore 2 archive orders in moc");
 
-            APEM.MocmainWindow.OrderListInternalFrame.Search.SetText("");
-            APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
-            APEM.APEMAdminWindow.Close();
             APEM.ExitApplication();
 
         }

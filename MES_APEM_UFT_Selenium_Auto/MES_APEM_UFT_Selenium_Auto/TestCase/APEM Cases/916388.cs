@@ -130,7 +130,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row(bpl).Click();
                 APEM.MocmainWindow.BPLListInternalFrame.LoadDesigner_Button.ClickSignle();
                 Thread.Sleep(1000);
-                APEM.MocmainWindow.ReadOnly_Dialog.OKButton.Click();
+                if (APEM.MocmainWindow.ReadOnly_Dialog.IsExist())
+                {
+                    APEM.MocmainWindow.ReadOnly_Dialog.OKButton.Click();
+                }
                 Thread.Sleep(1000);
                 APEM.DesignEditorWindow.ExecuteButton.ClickSignle();
                 Thread.Sleep(5000);
@@ -146,6 +149,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 LogStep(@"3. create order and execute");
                 MOC_Fuction.PlanFromRPL("RPL916388", ordername);
                 APEM.MocmainWindow.WorkstationBP.ClickSignle();
+                MOC_Fuction.CheckRowSelection();
                 Thread.Sleep(2000);
                 APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText(ordername);
                 APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();

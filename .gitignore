@@ -17,3 +17,5 @@ MES_APEM_UFT_Selenium_Auto/.vs/MES_APEM_UFT_Selenium_Auto/v16/.suo
 *.manifest
 *.pdb
 *.log
+*.dll
+*.exe

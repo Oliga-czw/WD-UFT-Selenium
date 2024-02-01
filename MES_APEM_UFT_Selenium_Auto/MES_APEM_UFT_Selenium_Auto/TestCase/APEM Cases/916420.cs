@@ -37,7 +37,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row("BPL916420").Click();
             APEM.MocmainWindow.BPLListInternalFrame.LoadDesigner_Button.ClickSignle();
             Thread.Sleep(1000);
-            APEM.MocmainWindow.ReadOnly_Dialog.OKButton.Click();
+            if (APEM.MocmainWindow.ReadOnly_Dialog.IsExist())
+            {
+                APEM.MocmainWindow.ReadOnly_Dialog.OKButton.Click();
+            }
             Thread.Sleep(1000);
             APEM.DesignEditorWindow.ExecuteButton.ClickSignle();
             Thread.Sleep(5000);
@@ -78,6 +81,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //Thread.Sleep(2000);
             MOC_Fuction.PlanFromRPL("RPL916420", "ORDER916420");
             APEM.MocmainWindow.WorkstationBP.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             Thread.Sleep(2000);
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText("ORDER916420");
             APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();

@@ -53,6 +53,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MocmainWindow.AddReasonDialog.OK.Click();
             Thread.Sleep(3000);
             APEM.MocmainWindow.WorkstationBP.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             Thread.Sleep(3000);
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText("GML_TEST");
             APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();
@@ -128,6 +129,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Assert.AreEqual(status4, "Finished");
             //open order tracking
             APEM.MocmainWindow.OrderTracking.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             Thread.Sleep(3000);
             APEM.MocmainWindow.OrderTrackingInternalFrame.CodeEditor.SetText("GML_TEST");
             APEM.MocmainWindow.OrderTrackingInternalFrame.Filterbutton.Click();

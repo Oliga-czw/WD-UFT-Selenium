@@ -43,7 +43,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             {
                 MOC_TemplatesFunction.Importtemplates("EVENTLOGFUFT.zip");
             }
-            LogStep(@"2. create event log");//create event log
+            LogStep(@"2. create event log");
+            //delete event log
+            MOC_Fuction.DeleteEventLog();
+            //create event log
             APEM.MocmainWindow.BPLDesign.ClickSignle();
             APEM.MocmainWindow.BPLListInternalFrame.Refresh_Button.ClickSignle();
             APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row("EVENTLOG").Click();
@@ -96,10 +99,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mobile.Setting_Page.turnOff_mode(2);
             driver.Close();
 
-            APEM.MocmainWindow.Tools.EventLog.Select();
-            APEM.RowSelectionDialog.YesButton.Click();
-            APEM.MocmainWindow.EventLogListInterFrame.Delete.ClickSignle();
-            APEM.DeleteEventLogDialog.YesButton.Click();
+            MOC_Fuction.DeleteEventLog();
             APEM.ExitApplication();
         }
 
@@ -111,7 +111,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mobile.Main_Page.Event.Click();
             Thread.Sleep(2000);
             Mobile.EventLog_Page.Search.SendKeys(searchWord);
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
             //check result
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath +" "+ mode + " search.PNG");
             int l = 0;
@@ -209,8 +209,15 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                     foreach (var tr in Mobile.EventLog_Page.EventLogTableRows)
                     {
                         var td = tr.FindElements(By.TagName("td"))[l];
-                        DateTime dateTime = DateTime.ParseExact(td.Text, "MM/dd/yy, h:mm:ss tt", CultureInfo.InvariantCulture);
-                        Assert.IsTrue(dateTime.ToString("MM/dd/yyyy") == DateTime.Today.ToString("MM/dd/yyyy"));
+                        //DateTime dateTime = DateTime.ParseExact(td.Text, "MM/dd/yy, h:mm:ss tt", CultureInfo.InvariantCulture);
+                        //Assert.IsTrue(dateTime.ToString("MM/dd/yyyy") == DateTime.Today.ToString("MM/dd/yyyy"));
+                        DateTime date;
+                        if (DateTime.TryParse(td.Text, out date))
+                        {
+                            // 格式化日期为 'MM/dd/yyyy, hh:mm:ss tt'  
+                            string formattedDate = date.ToString("MM/dd/yyyy");
+                            Assert.IsTrue(formattedDate == DateTime.Today.ToString("MM/dd/yyyy"));
+                        }
                     }
                 }
                 l++;

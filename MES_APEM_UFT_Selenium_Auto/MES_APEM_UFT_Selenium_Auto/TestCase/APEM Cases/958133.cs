@@ -5,6 +5,7 @@ using MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary;
 using MES_APEM_UFT_Selenium_Auto.Product.APEM;
 using System;
 using HP.LFT.SDK;
+using MES_APEM_UFT_Selenium_Auto.Product.APEM.MOC_TemplatesModule;
 
 namespace MES_APEM_UFT_Selenium_Auto.TestCase
 {
@@ -25,9 +26,18 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             string Resultpath = Base_Directory.ResultsDir + CaseID + "-";
             Application.LaunchMocAndLogin();
             Thread.Sleep(5000);
+            //import rpl
+            //APEM.MocmainWindow.RPLDesign.ClickSignle();
+            //if (!APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row("PREPARERPL").Existing)
+            //{
+            //    MOC_TemplatesFunction.Importtemplates("CASE958133.zip");
+            //}
+            MOC_TemplatesFunction.Importtemplates("CASE958133.zip");
             APEM.MocmainWindow.RPLDesign.ClickSignle();
             Thread.Sleep(5000);
-            APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row("PREPARERPL").Click();
+            APEM.MocmainWindow.RPLDesignInternalFrame.SearchEditor.SetText("PREPARERPL");
+            APEM.MocmainWindow.RPLDesignInternalFrame.Filterbutton.Click();
+            APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row("Compilable").Click();
             Thread.Sleep(2000);
             APEM.MocmainWindow.RPLDesignInternalFrame.LoadDesigner_Button.ClickSignle();
             Thread.Sleep(5000);
@@ -108,6 +118,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(3000);
             MOC_Fuction.PlanFromRPL("PREPARERPL", "ORDER958133");
             APEM.MocmainWindow.WorkstationBP.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             Thread.Sleep(3000);
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText("ORDER958133");
             APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();
@@ -115,6 +126,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MocmainWindow.WorkstationBPInternalFrame.ExecuteButton.ClickSignle();
             Thread.Sleep(10000);
             APEM.PhaseExecWindow.ExecutionInternalFrame.OK_Button.Click();
+            Thread.Sleep(10000);
             var status = APEM.MocmainWindow.WorkstationBPInternalFrame.OrderTable._UFT_Table.GetCell(0, "Status").Value;
             Assert.AreEqual(status, "Finished");
 

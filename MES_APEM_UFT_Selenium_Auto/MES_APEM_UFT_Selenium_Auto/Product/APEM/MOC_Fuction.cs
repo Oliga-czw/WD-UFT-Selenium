@@ -164,10 +164,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             string RPLSelect = RPLName + "#1";
             APEM.MocmainWindow.Orders.ClickSignle();
             Thread.Sleep(2000);
-            if (APEM.RowSelectionDialog.IsExist())
-            {
-                APEM.RowSelectionDialog.YesButton.Click();
-            }
+            MOC_Fuction.CheckRowSelection();
             //if exit order cancel it
             APEM.MocmainWindow.OrderListInternalFrame.Search.SetText(OrderName);//filter order
             APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
@@ -214,10 +211,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             string RPLSelect = RPLName + "#1";
             APEM.MocmainWindow.Orders.ClickSignle();
             Thread.Sleep(2000);
-            if (APEM.RowSelectionDialog.IsExist())
-            {
-                APEM.RowSelectionDialog.YesButton.Click();
-            }
+            MOC_Fuction.CheckRowSelection();
             //if exit order cancel it
             APEM.MocmainWindow.OrderListInternalFrame.Search.SetText(OrderName);//filter order
             APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
@@ -260,11 +254,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         }
         public static void AddRPL_OpenDesign(String RPLName,String BPLName)
         {
-            int Count = APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable._UFT_Table.Rows.Count;
-            Console.WriteLine(Count.ToString());
-            var tableText = APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable._UFT_Table.GetVisibleText();
-            Console.WriteLine(tableText);
-            if (tableText.Contains(RPLName))
+
+            if (APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row(RPLName).Existing)
             {
                 APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row(RPLName).Click();
                 Thread.Sleep(2000);
@@ -337,7 +328,26 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             var width = (PFCDesign_Width - BeginNode_Width) / 2;
             Base_Assert.ReferenceEquals(x, width);
         }
-    }
 
-    
+        public static void CheckRowSelection()
+        {
+            if (APEM.RowSelectionDialog.IsExist())
+            {
+                APEM.RowSelectionDialog.YesButton.Click();
+            }
+        }
+        public static void DeleteEventLog()
+        {
+            //delete event log
+            APEM.MocmainWindow.Tools.EventLog.Select();
+            APEM.RowSelectionDialog.YesButton.Click();
+            if (APEM.MocmainWindow.EventLogListInterFrame.Delete.IsEnabled)
+            {
+                APEM.MocmainWindow.EventLogListInterFrame.Delete.ClickSignle();
+                APEM.DeleteEventLogDialog.YesButton.Click();
+            }
+        }
+    }
+   
+
 }

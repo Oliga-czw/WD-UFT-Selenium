@@ -82,6 +82,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Active.PNG");
             LogStep(@"Execute in moc");
             APEM.MocmainWindow.WorkstationBP.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             Thread.Sleep(3000);
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText("ORDRE824732");
             APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();

@@ -51,7 +51,12 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //import batchRPL and batchAPI
             APRM_Fuction.ImportBatchAprmAdmin();
             //Environment
-            GML_Function.ConfigEnviroment(Base_Directory.BatchConfig);
+            string oldfile = Base_Directory.BatchConfig;
+            string newFile = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\BatchConfig.ini";
+            string oldText = "MachineName";
+            string newText = Environment.MachineName;
+            Base_Function.ReplaceTextInNewFile(oldfile, newFile, oldText, newText);
+            GML_Function.ConfigEnviroment(newFile);
             LogStep(@"2. import BPL and copy RPL to add Batch Area");
             Application.LaunchMocAndLogin();
             //check bpl exit
@@ -88,10 +93,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //order
             APEM.MocmainWindow.Orders.ClickSignle();
             Thread.Sleep(2000);
-            if (APEM.RowSelectionDialog.IsExist())
-            {
-                APEM.RowSelectionDialog.YesButton.Click();
-            }
+            MOC_Fuction.CheckRowSelection();
             //if exit order cancel it
             APEM.MocmainWindow.OrderListInternalFrame.Search.SetText(OrderName2);//filter order
             APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
@@ -143,6 +145,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
 
             LogStep(@"4. Execute OrderSP from RPL");
             APEM.MocmainWindow.WorkstationBP.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             Thread.Sleep(2000);
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText(OrderName2);
             APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();
@@ -175,10 +178,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             LogStep(@"5.2 Create Order from RPL and MR");
             APEM.MocmainWindow.Orders.ClickSignle();
             Thread.Sleep(2000);
-            if (APEM.RowSelectionDialog.IsExist())
-            {
-                APEM.RowSelectionDialog.YesButton.Click();
-            }
+            MOC_Fuction.CheckRowSelection();
             //if exit order cancel it
             APEM.MocmainWindow.OrderListInternalFrame.Search.SetText(OrderName3);//filter order
             APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
@@ -212,6 +212,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(3000);
             //Execute order from MR
             APEM.MocmainWindow.WorkstationBP.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             Thread.Sleep(2000);
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText(OrderName3);
             APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();
@@ -271,6 +272,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
 
             LogStep(@"5.3 Execute Order from RPL");
             APEM.MocmainWindow.WorkstationBP.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             Thread.Sleep(2000);
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText(OrderName1);
             APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();

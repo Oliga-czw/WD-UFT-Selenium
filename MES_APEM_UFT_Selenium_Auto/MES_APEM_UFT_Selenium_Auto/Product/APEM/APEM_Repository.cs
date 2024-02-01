@@ -12,6 +12,7 @@ using MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary;
 using MES_APEM_UFT_Selenium_Auto.Product.APEM;
 using MES_APEM_UFT_Selenium_Auto.Product.APEM.MOC_AuditModule;
 using MES_APEM_UFT_Selenium_Auto.Product.MOC_TemplatesModule;
+using MES_APEM_UFT_Selenium_Auto.Product.APEM.MOC_TemplatesModule;
 
 namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
 {
@@ -117,7 +118,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             catch { Base_Assert.Fail("Failed to close moc."); }
         }
 
-        public static void setServerAndRegistration()
+        public static void setServerAndConfig()
         {
             Base_Test.LaunchApp(Base_Directory.MOCDir);
             SdkConfiguration config = new SdkConfiguration();
@@ -155,6 +156,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
                 APEM.MOCConfigWindow.WorkstationInsertInterFrame.Close.ClickSignle();
             }
             MOC_Fuction.ConfigClose();
+            //import template
+            MOC_TemplatesFunction.Importtemplates("TEMP.zip");
             APEM.ExitApplication();
         } 
         #endregion

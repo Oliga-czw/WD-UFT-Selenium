@@ -168,7 +168,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         public static string GMLDOCDir = Base_Directory.ProjectDir + "Data\\Input\\GML\\DOCs";
 
         //Tomcat
-
+        public static string TomactPath = "C:\\Program Files\\Common Files\\AspenTech Shared\\Tomcat10.1.16";
         public static string MobileWebconfig = "C:\\Program Files\\Common Files\\AspenTech Shared\\Tomcat10.1.16\\webapps\\ApemMobile\\WEB-INF\\web.xml";
         public static string WDReport = @"C:\Program Files\Common Files\AspenTech Shared\Tomcat10.1.16\WebApps\WeighDispense\Reports\PDFs\";
 

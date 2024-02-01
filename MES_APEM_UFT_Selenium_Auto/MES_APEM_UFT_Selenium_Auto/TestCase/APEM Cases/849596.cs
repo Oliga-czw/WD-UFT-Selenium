@@ -43,7 +43,12 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //APRM
             GML_Function.GMLAPRMConfig();
             //Environment
-            GML_Function.ConfigEnviroment(Base_Directory.BatchConfig);
+            string oldfile = Base_Directory.BatchConfig;
+            string newFile = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\BatchConfig.ini";
+            string oldText = "MachineName";
+            string newText = Environment.MachineName;
+            Base_Function.ReplaceTextInNewFile(oldfile, newFile, oldText, newText);
+            GML_Function.ConfigEnviroment(newFile);
             LogStep(@"2. import BPL and copy RPL to add Batch Area");
             Application.LaunchMocAndLogin();
             //check bpl exit
@@ -73,6 +78,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             MOC_Fuction.CertifyMR();
             LogStep(@"4. Create Order from RPL and MR");
             APEM.MocmainWindow.Orders.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             Thread.Sleep(2000);
             //if exit order cancel it
             APEM.MocmainWindow.OrderListInternalFrame.Search.SetText(OrderName2);//filter order
@@ -107,6 +113,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(3000);
             //Execute order from MR
             APEM.MocmainWindow.WorkstationBP.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             Thread.Sleep(2000);
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText(OrderName2);
             APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();
@@ -166,6 +173,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
 
             LogStep(@"5. Execute Order from RPL");
             APEM.MocmainWindow.WorkstationBP.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             Thread.Sleep(2000);
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderEditor.SetText(OrderName1);
             APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();
