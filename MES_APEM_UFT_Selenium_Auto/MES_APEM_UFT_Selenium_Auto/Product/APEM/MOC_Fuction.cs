@@ -58,6 +58,42 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             }
             Thread.Sleep(4000);
         }
+        public static void VerifyBPL(string BPLName)
+        {
+            APEM.MocmainWindow.BPLDesign.ClickSignle();
+            Thread.Sleep(5000);
+            APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row(BPLName).Click();
+            Thread.Sleep(2000);
+            if (APEM.MocmainWindow.BPLListInternalFrame.VerifyButton.IsEnabled)
+            {
+                APEM.MocmainWindow.BPLListInternalFrame.VerifyButton.ClickSignle();
+                Thread.Sleep(3000);
+                APEM.MocmainWindow.ConfirmDialog.PasswordEditor.SendKeys(PassWord.qaone1);
+                APEM.MocmainWindow.ConfirmDialog.Reason.SendKeys("Test");
+                APEM.MocmainWindow.ConfirmDialog.OK.Click();
+                Thread.Sleep(3000);
+            }
+
+        }
+        public static void CertifyBPL(string BPLName)
+        {
+            APEM.MocmainWindow.RPLDesign.ClickSignle();
+            Thread.Sleep(5000);
+            APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row(BPLName).Click();
+            Thread.Sleep(2000);
+            if (APEM.MocmainWindow.BPLListInternalFrame.CertifyButton.IsEnabled)
+            {
+                APEM.MocmainWindow.BPLListInternalFrame.CertifyButton.Click();
+                Thread.Sleep(3000);
+                APEM.BPLCertifyDialog.YesButton.Click();
+                Thread.Sleep(3000);
+                APEM.MocmainWindow.ConfirmDialog.PasswordEditor.SendKeys(PassWord.qaone1);
+                APEM.MocmainWindow.ConfirmDialog.Reason.SendKeys("Test");
+                APEM.MocmainWindow.ConfirmDialog.OK.Click();
+                Thread.Sleep(3000);
+            }
+
+        }
         public static void VerifyRPL(string RPLName)
         {
             APEM.MocmainWindow.RPLDesign.ClickSignle();
@@ -96,6 +132,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             }
             
         }
+
         //into MR data
         public static void VerifyMR()
         {

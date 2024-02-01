@@ -25,6 +25,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public RPLDesign_InterFrame RPLDesignInternalFrame => new RPLDesign_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Recipe Procedure Logic List']");
         public BPLList_InterFrame BPLListInternalFrame => new BPLList_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Basic Phase Library List']");
         public BPLData_InterFrame BPLDataInternalFrame => new BPLData_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Basic Phase Library Data*']");
+        public Subdocuments_InterFrame SubdocumentsFrame => new Subdocuments_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Subdocuments']");
+        public Document_InterFrame DocumentFrame => new Document_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Document']");
         public OrderList_InterFrame OrderListInternalFrame => new OrderList_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Orders*']");
         public RPLManagement_InterFrame RPLManagementInternalFrame => new RPLManagement_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'RPL Management*']");
         public MasterRecipe_InterFrame MasterRecipeInterFrame => new MasterRecipe_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Master Recipe List']");

@@ -38,40 +38,63 @@ namespace MES_APEM_UFT_Selenium_Auto
         [TestMethod]
         public void TestMethod1()
         {
-            //SdkConfiguration config = new SdkConfiguration();
-            //SDK.Init(config);
-            //Thread.Sleep(3000);
+            SdkConfiguration config = new SdkConfiguration();
+            SDK.Init(config);
+            Thread.Sleep(3000);
+            string BPLName = "BPLRRRRR";
+            string RPLName = "RPLTEST ";
+            Application.LaunchMocAndLogin();
+            APEM.MocmainWindow.BPLDesign.ClickSignle();
+            Thread.Sleep(2000);
+            //check RPL exit
+            if (!APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row(BPLName).Existing)
+            {
+                MOC_TemplatesFunction.Importtemplates("CASE213769.zip");
 
-            Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
-            Web_Fuction.gotoWDWeb(driver);
-            driver.Wait();
-            Web_Fuction.login();
-            driver.Wait();
-            // LogStep(@"2. Go and admin and signature");
-            Web_Fuction.gotoTab(WDWebTab.admin);
-            Web.Administration_Page.Signatures.Click();
+            }
+            APEM.MocmainWindow.BPLListInternalFrame.Refresh_Button.ClickSignle();
+            APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row(BPLName).DoubleClick();
+            APEM.MocmainWindow.BPLDataInternalFrame.TabbedPaneControl.Select("Subdocuments");
+            APEM.MocmainWindow.BPLDataInternalFrame.VerifyButton.ClickSignle();
+            Thread.Sleep(2000);
+            APEM.VerificationConfirmDialog.YesButton.Click();
+            APEM.MocmainWindow.ConfirmDialog.PasswordEditor.SendKeys(PassWord.qaone1);
+            APEM.MocmainWindow.ConfirmDialog.Reason.SendKeys("Test");
+            APEM.MocmainWindow.ConfirmDialog.OK.Click();
             Thread.Sleep(3000);
-            Web.Signature_Page.Reset_Cancel_Weighing_signatures[3].FindElement(By.TagName("input")).Click();
-            Web.Signature_Page.NewSource_Signatures[3].FindElement(By.TagName("input")).Click();
+            Base_Assert.IsFalse(APEM.MocmainWindow.BPLDataInternalFrame.CertifyButton.IsEnabled);
+            APEM.MocmainWindow.BPLDataInternalFrame._UFT_InterFrame.Close();
+            APEM.MocmainWindow.RPLDesign.ClickSignle();
+            APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row(RPLName).DoubleClick();
+            APEM.MocmainWindow.RPLManagementInternalFrame.RPLTabControl.Select("Documents");
+            Base_Assert.IsFalse(APEM.MocmainWindow.RPLManagementInternalFrame.VerifyButton.IsEnabled);
+            Base_Assert.IsFalse(APEM.MocmainWindow.RPLManagementInternalFrame.CertifyButton.IsEnabled);
+
+            MOC_Fuction.VerifyBPL(BPLName);
+            MOC_Fuction.CertifyBPL(BPLName);
+            MOC_Fuction.VerifyRPL(RPLName);
+            MOC_Fuction.CertifyRPL(RPLName);
+            APEM.MocmainWindow.RPLDesignInternalFrame._UFT_InterFrame.Close();
+            APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row(BPLName).DoubleClick();
+            APEM.MocmainWindow.BPLDataInternalFrame.TabbedPaneControl.Select("Subdocuments");
+            APEM.MocmainWindow.BPLDataInternalFrame.CertifyButton.ClickSignle();
+            Thread.Sleep(2000);
+            APEM.CertifyConfirmDialog.YesButton.Click();
+            APEM.MocmainWindow.ConfirmDialog.PasswordEditor.SendKeys(PassWord.qaone1);
+            APEM.MocmainWindow.ConfirmDialog.Reason.SendKeys("Test");
+            APEM.MocmainWindow.ConfirmDialog.OK.Click();
             Thread.Sleep(3000);
-            Web.Signature_Page.Apply.Click();
+            APEM.MocmainWindow.RPLManagementInternalFrame.VerifyButton.ClickSignle();
+            APEM.MocmainWindow.ConfirmDialog.PasswordEditor.SendKeys(PassWord.qaone1);
+            APEM.MocmainWindow.ConfirmDialog.Reason.SendKeys("Test");
+            APEM.MocmainWindow.ConfirmDialog.OK.Click();
             Thread.Sleep(3000);
-            Web.Signature_Page.Apply_OK.Click();
-            Thread.Sleep(5000);
-            string signautres_file = "10 aspen wd signautres_32414 bulk load.xml";
-            WD_Fuction.Bulkload_Export(signautres_file);
-            Web.Signature_Page.Reset_Cancel_Weighing_signatures[1].FindElement(By.TagName("input")).Click();
-            Web.Signature_Page.NewSource_Signatures[1].FindElement(By.TagName("input")).Click();
+            APEM.MocmainWindow.RPLManagementInternalFrame.CertifyButton.ClickSignle();
+            APEM.MocmainWindow.ConfirmDialog.PasswordEditor.SendKeys(PassWord.qaone1);
+            APEM.MocmainWindow.ConfirmDialog.Reason.SendKeys("Test");
+            APEM.MocmainWindow.ConfirmDialog.OK.Click();
             Thread.Sleep(3000);
-            Web.Signature_Page.Apply.Click();
-            Thread.Sleep(3000);
-            Web.Signature_Page.Apply_OK.Click();
-            WD_Fuction.Bulkload(signautres_file);
-            driver.Refresh();
-            Thread.Sleep(5000);
-            
-            Assert.IsNotNull(Web.Signature_Page.Reset_Cancel_Weighing_signatures[3].FindElement(By.TagName("input")).GetAttribute("checked"));
-            Assert.IsNotNull(Web.Signature_Page.NewSource_Signatures[3].FindElement(By.TagName("input")).GetAttribute("checked"));
+
         }
 
 
