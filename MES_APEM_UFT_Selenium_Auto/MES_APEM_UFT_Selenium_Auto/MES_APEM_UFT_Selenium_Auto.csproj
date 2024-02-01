@@ -224,6 +224,7 @@
     <Compile Include="TestCase\WD Cases\357570.cs" />
     <Compile Include="TestCase\WD Cases\357573.cs" />
     <Compile Include="TestCase\WD Cases\36403.cs" />
+    <Compile Include="TestCase\WD Cases\37388.cs" />
     <Compile Include="TestCase\WD Cases\37391.cs" />
     <Compile Include="TestCase\WD Cases\37516.cs" />
     <Compile Include="TestCase\WD Cases\37819.cs" />
@@ -238,6 +239,7 @@
     <Compile Include="TestCase\WD Cases\40988.cs" />
     <Compile Include="TestCase\WD Cases\41180.cs" />
     <Compile Include="TestCase\WD Cases\41252.cs" />
+    <Compile Include="TestCase\WD Cases\41380.cs" />
     <Compile Include="TestCase\WD Cases\41745.cs" />
     <Compile Include="TestCase\WD Cases\41767.cs" />
     <Compile Include="TestCase\WD Cases\41959.cs" />

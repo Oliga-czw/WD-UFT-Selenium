@@ -207,7 +207,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //report.GenerateReportFile(_Descrpt);
             Base_Test.KillProcess("javaw");
             Base_Test.KillProcess("chrome");
-
+            Base_Test.KillProcess("BatchQueryTool");
+            Base_Test.KillProcess("BatchDetailDisplay");
+            Base_Test.KillProcess("mmc");
+            Base_Test.KillProcess("chromedriver");
         }
 
         public string CaseID => this.GetType().Name == null ? throw new ArgumentNullException() : TestCaseManage.GetCase(this.TestContext.TestName).CaseID;

@@ -477,6 +477,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 
         public static void action()
         {
+            Keyboard.KeyUp(Keyboard.Keys.Alt);
             Keyboard.KeyDown(Keyboard.Keys.Alt);
             Keyboard.PressKey(Keyboard.Keys.A);
             Thread.Sleep(1000);

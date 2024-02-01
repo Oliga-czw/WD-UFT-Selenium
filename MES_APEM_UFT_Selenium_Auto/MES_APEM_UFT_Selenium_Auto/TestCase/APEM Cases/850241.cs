@@ -195,7 +195,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             }
             //create order from MR
             APEM.MocmainWindow.OrderListInternalFrame.PlanFromMRecipe_Button.ClickSignle();
-            APEM.MocmainWindow.SelectMasterRecipeDialog.MRTable.Row(MRName1);
+            APEM.MocmainWindow.SelectMasterRecipeDialog.MRTable.Row(MRName1).Click();
             APEM.MocmainWindow.SelectMasterRecipeDialog.OK.Click();
             APEM.MocmainWindow.OrderPlanDialog.CodeEditor.SendKeys(OrderName3);
             APEM.MocmainWindow.OrderPlanDialog.DescriptionEditor.SendKeys("test");
