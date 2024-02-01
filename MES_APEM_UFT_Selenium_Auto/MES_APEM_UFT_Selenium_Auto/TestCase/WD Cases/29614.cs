@@ -47,10 +47,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 WD.mainWindow.BoothCleanInternalFrame.cleanComplete.Click();
             }
             WD.mainWindow.ScaleWeightInternalFrame.barcode.SendKeys("X0125001");
-            //if (WD.ConfirmationDialog._UFT_Dialog.IsEnabled)
-            //{
-            //    WD.ConfirmationDialog.YesButton.Click();
-            //}
+            if (WD.ConfirmationDialog.IsExist())
+            {
+                WD.ConfirmationDialog.YesButton.Click();
+            }
             WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
             WD.mainWindow.ScaleWeightInternalFrame.tare.Click();
             WD.SimulatorWindow.weight.SetText("444");
@@ -74,7 +74,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             }
             WD.mainWindow.HandingInternalFrame.AcknowledgeButton.ClickSignle();
             WD.mainWindow.ScaleWeightInternalFrame.barcode.SendKeys("M801890001");
-            if (WD.ConfirmationDialog._UFT_Dialog.IsEnabled)
+            if (WD.ConfirmationDialog.IsExist())
             {
                 WD.ConfirmationDialog.YesButton.Click();
             }
@@ -100,7 +100,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             }
             WD.mainWindow.HandingInternalFrame.AcknowledgeButton.ClickSignle();
             WD.mainWindow.ScaleWeightInternalFrame.barcode.SendKeys("1072003");
-            if (WD.ConfirmationDialog._UFT_Dialog.IsEnabled)
+            if (WD.ConfirmationDialog.IsExist())
             {
                 WD.ConfirmationDialog.YesButton.Click();
             }

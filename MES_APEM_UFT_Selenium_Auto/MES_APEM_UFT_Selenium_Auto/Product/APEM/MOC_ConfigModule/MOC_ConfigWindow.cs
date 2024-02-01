@@ -16,6 +16,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button Workstations => new UFT_Button(_UFT_Window, "//Button[@Label = 'Workstations' and @IsWrapped = 'True']");
         public UFT_Button Import_ReplaceMerge => new UFT_Button(_UFT_Window, "//Button[@Label = 'Import replace/merge' and @IsWrapped = 'True']");
         public UFT_Button Export => new UFT_Button(_UFT_Window, "//Button[@Label = 'Export' and @IsWrapped = 'True']");
+        public UFT_Button Edit => new UFT_Button(_UFT_Window, "//Button[@Label = 'Edit' and @IsWrapped = 'True']");
         public UFT_Button Table_Definition => new UFT_Button(_UFT_Window, "//Button[@Label = 'Table Definition' and @IsWrapped = 'True']");
         public ConfigImport_Dialog ConfigImportDialog => new ConfigImport_Dialog(_UFT_Window, "//Dialog[@Title = 'Import replace/merge from File']");
         public ConfigExport_Dialog ConfigExportDialog => new ConfigExport_Dialog(_UFT_Window, "//Dialog[@Title = 'Export to File']");
@@ -29,7 +30,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
 
 
     }
-
 
     public class ConfigImport_Dialog : UFT_Dialog
     {

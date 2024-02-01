@@ -130,6 +130,20 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button SelectBPL_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Insert row' and @IsWrapped = 'True']");
         public UFT_Button LoadDesigner_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Load designer' and @IsWrapped = 'True']");
         public UFT_Button VerifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Verify']");
+        public UFT_Button CertifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Certify']");
+        public UFT_Table RPLPhasesListTable => new UFT_Table(_UFT_InterFrame, "//Table[@NativeClass = 'm2r.Table.m2rTableViewEdit']"); 
+    }
+    public class Document_InterFrame : MOCMainInterFrame
+    {
+
+        public Document_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+        public UFT_Button ConfirmChanges_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Confirm changes' and @IsWrapped = 'True']");
+        public UFT_Editor DocName => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Name']");
+        public UFT_Editor DocDescription => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Description']");
+        
+        public UFT_Button LoadDesigner_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Load designer' and @IsWrapped = 'True']");
         
     }
     //MasterRecipe_InterFrame
@@ -147,7 +161,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         //public UFT_Editor CodeEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Code  ']");
         public UFT_Button VerifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Verify']");
         public UFT_Button CertifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Certify']");
-        public UFT_Table ListTable => new UFT_Table(_UFT_InterFrame, "//Table[@AttachedText = 'Name\\s\\s']");
+        public UFT_Table MRListTable => new UFT_Table(_UFT_InterFrame, "//Table[@NativeClass = 'm2r.Table.m2rTableView']");
         public IButton Filterbutton => _UFT_InterFrame.Describe<IButton>(new ButtonDescription
         {
             Label = @"Local filter",
@@ -168,6 +182,12 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Editor BatchArea => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Batch Area']");
         public UFT_Button VerifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Verify']");
         public UFT_Button CertifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Certify']");
+        public ITabControl MRTabControl => _UFT_InterFrame.Describe<ITabControl>(new TabControlDescription
+        {
+            TagName = @"m2rTabbedPanel"
+        });
+        public UFT_Table ParametersTable => new UFT_Table(_UFT_InterFrame, "//Table[@NativeClass = 'm2r.Table.m2rTableViewEdit']");
+        public UFT_UiObject message => new UFT_UiObject(_UFT_InterFrame, "//Label[@TagName = 'm2rStatus']");
 
     }
     //OrderTrackingPFC_InterFrame
@@ -297,6 +317,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button LoadDesigner_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Load designer' and @IsWrapped = 'True']");
         public UFT_Button Refresh_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Refresh' and @IsWrapped = 'True']");
         public UFT_Table BPLList_Table => new UFT_Table(_UFT_InterFrame, "//Table[@AttachedText = 'Name\\s\\s']");
+        public UFT_Button Paste_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Paste row' and @IsWrapped = 'True']");
+        public UFT_Button Copy_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Copy row' and @IsWrapped = 'True']");
+        public UFT_Button VerifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Verify']");
+        public UFT_Button CertifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Certify']");
     }
 
     public class BPLData_InterFrame : MOCMainInterFrame
@@ -314,7 +338,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         {
             TagName = @"m2rTabbedPanel"
         });
-        public UFT_Button AddBP_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Insert row' and @IsWrapped = 'True']");
+        public UFT_Button InsertRow_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Insert row' and @IsWrapped = 'True']");
         public UFT_Table BPListTable => new UFT_Table(_UFT_InterFrame, "//Table[@AttachedText = 'No.\\s\\s']");
         public IEditor NoEditor => _UFT_InterFrame.Describe<IEditor>(new EditorDescription {
 				AttachedText = @"No.  ",
@@ -327,8 +351,21 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             IsWrapped = true
         });
         public UFT_Button LoadDesigner_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Load designer' and @IsWrapped = 'True']");
+        public UFT_Button VerifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Verify']");
+        public UFT_Button CertifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Certify']");
     }
-    //OrderList_InterFrame
+    public class Subdocuments_InterFrame : MOCMainInterFrame
+    {
+
+        public Subdocuments_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+        public UFT_Button ConfirmChanges_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Confirm changes' and @IsWrapped = 'True']");
+        public UFT_Button CancelChanges_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Cancel changes' and @IsWrapped = 'True']");
+        public UFT_Editor SubdocName => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Name']");
+        public UFT_Editor SubdocDescription => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Description']");
+        public UFT_Button LoadDesigner_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Load designer' and @IsWrapped = 'True']");
+    }
     public class OrderList_InterFrame : MOCMainInterFrame
     {
 

@@ -88,6 +88,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         #endregion
         #region General
         public Selenium_WebElement log_on_required_chx => new Selenium_WebElement(_Selenium_Driver, "//label[text()='Log on required for Execution System']/../input");
+        public Selenium_WebElement Disable_Weighing_comments => new Selenium_WebElement(_Selenium_Driver, "//label[text()='Disable weighing comments']/../input");
 
         #endregion
         #region deviations

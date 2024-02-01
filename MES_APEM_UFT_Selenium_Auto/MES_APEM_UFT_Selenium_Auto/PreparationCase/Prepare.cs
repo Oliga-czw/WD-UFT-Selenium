@@ -16,6 +16,7 @@ using MES_APEM_UFT_Selenium_Auto.Product.APEM;
 using MES_APEM_UFT_Selenium_Auto.Product.APRM;
 using MES_APEM_UFT_Selenium_Auto.Product.ApemMobile;
 using MES_APEM_UFT_Selenium_Auto.Product.DataBaseWizard;
+using MES_APEM_UFT_Selenium_Auto.Product.APEM.MOC_TemplatesModule;
 
 namespace MES_APEM_UFT_Selenium_Auto
 {
