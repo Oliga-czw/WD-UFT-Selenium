@@ -72,11 +72,13 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         {
             AttachedText = @"Order  "
         });
+        public UFT_Editor SearchEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@NativeClass='javax.swing.JTextField']");
         //public UFT_Editor CodeEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Code  ']");
         //public ITable OrderTable => _UFT_InterFrame.Describe<ITable>(new EditorDescription
         //{
         //    AttachedText = @"Order  "
         //});
+        public UFT_Button RefreshButton => new UFT_Button(_UFT_InterFrame, "//Button[@Label ='Refresh' and @IsWrapped = 'True']");
         public UFT_Table OrderTable => new UFT_Table(_UFT_InterFrame, "//Table[@NativeClass = 'm2r.Table.m2rTableView']");
         public IButton Filterbutton => _UFT_InterFrame.Describe<IButton>(new ButtonDescription
         {
@@ -98,7 +100,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         {
             AttachedText = @"Name  "
         });
-
+        public UFT_Editor SearchEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@NativeClass='javax.swing.JTextField']");
         //public UFT_Editor CodeEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Code  ']");
         public UFT_Button VerifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Verify']");
         public UFT_Button CertifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Certify']");
@@ -273,6 +275,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public IUiObject ParallelDivergent => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription
         {
             NativeClass = @"PFCTree.View.ParallelDivergent"
+            Index = 0
         });
         #endregion
         #region BPLDesign

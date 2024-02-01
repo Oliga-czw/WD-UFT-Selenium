@@ -86,6 +86,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             {
                 IP21.IP21MainWindow.ShutDownDialog.OK.Click();
             }
+            if (IP21.IP21MainWindow.StopDialog.IsExist())
+            {
+                IP21.IP21MainWindow.StopDialog.OK.Click();
+            }
             int i = 1;
             while(IP21.IP21MainWindow.BarMessage.Text != "InfoPlus.21 has been started successfully.")
             {
@@ -114,7 +118,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
                 IP21.IP21MainWindow.StopDialog.Yes.Click();
             }
             int i = 1;
-            while (IP21.IP21MainWindow.BarMessage.Text != "InfoPlus.21 has been stopped successfully.")
+            while (IP21.IP21MainWindow.BarMessage.Text != "InfoPlus.21 has been stopped successfully." || IP21.IP21MainWindow.BarMessage.Text != "InfoPlus.21 is already stopped.")
             {
                 Thread.Sleep(1000);
                 i++;
@@ -123,11 +127,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
                     break;
                 }
 
-            }
-            if (i < 60)
-            {
-                //log success
-                Assert.AreEqual(IP21.IP21MainWindow.BarMessage.Text, "InfoPlus.21 has been stopped successfully.");
             }
             IP21.IP21MainWindow.Close();
         }

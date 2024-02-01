@@ -117,7 +117,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             // 将替换后的内容写回文件  
             File.WriteAllText(newPath, replacedContent);
         }
-       
+        public static string RandomString(int index)
+        {
+            return Guid.NewGuid().ToString().Replace("-", "").Substring(0, index);
+        }
+
     }
 
     public static class Keyboards
