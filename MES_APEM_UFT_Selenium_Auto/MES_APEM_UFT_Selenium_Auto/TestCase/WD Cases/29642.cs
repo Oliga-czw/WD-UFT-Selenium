@@ -23,7 +23,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         public void VSTS_29642()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID;
-            
+
+            AFW_Fuction.ReplaceAFWDB();
             //no view and import
             LogStep(@"1. grant user permision other than view and import permission and apply.");
             Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
@@ -72,11 +73,12 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             driver.FindElement("//button[@class='Home_Login_Button']").Click();
             Thread.Sleep(1000);
             var tabList2 = driver.FindElements("//div[@class='Tab_Label']");
+            Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "no_material.PNG");
             foreach (var tab in tabList2)
             {
                 Base_Assert.IsTrue(tab.Text != "Material");
             }
-            Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "no_material.PNG");
+
             Web_Fuction.RestorePermission(Selenium_Driver._Selenium_Driver);
             LogStep(@"3. user having no management and administration permission.");
             //Production Execution User
@@ -100,7 +102,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Thread.Sleep(2000);
                 driver.FindElement("//button[text()='OK']").Click();
             }
-           
+
             driver.FindElement("//div[text()='Logoff']").Click();
             Thread.Sleep(2000);
             driver.FindElement("//input[@class='gwt-TextBox']").SendKeys("qae\\qaone3");

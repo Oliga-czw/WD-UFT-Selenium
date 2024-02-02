@@ -40,8 +40,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             WD.mainWindow.ScaleCheckInternalFrame.testScale.Click();
             Thread.Sleep(2000);
             WD.mainWindow.TestScaleInternalFrame.RangeMin.SendKeys("2");
-            Base_Assert.IsFalse(WD.mainWindow.TestScaleInternalFrame.Apply.IsEnabled);
             WD.mainWindow.GetSnapshot(Resultpath + "Apply_disabled.PNG");
+            Base_Assert.IsFalse(WD.mainWindow.TestScaleInternalFrame.Apply.IsEnabled);
         }
 
        

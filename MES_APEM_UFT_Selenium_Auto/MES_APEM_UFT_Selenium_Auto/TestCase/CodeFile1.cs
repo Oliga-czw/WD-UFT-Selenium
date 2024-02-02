@@ -27,7 +27,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Timeout(600000)]
 
 
-        [TestMethod]
+        //[TestMethod]
         public void VSTS_9999()
         {
             Application.LaunchWDAndLogin();

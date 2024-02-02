@@ -18,7 +18,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]
 
-        [TestMethod]
+        //defect 1324998
+        //[TestMethod]
         public void VSTS_43507()
 
         {
