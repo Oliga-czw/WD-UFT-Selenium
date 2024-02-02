@@ -275,6 +275,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
                     //BatchRPLArea
                     action();
                     Keyboard.PressKey(Keyboard.Keys.I);
+                    Thread.Sleep(5000);
                     APRM.APRMAdminWindow.Open.Filename.SendKeys(Base_Directory.BatchRPLArea);
                     Keyboard.PressKey(Keyboard.Keys.Enter);
                     Thread.Sleep(2000);
@@ -297,6 +298,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
                     //BatchAPI
                     action();
                     Keyboard.PressKey(Keyboard.Keys.I);
+                    Thread.Sleep(5000);
                     APRM.APRMAdminWindow.Open.Filename.SendKeys(Base_Directory.BatchAPIArea);
                     Keyboard.PressKey(Keyboard.Keys.Enter);
                     Thread.Sleep(2000);

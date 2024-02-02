@@ -7,6 +7,7 @@ using System.Threading;
 using MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary;
 using MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary;
 using MES_APEM_UFT_Selenium_Auto.Product.WD;
+using System.Linq;
 
 namespace MES_APEM_UFT_Selenium_Auto.TestCase
 {
@@ -15,7 +16,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [TestCaseID(823916)]
         [Title("UC813649_'Reset' and 'Cancel' button for 'Source as Target' method should work if SOURCE_TARGET_REQUIRE_TARGET_TARE = 0 is set on flags.m2r_cfg on server side")]
         [TestCategory(ProductArea.WD)]
-        [Priority(CasePriority.High)]
+        [Priority(CasePriority.Medium)]
         [TestCategory(CaseState.Started)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
@@ -63,8 +64,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 string final_actual = WD.mainWindow.ScaleWeightInternalFrame.FinalGross.AttachedText;
                 string difference_actual = WD.mainWindow.ScaleWeightInternalFrame.Diffenence.AttachedText;
                 string[] a = { initial_actual, final_actual, difference_actual };
-                string[] e = { "Initial Gross:", "Finial Gross:", "Difference:" };
-                Base_Assert.AreEqual(a,e,"Weighing Info");
+                string[] e = { "Initial Gross:", "Final Gross:", "Difference:" };
+                Base_Assert.IsTrue(e.SequenceEqual(a), "Weighing Info");
 
                 //input barcode
                 WD.mainWindow.ScaleWeightInternalFrame.barcode.SendKeys(barcode);

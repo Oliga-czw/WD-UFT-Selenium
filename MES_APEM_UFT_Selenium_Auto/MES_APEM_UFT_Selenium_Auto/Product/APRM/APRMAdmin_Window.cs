@@ -87,17 +87,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APRM
 				Name = @"BatchRPL",
 				Path = @"Window;Pane;Window;Pane;Tree;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem"
 			});
-		public ITreeViewItem BatchAPI => Desktop.Describe<IWindow>(new WindowDescription
-		{
-			ProcessName = @"mmc",
-			Name = @"Aspen Production Record Manager Administrator V14.2 - aspenONE",
-			Path = @"Window",
-			SupportedPatterns = new string[] { @"LegacyIAccessible", @"Transform", @"Window" },
-			FrameworkId = @"Win32",
-			ControlType = @"Window",
-			AutomationId = string.Empty
-		})
-			.Describe<IPane>(new PaneDescription
+		public ITreeViewItem BatchAPI => _STD_Window.Describe<IPane>(new PaneDescription
 			{
 				ProcessName = @"mmc",
 				Name = @"Workspace",
@@ -190,7 +180,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APRM
 			.Describe<ITreeViewItem>(new TreeViewItemDescription
 			{
 				ProcessName = @"mmc",
-				Name = @"BatchAPI",
+				Name = As.RegExp(@"BatchAPI.*"),
 				Path = @"Window;Pane;Window;Pane;Tree;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem;TreeItem",
 				SupportedPatterns = new string[] { @"ExpandCollapse", @"LegacyIAccessible", @"SelectionItem" },
 				FrameworkId = string.Empty,

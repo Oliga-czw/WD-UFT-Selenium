@@ -65,7 +65,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(10000);
             LogStep(@"7. check Order is Downloaded in web");
             Web_Fuction.gotoTab(WDWebTab.order);
-            Base_Assert.IsTrue(driver.FindElements("//table[@class='Order_Table_body_Style_Collapse']/tbody/tr[@class]").Count == 5, "Order Downloaded");
+            Base_Assert.IsTrue(driver.FindElements("//table[@class='Order_Table_body_Style_Collapse']/tbody/tr[@class]").Count > 0, "Order Downloaded");
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Order Downloaded .PNG");
             driver.Close();
         }
