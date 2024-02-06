@@ -23,7 +23,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("UC745042_W&D_APRM integration should have the signer characteristic value in the format UserID(UserFullName)")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.High)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(1200000)]

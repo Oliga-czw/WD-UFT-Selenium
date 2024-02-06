@@ -16,7 +16,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("UC813649_'Source as Target' method should work as previous if SOURCE_TARGET_REQUIRE_TARGET_TARE = 1 is set on flags.m2r_cfg on server side or config.m2r_cfg on client side")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.High)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]

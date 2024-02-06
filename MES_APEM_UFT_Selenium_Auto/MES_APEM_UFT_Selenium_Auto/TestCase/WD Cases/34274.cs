@@ -12,7 +12,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("WD: should detect the javaw.exe process, if there's already one should pop up warning message (from  CQ00548238)")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Medium)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]

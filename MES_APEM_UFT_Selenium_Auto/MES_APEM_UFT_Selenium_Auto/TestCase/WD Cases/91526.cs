@@ -16,7 +16,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("booth cleaning:order dispensing_Order Dispensing")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Low)]
-        [TestCategory(CaseState.Created)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
         [Timeout(600000)]

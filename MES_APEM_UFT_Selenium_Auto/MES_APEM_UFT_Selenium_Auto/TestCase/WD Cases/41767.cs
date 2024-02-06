@@ -17,7 +17,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("V8.8.4-Weight a material with New Source button used and signature configured")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.High)]
-        [TestCategory(CaseState.Created)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
         [Timeout(600000)]

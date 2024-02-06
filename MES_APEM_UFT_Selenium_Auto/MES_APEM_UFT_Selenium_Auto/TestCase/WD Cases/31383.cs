@@ -18,7 +18,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("Accept Dispensation, check the order status, Material consumption xml, and Inventoy Adjustment xml")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Critical)]
-        [TestCategory(CaseState.Accepted)]
+        [TestCategory(CaseState.Created)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
         [Timeout(600000)]

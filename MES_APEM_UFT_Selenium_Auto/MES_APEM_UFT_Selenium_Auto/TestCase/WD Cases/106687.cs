@@ -22,7 +22,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("V8.8.6_CQ00775245:Disable weighing comments")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Medium)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]

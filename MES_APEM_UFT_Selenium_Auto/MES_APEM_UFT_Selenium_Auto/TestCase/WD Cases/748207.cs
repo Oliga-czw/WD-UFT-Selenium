@@ -16,7 +16,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("UC730650_Check tare input box disappears using Net Removal method when set config key=0 in flag.m2r_cfg on the server")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.High)]
-        [TestCategory(CaseState.Created)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
         [Timeout(600000)]

@@ -24,7 +24,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("UC859545_APEM Mobile: Add BPs and check BP table in Mobile")]
         [TestCategory(ProductArea.Mobile)]
         [Priority(CasePriority.High)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]

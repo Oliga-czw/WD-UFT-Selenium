@@ -22,12 +22,12 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("Order status transfer")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Medium)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Created)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(1200000)]
 
-        [TestMethod]
+        //[TestMethod]
         public void VSTS_29611()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID;

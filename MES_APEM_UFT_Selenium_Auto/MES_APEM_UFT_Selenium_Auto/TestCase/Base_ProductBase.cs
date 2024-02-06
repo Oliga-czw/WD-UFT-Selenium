@@ -41,6 +41,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Base_Test.KillProcess("BatchDetailDisplay");
             Base_Test.KillProcess("javaw");
             Base_Test.KillProcess("mmc");
+            Base_Test.KillProcess("BatchQueryTool");
+            Base_Test.KillProcess("DatabaseWizard");
             Base_File.CleanWorkFolder(Base_Directory.GenerateOutputFileDir(CaseID, ""));
             //Initial data
             WD_Fuction.initial_data();

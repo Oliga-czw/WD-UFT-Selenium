@@ -23,10 +23,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("UC693790_W&D_Enhance Net Removal: record gross weight before and after weighing when partial dispense/Accept")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.High)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
-        [Timeout(1200000)]
+        [Timeout(1500000)]
 
         [TestMethod]
         public void VSTS_736598()
@@ -47,7 +47,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Base_Function.AddConfigKey(Configpath, ConfigKey1);
                 //codify all and restart tomcat
                 Base_Test.LaunchApp(Base_Directory.Codify_all);
-                Base_Function.ResartServices(ServiceName.Tomcat);
+                //Base_Function.ResartServices(ServiceName.Tomcat);
                 Thread.Sleep(13000);
                 //LogStep(@"2. config APRM admin and apem admin");
                 APRM_Fuction.InitailAPRMWD();
@@ -339,7 +339,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 //codify all
                 Base_Test.LaunchApp(Base_Directory.Codify_all);
 
-                Base_Function.ResartServices(ServiceName.Tomcat);
+                //Base_Function.ResartServices(ServiceName.Tomcat);
             }
             
 

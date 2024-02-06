@@ -17,7 +17,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("UC813649_'Reset' and 'Cancel' button for 'Source as Target' method should work if SOURCE_TARGET_REQUIRE_TARGET_TARE = 0 is set on flags.m2r_cfg on server side")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Medium)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Created)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
         [Timeout(600000)]

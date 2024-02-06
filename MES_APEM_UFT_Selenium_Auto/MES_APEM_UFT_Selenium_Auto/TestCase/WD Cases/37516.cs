@@ -15,7 +15,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("V10Enh-Verify calibration expired in minutes should be blocked in execution.")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Medium)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]

@@ -16,7 +16,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("V10.0.1_298520:Order can not download from WDDownload folder if set \"Return_No\" for \"Order download\" on \"User exits\"")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Medium)]
-        [TestCategory(CaseState.Created)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
         [Timeout(600000)]

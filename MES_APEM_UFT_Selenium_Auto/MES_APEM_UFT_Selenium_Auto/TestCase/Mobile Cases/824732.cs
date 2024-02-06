@@ -23,7 +23,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("UC730129_the order phase table status auto refresh when status changes in MOC")]
         [TestCategory(ProductArea.Mobile)]
         [Priority(CasePriority.High)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]

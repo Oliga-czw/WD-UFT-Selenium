@@ -14,7 +14,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("UC822683_MOC_PFC editor_ Verify and Compile items are under the new added Build menu at the Operation and Phase level")]
         [TestCategory(ProductArea.RecipeManagement)]
         [Priority(CasePriority.Medium)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]

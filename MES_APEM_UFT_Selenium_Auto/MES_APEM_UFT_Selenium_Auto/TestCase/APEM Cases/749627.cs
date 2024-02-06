@@ -19,7 +19,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("UC730136_New API function 'VIEW_DOC' design and execution in moc")]
         [TestCategory(ProductArea.API)]
         [Priority(CasePriority.Medium)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]

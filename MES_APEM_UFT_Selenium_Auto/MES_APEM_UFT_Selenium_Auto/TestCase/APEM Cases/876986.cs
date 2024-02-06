@@ -19,7 +19,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("822656_The screenshot can preview from MOC and APEM mobile if finish the execution phase on APEM mobile if set ' MOBILE_SCREENSHOT_ON = 1' ")]
         [TestCategory(ProductArea.Mobile)]
         [Priority(CasePriority.Medium)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]

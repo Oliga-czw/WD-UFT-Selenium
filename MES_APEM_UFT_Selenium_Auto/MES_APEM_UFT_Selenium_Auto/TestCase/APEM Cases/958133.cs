@@ -15,7 +15,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("UC822669_MOC_PFC editor:  Copy and paste transition/script across the levels")]
         [TestCategory(ProductArea.RecipeManagement)]
         [Priority(CasePriority.Medium)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]

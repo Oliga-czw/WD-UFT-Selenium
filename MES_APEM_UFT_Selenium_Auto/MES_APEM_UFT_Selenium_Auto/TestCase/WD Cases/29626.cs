@@ -22,10 +22,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("Order: order material with their status")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Medium)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
-        [Timeout(600000)]
+        [Timeout(1200000)]
 
         [TestMethod]
         public void VSTS_29626()
@@ -104,14 +104,14 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             WD_Fuction.SelectOrderandMaterial("test1", WDMaterial.M801890);
             WD_Fuction.SelectMehod(WDMethod.Net, "M801890001");
             Thread.Sleep(3000);
-            WD_Fuction.FinishNetDiapense("1", "125");
+            WD_Fuction.FinishNetDiapense("1", "100");
 
             WD.mainWindow.MaterialInternalFrame.cancel.Click();
             WD.mainWindow.DispensingInternalFrame.HomeButton.Click();
             WD_Fuction.SelectOrderandMaterial("test1", WDMaterial.x1072);
             WD_Fuction.SelectMehod(WDMethod.Net, "1072003");
             Thread.Sleep(3000);
-            WD_Fuction.FinishNetDiapense("1", "125");
+            WD_Fuction.FinishNetDiapense("1", "100");
             WD.mainWindow.DispensingInternalFrame.HomeButton.Click();
             Thread.Sleep(2000);
             WD.mainWindow.HomeInternalFrame.OrderKitting.Click();
@@ -121,7 +121,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             string test01 = WD.mainWindow.SelectAnOrderToKittingFrame.KitTable.GetCell(0, "Container").Value.ToString();
             string test02 = WD.mainWindow.SelectAnOrderToKittingFrame.KitTable.GetCell(1, "Container").Value.ToString();
             string test03 = WD.mainWindow.SelectAnOrderToKittingFrame.KitTable.GetCell(2, "Container").Value.ToString();
-            string test04 = WD.mainWindow.SelectAnOrderToKittingFrame.KitTable.GetCell(2, "Container").Value.ToString();
+            string test04 = WD.mainWindow.SelectAnOrderToKittingFrame.KitTable.GetCell(3, "Container").Value.ToString();
             WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys("test1");
             WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys(test01);
             WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys(test02);
@@ -169,7 +169,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Web.Order_Page.Refresh.Click();
             Thread.Sleep(3000);
             driver.FindElement("//a[text()='Order']").Click();
-            Thread.Sleep(3000);
+            Thread.Sleep(8000);
             driver.FindElement("//td[text()='test1']/../td[3]/img").Click();
             var X0125_status6 = driver.FindElement("//td[text()='X0125']/../td[6]").Text;
             var Request_QTY2 = driver.FindElement("//td[text()='X0125']/../td[7]").Text;

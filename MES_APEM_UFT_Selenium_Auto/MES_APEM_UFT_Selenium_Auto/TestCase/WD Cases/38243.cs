@@ -16,7 +16,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("Can print PDF when set LABEL_PRINT_TO_PDF_FILE = 1 in the configuration file")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.High)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
         [Timeout(600000)]

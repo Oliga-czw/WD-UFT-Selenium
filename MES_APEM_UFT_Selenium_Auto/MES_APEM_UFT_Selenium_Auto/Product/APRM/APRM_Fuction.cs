@@ -50,7 +50,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         {
             //open wizard
             Application.LaunchWizrd();
-            Thread.Sleep(5000);
             Wizard.WizardWindow.next.Click();
             //select aprm
             Wizard.WizardWindow.lstAPRM.Click();
@@ -91,6 +90,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
                 Thread.Sleep(1000);
                 Wizard.ADSAExitDialog.OK.Click();
                 Wizard.WizardWindow.chkCreateADSA.Click();
+                hread.Sleep(1000);
                 Wizard.WizardWindow.next.Click();
             }
             //finish and wait 80 seconds for config conpleted

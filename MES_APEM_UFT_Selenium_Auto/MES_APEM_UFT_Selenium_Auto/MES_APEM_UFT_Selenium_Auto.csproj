@@ -143,6 +143,7 @@
     <Compile Include="TestCase\APEM Cases\916388.cs" />
     <Compile Include="TestCase\APEM Cases\213781.cs" />
     <Compile Include="TestCase\APEM Cases\916442.cs" />
+    <Compile Include="TestCase\Mobile Cases\782513.cs" />
     <Compile Include="TestCase\Mobile Cases\801579.cs" />
     <Compile Include="TestCase\Mobile Cases\801618.cs" />
     <Compile Include="TestCase\Mobile Cases\912651.cs" />
@@ -215,6 +216,7 @@
     <Compile Include="TestCase\WD Cases\31095.cs" />
     <Compile Include="TestCase\WD Cases\31169.cs" />
     <Compile Include="TestCase\WD Cases\31355.cs" />
+    <Compile Include="TestCase\WD Cases\31383.cs" />
     <Compile Include="TestCase\WD Cases\31389.cs" />
     <Compile Include="TestCase\WD Cases\32414.cs" />
     <Compile Include="TestCase\WD Cases\34274.cs" />
@@ -244,6 +246,7 @@
     <Compile Include="TestCase\WD Cases\41959.cs" />
     <Compile Include="TestCase\WD Cases\41964.cs" />
     <Compile Include="TestCase\WD Cases\42291.cs" />
+    <Compile Include="TestCase\WD Cases\42345.cs" />
     <Compile Include="TestCase\WD Cases\42354.cs" />
     <Compile Include="TestCase\WD Cases\42801.cs" />
     <Compile Include="TestCase\WD Cases\42955.cs" />
@@ -262,6 +265,7 @@
     <Compile Include="TestCase\WD Cases\748225.cs" />
     <Compile Include="TestCase\WD Cases\748922.cs" />
     <Compile Include="TestCase\WD Cases\818432.cs" />
+    <Compile Include="TestCase\WD Cases\823916.cs" />
     <Compile Include="TestCase\WD Cases\823922.cs" />
     <Compile Include="TestCase\WD Cases\823970.cs" />
     <Compile Include="TestCase\WD Cases\823971.cs" />

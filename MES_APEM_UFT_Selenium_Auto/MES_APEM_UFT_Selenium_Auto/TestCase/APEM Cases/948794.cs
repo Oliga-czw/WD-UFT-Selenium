@@ -15,7 +15,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("UC822683_MOC_PFC editor_ The design structure displays on the center of the design window")]
         [TestCategory(ProductArea.RecipeManagement)]
         [Priority(CasePriority.Medium)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]

@@ -22,7 +22,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("V8.8.4_<Dispensation with insufficient quantity> deviation to test dispensing quantity out of range")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.High)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
         [Timeout(600000)]
