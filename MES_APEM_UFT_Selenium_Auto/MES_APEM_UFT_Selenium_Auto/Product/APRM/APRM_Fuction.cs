@@ -90,7 +90,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
                 Thread.Sleep(1000);
                 Wizard.ADSAExitDialog.OK.Click();
                 Wizard.WizardWindow.chkCreateADSA.Click();
-                hread.Sleep(1000);
+                Thread.Sleep(1000);
                 Wizard.WizardWindow.next.Click();
             }
             //finish and wait 80 seconds for config conpleted

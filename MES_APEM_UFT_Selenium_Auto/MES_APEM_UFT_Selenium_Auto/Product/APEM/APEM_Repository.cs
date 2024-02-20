@@ -130,7 +130,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
                 AeBRS.AeBRSConfigureWindow.OkButton.Click();
                 Thread.Sleep(3000);
             }
-            if (APEM.RegistrationWindow.IsExist())
+            if (APEM.RegistrationWindow.IsExist(30))
             {
                 APEM.RegistrationWindow.doNotShowCheckBox.Click();
                 APEM.RegistrationWindow.Close();
