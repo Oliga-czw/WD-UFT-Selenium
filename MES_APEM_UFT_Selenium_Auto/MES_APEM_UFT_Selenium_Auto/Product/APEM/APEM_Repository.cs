@@ -100,7 +100,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public static UFT_Dialog RowSelectionDialog => new UFT_Dialog("//Dialog[@Title = 'Row selection']");
         public static UFT_Dialog DeleteEventLogDialog => new UFT_Dialog("//Dialog[@Title = 'Delete Event Log']");
         public static UFT_Dialog CheckParametersDialog => new UFT_Dialog("//Dialog[@Title = 'Check Parameters']");
+        public static UFT_Dialog ConfirmFileReplaceDialog => new UFT_Dialog("//Dialog[@Title = 'Confirm File Replace']");
+        public static UFT_Dialog ExecuteTemplateDialog => new UFT_Dialog("//Dialog[@Title = 'Execute the Template']");
         #endregion
+
 
 
         #region MOC_Methods

@@ -144,6 +144,7 @@
     <Compile Include="TestCase\APEM Cases\213781.cs" />
     <Compile Include="TestCase\APEM Cases\916442.cs" />
     <Compile Include="TestCase\Mobile Cases\782513.cs" />
+    <Compile Include="TestCase\Mobile Cases\935165.cs" />
     <Compile Include="TestCase\Mobile Cases\801579.cs" />
     <Compile Include="TestCase\Mobile Cases\801618.cs" />
     <Compile Include="TestCase\Mobile Cases\912651.cs" />
@@ -151,7 +152,7 @@
     <Compile Include="TestCase\APEM Cases\915161.cs" />
     <Compile Include="TestCase\APEM Cases\863166.cs" />
     <Compile Include="TestCase\APEM Cases\863181.cs" />
-    <Compile Include="TestCase\APEM Cases\876986.cs" />
+    <Compile Include="TestCase\Mobile Cases\876986.cs" />
     <Compile Include="TestCase\APEM Cases\749572.cs" />
     <Compile Include="TestCase\APEM Cases\914899.cs" />
     <Compile Include="TestCase\APEM Cases\948794.cs" />

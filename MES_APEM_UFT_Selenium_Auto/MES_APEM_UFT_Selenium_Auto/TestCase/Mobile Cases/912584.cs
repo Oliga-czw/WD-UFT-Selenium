@@ -49,7 +49,12 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "BPList_NoData.PNG");
             Base_Assert.AreEqual(Mobile.BPList_Page.BPListTable._Selenium_WebElement.Size.Height, 0);
             Application.LaunchMocAndLogin();
-            MOC_TemplatesFunction.Importtemplates("TEMP912584.zip");
+            //check bpl exit
+            APEM.MocmainWindow.BPLDesign.ClickSignle();
+            if (!APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row("BPL912584_1").Existing)
+            {
+                MOC_TemplatesFunction.Importtemplates("TEMP912584.zip");
+            }
             APEM.MocmainWindow.Config_moudle.Click();
             Thread.Sleep(5000);
             APEM.MOCConfigWindow.Export.ClickSignle();
@@ -57,12 +62,29 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MOCConfigWindow.ConfigExportDialog.HomeButton.ClickSignle();
             APEM.MOCConfigWindow.ConfigExportDialog.FileName.SetText("EN912584");
             APEM.MOCConfigWindow.ConfigExportDialog.ExportToFileButton.ClickSignle();
+            //if exit file
+            if (APEM.ConfirmFileReplaceDialog.IsExist())
+            {
+                APEM.ConfirmFileReplaceDialog.YesButton.Click();
+            }
             string filePath = "C:\\Users\\qaone1\\Desktop\\EN912584.ini";
             string newData = "#Executable BPs in Mobile\r\nWEB_EXECUTABLE_3 = BPL912584_1.CREATE\r\nWEB_EXECUTABLE_1 = BPL912584_2.BP_NONWEB\r\nWEB_EXECUTABLE_4 = BPL912584_3.BP_NOCERTIFY\r\nWEB_EXECUTABLE_2 = BPL912584_3.BP002";
             string newData1 = "WEB_EXECUTABLE_3 = BPL912584_1.CREATE\r\nWEB_EXECUTABLE_1 = BPL912584_2.BP_NONWEB\r\nWEB_EXECUTABLE_4 = BPL912584_3.BP_NOCERTIFY\r\nWEB_EXECUTABLE_2 = BPL912584_3.BP002";
             string iniContent = File.ReadAllText(filePath);
             string searchString = "#Executable BPs in Mobile\r\n";
             bool contains = iniContent.Contains(searchString);
+            if (contains)
+            {
+                var lines = File.ReadAllLines(filePath);
+                // check last line blank 
+                if (string.IsNullOrWhiteSpace(lines.Last()))
+                {
+                    // delete last line 
+                    lines = lines.Take(lines.Length - 1).ToArray();
+                    // rewrite  
+                    File.WriteAllLines(filePath, lines);
+                }
+            }
             using (StreamWriter sw = new StreamWriter(filePath, true))
             {
                 if (contains == false)
