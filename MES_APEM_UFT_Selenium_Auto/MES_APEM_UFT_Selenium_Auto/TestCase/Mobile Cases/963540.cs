@@ -16,7 +16,7 @@ using Application = MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary.Application;
 
 namespace MES_APEM_UFT_Selenium_Auto.TestCase
 {
-    public partial class APEM_TestCase
+    public partial class Mobile_TestCase
     {
         [TestCaseID(963540)]
         [Title("UC822659_APEM Mobile: Check events display when the number of events is more than 200")]

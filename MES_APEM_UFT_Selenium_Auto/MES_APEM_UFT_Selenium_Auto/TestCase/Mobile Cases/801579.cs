@@ -17,7 +17,7 @@ using System.Linq;
 
 namespace MES_APEM_UFT_Selenium_Auto.TestCase
 {
-    public partial class APEM_TestCase
+    public partial class Mobile_TestCase
     {
         [TestCaseID(801579)]
         [Title("UC801108_APEM mobile: Order list load and show 200 records one time on Process Order page.")]

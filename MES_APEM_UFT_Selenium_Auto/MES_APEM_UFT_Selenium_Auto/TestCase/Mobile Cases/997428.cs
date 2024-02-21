@@ -17,7 +17,7 @@ using System.Linq;
 
 namespace MES_APEM_UFT_Selenium_Auto.TestCase
 {
-    public partial class APEM_TestCase
+    public partial class Mobile_TestCase
     {
         [TestCaseID(997428)]
         [Title("UC730129_the order phase table status that in consolidate table auto refresh when status changes in MOC ")]

@@ -16,7 +16,7 @@ using Application = MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary.Application;
 
 namespace MES_APEM_UFT_Selenium_Auto.TestCase
 {
-    public partial class APEM_TestCase
+    public partial class Mobile_TestCase
     {
         [TestCaseID(957446)]
         [Title("UC822659_APEM Mobile: Check event log page and its display")]
