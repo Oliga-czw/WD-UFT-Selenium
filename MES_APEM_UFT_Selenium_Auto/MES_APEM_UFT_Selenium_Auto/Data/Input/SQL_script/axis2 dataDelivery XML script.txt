@@ -1,0 +1,31 @@
+local MySoapClient;
+local MySessionID;
+local result;
+local scriptData;
+
+scriptData = '<?xml version="1.0" encoding="UTF-8" ?><ProductionSchedule xmlns="http://www.wbf.org/xml/B2MML-V0401"><script>HHH.A</script><description>Change XML</description></ProductionSchedule>';
+
+-- *************************************;
+-- Setting up Soap Client Environment ...
+-- *************************************
+MySoapClient = CreateObject('MSSOAP.SoapClient30');
+
+-- Change richarle1 to the name of the AeBRS server machine and 
+-- change the port below from 8080 to 8081 for Owens Corning ...
+--MySoapClient.MSSoapInit('http://JCKV9902:8080/AeBRSserver/aebrs_api.wsdl');
+--Server name changed 10/29/21 after server migration by B. Yelverton
+MySoapClient.MSSoapInit('http://MachineName:8080/AeBRSserver/services/AeBRS_API?wsdl');
+
+-- Change the user name and associated password below ...
+MySoapClient.ConnectorProperty('WinHTTPAuthScheme') = 1;
+MySoapClient.ConnectorProperty('AuthUser')          = 'qae\qaone1';
+MySoapClient.ConnectorProperty('AuthPassword')      = 'Aspen111';
+MySoapClient.ConnectorProperty('Timeout')           = 120000;
+
+MySessionID = MySoapClient.OpenUserConnection;
+
+result = MySoapClient.dataDelivery(scriptData);
+
+write 'result: ' || result;
+
+--write 'Script has completed!';

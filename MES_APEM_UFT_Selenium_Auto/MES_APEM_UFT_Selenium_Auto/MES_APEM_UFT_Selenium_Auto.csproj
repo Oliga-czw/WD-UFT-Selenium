@@ -140,6 +140,7 @@
     <Compile Include="TestCase\APEM Cases\850407.cs" />
     <Compile Include="TestCase\APEM Cases\850433.cs" />
     <Compile Include="TestCase\APEM Cases\850438.cs" />
+    <Compile Include="TestCase\APEM Cases\927362.cs" />
     <Compile Include="TestCase\APEM Cases\916388.cs" />
     <Compile Include="TestCase\APEM Cases\213781.cs" />
     <Compile Include="TestCase\APEM Cases\916442.cs" />

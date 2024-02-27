@@ -141,12 +141,14 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             }
             //chagne order/order tracking view all
             APEM.MocmainWindow.Orders.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
             Thread.Sleep(2000);
             APEM.MocmainWindow.OrderListInternalFrame.Visible_Button.ClickSignle();
             APEM.MocmainWindow.RowsToViewDialog.ViewAll.Click();
             APEM.MocmainWindow.RowsToViewDialog.OK.Click();
             APEM.MocmainWindow.OrderTracking.ClickSignle();
             Thread.Sleep(2000);
+            MOC_Fuction.CheckRowSelection();
             APEM.MocmainWindow.OrderTrackingInternalFrame.StatusFilterButton.ClickSignle();
             APEM.MocmainWindow.RowsToViewDialog.ViewAll.Click();
             APEM.MocmainWindow.RowsToViewDialog.OK.Click();
