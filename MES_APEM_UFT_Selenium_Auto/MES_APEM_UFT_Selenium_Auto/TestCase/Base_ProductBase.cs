@@ -213,6 +213,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Base_Test.KillProcess("BatchDetailDisplay");
             Base_Test.KillProcess("mmc");
             Base_Test.KillProcess("chromedriver");
+            Base_Test.KillProcess("sqlplus");
         }
 
         public string CaseID => this.GetType().Name == null ? throw new ArgumentNullException() : TestCaseManage.GetCase(this.TestContext.TestName).CaseID;
@@ -288,6 +289,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Base_Test.KillProcess("BatchDetailDisplay");
             Base_Test.KillProcess("mmc");
             Base_Test.KillProcess("chromedriver");
+            Base_Test.KillProcess("sqlplus");
         }
 
         public string CaseID => this.GetType().Name == null ? throw new ArgumentNullException() : TestCaseManage.GetCase(this.TestContext.TestName).CaseID;

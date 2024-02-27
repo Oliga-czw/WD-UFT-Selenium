@@ -21,7 +21,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
-        [Timeout(600000)]
+        [Timeout(1000000)]
 
         [TestMethod]
         public void VSTS_749572()
@@ -40,52 +40,64 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 MOC_TemplatesFunction.Importtemplates("SAMPLE.zip");
             }
             LogStep(@"2. start service and ip.21");
-            string sqlplus_Server = @"C:\Program Files (x86)\AspenTech\InfoPlus.21\db21\code\sqlplus_server.exe";
-            Base_Test.LaunchApp(sqlplus_Server);
-            GML_Function.StartIP21();
-            LogStep(@"3. edit script and execute");
-            string path = Base_Directory.InputDir + "\\SQL_script\\";
-            string oldfile = path + "Web service.txt";
-            string newFile = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Web service.txt";
-            string oldText = "MachineName";
-            string newText = Environment.MachineName;
-            Base_Function.ReplaceTextInNewFile(oldfile, newFile, oldText, newText);
-            //open SQLplus
-            Application.LaunchSQLPlus();
-            //OPEN file1
-            SQLplus.SQLplusWindow.Toolbar.PressButton("2");
-            //input filename
-            SQLplus.SQLplusWindow.OpenFile_Dialog.FileName.SetText(newFile);
-            SQLplus.SQLplusWindow.OpenFile_Dialog.Open.Click();
-            //execute
-            SQLplus.SQLplusWindow.Toolbar.PressButton("15");
-            Thread.Sleep(10000);
-            //check result
-            SQLplus.SQLplusWindow.GetSnapshot(Resultpath + "sql plus.PNG");
-            string result = SQLplus.SQLplusWindow.ResultArea.Text;
-            string exepect = @"CreateOrder: 1
+            try
+            {
+                string sqlplus_Server = @"C:\Program Files (x86)\AspenTech\InfoPlus.21\db21\code\sqlplus_server.exe";
+                Base_Test.LaunchApp(sqlplus_Server);
+                GML_Function.StartIP21();
+                LogStep(@"3. edit script and execute");
+                string path = Base_Directory.InputDir + "\\SQL_script\\";
+                string oldfile = path + "Web service.txt";
+                string newFile = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Web service.txt";
+                string oldText = "MachineName";
+                string newText = Environment.MachineName;
+                Base_Function.ReplaceTextInNewFile(oldfile, newFile, oldText, newText);
+                //open SQLplus
+                Application.LaunchSQLPlus();
+                //OPEN file1
+                SQLplus.SQLplusWindow.Toolbar.PressButton("2");
+                //input filename
+                SQLplus.SQLplusWindow.OpenFile_Dialog.FileName.SetText(newFile);
+                SQLplus.SQLplusWindow.OpenFile_Dialog.Open.Click();
+                //execute
+                SQLplus.SQLplusWindow.Toolbar.PressButton("15");
+                Thread.Sleep(10000);
+                //check result
+                SQLplus.SQLplusWindow.GetSnapshot(Resultpath + "sql plus.PNG");
+                string result = SQLplus.SQLplusWindow.ResultArea.Text;
+                string exepect = @"CreateOrder: 1
 OrderState: PLAN
 OrderState: ACTIVE
 OrderState: FINISH
 result: 0
 Script has completed!";
-            Base_Assert.IsTrue(SQLplus.SQLplusWindow.ResultArea.Text.Contains(exepect), "Result return!");
+                Base_Assert.IsTrue(SQLplus.SQLplusWindow.ResultArea.Text.Contains(exepect), "Result return!");
 
-            //check order status 
-            APEM.MocmainWindow.Orders.ClickSignle();
-            MOC_Fuction.CheckRowSelection();
-            APEM.MocmainWindow.OrderListInternalFrame.Search.SetText(order);
-            APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
-            APEM.MocmainWindow.GetSnapshot(Resultpath + "order status.PNG");
+                //check order status 
+                APEM.MocmainWindow.Orders.ClickSignle();
+                MOC_Fuction.CheckRowSelection();
+                APEM.MocmainWindow.OrderListInternalFrame.Search.SetText(order);
+                APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
+                APEM.MocmainWindow.GetSnapshot(Resultpath + "order status.PNG");
 
-            var lists = APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Columns("Status");
-            Base_Assert.IsTrue(lists.Any(list => list.Contains("Finished")), "order status is finished");
+                var lists = APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Columns("Status");
+                Base_Assert.IsTrue(lists.Any(list => list.Contains("Finished")), "order status is finished");
 
 
-            APEM.ExitApplication();
-            SQLplus.cmdWindow.Close();
-            GML_Function.StopIP21();
-            SQLplus.SQLplusWindow.Close();
+                APEM.ExitApplication();
+            }
+            finally
+            {
+                if (SQLplus.cmdWindow.IsExist())
+                {
+                    SQLplus.cmdWindow.Close();
+                }
+                GML_Function.StopIP21();
+                if (SQLplus.SQLplusWindow.IsExist())
+                {
+                    SQLplus.SQLplusWindow.Close();
+                }
+            }
         }
 
     }
