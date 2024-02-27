@@ -87,6 +87,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         {
         }
         public ReadOnlyCollection<IWebElement> BPListTableRows => _Selenium_Driver.FindElements(By.XPath("//table/tbody/tr"));
+        public ReadOnlyCollection<IWebElement> BPListTableHeads => _Selenium_Driver.FindElements(By.XPath("//table/thead/tr/th/div/div[1]/div"));
         public Selenium_WebElement BPListTable => new Selenium_WebElement(_Selenium_Driver, "//table/tbody");
         public Selenium_WebElement BPSearch => new Selenium_WebElement(_Selenium_Driver, "//input[@id='ordersearch']");
         public Selenium_WebElement BPQueueButton => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='queue']/../..");

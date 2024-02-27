@@ -142,9 +142,13 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
                     input.Click();
                 }
             }
-            driver.FindElement(By.XPath("//button[text()='Apply']")).Click();
-            Thread.Sleep(2000);
-            driver.FindElement(By.XPath("//button[text()='OK']")).Click();
+            //check apply button enable
+            if (driver.FindElement(By.XPath("//button[text()='Apply']")).Enabled)
+            {
+                driver.FindElement(By.XPath("//button[text()='Apply']")).Click();
+                Thread.Sleep(2000);
+                driver.FindElement(By.XPath("//button[text()='OK']")).Click();
+            }
         }
 
         public static void FirstGrantPermission()
