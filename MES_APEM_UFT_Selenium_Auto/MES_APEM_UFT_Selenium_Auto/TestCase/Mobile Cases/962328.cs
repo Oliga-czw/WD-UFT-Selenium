@@ -91,10 +91,12 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             LogStep(@"5. check API function");
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Execute API.PNG");
             Mobile.OrderExecution_Page.DELETE_ORDER_Button.Click();
+            Thread.Sleep(5000);
             Mobile.OrderExecution_Page.OKButton.Click();
+            Thread.Sleep(5000);
             // check order after click API
             APEM.MocmainWindow.OrderListInternalFrame.Refresh_Button.Click();
-            APEM.APEMMainWindow.GetSnapshot(Resultpath + "Delete order.PNG");
+            APEM.MocmainWindow.GetSnapshot(Resultpath + "Delete order.PNG");
             Base_Assert.IsTrue(APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Rowscount().Equals(0), "Delete order");
             driver.Close();
             APEM.ExitApplication();

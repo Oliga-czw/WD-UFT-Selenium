@@ -155,9 +155,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         //961928
         public Selenium_WebElement SET_CURRENT_USER_Button => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' SET_CURRENT_USER (\"qae\\qaone2\") ']/../..");
         public Selenium_WebElements Labels => new Selenium_WebElements(_Selenium_Driver, "//div[@id='execution']//label");
-        //962338
+        //962328
         public Selenium_WebElement DELETE_ORDER_Button => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' DELETE_ORDER ']/../..");
-
+        //962338
+        public Selenium_WebElements Numbers => new Selenium_WebElements(_Selenium_Driver, "//p[@class='ng-star-inserted']");
     }
 
 
