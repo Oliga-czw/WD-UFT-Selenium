@@ -294,7 +294,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         });
         public IUiObject ParallelDivergent => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription
         {
-            NativeClass = @"PFCTree.View.ParallelDivergent"
+            NativeClass = @"PFCTree.View.ParallelDivergent",
             Index = 0
         });
         #endregion

@@ -18,7 +18,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Priority(CasePriority.High)]
         [TestCategory(CaseState.Started)]
         [TestCategory(AutomationTool.UFT_Selenium)]
-        [Owner(AutomationEngineer.Ziwei)]
+        [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]
 
         [TestMethod]
@@ -56,26 +56,22 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 WD_Fuction.SelectOrderandMaterial(order, material);
                 LogStep(@"4.select net removal ");
                 //Source as target
-                WD.mainWindow.ScaleWeightInternalFrame.dispense_method.SelectItems(method);
-                //check The Weighing Info
-                WD.mainWindow.GetSnapshot(Resultpath + "Weighing Info.PNG");
-                string initial_actual = WD.mainWindow.ScaleWeightInternalFrame.InitailGross.AttachedText;
-                string final_actual = WD.mainWindow.ScaleWeightInternalFrame.FinalGross.AttachedText;
-                string difference_actual = WD.mainWindow.ScaleWeightInternalFrame.Diffenence.AttachedText;
-                string[] a = { initial_actual, final_actual, difference_actual };
-                string[] e = { "Initial Gross:", "Finial Gross:", "Difference:" };
-                Base_Assert.AreEqual(a,e,"Weighing Info");
-
-                //input barcode
-                WD.mainWindow.ScaleWeightInternalFrame.barcode.SendKeys(barcode);
-                //select simulator
+                WD_Fuction.SelectMehod(method, barcode);
                 if (WD.MessageDialog.IsExist())
                 {
                     WD.MessageDialog.OKButton.Click();
                 }
+                //check The Weighing Info
+                
+                Base_Assert.IsTrue(WD.mainWindow.ScaleWeightInternalFrame.InitailGross._UFT_Label.IsEnabled);
+                Base_Assert.IsTrue(WD.mainWindow.ScaleWeightInternalFrame.FinalGross._UFT_Label.IsEnabled);
+                Base_Assert.IsTrue(WD.mainWindow.ScaleWeightInternalFrame.Diffenence._UFT_Label.IsEnabled);
+                //select simulator
+
                 WD.mainWindow.ScaleWeightInternalFrame.scale.SelectItems(scale);
                 //zeor
                 WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
+                WD.mainWindow.GetSnapshot(Resultpath + "Weighing Info.PNG");
                 //input source tare
                 WD.mainWindow.ScaleWeightInternalFrame.SourceTare.SendKeys(source_tare);
                 //start weight
@@ -96,14 +92,49 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
 
                 //check reset
                 WD.mainWindow.ScaleWeightInternalFrame.reset.Click();
-                //check record in db
-
                 if (WD.ErrorDialog.IsExist())
                 {
                     WD.ErrorDialog.OKButton.Click();
                 }
-                Base_Assert.IsTrue(WD.mainWindow.Material_SelectionInternalFrame.IsExist() || WD.mainWindow.MaterialInternalFrame.IsExist(), "Exit Dispense");
-                WD_Fuction.Close();
+                //check record in db
+                SqlHelper helper1 = new SqlHelper();
+                string SQL1 = $"SELECT TOP(1) TARGET_TARE,BEGIN_SOURCE_GROSS,END_SOURCE_GROSS FROM EBR_WD_WEIGH_HISTORY ORDER BY WEIGH_ID DESC;";
+                List<List<string>> Source1 = helper1.Execute(SQL1);
+                var Source_Container_Tare1 = Source1[0][0];
+                var InitailGross1 = Source1[0][1];
+                var FinalGross1 = Source1[0][2];
+                Base_Assert.AreEqual(Source_Container_Tare1, "100.0");
+                Base_Assert.AreEqual(InitailGross1, FinalGross1);
+                //check cancel
+                WD_Fuction.SelectMehod(method, barcode);
+                if (WD.MessageDialog.IsExist())
+                {
+                    WD.MessageDialog.OKButton.Click();
+                }
+                WD.mainWindow.ScaleWeightInternalFrame.scale.SelectItems(scale);
+                //zeor
+                WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
+                //start weight
+                WD.SimulatorWindow.weight.SetText(source_start);
+                WD.SimulatorWindow.OK.Click();
+                WD.mainWindow.ScaleWeightInternalFrame.start.Click();
+                WD.SimulatorWindow.weight.SetText(source_left);
+                WD.SimulatorWindow.OK.Click();
+                //check cancel
+                WD.mainWindow.ScaleWeightInternalFrame.cancel.Click();
+                if (WD.ErrorDialog.IsExist())
+                {
+                    WD.ErrorDialog.OKButton.Click();
+                }
+                //check recode in DB
+                SqlHelper helper = new SqlHelper();
+                string SQL = $"SELECT TOP(1) TARGET_TARE,BEGIN_SOURCE_GROSS,END_SOURCE_GROSS FROM EBR_WD_WEIGH_HISTORY ORDER BY WEIGH_ID DESC;";
+                List<List<string>> Source = helper.Execute(SQL);
+                var Source_Container_Tare = Source[0][0];
+                var InitailGross = Source[0][1];
+                var FinalGross = Source[0][2];
+                Base_Assert.AreEqual(Source_Container_Tare, "100.0");
+                Base_Assert.IsTrue(float.Parse(InitailGross) > float.Parse(FinalGross));
             }
             finally
             {

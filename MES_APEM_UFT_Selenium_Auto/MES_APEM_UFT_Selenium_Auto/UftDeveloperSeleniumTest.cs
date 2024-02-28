@@ -41,59 +41,27 @@ namespace MES_APEM_UFT_Selenium_Auto
             SdkConfiguration config = new SdkConfiguration();
             SDK.Init(config);
             Thread.Sleep(3000);
-            string BPLName = "BPLRRRRR";
-            string RPLName = "RPLTEST ";
-            Application.LaunchMocAndLogin();
-            APEM.MocmainWindow.BPLDesign.ClickSignle();
-            Thread.Sleep(2000);
-            //check RPL exit
-            if (!APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row(BPLName).Existing)
-            {
-                MOC_TemplatesFunction.Importtemplates("CASE213769.zip");
 
-            }
-            APEM.MocmainWindow.BPLListInternalFrame.Refresh_Button.ClickSignle();
-            APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row(BPLName).DoubleClick();
-            APEM.MocmainWindow.BPLDataInternalFrame.TabbedPaneControl.Select("Subdocuments");
-            APEM.MocmainWindow.BPLDataInternalFrame.VerifyButton.ClickSignle();
-            Thread.Sleep(2000);
-            APEM.VerificationConfirmDialog.YesButton.Click();
-            APEM.MocmainWindow.ConfirmDialog.PasswordEditor.SendKeys(PassWord.qaone1);
-            APEM.MocmainWindow.ConfirmDialog.Reason.SendKeys("Test");
-            APEM.MocmainWindow.ConfirmDialog.OK.Click();
-            Thread.Sleep(3000);
-            Base_Assert.IsFalse(APEM.MocmainWindow.BPLDataInternalFrame.CertifyButton.IsEnabled);
-            APEM.MocmainWindow.BPLDataInternalFrame._UFT_InterFrame.Close();
-            APEM.MocmainWindow.RPLDesign.ClickSignle();
-            APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row(RPLName).DoubleClick();
-            APEM.MocmainWindow.RPLManagementInternalFrame.RPLTabControl.Select("Documents");
-            Base_Assert.IsFalse(APEM.MocmainWindow.RPLManagementInternalFrame.VerifyButton.IsEnabled);
-            Base_Assert.IsFalse(APEM.MocmainWindow.RPLManagementInternalFrame.CertifyButton.IsEnabled);
+            //Application.LaunchBatchQueryTool();
+            //Thread.Sleep(3000);
+            ////open new query
+            //BatchQueryTool.NewQuery();
+            ////open batch detail display
+            //BatchQueryTool.BatchQueryToolWindow.ListView._STD_ListView.ActivateItem("test2");
+            //wait for loading
+            //Thread.Sleep(15000);
+            //Check Begin_Source_Gross and End_Source_Gross fields should not show in APRM
+            APRM.BatchMainWindow.TreeView.GetNode("Batch").Expand();
+            APRM.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1]").Expand();
+            APRM.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1];BOM [1]").Expand();
+            APRM.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1];BOM [1];Material [1]").Expand();
+            //wait for loading
+            Thread.Sleep(5000);
+            //APRM.BatchMainWindow.GetSnapshot(Resultpath + "APRM Batch detail(Accept).PNG");
+            var shown_items = APRM.BatchMainWindow.ListView._STD_ListView.GetVisibleText();
+            Console.WriteLine(shown_items);
 
-            MOC_Fuction.VerifyBPL(BPLName);
-            MOC_Fuction.CertifyBPL(BPLName);
-            MOC_Fuction.VerifyRPL(RPLName);
-            MOC_Fuction.CertifyRPL(RPLName);
-            APEM.MocmainWindow.RPLDesignInternalFrame._UFT_InterFrame.Close();
-            APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row(BPLName).DoubleClick();
-            APEM.MocmainWindow.BPLDataInternalFrame.TabbedPaneControl.Select("Subdocuments");
-            APEM.MocmainWindow.BPLDataInternalFrame.CertifyButton.ClickSignle();
-            Thread.Sleep(2000);
-            APEM.CertifyConfirmDialog.YesButton.Click();
-            APEM.MocmainWindow.ConfirmDialog.PasswordEditor.SendKeys(PassWord.qaone1);
-            APEM.MocmainWindow.ConfirmDialog.Reason.SendKeys("Test");
-            APEM.MocmainWindow.ConfirmDialog.OK.Click();
-            Thread.Sleep(3000);
-            APEM.MocmainWindow.RPLManagementInternalFrame.VerifyButton.ClickSignle();
-            APEM.MocmainWindow.ConfirmDialog.PasswordEditor.SendKeys(PassWord.qaone1);
-            APEM.MocmainWindow.ConfirmDialog.Reason.SendKeys("Test");
-            APEM.MocmainWindow.ConfirmDialog.OK.Click();
-            Thread.Sleep(3000);
-            APEM.MocmainWindow.RPLManagementInternalFrame.CertifyButton.ClickSignle();
-            APEM.MocmainWindow.ConfirmDialog.PasswordEditor.SendKeys(PassWord.qaone1);
-            APEM.MocmainWindow.ConfirmDialog.Reason.SendKeys("Test");
-            APEM.MocmainWindow.ConfirmDialog.OK.Click();
-            Thread.Sleep(3000);
+
 
         }
 

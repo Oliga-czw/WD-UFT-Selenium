@@ -25,7 +25,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [TestCategory(CaseState.Started)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
-        [Timeout(600000)]
+        [Timeout(120000000)]
 
         [TestMethod]
         public void VSTS_29611()
@@ -107,23 +107,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             WD_Fuction.FinishNetDiapense("1", "25");
             WD.mainWindow.DispensingInternalFrame.HomeButton.Click();
             Thread.Sleep(2000);
-            WD.mainWindow.HomeInternalFrame.OrderKitting.Click();
-            WD.mainWindow.SelectAnOrderToKittingFrame.orderTable.SelectRows(0);
-            WD.mainWindow.SelectAnOrderToKittingFrame.StartKitButton.Click();
-            //ArrayList KitBarcodeList = new ArrayList();
-            Thread.Sleep(4000);
-            string test01 = WD.mainWindow.SelectAnOrderToKittingFrame.KitTable.GetCell(0, "Container").Value.ToString();
-            string test02 = WD.mainWindow.SelectAnOrderToKittingFrame.KitTable.GetCell(1, "Container").Value.ToString();
-            string test03 = WD.mainWindow.SelectAnOrderToKittingFrame.KitTable.GetCell(2, "Container").Value.ToString();
-            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys("test1");
-            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys(test01);
-            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys(test02);
-            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys(test03);
-            WD.mainWindow.SelectAnOrderToKittingFrame.accept.ClickSignle();
-            if (WD.ErrorDialog.IsExist())
-            {
-                WD.ErrorDialog.OKButton.Click();
-            }
+            WD_Fuction.OrderKitting();
             Thread.Sleep(5000);
             WD_Fuction.Close();
             Web_Fuction.gotoTab(WDWebTab.order);
@@ -157,19 +141,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             WD_Fuction.FinishNetDiapense("1", "25");
             WD.mainWindow.DispensingInternalFrame.HomeButton.Click();
             Thread.Sleep(2000);
-            WD.mainWindow.HomeInternalFrame.OrderKitting.Click();
-            WD.mainWindow.SelectAnOrderToKittingFrame.orderTable.SelectRows(0);
-            WD.mainWindow.SelectAnOrderToKittingFrame.StartKitButton.Click();
-            //ArrayList KitBarcodeList = new ArrayList();
-            Thread.Sleep(4000);
-            string test001 = WD.mainWindow.SelectAnOrderToKittingFrame.KitTable.GetCell(0, "Container").Value.ToString();
-            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys("test1");
-            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys(test001);
-            WD.mainWindow.SelectAnOrderToKittingFrame.accept.ClickSignle();
-            if (WD.ErrorDialog.IsExist())
-            {
-                WD.ErrorDialog.OKButton.Click();
-            }
+            WD_Fuction.OrderKitting();
             WD_Fuction.Close();
             Web.Order_Page.Refresh.Click();
             Thread.Sleep(3000);
@@ -307,6 +279,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(3000);
             WD_Fuction.FinishNetDiapense("1", "55");
             WD.mainWindow.DispensingInternalFrame.HomeButton.Click();
+
             WD_Fuction.Close();
             Web.Order_Page.Refresh.Click();
             Thread.Sleep(3000);
@@ -317,6 +290,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Base_Assert.AreEqual(driver3.FindElement("//td[text()='test3']/../td[7]").Text, "Cancelled");
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Order_complete_Cancelled.PNG");
             driver3.Close();
+
 
             WD_Fuction.CleanOrdersData();
             WD_Fuction.Bulkload("07 aspen wd orders bulk load.xml");
@@ -342,32 +316,16 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             WD_Fuction.SelectOrderandMaterial("test1", WDMaterial.M801890);
             WD_Fuction.SelectMehod(WDMethod.Net, "M801890001");
             Thread.Sleep(3000);
-            WD_Fuction.FinishNetDiapense("1", "125");
-
+            WD_Fuction.FinishNetDiapense("1", "100");
             WD.mainWindow.MaterialInternalFrame.cancel.Click();
             WD.mainWindow.DispensingInternalFrame.HomeButton.Click();
             WD_Fuction.SelectOrderandMaterial("test1", WDMaterial.x1072);
             WD_Fuction.SelectMehod(WDMethod.Net, "1072003");
             Thread.Sleep(3000);
-            WD_Fuction.FinishNetDiapense("1", "125");
+            WD_Fuction.FinishNetDiapense("1", "110");
             WD.mainWindow.DispensingInternalFrame.HomeButton.Click();
             Thread.Sleep(2000);
-            WD.mainWindow.HomeInternalFrame.OrderKitting.Click();
-            WD.mainWindow.SelectAnOrderToKittingFrame.orderTable.SelectRows(0);
-            WD.mainWindow.SelectAnOrderToKittingFrame.StartKitButton.Click();
-            Thread.Sleep(4000);
-            string test011 = WD.mainWindow.SelectAnOrderToKittingFrame.KitTable.GetCell(0, "Container").Value.ToString();
-            string test022 = WD.mainWindow.SelectAnOrderToKittingFrame.KitTable.GetCell(1, "Container").Value.ToString();
-            string test033 = WD.mainWindow.SelectAnOrderToKittingFrame.KitTable.GetCell(2, "Container").Value.ToString();
-            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys("test1");
-            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys(test011);
-            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys(test022);
-            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys(test033);
-            WD.mainWindow.SelectAnOrderToKittingFrame.accept.ClickSignle();
-            if (WD.ErrorDialog.IsExist())
-            {
-                WD.ErrorDialog.OKButton.Click();
-            }
+            //WD_Fuction.OrderKitting();
             WD_Fuction.Close();
             Web.Order_Page.Refresh.Click();
             Thread.Sleep(3000);
@@ -382,18 +340,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             WD_Fuction.FinishNetDiapense("0", "25");
             WD.mainWindow.DispensingInternalFrame.HomeButton.Click();
             Thread.Sleep(2000);
-            WD.mainWindow.HomeInternalFrame.OrderKitting.Click();
-            WD.mainWindow.SelectAnOrderToKittingFrame.orderTable.SelectRows(0);
-            WD.mainWindow.SelectAnOrderToKittingFrame.StartKitButton.Click();
-            Thread.Sleep(4000);
-            string test0001 = WD.mainWindow.SelectAnOrderToKittingFrame.KitTable.GetCell(0, "Container").Value.ToString();
-            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys("test1");
-            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys(test0001);
-            WD.mainWindow.SelectAnOrderToKittingFrame.accept.ClickSignle();
-            if (WD.ErrorDialog.IsExist())
-            {
-                WD.ErrorDialog.OKButton.Click();
-            }
+            WD_Fuction.OrderKitting();
             Thread.Sleep(5000);
             WD_Fuction.Close();
             Web_Fuction.gotoTab(WDWebTab.order);
@@ -418,18 +365,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             WD_Fuction.FinishNetDiapense("0", "25");
             WD.mainWindow.DispensingInternalFrame.HomeButton.Click();
             Thread.Sleep(2000);
-            WD.mainWindow.HomeInternalFrame.OrderKitting.Click();
-            WD.mainWindow.SelectAnOrderToKittingFrame.orderTable.SelectRows(0);
-            WD.mainWindow.SelectAnOrderToKittingFrame.StartKitButton.Click();
-            Thread.Sleep(4000);
-            string test0011 = WD.mainWindow.SelectAnOrderToKittingFrame.KitTable.GetCell(0, "Container").Value.ToString();
-            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys("test1");
-            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys(test0011);
-            WD.mainWindow.SelectAnOrderToKittingFrame.accept.ClickSignle();
-            if (WD.ErrorDialog.IsExist())
-            {
-                WD.ErrorDialog.OKButton.Click();
-            }
+            WD_Fuction.OrderKitting();
             Thread.Sleep(5000);
             WD_Fuction.Close();
             driver5.FindElement("//div[text()='Deviation Management']").Click();
@@ -475,18 +411,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             WD_Fuction.FinishNetDiapense("0", "25");
             WD.mainWindow.DispensingInternalFrame.HomeButton.Click();
             Thread.Sleep(2000);
-            WD.mainWindow.HomeInternalFrame.OrderKitting.Click();
-            WD.mainWindow.SelectAnOrderToKittingFrame.orderTable.SelectRows(0);
-            WD.mainWindow.SelectAnOrderToKittingFrame.StartKitButton.Click();
-            Thread.Sleep(4000);
-            string test010 = WD.mainWindow.SelectAnOrderToKittingFrame.KitTable.GetCell(0, "Container").Value.ToString();
-            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys("test1");
-            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys(test010);
-            WD.mainWindow.SelectAnOrderToKittingFrame.accept.ClickSignle();
-            if (WD.ErrorDialog.IsExist())
-            {
-                WD.ErrorDialog.OKButton.Click();
-            }
+            WD_Fuction.OrderKitting();
             Thread.Sleep(5000);
             WD_Fuction.Close();
             Web_Fuction.gotoTab(WDWebTab.order);

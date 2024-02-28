@@ -57,7 +57,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Web_Fuction.gotoTab(WDWebTab.order);
                 Web_Fuction.active_order(order);
                 driver.Close();
-                LogStep(@"5. Open WD client");
+                LogStep(@"4. Open WD client");
                 Application.LaunchWDAndLogin();
                 WD.mainWindow.HomeInternalFrame.MaterialDispensing.Click();
                 WD.mainWindow.Material_SelectionInternalFrame.materialTable.Row("X0125").Click();
@@ -185,7 +185,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 WD.SimulatorWindow.OK.Click();
                 WD.mainWindow.ScaleWeightInternalFrame.reset.Click();
                 Thread.Sleep(5000);
-                //LogStep(@"6. Open Batch query tool ");
+                LogStep(@"5. Open Batch query tool ");
                 Application.LaunchBatchQueryTool();
                 Thread.Sleep(3000);
                 //open new query
@@ -248,7 +248,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             }
             finally
             {
-                LogStep(@"4.delete config key ");
+                LogStep(@"6.delete config key ");
                 Base_Function.DeleteConfigKey(Configpath, ConfigKey);
                 //codify all
                 Base_Test.LaunchApp(Base_Directory.Codify_allx86);
