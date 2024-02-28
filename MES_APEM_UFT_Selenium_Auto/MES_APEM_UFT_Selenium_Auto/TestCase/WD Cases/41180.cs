@@ -19,7 +19,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("material weighing start: weighing can be conducted and material information correctly displayed")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Medium)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]
@@ -98,7 +98,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Base_Assert.AreEqual(WD.mainWindow.ScaleWeightInternalFrame.AvailQty._UFT_Label.Text, "800.0 G");
             Base_Assert.AreEqual(WD.mainWindow.ScaleWeightInternalFrame.Lot._UFT_Label.Text, "A124");
             Base_Assert.AreEqual(WD.mainWindow.ScaleWeightInternalFrame.Potency._UFT_Label.Text, "");
-            Base_Assert.AreEqual(WD.mainWindow.ScaleWeightInternalFrame.Expiration._UFT_Label.Text, "11/25/23, 5:25:00 PM");
+            Base_Assert.AreEqual(WD.mainWindow.ScaleWeightInternalFrame.Expiration._UFT_Label.Text, "11/25/25, 5:25:00 PM");
             Base_Assert.AreEqual(WD.mainWindow.ScaleWeightInternalFrame.Status._UFT_Label.Text, "Approved");
             WD.mainWindow.GetSnapshot(Resultpath + "correct_barcode.PNG");
             WD.mainWindow.ScaleWeightInternalFrame.cancel.Click();

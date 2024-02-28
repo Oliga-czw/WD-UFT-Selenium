@@ -216,7 +216,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             Base_Test.LaunchApp(Base_Directory.WizrdDir);
             SdkConfiguration config = new SdkConfiguration();
             SDK.Init(config);
-            Thread.Sleep(5000);
+            Thread.Sleep(10000);
         }
 
         public static void LaunchAprmAdmin()

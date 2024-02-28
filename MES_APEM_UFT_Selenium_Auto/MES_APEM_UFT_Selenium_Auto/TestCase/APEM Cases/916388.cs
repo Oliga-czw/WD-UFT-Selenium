@@ -17,7 +17,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("UC822684_Soap1.2(AeBRS_BPC):CDM_GET_EQM_CLASS_DESCRIPTION() function should work as expected")]
         [TestCategory(ProductArea.API)]
         [Priority(CasePriority.High)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
         [Timeout(600000)]

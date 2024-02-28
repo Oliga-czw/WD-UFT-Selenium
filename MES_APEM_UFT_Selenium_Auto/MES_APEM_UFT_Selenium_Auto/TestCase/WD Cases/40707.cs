@@ -22,7 +22,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("Administration Signature:check the sinagure and comment setting for execution system")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Medium)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]

@@ -13,7 +13,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("Order kitting can not finish if not all pallet or container are scanned")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Medium)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]

@@ -17,7 +17,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("UC822684_Soap1.2:SOAP_CALL2_EX() API function should work as expected")]
         [TestCategory(ProductArea.API)]
         [Priority(CasePriority.Medium)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]

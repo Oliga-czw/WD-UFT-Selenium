@@ -17,7 +17,7 @@ using System.Linq;
 
 namespace MES_APEM_UFT_Selenium_Auto.TestCase
 {
-    public partial class APEM_TestCase
+    public partial class Mobile_TestCase
     {
         [TestCaseID(782513)]
         [Title("UC730341 - BP auto start on order list page/ order tracking page/consolidate page/setting page")]

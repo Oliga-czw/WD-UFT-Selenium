@@ -15,7 +15,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("UC822669_MOC_PFC editor:  Copy and paste transition/script across the levels")]
         [TestCategory(ProductArea.RecipeManagement)]
         [Priority(CasePriority.Medium)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]
@@ -116,6 +116,9 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             MOC_Fuction.VerifyRPL("PREPARERPL");
             MOC_Fuction.CertifyRPL("PREPARERPL");
             Thread.Sleep(3000);
+            APEM.MocmainWindow.RPLDesign.ClickSignle();
+            APEM.MocmainWindow.RPLDesignInternalFrame.SearchEditor.SetText("");
+            APEM.MocmainWindow.RPLDesignInternalFrame.Filterbutton.Click();
             MOC_Fuction.PlanFromRPL("PREPARERPL", "ORDER958133");
             APEM.MocmainWindow.WorkstationBP.ClickSignle();
             MOC_Fuction.CheckRowSelection();

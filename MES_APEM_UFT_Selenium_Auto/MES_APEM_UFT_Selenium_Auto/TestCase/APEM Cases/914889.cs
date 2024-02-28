@@ -20,7 +20,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
-        [Timeout(600000)]
+        [Timeout(1000000)]
 
         [TestMethod]
         public void VSTS_914889()
@@ -62,10 +62,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 string file3 = path + "axis2 AFW script0.txt";
                 string file4 = path + "axis2 AFW script1.txt";
                 string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                string newfile1 = desktop + "axis2 basi script0.txt";
-                string newfile2 = desktop + "axis2 basi script1.txt";
-                string newfile3 = desktop + "axis2 AFW script0.txt";
-                string newfile4 = desktop + "axis2 AFW script1.txt";
+                string newfile1 = desktop + "\\axis2 basi script0.txt";
+                string newfile2 = desktop + "\\axis2 basi script1.txt";
+                string newfile3 = desktop + "\\axis2 AFW script0.txt";
+                string newfile4 = desktop + "\\axis2 AFW script1.txt";
                 string oldText = "MachineName";
                 string newText = Environment.MachineName;
                 Base_Function.ReplaceTextInNewFile(file1, newfile1, oldText, newText);

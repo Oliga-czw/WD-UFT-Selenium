@@ -13,7 +13,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("V8.8.4-Test scale connection successful for Opening Weighing screen.")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Medium)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]

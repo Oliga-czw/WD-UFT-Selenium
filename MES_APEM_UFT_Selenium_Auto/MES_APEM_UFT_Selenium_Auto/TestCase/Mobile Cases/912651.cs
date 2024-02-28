@@ -18,24 +18,29 @@ using System.IO;
 
 namespace MES_APEM_UFT_Selenium_Auto.TestCase
 {
-    public partial class APEM_TestCase
+    public partial class Mobile_TestCase
     {
         [TestCaseID(912651)]
         [Title("UC859545_APEM Mobile: BP execution in Mobile")]
         [TestCategory(ProductArea.Mobile)]
         [Priority(CasePriority.High)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]
 
-        //defect 1323665
+        //defect 1332547
         //[TestMethod]
         public void VSTS_912651()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID + "-";
             Application.LaunchMocAndLogin();
-            MOC_TemplatesFunction.Importtemplates("912651.zip");
+            //check bpl exit
+            APEM.MocmainWindow.BPLDesign.ClickSignle();
+            if (!APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row("BPL912651").Existing)
+            {
+                MOC_TemplatesFunction.Importtemplates("912651.zip");
+            }
             APEM.MocmainWindow.Config_moudle.Click();
             Thread.Sleep(5000);
             APEM.MOCConfigWindow.Export.ClickSignle();
@@ -43,12 +48,29 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MOCConfigWindow.ConfigExportDialog.HomeButton.ClickSignle();
             APEM.MOCConfigWindow.ConfigExportDialog.FileName.SetText("EN912651");
             APEM.MOCConfigWindow.ConfigExportDialog.ExportToFileButton.ClickSignle();
+            //if exit file
+            if (APEM.ConfirmFileReplaceDialog.IsExist())
+            {
+                APEM.ConfirmFileReplaceDialog.YesButton.Click();
+            }
             string filePath = "C:\\Users\\qaone1\\Desktop\\EN912651.ini";
             string newData = "# Executable BPs in Mobile\r\nWEB_EXECUTABLE_5 = BPL912651.CREATE\r\nWEB_EXECUTABLE_7 = BPL912651.IMPORT\r\nWEB_EXECUTABLE_6 = BPL912651.IMPORT2\r\nWEB_EXECUTABLE_8 = BPL912651.HAHAHHAH";
             string newData1 = "WEB_EXECUTABLE_5 = BPL912651.CREATE\r\nWEB_EXECUTABLE_7 = BPL912651.IMPORT\r\nWEB_EXECUTABLE_6 = BPL912651.IMPORT2\r\nWEB_EXECUTABLE_8 = BPL912651.HAHAHHAH";
             string iniContent = File.ReadAllText(filePath);
             string searchString = "# Executable BPs in Mobile\r\n";
             bool contains = iniContent.Contains(searchString);
+            if (contains)
+            {
+                var lines = File.ReadAllLines(filePath);
+                // check last line blank 
+                if (string.IsNullOrWhiteSpace(lines.Last()))
+                {
+                    // delete last line 
+                    lines = lines.Take(lines.Length - 1).ToArray();
+                    // rewrite  
+                    File.WriteAllLines(filePath, lines);
+                }
+            }
             using (StreamWriter sw = new StreamWriter(filePath, true))
 
             {

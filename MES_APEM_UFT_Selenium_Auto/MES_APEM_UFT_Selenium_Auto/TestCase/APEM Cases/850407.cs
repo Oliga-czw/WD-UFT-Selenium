@@ -34,7 +34,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             string OrderName1 = "Order850407";
             string OrderName2 = "Order850407Write";
             string RPLName1 = "RPL850407";
-            string RPLName1Copy = "RPL850241COPY";
+            string RPLName1Copy = "RPL850407COPY";
             string BatchAPI = "BatchAPI";
 
             bool active = true;

@@ -16,13 +16,13 @@ using Application = MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary.Application;
 
 namespace MES_APEM_UFT_Selenium_Auto.TestCase
 {
-    public partial class APEM_TestCase
+    public partial class Mobile_TestCase
     {
         [TestCaseID(957446)]
         [Title("UC822659_APEM Mobile: Check event log page and its display")]
         [TestCategory(ProductArea.Mobile)]
         [Priority(CasePriority.High)]
-        [TestCategory(CaseState.Created)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
         [Timeout(600000)]

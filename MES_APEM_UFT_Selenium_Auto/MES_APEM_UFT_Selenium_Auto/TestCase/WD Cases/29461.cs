@@ -22,7 +22,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("Administration General: Execution System setting")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Medium)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]
@@ -42,32 +42,40 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Web_Fuction.gotoTab(WDWebTab.admin);
             Web.Administration_Page.General.Click();
             LogStep(@"3.check Log on required for Execution system, and click 'Apply' button.");
-
-            if (Web.Administration_Page.log_on_required_chx.GetAttribute("checked") is null)
+            try
             {
+                if (Web.Administration_Page.log_on_required_chx.GetAttribute("checked") is null)
+                {
+                    Web.Administration_Page.log_on_required_chx.Click();
+                    Web_Fuction.administration_Apply("Configuration successfully saved");
+                }
+                LogStep(@"4. Open Wd client");
+                Thread.Sleep(2000);
+                Base_Test.LaunchApp(Base_Directory.WDDir);
+                WD.mainWindow.GetSnapshot(Resultpath + "logon_required.PNG");
+                Base_Assert.IsTrue(WD.mainWindow.LogonInternalFrame.IsEnabled);
+                LogStep(@"5.close the WD client");
+                WD.ExitApplication();
+                LogStep(@"6.do not check Log on required for Execution system, and click 'Apply' button.");
                 Web.Administration_Page.log_on_required_chx.Click();
                 Web_Fuction.administration_Apply("Configuration successfully saved");
+                LogStep(@"7. Open Wd client");
+                Base_Test.LaunchApp(Base_Directory.WDDir);
+                Thread.Sleep(2000);
+                WD.mainWindow.GetSnapshot(Resultpath + "logon_without_username.PNG");
+                Base_Assert.IsTrue(WD.mainWindow.HomeInternalFrame.IsEnabled);
+                WD_Fuction.Close();
             }
-            LogStep(@"4. Open Wd client");
-            Thread.Sleep(2000);
-            Base_Test.LaunchApp(Base_Directory.WDDir);
-            WD.mainWindow.GetSnapshot(Resultpath + "logon_required.PNG");
-            Base_Assert.IsTrue(WD.mainWindow.LogonInternalFrame.IsEnabled);
-            LogStep(@"5.close the WD client");
-            WD.ExitApplication();
-            LogStep(@"6.do not check Log on required for Execution system, and click 'Apply' button.");
-            Web.Administration_Page.log_on_required_chx.Click();
-            Web_Fuction.administration_Apply("Configuration successfully saved");
-            LogStep(@"7. Open Wd client");
-            Base_Test.LaunchApp(Base_Directory.WDDir);
-            Thread.Sleep(2000);
-            WD.mainWindow.GetSnapshot(Resultpath + "logon_without_username.PNG");
-            Base_Assert.IsTrue(WD.mainWindow.HomeInternalFrame.IsEnabled);
-            WD_Fuction.Close();
-            LogStep(@"8. restone data");
-            Web.Administration_Page.log_on_required_chx.Click();
-            Web_Fuction.administration_Apply("Configuration successfully saved");
-            driver.Close();
+            finally
+            {
+                LogStep(@"8. restone data");
+                if (Web.Administration_Page.log_on_required_chx.GetAttribute("checked") is null)
+                {
+                    Web.Administration_Page.log_on_required_chx.Click();
+                    Web_Fuction.administration_Apply("Configuration successfully saved");
+                }
+                driver.Close();
+            }
         }
 
     }

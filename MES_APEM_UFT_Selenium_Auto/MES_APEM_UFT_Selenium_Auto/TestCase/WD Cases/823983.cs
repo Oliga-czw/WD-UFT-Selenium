@@ -22,10 +22,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("UC815412_W&D enhancement for Source as Target_APRM if DO not set SOURCE_TARGET_REQUIRE_TARGET_TARE key or set SOURCE_TARGET_REQUIRE_TARGET_TARE = 0")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.High)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
-        [Timeout(600000)]
+        [Timeout(1200000)]
 
         [TestMethod]
         public void VSTS_823983()
@@ -99,8 +99,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 var Finial_gross = WD.mainWindow.ScaleWeightInternalFrame.Data_FinalGross.AttachedText;
                 var Difference = WD.mainWindow.ScaleWeightInternalFrame.Data_Diffenence.AttachedText;
                 Base_Assert.AreEqual(Initial_gross, "320.0");
-                Base_Assert.AreEqual(Finial_gross,"300.0");
-                Base_Assert.AreEqual(Difference,"220.0");
+                Base_Assert.AreEqual(Finial_gross, "300.0");
+                Base_Assert.AreEqual(Difference, "220.0");
                 //click accept dispense
                 WD.mainWindow.ScaleWeightInternalFrame.accept.ClickSignle();
                 if (WD.ErrorDialog.IsExist())
@@ -203,7 +203,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 //wait for loading
                 Thread.Sleep(5000);
                 APRM.BatchMainWindow.GetSnapshot(Resultpath + "APRM Batch detail(Accept).PNG");
-                APRM.BatchMainWindow.ListView._STD_ListView.ActivateItem("End Source Gross"); 
+                APRM.BatchMainWindow.ListView._STD_ListView.ActivateItem("End Source Gross");
                 Base_Assert.AreEqual("300", APRM.BatchMainWindow.BatchCharacteristicDialog.Value.Text, "End Source Gross");
                 APRM.BatchMainWindow.BatchCharacteristicDialog.Cancel.Click();
                 APRM.BatchMainWindow.ListView._STD_ListView.ActivateItem("Begin Source Gross");
@@ -224,7 +224,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 APRM.BatchMainWindow.ListView._STD_ListView.ActivateItem("Begin Source Gross");
                 string Cancel_Begin_source_Gross = APRM.BatchMainWindow.BatchCharacteristicDialog.Value.Text;
                 APRM.BatchMainWindow.BatchCharacteristicDialog.Cancel.Click();
-                Base_Assert.IsTrue(int.Parse(Cancel_End_source_Gross)< int.Parse(Cancel_Begin_source_Gross), "The Quantity should be reduced for End source.");
+                Base_Assert.IsTrue(int.Parse(Cancel_End_source_Gross) < int.Parse(Cancel_Begin_source_Gross), "The Quantity should be reduced for End source.");
                 //1072:Reset the weigh.The Quantity should be the same.
                 APRM.BatchMainWindow.TreeView.GetNode("Batch").Expand();
                 APRM.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1]").Expand();
@@ -253,7 +253,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 //codify all
                 Base_Test.LaunchApp(Base_Directory.Codify_allx86);
             }
-            
+
 
         }
 

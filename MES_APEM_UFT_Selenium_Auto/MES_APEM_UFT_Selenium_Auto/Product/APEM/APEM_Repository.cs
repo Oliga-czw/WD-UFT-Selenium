@@ -100,7 +100,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public static UFT_Dialog RowSelectionDialog => new UFT_Dialog("//Dialog[@Title = 'Row selection']");
         public static UFT_Dialog DeleteEventLogDialog => new UFT_Dialog("//Dialog[@Title = 'Delete Event Log']");
         public static UFT_Dialog CheckParametersDialog => new UFT_Dialog("//Dialog[@Title = 'Check Parameters']");
+        public static UFT_Dialog ConfirmFileReplaceDialog => new UFT_Dialog("//Dialog[@Title = 'Confirm File Replace']");
+        public static UFT_Dialog ExecuteTemplateDialog => new UFT_Dialog("//Dialog[@Title = 'Execute the Template']");
         #endregion
+
 
 
         #region MOC_Methods
@@ -130,12 +133,25 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
                 AeBRS.AeBRSConfigureWindow.OkButton.Click();
                 Thread.Sleep(3000);
             }
-            if (APEM.RegistrationWindow.IsExist())
+            if (APEM.RegistrationWindow.IsExist(30))
             {
                 APEM.RegistrationWindow.doNotShowCheckBox.Click();
                 APEM.RegistrationWindow.Close();
                 Thread.Sleep(2000);
             }
+            //chagne order/order tracking view all
+            APEM.MocmainWindow.Orders.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
+            Thread.Sleep(2000);
+            APEM.MocmainWindow.OrderListInternalFrame.Visible_Button.ClickSignle();
+            APEM.MocmainWindow.RowsToViewDialog.ViewAll.Click();
+            APEM.MocmainWindow.RowsToViewDialog.OK.Click();
+            APEM.MocmainWindow.OrderTracking.ClickSignle();
+            Thread.Sleep(2000);
+            MOC_Fuction.CheckRowSelection();
+            APEM.MocmainWindow.OrderTrackingInternalFrame.StatusFilterButton.ClickSignle();
+            APEM.MocmainWindow.RowsToViewDialog.ViewAll.Click();
+            APEM.MocmainWindow.RowsToViewDialog.OK.Click();
             //add workstation
             APEM.MocmainWindow.LogonInternalFrame.userNameEditor.SetText(UserName.qaone1);
             APEM.MocmainWindow.LogonInternalFrame.passwordEditor.SetSecure(PassWord.qaone1);

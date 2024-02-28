@@ -24,7 +24,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("UC814509_W&D enhancement for Source as Target_order report if set SOURCE_TARGET_REQUIRE_TARGET_TARE = 1")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.High)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]

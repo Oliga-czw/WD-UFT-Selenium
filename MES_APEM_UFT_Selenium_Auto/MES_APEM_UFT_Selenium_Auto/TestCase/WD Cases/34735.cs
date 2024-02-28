@@ -19,7 +19,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("CQ00689708_Login to WD administration using wrong userid/password fail and event will log into audit trail")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Low)]
-        [TestCategory(CaseState.Created)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
         [Timeout(600000)]

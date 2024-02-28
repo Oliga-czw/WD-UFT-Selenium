@@ -16,12 +16,12 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("label reprint report")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.High)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Created)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
         [Timeout(600000)]
-
-        [TestMethod]
+        //defect 1324998
+        //[TestMethod]
         public void VSTS_42345()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID;

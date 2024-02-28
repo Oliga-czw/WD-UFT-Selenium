@@ -14,7 +14,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("The weight bar zooming should be symmetric when the weight increases or decreases. (from CQ00552879)")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Medium)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]

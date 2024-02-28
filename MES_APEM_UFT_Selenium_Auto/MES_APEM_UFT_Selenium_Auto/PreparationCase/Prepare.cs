@@ -40,6 +40,8 @@ namespace MES_APEM_UFT_Selenium_Auto
         public void PrepareConfig()
         {
 
+            SdkConfiguration config = new SdkConfiguration();
+            SDK.Init(config);
             //start tomcat and sql service
             Base_Function.ResartServices(ServiceName.SQL);
             Base_Function.ResartServices(ServiceName.Tomcat);

@@ -24,7 +24,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.DataBaseWizard
 
         private static IWindow mainWindow = Desktop.Describe<IWindow>(new WindowDescription
         {
-            WindowTitleRegExp = @"Aspen Database Wizard"
+            WindowTitleRegExp = @"Aspen Database Wizard",
+            ObjectName = @"frmWizard",
+            Text = @"Aspen Database Wizard",
+            Index = 0
         });
 
 

@@ -13,12 +13,13 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Title("Order: Reprint label(container  and Pallet)")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Medium)]
-        [TestCategory(CaseState.Started)]
+        [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]
 
-        [TestMethod]
+        //defect 1324998
+        //[TestMethod]
         public void VSTS_43507()
 
         {

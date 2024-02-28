@@ -91,6 +91,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
                 Thread.Sleep(1000);
                 Wizard.ADSAExitDialog.OK.Click();
                 Wizard.WizardWindow.chkCreateADSA.Click();
+                Thread.Sleep(1000);
                 Wizard.WizardWindow.next.Click();
             }
             //finish and wait 80 seconds for config conpleted
@@ -275,6 +276,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
                     //BatchRPLArea
                     action();
                     Keyboard.PressKey(Keyboard.Keys.I);
+                    Thread.Sleep(5000);
                     APRM.APRMAdminWindow.Open.Filename.SendKeys(Base_Directory.BatchRPLArea);
                     Keyboard.PressKey(Keyboard.Keys.Enter);
                     Thread.Sleep(2000);
@@ -297,6 +299,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
                     //BatchAPI
                     action();
                     Keyboard.PressKey(Keyboard.Keys.I);
+                    Thread.Sleep(5000);
                     APRM.APRMAdminWindow.Open.Filename.SendKeys(Base_Directory.BatchAPIArea);
                     Keyboard.PressKey(Keyboard.Keys.Enter);
                     Thread.Sleep(2000);
@@ -477,6 +480,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 
         public static void action()
         {
+            Keyboard.KeyUp(Keyboard.Keys.Alt);
             Keyboard.KeyDown(Keyboard.Keys.Alt);
             Keyboard.PressKey(Keyboard.Keys.A);
             Thread.Sleep(1000);
