@@ -53,8 +53,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 string file1 = path + "axis2 dataDelivery JSON script.txt";
                 string file2 = path + "axis2 dataDelivery XML script.txt";
                 string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                string newfile1 = desktop + "axis2 dataDelivery JSON script.txt";
-                string newfile2 = desktop + "axis2 dataDelivery XML script.txt";
+                string newfile1 = desktop + "\\axis2 dataDelivery JSON script.txt";
+                string newfile2 = desktop + "\\axis2 dataDelivery XML script.txt";
                 string oldText = "MachineName";
                 string newText = Environment.MachineName;
                 Base_Function.ReplaceTextInNewFile(file1, newfile1, oldText, newText);

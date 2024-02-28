@@ -3,7 +3,7 @@ local MySessionID;
 local result;
 local scriptData;
 
-scriptData = '<?xml version="1.0" encoding="UTF-8" ?><ProductionSchedule xmlns="http://www.wbf.org/xml/B2MML-V0401"><script>HHH.A</script><description>Change XML</description></ProductionSchedule>';
+scriptData = '<?xml version="1.0" encoding="UTF-8" ?><ProductionSchedule xmlns="http://www.wbf.org/xml/B2MML-V0401"><script>BPL927362.A</script><description>Change XML</description></ProductionSchedule>';
 
 -- *************************************;
 -- Setting up Soap Client Environment ...

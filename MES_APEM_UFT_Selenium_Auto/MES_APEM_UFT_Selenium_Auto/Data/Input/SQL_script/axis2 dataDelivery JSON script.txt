@@ -4,7 +4,7 @@ local MySessionID;
 local result;
 local scriptData;
 
-scriptData = '{"ProductionSchedule": {"script": "HHH.A","-xmlns": "http://www.wbf.org/xml/B2MML-V0401", "description": "Change JSON"}}';
+scriptData = '{"ProductionSchedule": {"script": "BPL927362.A","-xmlns": "http://www.wbf.org/xml/B2MML-V0401", "description": "Change JSON"}}';
 -- *************************************
 -- Setting up Soap Client Environment ...
 -- *************************************
