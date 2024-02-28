@@ -15,7 +15,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
     {
         [TestCaseID(927362)]
         [Title("UC822648_Soap1.2:New API dataDelivery() should work as expected")]
-        [TestCategory(ProductArea.RecipeManagement)]
+        [TestCategory(ProductArea.API)]
         [Priority(CasePriority.Medium)]
         [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]

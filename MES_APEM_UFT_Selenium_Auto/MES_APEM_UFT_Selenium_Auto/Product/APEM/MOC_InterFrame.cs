@@ -376,6 +376,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button PlanFromMRecipe_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Plan from M.Recipe']");
         //public UFT_Button LoadDesigner_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Load designer' and @IsWrapped = 'True']");
         public UFT_Button Refresh_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Refresh' and @IsWrapped = 'True']");
+        public UFT_Button Delete_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Delete row' and @IsWrapped = 'True']");
         public UFT_Button Filter_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Local filter' and @IsWrapped = 'True']");
         public UFT_Button Visible_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Select visible rows' and @IsWrapped = 'True']");
         public UFT_Editor Search => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Code\\s\\s']");

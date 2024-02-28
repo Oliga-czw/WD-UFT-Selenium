@@ -63,6 +63,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
 
         //orderlist
         public UFT_Dialog CancelOrderDialog => new UFT_Dialog("//Dialog[@Title = 'Cancel Order']");
+        public UFT_Dialog DeleteOrderDialog => new UFT_Dialog("//Dialog[@Title = 'Delete current row']");
         public UFT_Dialog ArchiveOrderDialog => new UFT_Dialog("//Dialog[@Title = 'Archive Order']");
         public RowsToView_Dialog RowsToViewDialog => new RowsToView_Dialog(_UFT_Window, "//Dialog[@Title = 'Rows to View']");
         public UFT_Dialog ErrorDialog => new UFT_Dialog("//Dialog[@Title = 'Error']");

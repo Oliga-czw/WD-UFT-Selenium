@@ -152,6 +152,12 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public Selenium_WebElement MainField1 => new Selenium_WebElement(_Selenium_Driver, "//input[@id='Main.Field1']");
         public Selenium_WebElement MainField0 => new Selenium_WebElement(_Selenium_Driver, "//input[@id='main.Field0']");
         public Selenium_WebElement ConfirmYesButton => new Selenium_WebElement(_Selenium_Driver, "//div[@id='dialog']/div/div[3]/button[1]");
+        //961928
+        public Selenium_WebElement SET_CURRENT_USER_Button => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' SET_CURRENT_USER (\"qae\\qaone2\") ']/../..");
+        public Selenium_WebElements Labels => new Selenium_WebElements(_Selenium_Driver, "//div[@id='execution']//label");
+        //962338
+        public Selenium_WebElement DELETE_ORDER_Button => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' DELETE_ORDER ']/../..");
+
     }
 
 
