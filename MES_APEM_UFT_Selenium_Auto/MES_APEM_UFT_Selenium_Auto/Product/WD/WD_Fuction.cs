@@ -27,7 +27,28 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
             }
 
         }
+        public static void OrderKitting()
+        {
+            Thread.Sleep(2000);
+            WD.mainWindow.HomeInternalFrame.OrderKitting.Click();
+            WD.mainWindow.SelectAnOrderToKittingFrame.orderTable.SelectRows(0);
+            WD.mainWindow.SelectAnOrderToKittingFrame.StartKitButton.Click();
+            Thread.Sleep(4000);
+            int count = WD.mainWindow.SelectAnOrderToKittingFrame.KitTable.Rowscount();
+            Console.WriteLine(count);
+            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys("test1");
+            for (int i = 0; i < count; i++)
+            {
+                string test01 = WD.mainWindow.SelectAnOrderToKittingFrame.KitTable.GetCell(i, "Container").Value.ToString();
+                WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys(test01);
+            }
+            WD.mainWindow.SelectAnOrderToKittingFrame.accept.ClickSignle();
+            if (WD.ErrorDialog.IsExist())
+            {
+                WD.ErrorDialog.OKButton.Click();
+            }
 
+        }
 
         public static void FinishDiapense(string method,string barcode)
         {

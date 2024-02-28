@@ -505,6 +505,49 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
             DateTime report_time = Convert.ToDateTime(date);
             Base_Assert.IsTrue(Math.Abs(report_time.Subtract(execute_time).TotalSeconds) < 30, "date time is right");
         }
+        public static (string,string) check_weighing_report_source(string action)
+        {
+            Thread.Sleep(3000);
+            Web.Report_Page.Generate_Report.Click();
+            Thread.Sleep(3000);
+            var head = Web.Report_Page.Report_Heads;
+            //get head list
+            int i = 0;
+            int Begin_Source_index = 0;
+            int End_Source_index = 0;
+            int Action_index = 0;
+            foreach (var h in head)
+            {
+                if (h.Text == "Begin Source")
+                {
+                    Begin_Source_index = i;
+                }
+                else if (h.Text == "End Source")
+                {
+                    End_Source_index = i;
+                }
+                else if (h.Text == "Action")
+                {
+                    Action_index = i;
+                }
+                i++;
+            }
+            var table_datas = Web.Report_Page.Report_Table_Rows;
+            int j = 0;
+            int index = 0;
+            foreach (var table_data in table_datas)
+            {
+                if (table_data.FindElements(By.TagName("td"))[Action_index].Text == action)
+                {
+                    index = j;
+                    break;
+                }
+                j++;
+            }
+            var begin_source = table_datas[index].FindElements(By.TagName("td"))[Begin_Source_index].Text;
+            var end_source = table_datas[index].FindElements(By.TagName("td"))[End_Source_index].Text;
+            return (begin_source, end_source);
+        }
         #endregion
 
         #region order function

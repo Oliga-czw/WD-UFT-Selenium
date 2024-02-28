@@ -1,0 +1,405 @@
+(6 row affected)
+(18 row affected)
+(11 row affected)
+(0 row affected)
+(0 row affected)
+(0 row affected)
+(0 row affected)
+(0 row affected)
+(0 row affected)
+http://ZIRU-2022-1.qae.aspentech.com/WeighDispense/
+---------- Row Found ----------
+Order : test1
+Batch : 001P
+Product : 1902
+Product Description : 25mM HEPS, 100mM NaCI, pH 8.00
+Quantity : 800.000
+UOM : G
+Dispense Status : Active
+-------------------------------
+---------- Row Found ----------
+Sequence : 1
+Material ID : X0125
+Material Description : X0125 Description
+Status : Pending
+BOM Quantity : 400.000
+Adjust Quantity : 400
+Remaining Quantity : 400
+UOM : G
+Clean Required : Yes
+-------------------------------
+---------- Row Found ----------
+Order : test1
+Batch : 001P
+Product : 1902
+Product Description : 25mM HEPS, 100mM NaCI, pH 8.00
+Quantity : 800.000
+UOM : G
+Dispense Status : Started
+-------------------------------
+---------- Row Found ----------
+Sequence : 2
+Material ID : M801890
+Material Description : M801890 Description
+Status : Pending
+BOM Quantity : 200.000
+Adjust Quantity : 55.8
+Remaining Quantity : 55.8
+UOM : G
+Clean Required : Yes
+-------------------------------
+---------- Row Found ----------
+Order : test1
+Batch : 001P
+Product : 1902
+Product Description : 25mM HEPS, 100mM NaCI, pH 8.00
+Quantity : 800.000
+UOM : G
+Dispense Status : Started
+-------------------------------
+---------- Row Found ----------
+Sequence : 3
+Material ID : 1072
+Material Description : L-Lysine Monohydrochloride
+Status : Pending
+BOM Quantity : 200.000
+Adjust Quantity : 55.8
+Remaining Quantity : 55.8
+UOM : G
+Clean Required : Yes
+-------------------------------
+---------- Row Found ----------
+Order : test1
+Batch : 001P
+Product : 1902
+Product Description : 25mM HEPS, 100mM NaCI, pH 8.00
+Quantity : 800.000
+UOM : G
+Dispense Status : Started
+-------------------------------
+---------- Row Found ----------
+Sequence : 3
+Material ID : 1072
+Material Description : L-Lysine Monohydrochloride
+Status : Pending
+BOM Quantity : 200.000
+Adjust Quantity : 55.8
+Remaining Quantity : 55.8
+UOM : G
+Clean Required : No
+-------------------------------
+3
+http://ZIRU-2022-1.qae.aspentech.com/WeighDispense/
+---------- Row Found ----------
+Order : test1
+Batch : 001P
+Product : 1902
+Product Description : 25mM HEPS, 100mM NaCI, pH 8.00
+Quantity : 800.000
+UOM : G
+Dispense Status : Started
+-------------------------------
+---------- Row Found ----------
+Sequence : 3
+Material ID : 1072
+Material Description : L-Lysine Monohydrochloride
+Status : Pending
+BOM Quantity : 200.000
+Adjust Quantity : 55.8
+Remaining Quantity : 55.8
+UOM : G
+Clean Required : No
+-------------------------------
+1
+(6 row affected)
+(18 row affected)
+http://ZIRU-2022-1.qae.aspentech.com/WeighDispense/
+---------- Row Found ----------
+Order : test1
+Batch : 001P
+Product : 1902
+Product Description : 25mM HEPS, 100mM NaCI, pH 8.00
+Quantity : 800.000
+UOM : G
+Dispense Status : Active
+-------------------------------
+---------- Row Found ----------
+Sequence : 1
+Material ID : X0125
+Material Description : X0125 Description
+Status : Pending
+BOM Quantity : 400.000
+Adjust Quantity : 400
+Remaining Quantity : 400
+UOM : G
+Clean Required : Yes
+-------------------------------
+(6 row affected)
+(18 row affected)
+http://ZIRU-2022-1.qae.aspentech.com/WeighDispense/
+---------- Row Found ----------
+Order : test2
+Batch : 001P
+Product : 1902
+Product Description : 25mM HEPS, 100mM NaCI, pH 8.00
+Quantity : 800.000
+UOM : G
+Dispense Status : Active
+-------------------------------
+---------- Row Found ----------
+Sequence : 1
+Material ID : X0125
+Material Description : X0125 Description
+Status : Pending
+BOM Quantity : 400.000
+Adjust Quantity : 400
+Remaining Quantity : 400
+UOM : G
+Clean Required : Yes
+-------------------------------
+---------- Row Found ----------
+Order : test1
+Batch : 001P
+Product : 1902
+Product Description : 25mM HEPS, 100mM NaCI, pH 8.00
+Quantity : 800.000
+UOM : G
+Dispense Status : Active
+-------------------------------
+---------- Row Found ----------
+Sequence : 1
+Material ID : X0125
+Material Description : X0125 Description
+Status : Pending
+BOM Quantity : 400.000
+Adjust Quantity : 400
+Remaining Quantity : 400
+UOM : G
+Clean Required : Yes
+-------------------------------
+---------- Row Found ----------
+Order : test1
+Batch : 001P
+Product : 1902
+Product Description : 25mM HEPS, 100mM NaCI, pH 8.00
+Quantity : 800.000
+UOM : G
+Dispense Status : Started
+-------------------------------
+---------- Row Found ----------
+Sequence : 2
+Material ID : M801890
+Material Description : M801890 Description
+Status : Pending
+BOM Quantity : 200.000
+Adjust Quantity : 167.4
+Remaining Quantity : 167.4
+UOM : G
+Clean Required : Yes
+-------------------------------
+---------- Row Found ----------
+Order : test1
+Batch : 001P
+Product : 1902
+Product Description : 25mM HEPS, 100mM NaCI, pH 8.00
+Quantity : 800.000
+UOM : G
+Dispense Status : Started
+-------------------------------
+---------- Row Found ----------
+Sequence : 3
+Material ID : 1072
+Material Description : L-Lysine Monohydrochloride
+Status : Pending
+BOM Quantity : 200.000
+Adjust Quantity : 167.4
+Remaining Quantity : 167.4
+UOM : G
+Clean Required : Yes
+-------------------------------
+---------- Row Found ----------
+Order : test3
+Batch : 001P
+Product : 1902
+Product Description : 25mM HEPS, 100mM NaCI, pH 8.00
+Quantity : 800.000
+UOM : G
+Dispense Status : Active
+-------------------------------
+---------- Row Found ----------
+Sequence : 1
+Material ID : X0125
+Material Description : X0125 Description
+Status : Pending
+BOM Quantity : 400.000
+Adjust Quantity : 400
+Remaining Quantity : 400
+UOM : G
+Clean Required : Yes
+-------------------------------
+---------- Row Found ----------
+Order : test3
+Batch : 001P
+Product : 1902
+Product Description : 25mM HEPS, 100mM NaCI, pH 8.00
+Quantity : 800.000
+UOM : G
+Dispense Status : Started
+-------------------------------
+---------- Row Found ----------
+Sequence : 2
+Material ID : M801890
+Material Description : M801890 Description
+Status : Pending
+BOM Quantity : 200.000
+Adjust Quantity : 24.3
+Remaining Quantity : 24.3
+UOM : G
+Clean Required : Yes
+-------------------------------
+---------- Row Found ----------
+Order : test3
+Batch : 001P
+Product : 1902
+Product Description : 25mM HEPS, 100mM NaCI, pH 8.00
+Quantity : 800.000
+UOM : G
+Dispense Status : Started
+-------------------------------
+---------- Row Found ----------
+Sequence : 3
+Material ID : 1072
+Material Description : L-Lysine Monohydrochloride
+Status : Pending
+BOM Quantity : 200.000
+Adjust Quantity : 24.3
+Remaining Quantity : 24.3
+UOM : G
+Clean Required : Yes
+-------------------------------
+(6 row affected)
+(18 row affected)
+http://ZIRU-2022-1.qae.aspentech.com/WeighDispense/
+---------- Row Found ----------
+Order : test1
+Batch : 001P
+Product : 1902
+Product Description : 25mM HEPS, 100mM NaCI, pH 8.00
+Quantity : 800.000
+UOM : G
+Dispense Status : Active
+-------------------------------
+---------- Row Found ----------
+Sequence : 1
+Material ID : X0125
+Material Description : X0125 Description
+Status : Pending
+BOM Quantity : 400.000
+Adjust Quantity : 400
+Remaining Quantity : 400
+UOM : G
+Clean Required : Yes
+-------------------------------
+---------- Row Found ----------
+Order : test1
+Batch : 001P
+Product : 1902
+Product Description : 25mM HEPS, 100mM NaCI, pH 8.00
+Quantity : 800.000
+UOM : G
+Dispense Status : Started
+-------------------------------
+---------- Row Found ----------
+Sequence : 2
+Material ID : M801890
+Material Description : M801890 Description
+Status : Pending
+BOM Quantity : 200.000
+Adjust Quantity : 223.2
+Remaining Quantity : 223.2
+UOM : G
+Clean Required : Yes
+-------------------------------
+---------- Row Found ----------
+Order : test1
+Batch : 001P
+Product : 1902
+Product Description : 25mM HEPS, 100mM NaCI, pH 8.00
+Quantity : 800.000
+UOM : G
+Dispense Status : Started
+-------------------------------
+---------- Row Found ----------
+Sequence : 3
+Material ID : 1072
+Material Description : L-Lysine Monohydrochloride
+Status : Pending
+BOM Quantity : 200.000
+Adjust Quantity : 223.2
+Remaining Quantity : 223.2
+UOM : G
+Clean Required : Yes
+-------------------------------
+---------- Row Found ----------
+Order : test1
+Batch : 001P
+Product : 1902
+Product Description : 25mM HEPS, 100mM NaCI, pH 8.00
+Quantity : 800.000
+UOM : G
+Dispense Status : Started
+-------------------------------
+---------- Row Found ----------
+Sequence : 3
+Material ID : 1072
+Material Description : L-Lysine Monohydrochloride
+Status : Partially Dispensed
+BOM Quantity : 200.000
+Adjust Quantity : 223.2
+Remaining Quantity : 124.0
+UOM : G
+Clean Required : No
+-------------------------------
+7
+---------- Row Found ----------
+Order : test1
+Batch : 001P
+Product : 1902
+Product Description : 25mM HEPS, 100mM NaCI, pH 8.00
+Quantity : 800.000
+UOM : G
+Dispense Status : Started
+-------------------------------
+---------- Row Found ----------
+Sequence : 3
+Material ID : 1072
+Material Description : L-Lysine Monohydrochloride
+Status : Partially Dispensed
+BOM Quantity : 200.000
+Adjust Quantity : 223.2
+Remaining Quantity : 25.0
+UOM : G
+Clean Required : No
+-------------------------------
+1
+---------- Row Found ----------
+Order : test1
+Batch : 001P
+Product : 1902
+Product Description : 25mM HEPS, 100mM NaCI, pH 8.00
+Quantity : 800.000
+UOM : G
+Dispense Status : Started
+-------------------------------
+---------- Row Found ----------
+Sequence : 3
+Material ID : 1072
+Material Description : L-Lysine Monohydrochloride
+Status : Partially Dispensed
+BOM Quantity : 200.000
+Adjust Quantity : 223.2
+Remaining Quantity : 25.0
+UOM : G
+Clean Required : No
+-------------------------------
+1

@@ -38,14 +38,31 @@ namespace MES_APEM_UFT_Selenium_Auto
         [TestMethod]
         public void TestMethod1()
         {
-            //SdkConfiguration config = new SdkConfiguration();
-            //SDK.Init(config);
+            SdkConfiguration config = new SdkConfiguration();
+            SDK.Init(config);
+            Thread.Sleep(3000);
+
+            //Application.LaunchBatchQueryTool();
             //Thread.Sleep(3000);
-            string oldfile = Base_Directory.BatchConfig;
-            string newFile = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\BatchConfig.ini";
-            string oldText = "MachineName";
-            string newText = Environment.MachineName;
-            Base_Function.ReplaceTextInNewFile(oldfile, newFile, oldText, newText);
+            ////open new query
+            //BatchQueryTool.NewQuery();
+            ////open batch detail display
+            //BatchQueryTool.BatchQueryToolWindow.ListView._STD_ListView.ActivateItem("test2");
+            //wait for loading
+            //Thread.Sleep(15000);
+            //Check Begin_Source_Gross and End_Source_Gross fields should not show in APRM
+            APRM.BatchMainWindow.TreeView.GetNode("Batch").Expand();
+            APRM.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1]").Expand();
+            APRM.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1];BOM [1]").Expand();
+            APRM.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1];BOM [1];Material [1]").Expand();
+            //wait for loading
+            Thread.Sleep(5000);
+            //APRM.BatchMainWindow.GetSnapshot(Resultpath + "APRM Batch detail(Accept).PNG");
+            var shown_items = APRM.BatchMainWindow.ListView._STD_ListView.GetVisibleText();
+            Console.WriteLine(shown_items);
+
+
+
         }
 
 

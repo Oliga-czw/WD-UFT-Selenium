@@ -50,6 +50,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         {
             //open wizard
             Application.LaunchWizrd();
+            Thread.Sleep(5000);
             Wizard.WizardWindow.next.Click();
             //select aprm
             Wizard.WizardWindow.lstAPRM.Click();
