@@ -132,7 +132,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
             IJavaScriptExecutor js = (IJavaScriptExecutor)_Selenium_Driver;
             js.ExecuteScript(script, element);
         }
-        public static bool is_element_exit(string xpath)
+        public static bool is_element_exist(string xpath)
         {
             try
             {
