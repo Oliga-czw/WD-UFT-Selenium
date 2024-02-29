@@ -253,6 +253,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button StopPhaseButton => new UFT_Button(_UFT_Window, "//Button[@Label = 'Stop phase' and @IsWrapped = 'True']");
         public UFT_Button CancelPhaseButton => new UFT_Button(_UFT_Window, "//Button[@Label = 'Cancel phase' and @IsWrapped = 'True']");
         public Message_InterFrame MessageInternalFrame => new Message_InterFrame(_UFT_Window, "//InterFrame[@Label = 'Message']");
+        public WaitMessage_InterFrame WaitMessageInterFrame => new WaitMessage_InterFrame(_UFT_Window, "//InterFrame[@Label = 'Wait Please ...']");
+        
     }
 
     public class RegistrationWindow : WPF_Window

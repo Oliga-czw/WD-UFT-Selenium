@@ -562,5 +562,18 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             AttachedText = @"	 	 	 	OK	 	 	 	"
         });
     }
+    public class WaitMessage_InterFrame : MOCMainInterFrame
+    {
+
+        public WaitMessage_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+
+        public ILabel Label => _UFT_InterFrame.Describe<ILabel>(new LabelDescription
+        {
+            NativeClass = @"javax.swing.JLabel"
+        });
+
+    }
 }
 

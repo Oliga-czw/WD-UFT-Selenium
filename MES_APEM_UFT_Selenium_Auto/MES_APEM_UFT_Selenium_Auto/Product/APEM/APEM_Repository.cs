@@ -139,19 +139,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
                 APEM.RegistrationWindow.Close();
                 Thread.Sleep(2000);
             }
-            //chagne order/order tracking view all
-            APEM.MocmainWindow.Orders.ClickSignle();
-            MOC_Fuction.CheckRowSelection();
-            Thread.Sleep(2000);
-            APEM.MocmainWindow.OrderListInternalFrame.Visible_Button.ClickSignle();
-            APEM.MocmainWindow.RowsToViewDialog.ViewAll.Click();
-            APEM.MocmainWindow.RowsToViewDialog.OK.Click();
-            APEM.MocmainWindow.OrderTracking.ClickSignle();
-            Thread.Sleep(2000);
-            MOC_Fuction.CheckRowSelection();
-            APEM.MocmainWindow.OrderTrackingInternalFrame.StatusFilterButton.ClickSignle();
-            APEM.MocmainWindow.RowsToViewDialog.ViewAll.Click();
-            APEM.MocmainWindow.RowsToViewDialog.OK.Click();
             //add workstation
             APEM.MocmainWindow.LogonInternalFrame.userNameEditor.SetText(UserName.qaone1);
             APEM.MocmainWindow.LogonInternalFrame.passwordEditor.SetSecure(PassWord.qaone1);
@@ -172,6 +159,19 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
                 APEM.MOCConfigWindow.WorkstationInsertInterFrame.Close.ClickSignle();
             }
             MOC_Fuction.ConfigClose();
+            //chagne order/order tracking view all
+            APEM.MocmainWindow.Orders.ClickSignle();
+            MOC_Fuction.CheckRowSelection();
+            Thread.Sleep(2000);
+            APEM.MocmainWindow.OrderListInternalFrame.Visible_Button.ClickSignle();
+            APEM.MocmainWindow.RowsToViewDialog.ViewAll.Click();
+            APEM.MocmainWindow.RowsToViewDialog.OK.Click();
+            APEM.MocmainWindow.OrderTracking.ClickSignle();
+            Thread.Sleep(2000);
+            MOC_Fuction.CheckRowSelection();
+            APEM.MocmainWindow.OrderTrackingInternalFrame.StatusFilterButton.ClickSignle();
+            APEM.MocmainWindow.RowsToViewDialog.ViewAll.Click();
+            APEM.MocmainWindow.RowsToViewDialog.OK.Click();
             //import template
             MOC_TemplatesFunction.Importtemplates("TEMP.zip");
             APEM.ExitApplication();
