@@ -36,7 +36,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             string order3 = "test3";
             string xml1 = "10 aspen wd signautres_42354 bulk load.xml";
             string xml2 = "14 aspen wd deviation_42354 bulk load.xml";
-            WD_Fuction.Bulkload(xml1);          
+            WD_Fuction.Bulkload(xml1);
             LogStep(@"1. edit planned, active,  archived or cancel order");
             Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
             Web_Fuction.gotoWDWeb(driver);
@@ -51,10 +51,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(3000);
             Web_Fuction.Archive_order(order3);
             Thread.Sleep(2000);
-            
+
             driver.Wait();
             var order_list = driver.FindElements("//table[@class='Order_Table_body_Style_Collapse']/tbody/tr");
-            for(int i = 2; i <= order_list.Count; i++)
+            for (int i = 2; i <= order_list.Count; i++)
             {
                 var tr_xpath = "//table[@class='Order_Table_body_Style_Collapse']/tbody/tr[" + i.ToString() + "]/td[3]/img";
                 Console.WriteLine(tr_xpath);
@@ -90,6 +90,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 WD.ErrorDialog.OKButton.Click();
             }
             Web_Fuction.gotoTab(WDWebTab.order);
+            Thread.Sleep(3000);
             Web.Order_Page.Refresh.Click();
             Thread.Sleep(3000);
             Base_Assert.AreEqual(driver.FindElement("//td[text()='test1']/../td[7]").Text, "Started");
@@ -149,6 +150,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             WD.mainWindow.DispensingInternalFrame.HomeButton.Click();
             WD_Fuction.Close();
             Web_Fuction.gotoTab(WDWebTab.order);
+            Thread.Sleep(3000);
             Web.Order_Page.Refresh.Click();
             Thread.Sleep(3000);
             Web.Order_Page.Refresh.Click();
@@ -165,6 +167,9 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Web_Fuction.login();
             driver.Wait();
             Web_Fuction.gotoTab(WDWebTab.order);
+            Thread.Sleep(3000);
+            Web.Order_Page.Refresh.Click();
+            Thread.Sleep(3000);
             driver1.Wait();
             LogStep(@"select a container to redispense");
             driver1.FindElement("//td[text()='test1']/../td[3]/img").Click();
@@ -182,7 +187,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             driver1.FindElement("//a[text()='Redispense a Material']").Click();
             Thread.Sleep(2000);
             var materials_list2 = driver1.FindElements("//div[text()='Select a material to redispense.']/../../..//table[@class='Order_Table_body_Style_Collapse']/tbody/tr");
-            Base_Assert.AreEqual(materials_list1.Count, materials_list2.Count+1);
+            Base_Assert.AreEqual(materials_list1.Count, materials_list2.Count + 1);
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "materials_list_changed.PNG");
             driver1.Close();
             Application.LaunchWDAndLogin();
@@ -246,6 +251,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Web_Fuction.login();
             driver.Wait();
             Web_Fuction.gotoTab(WDWebTab.order);
+            Thread.Sleep(3000);
             Web.Order_Page.Refresh.Click();
             Thread.Sleep(3000);
             Base_Assert.AreEqual(driver2.FindElement("//td[text()='test1']/../td[7]").Text, "Deviation Pending");
@@ -261,7 +267,6 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             driver2.FindElement("//div[text()='Password:']/../../td[2]/input").SendKeys(PassWord.qaone1);
             driver2.FindElement("//button[text()='OK']").Click();
             //Finished the order
-            Web.Order_Page.Refresh.Click();
             Thread.Sleep(3000);
             driver2.FindElement("//a[text()='Accept/Comment']").Click();
             driver2.FindElement("//textarea[@class='gwt-TextArea Comment_TextArea']").SendKeys("test");
@@ -279,6 +284,6 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Base_Assert.IsFalse(driver2.FindElement("//a[text()='Redispense a Material']").GetAttribute("class").Contains("Disable"));
         }
 
-       
+
     }
 }
