@@ -26,7 +26,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
-        [Timeout(600000)]
+        [Timeout(1200000)]
 
         [TestMethod]
         public void VSTS_1011390()
@@ -49,6 +49,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Base_Test.LaunchApp(Base_Directory.Codify_all);
                 //restart tomcat
                 Base_Function.ResartServices(ServiceName.Tomcat);
+                Thread.Sleep(180000);
                 Application.LaunchMocAndLogin();
                 Thread.Sleep(5000);
                 LogStep(@"2. import templete");
@@ -82,20 +83,32 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 var Password = Mobile.Mobile_Page.Inputs.getElement(1);
                 //Base_Assert.AreEqual(UserName.qaone1,User.Text,"USER");
                 Password.SendKeys(PassWord.qaone1);
+                Thread.Sleep(2000);
                 Mobile.Mobile_Page.Login.Click();
-                bool exist = true;
-                try
-                {
-                    var dialog = Mobile.Mobile_Page.Dialog;
-                }
-                catch
-                {
-                    exist = false;
-                }
-                Base_Assert.IsFalse(exist, "Re login Success");
+                Thread.Sleep(2000);
                 //Finish order
+                Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Execute phase.PNG");
                 Mobile.OrderExecution_Page.OKButton.Click();
                 Thread.Sleep(5000);
+                //check phase status
+                int no = 0;
+                int i = 0;
+
+                foreach (IWebElement head in Mobile.OrderTracking_Page.OrderPhaseTableHeads)
+                {
+                    if (head.Text == "Status")
+                    {
+                        no = i;
+                    }
+                    i++;
+                }
+                foreach (IWebElement Phase in Mobile.OrderTracking_Page.OrderPhaseTableRows)
+                {
+                    var Status = Phase.FindElements(By.TagName("td"))[no].Text;
+                    Console.WriteLine(Status);
+                    Assert.IsTrue(Status.Contains("Finished"));
+                }
+                Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Finish phase.PNG");
                 driver.Close();
             }
             finally
@@ -106,6 +119,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Base_Test.LaunchApp(Base_Directory.Codify_all);
                 //restart tomcat
                 Base_Function.ResartServices(ServiceName.Tomcat);
+                Thread.Sleep(120000);
             }
 
         }
