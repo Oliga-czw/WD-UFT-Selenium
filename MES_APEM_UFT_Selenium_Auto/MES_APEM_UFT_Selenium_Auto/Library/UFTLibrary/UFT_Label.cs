@@ -27,5 +27,13 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
             }
             
         }
+
+        public void DoubleClick()
+        {
+            _UFT_Label.DoubleClick();
+        }
+
+
+
     }
 }
