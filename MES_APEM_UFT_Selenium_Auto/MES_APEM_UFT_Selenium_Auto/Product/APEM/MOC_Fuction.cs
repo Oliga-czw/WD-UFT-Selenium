@@ -340,7 +340,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         {
             //delete event log
             APEM.MocmainWindow.Tools.EventLog.Select();
-            APEM.RowSelectionDialog.YesButton.Click();
+            CheckRowSelection();
             if (APEM.MocmainWindow.EventLogListInterFrame.Delete.IsEnabled)
             {
                 APEM.MocmainWindow.EventLogListInterFrame.Delete.ClickSignle();
