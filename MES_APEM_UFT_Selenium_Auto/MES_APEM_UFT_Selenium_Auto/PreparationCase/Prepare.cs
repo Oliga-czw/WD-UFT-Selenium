@@ -51,6 +51,12 @@ namespace MES_APEM_UFT_Selenium_Auto
             APEM.AeBRSInstaller();
             //update afw
             AFW_Fuction.ReplaceAFWDB();
+            //set config in flag
+            string Path = Base_Directory.ConfigDir + "path.m2r_cfg";
+            string ConfigKey1 = @"WEB_INACTIVITY_PERIOD = 3000";
+            Base_Function.EditConfigKey(Path, ConfigKey1);
+            //codify all
+            Base_Test.LaunchApp(Base_Directory.Codify_all);
             //restart tomcat server 
             Base_Function.ResartServices(ServiceName.Tomcat);
             //install  and config aprm

@@ -73,6 +73,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(2000);
             APEM.ActivateDialog.YesButton.Click();
             MOC_Fuction.AddReason();
+            Thread.Sleep(10000);
             foreach (IWebElement Phase in Mobile.OrderTracking_Page.OrderPhaseTableRows)
             {
                 var Status = Phase.FindElements(By.TagName("td"))[no].Text;

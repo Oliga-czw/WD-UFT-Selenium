@@ -37,7 +37,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
 
             string Path = Base_Directory.ConfigDir + "path.m2r_cfg";
             string ConfigKey1 = @"WEB_INACTIVITY_PERIOD = 60";
-            string ConfigKey2 = @"WEB_INACTIVITY_PERIOD = 300";
+            string ConfigKey2 = @"WEB_INACTIVITY_PERIOD = 3000";
 
             
             try

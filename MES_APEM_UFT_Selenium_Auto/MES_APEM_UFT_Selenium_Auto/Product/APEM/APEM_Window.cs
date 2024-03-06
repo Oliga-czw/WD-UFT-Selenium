@@ -187,6 +187,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Label Window0 => new UFT_Label(_UFT_Window, "//Label[@Label = ' Window0 ']");
         public UFT_UiObject Table => new UFT_UiObject(_UFT_Window, "//Table[@TagName = 'chkTable']");
         public ColumnEditor_Dialog ColumnEditorDialog => new ColumnEditor_Dialog(_UFT_Window, "//Dialog[@Title = 'Column Editor']");
+        public ColumnEditor_Dialog ActionsEditorDialog => new ColumnEditor_Dialog(_UFT_Window, "//Dialog[@Title = 'Actions Editor']");
 
         //Properties
         public UFT_Button Modify => new UFT_Button(_UFT_Window, "//Button[@Label = 'Modify']");
