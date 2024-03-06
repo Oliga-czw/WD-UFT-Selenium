@@ -1,10 +1,12 @@
-﻿using OpenQA.Selenium;
+﻿using MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -39,42 +41,61 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
 
         public Selenium_Driver(IWebDriver driver)
         {
-            _Selenium_Driver= driver;
+            _Selenium_Driver = driver;
         }
 
         public  Selenium_Driver(string browser)
         {
             Initial(browser);
         }
-        //public  Selenium_Driver(string browser)
-        //{
-        //    if (browser == "chrome")
-        //    {
-        //        _Selenium_Driver = new ChromeDriver();
-        //    }
-        //    else if (browser == "edge")
-        //    {
-        //        _Selenium_Driver = new EdgeDriver();
-        //    }
-        //    else
-        //    {
-        //        _Selenium_Driver = new ChromeDriver();
-        //    }
-        //}
+
+
+        private static IWebDriver currentDriver;
+        private static IWebDriver chromeDriver;
+        private static IWebDriver edgeDriver;
+
+        public IWebDriver CurrentDriver
+        {
+            get { return _Selenium_Driver; }
+        }
+        private void SetCurrentDriver(IWebDriver driver)
+        {
+            _Selenium_Driver = driver;
+        }
+
+        public void SwitchToChrome()
+        {
+            _Selenium_Driver.Manage().Window.Minimize();
+            SetCurrentDriver(chromeDriver);
+            _Selenium_Driver.Manage().Window.Maximize();
+        }
+
+        public void SwitchToEdge()
+        {
+            _Selenium_Driver.Manage().Window.Minimize();
+            SetCurrentDriver(edgeDriver);
+            _Selenium_Driver.Manage().Window.Maximize();
+        }
+
+
 
         public void Initial(string browser)
         {
             if (browser == "chrome")
             {
-                _Selenium_Driver = new ChromeDriver();
+                chromeDriver = new ChromeDriver();
+                SetCurrentDriver(chromeDriver);
             }
             else if (browser == "edge")
             {
-                _Selenium_Driver = new EdgeDriver();
+                var edgeDriverPath = Base_Directory.DebugDir;
+                edgeDriver = new EdgeDriver(edgeDriverPath);
+                SetCurrentDriver(edgeDriver);
             }
             else
             {
-                _Selenium_Driver = new ChromeDriver();
+                chromeDriver = new ChromeDriver();
+                SetCurrentDriver(chromeDriver);
             }
 
             _Selenium_Driver.Manage().Window.Maximize();
@@ -91,6 +112,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
         {
             _Selenium_Driver.Manage().Window.Maximize();
         }
+        public void SetActive()
+        {
+            _Selenium_Driver.SwitchTo().Window(chromeDriver.CurrentWindowHandle);
+        }
+
         public  void Close()
         {
             _Selenium_Driver.Close();

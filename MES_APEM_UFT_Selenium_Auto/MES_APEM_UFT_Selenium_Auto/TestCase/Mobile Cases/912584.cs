@@ -46,6 +46,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mobile.Setting_Page.turnOff_mode(2);
             Mobile.Main_Page.BPList.Click();
             Thread.Sleep(3000);
+            Mobile.BPList_Page.BPSearch.SendKeys("BPL912584");
+            Thread.Sleep(3000);
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "BPList_NoData.PNG");
             Base_Assert.AreEqual(Mobile.BPList_Page.BPListTable._Selenium_WebElement.Size.Height, 0);
             Application.LaunchMocAndLogin();
@@ -132,6 +134,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mobile.Main_Page.Setting.Click();
             Mobile.Setting_Page.turnOff_mode(1);
             driver.Close();
+
         }
     }
 }
