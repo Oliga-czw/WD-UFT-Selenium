@@ -43,6 +43,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(3000);
             var standardizationlabel = WD.mainWindow.CheckWeightInternalFrame.Standardization_label;
             System.IO.File.WriteAllText("C:/Users/qaone1/Desktop/eee.txt", standardizationlabel._UFT_Label.Text);
+            WD.mainWindow.GetSnapshot(Resultpath + "Scale_check.PNG");
             Base_Assert.AreEqual(standardizationlabel._UFT_Label.Text, Selectedstandardization);
             WD.mainWindow.CheckWeightInternalFrame.cancelButton.Click();
             Thread.Sleep(2000);
@@ -67,7 +68,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             WD.mainWindow.CheckWeightInternalFrame.cancelButton.Click();
             Thread.Sleep(2000);
             Base_Assert.IsTrue(WD.mainWindow.ScaleCheckInternalFrame.IsEnabled);
-
+            WD.mainWindow.GetSnapshot(Resultpath + "Cancel.PNG");
             Base_Assert.AreEqual(selectedlastcheckdate, standardizationStatusTable.GetCell(1, "Last Check Date").Value.ToString());
         }
 

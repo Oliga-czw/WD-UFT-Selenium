@@ -158,11 +158,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
             IJavaScriptExecutor js = (IJavaScriptExecutor)_Selenium_Driver;
             js.ExecuteScript(script, element);
         }
-        public bool is_element_exist(string xpath)
+        public bool is_element_exist(Selenium_WebElement element)
         {
             try
             {
-                var element = _Selenium_Driver.FindElement(By.XPath(xpath));
+                var ele = element;
 
                 return true;
             }
