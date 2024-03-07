@@ -18,7 +18,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
 {
     public partial class Mobile_TestCase
     {
-        [TestCaseID(957446)]
+        [TestCaseID(957466)]
         [Title("UC822659_APEM Mobile: Check event log page and its display")]
         [TestCategory(ProductArea.Mobile)]
         [Priority(CasePriority.High)]
@@ -28,7 +28,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Timeout(600000)]
 
         [TestMethod]
-        public void VSTS_957446()
+        public void VSTS_957466()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID + "-";
 

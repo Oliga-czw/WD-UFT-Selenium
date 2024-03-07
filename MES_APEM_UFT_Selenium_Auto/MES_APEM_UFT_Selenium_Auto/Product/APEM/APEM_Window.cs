@@ -296,8 +296,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
 
         public UFT_Table Table => new UFT_Table(_UFT_Dialog, "//UFT_Table[@Index = '0']");
 
-        public UFT_Button OpenDesignButton => new UFT_Button(_UFT_Dialog, "//Button[@Label = 'Open design ...']");
-
+        public UFT_Button Cut => new UFT_Button(_UFT_Dialog, "//Button[@Label = 'Cut' and @IsWrapped = 'True']");
+        public UFT_Button Accept => new UFT_Button(_UFT_Dialog, "//Button[@Label = 'Accept changes' and @IsWrapped = 'True']");
     }
 
 

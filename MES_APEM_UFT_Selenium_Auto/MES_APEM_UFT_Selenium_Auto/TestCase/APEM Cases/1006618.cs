@@ -9,6 +9,8 @@ using MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary;
 using MES_APEM_UFT_Selenium_Auto.Product.ApemMobile;
 using MES_APEM_UFT_Selenium_Auto.Product.APEM.MOC_TemplatesModule;
 using System.Diagnostics;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MES_APEM_UFT_Selenium_Auto.TestCase
 {
@@ -39,32 +41,60 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             }
             LogStep(@"2. Execute BP");
             APEM.MocmainWindow.BPLDesign.Click();
+            APEM.MocmainWindow.BPLListInternalFrame.Refresh_Button.Click();
             Thread.Sleep(2000);
             APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row(BPLName).Click();
             APEM.MocmainWindow.BPLListInternalFrame.LoadDesigner_Button.ClickSignle();
             LogStep(@"3. Check the columns validations");
+            APEM.DesignEditorWindow.Window0.DoubleClick();
+            APEM.DesignEditorWindow.Table.Click();
+            APEM.DesignEditorWindow.Modify.Click();
+            APEM.DesignEditorWindow.GetSnapshot(Resultpath + "columns data.PNG");
+            List<string> D1 = new List<string>();
+            List<string> D2 = new List<string>();
+            //check Validation
+            for (int i = 0; i < 4; i++)
+            {
+                APEM.DesignEditorWindow.ColumnEditorDialog.Table.GetCell(i, "Validation").Click();
+                for (int j = 0; j < 4; j++)
+                {
+                    Base_Assert.IsFalse(APEM.DesignEditorWindow.ActionsEditorDialog.Table.GetCell(j, "Action").Value.ToString().Equals(""), "validation exists.");
+                    //get column D data
+                    if (i == 3)
+                    {
+                        APEM.DesignEditorWindow.GetSnapshot(Resultpath + "Column D Validation before.PNG");
+                        D1.Add(APEM.DesignEditorWindow.ActionsEditorDialog.Table.GetCell(j, "Action").Value.ToString());
+                    }
+                }
+                APEM.DesignEditorWindow.ActionsEditorDialog.Close();
+                APEM.SaveChangesDialog.NoButton.Click();
 
+            }
+            //delete column B and check column D
+            APEM.DesignEditorWindow.ColumnEditorDialog.Table.SelectRows(1);
+            APEM.DesignEditorWindow.ColumnEditorDialog.Cut.Click();
+            APEM.DesignEditorWindow.ColumnEditorDialog.Accept.Click();
 
+            APEM.DesignEditorWindow.Modify.Click();
+            APEM.DesignEditorWindow.GetSnapshot(Resultpath + "Delete column B.PNG");
+            APEM.DesignEditorWindow.ColumnEditorDialog.Table.GetCell(2, "Validation").Click();
+            APEM.DesignEditorWindow.GetSnapshot(Resultpath + "Column D Validation After.PNG");
+            for (int j = 0; j < 4; j++)
+            {
+                Base_Assert.IsFalse(APEM.DesignEditorWindow.ActionsEditorDialog.Table.GetCell(j, "Action").Value.ToString().Equals(""), "validation exists.");
+                //get column D data
+                D2.Add(APEM.DesignEditorWindow.ActionsEditorDialog.Table.GetCell(j, "Action").Value.ToString());
+            }
+            APEM.DesignEditorWindow.ActionsEditorDialog.Close();
+            APEM.SaveChangesDialog.NoButton.Click();
+            //close column editor/Design Editor
+            APEM.DesignEditorWindow.ColumnEditorDialog.Close();
+            APEM.SaveChangesDialog.NoButton.Click();
+            APEM.DesignEditorWindow.Close();
+            APEM.CloseDialog.YesButton.Click();
+            APEM.ChangesDesignDialog.NoButton.Click();
+            Base_Assert.IsTrue(D1.SequenceEqual(D2), "The last column validation SAME.");
 
-            APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();
-            APEM.MocmainWindow.WorkstationBPInternalFrame.OrderTable.Row("Ready for execution", "Status").Click();
-            APEM.MocmainWindow.WorkstationBPInternalFrame.ExecuteButton.ClickSignle();
-            Stopwatch stopwatch = new Stopwatch();
-            APEM.PhaseExecWindow.WaitMessageInterFrame._UFT_InterFrame.WaitUntilExists();
-            stopwatch.Start();
-            //check Wait message("Test") appears for about 5 seconds.
-            APEM.PhaseExecWindow.GetSnapshot(Resultpath + "Wait message.PNG");
-            Base_Assert.IsTrue(APEM.PhaseExecWindow.WaitMessageInterFrame.IsExist(), "Wait message exits");
-            Base_Assert.AreEqual("TEST", APEM.PhaseExecWindow.WaitMessageInterFrame.Label.Text, "Wait message text");
-            //check the message disappears. And the main execution screen displays.
-            APEM.PhaseExecWindow.ExecutionInternalFrame._UFT_InterFrame.WaitUntilExists();
-            stopwatch.Stop();
-            APEM.PhaseExecWindow.GetSnapshot(Resultpath + "MOC Execute screen.PNG");
-            Base_Assert.IsTrue(Math.Round(((double)stopwatch.ElapsedMilliseconds) / 1000).Equals(5), "Wait message exits 5 seconds");
-            Base_Assert.IsFalse(APEM.PhaseExecWindow.WaitMessageInterFrame.IsExist(), "Wait message disappears");
-            Base_Assert.IsTrue(APEM.PhaseExecWindow.ExecutionInternalFrame.IsExist(), "main execution screen exits");
-            APEM.PhaseExecWindow.ExecutionInternalFrame.OK_Button.Click();
-            Thread.Sleep(3000);
             APEM.ExitApplication();
 
             

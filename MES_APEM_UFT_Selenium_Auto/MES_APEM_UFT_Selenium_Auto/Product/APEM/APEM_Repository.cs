@@ -103,6 +103,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public static UFT_Dialog ConfirmFileReplaceDialog => new UFT_Dialog("//Dialog[@Title = 'Confirm File Replace']");
         public static UFT_Dialog ExecuteTemplateDialog => new UFT_Dialog("//Dialog[@Title = 'Execute the Template']");
         public static UFT_Dialog SaveChangesDialog => new UFT_Dialog("//Dialog[@Title = 'Save Changes ...']");
+        public static UFT_Dialog ChangesDesignDialog => new UFT_Dialog("//Dialog[@Title = 'Changes in Design']");
         #endregion
 
 
