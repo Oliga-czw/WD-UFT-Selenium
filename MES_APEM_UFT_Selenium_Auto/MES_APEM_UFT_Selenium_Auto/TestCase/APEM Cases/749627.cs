@@ -51,12 +51,15 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(3000);
             LogStep(@"click the ViewDOCURL Button");
             APEM.PhaseExecWindow.ExecutionInternalFrame.ViewDOCURL_Button.Click();
+            APEM.PhaseExecWindow.ExecutionInternalFrame.ViewDOCURL_Button.ClickSignle();
             //press enter
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
             Keyboard.KeyDown(Keyboard.Keys.Enter);
-            Thread.Sleep(15000);
-            APEM.MocmainWindow.MicrosoftEdgeWindow._STD_Window.Click();
+            Thread.Sleep(5000);
+            Keyboard.KeyDown(Keyboard.Keys.Enter);
+            Thread.Sleep(30000);
             APEM.MocmainWindow.MicrosoftEdgeWindow.GetSnapshot(Resultpath + "ViewDOCUrl.PNG");
+            APEM.MocmainWindow.MicrosoftEdgeWindow._STD_Window.Click();
             Keyboard.KeyDown(Keyboard.Keys.Control);
             Keyboard.PressKey(Keyboard.Keys.A);
             Keyboard.KeyUp(Keyboard.Keys.Control);
@@ -72,9 +75,11 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(3000);
             APEM.PhaseExecWindow.MessageInternalFrame.OKButton.Click();
             //press enter
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
             Keyboard.KeyDown(Keyboard.Keys.Enter);
-            Thread.Sleep(15000);
+            Thread.Sleep(5000);
+            Keyboard.KeyDown(Keyboard.Keys.Enter);
+            Thread.Sleep(30000);
             APEM.MocmainWindow.MicrosoftEdgeWindow._STD_Window.Click();
             APEM.MocmainWindow.MicrosoftEdgeWindow.GetSnapshot(Resultpath + "LocalPdfView.PNG");
             Keyboard.KeyDown(Keyboard.Keys.Control);
@@ -90,9 +95,11 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             LogStep(@"click the shared pdf view Button");
             APEM.PhaseExecWindow.ExecutionInternalFrame.SharedUrlview_Button.Click();
             //press enter
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
             Keyboard.KeyDown(Keyboard.Keys.Enter);
-            Thread.Sleep(15000);
+            Thread.Sleep(5000);
+            Keyboard.KeyDown(Keyboard.Keys.Enter);
+            Thread.Sleep(30000);
             APEM.MocmainWindow.MicrosoftEdgeWindow._STD_Window.Click();
             APEM.MocmainWindow.MicrosoftEdgeWindow.GetSnapshot(Resultpath + "SharedPdfView.PNG");
             Keyboard.KeyDown(Keyboard.Keys.Control);

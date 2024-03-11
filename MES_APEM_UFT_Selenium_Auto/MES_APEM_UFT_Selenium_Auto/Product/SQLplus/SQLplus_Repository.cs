@@ -20,7 +20,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.SQLplus
 
 
 
-        public static SQLplusWindow SQLplusWindow => new SQLplusWindow("//Window[@WindowTitleRegExp = '.*SQLplus.*' and @WindowClassRegExp = 'Afx:']");
+        public static SQLplusWindow SQLplusWindow => new SQLplusWindow("//Window[@WindowTitleRegExp = '*SQLplus*' and @WindowClassRegExp = 'Afx:']");
         public static STD_Window cmdWindow => new STD_Window("//Window[@WindowClassRegExp = 'ConsoleWindowClass']");
         
 

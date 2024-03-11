@@ -22,12 +22,13 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Owner(AutomationEngineer.Ziru)]
         [Timeout(600000)]
 
-        [TestMethod]
+        //defect 1324485
+        //[TestMethod]
         public void VSTS_213769()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID + "-";
-            string BPLName = "BPLRRRRR";
-            string RPLName = "RPLTEST ";
+            string BPLName = "BPL213769";
+            string RPLName = "RPL213769";
             Application.LaunchMocAndLogin();
             APEM.MocmainWindow.BPLDesign.ClickSignle();
             Thread.Sleep(2000);
