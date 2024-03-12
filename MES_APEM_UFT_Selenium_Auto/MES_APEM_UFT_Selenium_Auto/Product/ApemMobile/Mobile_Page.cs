@@ -29,8 +29,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public Selenium_WebElements Inputs => new Selenium_WebElements(_Selenium_Driver, "//mat-dialog-container//mat-form-field//input");
         public Selenium_WebElement Login => new Selenium_WebElement(_Selenium_Driver, "//mat-dialog-container//button/span[text()=' OK ']");
         public Selenium_WebElement LogOut => new Selenium_WebElement(_Selenium_Driver, "//mat-dialog-container//button/span[text()=' Log Out ']");
-
-
+        //dialog 
+        public Selenium_WebElement Dialog_Yes => new Selenium_WebElement(_Selenium_Driver, "//mat-dialog-container//button/span[text()=' Yes ']");
+        public Selenium_WebElement Dialog_No => new Selenium_WebElement(_Selenium_Driver, "//mat-dialog-container//button/span[text()=' No ']");
     }
 
 
@@ -64,7 +65,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public Selenium_WebElement BPList => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='Tab-table']");
         public Selenium_WebElement Setting => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='settings']");
         public Selenium_WebElement Event => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='Event-List']");
-        public Selenium_WebElement ss => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='Event-ss']");
+        public Selenium_WebElement ManageModule => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='manageModule-32']");
         public Selenium_WebElement Consolidated => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='consolidated']");
         //public static IWebElement Administration = _Selenium_Driver.FindElement(By.XPath("//div[text()='Administration']"));
 
@@ -112,6 +113,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public Selenium_WebElement SelectMenu => new Selenium_WebElement(_Selenium_Driver, "//button[@id='selectmenu']");
         public Selenium_WebElement ExecutionButton => new Selenium_WebElement(_Selenium_Driver, "//table/tbody/tr/td//a");
         public ReadOnlyCollection<IWebElement> OrderPhaseNames => _Selenium_Driver.FindElements(By.XPath("//div[@class='phase-name-text']"));
+
+        public Selenium_WebElement ReadyPhase => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@svgicon='phase_state_enabled']");
+        
     }
     //Consolidated_Page
     public class Consolidated_Page : Mobile_Page
@@ -293,6 +297,26 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
             }
 
         }
+    }
+    public class SessionManager_Page : Mobile_Page
+
+    {
+        public SessionManager_Page(IWebDriver driver) : base(driver)
+        {
+        }
+
+        public Selenium_WebElement Table => new Selenium_WebElement(_Selenium_Driver, "//table");
+        public Selenium_WebElement Search => new Selenium_WebElement(_Selenium_Driver, "//input[@id='ordersearch']");
+        public Selenium_WebElement RefreshButton => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@svgicon='refresh']");
+        public Selenium_WebElement CancePhase => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@svgicon='CancePhase_manageModule']");
+        public Selenium_WebElement CloseSession => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@svgicon='CloseSession_manageModule']");
+
+        public ReadOnlyCollection<IWebElement> TableRows => _Selenium_Driver.FindElements(By.XPath("//table/tbody/tr"));
+        public ReadOnlyCollection<IWebElement> TableHeads => _Selenium_Driver.FindElements(By.XPath("//table/thead/tr/th"));
+
+
+       
+
     }
 }
 

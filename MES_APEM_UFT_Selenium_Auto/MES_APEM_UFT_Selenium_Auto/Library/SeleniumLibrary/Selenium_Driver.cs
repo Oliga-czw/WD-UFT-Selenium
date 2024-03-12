@@ -112,6 +112,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
         {
             _Selenium_Driver.Manage().Window.Maximize();
         }
+        public void Minimize()
+        {
+            _Selenium_Driver.Manage().Window.Minimize();
+        }
         public void SetActive()
         {
             _Selenium_Driver.SwitchTo().Window(chromeDriver.CurrentWindowHandle);
