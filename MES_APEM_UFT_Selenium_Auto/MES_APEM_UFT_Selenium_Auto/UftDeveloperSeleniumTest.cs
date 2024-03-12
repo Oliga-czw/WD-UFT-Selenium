@@ -23,6 +23,7 @@ using Spire.Pdf.Texts;
 using MES_APEM_UFT_Selenium_Auto.Product.APRM;
 using MES_APEM_UFT_Selenium_Auto.Product.SQLplus;
 using Application = MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary.Application;
+using System.Linq;
 
 namespace MES_APEM_UFT_Selenium_Auto
 {
@@ -38,37 +39,25 @@ namespace MES_APEM_UFT_Selenium_Auto
         [TestMethod]
         public void TestMethod1()
         {
-            SdkConfiguration config = new SdkConfiguration();
-            SDK.Init(config);
-            Thread.Sleep(3000);
-
-            //Application.LaunchBatchQueryTool();
+            //SdkConfiguration config = new SdkConfiguration();
+            //SDK.Init(config);
             //Thread.Sleep(3000);
-            ////open new query
-            //BatchQueryTool.NewQuery();
-            ////open batch detail display
-            //BatchQueryTool.BatchQueryToolWindow.ListView._STD_ListView.ActivateItem("test2");
-            //wait for loading
-            //Thread.Sleep(15000);
-            //Check Begin_Source_Gross and End_Source_Gross fields should not show in APRM
-            APRM.BatchMainWindow.TreeView.GetNode("Batch").Expand();
-            APRM.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1]").Expand();
-            APRM.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1];BOM [1]").Expand();
-            APRM.BatchMainWindow.TreeView.GetNode("Batch;WEIGH_AND_DISPENSE [1];BOM [1];Material [1]").Expand();
-            //wait for loading
+            Selenium_Driver Edge_driver = new Selenium_Driver(Browser.edge);
+            Mobile_Fuction.gotoApemMobile(Edge_driver);
+            Mobile_Fuction.login(UserName.qaone2, PassWord.qaone2);
             Thread.Sleep(5000);
-            //APRM.BatchMainWindow.GetSnapshot(Resultpath + "APRM Batch detail(Accept).PNG");
-            var shown_items = APRM.BatchMainWindow.ListView._STD_ListView.GetVisibleText();
-            Console.WriteLine(shown_items);
+            Edge_driver.Minimize();
+            Selenium_Driver chrome_driver = new Selenium_Driver(Browser.chrome);
+            Mobile_Fuction.gotoApemMobile(chrome_driver);
+            Mobile_Fuction.login();
+            Thread.Sleep(5000);
+
+
+
 
 
 
         }
-
-
-
-
-
     }
 
 }

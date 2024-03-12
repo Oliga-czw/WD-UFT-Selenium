@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Interactions;
@@ -39,42 +40,61 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
 
         public Selenium_Driver(IWebDriver driver)
         {
-            _Selenium_Driver= driver;
+            _Selenium_Driver = driver;
         }
 
-        public  Selenium_Driver(string browser)
+        public Selenium_Driver(string browser)
         {
             Initial(browser);
         }
-        //public  Selenium_Driver(string browser)
-        //{
-        //    if (browser == "chrome")
-        //    {
-        //        _Selenium_Driver = new ChromeDriver();
-        //    }
-        //    else if (browser == "edge")
-        //    {
-        //        _Selenium_Driver = new EdgeDriver();
-        //    }
-        //    else
-        //    {
-        //        _Selenium_Driver = new ChromeDriver();
-        //    }
-        //}
+
+
+        private static IWebDriver currentDriver;
+        private static IWebDriver chromeDriver;
+        private static IWebDriver edgeDriver;
+
+        public IWebDriver CurrentDriver
+        {
+            get { return _Selenium_Driver; }
+        }
+        private void SetCurrentDriver(IWebDriver driver)
+        {
+            _Selenium_Driver = driver;
+        }
+
+        public void SwitchToChrome()
+        {
+            _Selenium_Driver.Manage().Window.Minimize();
+            SetCurrentDriver(chromeDriver);
+            _Selenium_Driver.Manage().Window.Maximize();
+        }
+
+        public void SwitchToEdge()
+        {
+            _Selenium_Driver.Manage().Window.Minimize();
+            SetCurrentDriver(edgeDriver);
+            _Selenium_Driver.Manage().Window.Maximize();
+        }
+
+
 
         public void Initial(string browser)
         {
             if (browser == "chrome")
             {
-                _Selenium_Driver = new ChromeDriver();
+                chromeDriver = new ChromeDriver();
+                SetCurrentDriver(chromeDriver);
             }
             else if (browser == "edge")
             {
-                _Selenium_Driver = new EdgeDriver();
+                var edgeDriverPath = Base_Directory.DebugDir;
+                edgeDriver = new EdgeDriver(edgeDriverPath);
+                SetCurrentDriver(edgeDriver);
             }
             else
             {
-                _Selenium_Driver = new ChromeDriver();
+                chromeDriver = new ChromeDriver();
+                SetCurrentDriver(chromeDriver);
             }
 
             _Selenium_Driver.Manage().Window.Maximize();
@@ -91,17 +111,22 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
         {
             _Selenium_Driver.Manage().Window.Maximize();
         }
-        public  void Close()
+        public void Minimize()
+        {
+            _Selenium_Driver.Manage().Window.Minimize();
+        }
+        public void Close()
         {
             _Selenium_Driver.Close();
         }
-        public string  GetUrl()
+        public string GetUrl()
         {
             return _Selenium_Driver.Url;
         }
         public void Wait(double time = 1000)
         {
-            _Selenium_Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(time);
+            _Selenium_Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(time)
+;
         }
 
         public IWebElement FindElement(string xpath)
@@ -127,16 +152,16 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
             IJavaScriptExecutor js = (IJavaScriptExecutor)_Selenium_Driver;
             return js.ExecuteScript(script, element);
         }
-        public void execute_script(string script,IWebElement element)
+        public void execute_script(string script, IWebElement element)
         {
             IJavaScriptExecutor js = (IJavaScriptExecutor)_Selenium_Driver;
             js.ExecuteScript(script, element);
         }
-        public static bool is_element_exit(string xpath)
+        public bool is_element_exist(Selenium_WebElement element)
         {
             try
             {
-                var element = _Selenium_Driver.FindElement(By.XPath(xpath));
+                var ele = element;
 
                 return true;
             }

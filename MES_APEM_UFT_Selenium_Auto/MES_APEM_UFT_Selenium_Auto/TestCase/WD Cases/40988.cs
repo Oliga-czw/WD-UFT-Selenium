@@ -67,7 +67,6 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             WD.mainWindow.CheckWeightInternalFrame.cancelButton.Click();
             Thread.Sleep(2000);
             Base_Assert.IsTrue(WD.mainWindow.ScaleCheckInternalFrame.IsEnabled);
-
             Base_Assert.AreEqual(selectedlastcheckdate, standardizationStatusTable.GetCell(1, "Last Check Date").Value.ToString());
         }
 

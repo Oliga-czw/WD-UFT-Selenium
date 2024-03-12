@@ -32,6 +32,15 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [TestMethod]
         public void VSTS_935165()
         {
+            string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string filePath = desktop + "\\EN935165.ini";
+            string searchString = "#Executable BPs in Mobile\r\n";
+            bool exits;
+            exits = File.Exists(filePath);
+            if (exits)
+            {
+                File.Delete(filePath);
+            }
             string Resultpath = Base_Directory.ResultsDir + CaseID + "-";
 
             string BPName = "import";
@@ -44,6 +53,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             {
                 MOC_TemplatesFunction.Importtemplates("912651.zip");
             }
+
+
             LogStep(@"2. add bp in environment");
             APEM.MocmainWindow.Config_moudle.Click();
             Thread.Sleep(5000);
@@ -57,11 +68,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             {
                 APEM.ConfirmFileReplaceDialog.YesButton.Click();
             }
-            string filePath = "C:\\Users\\qaone1\\Desktop\\EN935165.ini";
+            
             string newData = "# Executable BPs in Mobile\r\nWEB_EXECUTABLE_5 = BPL912651.CREATE\r\nWEB_EXECUTABLE_7 = BPL912651.IMPORT\r\nWEB_EXECUTABLE_6 = BPL912651.IMPORT2\r\nWEB_EXECUTABLE_8 = BPL912651.HAHAHHAH";
             string newData1 = "WEB_EXECUTABLE_5 = BPL912651.CREATE\r\nWEB_EXECUTABLE_7 = BPL912651.IMPORT\r\nWEB_EXECUTABLE_6 = BPL912651.IMPORT2\r\nWEB_EXECUTABLE_8 = BPL912651.HAHAHHAH";
             string iniContent = File.ReadAllText(filePath);
-            string searchString = "# Executable BPs in Mobile\r\n";
             bool contains = iniContent.Contains(searchString);
             if (contains)
             {

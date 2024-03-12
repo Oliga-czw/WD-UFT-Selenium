@@ -24,18 +24,19 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         public void VSTS_958133()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID + "-";
+            string RplName = "RPL958133";
             Application.LaunchMocAndLogin();
             Thread.Sleep(5000);
             //import rpl
             //APEM.MocmainWindow.RPLDesign.ClickSignle();
-            //if (!APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row("PREPARERPL").Existing)
+            //if (!APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row(RplName).Existing)
             //{
             //    MOC_TemplatesFunction.Importtemplates("CASE958133.zip");
             //}
-            MOC_TemplatesFunction.Importtemplates("CASE958133.zip");
+            MOC_TemplatesFunction.Importtemplates("TEMP958133.zip");
             APEM.MocmainWindow.RPLDesign.ClickSignle();
             Thread.Sleep(5000);
-            APEM.MocmainWindow.RPLDesignInternalFrame.SearchEditor.SetText("PREPARERPL");
+            APEM.MocmainWindow.RPLDesignInternalFrame.SearchEditor.SetText("RPL958133");
             APEM.MocmainWindow.RPLDesignInternalFrame.Filterbutton.Click();
             APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row("Compilable").Click();
             Thread.Sleep(2000);
@@ -113,13 +114,13 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(2000);
             MOC_Fuction.DesignEditorClose();
             Thread.Sleep(5000);
-            MOC_Fuction.VerifyRPL("PREPARERPL");
-            MOC_Fuction.CertifyRPL("PREPARERPL");
+            MOC_Fuction.VerifyRPL(RplName);
+            MOC_Fuction.CertifyRPL(RplName);
             Thread.Sleep(3000);
             APEM.MocmainWindow.RPLDesign.ClickSignle();
             APEM.MocmainWindow.RPLDesignInternalFrame.SearchEditor.SetText("");
             APEM.MocmainWindow.RPLDesignInternalFrame.Filterbutton.Click();
-            MOC_Fuction.PlanFromRPL("PREPARERPL", "ORDER958133");
+            MOC_Fuction.PlanFromRPL(RplName, "ORDER958133");
             APEM.MocmainWindow.WorkstationBP.ClickSignle();
             MOC_Fuction.CheckRowSelection();
             Thread.Sleep(3000);

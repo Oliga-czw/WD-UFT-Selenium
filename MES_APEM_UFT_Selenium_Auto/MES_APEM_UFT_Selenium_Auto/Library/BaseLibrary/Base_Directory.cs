@@ -11,8 +11,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 
         internal const string InputFolder = "Data\\Input";
         internal const string OutputFolder = "Data\\Output";
+        internal const string BinFolder = "bin\\Debug";
 
-         
+
         public static string CMDDir = @"C:\Windows\System32\cmd.exe";
         public static string WDDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Aspen Manufacturing Execution\Aspen Weigh and Dispense Execution.lnk";
         public static string AeBRSClientConfigureDir = @"C:\Program Files (x86)\AspenTech\AeBRS\AeBRSClientConfigure.exe";
@@ -92,6 +93,15 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
                 string outputDir = Path.Combine(ProjectDir, OutputFolder);
 
                 return outputDir;
+            }
+        }
+        public static string DebugDir
+        {
+            get
+            {
+                string DebugDir = Path.Combine(ProjectDir, BinFolder);
+
+                return DebugDir;
             }
         }
         public static string ResultsDir => Path.Combine(ProjectDir, "Results\\");
