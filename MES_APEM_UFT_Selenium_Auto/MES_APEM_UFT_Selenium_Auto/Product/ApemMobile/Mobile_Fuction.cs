@@ -34,10 +34,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
             driver.Navigate(url);
             driver.Maxsize();
         }
-        public static void login()
+        public static void login(string user = UserName.qaone1,string pwd = PassWord.qaone1)
         {
-            Mobile.Login_Page.username.SendKeys(UserName.qaone1);
-            Mobile.Login_Page.password.SendKeys(PassWord.qaone1);
+            Mobile.Login_Page.username.SendKeys(user);
+            Mobile.Login_Page.password.SendKeys(pwd);
             Mobile.Login_Page.login.Click();
             Thread.Sleep(5000);
         }
@@ -56,6 +56,18 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
             }
             document.Save(Base_Directory.MobileWebconfig);
             //time out node /session-config/session-timeout
+
+        }
+        public static void UpdateSessionOut(string timeValue)
+        {
+            //edit xml security
+            XmlDocument document = new XmlDocument();
+            document.Load(Base_Directory.MobileWebconfig);
+            XmlNodeList nodeList = document.SelectSingleNode("web-app/session-config").ChildNodes;
+            //Console.WriteLine(nodeList[0].InnerText);
+            nodeList[0].InnerText = timeValue;
+            Console.WriteLine(nodeList[0].InnerText);
+            document.Save(Base_Directory.MobileWebconfig);
 
         }
         #endregion

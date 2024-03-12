@@ -35,7 +35,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         {
             string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             string filePath = desktop + "\\EN912651.ini";
-            string searchString = "# Executable BPs in Mobile\r\n";
+            string searchString = "#Executable BPs in Mobile\r\n";
             bool exits;
             exits = File.Exists(filePath);
             if (exits)

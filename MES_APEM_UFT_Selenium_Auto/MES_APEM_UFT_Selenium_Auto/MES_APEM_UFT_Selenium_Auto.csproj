@@ -149,6 +149,8 @@
     <Compile Include="TestCase\APEM Cases\863166.cs" />
     <Compile Include="TestCase\APEM Cases\863181.cs" />
     <Compile Include="TestCase\APEM Cases\927362.cs" />
+    <Compile Include="TestCase\Mobile Cases\1338944.cs" />
+    <Compile Include="TestCase\Mobile Cases\825032.cs" />
     <Compile Include="TestCase\Mobile Cases\876986.cs" />
     <Compile Include="TestCase\APEM Cases\749572.cs" />
     <Compile Include="TestCase\APEM Cases\914899.cs" />
@@ -189,6 +191,7 @@
     <Compile Include="TestCase\Mobile Cases\824732.cs" />
     <Compile Include="TestCase\Mobile Cases\912584.cs" />
     <Compile Include="TestCase\Mobile Cases\912651.cs" />
+    <Compile Include="TestCase\Mobile Cases\916366.cs" />
     <Compile Include="TestCase\Mobile Cases\935165.cs" />
     <Compile Include="TestCase\Mobile Cases\976946.cs" />
     <Compile Include="TestCase\Mobile Cases\957466.cs" />
@@ -199,6 +202,7 @@
     <Compile Include="TestCase\Mobile Cases\1011390.cs" />
     <Compile Include="TestCase\Mobile Cases\962338.cs" />
     <Compile Include="TestCase\Mobile Cases\963540.cs" />
+    <Compile Include="TestCase\Mobile Cases\825087.cs" />
     <Compile Include="TestCase\Mobile Cases\997428.cs" />
     <Compile Include="TestCase\Mobile Cases\Class1.cs" />
     <Compile Include="TestCase\WD Cases\106684.cs" />
@@ -318,11 +322,19 @@
     <None Include="Data\Input\Template\BPL915161.zip" />
     <None Include="Data\Input\Template\BPL916388.zip" />
     <None Include="Data\Input\Template\BPL916420.zip" />
+    <None Include="Data\Input\Template\CASE213769.zip" />
     <None Include="Data\Input\Template\CASE849596.zip" />
     <None Include="Data\Input\Template\CASE850241.zip" />
     <None Include="Data\Input\Template\CASE850407.zip" />
     <None Include="Data\Input\Template\CASE850433.zip" />
     <None Include="Data\Input\Template\CASE850438.zip" />
+    <None Include="Data\Input\Template\CASE876986.zip" />
+    <None Include="Data\Input\Template\CASE927362.zip" />
+    <None Include="Data\Input\Template\CASE958133.zip" />
+    <None Include="Data\Input\Template\CASE961928.zip" />
+    <None Include="Data\Input\Template\CASE962328.zip" />
+    <None Include="Data\Input\Template\CASE962338.zip" />
+    <None Include="Data\Input\Template\CASE962481.zip" />
     <None Include="Data\Input\Template\CREATEORDER.zip" />
     <None Include="Data\Input\Template\EVENTLOG510.zip" />
     <None Include="Data\Input\Template\EVENTLOGFUFT.zip" />
@@ -330,6 +342,7 @@
     <None Include="Data\Input\Template\TEMP.zip" />
     <None Include="Data\Input\Template\TEMP749627.zip" />
     <None Include="Data\Input\Template\TEMP912584.zip" />
+    <None Include="Data\Input\Template\TEMP916366.zip" />
     <None Include="Data\Input\TestFile\test.pdf" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />

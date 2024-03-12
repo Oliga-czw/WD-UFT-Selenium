@@ -48,9 +48,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mobile_Fuction.gotoApemMobile(driver);
             driver.Wait();
             Mobile_Fuction.login();
-            driver.Wait();
             Thread.Sleep(5000);
-            try
+            try 
             {
                 Mobile.Main_Page.Setting.Click();
                 Mobile.Setting_Page.turnOn_mode(2);
@@ -237,13 +236,13 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Base_Assert.AreEqual(Mobile.Consolidated_Page.OrderPhaseTable._Selenium_WebElement.Size.Height, 0);
                 Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "OrderCanceled.PNG");
             }
-
+            
             finally
             {
                 APEM.MocmainWindow.OrderListInternalFrame.OrderTabControl.Select("Orders");
                 Thread.Sleep(2000);
                 APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Row(ordername).Click();
-                if (APEM.MocmainWindow.OrderListInternalFrame.Cancel_Button.IsEnabled)
+                if (APEM.MocmainWindow.OrderListInternalFrame.Cancel_Button.IsEnabled) 
                 {
                     APEM.MocmainWindow.OrderListInternalFrame.Cancel_Button.ClickSignle();
                     Thread.Sleep(2000);
@@ -251,7 +250,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                     MOC_Fuction.AddReason();
                     Thread.Sleep(4000);
                 }
-
+                
                 //off to consolidate 
                 Mobile.Main_Page.Setting.Click();
                 Mobile.Setting_Page.turnOff_mode(2);

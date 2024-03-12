@@ -11,7 +11,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
 
     class Mobile
     {
-        public static Selenium_Driver driver => new Selenium_Driver(Browser.chrome);
         public static Mobile_Page Mobile_Page => new Mobile_Page(Selenium_Driver._Selenium_Driver);
         public static Login_Page Login_Page => new Login_Page(Selenium_Driver._Selenium_Driver);
         public static Main_Page Main_Page => new Main_Page(Selenium_Driver._Selenium_Driver);

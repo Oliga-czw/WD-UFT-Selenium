@@ -6,7 +6,6 @@ using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -44,7 +43,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
             _Selenium_Driver = driver;
         }
 
-        public  Selenium_Driver(string browser)
+        public Selenium_Driver(string browser)
         {
             Initial(browser);
         }
@@ -116,22 +115,18 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
         {
             _Selenium_Driver.Manage().Window.Minimize();
         }
-        public void SetActive()
-        {
-            _Selenium_Driver.SwitchTo().Window(chromeDriver.CurrentWindowHandle);
-        }
-
-        public  void Close()
+        public void Close()
         {
             _Selenium_Driver.Close();
         }
-        public string  GetUrl()
+        public string GetUrl()
         {
             return _Selenium_Driver.Url;
         }
         public void Wait(double time = 1000)
         {
-            _Selenium_Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(time);
+            _Selenium_Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(time)
+;
         }
 
         public IWebElement FindElement(string xpath)
@@ -157,7 +152,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
             IJavaScriptExecutor js = (IJavaScriptExecutor)_Selenium_Driver;
             return js.ExecuteScript(script, element);
         }
-        public void execute_script(string script,IWebElement element)
+        public void execute_script(string script, IWebElement element)
         {
             IJavaScriptExecutor js = (IJavaScriptExecutor)_Selenium_Driver;
             js.ExecuteScript(script, element);

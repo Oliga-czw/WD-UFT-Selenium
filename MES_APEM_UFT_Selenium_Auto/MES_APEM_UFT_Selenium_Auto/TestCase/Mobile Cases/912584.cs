@@ -36,7 +36,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             string filePath = desktop + "\\EN912584.ini";
             string newData = "#Executable BPs in Mobile\r\nWEB_EXECUTABLE_3 = BPL912584_1.CREATE\r\nWEB_EXECUTABLE_1 = BPL912584_2.BP_NONWEB\r\nWEB_EXECUTABLE_4 = BPL912584_3.BP_NOCERTIFY\r\nWEB_EXECUTABLE_2 = BPL912584_3.BP002";
             string newData1 = "WEB_EXECUTABLE_3 = BPL912584_1.CREATE\r\nWEB_EXECUTABLE_1 = BPL912584_2.BP_NONWEB\r\nWEB_EXECUTABLE_4 = BPL912584_3.BP_NOCERTIFY\r\nWEB_EXECUTABLE_2 = BPL912584_3.BP002";
-            string searchString = "# Executable BPs in Mobile\r\n";
+            string searchString = "#Executable BPs in Mobile\r\n";
             bool exits;
             exits = File.Exists(filePath);
             if (exits)
@@ -60,7 +60,6 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Mobile.Main_Page.BPList.Click();
                 Thread.Sleep(3000);
                 Mobile.BPList_Page.BPSearch.SendKeys("BPLNodata");
-                Thread.Sleep(5000);
                 Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "BPList_NoData.PNG");
                 Base_Assert.AreEqual(Mobile.BPList_Page.BPListTable._Selenium_WebElement.Size.Height, 0);
                 Application.LaunchMocAndLogin();
@@ -143,15 +142,15 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Base_Assert.AreEqual(BP_Name1, "CREATE");
                 Base_Assert.AreEqual(Version1, "2");
                 Base_Assert.AreEqual(Description1, "test");
-
+                
             }
-            finally
+            finally 
             {
                 Mobile.Main_Page.Setting.Click();
                 Mobile.Setting_Page.turnOff_mode(1);
                 driver.Close();
             }
-
+            
         }
     }
 }
