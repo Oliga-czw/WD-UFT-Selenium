@@ -61,7 +61,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Web_Fuction.active_order(order);
                 driver.Close();
                 LogStep(@"5. Open WD client");
-                
+
                 Application.LaunchWDAndLogin();
                 WD.mainWindow.HomeInternalFrame.MaterialDispensing.Click();
                 WD.mainWindow.Material_SelectionInternalFrame.materialTable.Row("X0125").Click();
@@ -112,7 +112,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Base_Assert.AreEqual(End_Source, "600.0");
                 /////modify the Configkey
                 Base_Function.DeleteConfigKey(Configpath, ConfigKey1);
-                Base_Function.AddConfigKey(Configpath,Configkey2);
+                Base_Function.AddConfigKey(Configpath, Configkey2);
                 //codify all and restart tomcat
                 Base_Test.LaunchApp(Base_Directory.Codify_all);
                 Base_Function.ResartServices(ServiceName.Tomcat);
@@ -259,6 +259,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Web_Fuction.login();
                 driver.Wait();
                 Web_Fuction.gotoTab(WDWebTab.order);
+                Thread.Sleep(5000);
                 Web.Order_Page.SearchInput.SendKeys("test1");
                 Thread.Sleep(5000);
                 Web.Order_Page.orderCheckbox.Click();
@@ -324,7 +325,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 //Console.WriteLine(weigh1_beginsource);
                 //Console.WriteLine(weigh1_endsource);
                 Base_Assert.AreEqual(weigh1_beginsource, "1,000.0");
-                Base_Assert.AreEqual(weigh1_endsource,"600.0");
+                Base_Assert.AreEqual(weigh1_endsource, "600.0");
                 driver2.Close();
 
 
@@ -341,7 +342,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
 
                 //Base_Function.ResartServices(ServiceName.Tomcat);
             }
-            
+
 
         }
 

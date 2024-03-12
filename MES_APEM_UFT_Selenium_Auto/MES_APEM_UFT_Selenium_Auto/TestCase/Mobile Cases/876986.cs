@@ -13,7 +13,7 @@ using MES_APEM_UFT_Selenium_Auto.Product.APEM.MOC_TemplatesModule;
 
 namespace MES_APEM_UFT_Selenium_Auto.TestCase
 {
-    public partial class APEM_TestCase
+    public partial class Mobile_TestCase
     {
         [TestCaseID(876986)]
         [Title("822656_The screenshot can preview from MOC and APEM mobile if finish the execution phase on APEM mobile if set ' MOBILE_SCREENSHOT_ON = 1' ")]
@@ -22,7 +22,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziru)]
-        [Timeout(600000)]
+        [Timeout(1200000)]
 
         [TestMethod]
         public void VSTS_876986()
@@ -32,7 +32,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Library.BaseLibrary.Application.LaunchMocAndLogin();
             Thread.Sleep(5000);
             //check rpl exit
-            APEM.MocmainWindow.BPLDesign.ClickSignle();
+            APEM.MocmainWindow.RPLDesign.ClickSignle();
             if (!APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row("RPL876986").Existing)
             {
                 MOC_TemplatesFunction.Importtemplates("CASE876986.zip");

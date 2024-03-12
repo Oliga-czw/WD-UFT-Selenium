@@ -34,7 +34,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         {
             string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             string filePath = desktop + "\\EN935165.ini";
-            string searchString = "#Executable BPs in Mobile\r\n";
+            string searchString = "# Executable BPs in Mobile\r\n";
             bool exits;
             exits = File.Exists(filePath);
             if (exits)
@@ -68,7 +68,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             {
                 APEM.ConfirmFileReplaceDialog.YesButton.Click();
             }
-            
+
             string newData = "# Executable BPs in Mobile\r\nWEB_EXECUTABLE_5 = BPL912651.CREATE\r\nWEB_EXECUTABLE_7 = BPL912651.IMPORT\r\nWEB_EXECUTABLE_6 = BPL912651.IMPORT2\r\nWEB_EXECUTABLE_8 = BPL912651.HAHAHHAH";
             string newData1 = "WEB_EXECUTABLE_5 = BPL912651.CREATE\r\nWEB_EXECUTABLE_7 = BPL912651.IMPORT\r\nWEB_EXECUTABLE_6 = BPL912651.IMPORT2\r\nWEB_EXECUTABLE_8 = BPL912651.HAHAHHAH";
             string iniContent = File.ReadAllText(filePath);
@@ -118,7 +118,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(3000);
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "BP_Search.PNG");
             //count
-            Base_Assert.IsTrue(Mobile.BPList_Page.BPListTableRows.Count==2,"search result");
+            Base_Assert.IsTrue(Mobile.BPList_Page.BPListTableRows.Count == 2, "search result");
             //text
             int l = 0;
             List<string> head_name = new List<string> { "BP name" };

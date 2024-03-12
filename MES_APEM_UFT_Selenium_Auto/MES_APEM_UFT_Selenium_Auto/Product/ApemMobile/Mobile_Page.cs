@@ -23,6 +23,13 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public Selenium_WebElement Message => new Selenium_WebElement(_Selenium_Driver, "//div[@title='Message']");
         public Selenium_WebElement Confirm => new Selenium_WebElement(_Selenium_Driver, "//div[@title='Confirm']");
         public Selenium_WebElement body_div => new Selenium_WebElement(_Selenium_Driver, "/html/body/div[@class='cdk-overlay-container']");
+        public Selenium_WebElement Dialog => new Selenium_WebElement(_Selenium_Driver, "//mat-dialog-container");
+        //Re-enter User dialog
+        public Selenium_WebElement Title => new Selenium_WebElement(_Selenium_Driver, "//mat-dialog-container//h1");
+        public Selenium_WebElements Inputs => new Selenium_WebElements(_Selenium_Driver, "//mat-dialog-container//mat-form-field//input");
+        public Selenium_WebElement Login => new Selenium_WebElement(_Selenium_Driver, "//mat-dialog-container//button/span[text()=' OK ']");
+        public Selenium_WebElement LogOut => new Selenium_WebElement(_Selenium_Driver, "//mat-dialog-container//button/span[text()=' Log Out ']");
+
 
     }
 

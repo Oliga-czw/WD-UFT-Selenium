@@ -60,7 +60,13 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //report.GenerateReportFile(_Descrpt);
             Base_Test.KillProcess("javaw");
             Base_Test.KillProcess("chrome");
-            
+            Base_Test.KillProcess("AspenOneLicensingTool");
+            Base_Test.KillProcess("mmc");
+            Base_Test.KillProcess("BatchQueryTool");
+            Base_Test.KillProcess("BatchDetailDisplay");
+            Base_Test.KillProcess("chromedriver");
+            Base_Test.KillProcess("AspenOneLicensingTool");
+
         }
 
         public string CaseID => this.GetType().Name == null ? throw new ArgumentNullException() : TestCaseManage.GetCase(this.TestContext.TestName).CaseID;
@@ -214,6 +220,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Base_Test.KillProcess("mmc");
             Base_Test.KillProcess("chromedriver");
             Base_Test.KillProcess("sqlplus");
+            Base_Test.KillProcess("AspenOneLicensingTool");
         }
 
         public string CaseID => this.GetType().Name == null ? throw new ArgumentNullException() : TestCaseManage.GetCase(this.TestContext.TestName).CaseID;
@@ -291,6 +298,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Base_Test.KillProcess("mmc");
             Base_Test.KillProcess("chromedriver");
             Base_Test.KillProcess("sqlplus");
+            Base_Test.KillProcess("AspenOneLicensingTool");
         }
 
         public string CaseID => this.GetType().Name == null ? throw new ArgumentNullException() : TestCaseManage.GetCase(this.TestContext.TestName).CaseID;

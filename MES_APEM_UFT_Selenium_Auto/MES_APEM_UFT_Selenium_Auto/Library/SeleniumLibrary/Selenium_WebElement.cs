@@ -45,7 +45,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
         {
             _Selenium_WebElement.SendKeys(text);
         }
-
+        public string Text()
+        {
+            return _Selenium_WebElement.Text;
+        }
         public bool isEnable()
         {
             return _Selenium_WebElement.Enabled;

@@ -132,6 +132,7 @@
     <Compile Include="Product\BatchQueryTool\BatchQueryTool_Window.cs" />
     <Compile Include="Product\SQLplus\SQLplus_Repository.cs" />
     <Compile Include="Product\SQLplus\SQLplus_Window.cs" />
+    <Compile Include="TestCase\APEM Cases\1006618.cs" />
     <Compile Include="TestCase\APEM Cases\962481.cs" />
     <Compile Include="TestCase\APEM Cases\213769.cs" />
     <Compile Include="TestCase\APEM Cases\429615.cs" />
@@ -192,11 +193,12 @@
     <Compile Include="TestCase\Mobile Cases\912651.cs" />
     <Compile Include="TestCase\Mobile Cases\916366.cs" />
     <Compile Include="TestCase\Mobile Cases\935165.cs" />
-    <Compile Include="TestCase\Mobile Cases\957446.cs" />
+    <Compile Include="TestCase\Mobile Cases\957466.cs" />
     <Compile Include="TestCase\Mobile Cases\957475.cs" />
     <Compile Include="TestCase\Mobile Cases\957487.cs" />
     <Compile Include="TestCase\Mobile Cases\961928.cs" />
     <Compile Include="TestCase\Mobile Cases\962328.cs" />
+    <Compile Include="TestCase\Mobile Cases\1011390.cs" />
     <Compile Include="TestCase\Mobile Cases\962338.cs" />
     <Compile Include="TestCase\Mobile Cases\963540.cs" />
     <Compile Include="TestCase\Mobile Cases\825087.cs" />

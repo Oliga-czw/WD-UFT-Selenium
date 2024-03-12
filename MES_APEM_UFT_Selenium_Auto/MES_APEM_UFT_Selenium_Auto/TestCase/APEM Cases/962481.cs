@@ -8,6 +8,7 @@ using HP.LFT.SDK;
 using MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary;
 using MES_APEM_UFT_Selenium_Auto.Product.ApemMobile;
 using MES_APEM_UFT_Selenium_Auto.Product.APEM.MOC_TemplatesModule;
+using System.Diagnostics;
 
 namespace MES_APEM_UFT_Selenium_Auto.TestCase
 {
@@ -47,20 +48,25 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MocmainWindow.WorkstationBPInternalFrame.Filterbutton.Click();
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderTable.Row("Ready for execution", "Status").Click();
             APEM.MocmainWindow.WorkstationBPInternalFrame.ExecuteButton.ClickSignle();
+            Stopwatch stopwatch = new Stopwatch();
+            APEM.PhaseExecWindow.WaitMessageInterFrame._UFT_InterFrame.WaitUntilExists();
+            stopwatch.Start();
             //check Wait message("Test") appears for about 5 seconds.
-            Thread.Sleep(2000);
             APEM.PhaseExecWindow.GetSnapshot(Resultpath + "Wait message.PNG");
             Base_Assert.IsTrue(APEM.PhaseExecWindow.WaitMessageInterFrame.IsExist(), "Wait message exits");
             Base_Assert.AreEqual("TEST", APEM.PhaseExecWindow.WaitMessageInterFrame.Label.Text, "Wait message text");
             //check the message disappears. And the main execution screen displays.
-            Thread.Sleep(6000);
+            APEM.PhaseExecWindow.ExecutionInternalFrame._UFT_InterFrame.WaitUntilExists();
+            stopwatch.Stop();
             APEM.PhaseExecWindow.GetSnapshot(Resultpath + "MOC Execute screen.PNG");
+            Base_Assert.IsTrue(Math.Round(((double)stopwatch.ElapsedMilliseconds) / 1000).Equals(5), "Wait message exits 5 seconds");
             Base_Assert.IsFalse(APEM.PhaseExecWindow.WaitMessageInterFrame.IsExist(), "Wait message disappears");
             Base_Assert.IsTrue(APEM.PhaseExecWindow.ExecutionInternalFrame.IsExist(), "main execution screen exits");
             APEM.PhaseExecWindow.ExecutionInternalFrame.OK_Button.Click();
             Thread.Sleep(3000);
             APEM.ExitApplication();
 
+            
 
         }
 

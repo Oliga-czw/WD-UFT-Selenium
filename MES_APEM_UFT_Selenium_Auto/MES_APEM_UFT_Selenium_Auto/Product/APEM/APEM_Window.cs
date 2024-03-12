@@ -181,8 +181,18 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Menu Build => new UFT_Menu(_UFT_Window, "//Menu[@Label = 'Build']");
         public UFT_Menu DesignMenu => new UFT_Menu(_UFT_Window, "//Menu[@Label = 'Design']");
         public OpenDesign_Dialog OpenDesignDialog => new OpenDesign_Dialog(_UFT_Window, "//Dialog[@Title = 'Open design ...']");
-       
+
         #region BPLDesign
+        //1006618
+        public UFT_Label Window0 => new UFT_Label(_UFT_Window, "//Label[@Label = ' Window0 ']");
+        public UFT_UiObject Table => new UFT_UiObject(_UFT_Window, "//Table[@TagName = 'chkTable']");
+        public ColumnEditor_Dialog ColumnEditorDialog => new ColumnEditor_Dialog(_UFT_Window, "//Dialog[@Title = 'Column Editor']");
+        public ColumnEditor_Dialog ActionsEditorDialog => new ColumnEditor_Dialog(_UFT_Window, "//Dialog[@Title = 'Actions Editor']");
+
+        //Properties
+        public UFT_Button Modify => new UFT_Button(_UFT_Window, "//Button[@Label = 'Modify']");
+
+
         public UFT_CheckBox Actions => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText = 'Actions' and @IsWrapped = 'True']");
         public UFT_CheckBox Concurrent_Actions => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText = 'Concurrent actions' and @IsWrapped = 'True']");
         public UFT_CheckBox Window => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText = 'Window' and @IsWrapped = 'True']");
@@ -277,6 +287,17 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
                 Text = @"Log In"
             });
 
+    }
+    public class ColumnEditor_Dialog : UFT_Dialog
+    {
+        public ColumnEditor_Dialog(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+
+        public UFT_Table Table => new UFT_Table(_UFT_Dialog, "//UFT_Table[@Index = '0']");
+
+        public UFT_Button Cut => new UFT_Button(_UFT_Dialog, "//Button[@Label = 'Cut' and @IsWrapped = 'True']");
+        public UFT_Button Accept => new UFT_Button(_UFT_Dialog, "//Button[@Label = 'Accept changes' and @IsWrapped = 'True']");
     }
 
 

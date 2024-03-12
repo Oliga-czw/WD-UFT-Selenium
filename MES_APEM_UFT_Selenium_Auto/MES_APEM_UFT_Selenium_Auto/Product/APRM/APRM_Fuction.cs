@@ -27,7 +27,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         {
             //exit aprm db
             bool exits;
-            exits = File.Exists(Base_Directory.APRMDir+ @"\AspenBatch_dat1.mdf");
+            exits = File.Exists(Base_Directory.APRMDir + @"\AspenBatch_dat1.mdf");
             //stop service
             if (exits)
             {
@@ -44,7 +44,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
                 StartService("Batch21OdbcServices");
                 StartService("Batch21Services");
             }
-           
+
         }
         public static void WizardAprmDB()
         {
@@ -85,7 +85,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             Wizard.WizardWindow.next.Click();
             //ceate ADSA
             Wizard.WizardWindow.next.Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
             if (Wizard.ADSAExitDialog.IsExist())
             {
                 Thread.Sleep(1000);
@@ -99,8 +99,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             //check install finish
             Wizard.WizardWindow.btnClose.WaitUntilEnabled(80000);
             Wizard.WizardWindow.btnClose.Click();
-                //log
-                //Console.WriteLine("Wizard APRM DB!");
+            //log
+            //Console.WriteLine("Wizard APRM DB!");
             StopService("Batch21Services");
             StartService("Batch21Services");
         }
@@ -158,7 +158,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
                 }
 
             }
-            Thread.Sleep(1000);
+            Thread.Sleep(3000);
             APRM.APRMAdminWindow.Close();
 
         }
@@ -240,7 +240,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
                 //check APEM batch exit
                 APRM.APRMAdminWindow.TreeView.GetNode($"Console Root;Production Record Manager;Data Sources;{servername};Areas").Expand();
                 //Base_Assert.IsTrue(APRM.APRMAdminWindow.WeightDispense.Exists(), "WeightDispense import successfully");
-                if (APRM.APRMAdminWindow.Batch.Exists()&& APRM.APRMAdminWindow.Equipment.Exists())
+                if (APRM.APRMAdminWindow.Batch.Exists() && APRM.APRMAdminWindow.Equipment.Exists())
                 {
                     //log
                     Console.WriteLine("Batch and Equipment import successfully");
@@ -350,7 +350,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             APEM.APEMAdminWindow.TreeView.GetNode($"Console Root;Production Execution Administrator;{servername};Extraction Service").Expand();
             APEM.APEMAdminWindow.TreeView.Select($"Console Root;Production Execution Administrator;{servername};Extraction Service;Server");
             //check if extract running
-            if (!APEM.APEMAdminWindow.ListView._STD_ListView.GetVisibleText().Contains("Stopped")) {
+            if (!APEM.APEMAdminWindow.ListView._STD_ListView.GetVisibleText().Contains("Stopped"))
+            {
                 Keyboard.KeyDown(Keyboard.Keys.Alt);
                 Keyboard.PressKey(Keyboard.Keys.A);
                 Thread.Sleep(1000);
@@ -366,6 +367,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             Keyboard.KeyUp(Keyboard.Keys.Alt);
             Thread.Sleep(1000);
             Keyboard.PressKey(Keyboard.Keys.P);
+            Keyboard.PressKey(Keyboard.Keys.Enter);
             //set property
             APEM.APEMAdminWindow.ExtractorProperty.SetupButton.Click();
             //set db
@@ -384,6 +386,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             Wizard.DataLinkPropertiesDialog.OK.Click();
             //test connection
             APEM.APEMAdminWindow.ExtractorProperty.TestConnectionButton.Click();
+            Thread.Sleep(2000);
             if (APEM.PropertyDialog.StaticText.Text == "Test connection succeeded.")
             {
                 APEM.PropertyDialog.OK.Click();
@@ -407,7 +410,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             Keyboard.PressKey(Keyboard.Keys.S);
             Thread.Sleep(1000);
             //check extarct start
-            if(APEM.APEMAdminWindow.ListView._STD_ListView.GetVisibleText().Contains("Processing Tables"))
+            if (APEM.APEMAdminWindow.ListView._STD_ListView.GetVisibleText().Contains("Processing Tables"))
             {
                 Console.WriteLine("Start extraction server success!");
             }
@@ -417,7 +420,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             }
             APEM.APEMAdminWindow.Close();
         }
-        
+
         public static void InitailAPRMWD()
         {
             APRM_Fuction.DropAprmDB();
@@ -443,7 +446,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             APRM_Fuction.ConfigAPEMAdmin();
         }
 
-        
+
 
 
         public static void StopService(string serviceName)

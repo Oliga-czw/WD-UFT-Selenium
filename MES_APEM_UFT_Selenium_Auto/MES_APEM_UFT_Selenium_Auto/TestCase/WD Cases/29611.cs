@@ -66,6 +66,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(3000);
             WD_Fuction.FinishNetDiapense("1", "125");
             Web_Fuction.gotoTab(WDWebTab.order);
+            Thread.Sleep(3000);
             Web.Order_Page.Refresh.Click();
             Thread.Sleep(3000);
             driver.FindElement("//a[text()='Order']").Click();
@@ -89,7 +90,6 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             WD.mainWindow.DispensingInternalFrame.HomeButton.Click();
             WD_Fuction.Close();
             Web_Fuction.gotoTab(WDWebTab.order);
-            Web.Order_Page.Refresh.Click();
             Thread.Sleep(3000);
             Web.Order_Page.Refresh.Click();
             Thread.Sleep(3000);
@@ -111,6 +111,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(5000);
             WD_Fuction.Close();
             Web_Fuction.gotoTab(WDWebTab.order);
+            Thread.Sleep(3000);
             Web.Order_Page.Refresh.Click();
             Thread.Sleep(3000);
             driver.FindElement("//a[text()='Order']").Click();
@@ -125,6 +126,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Web_Fuction.login();
             driver1.Wait();
             Web_Fuction.gotoTab(WDWebTab.order);
+            Thread.Sleep(3000);
             Web.Order_Page.Refresh.Click();
             Thread.Sleep(3000);
             driver1.FindElement("//a[text()='Order']").Click();
@@ -161,6 +163,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Web_Fuction.login();
             driver2.Wait();
             Web_Fuction.gotoTab(WDWebTab.order);
+            Thread.Sleep(3000);
             Web_Fuction.active_order(order1);
             Web_Fuction.active_order(order2);
             Web_Fuction.active_order(order3);
@@ -181,6 +184,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             WD_Fuction.FinishNetDiapense("1", "125");
             WD_Fuction.Close();
             Web_Fuction.gotoTab(WDWebTab.order);
+            Thread.Sleep(3000);
             Web.Order_Page.Refresh.Click();
             Thread.Sleep(3000);
             driver2.FindElement("//a[text()='Order']").Click();
@@ -215,6 +219,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             WD_Fuction.FinishNetDiapense("1", "125");
             WD_Fuction.Close();
             Web_Fuction.gotoTab(WDWebTab.order);
+            Thread.Sleep(3000);
             Web.Order_Page.Refresh.Click();
             Thread.Sleep(3000);
             driver3.FindElement("//a[text()='Order']").Click();
@@ -301,6 +306,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Web_Fuction.login();
             driver5.Wait();
             Web_Fuction.gotoTab(WDWebTab.order);
+            Thread.Sleep(3000);
             driver5.FindElement("//a[text()='Order']").Click();
             Thread.Sleep(3000);
             Web_Fuction.active_order(order1);
@@ -344,6 +350,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(5000);
             WD_Fuction.Close();
             Web_Fuction.gotoTab(WDWebTab.order);
+            Thread.Sleep(3000);
             Web.Order_Page.Refresh.Click();
             Thread.Sleep(3000);
             driver5.FindElement("//a[text()='Order']").Click();
@@ -371,23 +378,28 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             driver5.FindElement("//div[text()='Deviation Management']").Click();
             driver5.Wait();
             driver5.FindElement("//a[text()='Deviation Pending']").Click();
+            Thread.Sleep(3000);
             driver5.FindElements("//a[text()='Ack/Comment']")[0].Click();
+            Thread.Sleep(3000);
             driver5.FindElement("//textarea[@class='gwt-TextArea Comment_TextArea']").SendKeys("test");
             driver5.FindElement("//label[text()='I acknowledge this deviation.']/../input").Click();
             driver5.FindElement("//div[text()='Username:']/../../td[2]/input").SendKeys(UserName.qaone1);
             driver5.FindElement("//div[text()='Password:']/../../td[2]/input").SendKeys(PassWord.qaone1);
             driver5.FindElement("//button[text()='OK']").Click();
+            Thread.Sleep(3000);
             driver5.FindElement("//a[text()='Deviation Pending']").Click();
+            Thread.Sleep(3000);
             driver5.FindElement("//a[text()='Ack/Comment']").Click();
+            Thread.Sleep(3000);
             driver5.FindElement("//textarea[@class='gwt-TextArea Comment_TextArea']").SendKeys("test");
             driver5.FindElement("//label[text()='I acknowledge this deviation.']/../input").Click();
             driver5.FindElement("//div[text()='Username:']/../../td[2]/input").SendKeys(UserName.qaone1);
             driver5.FindElement("//div[text()='Password:']/../../td[2]/input").SendKeys(PassWord.qaone1);
             driver5.FindElement("//button[text()='OK']").Click();
             //Finished the order
-            Web.Order_Page.Refresh.Click();
             Thread.Sleep(3000);
             driver5.FindElement("//a[text()='Accept/Comment']").Click();
+            Thread.Sleep(3000);
             driver5.FindElement("//textarea[@class='gwt-TextArea Comment_TextArea']").SendKeys("test");
             driver5.FindElement("//label[text()='I accept all product deviations in this order.']/../input").Click();
             driver5.FindElement("//div[text()='Username:']/../../td[2]/input").SendKeys(UserName.qaone1);
@@ -415,6 +427,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(5000);
             WD_Fuction.Close();
             Web_Fuction.gotoTab(WDWebTab.order);
+            Thread.Sleep(3000);
             Web.Order_Page.Refresh.Click();
             Thread.Sleep(3000);
             driver5.FindElement("//a[text()='Order']").Click();

@@ -27,7 +27,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
                 _UFT_Button.Click();
                 Thread.Sleep(waitingTime);
             }
-            if (_UFT_Button.IsEnabled)
+            if (_UFT_Button.Exists() && _UFT_Button.IsEnabled)
             {
                 _UFT_Button.Click();
             }

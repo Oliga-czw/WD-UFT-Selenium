@@ -73,6 +73,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(2000);
             APEM.ActivateDialog.YesButton.Click();
             MOC_Fuction.AddReason();
+            Thread.Sleep(10000);
             foreach (IWebElement Phase in Mobile.OrderTracking_Page.OrderPhaseTableRows)
             {
                 var Status = Phase.FindElements(By.TagName("td"))[no].Text;
@@ -89,7 +90,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //Excution
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderTable.Row("PHASE55", "Name").Click();
             APEM.MocmainWindow.WorkstationBPInternalFrame.ExecuteButton.ClickSignle();
-            Thread.Sleep(6000);
+            Thread.Sleep(10000);
             foreach (IWebElement Name in Mobile.OrderTracking_Page.OrderPhaseNames)
             {
                 if (Name.Text == "PHASE55")
@@ -104,7 +105,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.PhaseExecWindow.ExecutionInternalFrame.Cancel_Button.ClickSignle();
             Thread.Sleep(1000);
             APEM.PhaseExecWindow.ConfirmationInternalFrame.YesButton.Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(10000);
             foreach (IWebElement Name in Mobile.OrderTracking_Page.OrderPhaseNames)
             {
                 if (Name.Text == "PHASE55")
@@ -128,7 +129,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.PhaseExecWindow.UserConfirmationInternalFrame.PassWord.SendKeys(PassWord.qaone1);
             APEM.PhaseExecWindow.UserConfirmationInternalFrame.Comment.SendKeys("for test");
             APEM.PhaseExecWindow.UserConfirmationInternalFrame.OKButton.Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(10000);
             foreach (IWebElement Name in Mobile.OrderTracking_Page.OrderPhaseNames)
             {
                 if (Name.Text == "PHASE55")
@@ -150,7 +151,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.PhaseExecWindow.UserConfirmationInternalFrame.PassWord.SendKeys(PassWord.qaone1);
             APEM.PhaseExecWindow.UserConfirmationInternalFrame.Comment.SendKeys("for test");
             APEM.PhaseExecWindow.UserConfirmationInternalFrame.OKButton.Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(10000);
 
             foreach (IWebElement Name in Mobile.OrderTracking_Page.OrderPhaseNames)
             {
@@ -177,7 +178,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             MOC_Fuction.AddReason();
             Thread.Sleep(6000);
             APEM.MocmainWindow.OrderListInternalFrame.Refresh_Button.ClickSignle();
-            Thread.Sleep(2000);
+            Thread.Sleep(10000);
             foreach (IWebElement Name in Mobile.OrderTracking_Page.OrderPhaseNames)
             {
                 if (Name.Text == "PHASE55")
@@ -192,7 +193,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MocmainWindow.WorkstationBPInternalFrame.ExecuteButton.ClickSignle();
             Thread.Sleep(5000);
             APEM.PhaseExecWindow.ExecutionInternalFrame.OK_Button.ClickSignle();
-            Thread.Sleep(1000);
+            Thread.Sleep(10000);
             foreach (IWebElement Name in Mobile.OrderTracking_Page.OrderPhaseNames)
             {
                 if (Name.Text == "PHASE55")
@@ -212,7 +213,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.CancelBPDialog.YesButton.Click();
             Thread.Sleep(2000);
             MOC_Fuction.AddReason();
-            Thread.Sleep(2000);
+            Thread.Sleep(10000);
             foreach (IWebElement Name in Mobile.OrderTracking_Page.OrderPhaseNames)
             {
                 if (Name.Text == "PHASE67")
@@ -231,7 +232,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.DisableBPDialog.YesButton.Click();
             Thread.Sleep(2000);
             MOC_Fuction.AddReason();
-            Thread.Sleep(2000);
+            Thread.Sleep(10000);
             foreach (IWebElement Name in Mobile.OrderTracking_Page.OrderPhaseNames)
             {
                 if (Name.Text == "PHASE67")
@@ -250,7 +251,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(2000);
             APEM.MocmainWindow.CancelOrderDialog.YesButton.Click();
             MOC_Fuction.AddReason();
-            Thread.Sleep(4000);
+            Thread.Sleep(10000);
             foreach (IWebElement Phase in Mobile.OrderTracking_Page.OrderPhaseTableRows)
             {
                 var Status = Phase.FindElements(By.TagName("td"))[no].Text;

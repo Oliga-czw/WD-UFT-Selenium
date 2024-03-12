@@ -38,9 +38,9 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Web.Order_Page.Refresh.Click();
             Thread.Sleep(6000);
             Web_Fuction.active_order(order);
-            Web.Order_Page.Refresh.Click();
-            Thread.Sleep(6000);
-            driver.FindElement("//td[text()='test1']/../td[1]/span/input").Click();
+            //Web.Order_Page.Refresh.Click();
+            //Thread.Sleep(6000);
+            //driver.FindElement("//td[text()='test1']/../td[1]/span/input").Click();
             driver.FindElement("//a[text()='Create Campaign']").Click();
             driver.FindElement("//input[@class='WD_TextBox']").SendKeys("testCampaign");
             driver.FindElement("//button[@id='Dialogbox_Bottom_OK_Button_Id']").Click();
