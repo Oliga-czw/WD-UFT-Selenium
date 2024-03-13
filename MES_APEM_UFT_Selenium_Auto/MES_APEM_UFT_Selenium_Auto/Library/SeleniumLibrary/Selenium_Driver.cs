@@ -178,7 +178,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
 
                 return true;
             }
-            catch (NoSuchElementException)
+            catch 
             {
                 return false;
             }

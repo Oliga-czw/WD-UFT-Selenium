@@ -69,10 +69,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mobile.Setting_Page.turnOff_mode(1);
             Mobile.Setting_Page.turnOff_mode(2);
             Thread.Sleep(2000);
-            SessionManagerSearch(driver, Resultpath);
-            LogStep(@"5. Change to dark mode");
             try
             {
+                SessionManagerSearch(driver, Resultpath);
+            LogStep(@"5. Change to dark mode");
                 Mobile.Main_Page.Setting.Click();
                 Mobile.Setting_Page.turnOn_mode(1);
                 LogStep(@"6. Check Session manager in dark mode");
