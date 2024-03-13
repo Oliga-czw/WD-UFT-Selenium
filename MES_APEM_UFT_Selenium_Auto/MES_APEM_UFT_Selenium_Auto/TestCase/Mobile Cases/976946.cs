@@ -27,7 +27,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
         [Timeout(1200000)]
-
+        //defect 1338983
         [TestMethod]
         public void VSTS_976946()
         {
@@ -36,18 +36,18 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             string OrderName2 = "Order976946_2";
             string RPLName = "RPL976946";
 
-            //Application.LaunchMocAndLogin();
-            //LogStep(@"1. import bpl");//import bpl
-            ////check bpl exit
-            //APEM.MocmainWindow.RPLDesign.ClickSignle();
-            //if (!APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row(RPLName).Existing)
-            //{
-            //    MOC_TemplatesFunction.Importtemplates("CASE976946.zip");
-            //}
-            //LogStep(@"2. create order");
-            //MOC_Fuction.PlanFromRPL(RPLName, OrderName1);
-            //MOC_Fuction.PlanFromRPL(RPLName, OrderName2);
-            //APEM.ExitApplication();
+            Application.LaunchMocAndLogin();
+            LogStep(@"1. import bpl");//import bpl
+            //check bpl exit
+            APEM.MocmainWindow.RPLDesign.ClickSignle();
+            if (!APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row(RPLName).Existing)
+            {
+                MOC_TemplatesFunction.Importtemplates("CASE976946.zip");
+            }
+            LogStep(@"2. create order");
+            MOC_Fuction.PlanFromRPL(RPLName, OrderName1);
+            MOC_Fuction.PlanFromRPL(RPLName, OrderName2);
+            APEM.ExitApplication();
             LogStep(@"3. login mobile");
             //execute order with qaone1 and qaone2
             Selenium_Driver edge = new Selenium_Driver(Browser.edge);
@@ -99,15 +99,15 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             LogStep(@"9. Change to dark mode");
             try
             {
-            Mobile.Main_Page.Setting.Click();
-            Mobile.Setting_Page.turnOn_mode(1);
-            LogStep(@"10. Check Session manager in dark mode");
-            SessionManagerData(driver, Resultpath, "dark");
-            LogStep(@"11. Change to consolidated");
-            Mobile.Main_Page.Setting.Click();
-            Mobile.Setting_Page.turnOn_mode(2);
-            LogStep(@"12. Check Session manager inconsolidated");
-            SessionManagerData(driver, Resultpath, "consolidated");
+                Mobile.Main_Page.Setting.Click();
+                Mobile.Setting_Page.turnOn_mode(1);
+                LogStep(@"10. Check Session manager in dark mode");
+                SessionManagerData(driver, Resultpath, "dark");
+                LogStep(@"11. Change to consolidated");
+                Mobile.Main_Page.Setting.Click();
+                Mobile.Setting_Page.turnOn_mode(2);
+                LogStep(@"12. Check Session manager inconsolidated");
+                SessionManagerData(driver, Resultpath, "consolidated");
             }
             finally
             {
@@ -117,14 +117,21 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Mobile.Setting_Page.turnOff_mode(2);
                 //cancel order
                 Mobile.Main_Page.ManageModule.Click();
+                Thread.Sleep(3000);
                 Mobile.SessionManager_Page.CloseSession.Click();
+                Thread.Sleep(3000);
                 Mobile.SessionManager_Page.Dialog_Yes.Click();
-                driver.Close();
+                Thread.Sleep(3000);
+                edge.SwitchToEdge();
                 edge.Maxsize();
                 Mobile.Main_Page.ManageModule.Click();
+                Thread.Sleep(3000);
                 Mobile.SessionManager_Page.CloseSession.Click();
+                Thread.Sleep(3000);
                 Mobile.SessionManager_Page.Dialog_Yes.Click();
+                Thread.Sleep(3000);
                 edge.Close();
+                
             }
         }
         private void SessionManagerData(Selenium_Driver driver, string Resultpath, string mode = "")
@@ -145,7 +152,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //get event number
             int Mcount = Mobile.SessionManager_Page.TableRows.Count;
             //check data if same
-            Base_Assert.AreEqual(Ocount, Mcount, "All data displays.");
+            Console.WriteLine(Mcount);
+            Base_Assert.IsTrue(Ocount==Mcount, "All data displays.");//defect 1338983,now need close all session manually
             //check User ascending ordered
             List<string> col = new List<string> { "User" };
             List<string> UserNameList = new List<string> { };
@@ -210,7 +218,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Base_Assert.IsTrue(same, "Refresh Session manager ascending by User name by default.");
             LogStep(@"8. filter by columns");
             List<string> filter_name = new List<string> { "User", "Order / Executing Phase" };
-            List<string> delete_col = new List<string> { @"qae\qaone1", "Order976946_2 / PHASE17", "Order976946_2 / PHASE29" };
+            List<string> delete_col = new List<string> { @"qae\qaone1", "ORDER976946_2 / PHASE17", "ORDER976946_2 / PHASE29" };
             string user = @"qae\qaone2";
             //set filter
             foreach (var head in Mobile.SessionManager_Page.TableHeads)
