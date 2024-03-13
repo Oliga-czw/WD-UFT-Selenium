@@ -53,6 +53,14 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
         {
             return _Selenium_WebElement.Enabled;
         }
+        public bool Displayed
+        {
+            get 
+            {
+                return _Selenium_WebElement.Displayed;
+            }
+        }
+        
         public void Clear()
         {
             _Selenium_WebElement.Clear();

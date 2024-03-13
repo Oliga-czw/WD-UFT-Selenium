@@ -96,17 +96,17 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mobile.Setting_Page.turnOff_mode(2);
             Thread.Sleep(2000);
             SessionManagerData(driver, Resultpath);
-            LogStep(@"9. Change to dark mode");
+            LogStep(@"6. Change to dark mode");
             try
             {
                 Mobile.Main_Page.Setting.Click();
                 Mobile.Setting_Page.turnOn_mode(1);
-                LogStep(@"10. Check Session manager in dark mode");
+                LogStep(@"7. Check Session manager in dark mode");
                 SessionManagerData(driver, Resultpath, "dark");
-                LogStep(@"11. Change to consolidated");
+                LogStep(@"8. Change to consolidated");
                 Mobile.Main_Page.Setting.Click();
                 Mobile.Setting_Page.turnOn_mode(2);
-                LogStep(@"12. Check Session manager inconsolidated");
+                LogStep(@"9. Check Session manager inconsolidated");
                 SessionManagerData(driver, Resultpath, "consolidated");
             }
             finally
@@ -148,7 +148,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 headname.Add(head.Text);
             }
             Base_Assert.IsTrue(Expect.SequenceEqual(headname), "Manage module columns");
-            LogStep(@"6. check Manage module data");
+            LogStep(@".1 check Manage module data");
             //get event number
             int Mcount = Mobile.SessionManager_Page.TableRows.Count;
             //check data if same
@@ -179,14 +179,14 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             bool same = UserNameList.SequenceEqual(UserNameListSort);
             Base_Assert.IsTrue(same, "Session manager ascending by User name by default.");
 
-            LogStep(@"7. Scroll the scrollbar.");
+            LogStep(@".2 Scroll the scrollbar.");
             driver.execute_script("document.getElementsByClassName('table-content scroll-bar full show-navigation desktop-mode')[0].scrollTop = 100000");
             Thread.Sleep(5000);
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath  +" " + mode + " " + "Scroll down scrollbar.PNG");
             //check scroll bar at bottom
             var ScrollHeightDown = driver.execute_script_return("return document.getElementsByClassName('table-content scroll-bar full show-navigation desktop-mode')[0].scrollTop");
             Base_Assert.IsTrue(int.Parse(ScrollHeightDown.ToString()) > 0, "Scroll bar down.");
-            LogStep(@"7. Click Refresh icon");
+            LogStep(@".3 Click Refresh icon");
             Mobile.SessionManager_Page.RefreshButton.Click();
             Thread.Sleep(5000);
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + " " + mode + " " + "Refresh.PNG");
@@ -216,7 +216,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             UserNameListRefreshSort.Sort();
             same = UserNameListRefresh.SequenceEqual(UserNameListRefreshSort);
             Base_Assert.IsTrue(same, "Refresh Session manager ascending by User name by default.");
-            LogStep(@"8. filter by columns");
+            LogStep(@".4 filter by columns");
             List<string> filter_name = new List<string> { "User", "Order / Executing Phase" };
             List<string> delete_col = new List<string> { @"qae\qaone1", "ORDER976946_2 / PHASE17", "ORDER976946_2 / PHASE29" };
             string user = @"qae\qaone2";
