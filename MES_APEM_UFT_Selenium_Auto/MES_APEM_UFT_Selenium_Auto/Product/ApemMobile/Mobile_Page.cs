@@ -43,7 +43,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         }
 
         public Selenium_WebElement username => new Selenium_WebElement(_Selenium_Driver, "//input[@id='username']");
-        public Selenium_WebElement password => new Selenium_WebElement(_Selenium_Driver, "//input[@id='mat-input-1']");
+        public Selenium_WebElement password => new Selenium_WebElement(_Selenium_Driver, "//input[@type='password']");
         public Selenium_WebElement login => new Selenium_WebElement(_Selenium_Driver, "//button[@id='signInBtn']");
         //public Selenium_WebElement error => new Selenium_WebElement(_Selenium_Driver, "//div[@class='gwt-HTML Home_Login_Msg_Html']");
         
@@ -52,7 +52,16 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         //public static IWebElement login = _Selenium_Driver.FindElement(By.XPath("//button[@class='Home_Login_Button']"));
 
     }
+    public class Logout_Page : Mobile_Page
 
+    {
+        public Logout_Page(IWebDriver driver) : base(driver)
+        {
+        }
+        public Selenium_WebElement login => new Selenium_WebElement(_Selenium_Driver, "//button");
+
+
+    }
     public class Main_Page : Mobile_Page
 
     {

@@ -13,6 +13,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
     {
         public static Mobile_Page Mobile_Page => new Mobile_Page(Selenium_Driver._Selenium_Driver);
         public static Login_Page Login_Page => new Login_Page(Selenium_Driver._Selenium_Driver);
+        public static Logout_Page Logout_Page => new Logout_Page(Selenium_Driver._Selenium_Driver);
         public static Main_Page Main_Page => new Main_Page(Selenium_Driver._Selenium_Driver);
         public static EventLog_Page EventLog_Page => new EventLog_Page(Selenium_Driver._Selenium_Driver);
         public static SessionManager_Page SessionManager_Page => new SessionManager_Page(Selenium_Driver._Selenium_Driver);
