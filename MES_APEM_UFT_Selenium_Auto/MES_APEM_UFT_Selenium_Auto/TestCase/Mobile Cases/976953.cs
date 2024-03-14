@@ -107,7 +107,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath +" " + mode + " "+ "Search.PNG");
 
             LogStep(@".1 check Manage module data");
-            //get event number
+            //get number
             int Mcount = Mobile.SessionManager_Page.TableRows.Count;
             //check data count
             Console.WriteLine(Mcount);
