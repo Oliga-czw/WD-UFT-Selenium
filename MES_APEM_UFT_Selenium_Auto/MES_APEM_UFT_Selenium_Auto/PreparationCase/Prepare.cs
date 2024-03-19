@@ -43,6 +43,8 @@ namespace MES_APEM_UFT_Selenium_Auto
             SdkConfiguration config = new SdkConfiguration();
             SDK.Init(config);
             //start tomcat and sql service
+            Base_Test.KillProcess("tomcat10");
+            Thread.Sleep(30000);
             Base_Function.ResartServices(ServiceName.SQL);
             Base_Function.ResartServices(ServiceName.Tomcat);
             //config apem DB
@@ -55,9 +57,13 @@ namespace MES_APEM_UFT_Selenium_Auto
             string Path = Base_Directory.ConfigDir + "path.m2r_cfg";
             string ConfigKey1 = @"WEB_INACTIVITY_PERIOD = 3000";
             Base_Function.EditConfigKey(Path, ConfigKey1);
+            //Add host
+            Base_Function.AddHost();
             //codify all
             Base_Test.LaunchApp(Base_Directory.Codify_all);
             //restart tomcat server 
+            Base_Test.KillProcess("tomcat10");
+            Thread.Sleep(30000);
             Base_Function.ResartServices(ServiceName.Tomcat);
             //install  and config aprm
             APRM_Fuction.FirstInitailAPRMWD();
