@@ -337,6 +337,64 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             }
             APRM.APRMAdminWindow.Close();
         }
+        public static void BatchImportAprmAdmin()
+        {
+            string servername = Environment.MachineName;//OLIGA-2022-2
+            //open aprm admin
+            Application.LaunchAprmAdmin();
+            //expand node,check wd batch exit
+            APRM.APRMAdminWindow.TreeView.GetNode("Console Root;Production Record Manager").Expand();
+            APRM.APRMAdminWindow.TreeView.GetNode("Console Root;Production Record Manager;Data Sources").Expand();
+            APRM.APRMAdminWindow.TreeView.GetNode($"Console Root;Production Record Manager;Data Sources;{servername}").Expand();
+            APRM.APRMAdminWindow.TreeView.Select($"Console Root;Production Record Manager;Data Sources;{servername};Areas");
+            Console.WriteLine(APRM.APRMAdminWindow.TreeView.GetNode($"Console Root;Production Record Manager;Data Sources;{servername};Areas").HasChildren);
+            if (APRM.APRMAdminWindow.TreeView.GetNode($"Console Root;Production Record Manager;Data Sources;{servername};Areas").HasChildren)
+            {
+                APRM.APRMAdminWindow.TreeView.GetNode($"Console Root;Production Record Manager;Data Sources;{servername};Areas").Expand();
+                //batch
+                if (APRM.APRMAdminWindow.Batch.Exists())
+                {
+                    //Base_logger.Info("Batch has already existed");
+                    Console.WriteLine("Batch has already existed");
+                }
+                else
+                {
+                    //import APEM batch
+                    //BatchArea
+                    action();
+                    Keyboard.PressKey(Keyboard.Keys.I);
+                    APRM.APRMAdminWindow.Open.Filename.SendKeys(Base_Directory.BatchArea);
+                    Keyboard.PressKey(Keyboard.Keys.Enter);
+                    Thread.Sleep(2000);
+                    //check APEM batch exit
+                    if (APRM.APRMAdminWindow.Batch.Exists())
+                    {
+                        Console.WriteLine("Batch import successfully");
+                    }
+                    // Base_Assert.IsTrue(APRM.APRMAdminWindow.Batch.Exists(), "Batch import successfully");
+                }
+            }
+            else
+            {
+                //import APEM batch
+                //BatchArea
+                action();
+                Keyboard.PressKey(Keyboard.Keys.I);
+                APRM.APRMAdminWindow.Open.Filename.SendKeys(Base_Directory.BatchArea);
+                Keyboard.PressKey(Keyboard.Keys.Enter);
+                Thread.Sleep(2000);
+                //check APEM batch exit
+                APRM.APRMAdminWindow.TreeView.GetNode($"Console Root;Production Record Manager;Data Sources;{servername};Areas").Expand();
+                //Base_Assert.IsTrue(APRM.APRMAdminWindow.WeightDispense.Exists(), "WeightDispense import successfully");
+                if (APRM.APRMAdminWindow.Batch.Exists() && APRM.APRMAdminWindow.Equipment.Exists())
+                {
+                    //log
+                    Console.WriteLine("Batch import successfully");
+                }
+
+            }
+            APRM.APRMAdminWindow.Close();
+        }
         public static void ConfigAPEMAdmin()
         {
             string servername = System.Net.Dns.GetHostName();//Oliga-2022-2

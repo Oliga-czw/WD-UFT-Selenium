@@ -159,7 +159,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         }
 
         //click plan from plan to create order 
-        public static void PlanFromRPL(string RPLName,string OrderName,bool active = true)
+        public static void PlanFromRPL(string RPLName,string OrderName,bool active = true,string PO_value = "PO")
         {
             string RPLSelect = RPLName + "#1";
             APEM.MocmainWindow.Orders.ClickSignle();
@@ -185,7 +185,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             APEM.MocmainWindow.OrderPlanDialog.CodeEditor.SendKeys(OrderName);
             APEM.MocmainWindow.OrderPlanDialog.DescriptionEditor.SendKeys("test");
             APEM.MocmainWindow.OrderPlanDialog.RPLList.Select(RPLSelect);
-            APEM.MocmainWindow.OrderPlanDialog.POEditor.SendKeys("PO");
+            APEM.MocmainWindow.OrderPlanDialog.POEditor.SendKeys(PO_value);
             APEM.MocmainWindow.OrderPlanDialog.POStepEditor.SendKeys("POStep");
             APEM.MocmainWindow.OrderPlanDialog.ArticleEditor.SendKeys("Article");
             APEM.MocmainWindow.OrderPlanDialog.BatchEditor.SendKeys("Batch");

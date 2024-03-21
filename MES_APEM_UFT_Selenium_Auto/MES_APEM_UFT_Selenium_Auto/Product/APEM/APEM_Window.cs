@@ -175,12 +175,18 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             IsWrapped = true,
             Index = 1
         });
+        public ICheckBox Script => _UFT_Window.Describe<ICheckBox>(new CheckBoxDescription
+        {
+            IsWrapped = true,
+            Path = @"JToggleButton;JPanel;JViewport;JScrollPane;JPanel;JViewport;chkToolBarModule;JTabbedPane;m2rToolBar;m2rMenu$MenuToolBar;m2rMenu;JPanel;JLayeredPane;JRootPane;designApp;"
+        });
         #endregion
         public UFT_Dialog PasteRenamedDialog => new UFT_Dialog(_UFT_Window, "//Dialog[@Title = 'Copy/Paste Renamed Components List']");
         public UFT_Menu FileImport => new UFT_Menu(_UFT_Window, "//Menu[@Label = 'File']");
         public UFT_Menu Build => new UFT_Menu(_UFT_Window, "//Menu[@Label = 'Build']");
         public UFT_Menu DesignMenu => new UFT_Menu(_UFT_Window, "//Menu[@Label = 'Design']");
         public OpenDesign_Dialog OpenDesignDialog => new OpenDesign_Dialog(_UFT_Window, "//Dialog[@Title = 'Open design ...']");
+        public UFT_Label components_instruction => new UFT_Label(_UFT_Window, "//Label[@NativeClass = 'javax.swing.JLabel' and @IsWrapped = 'True']");
 
         #region BPLDesign
         //1006618

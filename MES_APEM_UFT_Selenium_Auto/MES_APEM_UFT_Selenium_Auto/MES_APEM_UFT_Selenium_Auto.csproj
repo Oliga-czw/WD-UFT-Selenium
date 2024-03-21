@@ -133,6 +133,8 @@
     <Compile Include="Product\SQLplus\SQLplus_Repository.cs" />
     <Compile Include="Product\SQLplus\SQLplus_Window.cs" />
     <Compile Include="TestCase\APEM Cases\1006618.cs" />
+    <Compile Include="TestCase\APEM Cases\830458.cs" />
+    <Compile Include="TestCase\APEM Cases\918007.cs" />
     <Compile Include="TestCase\APEM Cases\962481.cs" />
     <Compile Include="TestCase\APEM Cases\213769.cs" />
     <Compile Include="TestCase\APEM Cases\429615.cs" />
@@ -192,6 +194,7 @@
     <Compile Include="TestCase\Mobile Cases\912584.cs" />
     <Compile Include="TestCase\Mobile Cases\912651.cs" />
     <Compile Include="TestCase\Mobile Cases\916366.cs" />
+    <Compile Include="TestCase\Mobile Cases\919004.cs" />
     <Compile Include="TestCase\Mobile Cases\935165.cs" />
     <Compile Include="TestCase\Mobile Cases\957466.cs" />
     <Compile Include="TestCase\Mobile Cases\957475.cs" />
@@ -202,6 +205,7 @@
     <Compile Include="TestCase\Mobile Cases\962338.cs" />
     <Compile Include="TestCase\Mobile Cases\963540.cs" />
     <Compile Include="TestCase\Mobile Cases\825087.cs" />
+    <Compile Include="TestCase\Mobile Cases\920999.cs" />
     <Compile Include="TestCase\Mobile Cases\997428.cs" />
     <Compile Include="TestCase\Mobile Cases\Class1.cs" />
     <Compile Include="TestCase\WD Cases\106684.cs" />

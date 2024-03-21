@@ -410,7 +410,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         //850241 Batch
         public UFT_Button Batch_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Order850241:Batch same area with order']");
         public UFT_Button BatchSP_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Order850241SP:Specific batch-BatchAPI']");
-
+        //918007
+        public UFT_Button WrinteBR_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Write BR']");
+        public UFT_Editor Field1_Editor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Field 1:']");
         //Soap
         public UFT_Button SOAP_CALL2_EX_Button => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Button0']");
         public UFT_Button SOAP_CALL2_Button => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Button3']");

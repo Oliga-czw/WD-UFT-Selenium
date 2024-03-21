@@ -292,7 +292,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //report.GenerateReportFile(_Descrpt);
             Base_Test.KillProcess("javaw");
             Base_Test.KillProcess("chrome");
-            Base_Test.KillProcess("Microsoft Edge");
+            Base_Test.KillProcess("msedge");
             Base_Test.KillProcess("BatchQueryTool");
             Base_Test.KillProcess("BatchDetailDisplay");
             Base_Test.KillProcess("mmc");

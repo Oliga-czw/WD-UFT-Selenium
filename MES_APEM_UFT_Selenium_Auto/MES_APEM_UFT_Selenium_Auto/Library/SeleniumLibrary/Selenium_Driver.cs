@@ -170,6 +170,19 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
                 return false;
             }
         }
+        public bool is_element_exist(string Xpath)
+        {
+            try
+            {
+                var ele = _Selenium_Driver.FindElement(By.XPath(Xpath));
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         public void action_move_to_element(IWebElement element)
         {
             Actions action = new Actions(_Selenium_Driver);
