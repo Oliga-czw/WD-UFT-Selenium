@@ -150,6 +150,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         public static string OrdersDownloadDir => "C:\\ProgramData\\AspenTech\\AeBRS\\WDDownload\\Pending\\Orders";
         public static string WDUploadDir => @"C:\ProgramData\AspenTech\AeBRS\WDUpload";
 
+        //Debug file
+        public static string MOCDebugDir => "C:\\ProgramData\\AspenTech\\AeBRS\\MOC\\debug";
 
         public static string ConfigDir => @"C:\Program Files\AspenTech\AeBRS\cfg_source\";
         public static string Codify_all = @"C:\Program Files\AspenTech\AeBRS\cfg_source\codify_all.cmd";

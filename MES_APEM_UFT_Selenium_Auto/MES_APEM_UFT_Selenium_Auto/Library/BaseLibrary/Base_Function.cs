@@ -47,6 +47,20 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             Base_logger.Info("Add config key successfully.");
 
         }
+        public static void AddConfigKeyInRightPlace(string filePath, string insertText, string searchText)
+        {
+            string fileContent = File.ReadAllText(filePath);
+            int index = fileContent.IndexOf(searchText);
+            if (index != -1)
+            {
+                fileContent = fileContent.Insert(index + searchText.Length, insertText);
+                File.WriteAllText(filePath, fileContent);
+                Base_logger.Info($"{insertText} has been inserted after {searchText}.");
+            }
+
+        }
+      
+
         public static void EditConfigKey(string path, string Key)
         {
             //CDM_RESOURCE_SERVICE_ENABLE = 1

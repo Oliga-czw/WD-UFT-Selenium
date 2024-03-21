@@ -313,7 +313,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         {
             get
             {
-                return Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                return Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+"\\";
             }
         }
         public static string ReadFile(string path)

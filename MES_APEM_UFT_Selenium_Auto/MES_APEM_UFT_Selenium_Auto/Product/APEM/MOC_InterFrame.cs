@@ -410,6 +410,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         //850241 Batch
         public UFT_Button Batch_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Order850241:Batch same area with order']");
         public UFT_Button BatchSP_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Order850241SP:Specific batch-BatchAPI']");
+        //788897
+        public UFT_Button LaunchThread_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Launch Thread']");
+        public UFT_Button setvar_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'set var']");
 
         //Soap
         public UFT_Button SOAP_CALL2_EX_Button => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Button0']");
@@ -419,7 +422,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
 
         public UFT_Button OK_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'OK']");
         public UFT_Button Cancel_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Cancel']");
-        
+        public UFT_Button Exit_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Exit']");
+
         public UFT_Editor UserIDEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'User ID:']");
         public IEditor PHActualEditor => _UFT_InterFrame.Describe<IEditor>(new EditorDescription
         {

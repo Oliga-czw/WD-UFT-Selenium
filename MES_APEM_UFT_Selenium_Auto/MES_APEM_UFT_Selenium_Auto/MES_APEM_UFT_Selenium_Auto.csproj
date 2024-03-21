@@ -133,6 +133,7 @@
     <Compile Include="Product\SQLplus\SQLplus_Repository.cs" />
     <Compile Include="Product\SQLplus\SQLplus_Window.cs" />
     <Compile Include="TestCase\APEM Cases\1006618.cs" />
+    <Compile Include="TestCase\APEM Cases\788897.cs" />
     <Compile Include="TestCase\APEM Cases\962481.cs" />
     <Compile Include="TestCase\APEM Cases\213769.cs" />
     <Compile Include="TestCase\APEM Cases\429615.cs" />
