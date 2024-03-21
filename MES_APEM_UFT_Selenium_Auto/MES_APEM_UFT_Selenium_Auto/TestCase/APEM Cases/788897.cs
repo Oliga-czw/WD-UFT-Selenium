@@ -91,7 +91,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 string fileContent = File.ReadAllText(FileName);
                 MatchCollection matches1 = Regex.Matches(fileContent, StartPattern);
                 MatchCollection matches2 = Regex.Matches(fileContent, EndPattern);
-                Base_Assert.IsTrue(matches1==matches2,"Start End number is same.");
+                Base_Assert.IsTrue(matches1.Count==matches2.Count,"Start End number is same.");
             }
             finally
             {
