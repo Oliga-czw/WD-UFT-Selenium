@@ -180,9 +180,21 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public Selenium_WebElement DELETE_ORDER_Button => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' DELETE_ORDER ']/../..");
         //962338
         public Selenium_WebElements Numbers => new Selenium_WebElements(_Selenium_Driver, "//p[@class='ng-star-inserted']");
-        //825098
-        public Selenium_WebElement QueueButton => new Selenium_WebElement(_Selenium_Driver, "//div[@class='queue']/button");
-        public Selenium_WebElements QueueIcon => new Selenium_WebElements(_Selenium_Driver, "//div[@id='dialog']//mat-icon");
+        //920999
+        public Selenium_WebElement tranfer2field4_input => new Selenium_WebElement(_Selenium_Driver, "//input[@id='TEST.F_Scan2']");
+        public Selenium_WebElement Selectline3_button => new Selenium_WebElement(_Selenium_Driver, "//button[@id='TEST.btnPrintLabel']");
+        public Selenium_WebElement Field3_input => new Selenium_WebElement(_Selenium_Driver, "//input[@id='TEST.F_Scan3']");
+        public Selenium_WebElement Error_Message => new Selenium_WebElement(_Selenium_Driver, "//div[@class='padding']/div[2]/div/div/div/p");
+        public Selenium_WebElement MessageOK_button => new Selenium_WebElement(_Selenium_Driver, "//span[text()=' OK ']/..");
+        public Selenium_WebElement Field4 => new Selenium_WebElement(_Selenium_Driver, "//input[@id='TEST.F_Scan4']/../../../..");
+        public ReadOnlyCollection<IWebElement> TableRows => _Selenium_Driver.FindElements(By.XPath("//tbody/tr[@role='row']"));
+        //919004
+        public Selenium_WebElement Field => new Selenium_WebElement(_Selenium_Driver, "//input[@id='TEST.Field0']");
+        public Selenium_WebElement message_label => new Selenium_WebElement(_Selenium_Driver, "//label[text()='segunda screen']/..");
+        //918007
+        public Selenium_WebElement WritedatainBR_button  => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' Write data in BR ']/../..");
+        public Selenium_WebElement ReadData_button => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' read data ']/../..");
+        public Selenium_WebElement Path_table => new Selenium_WebElement(_Selenium_Driver, "//tbody[@role='rowgroup']/tr[2]//input");
     }
 
 
