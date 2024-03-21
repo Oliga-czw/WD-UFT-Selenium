@@ -35,6 +35,7 @@ namespace MES_APEM_UFT_Selenium_Auto
         [TestInitialize]
         public void TestInitialize()
         {
+            Base_logger.GenerateLogFile("TestMethod1");
         }
 
         [TestMethod]
@@ -46,22 +47,6 @@ namespace MES_APEM_UFT_Selenium_Auto
 
 
 
-            Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
-            Mobile_Fuction.gotoApemMobile(driver);
-            driver.Wait();
-            Mobile_Fuction.login();
-            driver.Wait();
-            Mobile.OrderProcess_Page.OrderSearch.SendKeys("AS1");
-            Thread.Sleep(1000);
-            Mobile.OrderProcess_Page.GotoTracking.Click();
-            Thread.Sleep(1000);
-            Mobile.OrderTracking_Page.ExecutionButton.Click();
-            Thread.Sleep(5000);
-            Mobile.OrderExecution_Page.WritedatainBR_button.Click();
-            Thread.Sleep(2000);
-            Mobile.OrderExecution_Page.ReadData_button.Click();
-            Thread.Sleep(2000);
-            Console.WriteLine(Mobile.OrderExecution_Page.Path_table._Selenium_WebElement.GetProperty("value"));
 
 
 

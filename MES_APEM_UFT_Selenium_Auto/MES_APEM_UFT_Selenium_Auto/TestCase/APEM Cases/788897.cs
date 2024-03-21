@@ -11,6 +11,7 @@ using MES_APEM_UFT_Selenium_Auto.Product.APEM.MOC_TemplatesModule;
 using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace MES_APEM_UFT_Selenium_Auto.TestCase
 {
@@ -33,7 +34,6 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             string OrderName = "Order788897";
 
             string Path = Base_Directory.ConfigDirx86 + "config.m2r_cfg";
-            string DebugPath = "";
             string key = "SQL_DM,";
             string search = "DEBUG_KEYS = ";
             //Add debug key
