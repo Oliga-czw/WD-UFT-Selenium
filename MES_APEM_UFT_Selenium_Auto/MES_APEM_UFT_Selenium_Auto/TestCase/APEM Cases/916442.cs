@@ -42,9 +42,11 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 //codify all
                 Base_Test.LaunchApp(Base_Directory.Codify_all);
                 //restart tomcat
+                Base_Test.KillProcess("tomcat10");
+                Thread.Sleep(30000);
                 Base_Function.ResartServices(ServiceName.Tomcat);
                 //wait for tomcat start completely.
-                Thread.Sleep(300000);
+                Thread.Sleep(60000);
                 LogStep(@"1. import BPL");
                 Application.LaunchMocAndLogin();
                 APEM.MocmainWindow.BPLDesign.ClickSignle();

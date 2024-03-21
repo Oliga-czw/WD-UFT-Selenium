@@ -52,6 +52,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 //codify all
                 Base_Test.LaunchApp(Base_Directory.Codify_all);
                 //restart tomcat
+                Base_Test.KillProcess("tomcat10");
+                Thread.Sleep(30000);
                 Base_Function.ResartServices(ServiceName.Tomcat);
 
                 LogStep(@"1. create mMDM");

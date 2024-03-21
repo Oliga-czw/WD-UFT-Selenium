@@ -4,6 +4,7 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Net;
 using System.ServiceProcess;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -120,6 +121,22 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         public static string RandomString(int index)
         {
             return Guid.NewGuid().ToString().Replace("-", "").Substring(0, index);
+        }
+
+        public static void AddHost()
+        {
+            string hostName = Dns.GetHostName();
+            // get IP list  
+            IPHostEntry ipHost = Dns.GetHostEntry(hostName);
+            string ip4 = "";
+            foreach (IPAddress ip in ipHost.AddressList)
+            {
+                if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                {
+                    ip4 = ip.ToString();
+                }
+            }
+            Base_Function.AddConfigKey(Base_Directory.Host, ip4 + " " + hostName + ".qae.aspentech.com");
         }
 
     }
