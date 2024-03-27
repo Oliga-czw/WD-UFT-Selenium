@@ -416,6 +416,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         //918007
         public UFT_Button WrinteBR_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Write BR']");
         public UFT_Editor Field1_Editor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Field 1:']");
+        //771207
+        public UFT_Label current_time => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'DL0']");
         //Soap
         public UFT_Button SOAP_CALL2_EX_Button => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Button0']");
         public UFT_Button SOAP_CALL2_Button => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Button3']");

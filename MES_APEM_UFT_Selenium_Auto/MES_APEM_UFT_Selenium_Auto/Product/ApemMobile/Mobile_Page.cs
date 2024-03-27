@@ -195,6 +195,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public Selenium_WebElement WritedatainBR_button  => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' Write data in BR ']/../..");
         public Selenium_WebElement ReadData_button => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' read data ']/../..");
         public Selenium_WebElement Path_table => new Selenium_WebElement(_Selenium_Driver, "//tbody[@role='rowgroup']/tr[2]//input");
+        //771207  
+        public Selenium_WebElement time_label => new Selenium_WebElement(_Selenium_Driver, "//div[@id='screen']/app-aebrs-label[2]/label");
     }
 
 
