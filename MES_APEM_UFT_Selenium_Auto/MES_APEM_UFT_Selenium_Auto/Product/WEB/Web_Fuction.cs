@@ -663,7 +663,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
                 content.AppendLine(textExtractor.ExtractText(extractOptions));
             }
             string reportText = content.ToString();
-            Console.WriteLine(content.ToString());
+            //Console.WriteLine(content.ToString());
             return reportText;
         }
         #endregion

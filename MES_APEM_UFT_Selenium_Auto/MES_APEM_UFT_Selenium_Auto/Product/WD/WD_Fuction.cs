@@ -79,7 +79,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
             {
                 WD.ConfirmationDialog.YesButton.Click();
             }
-
         }
 
         public static void FinishManualDiapense(string simulator,string tare,string net)
