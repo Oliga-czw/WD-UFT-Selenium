@@ -97,12 +97,16 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         #endregion
         #region UserExits
         public Selenium_WebElement ERPDownload => new Selenium_WebElement(_Selenium_Driver, "//div[text()='ERP Download']");
-
+        public Selenium_WebElement UID => new Selenium_WebElement(_Selenium_Driver, "//div[text()='UID Generation']");
+        public Selenium_WebElement KittingScan => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Kitting Scan']");
 
 
         public Selenium_WebElement ERPInventoryDownload => new Selenium_WebElement(_Selenium_Driver, "//div[text()='ERP Inventory Download']");
         public Selenium_WebElement ERPOrderDownload => new Selenium_WebElement(_Selenium_Driver, "//div[text()='ERP Order Download']");
         public Selenium_WebElement ERPMaterialDownload => new Selenium_WebElement(_Selenium_Driver, "//div[text()='ERP Material Download']");
+
+        public Selenium_WebElement Pallets => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Pallets']");
+
         #endregion
         #region Integration
         public Selenium_WebElement Automatically_checkbox => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Automatically activate Released orders']/../../td[1]/span/input");
@@ -186,6 +190,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         public Selenium_WebElement PrintReport => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Print Report']");
         public Selenium_WebElement PreviewOrderReport => new Selenium_WebElement(_Selenium_Driver, "//div[@class='gwt-DialogBox Dialog_Background']");
         //ReprintLable
+        public Selenium_WebElement Labeltable => new Selenium_WebElement(_Selenium_Driver, "//tr[@class='dialogMiddle']//table[@class='Order_Table_body_Style_Collapse']");
+        public Selenium_WebElements Labeltablerows => new Selenium_WebElements(_Selenium_Driver, "//tr[@class='dialogMiddle']//table[@class='Order_Table_body_Style_Collapse']/tbody/tr");
+        
         public Selenium_WebElement ReprintContainerLabel => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Reprint Container Label']");
         public Selenium_WebElement ReprintLableClose => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Close']");
         public Selenium_WebElement printreportDialogCloseButton => new Selenium_WebElement(_Selenium_Driver, "//div[@class='gwt-DialogBox Dialog_Background']//img[@class='gwt-Image']");
