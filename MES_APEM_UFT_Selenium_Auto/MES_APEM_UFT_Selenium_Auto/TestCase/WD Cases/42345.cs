@@ -20,7 +20,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
         [Timeout(600000)]
-        //defect 1324998
+        //defect 1324998,973312
         //[TestMethod]
         public void VSTS_42345()
         {

@@ -244,6 +244,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         public UFT_Table KitTable => new UFT_Table(_UFT_InterFrame, "//Table[@TagName = 'Kit Assembly']");
         public UFT_Label selectedOrder => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'dispLblOrder']");
         public UFT_Editor barcodeEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@ObjectName = 'txtBarCode']");
+        public UFT_Label Pallet => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'dispLblCurrPalet']");
         public UFT_Button accept => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'btnAccept']");
     }
     public class CampaignSelection_InterFrame : ClassMainInterFrame

@@ -271,9 +271,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         {
         }
 
-        public Selenium_WebElement DarkMode => new Selenium_WebElement(_Selenium_Driver, "//div[@class='show-navigation'][4]/div/div[2]/mat-slide-toggle");
+        public Selenium_WebElement DarkMode => new Selenium_WebElement(_Selenium_Driver, "//div[@class='show-navigation'][3]/div/div[2]/mat-slide-toggle");
 
-        public Selenium_WebElement Consolidated => new Selenium_WebElement(_Selenium_Driver, "//div[@class='show-navigation'][5]/div/div[2]/mat-slide-toggle");
+        public Selenium_WebElement Consolidated => new Selenium_WebElement(_Selenium_Driver, "//div[@class='show-navigation'][4]/div/div[2]/mat-slide-toggle");
 
         /// <summary>  
         /// turn on mode. 1 = "dark",2 = "consolidated"
