@@ -149,6 +149,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         public static string MaterialDownloadDir => "C:\\ProgramData\\AspenTech\\AeBRS\\WDDownload\\Pending\\Material";
         public static string OrdersDownloadDir => "C:\\ProgramData\\AspenTech\\AeBRS\\WDDownload\\Pending\\Orders";
         public static string WDUploadDir => @"C:\ProgramData\AspenTech\AeBRS\WDUpload";
+        public static string DataAeBRS => @"C:\ProgramData\AspenTech\AeBRS";
 
         //Debug file
         public static string MOCDebugDir => "C:\\ProgramData\\AspenTech\\AeBRS\\MOC\\debug";
