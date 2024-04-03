@@ -26,7 +26,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [TestMethod]
         public void VSTS_748191()
         {
-            string Resultpath = Base_Directory.ResultsDir + CaseID;
+            string Resultpath = Base_Directory.ResultsDir + CaseID + "-";
             string order = "test1";
             string material = WDMaterial.X0125;
             string method = WDMethod.Doublecheck;
