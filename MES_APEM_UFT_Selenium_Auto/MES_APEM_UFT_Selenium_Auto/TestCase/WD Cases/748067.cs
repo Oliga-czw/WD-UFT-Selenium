@@ -159,7 +159,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 APRM.BatchMainWindow.TreeView.Select("Batch;WEIGH_AND_DISPENSE [1];BOM [1];Material [1];Action [1]");
                 //wait for loading
                 Thread.Sleep(5000);
-                APRM.BatchMainWindow.GetSnapshot(Resultpath + "APRM Batch detail(Reset).PNG");
+                APRM.BatchMainWindow.GetSnapshot(Resultpath + "APRM Batch detail(Cancel).PNG");
                 APRM.BatchMainWindow.ListView._STD_ListView.ActivateItem("End Source Gross");
                 Base_Assert.AreEqual(endsource, APRM.BatchMainWindow.BatchCharacteristicDialog.Value.Text, "End Source Gross");
                 APRM.BatchMainWindow.BatchCharacteristicDialog.Cancel.Click();
