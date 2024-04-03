@@ -265,6 +265,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         public Iventory_Page(IWebDriver driver) : base(driver)
         {
         }
+        public ReadOnlyCollection<IWebElement> Heads => _Selenium_Driver.FindElements(By.XPath("//th[@colspan='1']/p"));
+        public ReadOnlyCollection<IWebElement> Rows => _Selenium_Driver.FindElements(By.XPath("//tr[@class='GBG2FFLDPC']"));
 
     }
     public class Signature_Page : Web_Page

@@ -286,6 +286,8 @@
     <Compile Include="TestCase\WD Cases\45783.cs" />
     <Compile Include="TestCase\WD Cases\728667.cs" />
     <Compile Include="TestCase\WD Cases\736598.cs" />
+    <Compile Include="TestCase\WD Cases\748191.cs" />
+    <Compile Include="TestCase\WD Cases\748189.cs" />
     <Compile Include="TestCase\WD Cases\746824.cs" />
     <Compile Include="TestCase\WD Cases\746820.cs" />
     <Compile Include="TestCase\WD Cases\746113.cs" />
