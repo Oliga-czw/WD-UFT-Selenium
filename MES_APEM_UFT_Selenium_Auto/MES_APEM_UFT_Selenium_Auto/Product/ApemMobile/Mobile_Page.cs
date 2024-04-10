@@ -68,6 +68,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public Main_Page(IWebDriver driver) : base(driver)
         {
         }
+        public Selenium_WebElement account => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='account']");
+        public Selenium_WebElement logout => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='logout']");
+        public Selenium_WebElement help => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='help']");
+
         #region Tabs
         public Selenium_WebElement ProcessOrder => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='process_order']");
         public Selenium_WebElement Tracking => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='tracking']");

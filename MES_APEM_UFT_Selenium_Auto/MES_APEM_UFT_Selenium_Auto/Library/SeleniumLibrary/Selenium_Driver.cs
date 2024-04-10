@@ -123,6 +123,15 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
         {
             return _Selenium_Driver.Url;
         }
+        public ICookieJar Cookies
+        {
+            get { return _Selenium_Driver.Manage().Cookies; }
+        }
+        public ReadOnlyCollection<Cookie> AllCookies
+        {
+            get{ return _Selenium_Driver.Manage().Cookies.AllCookies; }
+        }
+
         public void Wait(double time = 1000)
         {
             _Selenium_Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(time)
