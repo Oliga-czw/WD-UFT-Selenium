@@ -113,12 +113,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Mobile.SessionManager_Page.Dialog_Yes.Click();
                 Thread.Sleep(3000);
                 Mobile.Main_Page.Setting.Click();
-                Mobile.Main_Page.ManageModule.Click();
-                Thread.Sleep(2000);
-                Mobile.SessionManager_Page.CloseSession.Click();
-                Thread.Sleep(3000);
-                Mobile.SessionManager_Page.Dialog_Yes.Click();
-                Thread.Sleep(3000);
+                //cancel chrome and logout
+                Mobile_Fuction.CancelAllExecutingPhase();
                 edge.SwitchToEdge();
                 edge.Close();
 

@@ -27,7 +27,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
         [Timeout(1200000)]
-        //defect 1338983
+
         [TestMethod]
         public void VSTS_976946()
         {
@@ -98,7 +98,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             try
             {
                 SessionManagerData(driver, Resultpath);
-            LogStep(@"6. Change to dark mode");
+                LogStep(@"6. Change to dark mode");
                 Mobile.Main_Page.Setting.Click();
                 Mobile.Setting_Page.turnOn_mode(1);
                 LogStep(@"7. Check Session manager in dark mode");
@@ -118,18 +118,15 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 //cancel order
                 Mobile.Main_Page.ManageModule.Click();
                 Thread.Sleep(3000);
+                //cancel edge
                 Mobile.SessionManager_Page.CloseSession.Click();
                 Thread.Sleep(3000);
                 Mobile.SessionManager_Page.Dialog_Yes.Click();
                 Thread.Sleep(3000);
+                //cancel chrome and logout
+                Mobile_Fuction.CancelAllExecutingPhase();
                 edge.SwitchToEdge();
                 edge.Maxsize();
-                Mobile.Main_Page.ManageModule.Click();
-                Thread.Sleep(3000);
-                Mobile.SessionManager_Page.CloseSession.Click();
-                Thread.Sleep(3000);
-                Mobile.SessionManager_Page.Dialog_Yes.Click();
-                Thread.Sleep(3000);
                 edge.Close();
                 
             }
@@ -153,7 +150,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             int Mcount = Mobile.SessionManager_Page.TableRows.Count;
             //check data if same
             Console.WriteLine(Mcount);
-            Base_Assert.IsTrue(Ocount==Mcount, "All data displays.");//defect 1338983,now need close all session manually
+            Base_Assert.IsTrue(Ocount==Mcount, "All data displays.");
             //check User ascending ordered
             List<string> col = new List<string> { "User" };
             List<string> UserNameList = new List<string> { };

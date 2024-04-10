@@ -70,10 +70,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             SLM.SLMConfigWindow.ServerEdit.SendKeys(LicenseServer);
             SLM.SLMConfigWindow.AddServer.Click();
             //wait for adding
-            Thread.Sleep(10000);
+            Thread.Sleep(30000);
             SLM.SLMConfigWindow.Apply.Click();
             //wait for applying
-            Thread.Sleep(10000);
+            Thread.Sleep(30000);
             SLM.SLMConfigWindow.Close();
             Thread.Sleep(2000);
             SLM.SLMmainWindow.Close();
