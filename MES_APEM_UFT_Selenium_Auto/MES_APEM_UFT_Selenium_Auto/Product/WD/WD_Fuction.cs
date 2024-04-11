@@ -27,7 +27,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
             }
 
         }
-        public static void OrderKitting()
+        public static void OrderKitting(string order = "test1")
         {
             Thread.Sleep(2000);
             WD.mainWindow.HomeInternalFrame.OrderKitting.Click();
@@ -36,7 +36,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
             Thread.Sleep(4000);
             int count = WD.mainWindow.SelectAnOrderToKittingFrame.KitTable.Rowscount();
             Console.WriteLine(count);
-            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys("test1");
+            WD.mainWindow.SelectAnOrderToKittingFrame.barcodeEditor.SendKeys(order);
             for (int i = 0; i < count; i++)
             {
                 string test01 = WD.mainWindow.SelectAnOrderToKittingFrame.KitTable.GetCell(i, "Container").Value.ToString();
@@ -119,6 +119,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
             WD.SimulatorWindow.OK.Click();
             Thread.Sleep(1000);
             WD.mainWindow.ScaleWeightInternalFrame.accept.Click();
+            if (WD.ConfirmationDialog.IsExist())
+            {
+                WD.ConfirmationDialog.YesButton.Click();
+            }
             if (WD.ErrorDialog.IsExist())
             {
                 WD.ErrorDialog.OKButton.Click();
@@ -127,6 +131,30 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
             //check Finish Dispense
             Base_Assert.IsTrue(WD.mainWindow.Material_SelectionInternalFrame.IsExist() || WD.mainWindow.MaterialInternalFrame.IsExist() || WD.mainWindow.DispensingInternalFrame.IsExist(), "Finish Dispense");
         }
+
+        public static void FinishOrder(string order)
+        {
+            //X0125
+            WD_Fuction.SelectOrderandMaterial(order, WDMaterial.X0125);
+            WD_Fuction.SelectMehod(WDMethod.Net, "X0125001");
+            WD_Fuction.FinishNetDiapense("15", "459");
+            WD.mainWindow.MaterialInternalFrame.cancel.Click();
+            WD.mainWindow.DispensingInternalFrame.HomeButton.Click();
+            //M801890
+            WD_Fuction.SelectOrderandMaterial(order, WDMaterial.M801890);
+            WD_Fuction.SelectMehod(WDMethod.Net, "M801890001");
+            WD_Fuction.FinishNetDiapense("15", "215");
+            WD.mainWindow.MaterialInternalFrame.cancel.Click();
+            WD.mainWindow.DispensingInternalFrame.HomeButton.Click();
+            //1072
+            WD_Fuction.SelectOrderandMaterial(order, WDMaterial.x1072);
+            WD_Fuction.SelectMehod(WDMethod.Net, "1072003");
+            WD_Fuction.FinishNetDiapense("15", "215");
+
+            //WD.mainWindow.MaterialInternalFrame.cancel.Click();
+            WD.mainWindow.DispensingInternalFrame.HomeButton.Click();
+        }
+
 
         public static void CleanInventoryData()
         {

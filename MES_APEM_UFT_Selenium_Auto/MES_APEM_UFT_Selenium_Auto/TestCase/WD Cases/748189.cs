@@ -2,19 +2,20 @@
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
-using System.IO;
+
 using System.Threading;
 using MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary;
 using MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary;
 using MES_APEM_UFT_Selenium_Auto.Product.WD;
+using System.IO;
 using MES_APEM_UFT_Selenium_Auto.Product.APRM;
 
 namespace MES_APEM_UFT_Selenium_Auto.TestCase
 {
     public partial class WD_TestCase
     {
-        [TestCaseID(748053)]
-        [Title("UC693790_W&D_Enhance Net Removal: record gross weight when reset the weighing")]
+        [TestCaseID(748189)]
+        [Title("UC693793_Check \"Begin source gross\" and \"End source gross\" records generated for double check integrated into ARPM when reset the weight")]
         [TestCategory(ProductArea.WD)]
         [Priority(CasePriority.Medium)]
         [TestCategory(CaseState.Accepted)]
@@ -23,23 +24,22 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Timeout(1000000)]
 
         [TestMethod]
-        public void VSTS_748053()
+        public void VSTS_748189()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID + "-";
             string order = "test1";
             string material = WDMaterial.X0125;
-            string method = WDMethod.Netremoval;
-            string barcode = "X0125001";
-            string source_left = "556";
-            string tare = "15";
-            string source_start = "1000";
+            string method = WDMethod.Doublecheck;
             string scale = "simulator";
+            string barcode = "X0125001";
+            string tare = "15";
             string beginsource = "1000";
+            string net = "459";
             string endsource = "1000";
 
             //APRM 
             APRM_Fuction.InitailAPRMWD();
-            LogStep(@"1. Open WD web");
+            LogStep(@"1. Open WD web and login");
             Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
             Web_Fuction.gotoWDWeb(driver);
             driver.Wait();
@@ -48,7 +48,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             LogStep(@"2. Active order");
             Web_Fuction.gotoTab(WDWebTab.order);
             Web_Fuction.active_order(order);
-            LogStep(@"3. Open WD client and reset net removal");
+            LogStep(@"3. Open WD client and select order");
             Application.LaunchWDAndLogin();
             WD_Fuction.SelectOrderandMaterial(order, material);
             WD_Fuction.SelectMehod(method, barcode);
@@ -58,26 +58,26 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 WD.MessageDialog.OKButton.Click();
             }
             WD.mainWindow.ScaleWeightInternalFrame.scale.SelectItems(scale);
-            //zeor
+            LogStep(@"4. Reset the dispense");
+            //begin
             WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
-            //tare
-            WD.mainWindow.ScaleWeightInternalFrame.tare_editor.SetText(tare, true);
-            //start weight
-            WD.SimulatorWindow.weight.SetText(source_start);
+            WD.SimulatorWindow.weight.SetText(beginsource);
             WD.SimulatorWindow.OK.Click();
             WD.mainWindow.ScaleWeightInternalFrame.tare.Click();
-            //input remove weight
-            WD.SimulatorWindow.weight.SetText(source_left);
+            //tare
+            WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
+            WD.SimulatorWindow.weight.SetText(tare);
             WD.SimulatorWindow.OK.Click();
-            //check reset 
-            WD.mainWindow.GetSnapshot(Resultpath + "Net removal Reset.PNG");
+            WD.mainWindow.ScaleWeightInternalFrame.tare.Click();
+            //weight and reset
+            WD.SimulatorWindow.weight.SetText(net);
+            WD.SimulatorWindow.OK.Click();
+            WD.mainWindow.GetSnapshot(Resultpath + "Double check Reset.PNG");
             WD.mainWindow.ScaleWeightInternalFrame.reset.Click();
-            //exit wd client
-            WD.mainWindow.ScaleWeightInternalFrame.cancel.ClickSignle();
-            Base_Assert.IsTrue(WD.mainWindow.Material_SelectionInternalFrame.IsExist() || WD.mainWindow.MaterialInternalFrame.IsExist(), "Exit Dispense");
+            WD.mainWindow.ScaleWeightInternalFrame.cancel.Click();
             WD_Fuction.Close();
 
-            LogStep(@"4. Check begin/end source in WEB");
+            LogStep(@"4. Check gross weight");
             //Check weight report
             Web_Fuction.gotoTab(WDWebTab.report);
             Web.Report_Page.Weighing.Click();
@@ -125,18 +125,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Iventory.PNG");
             string Nominal = Web_Fuction.get_inventory_data(barcode, "Nominal");
             string Actual = Web_Fuction.get_inventory_data(barcode, "Actual");
-            Base_Assert.AreEqual(Nominal, Actual, "inventory is same.");
-            driver.Close();
-            LogStep(@"5. Check begin/end source in DB");
-            //check table EBR_WD_WEIGH_HISTORY
-            SqlHelper helper = new SqlHelper();
-            string SQL = $"SELECT BEGIN_SOURCE_GROSS,END_SOURCE_GROSS FROM EBR_WD_WEIGH_HISTORY";
-            List<List<string>> Source = helper.Execute(SQL);
-            var Begin_Source = Source[0][0];
-            var End_Source = Source[0][1];
-            Base_Assert.AreEqual(Begin_Source, "1000.0");
-            Base_Assert.AreEqual(End_Source, "1000.0");
-            LogStep(@"6. Check begin/end sourcein batch");
+            Base_Assert.AreEqual(Nominal,Actual,"inventory is same.");
             //check APRM batch
             Application.LaunchBatchDetailDisplay();
             Batch_Fuction.findBatch(order);
@@ -158,6 +147,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Base_Assert.AreEqual(beginsource, APRM.BatchMainWindow.BatchCharacteristicDialog.Value.Text, "Begin Source Gross");
             APRM.BatchMainWindow.BatchCharacteristicDialog.Cancel.Click();
             APRM.BatchMainWindow.Close();
+
         }
+
+
+     
     }
 }

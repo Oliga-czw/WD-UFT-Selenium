@@ -234,6 +234,23 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
             }
             return c;
         }
+        public static string get_table_data(Selenium_WebElement table, ReadOnlyCollection<IWebElement> heads,string headname,string text)
+        {
+            var table_data = get_table(table);
+            int row = get_select_rowIndex(table_data, text);
+            string data = "";
+            for (int i = 0; i < heads.Count; i++)
+            {
+                if (heads[i].Text == headname)
+                {
+                    data = table_data[row][i].Text;
+                    break;
+                }
+            }
+            return data;
+        }
+
+
         #endregion
         #region scale function
         public static void select_scale(string simulator)
@@ -549,7 +566,22 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
             return (begin_source, end_source);
         }
         #endregion
-
+        #region inventory function
+        public static string get_inventory_data(string barcode, string headname)
+        {
+            var heads = Web.Iventory_Page.Heads;
+            string data = "";
+            for (int i = 0; i < heads.Count; i++)
+            {
+                if (heads[i].Text == headname)
+                {
+                    data = Web.Iventory_Page.body._Selenium_WebElement.FindElement(By.XPath($"//div[text()='{barcode}']/../../../td[{i + 1}]/div/div")).Text;
+                    break;
+                }
+            }
+            return data;
+        }
+        #endregion
         #region order function
         public static void active_order(string ordername)
         {

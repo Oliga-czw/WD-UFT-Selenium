@@ -28,7 +28,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Owner(AutomationEngineer.Ziwei)]
         [Timeout(600000)]
 
-        //defect 1338983
+
         [TestMethod]
         public void VSTS_976953()
         {
@@ -72,7 +72,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             try
             {
                 SessionManagerSearch(driver, Resultpath);
-            LogStep(@"5. Change to dark mode");
+                LogStep(@"5. Change to dark mode");
                 Mobile.Main_Page.Setting.Click();
                 Mobile.Setting_Page.turnOn_mode(1);
                 LogStep(@"6. Check Session manager in dark mode");
@@ -84,12 +84,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Mobile.Main_Page.Setting.Click();
                 Mobile.Setting_Page.turnOff_mode(1);
                 Mobile.Setting_Page.turnOff_mode(2);
-                //cancel order
-                Mobile.Main_Page.ManageModule.Click();
-                Thread.Sleep(3000);
-                Mobile.SessionManager_Page.CloseSession.Click();
-                Thread.Sleep(3000);
-                Mobile.SessionManager_Page.Dialog_Yes.Click();
+                //cancel order and logout
+                Mobile_Fuction.CancelAllExecutingPhase();
                 Thread.Sleep(3000);
                 driver.Close();    
                 
@@ -111,7 +107,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             int Mcount = Mobile.SessionManager_Page.TableRows.Count;
             //check data count
             Console.WriteLine(Mcount);
-            Base_Assert.IsTrue(Ocount==Mcount, "All data displays.");//defect 1338983,now need close all session manually
+            Base_Assert.IsTrue(Ocount==Mcount, "All data displays.");
             //check result
             int l = 0;
             foreach (var head in Mobile.SessionManager_Page.TableHeads)

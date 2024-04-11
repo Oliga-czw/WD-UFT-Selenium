@@ -425,7 +425,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             Keyboard.KeyUp(Keyboard.Keys.Alt);
             Thread.Sleep(1000);
             Keyboard.PressKey(Keyboard.Keys.P);
-            Keyboard.PressKey(Keyboard.Keys.Enter);
+            if (!APEM.APEMAdminWindow.ExtractorProperty.IsExist())
+            {
+                Keyboard.PressKey(Keyboard.Keys.Enter);
+            }
+           
             //set property
             APEM.APEMAdminWindow.ExtractorProperty.SetupButton.Click();
             //set db

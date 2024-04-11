@@ -28,7 +28,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Owner(AutomationEngineer.Ziwei)]
         [Timeout(600000)]
 
-        //defect 1338983
+
         [TestMethod]
         public void VSTS_976973()
         {
@@ -92,7 +92,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             try
             {
                 SessionManagerSort(driver, Resultpath);
-            LogStep(@"5. Change to dark mode");
+                LogStep(@"5. Change to dark mode");
                 Mobile.Main_Page.Setting.Click();
                 Mobile.Setting_Page.turnOn_mode(1);
                 LogStep(@"6. Check Session manager in dark mode");
@@ -107,18 +107,15 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 //cancel order
                 Mobile.Main_Page.ManageModule.Click();
                 Thread.Sleep(3000);
+                //cancel edge
                 Mobile.SessionManager_Page.CloseSession.Click();
                 Thread.Sleep(3000);
                 Mobile.SessionManager_Page.Dialog_Yes.Click();
                 Thread.Sleep(3000);
+                //cancel chrome and logout
+                Mobile_Fuction.CancelAllExecutingPhase();
                 edge.SwitchToEdge();
                 edge.Maxsize();
-                Mobile.Main_Page.ManageModule.Click();
-                Thread.Sleep(3000);
-                Mobile.SessionManager_Page.CloseSession.Click();
-                Thread.Sleep(3000);
-                Mobile.SessionManager_Page.Dialog_Yes.Click();
-                Thread.Sleep(3000);
                 edge.Close();
 
             }

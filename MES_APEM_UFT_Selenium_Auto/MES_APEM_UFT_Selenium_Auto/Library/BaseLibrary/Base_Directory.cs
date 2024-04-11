@@ -31,7 +31,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 
         public static string AprmAdminDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Aspen Production Record Manager Administrator (batch).lnk";
         public static string APEMAdminDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Aspen Manufacturing Execution\Aspen Production Execution Manager Administrator.lnk";
-
+        
         public static string mMDMAdminDir = @"C:\Program Files\AspenTech\mMDM\Bin\AtOdmAdministrator.exe";
         public static string mMDMBulkLoadDir = @"C:\Program Files\AspenTech\mMDM\Bin\AtOdmBulkLoad.exe";
         public static string mMDMEditorDir = @"C:\Program Files\AspenTech\mMDM\Bin\AtOdmEditor.exe";
@@ -149,6 +149,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         public static string MaterialDownloadDir => "C:\\ProgramData\\AspenTech\\AeBRS\\WDDownload\\Pending\\Material";
         public static string OrdersDownloadDir => "C:\\ProgramData\\AspenTech\\AeBRS\\WDDownload\\Pending\\Orders";
         public static string WDUploadDir => @"C:\ProgramData\AspenTech\AeBRS\WDUpload";
+        public static string DataAeBRS => @"C:\ProgramData\AspenTech\AeBRS";
 
         //Debug file
         public static string MOCDebugDir => "C:\\ProgramData\\AspenTech\\AeBRS\\MOC\\debug";
@@ -181,7 +182,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 
         //Tomcat
         public static string TomactPath = "C:\\Program Files\\Common Files\\AspenTech Shared\\Tomcat10.1.16";
-        public static string MobileWebconfig = "C:\\Program Files\\Common Files\\AspenTech Shared\\Tomcat10.1.16\\webapps\\ApemMobile\\WEB-INF\\web.xml";
+        public static string MobileWebconfig = "C:\\Program Files\\Common Files\\AspenTech Shared\\Tomcat10.1.16\\Webapps\\ApemMobile\\WEB-INF\\web.xml";
         public static string WDReport = @"C:\Program Files\Common Files\AspenTech Shared\Tomcat10.1.16\WebApps\WeighDispense\Reports\PDFs\";
 
         //host
