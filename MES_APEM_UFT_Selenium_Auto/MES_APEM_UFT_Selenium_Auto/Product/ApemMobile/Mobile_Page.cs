@@ -96,6 +96,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public Selenium_WebElement ExecutionButton => new Selenium_WebElement(_Selenium_Driver, "//table/tbody/tr/td//a");
         public ReadOnlyCollection<IWebElement> OrderPhaseTableRows => _Selenium_Driver.FindElements(By.XPath("//table/tbody/tr"));
         public ReadOnlyCollection<IWebElement> OrderPhaseTableHeads => _Selenium_Driver.FindElements(By.XPath("//table/thead/tr/th/div/div[1]/div"));
+        public Selenium_WebElement OrderHeader => new Selenium_WebElement(_Selenium_Driver, "//div[@id='headerOrder / Batch Code']/../../.."); 
     }
     public class BPList_Page : Mobile_Page
 
@@ -124,7 +125,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public ReadOnlyCollection<IWebElement> OrderPhaseNames => _Selenium_Driver.FindElements(By.XPath("//div[@class='phase-name-text']"));
 
         public Selenium_WebElement ReadyPhase => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@svgicon='phase_state_enabled']");
-        
+        public Selenium_WebElement PhaseHeader => new Selenium_WebElement(_Selenium_Driver, "//div[@id='headerPhase']/../../..");
+        public Selenium_WebElement PFCButton => new Selenium_WebElement(_Selenium_Driver, "//mat-button-toggle[@value = 'pfc']");
+        public Selenium_WebElement PhaseListButton => new Selenium_WebElement(_Selenium_Driver, "//mat-button-toggle[@value = 'list']");
+
     }
     //Consolidated_Page
     public class Consolidated_Page : Mobile_Page
@@ -142,8 +146,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public Selenium_WebElement OrderPhaseTable => new Selenium_WebElement(_Selenium_Driver, "//table/tbody");
         public ReadOnlyCollection<IWebElement> OrderPhaseTableHeads => _Selenium_Driver.FindElements(By.XPath("//table/thead/tr/th/div/div[1]/div"));
         public Selenium_WebElement SelectMenu => new Selenium_WebElement(_Selenium_Driver, "//button[@id='selectmenu']");
-        public Selenium_WebElement ExecutionButton => new Selenium_WebElement(_Selenium_Driver, "//table/tbody/tr/td//a");
-        //public ReadOnlyCollection<IWebElement> OrderPhaseNames => _Selenium_Driver.FindElements(By.CssSelector("div.collapse-text order-name*"));
+        public Selenium_WebElement ExecutionButton => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@svgicon ='phase_state_enabled']"); 
+        public Selenium_WebElement OrderHeader => new Selenium_WebElement(_Selenium_Driver, "//div[@id='headerOrder / Batch Code']/../../..");
     }
     public class PrintReport_Page : Mobile_Page
 
