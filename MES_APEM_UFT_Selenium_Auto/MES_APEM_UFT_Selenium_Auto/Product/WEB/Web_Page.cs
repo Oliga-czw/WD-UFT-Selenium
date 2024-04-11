@@ -130,7 +130,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         public Selenium_WebElement simultor_name => new Selenium_WebElement(_Selenium_Driver, "//input[@name='scaleTag']");
         public Selenium_WebElement simultor_status => new Selenium_WebElement(_Selenium_Driver, "//select[@name='statusValue']");
         public Selenium_WebElement simultor_description => new Selenium_WebElement(_Selenium_Driver, "//input[@name='description']");
-
+        public Selenium_WebElement simultor_Resolution => new Selenium_WebElement(_Selenium_Driver, "//input[@name='precision']");
+        
 
         #endregion
 

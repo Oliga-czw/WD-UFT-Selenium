@@ -50,7 +50,7 @@ namespace MES_APEM_UFT_Selenium_Auto
             //config apem DB
             Wizard_Fuction.CreateApemDB();
             //AeBRSInstaller
-            APEM.AeBRSInstaller();
+            APEM.AeBRSInstaller(true);
             //update afw
             AFW_Fuction.ReplaceAFWDB();
             //set config in flag
