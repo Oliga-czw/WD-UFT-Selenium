@@ -398,8 +398,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             driver5.FindElement("//button[text()='OK']").Click();
             //Finished the order
             Thread.Sleep(3000);
-            driver5.FindElement("//a[text()='Accept/Comment']").Click();
+            Web.Order_Page.Refresh.Click();
             Thread.Sleep(3000);
+            driver5.FindElement("//a[text()='Accept/Comment']").Click();
+            Thread.Sleep(8000);
             driver5.FindElement("//textarea[@class='gwt-TextArea Comment_TextArea']").SendKeys("test");
             driver5.FindElement("//label[text()='I accept all product deviations in this order.']/../input").Click();
             driver5.FindElement("//div[text()='Username:']/../../td[2]/input").SendKeys(UserName.qaone1);

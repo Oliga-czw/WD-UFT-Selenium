@@ -245,6 +245,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 WD.ErrorDialog.OKButton.Click();
             }
             Thread.Sleep(5000);
+            WD_Fuction.Close();
             Selenium_Driver driver2 = new Selenium_Driver(Browser.chrome);
             Web_Fuction.gotoWDWeb(driver2);
             driver.Wait();
@@ -268,7 +269,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             driver2.FindElement("//button[text()='OK']").Click();
             //Finished the order
             Thread.Sleep(3000);
+            Web.Order_Page.Refresh.Click();
+            Thread.Sleep(5000);
             driver2.FindElement("//a[text()='Accept/Comment']").Click();
+            Thread.Sleep(5000);
             driver2.FindElement("//textarea[@class='gwt-TextArea Comment_TextArea']").SendKeys("test");
             driver2.FindElement("//label[text()='I accept all product deviations in this order.']/../input").Click();
             driver2.FindElement("//div[text()='Username:']/../../td[2]/input").SendKeys(UserName.qaone1);

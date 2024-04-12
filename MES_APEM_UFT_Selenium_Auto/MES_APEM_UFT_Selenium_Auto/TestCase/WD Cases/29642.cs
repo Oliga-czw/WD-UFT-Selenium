@@ -81,8 +81,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
 
             Web_Fuction.RestorePermission(Selenium_Driver._Selenium_Driver);
             LogStep(@"3. user having no management and administration permission.");
-            //Production Execution User
-            driver.FindElement("//select/option[@value='Production Execution User']").Click();
+            //Production Execution Web User
+            driver.FindElement("//select/option[@value='Production Execution Web User']").Click();
             string[] permission_list3 = { "Materials", "Equipment", "Inventory", "Orders", "Reports", "Deviation Management", "Campaigns", "Administration" };
             foreach (var permission in permission_list3)
             {
@@ -126,9 +126,9 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Web_Fuction.gotoTab(WDWebTab.admin);
             driver.FindElement("//div[text()='Permissions']").Click();
             Thread.Sleep(5000);
-            driver.FindElement("//select/option[@value='Production Execution User']").Click();
+            driver.FindElement("//select/option[@value='Production Execution Web User']").Click();
             Web_Fuction.RestorePermission(Selenium_Driver._Selenium_Driver);
-            driver.FindElement("//select/option[@value='Production Execution User']").Click();
+            driver.FindElement("//select/option[@value='Production Execution Web User']").Click();
             var permissionList = driver.FindElements("//span[@class='gwt-CheckBox']/label");
             ArrayList permission_List4 = new ArrayList();
             permission_List4.Add("Add+modify");
