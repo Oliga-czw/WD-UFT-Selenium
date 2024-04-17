@@ -38,8 +38,11 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             string scale1 = "simulator";
             string scale2 = "simulator001";
             string tare = "10";
+
             string net1 = "454.4";
             string net2 = "98.88";
+            string weight1 = "444.4";
+            string weight2 = "88.88";
 
             Base_File.ClearFolder(Base_Directory.WDUploadDir);
             LogStep(@"1. Active Order");
@@ -63,6 +66,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             LogStep(@"3. Open Material Dispening");
             WD_Fuction.SelectOrderandMaterial(order, material1);
             WD_Fuction.SelectMehod(method, barcode1);
+            Thread.Sleep(5000);
             WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
             //tare
             WD.SimulatorWindow.weight.SetText(tare);
@@ -71,18 +75,18 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //weight
             WD.SimulatorWindow.weight.SetText(net1);
             WD.SimulatorWindow.OK.Click();
-
+            Thread.Sleep(2000);
+            WD.mainWindow.GetSnapshot(Resultpath + "X0125-Accept.PNG");
+            Base_Assert.AreEqual(WD.mainWindow.ScaleWeightInternalFrame.WeightNumber._UFT_Label.Text, weight1);
             WD.mainWindow.ScaleWeightInternalFrame.accept.Click();
             if (WD.ErrorDialog.IsExist())
             {
                 WD.ErrorDialog.OKButton.Click();
-            }
-            WD.mainWindow.GetSnapshot(Resultpath + "X0125-Accept.PNG");
-            Base_Assert.AreEqual(WD.mainWindow.ScaleWeightInternalFrame.WeightNumber._UFT_Label.Text, "444.4");
+            }        
             LogStep(@"4. select a material and click next");
-            WD.mainWindow.Material_SelectionInternalFrame.materialTable.Row(material2).Click();
-            WD.mainWindow.Material_SelectionInternalFrame.next.Click();
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
+            WD.mainWindow.MaterialInternalFrame.materialTable.Row(material2).Click();
+            WD.mainWindow.MaterialInternalFrame.next.Click();
             if (WD.mainWindow.BoothCleanInternalFrame.IsExist())
             {
                 WD.mainWindow.BoothCleanInternalFrame.cleanComplete.Click();
@@ -93,22 +97,28 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             }
             Thread.Sleep(3000);
             WD_Fuction.SelectMehod(method, barcode2);
+            Thread.Sleep(5000);
             WD.mainWindow.ScaleWeightInternalFrame.scale.SelectItems(scale2);
+            Thread.Sleep(1000);
             WD.mainWindow.ScaleWeightInternalFrame.zero.Click();
             //tare
-            WD.SimulatorWindow.weight.SetText(tare);
-            WD.SimulatorWindow.OK.Click();
+            WD.SimulatorWindow001.weight.SetText(tare);
+            WD.SimulatorWindow001.OK.Click();
+            Thread.Sleep(1000);
             WD.mainWindow.ScaleWeightInternalFrame.tare.Click();
+            Thread.Sleep(1000);
             //weight
-            WD.SimulatorWindow.weight.SetText(net2);
-            WD.SimulatorWindow.OK.Click();
+            WD.SimulatorWindow001.weight.SetText(net2);
+            WD.SimulatorWindow001.OK.Click();
+            Thread.Sleep(2000);
             WD.mainWindow.GetSnapshot(Resultpath + "M801890-Accept.PNG");
-            Base_Assert.AreEqual(WD.mainWindow.ScaleWeightInternalFrame.WeightNumber._UFT_Label.Text, "88.88");
+            Base_Assert.AreEqual(WD.mainWindow.ScaleWeightInternalFrame.WeightNumber._UFT_Label.Text, weight2);
             WD.mainWindow.ScaleWeightInternalFrame.accept.Click();
             if (WD.ErrorDialog.IsExist())
             {
                 WD.ErrorDialog.OKButton.Click();
             }
+            Thread.Sleep(5000);
             WD_Fuction.Close();
             LogStep(@"5. Check the label and order report");
             Web_Fuction.gotoTab(WDWebTab.order);
@@ -120,30 +130,32 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //reprint label
             Web.Order_Page.ReprintLable.Click();
             Thread.Sleep(2000);
-            Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Reprint label Pallets.PNG");
+            Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Reprint label.PNG");
             var row = Web.Order_Page.Labeltablerows;
-            for (int i = 1; i < row.Count(); i++)
-            {
-                Base_Assert.IsTrue(row.getElement(i).FindElements(By.TagName("td"))[1].Text != null, "pallet shows");
-            }
+            //X0125-Net
+            Base_Assert.IsTrue(row.getElement(1).FindElements(By.TagName("td"))[6].Text == weight1, "weight-net");
+            //M801890-Net
+            Base_Assert.IsTrue(row.getElement(2).FindElements(By.TagName("td"))[6].Text == weight2, "weight-net");
             Web.Order_Page.ReprintLableClose.Click();
             //order report
             Web.Order_Page.PrintReport.Click();
             Thread.Sleep(10000);
-            Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "order report Pallets.PNG");
+            Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "order report.PNG");
             var urlll = Selenium_Driver._Selenium_Driver.FindElement(By.XPath("//iframe[@class='gwt-Frame']")).GetAttribute("src");
             string[] parts = urlll.Split('/');
             string ReportFileName = parts[parts.Length - 1];
             string ReportText = Web_Fuction.OrderPrint(ReportFileName);
-            Base_Assert.IsTrue(ReportText.Contains(order + "0"), "order report pallets");
+            Base_Assert.IsTrue(ReportText.Contains(weight1), "order report weight-net");
+            Base_Assert.IsTrue(ReportText.Contains(weight2), "order report weight-net");
             driver.Close();
 
-            LogStep(@"6. check the Label for target container and consumption xml, adjustment xml");
-            string path = @"C:\ProgramData\AspenTech\AeBRS\WDUpload\";
-            string xmlData = Base_File.ReadXml(path,0);
-            Console.WriteLine(xmlData);
-            Base_Assert.IsTrue(xmlData.Contains("<MaterialUse>Consumed</MaterialUse><Quantity><QuantityString>200.0</QuantityString>"));
-
+            LogStep(@"6. check the Label for target container and consumption xml, adjustment xml");;
+            string xmlData1 = Base_File.ReadXml(Base_Directory.WDUploadDir, 2);
+            //Console.WriteLine(xmlData1);
+            Base_Assert.IsTrue(xmlData1.Contains($"<QuantityString>{weight1}</QuantityString>"));
+            string xmlData2 = Base_File.ReadXml(Base_Directory.WDUploadDir, 3);
+            //Console.WriteLine(xmlData2);
+            Base_Assert.IsTrue(xmlData2.Contains($"<QuantityString>{weight2}</QuantityString>"));
         }
 
 
