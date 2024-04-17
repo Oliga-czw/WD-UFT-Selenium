@@ -345,7 +345,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public Selenium_WebElement RefreshButton => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@svgicon='refresh']");
         public Selenium_WebElement CancePhase => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='CancePhase_manageModule']");
         public ReadOnlyCollection<IWebElement> CancePhases => _Selenium_Driver.FindElements(By.XPath("//mat-icon[@data-mat-icon-name='CancePhase_manageModule']"));
-        public Selenium_WebElement CloseSession => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='CloseSession_manageModule']");
+        public Selenium_WebElement CloseSession => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@id='closeBtn']");
 
         public ReadOnlyCollection<IWebElement> TableRows => _Selenium_Driver.FindElements(By.XPath("//table/tbody/tr"));
         public ReadOnlyCollection<IWebElement> TableHeads => _Selenium_Driver.FindElements(By.XPath("//table/thead/tr/th"));

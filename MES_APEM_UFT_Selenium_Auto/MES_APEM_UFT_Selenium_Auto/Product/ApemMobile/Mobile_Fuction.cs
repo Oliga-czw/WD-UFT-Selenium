@@ -277,6 +277,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
                 Thread.Sleep(2000);
             }
             Mobile.Main_Page.account.Click();
+            Thread.Sleep(2000);
             Mobile.Main_Page.logout.Click();
             Thread.Sleep(5000);
 
