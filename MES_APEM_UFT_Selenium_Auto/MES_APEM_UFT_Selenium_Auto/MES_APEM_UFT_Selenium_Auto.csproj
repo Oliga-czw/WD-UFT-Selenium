@@ -157,6 +157,7 @@
     <Compile Include="TestCase\Mobile Cases\919004.cs" />
     <Compile Include="TestCase\Mobile Cases\920999.cs" />
     <Compile Include="TestCase\Mobile Cases\1342249.cs" />
+    <Compile Include="TestCase\Mobile Cases\923880.cs" />
     <Compile Include="TestCase\Mobile Cases\977002.cs" />
     <Compile Include="TestCase\Mobile Cases\1338944.cs" />
     <Compile Include="TestCase\Mobile Cases\825032.cs" />
