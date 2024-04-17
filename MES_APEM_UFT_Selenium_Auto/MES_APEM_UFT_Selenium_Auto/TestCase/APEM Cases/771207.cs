@@ -17,7 +17,7 @@ using System.Linq;
 
 namespace MES_APEM_UFT_Selenium_Auto.TestCase
 {
-    public partial class Mobile_TestCase
+    public partial class APEM_TestCase
     {
         [TestCaseID(771207)]
         [Title("Inspired by custom_'Refresh_Screen()' can refresh the time(now()) on APEM web.")]
@@ -43,10 +43,14 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Base_Function.EditConfigKey(Configpath, ConfigKey);
                 //codify all
                 Base_Test.LaunchApp(Base_Directory.Codify_all);
-                
                 Application.LaunchMocAndLogin();
-                MOC_Fuction.PlanFromRPL(RPLname, Ordername);
+                if (!APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row(RPLname).Existing)
+                {
+                    MOC_TemplatesFunction.Importtemplates("TEST_THREAD_REFRESHABLE - LABEL_WEB_CLIENT.zip");
+
+                }
                 
+                MOC_Fuction.PlanFromRPL(RPLname, Ordername); 
                 LogStep(@"Execute in moc");
                 APEM.MocmainWindow.WorkstationBP.ClickSignle();
                 MOC_Fuction.CheckRowSelection();

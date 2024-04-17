@@ -137,7 +137,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             finally
             {
                 LogStep(@"6.Restone config key ");
-                Base_Function.DeleteConfigKey(Configpath, ConfigKey2);
+                Base_Function.EditConfigKey(Configpath, ConfigKey2);
                 //codify all
                 Base_Test.LaunchApp(Base_Directory.Codify_all);
             }
