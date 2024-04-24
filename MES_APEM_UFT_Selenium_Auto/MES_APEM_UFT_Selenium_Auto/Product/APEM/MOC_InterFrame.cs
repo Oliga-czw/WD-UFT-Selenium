@@ -423,6 +423,14 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button SOAP_CALL2_Button => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Button3']");
         public UFT_Editor CheckField => new UFT_Editor(_UFT_InterFrame, "//Editor[@TagName = 'chkField']");
         public UFT_Button BPC_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'BPC']");//TC916388
+        //1002790
+        public UFT_Label check_value => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'DisplayLabel0']");
+        public UFT_CheckBox check_box1 => new UFT_CheckBox(_UFT_InterFrame, "//CheckBox[@ObjectName = 'Check1']");
+        public UFT_CheckBox check_box2 => new UFT_CheckBox(_UFT_InterFrame, "//CheckBox[@ObjectName = 'Check2']");
+        public UFT_Button habilitar_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'habilitar']");
+        public UFT_Button deshabilitar_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'deshabilitar']");
+
+
 
         public UFT_Button OK_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'OK']");
         public UFT_Button Cancel_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Cancel']");

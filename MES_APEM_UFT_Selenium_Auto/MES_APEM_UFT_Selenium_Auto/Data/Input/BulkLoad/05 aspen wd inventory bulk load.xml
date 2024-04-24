@@ -1120,7 +1120,7 @@
     <MaterialLotProperty>
       <ID>RetestDate</ID>
       <Value>
-        <ValueString>2016-08-01T00:00:00.000Z</ValueString>
+        <ValueString>2025-11-26T00:00:00.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -1139,13 +1139,13 @@
       <Quantity>
         <QuantityString>1150</QuantityString>
         <DataType>decimal</DataType>
-        <UnitOfMeasure>G</UnitOfMeasure>
+        <UnitOfMeasure>EA</UnitOfMeasure>
         <Key>Nominal</Key>
       </Quantity>
       <Quantity>
         <QuantityString>1150</QuantityString>
         <DataType>decimal</DataType>
-        <UnitOfMeasure>G</UnitOfMeasure>
+        <UnitOfMeasure>EA</UnitOfMeasure>
         <Key>Actual</Key>
       </Quantity>
     </MaterialSubLot>

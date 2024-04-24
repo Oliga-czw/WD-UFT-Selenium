@@ -205,6 +205,14 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public Selenium_WebElement Path_table => new Selenium_WebElement(_Selenium_Driver, "//tbody[@role='rowgroup']/tr[2]//input");
         //771207  
         public Selenium_WebElement time_label => new Selenium_WebElement(_Selenium_Driver, "//div[@id='screen']/app-aebrs-label[2]/label");
+        //1002790
+        public Selenium_WebElement Habilitar_Button => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' habilitar ']/../..");
+        public Selenium_WebElement Deshabilitar_Button => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' deshabilitar ']/../..");
+        public Selenium_WebElement check_box1 => new Selenium_WebElement(_Selenium_Driver, "//mat-checkbox[@id='MAIN.Check1']//input");
+        public Selenium_WebElement check_box2 => new Selenium_WebElement(_Selenium_Driver, "//mat-checkbox[@id='MAIN.Check2']//input");
+        public Selenium_WebElement check_box_label1 => new Selenium_WebElement(_Selenium_Driver, "//mat-checkbox[@id='MAIN.Check1']//label");
+        public Selenium_WebElement check_box_label2 => new Selenium_WebElement(_Selenium_Driver, "//mat-checkbox[@id='MAIN.Check2']//label");
+        public Selenium_WebElement check_value => new Selenium_WebElement(_Selenium_Driver, "//div[@id='screen']/app-aebrs-label[2]/label");
     }
 
 
