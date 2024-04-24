@@ -30,6 +30,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             string material = WDMaterial.X0125;
             string barcode = "X0125001";
 
+            string order2 = "test1";
+            string barcode2 = "X012501";
+
+
             LogStep(@"1. active order");
             Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
             Web_Fuction.gotoWDWeb(driver);
@@ -40,25 +44,35 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Web_Fuction.gotoTab(WDWebTab.order);
             Web_Fuction.active_order(order);
             Thread.Sleep(2000);
+            Web_Fuction.active_order(order2);
+            Thread.Sleep(2000);
             driver.Close();
             LogStep(@"2. open wd client and dispense");
+            //UOM of Bom item is EA, but UOM of the inventory for the material is not EA
             Application.LaunchWDAndLogin();
             WD_Fuction.SelectOrderandMaterial(order, material);
             //input barcode
             WD.mainWindow.ScaleWeightInternalFrame.barcode.SendKeys(barcode);
             Thread.Sleep(2000);
-            WD.mainWindow.GetSnapshot(Resultpath + "barcode error.PNG");
+            WD.mainWindow.GetSnapshot(Resultpath + "barcode error1.PNG");
             string message = "The scanned HU cannot be used because the UOM of the HU does not match the UOM of the BOM.";
             Base_Assert.AreEqual(message, WD.MessageDialog.Lable.Text,"error message");
             WD.MessageDialog.OKButton.Click();
-         
-
             WD.mainWindow.ScaleWeightInternalFrame.cancel.Click();
             Thread.Sleep(5000);
             WD_Fuction.Close();
-
-
-
+            //UOM of the inventory for the material is EA, but UOM of Bom item is not EA
+            Application.LaunchWDAndLogin();
+            WD_Fuction.SelectOrderandMaterial(order2, material);
+            //input barcode
+            WD.mainWindow.ScaleWeightInternalFrame.barcode.SendKeys(barcode2);
+            Thread.Sleep(2000);
+            WD.mainWindow.GetSnapshot(Resultpath + "barcode error2.PNG");
+            Base_Assert.AreEqual(message, WD.MessageDialog.Lable.Text, "error message");
+            WD.MessageDialog.OKButton.Click();
+            WD.mainWindow.ScaleWeightInternalFrame.cancel.Click();
+            Thread.Sleep(5000);
+            WD_Fuction.Close();
 
 
         }
