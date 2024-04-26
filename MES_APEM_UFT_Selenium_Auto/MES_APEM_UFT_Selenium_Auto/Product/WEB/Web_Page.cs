@@ -182,6 +182,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         public Selenium_WebElement Activate => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Activate']");
         public Selenium_WebElement CreateCampaign => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Create Campaign']");
         public Selenium_WebElement Redispense => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Redispense a Material']");
+        public Selenium_WebElement AddMaterial => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Add a Material']");
+        public Selenium_WebElement AssigntoBooth => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Assign to Booth']");
+        public Selenium_WebElement Order_Apply => new Selenium_WebElement(_Selenium_Driver, "//td[@align='left']/button[text()='Apply']");
         public Selenium_WebElement Cancel => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Cancel']");
         public Selenium_WebElement Archive => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Archive']");
         public Selenium_WebElement Finish => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Finish']");
@@ -206,7 +209,16 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         public Selenium_WebElement Apply => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Apply']");
 
         public Selenium_WebElement AssigntoCampaign => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Assign to Campaign']");
-      
+        //Add material
+        public Selenium_WebElement Material => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Material:']/../..//select");
+        public Selenium_WebElement Quantity => new Selenium_WebElement(_Selenium_Driver, "//input[@class='Quantity_TextBox_Righ_Align']");
+        public Selenium_WebElement Sequence => new Selenium_WebElement(_Selenium_Driver, "//input[@class='WD_TextBox_Readonly']");
+        public Selenium_WebElement Add_Material => new Selenium_WebElement(_Selenium_Driver, "//button[text()='Add Material']");
+        //Assign booth
+        public Selenium_WebElement AllMaterialCheckBox => new Selenium_WebElement(_Selenium_Driver, "//td[text()='X0125']/../../tr[1]//input");
+        public Selenium_WebElement Booth => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Select a booth from the list']/../../..//select");
+        public Selenium_WebElement OK => new Selenium_WebElement(_Selenium_Driver, "//button[text()='OK']");
+
 
     }
     public class CleanRules_Page : Web_Page
