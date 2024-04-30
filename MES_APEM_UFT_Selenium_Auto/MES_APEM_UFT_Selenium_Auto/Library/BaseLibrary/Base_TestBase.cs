@@ -151,7 +151,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         private static string application = "javaw";
         public static void LaunchWDAndLogin()
         {
-            Base_Test.LaunchApp(Base_Directory.WDDir);
+            Base_Test.LaunchApp(Base_Directory.WDDir1);
             SdkConfiguration config = new SdkConfiguration();
             SDK.Init(config);
             Thread.Sleep(5000);
@@ -176,7 +176,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         }
         public static void LaunchMocAndLogin()
         {
-            Base_Test.LaunchApp(Base_Directory.MOCDir);
+            Base_Test.LaunchApp(Base_Directory.MOCDir1);
             SdkConfiguration config = new SdkConfiguration();
             SDK.Init(config);
             APEM.MocmainWindow.LogonInternalFrame.userNameEditor.SetText(UserName.qaone1);
@@ -229,7 +229,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 
         public static void LaunchAPEMAdmin()
         {
-            Base_Test.LaunchApp(Base_Directory.APEMAdminDir);
+            Base_Test.LaunchApp(Base_Directory.APEMAdminDir1);
             SdkConfiguration config = new SdkConfiguration();
             SDK.Init(config);
             Thread.Sleep(5000);
