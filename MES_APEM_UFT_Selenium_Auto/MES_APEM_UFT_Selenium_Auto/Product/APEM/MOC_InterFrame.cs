@@ -481,6 +481,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button SetDetailButton => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Set Detail']");
         
         public UFT_Button OKButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = '\\s{0,}OK\\s{0,}']");
+        //503586
+        public UFT_Button SQL_UPDATEButton => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'SQL_UPDATE']");
     }
     public class BPLExecutionMessageInterFrame : UFT_InterFrame
     {
