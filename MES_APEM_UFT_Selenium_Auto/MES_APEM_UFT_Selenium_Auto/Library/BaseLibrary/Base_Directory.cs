@@ -15,10 +15,12 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 
 
         public static string CMDDir = @"C:\Windows\System32\cmd.exe";
-        public static string WDDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Aspen Manufacturing Execution\Aspen Weigh and Dispense Execution.lnk";
+        public static string WDDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Aspen Production Execution Manager\Aspen Weigh and Dispense Execution.lnk";
+        public static string WDDir1 => Base_Directory.ProjectDir + "Data\\Input\\WD.bat";
         public static string AeBRSClientConfigureDir = @"C:\Program Files (x86)\AspenTech\AeBRS\AeBRSClientConfigure.exe";
         public static string AFWDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\AspenTech\Aspen Security\AFW Security Manager(64-bit).lnk";
-        public static string MOCDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Aspen Production Execution Manager MOC.lnk";
+        public static string MOCDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Aspen Production Execution Manager\Aspen Production Execution Manager MOC.lnk";
+        public static string MOCDir1 = Base_Directory.ProjectDir + "Data\\Input\\MOC.bat";
 
         public static string SLMDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\aspenONE SLM License Manager.lnk";
         public static string BDDDir = @"C:\Program Files (x86)\AspenTech\Batch.21\Client\BatchDetailDisplay.exe";
@@ -30,8 +32,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         public static string WizrdDir = @"C:\Program Files (x86)\Common Files\AspenTech Shared\DatabaseWizard\DatabaseWizard.exe";
 
         public static string AprmAdminDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Aspen Production Record Manager Administrator (batch).lnk";
-        public static string APEMAdminDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Aspen Manufacturing Execution\Aspen Production Execution Manager Administrator.lnk";
-        
+        public static string APEMAdminDir = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Aspen Production Execution Manager\Aspen Production Execution Manager Administrator.lnk";
+        public static string APEMAdminDir1 = @"C:\Program Files (x86)\AspenTech\AeBRS\Administrator\Aspen Production Execution Manager Administrator - aspenONE.msc";
+
         public static string mMDMAdminDir = @"C:\Program Files\AspenTech\mMDM\Bin\AtOdmAdministrator.exe";
         public static string mMDMBulkLoadDir = @"C:\Program Files\AspenTech\mMDM\Bin\AtOdmBulkLoad.exe";
         public static string mMDMEditorDir = @"C:\Program Files\AspenTech\mMDM\Bin\AtOdmEditor.exe";

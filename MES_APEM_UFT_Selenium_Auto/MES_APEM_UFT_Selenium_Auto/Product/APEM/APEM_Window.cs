@@ -147,6 +147,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         #region interframe
         public PFCDesignApp_InterFrame PFCDesignAppInternalFrame => new PFCDesignApp_InterFrame(_UFT_Window, "//InterFrame[@NativeClass = 'design.designApp$1' ]");
         public BPLExecutionMessageInterFrame MessageInterFrame => new BPLExecutionMessageInterFrame(_UFT_Window, "//InterFrame[@Label = 'Message']");
+        public BPLExecutionMessageInterFrame ErrorInterFrame => new BPLExecutionMessageInterFrame(_UFT_Window, "//InterFrame[@Label = 'Error:']");
         public Confirmation_InterFrame ConfirmationInternalFrame => new Confirmation_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Confirmation']");
         public ExecuteMain_InterFrame ExecuteMainInternalFrame => new ExecuteMain_InterFrame(_UFT_Window, "//InterFrame[@NativeClass = 'runtime.vm.chkVMRuntimeMDI$RTFrame']");
         public RunEnvironment_InterFrame RunEnvironmentInternalFrame => new RunEnvironment_InterFrame(_UFT_Window, "//InterFrame[@NativeClass = 'library.component.RunEnvironmentFrame']");

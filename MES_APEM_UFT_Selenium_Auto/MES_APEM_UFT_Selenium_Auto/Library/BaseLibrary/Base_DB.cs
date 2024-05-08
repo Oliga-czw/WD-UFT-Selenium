@@ -22,7 +22,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             var SQLConnection = new SqlConnection(ConStr);
             return SQLConnection;
         }
-        private void ExecuteSQLQuery(string SQL, ref DataSet ds)
+        public void ExecuteSQLQuery(string SQL, ref DataSet ds)
         {
             using (var mySQLconnection = this.SqlConnnection())
             {
@@ -85,6 +85,41 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
                     int r = SQLcommand.ExecuteNonQuery();
                     Console.WriteLine("({0} row affected)", r);
                     mySQLconnection.Close();
+                }
+                catch (SqlException e)
+                {
+                    throw e;
+                }
+            }
+        }
+        public SqlDataReader ExecuteReader(string SQL)
+        {
+            using (var mySQLconnection = this.SqlConnnection())
+            {
+                try
+                {
+                    mySQLconnection.Open();
+                    var SQLcommand = mySQLconnection.CreateCommand();
+                    SQLcommand.CommandType = CommandType.Text;
+                    SQLcommand.CommandText = SQL;
+                    SqlDataReader reader = SQLcommand.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            // 假设结果集有两列：Lowest Active Transaction 和 Oldest Active Transaction  
+                            Console.WriteLine("Lowest Active Transaction: " + reader[0].ToString());
+                            Console.WriteLine("Oldest Active Transaction: " + reader[1].ToString());
+                            // 注意：实际的列名和顺序可能因 SQL Server 版本和配置而异  
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No active transactions found.");
+                    }
+
+                    mySQLconnection.Close();
+                    return reader;
                 }
                 catch (SqlException e)
                 {

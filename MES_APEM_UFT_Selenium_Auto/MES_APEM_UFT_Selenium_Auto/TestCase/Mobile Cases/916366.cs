@@ -51,7 +51,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mobile_Fuction.login();
             LogStep(@"4. Select order to execute");
             Mobile.OrderProcess_Page.OrderSearch.SendKeys(OrderName);
-            driver.Wait(5000);
+            Thread.Sleep(5000);
             //go to tracking page,execute the phase
             Mobile.OrderProcess_Page.GotoTracking.Click();
             driver.Wait(1000);

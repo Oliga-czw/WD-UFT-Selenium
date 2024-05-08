@@ -277,11 +277,27 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
                 Thread.Sleep(2000);
             }
             Mobile.Main_Page.account.Click();
+            Thread.Sleep(2000);
             Mobile.Main_Page.logout.Click();
             Thread.Sleep(5000);
+        }
+        public static void CleanSession(Selenium_Driver driver)
+        {
+            Mobile.Main_Page.ManageModule.Click();
+            Thread.Sleep(3000);
+            int count = Mobile.SessionManager_Page.CloseSessions.Count;
+            for (int i = 0; i < count; i++)
+            {
+                if (driver.is_element_exist("//mat-icon[@id='closeBtn']"))//Close session
+                {
+                    Mobile.SessionManager_Page.CloseSession.Click();
+                    Thread.Sleep(3000);
+                    Mobile.SessionManager_Page.Dialog_Yes.Click();
+                    Thread.Sleep(3000);
+                }
+            }
 
         }
-
         #endregion
 
 
