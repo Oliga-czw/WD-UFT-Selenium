@@ -197,6 +197,7 @@
     <Compile Include="TestCase\APEM Cases\863181.cs" />
     <Compile Include="TestCase\APEM Cases\927362.cs" />
     <Compile Include="TestCase\Mobile Cases\580276.cs" />
+    <Compile Include="TestCase\Mobile Cases\628365.cs" />
     <Compile Include="TestCase\Mobile Cases\919004.cs" />
     <Compile Include="TestCase\Mobile Cases\920999.cs" />
     <Compile Include="TestCase\Mobile Cases\1342249.cs" />
@@ -365,7 +366,6 @@
     <Compile Include="UftDeveloperSeleniumTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="Data\Input\AeBRSInstaller.bat" />
     <None Include="Data\Input\BulkLoad\BulkLoadAll.bat" />
     <None Include="Data\Input\BulkLoad\BulkLoadAllinventory.bat" />

@@ -32,6 +32,12 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         //dialog 
         public Selenium_WebElement Dialog_Yes => new Selenium_WebElement(_Selenium_Driver, "//mat-dialog-container//button/span[text()=' Yes ']");
         public Selenium_WebElement Dialog_No => new Selenium_WebElement(_Selenium_Driver, "//mat-dialog-container//button/span[text()=' No ']");
+        //queue
+        public Selenium_WebElement QueueButton => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='queue']/../..");
+        public Selenium_WebElement QueueText => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='queue']/..");
+        public Selenium_WebElement OrderName => new Selenium_WebElement(_Selenium_Driver, "//div[@id='dialog']/div/div[2]/div[1]/div[1]");
+        public Selenium_WebElement PhaseName => new Selenium_WebElement(_Selenium_Driver, "//div[@id='dialog']/div/div[2]/div[1]/div[2]");
+        public Selenium_WebElement QueueExecut => new Selenium_WebElement(_Selenium_Driver, "//div[@id='dialog']/div/div[2]/div[1]/mat-icon");
     }
 
 
@@ -122,6 +128,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public OrderTracking_Page(IWebDriver driver) : base(driver)
         {
         }
+        
         public ReadOnlyCollection<IWebElement> OrderPhaseTableRows => _Selenium_Driver.FindElements(By.XPath("//table/tbody/tr"));
         public ReadOnlyCollection<IWebElement> OrderPhaseTableHeads => _Selenium_Driver.FindElements(By.XPath("//table/thead/tr/th/div/div[1]/div"));
         public Selenium_WebElement SelectMenu => new Selenium_WebElement(_Selenium_Driver, "//button[@id='selectmenu']");
@@ -172,6 +179,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public OrderExecution_Page(IWebDriver driver) : base(driver)
         {
         }
+
+        
+        public Selenium_WebElement PhaseName => new Selenium_WebElement(_Selenium_Driver, "/html/body/app-root/div/app-execution/div/div[1]/div[2]");
         public Selenium_WebElement OKButton => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' OK ']/../..");
         public Selenium_WebElement CancelButton => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' Cancel ']/../..");
         public Selenium_WebElement StopButton => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='toolbar_stop']");

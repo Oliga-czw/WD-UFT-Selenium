@@ -369,3 +369,4 @@ C:\GitHub\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Sel
 C:\GitHub\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\bin\Debug\OpenQA.Selenium.Winium.pdb
 C:\GitHub\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\obj\Debug\MES_APEM_UFT_Selenium_Auto.csproj.AssemblyReference.cache
 C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\bin\Debug\OpenQA.Selenium.Winium.pdb
+C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\obj\Debug\MES_APEM_UFT_Selenium_Auto.csproj.AssemblyReference.cache
