@@ -51,9 +51,6 @@
     <Reference Include="HP.LFT.SDK, Version=14.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="HP.LFT.UnitTesting, Version=14.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="HP.LFT.Verifications, Version=14.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="OpenQA.Selenium.Winium, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\OpenQA.Selenium.Winium.1.0.0.4\lib\OpenQA.Selenium.Winium.dll</HintPath>
     </Reference>
@@ -170,6 +167,14 @@
     <Compile Include="Product\SQLplus\SQLplus_Window.cs" />
     <Compile Include="TestCase\APEM Cases\1006618.cs" />
     <Compile Include="TestCase\APEM Cases\1002790.cs" />
+    <Compile Include="TestCase\APEM Cases\468668.cs" />
+    <Compile Include="TestCase\APEM Cases\481813.cs" />
+    <Compile Include="TestCase\APEM Cases\491775.cs" />
+    <Compile Include="TestCase\APEM Cases\492205.cs" />
+    <Compile Include="TestCase\APEM Cases\515698.cs" />
+    <Compile Include="TestCase\APEM Cases\539370.cs" />
+    <Compile Include="TestCase\APEM Cases\540082.cs" />
+    <Compile Include="TestCase\APEM Cases\553157.cs" />
     <Compile Include="TestCase\APEM Cases\771207.cs" />
     <Compile Include="TestCase\APEM Cases\788897.cs" />
     <Compile Include="TestCase\APEM Cases\830458.cs" />

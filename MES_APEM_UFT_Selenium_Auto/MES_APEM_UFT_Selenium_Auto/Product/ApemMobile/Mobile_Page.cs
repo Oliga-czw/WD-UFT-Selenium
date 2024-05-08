@@ -130,6 +130,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
 
         public Selenium_WebElement ReadyPhase => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@svgicon='phase_state_enabled']");
         public Selenium_WebElement PhaseHeader => new Selenium_WebElement(_Selenium_Driver, "//div[@id='headerPhase']/../../..");
+        public Selenium_WebElement PFCButton => new Selenium_WebElement(_Selenium_Driver, "//mat-button-toggle[@value = 'pfc']");
         public Selenium_WebElement ParamtersAButton => new Selenium_WebElement(_Selenium_Driver, "//button[@aria-label = 'Toggle A']");
         public Selenium_WebElement PhaseListButton => new Selenium_WebElement(_Selenium_Driver, "//mat-button-toggle[@value = 'list']");
         public ReadOnlyCollection<IWebElement> OrderPhaseparam => _Selenium_Driver.FindElements(By.XPath("//div[@class='collapse-text description phase-with-param']"));
@@ -197,7 +198,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public Selenium_WebElement tranfer2field4_input => new Selenium_WebElement(_Selenium_Driver, "//input[@id='TEST.F_Scan2']");
         public Selenium_WebElement Selectline3_button => new Selenium_WebElement(_Selenium_Driver, "//button[@id='TEST.btnPrintLabel']");
         public Selenium_WebElement Field3_input => new Selenium_WebElement(_Selenium_Driver, "//input[@id='TEST.F_Scan3']");
-        public Selenium_WebElement Message => new Selenium_WebElement(_Selenium_Driver, "//div[@class='padding']/div[2]/div/div/div/p");
+        public Selenium_WebElement Execution_Message => new Selenium_WebElement(_Selenium_Driver, "//div[@class='padding']/div[2]/div/div/div/p");
         public Selenium_WebElement MessageOK_button => new Selenium_WebElement(_Selenium_Driver, "//span[text()=' OK ']/..");
         public Selenium_WebElement Field4 => new Selenium_WebElement(_Selenium_Driver, "//input[@id='TEST.F_Scan4']/../../../..");
         public ReadOnlyCollection<IWebElement> TableRows => _Selenium_Driver.FindElements(By.XPath("//tbody/tr[@role='row']"));
