@@ -218,6 +218,14 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         //540082
         public Selenium_WebElement HU_field => new Selenium_WebElement(_Selenium_Driver, "//input[@id='TEST.F_HU']");
         public Selenium_WebElement ResetHU_button => new Selenium_WebElement(_Selenium_Driver, "//button[@id='TEST.B_HU']");
+        //1002790
+        public Selenium_WebElement Habilitar_Button => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' habilitar ']/../..");
+        public Selenium_WebElement Deshabilitar_Button => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' deshabilitar ']/../..");
+        public Selenium_WebElement check_box1 => new Selenium_WebElement(_Selenium_Driver, "//mat-checkbox[@id='MAIN.Check1']//input");
+        public Selenium_WebElement check_box2 => new Selenium_WebElement(_Selenium_Driver, "//mat-checkbox[@id='MAIN.Check2']//input");
+        public Selenium_WebElement check_box_label1 => new Selenium_WebElement(_Selenium_Driver, "//mat-checkbox[@id='MAIN.Check1']//label");
+        public Selenium_WebElement check_box_label2 => new Selenium_WebElement(_Selenium_Driver, "//mat-checkbox[@id='MAIN.Check2']//label");
+        public Selenium_WebElement check_value => new Selenium_WebElement(_Selenium_Driver, "//div[@id='screen']/app-aebrs-label[2]/label");
     }
 
 
@@ -359,7 +367,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public Selenium_WebElement CancePhase => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='CancePhase_manageModule']");
         public ReadOnlyCollection<IWebElement> CancePhases => _Selenium_Driver.FindElements(By.XPath("//mat-icon[@data-mat-icon-name='CancePhase_manageModule']"));
         public Selenium_WebElement CloseSession => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='CloseSession_manageModule']");
-
+        public ReadOnlyCollection<IWebElement> CloseSessions => _Selenium_Driver.FindElements(By.XPath("//mat-icon[@id='closeBtn']"));
         public ReadOnlyCollection<IWebElement> TableRows => _Selenium_Driver.FindElements(By.XPath("//table/tbody/tr"));
         public ReadOnlyCollection<IWebElement> TableHeads => _Selenium_Driver.FindElements(By.XPath("//table/thead/tr/th"));
 

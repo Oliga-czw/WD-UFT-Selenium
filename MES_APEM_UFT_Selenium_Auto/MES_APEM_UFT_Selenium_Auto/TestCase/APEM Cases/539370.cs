@@ -31,6 +31,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             string RPLname = "FOR_STATUS";
             string Ordername1 = "Test001";
             string BPLname = "BPL520174";
+            string PO_Value = "PO123";
             GML_Function.GMLAPRMConfig();
             Library.BaseLibrary.Application.LaunchMocAndLogin();
             APEM.MocmainWindow.RPLDesign.ClickSignle();
@@ -46,7 +47,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(2000);
             APEM.DesignEditorWindow.Execute.Run_Environment.Select();
             Thread.Sleep(4000);
-            APEM.DesignEditorWindow.RunEnvironmentInternalFrame.SelectOrder.SelectItems(Ordername);
+            APEM.DesignEditorWindow.RunEnvironmentInternalFrame.SelectOrder.SelectItems(Ordername1);
             APEM.DesignEditorWindow.RunEnvironmentInternalFrame.OKButton.Click();
             Thread.Sleep(3000);
             APEM.DesignEditorWindow.MessageInterFrame.OKButton.Click();
@@ -58,7 +59,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //open new query
             BatchQueryTool.NewQuery();
             //open batch detail display
-            BatchQueryTool.BatchQueryToolWindow.ListView._STD_ListView.ActivateItem(PO_value);
+            BatchQueryTool.BatchQueryToolWindow.ListView._STD_ListView.ActivateItem(PO_Value);
             //wait for loading
             Thread.Sleep(15000);
             APRM.BatchMainWindow.TreeView.GetNode("Batch").Expand();

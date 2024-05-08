@@ -246,7 +246,6 @@ C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto
 C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\obj\Debug\MES_APEM_UFT_Selenium_Auto.csproj.CopyComplete
 C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\obj\Debug\MES_APEM_UFT_Selenium_Auto.dll
 C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\obj\Debug\MES_APEM_UFT_Selenium_Auto.pdb
-C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\obj\Debug\MES_APEM_UFT_Selenium_Auto.csproj.AssemblyReference.cache
 C:\GitHub\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\obj\Debug\MES_APEM_UFT_Selenium_Auto.csproj.CoreCompileInputs.cache
 C:\GitHub\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\bin\Debug\Data\Input\AFWDB.mdb
 C:\GitHub\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\bin\Debug\MES_APEM_UFT_Selenium_Auto.dll
@@ -369,3 +368,4 @@ C:\GitHub\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Sel
 C:\GitHub\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\obj\Debug\MES_APEM_UFT_Selenium_Auto.pdb
 C:\GitHub\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\bin\Debug\OpenQA.Selenium.Winium.pdb
 C:\GitHub\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\obj\Debug\MES_APEM_UFT_Selenium_Auto.csproj.AssemblyReference.cache
+C:\Users\qaone1\Documents\GitHub\WD_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\MES_APEM_UFT_Selenium_Auto\bin\Debug\OpenQA.Selenium.Winium.pdb

@@ -75,7 +75,7 @@ namespace MES_APEM_UFT_Selenium_Auto
             //open new query
             BatchQueryTool.NewQuery();
             //open batch detail display
-            BatchQueryTool.BatchQueryToolWindow.ListView._STD_ListView.ActivateItem(PO_value);
+            BatchQueryTool.BatchQueryToolWindow.ListView._STD_ListView.ActivateItem(PO_Value);
             //wait for loading
             Thread.Sleep(15000);
             APRM.BatchMainWindow.TreeView.GetNode("Batch").Expand();
