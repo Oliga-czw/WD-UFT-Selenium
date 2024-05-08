@@ -75,12 +75,12 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mobile.OrderExecution_Page.Field3_input.SendKeys(Keys.Enter);
             Thread.Sleep(2000);
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "messageAppears.PNG");
-            Base_Assert.AreEqual(Mobile.OrderExecution_Page.Error_Message.Text(), "Only possible to exit with value: 33");
+            Base_Assert.AreEqual(Mobile.OrderExecution_Page.Message.Text(), "Only possible to exit with value: 33");
             Mobile.OrderExecution_Page.MessageOK_button.Click();
             //click selectline3
             Mobile.OrderExecution_Page.Selectline3_button.Click();
             Thread.Sleep(2000);
-            Base_Assert.AreEqual(Mobile.OrderExecution_Page.Error_Message.Text(), "Only possible to exit with value: 33");
+            Base_Assert.AreEqual(Mobile.OrderExecution_Page.Message.Text(), "Only possible to exit with value: 33");
             Mobile.OrderExecution_Page.MessageOK_button.Click();
             //modify field3
             Mobile.OrderExecution_Page.Field3_input.SendKeys(Keys.Control + "A");

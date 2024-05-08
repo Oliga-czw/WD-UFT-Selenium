@@ -61,7 +61,19 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
 
     }
 
-            
+    public class SavePrintFile_Window : STD_Window
+    {
+
+
+        public SavePrintFile_Window(string xpath) : base(xpath)
+        {
+        }
+
+       
+        public STD_Dialog SaveFile => new STD_Dialog(_STD_Window, "//Dialog[@Text = 'Save Print Output As']");
+        
+    }
+
 
 
 }

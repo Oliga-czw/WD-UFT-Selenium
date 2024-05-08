@@ -1,0 +1,546 @@
+WEB$BP:library.component.chkRoutineContainer
+  design:
+    MAIN:library.component.chkScreen
+      bounds: 150,120,45,50
+      description: descr
+      preaction:
+        @               @               @               vs_TestVar:=$order_cod
+        @               @               @               Button1.enable:= No
+        @               @               @               as_List:= PARSE_LIST("value1,value2,value3",",")
+        @               @               @               //WAIT_MESSAGE ( "Wait !!!" )
+        @               @               @               //WAIT(2)
+        @               @               @               //HIDE_WAIT_MESSAGE()
+        @               @               @               vd_Now:=NOW()
+        @               @               @               Table0.head_align:= 2
+        @               @               @               Table0.column_head_align:="440"
+        @               @               @               $return:=1
+      end
+      design:
+        Image0:library.component.chkImage
+          file: J:\icons\aspenLogo.gif
+          bounds: 40,10,200,90
+          enabled: Yes
+        END
+        Table0:library.component.chkTable
+          columns:
+            A;A;as_A;No;50;3;0.0;Yes;;0,0,0;255,255,152;-1;
+            B;B;as_List;No;150;2;0.5;No;;0,0,0;255,255,255;-1;
+            C;C;as_C;No;150;2;0.0;Yes;;0,0,0;255,255,152;-1;=as_List
+            D;D;as_D;No;150;2;0.0;Yes;;0,0,0;255,255,152;-1;
+          end
+          font: Dialog,0,12
+          fore_color: 51,51,51
+          back_color: 238,238,238
+          rowCount: 1
+          autoGrow: No
+          enabled: Yes
+          border: Yes
+          showGrid: Yes
+          bounds: 280,20,900,180
+        END
+        Button3:library.component.chkButton
+          caption: Message
+          bounds: 140,110,90,30
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          back_color: 238,238,238
+          textPos: 11
+          action: @               @               @               MESSAGE("<HTML><a href='http://adscmdemo1/ProcessExplorer' target='_blank'>Test<HTML>")
+          enabled: Yes
+        END
+        Button2:library.component.chkButton
+          caption: Error Message
+          bounds: 140,170,90,30
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          back_color: 238,238,238
+          textPos: 11
+          action: @               @               @               ERROR_MESSAGE("Test")
+          enabled: Yes
+        END
+        Button7:library.component.chkButton
+          caption: List2
+          bounds: 150,220,90,30
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          back_color: 238,238,238
+          textPos: 11
+          action:
+            @               @               @               as_D:={"","Test"}
+            @               @               @               vi_Return:= LIST_MESSAGE("Window Top Title", "as_List, as_C, as_D", {"A","B","C"}, "TITLE='window Title',Ok,displayonly")
+          end
+          enabled: Yes
+        END
+        Table1:library.component.chkTable
+          columns:
+            A;A;as_A;No;50;3;0.0;Yes;Default,24,0;0,0,0;255,255,152;-1;
+            B;B;as_List;No;150;2;0.5;No;Default,24,0;0,0,0;255,255,255;-1;
+            C;C;as_C;No;150;2;0.0;Yes;Default,24,0;0,0,0;255,255,152;-1;=as_List
+            D;D;as_D;No;150;2;0.0;Yes;Default,24,0;0,0,0;255,255,152;-1;
+          end
+          font: Dialog,0,12
+          fore_color: 51,51,51
+          back_color: 238,238,238
+          rowCount: 1
+          autoGrow: No
+          enabled: Yes
+          border: Yes
+          showGrid: Yes
+          bounds: 280,230,900,120
+        END
+        WDBorder0:wd.library.component.wdBorder
+          font: Dialog,0,14
+          fore_color: 0,0,0
+          border_color: 128,128,128
+          bounds: 40,270,160,100
+        END
+        Button8:library.component.chkButton
+          caption: List
+          bounds: 60,290,90,30
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          back_color: 238,238,238
+          textPos: 11
+          action: @               @               @               vi_SelectedLine:= LIST_MESSAGE("Select a line", "as_List", {"Selection"}, "TITLE='',INITIAL=2")
+          enabled: Yes
+        END
+        DisplayLabel8:library.component.chkDisplayLabel
+          exp: vi_SelectedLine
+          var: vi_SelectedLine
+          border: Yes
+          format: -1
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          alignment: 2
+          record: No
+          enabled: Yes
+          bounds: 210,290,90,30
+        END
+        Button9:library.component.chkButton
+          caption: List
+          bounds: 60,330,90,30
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          back_color: 238,238,238
+          textPos: 11
+          action: @               @               @               vi_SelectedLine:= LIST_MESSAGE("Select a line", "as_List", {"Selection"}, "TITLE=''")
+          enabled: Yes
+        END
+        DisplayLabel9:library.component.chkDisplayLabel
+          exp: 4.5000
+          var: vs_Val
+          border: Yes
+          format: -1
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          alignment: 2
+          record: No
+          enabled: Yes
+          bounds: 800,370,90,30
+        END
+        Label0:library.component.chkLabel
+          caption: $order_cod:
+          border: No
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          alignment: 4
+          enabled: Yes
+          bounds: 1070,380,90,30
+        END
+        DisplayLabel0:library.component.chkDisplayLabel
+          exp: $order_cod
+          border: Yes
+          format: -1
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          alignment: 2
+          record: No
+          enabled: Yes
+          bounds: 1170,380,90,30
+        END
+        Btn2:library.component.chkButton
+          caption: text longer
+          bounds: 430,390,300,90
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          back_color: 238,238,238
+          file: <WEB.PICTO>
+          textPos: 11
+          action:
+            @               @               @               PRINTLN("$ORDER_ID:"+ $ORDER_ID)
+            @               @               @               PRINTLN("$ORDER_COD:"+ $ORDER_COD)
+            @               @               @               PRINTLN("$EBR_ORDER_PO:"+$EBR_ORDER_PO )
+            @               @               @               PRINTLN("$EBR_ORDER_PO_STEP:"+$EBR_ORDER_PO_STEP )
+            @               @               @               PRINTLN("$EBR_ORDER_QUANTITY:"+ $EBR_ORDER_QUANTITY)
+            @               @               @               PRINTLN("$EBR_ORDER_QTY_STRING:"+ $EBR_ORDER_QTY_STRING)
+            @               @               @               PRINTLN("$EBR_ORDER_UOM:"+ $EBR_ORDER_UOM)
+            @               @               @               PRINTLN("$ebr_order_process_area:"+ $ebr_order_process_area)
+            @               @               @               PRINTLN("$ebr_order_site:"+ $ebr_order_site)
+            @               @               @               PRINTLN("$EBR_ORDER_WORKCENTER:"+ $EBR_ORDER_WORKCENTER)
+            @               @               @               PRINTLN("$EBR_WORKCENTER:"+ $EBR_WORKCENTER)
+            @               @               @               PRINTLN("$ORDER_REP:"+ $ORDER_REP)
+            @               @               @               PRINTLN("$ORDER_DESCRIP:"+ $ORDER_DESCRIP)
+            @               @               @               PRINTLN("$ORDER_ITEM:"+ $ORDER_ITEM)
+            @               @               @               PRINTLN("$ORDER_BATCH:"+ $ORDER_BATCH)
+            @               @               @               PRINTLN("$ORDER_DATE:"+ $ORDER_DATE)
+            @               @               @               PRINTLN("$ORDER_END_DATE:"+ $ORDER_END_DATE)
+            @               @               @               PRINTLN("$OPER_REP:"+ $OPER_REP)
+            @               @               @               PRINTLN("$OPER_SEQ:"+ $OPER_SEQ)
+            @               @               @               PRINTLN("$OPER_START_DATE:"+ $OPER_START_DATE)
+            @               @               @               PRINTLN("$OPER_END_DATE:"+ $OPER_END_DATE)
+            @               @               @               PRINTLN("$oper-user_rudo:"+ $$oper_user_rudo)
+            @               @               @               PRINTLN("$oper-wkst_rudo:"+ $$oper_wkst_rudo)
+            @               @               @               PRINTLN("$PROC_ID:"+ $PROC_ID)
+            @               @               @               PRINTLN("$PROC_NAME:"+ $PROC_NAME)
+            @               @               @               PRINTLN("$PROC_VER:"+ $PROC_VER)
+            @               @               @               PRINTLN("$PROC_DESCRIP:"+ $PROC_DESCRIP)
+            @               @               @               PRINTLN("$ebr_process_type:"+ $ebr_process_type)
+            @               @               @               PRINTLN("$RECIPE_ID:"+ $RECIPE_ID)
+            @               @               @               PRINTLN("$RECIPE_NAME:"+ $RECIPE_NAME)
+            @               @               @               PRINTLN("$RECIPE_VER:"+ $RECIPE_VER)
+            @               @               @               PRINTLN("$RECIPE_DESCRIP:"+ $RECIPE_DESCRIP)
+            @               @               @               PRINTLN("$bpl_Id:"+ $bpl_Id)
+            @               @               @               PRINTLN("$bpl_name:"+ $bpl_name)
+            @               @               @               PRINTLN("$bpl_ver:"+ $bpl_ver)
+            @               @               @               PRINTLN("$bpl_descrip:"+ $bpl_descrip)
+            @               @               @               PRINTLN("$bp_id:"+ $bp_id)
+            @               @               @               PRINTLN("$bp_name:"+ $bp_name)
+            @               @               @               PRINTLN("$bp_descrip:"+ $bp_descrip)
+            @               @               @               PRINTLN("$OPER_ID:"+ $OPER_ID)
+            @               @               @               PRINTLN("$OPER_NAME:"+ $OPER_NAME)
+            @               @               @               PRINTLN("$OPER_DESCRIP:"+ $OPER_DESCRIP)
+            @               @               @               PRINTLN("$STEP_PATH:"+ $STEP_PATH)
+            @               @               @               PRINTLN("$STEP_ID:"+ $STEP_ID)
+            @               @               @               PRINTLN("$STEP_NAME:"+ $STEP_NAME)
+            @               @               @               PRINTLN("$STEP_REP:"+ $STEP_REP)
+            @               @               @               PRINTLN("$STEP_RELATIVE_REP:"+ $STEP_RELATIVE_REP)
+            @               @               @               PRINTLN("$STEP_DESCRIP:"+ $STEP_DESCRIP)
+          end
+          enabled: Yes
+        END
+        Button0:library.component.chkButton
+          caption: Confirm
+          bounds: 120,400,90,30
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          back_color: 238,238,238
+          textPos: 11
+          action: @               @               @               CONFIRM("Test")
+          enabled: Yes
+        END
+        Button4:library.component.chkButton
+          caption: List
+          bounds: 290,410,90,30
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          back_color: 238,238,238
+          textPos: 11
+          action:
+            @               @               @               as_Header1:={"Prozessauftragsnummer","Line ","Materialnummer","Sorte","Produkteigenschaft","Länge","Breite","Stärke","Randkennzeichen","Qualität","Oberfläche","Ursprung","Markenkennzeichen","Auftragsmenge","gepl. Produktionsbeginn","gepl. Produktionsende","Kundenauftrag/Pos."}
+            @               @               @               as_Header2:={"Process order 01","1","12345678","Color code","Product prop. (physical)","Length","Width","Thickness","Trimming","Quality","Masking","Origin","Brand","Order quantity","gepl. Produktionsbeginn","gepl. Produktionsende","http://adscmdemo1/ProcessExplorer"}
+            @               @               @               vi_Return:= LIST_MESSAGE("Kopf", "as_Header1, as_Header2", {"Beschreibung","Wert"}, "TITLE='Kopf',Ok")
+          end
+          enabled: Yes
+        END
+        DisplayLabel10:library.component.chkDisplayLabel
+          exp: Num2str(vs_Val,"#.#")
+          border: Yes
+          format: -1
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          alignment: 2
+          record: No
+          enabled: Yes
+          bounds: 800,410,90,30
+        END
+        LinkButton0:library.component.chkLinkButton
+          caption: Link
+          bounds: 960,420,90,30
+          url: http://adscmdemo1/ProcessExplorer
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          back_color: 238,238,238
+          textPos: 11
+          openNew: Yes
+          enabled: Yes
+        END
+        Label1:library.component.chkLabel
+          caption: $order_descrip
+          border: No
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          alignment: 4
+          enabled: Yes
+          bounds: 1070,420,90,30
+        END
+        DisplayLabel1:library.component.chkDisplayLabel
+          exp: $order_descrip
+          border: Yes
+          format: -1
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          alignment: 2
+          record: No
+          enabled: Yes
+          bounds: 1170,420,90,30
+        END
+        Button5:library.component.chkButton
+          caption: Input Number
+          bounds: 60,450,160,30
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          back_color: 238,238,238
+          textPos: 11
+          action:
+            @10             @               @               vr_x:= INPUT_NUMBER("Test")
+            @               @               @10             CONFIRM("POPUP after input")
+          end
+          enabled: Yes
+        END
+        DisplayLabel7:library.component.chkDisplayLabel
+          exp: vr_x
+          var: vr_x
+          border: Yes
+          format: -1
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          alignment: 2
+          record: No
+          enabled: Yes
+          bounds: 240,450,90,30
+        END
+        DisplayLabel11:library.component.chkDisplayLabel
+          exp: Num2str(vs_Val)
+          border: Yes
+          format: -1
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          alignment: 2
+          record: No
+          enabled: Yes
+          bounds: 800,450,90,30
+        END
+        Label2:library.component.chkLabel
+          caption: $ebr_order_workcenter
+          border: No
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          alignment: 4
+          enabled: Yes
+          bounds: 1010,460,150,30
+        END
+        DisplayLabel2:library.component.chkDisplayLabel
+          exp: $ebr_order_workcenter
+          border: Yes
+          format: -1
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          alignment: 2
+          record: No
+          enabled: Yes
+          bounds: 1170,460,90,30
+        END
+        OkButton0:library.component.chkOkButton
+          caption: OK
+          bounds: 200,490,120,50
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          back_color: 238,238,238
+          textPos: 11
+          enabled: Yes
+        END
+        ScreenBtn0:library.component.chkScreenButton
+          bounds: 580,500,190,30
+          description: Screen Button
+          preaction: @               @RETURN_NO      @               Message("Message from preaction block")
+          design:
+            Label0:library.component.chkLabel
+              caption: Screen from button
+              border: No
+              font: Dialog,1,12
+              fore_color: 51,51,51
+              alignment: 2
+              enabled: Yes
+              bounds: 170,110,90,30
+            END
+            OkButton0:library.component.chkOkButton
+              caption: OK
+              bounds: 100,270,120,30
+              font: Dialog,1,12
+              fore_color: 51,51,51
+              back_color: 238,238,238
+              textPos: 11
+              enabled: Yes
+            END
+            CancelButton0:library.component.chkCancelButton
+              caption: Cancel
+              bounds: 340,280,120,30
+              font: Dialog,1,12
+              fore_color: 51,51,51
+              back_color: 238,238,238
+              textPos: 11
+              confirm: Yes
+              enabled: Yes
+            END
+          END
+          breakpoint: Yes
+          height: 400
+          width: 500
+          grid_size: 10
+          screen_back_color: 192,192,192
+          caption: Screen Button
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          back_color: 238,238,238
+          enabled: Yes
+          textPos: 11
+        END
+        Field0:library.component.chkField
+          var: vs_TextField
+          type: 5
+          format: -1
+          maxChar: 100
+          font: Dialog,0,12
+          fore_color: 51,51,51
+          back_color: 255,255,255
+          disabled_text_color: 128,128,128
+          alignment: 2
+          record: No
+          enabled: Yes
+          bounds: 800,500,90,30
+        END
+        Label3:library.component.chkLabel
+          caption: $OPER_NAME
+          border: No
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          alignment: 4
+          enabled: Yes
+          bounds: 1010,500,150,30
+        END
+        DisplayLabel5:library.component.chkDisplayLabel
+          exp: $OPER_NAME
+          border: Yes
+          format: -1
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          alignment: 2
+          record: No
+          enabled: Yes
+          bounds: 1170,500,90,30
+        END
+        Button1:library.component.chkButton
+          caption: Disable
+          bounds: 950,510,90,30
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          back_color: 238,238,238
+          textPos: 11
+          enabled: Yes
+        END
+        Label4:library.component.chkLabel
+          caption: $STEP_NAME
+          border: No
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          alignment: 4
+          enabled: Yes
+          bounds: 1010,540,150,30
+        END
+        DisplayLabel6:library.component.chkDisplayLabel
+          exp: $STEP_NAME
+          border: Yes
+          format: -1
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          alignment: 2
+          record: No
+          enabled: Yes
+          bounds: 1170,540,90,30
+        END
+        DisplayLabel3:library.component.chkDisplayLabel
+          exp: NOW()
+          border: Yes
+          format: -1
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          alignment: 2
+          record: No
+          enabled: Yes
+          bounds: 60,560,230,30
+        END
+        DisplayLabel4:library.component.chkDisplayLabel
+          exp: vd_Now
+          border: Yes
+          format: -1
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          alignment: 2
+          record: No
+          enabled: Yes
+          bounds: 330,560,230,30
+        END
+        ComboBox0:library.component.chkComboBox
+          bounds: 800,560,90,30
+          var: vs_Combo1
+          list: {"Item1","Item2","Item3"}
+          editable: No
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          back_color: 238,238,238
+          onExit: @               @               @               MESSAGE("you have selected value:"+vs_Combo1)
+          record: No
+          enabled: Yes
+        END
+        Button6:library.component.chkButton
+          caption: Message
+          bounds: 630,570,90,30
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          back_color: 238,238,238
+          textPos: 11
+          action:
+            @               @               @               $return:=2
+            @               @               @               CONFIRM_SCREEN()
+          end
+          enabled: Yes
+        END
+        CancelButton0:library.component.chkCancelButton
+          caption: Cancel
+          bounds: 970,580,120,30
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          back_color: 238,238,238
+          textPos: 11
+          confirm: No
+          enabled: Yes
+        END
+      END
+      breakpoint: No
+      height: 657
+      width: 1292
+      grid_size: 10
+      screen_back_color: 245,245,245
+      links: ReturnNo0, ReturnNo0, MESSAGE_blocK
+      linkYes: 2
+    END
+    ReturnNo0:library.component.chkReturnNo
+      Bounds: 300,130,35,35
+    END
+    MESSAGE_blocK:library.component.chkActionBlock
+      action: @               @               @               MESSAGE("Message in Action Block")
+      bounds: 200,210,45,50
+      linkYes: 1
+      links: ReturnNo0, MAIN
+    END
+  END
+  width: 500
+  height: 400
+  grid_size: 10
+  arguments:
+    iMeasure_Name;19;{"ph","Temperature","Speed"};Name;;;true
+    iMeasure_Min;18;{5,null,50};Min;;;true
+    iMeasure_Max;18;{null,100,null};Max;;;true
+  end
+END
+CHECKSUM=2582192362

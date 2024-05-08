@@ -27,12 +27,6 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             string RplName = "RPL958133";
             Application.LaunchMocAndLogin();
             Thread.Sleep(5000);
-            //import rpl
-            //APEM.MocmainWindow.RPLDesign.ClickSignle();
-            //if (!APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row(RplName).Existing)
-            //{
-            //    MOC_TemplatesFunction.Importtemplates("CASE958133.zip");
-            //}
             MOC_TemplatesFunction.Importtemplates("TEMP958133.zip");
             APEM.MocmainWindow.RPLDesign.ClickSignle();
             Thread.Sleep(5000);

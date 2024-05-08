@@ -74,6 +74,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
         {
             Label = @"Import"
         });
+        public IMenu Run_Environment => _UFT_Menu.Describe<IMenu>(new MenuDescription
+        {
+            Label = @"Run Environment"
+        });
         public IMenu Save => _UFT_Menu.Describe<IMenu>(new MenuDescription
         {
             Label = @"Save"

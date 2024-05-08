@@ -130,8 +130,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
 
         public Selenium_WebElement ReadyPhase => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@svgicon='phase_state_enabled']");
         public Selenium_WebElement PhaseHeader => new Selenium_WebElement(_Selenium_Driver, "//div[@id='headerPhase']/../../..");
-        public Selenium_WebElement PFCButton => new Selenium_WebElement(_Selenium_Driver, "//mat-button-toggle[@value = 'pfc']");
+        public Selenium_WebElement ParamtersAButton => new Selenium_WebElement(_Selenium_Driver, "//button[@aria-label = 'Toggle A']");
         public Selenium_WebElement PhaseListButton => new Selenium_WebElement(_Selenium_Driver, "//mat-button-toggle[@value = 'list']");
+        public ReadOnlyCollection<IWebElement> OrderPhaseparam => _Selenium_Driver.FindElements(By.XPath("//div[@class='collapse-text description phase-with-param']"));
 
     }
     //Consolidated_Page
@@ -172,7 +173,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         }
         public Selenium_WebElement OKButton => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' OK ']/../..");
         public Selenium_WebElement CancelButton => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' Cancel ']/../..");
-        public Selenium_WebElement StopButton => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[data-mat-icon-name='toolbar_stop']");
+        public Selenium_WebElement StopButton => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='toolbar_stop']");
+        public Selenium_WebElement Confirmation_Text => new Selenium_WebElement(_Selenium_Driver, "//div[@id='dialog']//textarea");
+        public Selenium_WebElement Confirmation_password => new Selenium_WebElement(_Selenium_Driver, "//input[@type='password']");
+        public Selenium_WebElement ConfirmationOK_button => new Selenium_WebElement(_Selenium_Driver, "//span[text()=' OK ']/..");
+
         //Soap
         public Selenium_WebElement SOAP_CALL2_EXButton => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' SOAP_CALL2_EX ']/../..");
         public Selenium_WebElement SOAP_CALL2_Button => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' SOAP_CALL2 ']/../..");
@@ -192,7 +197,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public Selenium_WebElement tranfer2field4_input => new Selenium_WebElement(_Selenium_Driver, "//input[@id='TEST.F_Scan2']");
         public Selenium_WebElement Selectline3_button => new Selenium_WebElement(_Selenium_Driver, "//button[@id='TEST.btnPrintLabel']");
         public Selenium_WebElement Field3_input => new Selenium_WebElement(_Selenium_Driver, "//input[@id='TEST.F_Scan3']");
-        public Selenium_WebElement Error_Message => new Selenium_WebElement(_Selenium_Driver, "//div[@class='padding']/div[2]/div/div/div/p");
+        public Selenium_WebElement Message => new Selenium_WebElement(_Selenium_Driver, "//div[@class='padding']/div[2]/div/div/div/p");
         public Selenium_WebElement MessageOK_button => new Selenium_WebElement(_Selenium_Driver, "//span[text()=' OK ']/..");
         public Selenium_WebElement Field4 => new Selenium_WebElement(_Selenium_Driver, "//input[@id='TEST.F_Scan4']/../../../..");
         public ReadOnlyCollection<IWebElement> TableRows => _Selenium_Driver.FindElements(By.XPath("//tbody/tr[@role='row']"));
@@ -205,6 +210,13 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public Selenium_WebElement Path_table => new Selenium_WebElement(_Selenium_Driver, "//tbody[@role='rowgroup']/tr[2]//input");
         //771207  
         public Selenium_WebElement time_label => new Selenium_WebElement(_Selenium_Driver, "//div[@id='screen']/app-aebrs-label[2]/label");
+        //468668
+        public Selenium_WebElement GET_ORDER_STATEButton => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' GET_ORDER_STATE ']/../..");
+        //481813
+        public Selenium_WebElement SQL_SELECT_ONEButton => new Selenium_WebElement(_Selenium_Driver, "//button[@id='Main.Button0']");
+        //540082
+        public Selenium_WebElement HU_field => new Selenium_WebElement(_Selenium_Driver, "//input[@id='TEST.F_HU']");
+        public Selenium_WebElement ResetHU_button => new Selenium_WebElement(_Selenium_Driver, "//button[@id='TEST.B_HU']");
     }
 
 

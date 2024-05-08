@@ -233,7 +233,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public static void GML_ConfigAll()
         {
             //mMDM
-            GML_mMDMConfig();
+            //GML_mMDMConfig();
             //GML templates
             APEM.AeBRSInstaller(true);
             //AFW

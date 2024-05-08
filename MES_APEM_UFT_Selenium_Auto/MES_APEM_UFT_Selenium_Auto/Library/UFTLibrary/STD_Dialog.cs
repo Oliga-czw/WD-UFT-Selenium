@@ -66,6 +66,16 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
             NativeClass = @"Button",
             Text = @"OK"
         });
+        public IButton Print => _STD_Dialog.Describe<IButton>(new ButtonDescription
+        {
+            NativeClass = @"Button",
+            Text = @"&Print"
+        });
+        public IButton Save => _STD_Dialog.Describe<IButton>(new ButtonDescription
+        {
+            NativeClass = @"Button",
+            Text = @"&Save"
+        });
 
         public IButton Yes => _STD_Dialog.Describe<IButton>(new ButtonDescription
         {
@@ -82,9 +92,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
             NativeClass = @"Button",
             Text = @"Cancel"
         });
-        public IEditField nameEditField => _STD_Dialog.Describe<IEditField>(new EditFieldDescription
+        public IEditField FileNameEditField => _STD_Dialog.Describe<IEditField>(new EditFieldDescription
         {
-            AttachedText = @"Name:",
             NativeClass = @"Edit"
         });
         public IEditField descriptionEditField => _STD_Dialog.Describe<IEditField>(new EditFieldDescription

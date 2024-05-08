@@ -1,0 +1,216 @@
+V14TEST.TEST2:library.component.chkRoutineContainer
+  design:
+    MAIN:library.component.chkActionBlock
+      action:
+        @               @               @               // Basic phase:
+        @               @               @               //
+        @               @               @               // Initial version: Loli Braza - 12 Jan 2023
+        @               @               @               //
+      end
+      bounds: 30,130,56,60
+      linkYes: 1
+      links: ReturnNo0, NLS
+    END
+    NLS:library.component.chkActionBlock
+      action:
+        @               @               @               //Labels
+        @               @               @               //
+        @               @               @               //
+        @               @RETURN_YES     @               //
+      end
+      bounds: 140,130,56,60
+      linkYes: 1
+      links: ReturnNo0, SETUP
+    END
+    SETUP:library.component.chkActionBlock
+      action:
+        @               @               @               //
+        @               @               @               //
+        @               @               @               vb_Yes:=YES
+        @               @               @               as_resources:={"Operator"}
+        @               @               @               as_meanings:={"meaning1","meaning2"}
+      end
+      bounds: 240,130,56,60
+      linkYes: 1
+      links: ReturnNo0, TEST
+    END
+    TEST:library.component.chkScreen
+      bounds: 370,130,56,60
+      description: Scanning
+      preaction:
+        @               @               @               x:={100,200,300,400,500}
+        @               @               @               y:={1,4,7,2,3}
+        @               @               @               isourceHU:=YES
+        @               @               @               // Shows or hides data fields
+        @               @               @               L_BatchId.visible := iSourceHU
+        @               @               @               F_BatchId.visible := iSourceHU
+        @               @               @               B_BatchId.visible := iSourceHU
+        @               @               @               j:=7
+      end
+      design:
+        Label2:library.component.chkLabel
+          caption: TEST
+          border: No
+          font: Dialog,1,16
+          fore_color: 0,0,128
+          alignment: 4
+          enabled: Yes
+          bounds: 390,0,100,30
+        END
+        RefreshableDisplayLabel0:library.component.chkRefreshableDisplayLabel
+          exp: j
+          period: 5
+          refreshable: No
+          border: Yes
+          format: -1
+          font: sansserif,0,12
+          fore_color: 0,0,0
+          alignment: 2
+          record: No
+          enabled: Yes
+          bounds: 360,80,90,30
+        END
+        L_HU:library.component.chkLabel
+          caption: H.U.:
+          border: No
+          font: Dialog,1,16
+          fore_color: 0,0,128
+          alignment: 4
+          enabled: Yes
+          bounds: 20,170,230,30
+        END
+        F_HU:library.component.chkField
+          var: vs_HU
+          type: 5
+          format: -1
+          maxChar: 100
+          font: Dialog,1,16
+          fore_color: 51,51,51
+          back_color: 255,255,255
+          disabled_text_color: 0,0,128
+          onExit:
+            @               @               @SKIP           iSourceHU
+            @               @               @               TRANSFER_FOCUS ( "F_BatchId" )
+            @SKIP           @RETURN_YES     @               //
+          end
+          alignment: 2
+          record: No
+          enabled: Yes
+          bounds: 260,170,550,30
+        END
+        B_HU:library.component.chkButton
+          caption: Reset HU
+          bounds: 820,170,170,30
+          font: Dialog,1,16
+          fore_color: 51,51,51
+          back_color: 128,128,130
+          textPos: 11
+          action:
+            @               @               @               // Reset the content of the HU and put the focus into the HU field
+            @               @               @               vs_HU := ""
+            @               @               @               TRANSFER_FOCUS ( "F_HU" )
+          end
+          enabled: Yes
+        END
+        L_BatchId:library.component.chkLabel
+          caption: Batch Id:
+          border: No
+          font: Dialog,1,16
+          fore_color: 0,0,128
+          alignment: 4
+          enabled: Yes
+          bounds: 20,210,230,30
+        END
+        F_BatchId:library.component.chkField
+          var: vs_BatchId
+          type: 5
+          format: -1
+          maxChar: 100
+          font: Dialog,1,16
+          fore_color: 51,51,51
+          back_color: 255,255,255
+          disabled_text_color: 0,0,128
+          onExit:
+            @               @               @               p:=q
+            @               @               @               //
+          end
+          alignment: 2
+          record: No
+          enabled: Yes
+          bounds: 260,210,550,30
+        END
+        B_BatchId:library.component.chkButton
+          caption: Reset Batch Id
+          bounds: 820,210,170,30
+          font: Dialog,1,16
+          fore_color: 51,51,51
+          back_color: 128,128,130
+          textPos: 11
+          action:
+            @               @               @               // Reset the content of the Batch ID field and put the focus into the batch ID field
+            @               @               @               vs_BatchId := ""
+            @               @               @               TRANSFER_FOCUS ( "F_BatchId" )
+          end
+          enabled: Yes
+        END
+        Field0:library.component.chkField
+          var: dd
+          type: 5
+          format: -1
+          maxChar: 100
+          font: sansserif,0,12
+          fore_color: 0,0,0
+          back_color: 255,255,255
+          disabled_text_color: 95,95,95
+          alignment: 2
+          record: No
+          enabled: Yes
+          bounds: 280,260,90,30
+        END
+        CancelButton0:library.component.chkCancelButton
+          caption: Cancel
+          bounds: 710,330,120,30
+          font: sansserif,0,12
+          fore_color: 0,0,0
+          back_color: 255,255,255
+          textPos: 11
+          confirm: Yes
+          enabled: Yes
+        END
+        OkButton0:library.component.chkOkButton
+          caption: OK
+          bounds: 230,340,120,30
+          font: sansserif,0,12
+          fore_color: 0,0,0
+          back_color: 255,255,255
+          textPos: 11
+          enabled: Yes
+        END
+      END
+      breakpoint: No
+      height: 625
+      width: 1040
+      grid_size: 10
+      screen_back_color: 245,245,245
+      links: ReturnNo0, ReturnNo0
+      linkYes: 1
+    END
+    ReturnYes0:library.component.chkReturnYes
+      Bounds: 630,130,54,56
+    END
+    ReturnNo0:library.component.chkReturnNo
+      Bounds: 440,290,54,56
+    END
+  END
+  width: 810
+  height: 521
+  grid_size: 10
+  arguments:
+    iSignature_Required;1;No;Required signature for Sampling Screen?;;;false
+    iSignature_RUDOs;19;{"Operators"};Signature RUDOs for Sampling Screen;;=GET_UDOS();false
+    iSignature_Meanings;19;{"Meaning of signature"};Signature meanings for Sampling Screen;;;true
+    iSignature_PreviousPhaseCheck;3;;The User who signs cannot be the same as the User who signed this Phase. Only for Batch RPL's;;;true
+    iButton_Documents;19;{NULL};DOCUMENT_ID in DOCUMENT Table. If Null, "View SOP" button not visible;;=SQL_GET("Select DOCUMENT_ID from DOCUMENT ORDER BY DOCUMENT_ID");true
+  end
+END
+CHECKSUM=1744997694

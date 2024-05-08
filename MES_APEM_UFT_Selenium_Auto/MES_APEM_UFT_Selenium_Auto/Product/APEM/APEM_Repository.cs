@@ -104,6 +104,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public static UFT_Dialog ExecuteTemplateDialog => new UFT_Dialog("//Dialog[@Title = 'Execute the Template']");
         public static UFT_Dialog SaveChangesDialog => new UFT_Dialog("//Dialog[@Title = 'Save Changes ...']");
         public static UFT_Dialog ChangesDesignDialog => new UFT_Dialog("//Dialog[@Title = 'Changes in Design']");
+        public static UFT_Dialog InvalidImage => new UFT_Dialog("//Dialog[@Title = 'Invalid Image']");
         #endregion
 
 
@@ -183,6 +184,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         #region APEMAdmin windows
 
         public static APEMAdmin_Window APEMAdminWindow => new APEMAdmin_Window("//Window[@WindowTitleRegExp = 'Aspen Production Execution Manager Administrator*'] ");
+
+
+        //491775
+        public static SavePrintFile_Window SavePrintFileWindow => new SavePrintFile_Window("//Window[@WindowClassRegExp = 'SunAwtFrame");
 
 
         public static STD_Dialog PropertyDialog => new STD_Dialog("//Dialog[@Text = 'Audit & Compliance Extractor - Properties' and @Index='1']");

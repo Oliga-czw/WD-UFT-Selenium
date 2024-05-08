@@ -1,0 +1,70 @@
+THREAD$$LOCAL_BP:library.component.chkLocalRoutineContainer
+  design:
+    ReturnNo0:library.component.chkReturnNo
+      Bounds: 380,110,35,35
+    END
+    main:library.component.chkScreen
+      bounds: 250,130,45,50
+      description: main
+      design:
+        Label0:library.component.chkLabel
+          caption: Refreshable label:
+          border: No
+          font: sansserif,0,12
+          fore_color: 0,0,0
+          alignment: 2
+          enabled: Yes
+          bounds: 70,110,170,30
+        END
+        RefreshableDisplayLabel0:library.component.chkRefreshableDisplayLabel
+          exp: NOW()
+          var: vs1
+          period: 2
+          refreshable: Yes
+          border: Yes
+          format: -1
+          font: sansserif,0,12
+          fore_color: 0,0,0
+          alignment: 2
+          record: No
+          enabled: Yes
+          bounds: 200,110,210,30
+        END
+        OkButton0:library.component.chkOkButton
+          caption: OK
+          bounds: 120,290,120,30
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          back_color: 238,238,238
+          textPos: 11
+          enabled: Yes
+        END
+        CancelButton0:library.component.chkCancelButton
+          caption: Cancel
+          bounds: 350,290,120,30
+          font: Dialog,1,12
+          fore_color: 51,51,51
+          back_color: 238,238,238
+          textPos: 11
+          confirm: Yes
+          enabled: Yes
+        END
+      END
+      validate: @               @               @               pOkSet:=Yes
+      breakpoint: Yes
+      height: 400
+      width: 500
+      grid_size: 10
+      screen_back_color: 192,192,192
+      links: ReturnNo0, ReturnYes0
+      linkYes: 1
+    END
+    ReturnYes0:library.component.chkReturnYes
+      Bounds: 350,220,35,35
+    END
+  END
+  width: 500
+  height: 400
+  grid_size: 10
+END
+CHECKSUM=2239400810

@@ -26,12 +26,14 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public BPLList_InterFrame BPLListInternalFrame => new BPLList_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Basic Phase Library List']");
         public BPLData_InterFrame BPLDataInternalFrame => new BPLData_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Basic Phase Library Data*']");
         public Subdocuments_InterFrame SubdocumentsFrame => new Subdocuments_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Subdocuments']");
-        public Document_InterFrame DocumentFrame => new Document_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Document']");
+        public Document_InterFrame DocumentFrame => new Document_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Document*']");
         public OrderList_InterFrame OrderListInternalFrame => new OrderList_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Orders*']");
         public RPLManagement_InterFrame RPLManagementInternalFrame => new RPLManagement_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'RPL Management*']");
         public MasterRecipe_InterFrame MasterRecipeInterFrame => new MasterRecipe_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Master Recipe List']");
         public MasterRecipeData_InterFrame MasterRecipeDataInterFrame => new MasterRecipeData_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Master Recipe Data*']");
         public EventLogList_InterFrame EventLogListInterFrame => new EventLogList_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Event Log List']");
+        public SQLQueries_InterFrame SQLQueriesInterFrame => new SQLQueries_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'SQL Queries']");
+        public SQLQuery_InterFrame SQLQueryInterFrame => new SQLQuery_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'SQL Query']");
         #endregion
 
         public UFT_Button Audit_moudle => new UFT_Button(_UFT_Window, "//Button[@Label = 'Audit Module' and @IsWrapped = 'True']");
@@ -45,6 +47,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button MasterRecipes => new UFT_Button(_UFT_Window, "//Button[@Label = 'Master Recipes' and @IsWrapped = 'True']");
         public UFT_Button Config_moudle => new UFT_Button(_UFT_Window, "//Button[@Label = 'Config Module' and @IsWrapped = 'True']");
         public MOC_Menu Tools => new MOC_Menu(_UFT_Window, "//Menu[@Label = 'Tools']");
+        public MOC_Menu Library => new MOC_Menu(_UFT_Window, "//Menu[@Label = 'Library']");
 
         #region dialog
         public UFT_Dialog VerifyDialog => new UFT_Dialog("//Dialog[@Index = '0']");
@@ -107,6 +110,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         {
         }
         public UFT_Menu EventLog => new UFT_Menu(_UFT_Menu, "//Menu[@Label = 'Event Log']");
+        public UFT_Menu QueryDesign => new UFT_Menu(_UFT_Menu, "//Menu[@Label = 'Query Design']");
     }
     public class APEMMainWindow : UFT_JavaWindow
     {
@@ -145,7 +149,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public BPLExecutionMessageInterFrame MessageInterFrame => new BPLExecutionMessageInterFrame(_UFT_Window, "//InterFrame[@Label = 'Message']");
         public Confirmation_InterFrame ConfirmationInternalFrame => new Confirmation_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Confirmation']");
         public ExecuteMain_InterFrame ExecuteMainInternalFrame => new ExecuteMain_InterFrame(_UFT_Window, "//InterFrame[@NativeClass = 'runtime.vm.chkVMRuntimeMDI$RTFrame']");
-
+        public RunEnvironment_InterFrame RunEnvironmentInternalFrame => new RunEnvironment_InterFrame(_UFT_Window, "//InterFrame[@NativeClass = 'library.component.RunEnvironmentFrame']");
         #endregion
         #region RPLDesign
         public UFT_CheckBox UnitProcedure => new UFT_CheckBox(_UFT_Window, "//CheckBox[@AttachedText = 'Unit Procedure' and @IsWrapped = 'True']");
@@ -183,6 +187,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         #endregion
         public UFT_Dialog PasteRenamedDialog => new UFT_Dialog(_UFT_Window, "//Dialog[@Title = 'Copy/Paste Renamed Components List']");
         public UFT_Menu FileImport => new UFT_Menu(_UFT_Window, "//Menu[@Label = 'File']");
+        public UFT_Menu Execute => new UFT_Menu(_UFT_Window, "//Menu[@Label = 'Run']");
         public UFT_Menu Build => new UFT_Menu(_UFT_Window, "//Menu[@Label = 'Build']");
         public UFT_Menu DesignMenu => new UFT_Menu(_UFT_Window, "//Menu[@Label = 'Design']");
         public OpenDesign_Dialog OpenDesignDialog => new OpenDesign_Dialog(_UFT_Window, "//Dialog[@Title = 'Open design ...']");
