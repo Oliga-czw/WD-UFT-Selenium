@@ -29,7 +29,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
-        [Timeout(600000)]
+        [Timeout(1200000)]
 
         [TestMethod]
         public void VSTS_629827()
@@ -67,7 +67,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mobile.OrderProcess_Page.GotoTracking.Click();
             driver.Wait(1000);
             Mobile.OrderTracking_Page.ExecutionButton.Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(8000);
             //check footer
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "footer1.PNG");
             //click cancel
@@ -87,7 +87,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mobile.OrderExecution_Page.Password.SendKeys(PassWord.qaone1);
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "footer3.PNG");
             //finish phase
-            Mobile.OrderExecution_Page.Password.SendKeys(Keys.Enter) ;
+            Mobile.OrderExecution_Page.Password.SendKeys(Keys.Enter);
             Thread.Sleep(8000);
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "footer4.PNG");
             Base_Assert.IsTrue(driver.GetUrl().Contains("tracking"), "tracking page");
@@ -99,7 +99,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Base_Test.KillProcess("tomcat10");
             Thread.Sleep(30000);
             Base_Function.ResartServices(ServiceName.Tomcat);
-            Thread.Sleep(60000);
+            Thread.Sleep(240000);
             try
             {
                 Selenium_Driver driver2 = new Selenium_Driver(Browser.chrome);
@@ -110,13 +110,15 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Thread.Sleep(5000);
                 //go to tracking page,execute the phase
                 Mobile.OrderProcess_Page.GotoTracking.Click();
-                Mobile.OrderTracking_Page.ExecutionButton.Click();
                 Thread.Sleep(2000);
+                Mobile.OrderTracking_Page.ExecutionButton.Click();
+                Thread.Sleep(10000);
                 //check no footer
                 Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "footer5.PNG");
                 Mobile.OrderExecution_Page.OKButton.Click();
                 Thread.Sleep(8000);
-                Base_Assert.IsTrue(driver.GetUrl().Contains("tracking"), "tracking page");
+                Base_Assert.IsTrue(driver2.GetUrl().Contains("tracking"), "tracking page");
+                driver2.Close();
             }
             finally
             {
@@ -126,7 +128,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Base_Test.KillProcess("tomcat10");
                 Thread.Sleep(30000);
                 Base_Function.ResartServices(ServiceName.Tomcat);
-                Thread.Sleep(60000);
+                Thread.Sleep(80000);
             }
         }
     }
