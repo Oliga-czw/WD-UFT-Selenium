@@ -181,13 +181,16 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         }
 
         
-        public Selenium_WebElement PhaseName => new Selenium_WebElement(_Selenium_Driver, "/html/body/app-root/div/app-execution/div/div[1]/div[2]");
+        public Selenium_WebElement PhaseTitle => new Selenium_WebElement(_Selenium_Driver, "/html/body/app-root/div/app-execution/div/div[1]/div[2]");
         public Selenium_WebElement OKButton => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' OK ']/../..");
         public Selenium_WebElement CancelButton => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' Cancel ']/../..");
         public Selenium_WebElement StopButton => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='toolbar_stop']");
         public Selenium_WebElement Confirmation_Text => new Selenium_WebElement(_Selenium_Driver, "//div[@id='dialog']//textarea");
         public Selenium_WebElement Confirmation_password => new Selenium_WebElement(_Selenium_Driver, "//input[@type='password']");
         public Selenium_WebElement ConfirmationOK_button => new Selenium_WebElement(_Selenium_Driver, "//span[text()=' OK ']/..");
+        //629827
+        public Selenium_WebElement FooterOKButton => new Selenium_WebElement(_Selenium_Driver, "//div[text()='OK']/../..");
+        public Selenium_WebElement Password => new Selenium_WebElement(_Selenium_Driver, "//input[@id='main.Password0']");
 
         //Soap
         public Selenium_WebElement SOAP_CALL2_EXButton => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' SOAP_CALL2_EX ']/../..");

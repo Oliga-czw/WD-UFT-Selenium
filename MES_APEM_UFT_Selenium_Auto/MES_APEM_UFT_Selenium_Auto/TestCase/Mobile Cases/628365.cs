@@ -117,7 +117,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //check go to executing
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "user2_to_Executing page.PNG");
             Base_Assert.IsTrue(edge.GetUrl().Contains("execution"), "execution page");
-            Base_Assert.AreEqual(phase, Mobile.OrderExecution_Page.PhaseName.Text(), "Same phase");
+            Base_Assert.AreEqual(phase, Mobile.OrderExecution_Page.PhaseTitle.Text(), "Same phase");
             Mobile.OrderExecution_Page.OKButton.Click();
             Thread.Sleep(5000);
 
