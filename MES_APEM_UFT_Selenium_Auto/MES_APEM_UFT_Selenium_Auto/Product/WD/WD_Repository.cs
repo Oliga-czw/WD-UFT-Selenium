@@ -33,7 +33,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         public static UFT_Dialog DeviationDialog => new UFT_Dialog(window, "//Dialog[@Title = 'Create Deviation']");
         public static UFT_Dialog ConfirmationDialog => new UFT_Dialog(window, "//Dialog[@Title = 'Confirmation']");
         public static UFT_Dialog reopenMessageDialog => new UFT_Dialog("//Dialog[@Title = 'Module Already Running']");
-
+        public static UFT_Dialog SessionTimedOutDialog => new UFT_Dialog("//Dialog[@Title = 'Session Timed Out']");
         public static License_Dialog LicenseMessageDialog => new License_Dialog("//Dialog[@Title = 'Licensing problems']");
         #endregion
         #region WD_Controls

@@ -56,6 +56,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         #region dialog
         public UFT_Dialog Dialog => new UFT_Dialog(_UFT_Window, "//Dialog[@Index = '0']");
 
+
         #endregion
 
 
