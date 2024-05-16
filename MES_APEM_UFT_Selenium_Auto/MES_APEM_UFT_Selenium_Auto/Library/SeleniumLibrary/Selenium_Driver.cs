@@ -6,6 +6,7 @@ using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -87,7 +88,14 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.SeleniumLibrary
             }
             else if (browser == "edge")
             {
+
                 var edgeDriverPath = Base_Directory.DebugDir;
+                string edge_driver = Base_Directory.DebugDir + "\\MicrosoftWebDriver.exe";
+                string Base_driver = Base_Directory.DebugDir + "\\msedgedriver.exe";
+                if (!File.Exists(edge_driver))
+                {
+                    Base_File.CopyFile(Base_driver, edge_driver);
+                }
                 edgeDriver = new EdgeDriver(edgeDriverPath);
                 SetCurrentDriver(edgeDriver);
             }
