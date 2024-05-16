@@ -51,12 +51,6 @@
     <Reference Include="HP.LFT.SDK, Version=14.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="HP.LFT.UnitTesting, Version=14.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="HP.LFT.Verifications, Version=14.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="OpenQA.Selenium.Winium, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\OpenQA.Selenium.Winium.1.0.0.4\lib\OpenQA.Selenium.Winium.dll</HintPath>
-    </Reference>
-    <Reference Include="Spire.Pdf, Version=9.8.5.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
-      <HintPath>..\packages\Spire.PDF.9.8.5\lib\net40\Spire.Pdf.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -98,9 +92,6 @@
     </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Library\BaseLibrary\Base_Assert.cs" />
@@ -167,13 +158,18 @@
     <Compile Include="Product\SQLplus\SQLplus_Window.cs" />
     <Compile Include="TestCase\APEM Cases\1006618.cs" />
     <Compile Include="TestCase\APEM Cases\1002790.cs" />
+    <Compile Include="TestCase\APEM Cases\432386.cs" />
+    <Compile Include="TestCase\APEM Cases\43623.cs" />
     <Compile Include="TestCase\APEM Cases\468668.cs" />
     <Compile Include="TestCase\APEM Cases\481813.cs" />
     <Compile Include="TestCase\APEM Cases\491775.cs" />
     <Compile Include="TestCase\APEM Cases\492205.cs" />
     <Compile Include="TestCase\APEM Cases\515698.cs" />
+    <Compile Include="TestCase\APEM Cases\431802.cs" />
+    <Compile Include="TestCase\APEM Cases\554188.cs" />
     <Compile Include="TestCase\APEM Cases\539370.cs" />
     <Compile Include="TestCase\APEM Cases\540082.cs" />
+    <Compile Include="TestCase\APEM Cases\520174.cs" />
     <Compile Include="TestCase\APEM Cases\553157.cs" />
     <Compile Include="TestCase\APEM Cases\771207.cs" />
     <Compile Include="TestCase\APEM Cases\788897.cs" />
@@ -365,7 +361,6 @@
     <Compile Include="UftDeveloperSeleniumTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="Data\Input\AeBRSInstaller.bat" />
     <None Include="Data\Input\BulkLoad\BulkLoadAll.bat" />
     <None Include="Data\Input\BulkLoad\BulkLoadAllinventory.bat" />
@@ -388,11 +383,18 @@
     <None Include="Data\Input\Msi\msxml6.msi" />
     <None Include="Data\Input\Msi\soap3.0.msi" />
     <None Include="Data\Input\Template\912651.zip" />
+    <None Include="Data\Input\Template\API_ORDER_STATE.zip" />
     <None Include="Data\Input\Template\AUTOSTART.zip" />
+    <None Include="Data\Input\Template\BPL1006618.zip" />
+    <None Include="Data\Input\Template\BPL503586.zip" />
     <None Include="Data\Input\Template\BPL915161.zip" />
     <None Include="Data\Input\Template\BPL916388.zip" />
     <None Include="Data\Input\Template\BPL916420.zip" />
+    <None Include="Data\Input\Template\CASE1002790.zip" />
+    <None Include="Data\Input\Template\CASE1342249.zip" />
     <None Include="Data\Input\Template\CASE213769.zip" />
+    <None Include="Data\Input\Template\CASE788897.zip" />
+    <None Include="Data\Input\Template\CASE825087.zip" />
     <None Include="Data\Input\Template\CASE849596.zip" />
     <None Include="Data\Input\Template\CASE850241.zip" />
     <None Include="Data\Input\Template\CASE850407.zip" />
@@ -400,24 +402,60 @@
     <None Include="Data\Input\Template\CASE850438.zip" />
     <None Include="Data\Input\Template\CASE876986.zip" />
     <None Include="Data\Input\Template\CASE927362.zip" />
-    <None Include="Data\Input\Template\CASE958133.zip" />
     <None Include="Data\Input\Template\CASE961928.zip" />
     <None Include="Data\Input\Template\CASE962328.zip" />
     <None Include="Data\Input\Template\CASE962338.zip" />
     <None Include="Data\Input\Template\CASE962481.zip" />
+    <None Include="Data\Input\Template\CASE976946.zip" />
+    <None Include="Data\Input\Template\CASE976953.zip" />
+    <None Include="Data\Input\Template\CASE976973.zip" />
+    <None Include="Data\Input\Template\CASE977000.zip" />
     <None Include="Data\Input\Template\CREATEORDER.zip" />
     <None Include="Data\Input\Template\EVENTLOG510.zip" />
     <None Include="Data\Input\Template\EVENTLOGFUFT.zip" />
     <None Include="Data\Input\Template\SAMPLE.zip" />
     <None Include="Data\Input\Template\TEMP.zip" />
+    <None Include="Data\Input\Template\TEMP431802.zip" />
+    <None Include="Data\Input\Template\TEMP43623.zip" />
+    <None Include="Data\Input\Template\TEMP492205.zip" />
+    <None Include="Data\Input\Template\TEMP515698.zip" />
+    <None Include="Data\Input\Template\TEMP520174.zip" />
+    <None Include="Data\Input\Template\TEMP539370.zip" />
+    <None Include="Data\Input\Template\TEMP540082.zip" />
+    <None Include="Data\Input\Template\TEMP553157.zip" />
+    <None Include="Data\Input\Template\TEMP554188.zip" />
     <None Include="Data\Input\Template\TEMP749627.zip" />
+    <None Include="Data\Input\Template\TEMP771207.zip" />
     <None Include="Data\Input\Template\TEMP912584.zip" />
     <None Include="Data\Input\Template\TEMP916366.zip" />
+    <None Include="Data\Input\Template\TEMP918007.zip" />
+    <None Include="Data\Input\Template\TEMP919004.zip" />
+    <None Include="Data\Input\Template\TEMP920999.zip" />
+    <None Include="Data\Input\Template\TEMP958133.zip" />
+    <None Include="Data\Input\Template\TEST_THREAD_REFRESHABLE-LABEL_WEB_CLIENT.zip" />
     <None Include="Data\Input\TestFile\test.pdf" />
-    <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <PackageReference Include="OpenQA.Selenium.Winium">
+      <Version>1.0.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver">
+      <Version>124.0.6367.6000</Version>
+    </PackageReference>
+    <PackageReference Include="Selenium.WebDriver.IEDriver">
+      <Version>4.8.1</Version>
+    </PackageReference>
+    <PackageReference Include="Selenium.WebDriver.MSEdgeDriver">
+      <Version>123.0.2420.65</Version>
+    </PackageReference>
+    <PackageReference Include="Spire.PDF">
+      <Version>9.8.5</Version>
+    </PackageReference>
+    <PackageReference Include="System.Console">
+      <Version>4.3.1</Version>
+    </PackageReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Input\AFWDB.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -559,17 +597,6 @@
     <Content Include="Results\997428-Planned.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Selenium.WebDriver.IEDriver.4.8.1\build\Selenium.WebDriver.IEDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.IEDriver.4.8.1\build\Selenium.WebDriver.IEDriver.targets'))" />
-    <Error Condition="!Exists('..\packages\Selenium.WebDriver.MSEdgeDriver.123.0.2420.65\build\Selenium.WebDriver.MSEdgeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.MSEdgeDriver.123.0.2420.65\build\Selenium.WebDriver.MSEdgeDriver.targets'))" />
-    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.124.0.6367.6000\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.124.0.6367.6000\build\Selenium.WebDriver.ChromeDriver.targets'))" />
-  </Target>
-  <Import Project="..\packages\Selenium.WebDriver.IEDriver.4.8.1\build\Selenium.WebDriver.IEDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.IEDriver.4.8.1\build\Selenium.WebDriver.IEDriver.targets')" />
-  <Import Project="..\packages\Selenium.WebDriver.MSEdgeDriver.123.0.2420.65\build\Selenium.WebDriver.MSEdgeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.MSEdgeDriver.123.0.2420.65\build\Selenium.WebDriver.MSEdgeDriver.targets')" />
-  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.124.0.6367.6000\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.124.0.6367.6000\build\Selenium.WebDriver.ChromeDriver.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
