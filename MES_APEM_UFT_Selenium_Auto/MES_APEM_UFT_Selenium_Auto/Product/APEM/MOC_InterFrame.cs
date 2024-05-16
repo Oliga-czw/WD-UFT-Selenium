@@ -127,6 +127,16 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         {
             TagName = @"m2rTabbedPanel"
         });
+        public IEditor verifyDate => _UFT_InterFrame.Describe<IEditor>(new EditorDescription
+        {
+            AttachedText = @"Date",
+            Index = 0
+        });
+        public IEditor certifyDate => _UFT_InterFrame.Describe<IEditor>(new EditorDescription
+        {
+            AttachedText = @"Date",
+            Index = 1
+        });
         public UFT_Button SelectBPL_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Insert row' and @IsWrapped = 'True']");
         public UFT_Button LoadDesigner_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Load designer' and @IsWrapped = 'True']");
         public UFT_Button VerifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Verify']");
@@ -192,7 +202,16 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         });
         public UFT_Table ParametersTable => new UFT_Table(_UFT_InterFrame, "//Table[@NativeClass = 'm2r.Table.m2rTableViewEdit']");
         public UFT_UiObject message => new UFT_UiObject(_UFT_InterFrame, "//Label[@TagName = 'm2rStatus']");
-
+        public IEditor verifyDate => _UFT_InterFrame.Describe<IEditor>(new EditorDescription
+        {
+            AttachedText = @"Date",
+            Index = 0
+        });
+        public IEditor certifyDate => _UFT_InterFrame.Describe<IEditor>(new EditorDescription
+        {
+            AttachedText = @"Date",
+            Index = 1
+        });
     }
     //OrderTrackingPFC_InterFrame
     public class OrderTrackingPFC_InterFrame : MOCMainInterFrame
@@ -317,6 +336,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public BPLList_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
         {
         }
+        public UFT_Button EditBPL_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Edit values' and @IsWrapped = 'True']");
         public UFT_Button AddBPL_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Insert row' and @IsWrapped = 'True']");
         public UFT_Button LoadDesigner_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Load designer' and @IsWrapped = 'True']");
         public UFT_Button Refresh_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Refresh' and @IsWrapped = 'True']");
@@ -343,12 +363,22 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             TagName = @"m2rTabbedPanel"
         });
         public UFT_Button InsertRow_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Insert row' and @IsWrapped = 'True']");
-        public UFT_Table BPListTable => new UFT_Table(_UFT_InterFrame, "//Table[@AttachedText = 'No.\\s\\s']");
+        public UFT_Table ManageTable => new UFT_Table(_UFT_InterFrame, "//Table[@NativeClass = 'm2r.Table.m2rTableViewEdit']");
         public IEditor NoEditor => _UFT_InterFrame.Describe<IEditor>(new EditorDescription {
 				AttachedText = @"No.  ",
 				IsWrapped = true,
                 Index = 1
 			});
+        public IEditor verifyDate => _UFT_InterFrame.Describe<IEditor>(new EditorDescription
+        {
+            AttachedText = @"Date",
+            Index = 0
+        });
+        public IEditor certifyDate => _UFT_InterFrame.Describe<IEditor>(new EditorDescription
+        {
+            AttachedText = @"Date",
+            Index = 1
+        });
         public ICheckBox WebCheckBox => _UFT_InterFrame.Describe<ICheckBox>(new CheckBoxDescription
         {
             AttachedText = @"No.  ",
@@ -465,6 +495,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button LocalPdfView_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'local PDF view']");
         public UFT_Button SharedUrlview_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Shared URL view']");
         public UFT_Button InvalidError_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'invalid error message']");
+        //520174
+        public UFT_Button orderDetailButton => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'orderDetail']");
+        public UFT_Button orderdetail_EXButton => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'orderdetail_EX']");
     }
     //ExecuteMain_InterFrame
     public class ExecuteMain_InterFrame : MOCMainInterFrame
@@ -490,6 +523,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button SQL_UPDATEButton => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'SQL_UPDATE']");
         //540082
         public UFT_Label RefreshableBP => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'RefreshableDisplayLabel0']");
+        //520174
+        public UFT_Button orderDetailButton => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'orderDetail']");
+        public UFT_Button orderdetail_EXButton => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'orderdetail_EX']");
+        //554188
+        public UFT_Button User_state => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'Button0']");
     }
     public class RunEnvironment_InterFrame : MOCMainInterFrame
     {
