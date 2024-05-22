@@ -150,7 +150,14 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mobile.SessionManager_Page.Search.SendKeys(UserName.qaone3);
             Thread.Sleep(2000);
             int Pcount = Mobile.SessionManager_Page.TableRows.Count;
-            Mobile.SessionManager_Page.CloseSession.Click();
+            if (mode == "")
+            {
+                Mobile.SessionManager_Page.CloseSession.Click();
+            }
+            if (mode == "dark")
+            {
+                Mobile.SessionManager_Page.CloseSessionDark.Click();
+            }
             Thread.Sleep(2000);
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + " " + mode + " " + "end the user session dialog.PNG");
             //click no
@@ -162,7 +169,14 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //check data count
             Base_Assert.IsTrue(Pcount == Mcount, "No session cancel");
             //click yes
-            Mobile.SessionManager_Page.CloseSession.Click();
+            if (mode == "")
+            {
+                Mobile.SessionManager_Page.CloseSession.Click();
+            }
+            if (mode == "dark")
+            {
+                Mobile.SessionManager_Page.CloseSessionDark.Click();
+            }
             Thread.Sleep(2000);
             Mobile.SessionManager_Page.Dialog_Yes.Click();
             Thread.Sleep(2000);

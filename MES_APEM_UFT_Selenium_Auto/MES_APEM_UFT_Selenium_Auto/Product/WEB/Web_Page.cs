@@ -196,6 +196,14 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         public Selenium_WebElement ReprintLable => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Reprint Label']");
         public Selenium_WebElement PrintReport => new Selenium_WebElement(_Selenium_Driver, "//a[text()='Print Report']");
         public Selenium_WebElement PreviewOrderReport => new Selenium_WebElement(_Selenium_Driver, "//div[@class='gwt-DialogBox Dialog_Background']");
+        //order
+        public Selenium_WebElement OrderTable => new Selenium_WebElement(_Selenium_Driver, "//table[@class='Order_Table_body_Style_Collapse']");
+        public Selenium_WebElements OrderTableRows => new Selenium_WebElements(_Selenium_Driver, "//table[@class='Order_Table_body_Style_Collapse']/tbody/tr");
+
+        //edit order
+        public Selenium_WebElement EditTable => new Selenium_WebElement(_Selenium_Driver, "//tr[@class='Edit_Row_Panel']//table[@class='Order_Table_body_Style_Collapse']");
+        public Selenium_WebElements EditTableRows => new Selenium_WebElements(_Selenium_Driver, "//tr[@class='Edit_Row_Panel']//table[@class='Order_Table_body_Style_Collapse']/tbody/tr");
+
         //ReprintLable
         public Selenium_WebElement Labeltable => new Selenium_WebElement(_Selenium_Driver, "//tr[@class='dialogMiddle']//table[@class='Order_Table_body_Style_Collapse']");
         public Selenium_WebElements Labeltablerows => new Selenium_WebElements(_Selenium_Driver, "//tr[@class='dialogMiddle']//table[@class='Order_Table_body_Style_Collapse']/tbody/tr");
