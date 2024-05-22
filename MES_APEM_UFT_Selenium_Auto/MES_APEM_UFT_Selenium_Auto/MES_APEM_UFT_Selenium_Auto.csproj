@@ -158,9 +158,12 @@
     <Compile Include="Product\SQLplus\SQLplus_Window.cs" />
     <Compile Include="TestCase\APEM Cases\1006618.cs" />
     <Compile Include="TestCase\APEM Cases\1002790.cs" />
+    <Compile Include="TestCase\APEM Cases\213862.cs" />
     <Compile Include="TestCase\APEM Cases\432386.cs" />
+    <Compile Include="TestCase\APEM Cases\213774.cs" />
     <Compile Include="TestCase\APEM Cases\43623.cs" />
     <Compile Include="TestCase\APEM Cases\468668.cs" />
+    <Compile Include="TestCase\APEM Cases\29671.cs" />
     <Compile Include="TestCase\APEM Cases\481813.cs" />
     <Compile Include="TestCase\APEM Cases\491775.cs" />
     <Compile Include="TestCase\APEM Cases\492205.cs" />
@@ -458,6 +461,9 @@
     </PackageReference>
     <PackageReference Include="System.Console">
       <Version>4.3.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Drawing.Primitives">
+      <Version>4.3.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

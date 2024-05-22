@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Net;
 using System.ServiceProcess;
@@ -151,6 +152,18 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
                 }
             }
             Base_Function.AddConfigKey(Base_Directory.Host, ip4 + " " + hostName + ".qae.aspentech.com");
+        }
+        public static void CaptureScreenToFile(string filename, ImageFormat format)
+        {
+            Rectangle bounds = Screen.GetBounds(Point.Empty);
+            using (Bitmap bitmap = new Bitmap(bounds.Width, bounds.Height))
+            {
+                using (Graphics g = Graphics.FromImage(bitmap))
+                {
+                    g.CopyFromScreen(Point.Empty, Point.Empty, bounds.Size);
+                }
+                bitmap.Save(filename, format);
+            }
         }
 
     }

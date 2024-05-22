@@ -239,6 +239,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public Selenium_WebElement check_box_label1 => new Selenium_WebElement(_Selenium_Driver, "//mat-checkbox[@id='MAIN.Check1']//label");
         public Selenium_WebElement check_box_label2 => new Selenium_WebElement(_Selenium_Driver, "//mat-checkbox[@id='MAIN.Check2']//label");
         public Selenium_WebElement check_value => new Selenium_WebElement(_Selenium_Driver, "//div[@id='screen']/app-aebrs-label[2]/label");
+        //29671
+        public Selenium_WebElement TestInArray => new Selenium_WebElement(_Selenium_Driver, "//button[@id='Main.Button0']");
     }
 
 

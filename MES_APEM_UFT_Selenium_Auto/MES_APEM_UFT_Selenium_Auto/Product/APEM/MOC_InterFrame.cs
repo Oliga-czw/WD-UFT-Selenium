@@ -156,9 +156,10 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button ConfirmChanges_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Confirm changes' and @IsWrapped = 'True']");
         public UFT_Editor DocName => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Name']");
         public UFT_Editor DocDescription => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Description']");
-        
+        public UFT_Table ListTable => new UFT_Table(_UFT_InterFrame, "//Table[@NativeClass = 'm2r.Table.m2rTableView']");
         public UFT_Button LoadDesigner_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Load designer' and @IsWrapped = 'True']");
-        
+        public UFT_Button Execute_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Execute' and @IsWrapped = 'True']");
+
     }
     //MasterRecipe_InterFrame
     public class MasterRecipe_InterFrame : MOCMainInterFrame
@@ -227,7 +228,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
             Index = 1
         });
         public UFT_UiObject OperationUiObject => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@TagName = 'Operation']");
-        public UFT_UiObject PhaseUiObject => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@TagName = 'Phase']");
+        public UFT_UiObject PhaseUiObject => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@TagName = 'Phase' and @ Index = '0']");
         public IUiObject Script1 => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription
         {
             NativeClass = @"PFCTree.View.Script",
@@ -244,6 +245,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public IMenu ExecutionScreenshots => _UFT_InterFrame.Describe<IMenu>(new MenuDescription
         {
             Label = @"Execution screenshots"
+        });
+        public ILabel ExecutionStatus => _UFT_InterFrame.Describe<ILabel>(new LabelDescription
+        {
+            NativeClass = @"PFCTree.View.Step$RoundCornerLabel",
+            Index = 0
         });
         public IMenu ExecuteButton => _UFT_InterFrame.Describe<IMenu>(new MenuDescription
         {

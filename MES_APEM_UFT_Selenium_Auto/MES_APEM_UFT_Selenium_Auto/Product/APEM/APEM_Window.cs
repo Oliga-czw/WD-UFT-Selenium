@@ -111,6 +111,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         }
         public UFT_Menu EventLog => new UFT_Menu(_UFT_Menu, "//Menu[@Label = 'Event Log']");
         public UFT_Menu QueryDesign => new UFT_Menu(_UFT_Menu, "//Menu[@Label = 'Query Design']");
+        public UFT_Menu ActiveDocDesign => new UFT_Menu(_UFT_Menu, "//Menu[@Label = 'Active Doc Design']");
     }
     public class APEMMainWindow : UFT_JavaWindow
     {

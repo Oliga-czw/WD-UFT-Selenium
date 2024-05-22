@@ -55,7 +55,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MocmainWindow.BPLDataInternalFrame.ConfirmChanges_Button.Click();
             MOC_Fuction.AddReason();
             Thread.Sleep(4000);
-            APEM.MocmainWindow.GetSnapshot(Resultpath + "worksWell");
+            APEM.MocmainWindow.GetSnapshot(Resultpath + "worksWell.PNG");
             SqlHelper helper = new SqlHelper();
             string SQL = $"select WEB_ENABLED,CAN_MANAGE from EBR_SUBPROC_SUBOPERATION where ID_SUBPROC =(select ID_SUBPROCEDURE from EBR_SUBPROCEDURE where TAG = 'BPL432386');";
             List<List<string>> Source = helper.Execute(SQL);
