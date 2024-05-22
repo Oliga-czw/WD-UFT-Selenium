@@ -44,7 +44,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MocmainWindow.RPLDesign.ClickSignle();
             if (!APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row(RPL).Existing)
             {
-                MOC_TemplatesFunction.Importtemplates("Case628365.zip");
+                MOC_TemplatesFunction.Importtemplates("CASE628365.zip");
             }
             LogStep(@"2. create ORDER");
             MOC_Fuction.PlanFromRPL(RPL, order);

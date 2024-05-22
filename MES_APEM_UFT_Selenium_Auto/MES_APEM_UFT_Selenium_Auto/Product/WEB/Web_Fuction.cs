@@ -678,6 +678,30 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
             string xpath = "//td[text()='" + order + "']/../td[3]/img";
             Web.Equipment_Page.body._Selenium_WebElement.FindElement(By.XPath(xpath)).Click();
         }
+        public static void refresh_order()
+        {
+            Web.Order_Page.Refresh.Click();
+            Thread.Sleep(3000);
+            int i = 0;
+            while(i < 10)
+            {
+                try
+                {
+                    string xpath = "//td[text()='" + "test1" + "']/../td[3]/img";
+                    Web.Equipment_Page.body._Selenium_WebElement.FindElement(By.XPath(xpath));
+                    break;
+                }
+                catch
+                {
+                    Web.Order_Page.Refresh.Click();
+                    Thread.Sleep(3000);
+                }
+                i++;
+            }
+            
+                
+            
+        }
         public static string OrderPrint(string reportfile)
         {
             string pdfFilePath = Base_Directory.WDReport+reportfile;

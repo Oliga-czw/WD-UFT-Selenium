@@ -92,7 +92,15 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             Name = name;
         }
     }
+    public class DefectAttribute : Attribute
+    {
+        public string Defect { get; set; }
 
+        public DefectAttribute(string defect)
+        {
+            Defect = defect;
+        }
+    }
     /// <summary>
     /// Test case engineer
     /// </summary>
