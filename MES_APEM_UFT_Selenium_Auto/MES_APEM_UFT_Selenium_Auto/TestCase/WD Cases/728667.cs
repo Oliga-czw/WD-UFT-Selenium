@@ -67,9 +67,9 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             bool enable = WD.mainWindow.ScaleWeightInternalFrame.zero.IsEnabled;
             Base_Assert.IsFalse(enable, "can not to continue");
             //exit dispense
-            WD.mainWindow.ScaleWeightInternalFrame.reset.ClickSignle();
+            WD.mainWindow.ScaleWeightInternalFrame.reset.Click();
             Thread.Sleep(5000);
-            WD.MessageDialog.OKButton.Click();
+            //WD.MessageDialog.OKButton.Click();
             WD.mainWindow.ScaleWeightInternalFrame.cancel.Click();
             driver.Close();
             WD_Fuction.Close();
