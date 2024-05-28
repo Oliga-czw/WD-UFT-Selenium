@@ -4627,7 +4627,7 @@
       <MaterialRequirement>
         <MaterialDefinitionID>oneorder1</MaterialDefinitionID>
         <MaterialLotID>001P</MaterialLotID>
-        <Description>test1</Description>
+        <Description>EA</Description>
         <MaterialUse>Produced</MaterialUse>
         <Quantity>
           <QuantityString>200.000</QuantityString>
