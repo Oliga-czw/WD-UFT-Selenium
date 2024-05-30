@@ -15,7 +15,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [TestCaseID(30703)]
         [Title("V8.8.3_CQ00677141:Allow Multiple Lots = No per order allows only a single lot in an order")]
         [TestCategory(ProductArea.WD)]
-        [Priority(CasePriority.High)]
+        [Priority(CasePriority.Low)]
         [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]

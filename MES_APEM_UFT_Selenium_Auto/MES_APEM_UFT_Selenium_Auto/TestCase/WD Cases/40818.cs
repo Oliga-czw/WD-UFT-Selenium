@@ -15,7 +15,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [TestCaseID(40818)]
         [Title("Booth not clean or  scale standardization not done can not do the weighing")]
         [TestCategory(ProductArea.WD)]
-        [Priority(CasePriority.High)]
+        [Priority(CasePriority.Low)]
         [TestCategory(CaseState.Accepted)]
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
