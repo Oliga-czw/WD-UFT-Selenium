@@ -100,12 +100,15 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public static UFT_Dialog RowSelectionDialog => new UFT_Dialog("//Dialog[@Title = 'Row selection']");
         public static UFT_Dialog DeleteEventLogDialog => new UFT_Dialog("//Dialog[@Title = 'Delete Event Log']");
         public static UFT_Dialog CheckParametersDialog => new UFT_Dialog("//Dialog[@Title = 'Check Parameters']");
-        public static UFT_Dialog ConfirmFileReplaceDialog => new UFT_Dialog("//Dialog[@Title = 'Confirm File Replace']");
+        public static UFT_Dialog ConfirmFileReplaceDialog => new UFT_Dialog("//Dialog[@Title = 'Confirm File Replace']"); 
         public static UFT_Dialog ExecuteTemplateDialog => new UFT_Dialog("//Dialog[@Title = 'Execute the Template']");
+        public static UFT_Dialog RepeatedTemplateDialog => new UFT_Dialog("//Dialog[@Title = 'Repeated Template']");
         public static UFT_Dialog SaveChangesDialog => new UFT_Dialog("//Dialog[@Title = 'Save Changes ...']");
         public static UFT_Dialog ChangesDesignDialog => new UFT_Dialog("//Dialog[@Title = 'Changes in Design']");
         public static UFT_Dialog InvalidImage => new UFT_Dialog("//Dialog[@Title = 'Invalid Image']");
         public static UFT_Dialog BPLEditDialog => new UFT_Dialog("//Dialog[@Title = 'Edit']");
+        public static UFT_Dialog SwitchToEditingDialog => new UFT_Dialog("//Dialog[@Title = 'Switch to Editing']");
+        public static UFT_Dialog DeleteOrderDialog => new UFT_Dialog("//Dialog[@Title = 'Delete Order']");
         #endregion
 
 

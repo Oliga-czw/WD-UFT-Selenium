@@ -20,7 +20,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
     public partial class Mobile_TestCase
     {
         [TestCaseID(962328)]
-        [Title("DELETE_ORDER() function behaviour in APEM mobile")]
+        [Title("Defect Manager error - ")]
         [TestCategory(ProductArea.API)]
         [Priority(CasePriority.Medium)]
         [TestCategory(CaseState.Accepted)]

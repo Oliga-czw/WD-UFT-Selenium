@@ -23,6 +23,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public OrderTracking_InterFrame OrderTrackingInternalFrame => new OrderTracking_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Order Tracking']");
         public OrderTrackingPFC_InterFrame OrderTrackingPFCInternalFrame => new OrderTrackingPFC_InterFrame(_UFT_Window, "//InterFrame[@NativeClass = 'recipe.recipeViewer']");
         public RPLDesign_InterFrame RPLDesignInternalFrame => new RPLDesign_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Recipe Procedure Logic List']");
+        public RPLVerification_InterFrame RPLVerificationInternalFrame => new RPLVerification_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'RPL Verification']");
         public BPLList_InterFrame BPLListInternalFrame => new BPLList_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Basic Phase Library List']");
         public BPLData_InterFrame BPLDataInternalFrame => new BPLData_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Basic Phase Library Data*']");
         public Subdocuments_InterFrame SubdocumentsFrame => new Subdocuments_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Subdocuments']");
@@ -62,7 +63,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         //m2r.Window.m2rDialog$FixedSize
         public Confirm_Dialog ConfirmDialog => new Confirm_Dialog(_UFT_Window, "//Dialog[@NativeClass = 'm2r.Window.m2rDialog$FixedSize']");
         public SelectMasterRecipe_Dialog SelectMasterRecipeDialog => new SelectMasterRecipe_Dialog(_UFT_Window, "//Dialog[@Title = 'Select Master Recipe']");
-
+        
+        
 
         //orderlist
         public UFT_Dialog CancelOrderDialog => new UFT_Dialog("//Dialog[@Title = 'Cancel Order']");

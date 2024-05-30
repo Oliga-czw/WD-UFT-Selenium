@@ -13,6 +13,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM.MOC_TemplatesModule
         public static void Importtemplates(string filename)
         {
             APEM.MocmainWindow.Templates_moudle.ClickSignle();
+            Thread.Sleep(3000);
             APEM.MOCTemplatesWindow.Templates.Import.Select();
             Thread.Sleep(4000);
             APEM.MOCTemplatesWindow.FileImport.HomeButton.ClickSignle();

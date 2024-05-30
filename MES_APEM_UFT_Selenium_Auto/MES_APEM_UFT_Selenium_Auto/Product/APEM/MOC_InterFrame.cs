@@ -147,6 +147,15 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button Copy_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Copy row' and @IsWrapped = 'True']");
         public UFT_Table ListTable => new UFT_Table(_UFT_InterFrame, "//Table[@NativeClass = 'm2r.Table.m2rTableView']");
     }
+    public class RPLVerification_InterFrame : MOCMainInterFrame
+    {
+        public RPLVerification_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+        public UFT_Button EditRPL_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Edit']");
+        
+    }
+    
     public class Document_InterFrame : MOCMainInterFrame
     {
 
@@ -172,7 +181,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         {
             AttachedText = @"Name  "
         });
-
+        public UFT_Button Paste_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Paste row' and @IsWrapped = 'True']");
+        public UFT_Button Copy_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Copy row' and @IsWrapped = 'True']");
         //public UFT_Editor CodeEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Code  ']");
         public UFT_Button VerifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Verify']");
         public UFT_Button CertifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Certify']");
@@ -225,6 +235,16 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public IUiObject OperationUiObject1 => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription
         {
             NativeClass = @"PFCTree.View.Operation",
+            Index = 1
+        });
+        public IUiObject Link0 => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription
+        {
+            NativeClass = @"PFCTree.View.Link",
+            Index = 0
+        });
+        public IUiObject Link1 => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription
+        {
+            NativeClass = @"PFCTree.View.Link",
             Index = 1
         });
         public UFT_UiObject OperationUiObject => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@TagName = 'Operation']");
@@ -296,6 +316,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         {
             NativeClass = @"PFCTree.View.Operation",
             Index = 1
+        });
+        public IUiObject LinkUiObject0 => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription
+        {
+            NativeClass = @"PFCTree.View.Link",
+            Index = 0
         });
         public IUiObject LinkUiObject => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription {
 				NativeClass = @"PFCTree.View.Link",
@@ -431,6 +456,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         {
             TagName = @"m2rTabbedPanel"
         });
+        public UFT_Button LoadDesigner_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Load designer' and @IsWrapped = 'True']");
 
     }
     public class Execution_InterFrame : MOCMainInterFrame
@@ -504,6 +530,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         //520174
         public UFT_Button orderDetailButton => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'orderDetail']");
         public UFT_Button orderdetail_EXButton => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'orderdetail_EX']");
+        //41512
+        public UFT_Button CreateOrder_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'create Order']");
     }
     //ExecuteMain_InterFrame
     public class ExecuteMain_InterFrame : MOCMainInterFrame

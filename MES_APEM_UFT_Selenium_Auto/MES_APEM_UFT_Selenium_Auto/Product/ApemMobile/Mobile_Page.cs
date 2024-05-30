@@ -241,6 +241,17 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         public Selenium_WebElement check_value => new Selenium_WebElement(_Selenium_Driver, "//div[@id='screen']/app-aebrs-label[2]/label");
         //29671
         public Selenium_WebElement TestInArray => new Selenium_WebElement(_Selenium_Driver, "//button[@id='Main.Button0']");
+        //1365479
+        public Selenium_WebElement column0_0 => new Selenium_WebElement(_Selenium_Driver, "//input[@id='SCREEN.Tb_Defect0_0']");
+        public Selenium_WebElement column0_1 => new Selenium_WebElement(_Selenium_Driver, "//input[@id='SCREEN.Tb_Defect0_1']");
+        public Selenium_WebElement column1_0 => new Selenium_WebElement(_Selenium_Driver, "//input[@id='SCREEN.Tb_Defect1_0']");
+        public Selenium_WebElement column1_1 => new Selenium_WebElement(_Selenium_Driver, "//input[@id='SCREEN.Tb_Defect1_1']");
+        public ReadOnlyCollection<IWebElement> Value_Options => _Selenium_Driver.FindElements(By.XPath("//div[@role='listbox']/mat-option"));
+        //41512
+        public Selenium_WebElement Createorder => new Selenium_WebElement(_Selenium_Driver, "//button[@id='main.Button0']");
+        public Selenium_WebElement Createorder_Version => new Selenium_WebElement(_Selenium_Driver, "//app-aebrs-label[2]/label");
+        
+
     }
 
 
