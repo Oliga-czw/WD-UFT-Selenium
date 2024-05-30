@@ -52,6 +52,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         public Selenium_WebElement Order => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Order']");
         public Selenium_WebElement Report => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Report']");
         public Selenium_WebElement Equipment => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Equipment']");
+        public Selenium_WebElement Home => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Home']");
+        public Selenium_WebElements Tabs => new Selenium_WebElements(_Selenium_Driver, "//div[@class='Tab_Label']");
         //public static IWebElement Administration = _Selenium_Driver.FindElement(By.XPath("//div[text()='Administration']"));
 
         #endregion

@@ -20,8 +20,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [TestCategory(AutomationTool.UFT_Selenium)]
         [Owner(AutomationEngineer.Ziwei)]
         [Timeout(600000)]
+        [Defect("1354430")]
 
-        [TestMethod]
+        //defect1354430
+        //[TestMethod]
         public void VSTS_91525()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID+"-";

@@ -14,6 +14,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
     {
         public static void LaunchApp(string AppPath)
         {
+            //Console.WriteLine(AppPath);
+            //Process.Start("cmd.exe", $"\"{AppPath}\"");
+
             Process process = new Process();
             process.StartInfo.FileName = AppPath;
             //process.StartInfo.FileName = @"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Aspen Manufacturing Execution\Aspen Weigh and Dispense Execution.lnk";
@@ -151,7 +154,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         private static string application = "javaw";
         public static void LaunchWDAndLogin()
         {
-            Base_Test.LaunchApp(Base_Directory.WDDir1);
+            Base_Test.LaunchApp(Base_Directory.WDDir);
             SdkConfiguration config = new SdkConfiguration();
             SDK.Init(config);
             Thread.Sleep(5000);
@@ -176,7 +179,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         }
         public static void LaunchMocAndLogin()
         {
-            Base_Test.LaunchApp(Base_Directory.MOCDir1);
+            Base_Test.LaunchApp(Base_Directory.MOCDir);
             SdkConfiguration config = new SdkConfiguration();
             SDK.Init(config);
             APEM.MocmainWindow.LogonInternalFrame.userNameEditor.SetText(UserName.qaone1);

@@ -33,9 +33,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MocmainWindow.Library.ActiveDocDesign.Select();
             if (!APEM.MocmainWindow.DocumentFrame.ListTable.Row(DOCname).Existing)
             {
-                MOC_TemplatesFunction.Importtemplates("TEMP213774.zip");
+                MOC_TemplatesFunction.Importtemplates("CASE213774.zip");
             }
-            APEM.MocmainWindow.BPLDesign.ClickSignle();
             APEM.MocmainWindow.DocumentFrame.ListTable.Row(DOCname, "Name").Click();
             Thread.Sleep(2000);
             APEM.MocmainWindow.DocumentFrame.Execute_Button.Click();

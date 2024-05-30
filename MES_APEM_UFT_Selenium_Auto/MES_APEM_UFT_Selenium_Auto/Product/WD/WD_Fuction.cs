@@ -84,6 +84,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         public static void FinishManualDiapense(string simulator,string tare,string net)
         {
             WD.mainWindow.ScaleWeightInternalFrame.scale.SelectItems(simulator);
+            Thread.Sleep(2000);
             //tare
             WD.mainWindow.ScaleWeightInternalFrame.tare_editor.SetText(tare);
             //weight

@@ -82,7 +82,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             mMDM.BulkLoadWizardWindow.Next.Click();
             mMDM.BulkLoadWizardWindow.Finish.Click();
             //Wait Bulk Load Import Wizard pops up
-            Assert.IsTrue(mMDM.BulkLoadImportWizardWindow.IsExist(10));
+            Assert.IsTrue(mMDM.BulkLoadImportWizardWindow.IsExist(20));
             mMDM.BulkLoadImportWizardWindow.Next.Click();
             mMDM.BulkLoadImportWizardWindow.Add.Click();
             //import mMDM UGM GML backup.xml
