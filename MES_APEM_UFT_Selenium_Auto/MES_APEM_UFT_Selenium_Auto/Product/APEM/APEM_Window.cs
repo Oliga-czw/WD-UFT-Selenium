@@ -35,6 +35,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public EventLogList_InterFrame EventLogListInterFrame => new EventLogList_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Event Log List']");
         public SQLQueries_InterFrame SQLQueriesInterFrame => new SQLQueries_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'SQL Queries']");
         public SQLQuery_InterFrame SQLQueryInterFrame => new SQLQuery_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'SQL Query']");
+        public DesignVerification_InterFrame DesignVerificationInternalFrame => new DesignVerification_InterFrame(_UFT_Window, "//InterFrame[@TagName = 'Design Verification']");
         #endregion
 
         public UFT_Button Audit_moudle => new UFT_Button(_UFT_Window, "//Button[@Label = 'Audit Module' and @IsWrapped = 'True']");

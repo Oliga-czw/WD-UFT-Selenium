@@ -45,6 +45,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         public Main_Page(IWebDriver driver) : base(driver)
         {
         }
+        public Selenium_WebElement Logoff => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Logoff']");
         #region Tabs
         public Selenium_WebElement Administration => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Administration']");
         public Selenium_WebElement Material => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Material']");

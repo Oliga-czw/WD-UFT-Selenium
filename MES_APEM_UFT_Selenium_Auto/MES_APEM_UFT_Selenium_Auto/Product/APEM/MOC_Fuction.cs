@@ -347,6 +347,18 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
                 APEM.DeleteEventLogDialog.YesButton.Click();
             }
         }
+        public static void AuditAssert(string Module,String Reason,int row)
+        {
+            
+            var a = APEM.MOCAuditWindow.LoginFailureInterFrame.auditTable.Rowscount();
+            APEM.MOCAuditWindow.LoginFailureInterFrame.auditTable.SelectRows(a - row);
+            Thread.Sleep(2000);
+            var b = APEM.MOCAuditWindow.LoginFailureInterFrame.auditTable.GetCell(a - row, "Module").Value;
+            var c = APEM.MOCAuditWindow.LoginFailureInterFrame.auditTable.GetCell(a - row, "Reason").Value;
+            Base_Assert.IsTrue(Module == b.ToString());
+            Base_Assert.AreEqual(Reason, c);
+
+        }
     }
    
 

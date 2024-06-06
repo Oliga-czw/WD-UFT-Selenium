@@ -18,5 +18,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM.MOC_ConfigModule
         public UFT_Editor userNameEditor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'User']");
 
         public UFT_Table auditTable => new UFT_Table(_UFT_InterFrame, "//Table[@Index = '0']");
+        public UFT_Button MaximizeButton => new UFT_Button(_UFT_InterFrame, "//Button[@Label ='Maximize' and @IsWrapped = 'True']");
     }
 }

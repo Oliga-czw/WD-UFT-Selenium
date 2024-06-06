@@ -283,6 +283,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public PFCDesignApp_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
         {
         }
+        public UFT_Table ActionTable => new UFT_Table(_UFT_InterFrame, "//Table[@TagName = 'Action:']");
         #region RPLDesign
         public UFT_UiObject BeginNodeUiObject => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@NativeClass = 'PFCTree.View.BeginNode']");
         public UFT_UiObject ControlLinkUiObject => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@NativeClass = 'PFCTree.View.ControlLink']");
@@ -355,7 +356,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         #region BPLDesign
         public UFT_Button Action0 => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Actions: Action0']");
         public UFT_Button Concurrent_Action0 => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Concurrent actions: Thread0']");
-        public UFT_Button Window0 => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Window: Window0']");
+        public UFT_Button mainWindow => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Window: main']");
         public UFT_Button FinishWithYES0 => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Finish with YES: ReturnYes0']");
         public UFT_Button FinishWithNO0 => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Finish with NO: ReturnNo0']");
         public UFT_Button LinkNode0 => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = ' LinkNodeName0*']");
@@ -376,6 +377,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button Copy_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Copy row' and @IsWrapped = 'True']");
         public UFT_Button VerifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Verify']");
         public UFT_Button CertifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Certify']");
+        public UFT_Button MakeUsable_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Make usable']");
     }
 
     public class BPLData_InterFrame : MOCMainInterFrame
@@ -627,6 +629,13 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Editor QueryDescription => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Description']");
         public UFT_Editor SQLSentence => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'SQL Sentence']");
         public UFT_Button Confirm_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Confirm changes' and @IsWrapped = 'True']");
+    }
+    public class DesignVerification_InterFrame : UFT_InterFrame
+    {
+        public DesignVerification_InterFrame(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+        public UFT_List ErrorList => new UFT_List(_UFT_InterFrame, "//List[@TagName = 'JList']");
     }
 
     public class Confirmation_InterFrame : MOCMainInterFrame

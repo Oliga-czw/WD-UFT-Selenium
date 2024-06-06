@@ -47,7 +47,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM.MOC_TemplatesModule
             {
                 APEM.ExecuteTemplateDialog.OKButton.Click();
             }
+            Thread.Sleep(2000);
             APEM.MOCTemplatesWindow.Close();
+            Thread.Sleep(2000);
             APEM.CloseDialog.YesButton.Click();
 
         }
