@@ -22,7 +22,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Timeout(600000)]
         [Defect("1365244")]
 
-        //[TestMethod]
+        [TestMethod]
         public void VSTS_748200()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID;

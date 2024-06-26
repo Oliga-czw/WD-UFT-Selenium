@@ -44,12 +44,12 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 //codify all
                 Base_Test.LaunchApp(Base_Directory.Codify_all);
                 Application.LaunchMocAndLogin();
+                APEM.MocmainWindow.RPLDesign.Click();
+                Thread.Sleep(2000);
                 if (!APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row(RPLname).Existing)
                 {
-                    MOC_TemplatesFunction.Importtemplates("TEST_THREAD_REFRESHABLE - LABEL_WEB_CLIENT.zip");
-
+                    MOC_TemplatesFunction.Importtemplates("TEST_THREAD_REFRESHABLE_LABEL_WEB_CLIENT.zip");
                 }
-                
                 MOC_Fuction.PlanFromRPL(RPLname, Ordername); 
                 LogStep(@"Execute in moc");
                 APEM.MocmainWindow.WorkstationBP.ClickSignle();

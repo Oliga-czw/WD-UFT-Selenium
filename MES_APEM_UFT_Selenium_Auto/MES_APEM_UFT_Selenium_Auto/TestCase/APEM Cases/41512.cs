@@ -35,6 +35,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Application.LaunchMocAndLogin();
             //check RPL exit
             APEM.MocmainWindow.RPLDesign.Click();
+            Thread.Sleep(2000);
             if (!APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row(RPLname).Existing)
             {
                 MOC_TemplatesFunction.Importtemplates("TEMP41512.zip");
@@ -51,6 +52,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Thread.Sleep(2000);
                 APEM.MocmainWindow.OrderListInternalFrame.Cancel_Button.Click();
                 Thread.Sleep(2000);
+                APEM.MocmainWindow.CancelOrderDialog.YesButton.Click();
+                Thread.Sleep(2000);
                 MOC_Fuction.AddReason();
                 APEM.MocmainWindow.RPLVerify.Click();
                 APEM.MocmainWindow.RPLVerificationInternalFrame.EditRPL_Button.Click();
@@ -61,6 +64,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Thread.Sleep(2000);
                 MOC_Fuction.AddReason();
                 APEM.MocmainWindow.RPLVerificationInternalFrame._UFT_InterFrame.Close();
+                APEM.MocmainWindow.RPLDesign.Click();
+                Thread.Sleep(2000);
+                APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row(RPLname).Click();
+                Thread.Sleep(2000);
             }
             APEM.MocmainWindow.RPLDesignInternalFrame.VerifyButton.Click();
             Thread.Sleep(3000);
@@ -106,6 +113,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
             APEM.MocmainWindow.GetSnapshot(Resultpath + "createOrderOK.PNG");
             Base_Assert.IsTrue(APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Row("APIORDER").Existing);
+            int count1 = APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Rowscount();
             LogStep(@"execute on Mobile");
             Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
             Mobile_Fuction.gotoApemMobile(driver);
@@ -127,6 +135,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
             APEM.MocmainWindow.GetSnapshot(Resultpath + "createOrderOK_from_Mobile.PNG");
             Base_Assert.IsTrue(APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Row("2","Rep.").Existing);
+            int count2 = APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Rowscount();
+            Base_Assert.IsTrue(count1 + 1 == count2,"create an order");
         }
 
 

@@ -21,7 +21,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Owner(AutomationEngineer.Ziwei)]
         [Timeout(600000)]
         //defect 1324998,973312
-        //[TestMethod]
+        [TestMethod]
         public void VSTS_42345()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID;
@@ -76,7 +76,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             driver.FindElement("//button[text()='Zero']").Click();
             driver.Wait();
             Type.FindElement(By.XPath("//option[text()='Container']")).Click();
-            Operator.FindElement(By.XPath($"//option[text()='{userNameforReport.qaone1})']")).Click();
+            Console.Write($"//option[text()='{userNameforReport.qaone1}']");
+            Operator.FindElement(By.XPath($"//option[text()='{userNameforReport.qaone1}']")).Click();
             Web.Report_Page.End_Time.Click();
             driver.FindElement("//button[text()='Now']").Click();
             driver.Wait();

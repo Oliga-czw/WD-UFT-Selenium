@@ -112,6 +112,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mobile.OrderTracking_Page.QueueButton.Click();
             Thread.Sleep(2000);
             string phase = Mobile.OrderTracking_Page.PhaseName.Text();
+            Console.WriteLine(phase);
             Mobile.OrderTracking_Page.QueueExecut.Click();
             Thread.Sleep(2000);
             //check go to executing

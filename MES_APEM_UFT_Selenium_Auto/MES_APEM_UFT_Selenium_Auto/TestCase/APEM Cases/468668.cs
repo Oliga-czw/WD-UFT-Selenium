@@ -27,7 +27,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID + "-";
             string RPLname = "R468668";
-            string Ordername = "ORDER468668";
+            string Ordername = "ORDER468668_1";
             Library.BaseLibrary.Application.LaunchMocAndLogin();
             APEM.MocmainWindow.RPLDesign.ClickSignle();
             if (!APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row(RPLname).Existing)
@@ -37,9 +37,10 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MocmainWindow.Orders.ClickSignle();
             Thread.Sleep(2000);
             MOC_Fuction.CheckRowSelection();
-            APEM.MocmainWindow.OrderListInternalFrame.Search.SetText("");//filter order
+            APEM.MocmainWindow.OrderListInternalFrame.Search.SetText("t_order1");//filter order
             APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
             Thread.Sleep(3000);
+            MOC_Fuction.CheckRowSelection();
             if (!APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Row("t_order1").Existing)
             {
                 APEM.MocmainWindow.BPLDesign.ClickSignle();
@@ -47,13 +48,18 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 APEM.MocmainWindow.BPLListInternalFrame.LoadDesigner_Button.Click();
                 APEM.DesignEditorWindow.ExecuteButton.ClickSignle();
                 Thread.Sleep(3000);
-                APEM.AuditReasonDialog.Reason.SendKeys("for test");
-                APEM.AuditReasonDialog.OK.Click();
-                Thread.Sleep(3000);
+                if (APEM.AuditReasonDialog.Reason.Exists())
+                {
+                    APEM.AuditReasonDialog.Reason.SendKeys("for test");
+                    APEM.AuditReasonDialog.OK.Click();
+                    Thread.Sleep(3000);
+                }
+                
                 APEM.ExecutionFinishedDialog.OK.Click();
                 Thread.Sleep(2000);
                 MOC_Fuction.DesignEditorClose();
             }
+
             MOC_Fuction.PlanFromRPL(RPLname, Ordername);
             Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
             Mobile_Fuction.gotoApemMobile(driver);

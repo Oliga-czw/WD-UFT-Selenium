@@ -35,23 +35,22 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             string Configpath = Base_Directory.ConfigDir + "flags.m2r_cfg";
             string ConfigKey = "IN_ARRAY_ACCEPTS_NULL = 0";
             string ConfigKey1 = "IN_ARRAY_ACCEPTS_NULL = 1";
-            Application.LaunchMocAndLogin();
+            Base_Function.AddConfigKey(Configpath, ConfigKey);
+            //codify all
+            Base_Test.LaunchApp(Base_Directory.Codify_all);
+            //restart tomcat
+            Base_Test.KillProcess("tomcat10");
+            Thread.Sleep(30000);
+            Base_Function.ResartServices(ServiceName.Tomcat);
+            Thread.Sleep(240000);
             try
-            { 
+            {
+                Application.LaunchMocAndLogin();
                 APEM.MocmainWindow.BPLDesign.ClickSignle();
                 if (!APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row(BPLname).Existing)
                 {
                     MOC_TemplatesFunction.Importtemplates("TEMP29671.zip");
                 }
-
-                Base_Function.AddConfigKey(Configpath, ConfigKey);
-                //codify all
-                Base_Test.LaunchApp(Base_Directory.Codify_all);
-                //restart tomcat
-                Base_Test.KillProcess("tomcat10");
-                Thread.Sleep(30000);
-                Base_Function.ResartServices(ServiceName.Tomcat);
-                Thread.Sleep(60000);
                 MOC_Fuction.PlanFromRPL(RPLname, Ordername1);
                 APEM.ExitApplication();
                 Selenium_Driver driver = new Selenium_Driver(Browser.chrome);
@@ -63,9 +62,9 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Mobile.OrderProcess_Page.GotoTracking.Click();
                 Thread.Sleep(2000);
                 Mobile.OrderTracking_Page.ExecutionButton.Click();
-                Thread.Sleep(2000);
+                Thread.Sleep(10000);
                 Mobile.OrderExecution_Page.TestInArray.Click();
-                Thread.Sleep(2000);
+                Thread.Sleep(5000);
                 Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "Mobile.PNG");
                 Base_Assert.AreEqual(Mobile.OrderExecution_Page.Execution_Message.Text(), "failed");
                 Mobile.OrderExecution_Page.MessageOK_button.Click();
@@ -73,6 +72,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Thread.Sleep(2000);
                 Mobile.OrderExecution_Page.ConfirmYesButton.Click();
                 Thread.Sleep(3000);
+                driver.Close();
                 //modify the configure key
                 Base_Function.EditConfigKey(Configpath, ConfigKey1);
                 //codify all
@@ -99,7 +99,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Thread.Sleep(1000);
                 APEM.PhaseExecWindow.ConfirmationInternalFrame.YesButton.Click();
                 Thread.Sleep(2000);
-                driver.Close();
+                
                 
 
             }

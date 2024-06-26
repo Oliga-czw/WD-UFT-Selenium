@@ -93,23 +93,27 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Web_Fuction.active_order(order);
             //select order and material
             WD.mainWindow.HomeInternalFrame.OrderDispensing.Click();
+            Thread.Sleep(2000);
             WD.mainWindow.DispensingInternalFrame.orderTable.Row(order).Click();
             WD.mainWindow.DispensingInternalFrame.next.Click();
             WD.mainWindow.MaterialInternalFrame.materialTable.Row(material).Click();
             WD.mainWindow.MaterialInternalFrame.next.Click();
             Thread.Sleep(5000);
-            WD.mainWindow.BoothCleanInternalFrame.cleanComplete.Click();
+            //WD.mainWindow.BoothCleanInternalFrame.cleanComplete.Click();
             //check error
             WD.mainWindow.GetSnapshot(Resultpath + "clean booth error.PNG");
-            Base_Assert.AreEqual(WD.MessageDialog.Lable.Text, "Run booth clean rule engine failed. The reason is: No type is available.");
+            Base_Assert.AreEqual(WD.MessageDialog.Lable.Text, "Run booth clean rule engine failed. The reason is: Unavailable");
             WD.MessageDialog.OKButton.Click();
             LogStep(@"9.Change deviation");
             //import xml
             WD_Fuction.Bulkload(xml);
             WD_Fuction.WDSign();
             LogStep(@"10.check deviation and finish dispense");
-            WD.mainWindow.BoothCleanInternalFrame.HomeButton.Click();
-            WD.mainWindow.HomeInternalFrame.OrderDispensing.Click();
+            //WD.mainWindow.BoothCleanInternalFrame.HomeButton.Click();
+            //WD.mainWindow.HomeInternalFrame.OrderDispensing.Click();
+            //WD.mainWindow.DispensingInternalFrame.orderTable.Row(order).Click();
+            // WD.mainWindow.DispensingInternalFrame.next.Click();
+            WD.mainWindow.MaterialInternalFrame.cancel.Click();
             WD.mainWindow.DispensingInternalFrame.orderTable.Row(order).Click();
             WD.mainWindow.DispensingInternalFrame.next.Click();
             WD.mainWindow.MaterialInternalFrame.materialTable.Row(material).Click();

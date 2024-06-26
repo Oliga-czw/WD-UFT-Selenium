@@ -137,6 +137,8 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //go to Session manager
             Mobile.Main_Page.ManageModule.Click();
             Thread.Sleep(2000);
+            Mobile.SessionManager_Page.Search.SendKeys("Order976946");
+            Thread.Sleep(5000);
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath +" " + mode + " "+ "Manage module columns.PNG");
             List<string> Expect = new List<string> { "User", "Order / Executing Phase", "Workstation", "Operation" };
             List<string> headname = new List<string> { };

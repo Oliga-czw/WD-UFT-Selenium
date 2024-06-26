@@ -71,7 +71,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //base_Assert();
             APEM.DesignEditorWindow.ExecuteMainInternalFrame.Cancel_Button.Click();
             APEM.ExecutionFinishedDialog.OKButton.Click();
-            APEM.DesignEditorWindow.Close();
+            MOC_Fuction.DesignEditorClose();
             Thread.Sleep(2000);
             //create an order
             APEM.MocmainWindow.Orders.ClickSignle();

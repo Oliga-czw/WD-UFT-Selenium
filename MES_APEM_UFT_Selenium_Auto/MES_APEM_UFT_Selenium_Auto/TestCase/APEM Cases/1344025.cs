@@ -67,6 +67,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Mobile.Login_Page.username.Clear();
             //Invalid password
             Mobile_Fuction.login("qae\\qaone4", "Aspenhhhhh");
+            Thread.Sleep(30000);
             Mobile.Login_Page.username.Clear();
             //login successfully
             Mobile_Fuction.login(UserName.qaone1, PassWord.qaone1);
@@ -87,7 +88,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Web.Login_Page.username.SendKeys("qae\\qaone4");
             Web.Login_Page.password.SendKeys(PassWord.qaone3);
             Web.Login_Page.login.Click();
-            Thread.Sleep(3000);
+            Thread.Sleep(30000);
             //login successfully
             Web.Login_Page.username.SendKeys(UserName.qaone1);
             Web.Login_Page.password.SendKeys(PassWord.qaone1);
@@ -101,6 +102,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             WD.MessageDialog.OKButton.Click();
             //Invalid password
             Base_Test.Login("qae\\qaone4", "Aspenhhhhh");
+            Thread.Sleep(15000);
             WD.MessageDialog.OKButton.Click();
             Base_Test.Login(UserName.qaone1, PassWord.qaone1);
             //check Audit Module

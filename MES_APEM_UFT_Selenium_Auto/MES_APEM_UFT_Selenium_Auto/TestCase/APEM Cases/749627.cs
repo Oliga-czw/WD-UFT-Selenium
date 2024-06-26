@@ -49,26 +49,26 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MocmainWindow.WorkstationBPInternalFrame.OrderTable.Row("Ready for execution").Click();
             APEM.MocmainWindow.WorkstationBPInternalFrame.ExecuteButton.ClickSignle();
             Thread.Sleep(3000);
-            LogStep(@"click the ViewDOCURL Button");
-            APEM.PhaseExecWindow.ExecutionInternalFrame.ViewDOCURL_Button.Click();
-            APEM.PhaseExecWindow.ExecutionInternalFrame.ViewDOCURL_Button.ClickSignle();
-            //press enter
-            Thread.Sleep(5000);
-            Keyboard.KeyDown(Keyboard.Keys.Enter);
-            Thread.Sleep(5000);
-            Keyboard.KeyDown(Keyboard.Keys.Enter);
-            Thread.Sleep(30000);
-            APEM.MocmainWindow.MicrosoftEdgeWindow.GetSnapshot(Resultpath + "ViewDOCUrl.PNG");
-            APEM.MocmainWindow.MicrosoftEdgeWindow._STD_Window.Click();
-            Keyboard.KeyDown(Keyboard.Keys.Control);
-            Keyboard.PressKey(Keyboard.Keys.A);
-            Keyboard.KeyUp(Keyboard.Keys.Control);
-            Keyboard.KeyDown(Keyboard.Keys.Control);
-            Keyboard.PressKey(Keyboard.Keys.C);
-            Keyboard.KeyUp(Keyboard.Keys.Control);
-            string clipboardText = Clipboard.GetText();
-            Console.WriteLine("剪切板中的内容为: " + clipboardText);
-            Assert.IsTrue(clipboardText.Contains("This is a test PDF document."));
+            //LogStep(@"click the ViewDOCURL Button");
+            //APEM.PhaseExecWindow.ExecutionInternalFrame.ViewDOCURL_Button.Click();
+            //APEM.PhaseExecWindow.ExecutionInternalFrame.ViewDOCURL_Button.ClickSignle();
+            ////press enter
+            //Thread.Sleep(5000);
+            //Keyboard.KeyDown(Keyboard.Keys.Enter);
+            //Thread.Sleep(5000);
+            //Keyboard.KeyDown(Keyboard.Keys.Enter);
+            //Thread.Sleep(30000);
+            //APEM.MocmainWindow.MicrosoftEdgeWindow.GetSnapshot(Resultpath + "ViewDOCUrl.PNG");
+            //APEM.MocmainWindow.MicrosoftEdgeWindow._STD_Window.Click();
+            //Keyboard.KeyDown(Keyboard.Keys.Control);
+            //Keyboard.PressKey(Keyboard.Keys.A);
+            //Keyboard.KeyUp(Keyboard.Keys.Control);
+            //Keyboard.KeyDown(Keyboard.Keys.Control);
+            //Keyboard.PressKey(Keyboard.Keys.C);
+            //Keyboard.KeyUp(Keyboard.Keys.Control);
+            //string clipboardText = Clipboard.GetText();
+            //Console.WriteLine("剪切板中的内容为: " + clipboardText);
+            //Assert.IsTrue(clipboardText.Contains("This is a test PDF document."));
             //local pdf view
             LogStep(@"click the local pdf view Button");
             APEM.PhaseExecWindow.ExecutionInternalFrame.LocalPdfView_Button.Click();

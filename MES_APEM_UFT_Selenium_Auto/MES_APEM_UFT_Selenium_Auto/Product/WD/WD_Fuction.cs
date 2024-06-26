@@ -354,7 +354,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
             p.WaitForExit();
             p.Close();
             Base_logger.Message("Sign sucessfully" + output);
-            Thread.Sleep(15000);
+            Thread.Sleep(30000);
         }
 
         public static void initial_data()

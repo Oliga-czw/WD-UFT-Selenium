@@ -24,18 +24,25 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
 
         [TestMethod]
         public void VSTS_554188()
+
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID + "-";
-            string BPLname = "BPL554188";
+            string BPLname = "BPL554188_1";
             string RPLname = "FOR_STATUS";
-            string Ordername = "ORDER554188";
+            string Ordername = "ORDER554188_1";
             Library.BaseLibrary.Application.LaunchMocAndLogin();
             APEM.MocmainWindow.BPLDesign.ClickSignle();
             if (!APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row(BPLname).Existing)
             {
                 MOC_TemplatesFunction.Importtemplates("TEMP554188.zip");
             }
-            MOC_Fuction.PlanFromRPL(RPLname, Ordername);
+            APEM.MocmainWindow.Orders.ClickSignle();
+            Thread.Sleep(2000);
+            MOC_Fuction.CheckRowSelection();
+            if (!APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Row(Ordername).Existing)
+            {
+                MOC_Fuction.PlanFromRPL(RPLname, Ordername);
+            }
             APEM.MocmainWindow.BPLDesign.Click();
             Thread.Sleep(2000);
             APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row(BPLname, "Name").Click();
@@ -50,7 +57,9 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.DesignEditorWindow.ExecuteButton.ClickSignle();
             Thread.Sleep(5000);
             APEM.DesignEditorWindow.ExecuteMainInternalFrame.User_state.Click();
-            Thread.Sleep(1000);
+            Thread.Sleep(3000);
+            APEM.DesignEditorWindow.MessageInterFrame.OKButton.Click();
+            Thread.Sleep(3000);
             APEM.DesignEditorWindow.ExecuteMainInternalFrame._UFT_InterFrame.Close();
             APEM.MocmainWindow.ExeCancelDialog.YesButton.Click();
             Thread.Sleep(2000);

@@ -41,6 +41,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MocmainWindow.OrderListInternalFrame.Search.SetText("");//filter order
             APEM.MocmainWindow.OrderListInternalFrame.Filter_Button.Click();
             Thread.Sleep(3000);
+            MOC_Fuction.CheckRowSelection();
             MOC_Fuction.PlanFromRPL("FOR_STATUS", Ordername1);
             Thread.Sleep(2000);
             MOC_Fuction.PlanFromRPL(RPLname, Ordername);
@@ -67,7 +68,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(3000);
             APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Row("Initiated","Status").Click();
             APEM.MocmainWindow.OrderListInternalFrame.OrderTabControl.Select("Phases");
-            APEM.MocmainWindow.GetSnapshot(Resultpath + "SET_OPER_STATE");
+            APEM.MocmainWindow.GetSnapshot(Resultpath + "SET_OPER_STATE.PNG");
             Thread.Sleep(2000);
             Base_Assert.AreEqual(APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.GetCell(0, "Status").Value, "Finished");
             

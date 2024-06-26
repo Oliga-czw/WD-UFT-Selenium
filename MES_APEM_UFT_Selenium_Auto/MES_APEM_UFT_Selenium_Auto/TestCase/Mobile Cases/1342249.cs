@@ -71,7 +71,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Thread.Sleep(5000);
                 Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "checkbox background.PNG");
                 var checkbox = driver.FindElements("//table//td")[0].GetAttribute("style");
-                string targetSubstring = "background: rgb(255, 255, 255);";
+                string targetSubstring = "background-color: rgb(255, 255, 255);";
                 bool containsTarget = checkbox.Contains(targetSubstring);
                 Base_Assert.IsTrue(containsTarget, "checkbox background is white");
                 Mobile.OrderExecution_Page.CancelButton.Click();

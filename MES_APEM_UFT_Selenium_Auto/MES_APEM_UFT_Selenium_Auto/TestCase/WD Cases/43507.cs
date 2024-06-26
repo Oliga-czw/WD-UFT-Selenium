@@ -19,7 +19,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         [Timeout(600000)]
 
         //defect 1324998,973312
-        //[TestMethod]
+        [TestMethod]
         public void VSTS_43507()
 
         {

@@ -590,7 +590,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
             //get order
             Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath("//input[@class='Tab_Manu_bar_Margin Tab_Menu_Bar_Search_Box']")).Clear();
             Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath("//input[@class='Tab_Manu_bar_Margin Tab_Menu_Bar_Search_Box']")).SendKeys(ordername);
-            Thread.Sleep(2000);
+            Thread.Sleep(6000);
             var order = Web.Order_Page.body._Selenium_WebElement.FindElement(By.XPath(xpath));
             //check order status and active
             string status = order.FindElement(By.XPath("../td[7]")).Text;

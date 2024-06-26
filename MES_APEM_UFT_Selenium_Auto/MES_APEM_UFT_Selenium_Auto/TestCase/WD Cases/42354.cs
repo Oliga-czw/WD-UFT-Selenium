@@ -170,7 +170,6 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Thread.Sleep(3000);
             Web.Order_Page.Refresh.Click();
             Thread.Sleep(3000);
-            driver1.Wait();
             LogStep(@"select a container to redispense");
             driver1.FindElement("//td[text()='test1']/../td[3]/img").Click();
             driver1.FindElement("//a[text()='Redispense a Material']").Click();

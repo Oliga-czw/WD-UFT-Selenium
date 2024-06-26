@@ -28,10 +28,12 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
         public void VSTS_481813()
         {
             string Resultpath = Base_Directory.ResultsDir + CaseID + "-";
-            string RPLname = "R481813";
+            string BPLname = "TEST_ORDER_BP";
+            string RPLname = "RPL481813";
             string RPLname1 = "RB481812";
-            string Ordername = "ORDER481813";
-            string Ordername1 = "ORDER481813_1";
+            string TestOrdername = "TESTORDER481813";
+            string Ordername = "ORDER481813_1";
+            string Ordername1 = "ORDER481813_2";
             string Configpath = Base_Directory.ConfigDir + "flags.m2r_cfg";
             string ConfigKey = "SQL_SELECT1_ARRAY1 = 0";
             string ConfigKey1 = "SQL_SELECT1_SCALAR_NO_OPTIMIZE = 1";
@@ -41,7 +43,19 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 APEM.MocmainWindow.RPLDesign.ClickSignle();
                 if (!APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Row(RPLname).Existing)
                 {
+                    MOC_TemplatesFunction.Importtemplates("TEMP481813.zip");
+                }
+                APEM.MocmainWindow.BPLDesign.ClickSignle();
+                if (!APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row(BPLname).Existing)
+                {
                     MOC_TemplatesFunction.Importtemplates("API_ORDER_STATE.zip");
+                }
+                APEM.MocmainWindow.Orders.ClickSignle();
+                Thread.Sleep(2000);
+                MOC_Fuction.CheckRowSelection();
+                if (!APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Row(TestOrdername).Existing)
+                {
+                    MOC_Fuction.PlanFromRPL(RPLname, TestOrdername);
                 }
                 APEM.MocmainWindow.Orders.ClickSignle();
                 Thread.Sleep(2000);
@@ -52,6 +66,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 if (!APEM.MocmainWindow.OrderListInternalFrame.OrderList_Table.Row("t_order1").Existing)
                 {
                     APEM.MocmainWindow.BPLDesign.ClickSignle();
+                    Thread.Sleep(2000);
                     APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row("TEST_ORDER_BP", "Name").Click();
                     APEM.MocmainWindow.BPLListInternalFrame.LoadDesigner_Button.Click();
                     APEM.DesignEditorWindow.ExecuteButton.ClickSignle();

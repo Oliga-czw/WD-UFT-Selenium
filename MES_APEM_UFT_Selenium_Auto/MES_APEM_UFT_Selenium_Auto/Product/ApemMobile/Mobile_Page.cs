@@ -20,7 +20,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         }
 
         public Selenium_WebElement body => new Selenium_WebElement(_Selenium_Driver, "//body");
-        public Selenium_WebElement Message => new Selenium_WebElement(_Selenium_Driver, "//div[@title='Message']");
+        public Selenium_WebElement Message => new Selenium_WebElement(_Selenium_Driver, "//div[@class='padding']//p");
         public Selenium_WebElement Confirm => new Selenium_WebElement(_Selenium_Driver, "//div[@title='Confirm']");
         public Selenium_WebElement body_div => new Selenium_WebElement(_Selenium_Driver, "/html/body/div[@class='cdk-overlay-container']");
         public Selenium_WebElement Dialog => new Selenium_WebElement(_Selenium_Driver, "//mat-dialog-container");
@@ -181,7 +181,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.ApemMobile
         }
 
         
-        public Selenium_WebElement PhaseTitle => new Selenium_WebElement(_Selenium_Driver, "/html/body/app-root/div/app-execution/div/div[1]/div[2]");
+        public Selenium_WebElement PhaseTitle => new Selenium_WebElement(_Selenium_Driver, "/html/body/app-root/div/div/app-execution/div/div[1]/div[2]");
         public Selenium_WebElement OKButton => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' OK ']/../..");
         public Selenium_WebElement CancelButton => new Selenium_WebElement(_Selenium_Driver, "//div[text()=' Cancel ']/../..");
         public Selenium_WebElement StopButton => new Selenium_WebElement(_Selenium_Driver, "//mat-icon[@data-mat-icon-name='toolbar_stop']");

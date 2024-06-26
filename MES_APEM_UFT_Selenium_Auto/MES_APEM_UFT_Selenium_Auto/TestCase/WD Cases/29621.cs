@@ -53,7 +53,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 Thread.Sleep(5000);
                 //check error
                 Web_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "web no license.PNG");
-                string web_error = "Unable to acquire SLM_RN_PME_WghDsp_Web";
+                string web_error = "Unable to acquire license: SLM_RN_PME_WghDsp_Web";
                 string message1 = driver.FindElement("//div[@class='gwt-Label License_Block_Msg']").Text;
                 Base_Assert.AreEqual(web_error, message1,"web license error check");
                 driver.Close();
@@ -64,7 +64,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 //check error
                 WD.mainWindow.GetSnapshot(Resultpath + "client no license.PNG");
                 string message2 = WD.LicenseMessageDialog.LicenseLable.Text;
-                string client_error = "Unable to acquire SLM_RN_PME_WghDsp";
+                string client_error = "Unable to acquire license: SLM_RN_PME_WghDsp";
                 Base_Assert.AreEqual(client_error, message2, "client license error check");
                 WD.LicenseMessageDialog.OKButton.Click();
             }
@@ -73,6 +73,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
                 LogStep(@"4. restone data--add license server");
                 //add
                 SLM.SLMConfigWindow.ServerEdit.SendKeys(LicenseServer);
+                Thread.Sleep(3000);
                 SLM.SLMConfigWindow.AddServer.Click();
                 //wait for adding
                 Thread.Sleep(30000);

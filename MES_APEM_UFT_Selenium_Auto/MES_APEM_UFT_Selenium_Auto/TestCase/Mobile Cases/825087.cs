@@ -121,6 +121,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //finish order
             APEM.PhaseExecWindow.ExecutionInternalFrame.OK_Button.Click();
             Edge_driver.SwitchToChrome();
+            Thread.Sleep(3000);
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "finished_first.PNG");
             Assert.IsTrue(Mobile.OrderTracking_Page.OrderPhaseTableRows[0].FindElements(By.TagName("td"))[no].Text.Contains("Finished"));
             Assert.IsTrue(Mobile.OrderTracking_Page.OrderPhaseTableRows[1].FindElements(By.TagName("td"))[no].Text.Contains("Ready"));
@@ -143,12 +144,13 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.PhaseExecWindow.ExecutionInternalFrame.OK_Button.Click();
             Thread.Sleep(10000);
             Edge_driver.SwitchToChrome();
-            
+            Thread.Sleep(3000);
             Assert.IsTrue(Mobile.OrderTracking_Page.OrderPhaseTableRows[0].FindElements(By.TagName("td"))[no].Text.Contains("Finished"));
             Assert.IsTrue(Mobile.OrderTracking_Page.OrderPhaseTableRows[1].FindElements(By.TagName("td"))[no].Text.Contains("Finished"));
             Assert.IsTrue(Mobile.OrderTracking_Page.OrderPhaseTableRows[2].FindElements(By.TagName("td"))[no].Text.Contains("Finished"));
             Assert.IsTrue(Mobile.OrderTracking_Page.OrderPhaseTableRows[3].FindElements(By.TagName("td"))[no].Text.Contains("Ready"));
             chrome_driver.SwitchToEdge();
+            Thread.Sleep(3000);
             Mobile_Fuction.TakeScreenshot(Selenium_Driver._Selenium_Driver, Resultpath + "finished_serial.PNG");
             Assert.IsTrue(Mobile.Consolidated_Page.OrderPhaseTableRows[0].FindElements(By.TagName("td"))[no_Edge].Text.Contains("Ready"));
             Mobile.Main_Page.Setting.Click();

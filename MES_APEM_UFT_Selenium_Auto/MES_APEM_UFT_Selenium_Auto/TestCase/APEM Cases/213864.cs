@@ -133,11 +133,14 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             APEM.MOCTemplatesWindow.Close();
             APEM.CloseDialog.YesButton.Click();
             APEM.MocmainWindow.RPLDesign.ClickSignle();
+            Thread.Sleep(3000);
             APEM.MocmainWindow.RPLDesignInternalFrame.SearchEditor.SetText(RPLName1Copy);
             APEM.MocmainWindow.RPLDesignInternalFrame.Filterbutton.Click();
             Thread.Sleep(1000);
             APEM.MocmainWindow.GetSnapshot(Resultpath + "ImportSuccessful.PNG");
             Base_Assert.IsTrue(APEM.MocmainWindow.RPLDesignInternalFrame.RPLListTable.Rowscount() > 1);
+            APEM.MocmainWindow.RPLDesignInternalFrame.SearchEditor.SetText("");
+            APEM.MocmainWindow.RPLDesignInternalFrame.Filterbutton.Click();
         }
 
     }
