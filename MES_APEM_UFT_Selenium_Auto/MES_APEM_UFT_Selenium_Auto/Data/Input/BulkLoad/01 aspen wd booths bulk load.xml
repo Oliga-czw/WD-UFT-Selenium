@@ -22,7 +22,7 @@
     <EquipmentProperty>
       <ID>ExpirationDate</ID>
       <Value>
-        <ValueString>2023-05-26T05:51:42.000Z</ValueString>
+        <ValueString>2030-05-26T05:51:42.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>
@@ -46,7 +46,7 @@
     <EquipmentProperty>
       <ID>LastCleanDate</ID>
       <Value>
-        <ValueString>2023-04-26T05:51:42.000Z</ValueString>
+        <ValueString>2030-04-26T05:51:42.000Z</ValueString>
         <DataType>DateTime</DataType>
         <UnitOfMeasure />
       </Value>

@@ -60,6 +60,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             //report.GenerateReportFile(_Descrpt);
             Base_Test.KillProcess("javaw");
             Base_Test.KillProcess("chrome");
+            Base_Test.KillProcess("msedge");
             Base_Test.KillProcess("AspenOneLicensingTool");
             Base_Test.KillProcess("mmc");
             Base_Test.KillProcess("BatchQueryTool");
