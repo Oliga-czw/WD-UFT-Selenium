@@ -1,0 +1,147 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\qaone1\\Documents\\GitHub\\WD_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{280D9718-0CC3-411D-A490-43CF2902649C}|MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto.csproj|c:\\users\\qaone1\\documents\\github\\wd_uft_selenium_auto\\mes_apem_uft_selenium_auto\\mes_apem_uft_selenium_auto\\testcase\\base_productbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280D9718-0CC3-411D-A490-43CF2902649C}|MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto.csproj|solutionrelative:mes_apem_uft_selenium_auto\\testcase\\base_productbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280D9718-0CC3-411D-A490-43CF2902649C}|MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto.csproj|c:\\users\\qaone1\\documents\\github\\wd_uft_selenium_auto\\mes_apem_uft_selenium_auto\\mes_apem_uft_selenium_auto\\library\\baselibrary\\base_testbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280D9718-0CC3-411D-A490-43CF2902649C}|MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto.csproj|solutionrelative:mes_apem_uft_selenium_auto\\library\\baselibrary\\base_testbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280D9718-0CC3-411D-A490-43CF2902649C}|MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto.csproj|c:\\users\\qaone1\\documents\\github\\wd_uft_selenium_auto\\mes_apem_uft_selenium_auto\\mes_apem_uft_selenium_auto\\testcase\\wd cases\\736598.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280D9718-0CC3-411D-A490-43CF2902649C}|MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto.csproj|solutionrelative:mes_apem_uft_selenium_auto\\testcase\\wd cases\\736598.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280D9718-0CC3-411D-A490-43CF2902649C}|MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto.csproj|c:\\users\\qaone1\\documents\\github\\wd_uft_selenium_auto\\mes_apem_uft_selenium_auto\\mes_apem_uft_selenium_auto\\testcase\\wd cases\\106684.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280D9718-0CC3-411D-A490-43CF2902649C}|MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto.csproj|solutionrelative:mes_apem_uft_selenium_auto\\testcase\\wd cases\\106684.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280D9718-0CC3-411D-A490-43CF2902649C}|MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto.csproj|c:\\users\\qaone1\\documents\\github\\wd_uft_selenium_auto\\mes_apem_uft_selenium_auto\\mes_apem_uft_selenium_auto\\library\\baselibrary\\base_assert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280D9718-0CC3-411D-A490-43CF2902649C}|MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto.csproj|solutionrelative:mes_apem_uft_selenium_auto\\library\\baselibrary\\base_assert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280D9718-0CC3-411D-A490-43CF2902649C}|MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto.csproj|c:\\users\\qaone1\\documents\\github\\wd_uft_selenium_auto\\mes_apem_uft_selenium_auto\\mes_apem_uft_selenium_auto\\testcase\\wd cases\\31389.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280D9718-0CC3-411D-A490-43CF2902649C}|MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto.csproj|solutionrelative:mes_apem_uft_selenium_auto\\testcase\\wd cases\\31389.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{280D9718-0CC3-411D-A490-43CF2902649C}|MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto.csproj|c:\\users\\qaone1\\documents\\github\\wd_uft_selenium_auto\\mes_apem_uft_selenium_auto\\mes_apem_uft_selenium_auto\\testcase\\apem cases\\1002790.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{280D9718-0CC3-411D-A490-43CF2902649C}|MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto.csproj|solutionrelative:mes_apem_uft_selenium_auto\\testcase\\apem cases\\1002790.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Base_ProductBase.cs",
+              "DocumentMoniker": "C:\\Users\\qaone1\\Documents\\GitHub\\WD_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\TestCase\\Base_ProductBase.cs",
+              "RelativeDocumentMoniker": "MES_APEM_UFT_Selenium_Auto\\TestCase\\Base_ProductBase.cs",
+              "ToolTip": "C:\\Users\\qaone1\\Documents\\GitHub\\WD_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\TestCase\\Base_ProductBase.cs",
+              "RelativeToolTip": "MES_APEM_UFT_Selenium_Auto\\TestCase\\Base_ProductBase.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAADAAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-10T02:23:07.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "31389.cs",
+              "DocumentMoniker": "C:\\Users\\qaone1\\Documents\\GitHub\\WD_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\TestCase\\WD Cases\\31389.cs",
+              "RelativeDocumentMoniker": "MES_APEM_UFT_Selenium_Auto\\TestCase\\WD Cases\\31389.cs",
+              "ToolTip": "C:\\Users\\qaone1\\Documents\\GitHub\\WD_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\TestCase\\WD Cases\\31389.cs",
+              "RelativeToolTip": "MES_APEM_UFT_Selenium_Auto\\TestCase\\WD Cases\\31389.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwCMAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-10T02:18:02.762Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "106684.cs",
+              "DocumentMoniker": "C:\\Users\\qaone1\\Documents\\GitHub\\WD_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\TestCase\\WD Cases\\106684.cs",
+              "RelativeDocumentMoniker": "MES_APEM_UFT_Selenium_Auto\\TestCase\\WD Cases\\106684.cs",
+              "ToolTip": "C:\\Users\\qaone1\\Documents\\GitHub\\WD_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\TestCase\\WD Cases\\106684.cs",
+              "RelativeToolTip": "MES_APEM_UFT_Selenium_Auto\\TestCase\\WD Cases\\106684.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAgwC4AAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-10T02:17:32.418Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "736598.cs",
+              "DocumentMoniker": "C:\\Users\\qaone1\\Documents\\GitHub\\WD_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\TestCase\\WD Cases\\736598.cs",
+              "RelativeDocumentMoniker": "MES_APEM_UFT_Selenium_Auto\\TestCase\\WD Cases\\736598.cs",
+              "ToolTip": "C:\\Users\\qaone1\\Documents\\GitHub\\WD_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\TestCase\\WD Cases\\736598.cs",
+              "RelativeToolTip": "MES_APEM_UFT_Selenium_Auto\\TestCase\\WD Cases\\736598.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAQwBAAAABOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-10T02:15:44.332Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Base_TestBase.cs",
+              "DocumentMoniker": "C:\\Users\\qaone1\\Documents\\GitHub\\WD_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\Library\\BaseLibrary\\Base_TestBase.cs",
+              "RelativeDocumentMoniker": "MES_APEM_UFT_Selenium_Auto\\Library\\BaseLibrary\\Base_TestBase.cs",
+              "ToolTip": "C:\\Users\\qaone1\\Documents\\GitHub\\WD_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\Library\\BaseLibrary\\Base_TestBase.cs",
+              "RelativeToolTip": "MES_APEM_UFT_Selenium_Auto\\Library\\BaseLibrary\\Base_TestBase.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA4AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-10T02:14:57.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Base_Assert.cs",
+              "DocumentMoniker": "C:\\Users\\qaone1\\Documents\\GitHub\\WD_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\Library\\BaseLibrary\\Base_Assert.cs",
+              "RelativeDocumentMoniker": "MES_APEM_UFT_Selenium_Auto\\Library\\BaseLibrary\\Base_Assert.cs",
+              "ToolTip": "C:\\Users\\qaone1\\Documents\\GitHub\\WD_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\Library\\BaseLibrary\\Base_Assert.cs",
+              "RelativeToolTip": "MES_APEM_UFT_Selenium_Auto\\Library\\BaseLibrary\\Base_Assert.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAgwAIAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-10T02:12:45.949Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "1002790.cs",
+              "DocumentMoniker": "C:\\Users\\qaone1\\Documents\\GitHub\\WD_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\TestCase\\APEM Cases\\1002790.cs",
+              "RelativeDocumentMoniker": "MES_APEM_UFT_Selenium_Auto\\TestCase\\APEM Cases\\1002790.cs",
+              "ToolTip": "C:\\Users\\qaone1\\Documents\\GitHub\\WD_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\MES_APEM_UFT_Selenium_Auto\\TestCase\\APEM Cases\\1002790.cs",
+              "RelativeToolTip": "MES_APEM_UFT_Selenium_Auto\\TestCase\\APEM Cases\\1002790.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAYwA4AAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-10T02:12:21.096Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

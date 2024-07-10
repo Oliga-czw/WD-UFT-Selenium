@@ -149,7 +149,82 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             WD.mainWindow.LogonInternalFrame.passwordEditor.SetSecure(password);
             WD.mainWindow.LogonInternalFrame.loginbutton.Click();
         }
-        public static class Application
+        public static void UFTInitializes()
+        {
+            int processCount_LFTRuntime = Process.GetProcesses().ToList()
+                .Where(anyProcess => anyProcess.ProcessName.Contains("LFTRuntime")).Count();
+
+            if (processCount_LFTRuntime == 0)
+            {
+                StartUFT();
+            }
+            else
+            {
+                Console.WriteLine("LFTRuntime is running");
+            }
+            try
+            {
+                var configuration = new SdkConfiguration();
+                //configuration.AutoLaunch = true;
+                SDK.Init(configuration);
+                Console.WriteLine($"SDK.IsServerReady : {SDK.IsServerReady}");
+            }
+            catch (Exception)
+            {
+
+                StopUFT();
+                StartUFT();
+                var configuration = new SdkConfiguration();
+                //configuration.AutoLaunch = true;
+                SDK.Init(configuration);
+                Console.WriteLine($"SDK.IsServerReady : {SDK.IsServerReady}");
+            }
+
+        }
+        public static void StartUFT()
+        {
+            Console.WriteLine("Start LFTRuntime");
+            using (Process process = new Process())
+            {
+                var fileName = @"C:\Program Files (x86)\Micro Focus\UFT Developer\bin\leanft.bat";
+                if (!File.Exists(fileName))
+                    fileName = @"C:\Program Files (x86)\OpenText\UFT Developer\bin\leanft.bat";
+                process.StartInfo.FileName = fileName;
+                process.StartInfo.Arguments = "start";
+                process.StartInfo.WorkingDirectory = new FileInfo(fileName).Directory.FullName;
+                process.StartInfo.UseShellExecute = true;
+                process.Start();
+                process.WaitForExit(5 * 60 * 1000);
+                Thread.Sleep(3 * 1000);
+                Console.WriteLine("Start LFTRuntime successful");
+                var executeCountFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UFTExecuteCount.txt");
+                var restartCountFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UFTRestartCount.txt");
+                uint executeCount = 0;
+                if (File.Exists(executeCountFile))
+                    executeCount = Convert.ToUInt32(File.ReadAllText(executeCountFile));
+                File.AppendAllText(restartCountFile, executeCount.ToString() + Environment.NewLine);
+
+            }
+        }
+        public static void StopUFT()
+        {
+            Console.WriteLine("Stop UFT");
+            string[] processUFT = { "Mediator64.exe", "HP.UFT.HelperService.exe", "LFTRuntime.exe" };
+            foreach (var item in processUFT)
+            {
+                Console.WriteLine($"taskkill {item}");
+                Process.Start("taskkill", $"/F /T /IM {item}");
+                Thread.Sleep(3000);
+            }
+            int processCount_LFTRuntime = Process.GetProcesses().ToList()
+                .Where(anyProcess => anyProcess.ProcessName.Contains("LFTRuntime")).Count();
+            if (processCount_LFTRuntime > 0)
+            {
+                Process.Start("wmic process where name='LFTRuntime.exe' call terminate");
+            }
+        }
+    }
+    public static class Application
         {
             private static string application = "javaw";
             public static void LaunchWDAndLogin()
@@ -289,82 +364,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
                 Base_Test.KillProcess(application);
             }
         }
-        public static void UFTInitializes()
-        {
-            int processCount_LFTRuntime = Process.GetProcesses().ToList()
-                .Where(anyProcess => anyProcess.ProcessName.Contains("LFTRuntime")).Count();
-
-            if (processCount_LFTRuntime == 0)
-            {
-                StartUFT();
-            }
-            else
-            {
-                Console.WriteLine("LFTRuntime is running");
-            }
-            try
-            {
-                var configuration = new SdkConfiguration();
-                //configuration.AutoLaunch = true;
-                SDK.Init(configuration);
-                Console.WriteLine($"SDK.IsServerReady : {SDK.IsServerReady}");
-            }
-            catch (Exception)
-            {
-
-                StopUFT();
-                StartUFT();
-                var configuration = new SdkConfiguration();
-                //configuration.AutoLaunch = true;
-                SDK.Init(configuration);
-                Console.WriteLine($"SDK.IsServerReady : {SDK.IsServerReady}");
-            }
-
-        }
-        public static void StartUFT()
-        {
-            Console.WriteLine("Start LFTRuntime");
-            using (Process process = new Process())
-            {
-                var fileName = @"C:\Program Files (x86)\Micro Focus\UFT Developer\bin\leanft.bat";
-                if (!File.Exists(fileName))
-                    fileName = @"C:\Program Files (x86)\OpenText\UFT Developer\bin\leanft.bat";
-                process.StartInfo.FileName = fileName;
-                process.StartInfo.Arguments = "start";
-                process.StartInfo.WorkingDirectory = new FileInfo(fileName).Directory.FullName;
-                process.StartInfo.UseShellExecute = true;
-                process.Start();
-                process.WaitForExit(5 * 60 * 1000);
-                Thread.Sleep(3 * 1000);
-                Console.WriteLine("Start LFTRuntime successful");
-                var executeCountFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UFTExecuteCount.txt");
-                var restartCountFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UFTRestartCount.txt");
-                uint executeCount = 0;
-                if (File.Exists(executeCountFile))
-                    executeCount = Convert.ToUInt32(File.ReadAllText(executeCountFile));
-                File.AppendAllText(restartCountFile, executeCount.ToString() + Environment.NewLine);
-
-            }
-        }
-        public static void StopUFT()
-        {
-            Console.WriteLine("Stop UFT");
-            string[] processUFT = { "Mediator64.exe", "HP.UFT.HelperService.exe", "LFTRuntime.exe" };
-            foreach (var item in processUFT)
-            {
-                Console.WriteLine($"taskkill {item}");
-                Process.Start("taskkill", $"/F /T /IM {item}");
-                Thread.Sleep(3000);
-            }
-            int processCount_LFTRuntime = Process.GetProcesses().ToList()
-                .Where(anyProcess => anyProcess.ProcessName.Contains("LFTRuntime")).Count();
-            if (processCount_LFTRuntime > 0)
-            {
-                Process.Start("wmic process where name='LFTRuntime.exe' call terminate");
-            }
-        }
+        
     }
     
 
 
-}
+
