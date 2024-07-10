@@ -44,7 +44,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Web.Administration_Page.General.Click();
             LogStep(@"3. Open WD web and login another");
             Selenium_Driver edge = new Selenium_Driver(Browser.edge);
-            Web_Fuction.gotoWDWeb(driver);
+            Web_Fuction.gotoWDWeb(edge);
             edge.Wait();
             Web_Fuction.login();
             edge.Wait();

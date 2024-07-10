@@ -266,11 +266,22 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
 
         #endregion
         #region booth function
+        public static void select_booth(string booth)
+        {
+            string xpath = "//td[text()='" + booth + "']";
+            Web.Equipment_Page.body._Selenium_WebElement.FindElement(By.XPath(xpath)).Click();
+        }
         public static void edit_booth(string booth)
         {
             string xpath = "//td[text()='" + booth + "']/../td[3]/img";
             var img = Web.Equipment_Page.body._Selenium_WebElement.FindElements(By.XPath(xpath));
             img[0].Click();
+        }
+        public static void delete_booth(string booth)
+        {
+            string xpath = "//td[text()='" + booth + "']/../td[17]/img";
+            Web.Equipment_Page.body._Selenium_WebElement.FindElement(By.XPath(xpath)).Click();
+            Web.Equipment_Page.MessageOK.Click();
         }
         #endregion
         #region report fuction

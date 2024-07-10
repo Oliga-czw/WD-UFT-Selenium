@@ -18,6 +18,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
 
         public Selenium_WebElement body => new Selenium_WebElement(_Selenium_Driver, "//body");
         public Selenium_WebElement Message => new Selenium_WebElement(_Selenium_Driver, "//div[@title='Message']");
+        public Selenium_WebElement MessageOK => new Selenium_WebElement(_Selenium_Driver, "//button[text()='OK']");
         public Selenium_WebElement Confirm => new Selenium_WebElement(_Selenium_Driver, "//div[@title='Confirm']");
 
     }
@@ -137,11 +138,12 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         public Selenium_WebElement simultor_status => new Selenium_WebElement(_Selenium_Driver, "//select[@name='statusValue']");
         public Selenium_WebElement simultor_description => new Selenium_WebElement(_Selenium_Driver, "//input[@name='description']");
         public Selenium_WebElement simultor_Resolution => new Selenium_WebElement(_Selenium_Driver, "//input[@name='precision']");
-        
+
 
         #endregion
 
         #region booth
+        public Selenium_WebElement booth_description => new Selenium_WebElement(_Selenium_Driver, "//input[@name='boothDescription']");
         public Selenium_WebElement booth_status => new Selenium_WebElement(_Selenium_Driver, "//select[@name='boothStatusValue']");
         #endregion
     }
