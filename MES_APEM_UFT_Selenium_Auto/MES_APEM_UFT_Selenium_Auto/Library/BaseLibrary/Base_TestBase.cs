@@ -6,6 +6,7 @@ using System.Threading;
 using MES_APEM_UFT_Selenium_Auto.Product.WD;
 using MES_APEM_UFT_Selenium_Auto.Product.APEM;
 using MES_APEM_UFT_Selenium_Auto.Product.SQLplus;
+using System.Linq;
 
 namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
 {
@@ -148,148 +149,222 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
             WD.mainWindow.LogonInternalFrame.passwordEditor.SetSecure(password);
             WD.mainWindow.LogonInternalFrame.loginbutton.Click();
         }
-    }
-    public static class Application
-    {
-        private static string application = "javaw";
-        public static void LaunchWDAndLogin()
+        public static class Application
         {
-            Base_Test.LaunchApp(Base_Directory.WDDir);
-            SdkConfiguration config = new SdkConfiguration();
-            SDK.Init(config);
-            Thread.Sleep(5000);
-            Base_Test.Login(UserName.qaone1, PassWord.qaone1);
-        }
-        public static void LaunchCMD()
-        {
-            Base_Test.LaunchApp(Base_Directory.CMDDir);
-            SdkConfiguration config = new SdkConfiguration();
-            SDK.Init(config);
-            Thread.Sleep(5000);
-        }
-        public static void LaunchAFW()
-        {
-            Base_Test.LaunchApp(Base_Directory.AFWDir);
-            SdkConfiguration config = new SdkConfiguration();
-            SDK.Init(config);
-            Thread.Sleep(2000);
-            WD.AFWloginDialog.OK.Click();
-            WD.AFWSecuredDialog.OK.Click();
-
-        }
-        public static void LaunchMocAndLogin()
-        {
-            Base_Test.LaunchApp(Base_Directory.MOCDir);
-            SdkConfiguration config = new SdkConfiguration();
-            SDK.Init(config);
-            APEM.MocmainWindow.LogonInternalFrame.userNameEditor.SetText(UserName.qaone1);
-            APEM.MocmainWindow.LogonInternalFrame.passwordEditor.SetSecure(PassWord.qaone1);
-            APEM.MocmainWindow.LogonInternalFrame.loginbutton.ClickSignle();
-            Thread.Sleep(2000);
-        }
-
-        
-
-        #region SLM
-        public static void LaunchSLM()
-        {
-            Base_Test.LaunchApp(Base_Directory.SLMDir);
-            SdkConfiguration config = new SdkConfiguration();
-            SDK.Init(config);
-            Thread.Sleep(5000);
-        }
-        #endregion
-        #region APRM
-        public static void LaunchBatchDetailDisplay()
-        {
-            Base_Test.LaunchApp(Base_Directory.BDDDir);
-            SdkConfiguration config = new SdkConfiguration();
-            SDK.Init(config);
-            Thread.Sleep(5000);
-        }
-        public static void LaunchBatchQueryTool()
-        {
-            Base_Test.LaunchApp(Base_Directory.BatchQueryToolDir);
-            SdkConfiguration config = new SdkConfiguration();
-            SDK.Init(config);
-            Thread.Sleep(5000);
-        }
-        public static void LaunchWizrd()
-        {
-            Base_Test.LaunchApp(Base_Directory.WizrdDir);
-            SdkConfiguration config = new SdkConfiguration();
-            SDK.Init(config);
-            Thread.Sleep(10000);
-        }
-
-        public static void LaunchAprmAdmin()
-        {
-            Base_Test.LaunchApp(Base_Directory.AprmAdminDir);
-            SdkConfiguration config = new SdkConfiguration();
-            SDK.Init(config);
-            Thread.Sleep(5000);
-        }
-
-        public static void LaunchAPEMAdmin()
-        {
-            Base_Test.LaunchApp(Base_Directory.APEMAdminDir1);
-            SdkConfiguration config = new SdkConfiguration();
-            SDK.Init(config);
-            Thread.Sleep(5000);
-        }
-        #endregion
-
-        #region GML
-        public static void LaunchmMDMAdmin()
-        {
-            Base_Test.LaunchApp(Base_Directory.mMDMAdminDir);
-            SdkConfiguration config = new SdkConfiguration();
-            SDK.Init(config);
-            Thread.Sleep(3000);
-        }
-        public static void LaunchmMDMBulkLoad()
-        {
-            SdkConfiguration config = new SdkConfiguration();
-            SDK.Init(config);
-            Base_Test.LaunchApp(Base_Directory.mMDMBulkLoadDir);
-            Thread.Sleep(3000);
-
-        }
-        public static void LaunchmMDMEditor()
-        {
-            SdkConfiguration config = new SdkConfiguration();
-            SDK.Init(config);
-            Base_Test.LaunchApp(Base_Directory.mMDMEditorDir);
-            Thread.Sleep(3000);
-        }
-        public static void LaunchIP21()
-        {
-            SdkConfiguration config = new SdkConfiguration();
-            SDK.Init(config);
-            Base_Test.LaunchApp(Base_Directory.IP21Dir);
-            Thread.Sleep(3000);
-        }
-        #endregion
-
-        public static void LaunchSQLPlus()
-        {
-            Base_Test.LaunchApp(Base_Directory.SQLPlusDir);
-            SdkConfiguration config = new SdkConfiguration();
-            SDK.Init(config);
-            Thread.Sleep(5000);
-            //fist open to select server
-            if (SQLplus.SQLplusWindow.selectSQLplusServerDialog.IsExist())
+            private static string application = "javaw";
+            public static void LaunchWDAndLogin()
             {
-                SQLplus.SQLplusWindow.selectSQLplusServerDialog.OK.Click();
+                Base_Test.LaunchApp(Base_Directory.WDDir);
+                SdkConfiguration config = new SdkConfiguration();
+                SDK.Init(config);
+                Thread.Sleep(5000);
+                Base_Test.Login(UserName.qaone1, PassWord.qaone1);
+            }
+            public static void LaunchCMD()
+            {
+                Base_Test.LaunchApp(Base_Directory.CMDDir);
+                SdkConfiguration config = new SdkConfiguration();
+                SDK.Init(config);
                 Thread.Sleep(5000);
             }
-        }
-        public static void KillWD()
-        {
-            Base_Test.KillProcess(application);
-        }
+            public static void LaunchAFW()
+            {
+                Base_Test.LaunchApp(Base_Directory.AFWDir);
+                SdkConfiguration config = new SdkConfiguration();
+                SDK.Init(config);
+                Thread.Sleep(2000);
+                WD.AFWloginDialog.OK.Click();
+                WD.AFWSecuredDialog.OK.Click();
 
+            }
+            public static void LaunchMocAndLogin()
+            {
+                Base_Test.LaunchApp(Base_Directory.MOCDir);
+                SdkConfiguration config = new SdkConfiguration();
+                SDK.Init(config);
+                APEM.MocmainWindow.LogonInternalFrame.userNameEditor.SetText(UserName.qaone1);
+                APEM.MocmainWindow.LogonInternalFrame.passwordEditor.SetSecure(PassWord.qaone1);
+                APEM.MocmainWindow.LogonInternalFrame.loginbutton.ClickSignle();
+                Thread.Sleep(2000);
+            }
+
+
+
+            #region SLM
+            public static void LaunchSLM()
+            {
+                Base_Test.LaunchApp(Base_Directory.SLMDir);
+                SdkConfiguration config = new SdkConfiguration();
+                SDK.Init(config);
+                Thread.Sleep(5000);
+            }
+            #endregion
+            #region APRM
+            public static void LaunchBatchDetailDisplay()
+            {
+                Base_Test.LaunchApp(Base_Directory.BDDDir);
+                SdkConfiguration config = new SdkConfiguration();
+                SDK.Init(config);
+                Thread.Sleep(5000);
+            }
+            public static void LaunchBatchQueryTool()
+            {
+                Base_Test.LaunchApp(Base_Directory.BatchQueryToolDir);
+                SdkConfiguration config = new SdkConfiguration();
+                SDK.Init(config);
+                Thread.Sleep(5000);
+            }
+            public static void LaunchWizrd()
+            {
+                Base_Test.LaunchApp(Base_Directory.WizrdDir);
+                SdkConfiguration config = new SdkConfiguration();
+                SDK.Init(config);
+                Thread.Sleep(10000);
+            }
+
+            public static void LaunchAprmAdmin()
+            {
+                Base_Test.LaunchApp(Base_Directory.AprmAdminDir);
+                SdkConfiguration config = new SdkConfiguration();
+                SDK.Init(config);
+                Thread.Sleep(5000);
+            }
+
+            public static void LaunchAPEMAdmin()
+            {
+                Base_Test.LaunchApp(Base_Directory.APEMAdminDir1);
+                SdkConfiguration config = new SdkConfiguration();
+                SDK.Init(config);
+                Thread.Sleep(5000);
+            }
+            #endregion
+
+            #region GML
+            public static void LaunchmMDMAdmin()
+            {
+                Base_Test.LaunchApp(Base_Directory.mMDMAdminDir);
+                SdkConfiguration config = new SdkConfiguration();
+                SDK.Init(config);
+                Thread.Sleep(3000);
+            }
+            public static void LaunchmMDMBulkLoad()
+            {
+                SdkConfiguration config = new SdkConfiguration();
+                SDK.Init(config);
+                Base_Test.LaunchApp(Base_Directory.mMDMBulkLoadDir);
+                Thread.Sleep(3000);
+
+            }
+            public static void LaunchmMDMEditor()
+            {
+                SdkConfiguration config = new SdkConfiguration();
+                SDK.Init(config);
+                Base_Test.LaunchApp(Base_Directory.mMDMEditorDir);
+                Thread.Sleep(3000);
+            }
+            public static void LaunchIP21()
+            {
+                SdkConfiguration config = new SdkConfiguration();
+                SDK.Init(config);
+                Base_Test.LaunchApp(Base_Directory.IP21Dir);
+                Thread.Sleep(3000);
+            }
+            #endregion
+
+            public static void LaunchSQLPlus()
+            {
+                Base_Test.LaunchApp(Base_Directory.SQLPlusDir);
+                SdkConfiguration config = new SdkConfiguration();
+                SDK.Init(config);
+                Thread.Sleep(5000);
+                //fist open to select server
+                if (SQLplus.SQLplusWindow.selectSQLplusServerDialog.IsExist())
+                {
+                    SQLplus.SQLplusWindow.selectSQLplusServerDialog.OK.Click();
+                    Thread.Sleep(5000);
+                }
+            }
+            public static void KillWD()
+            {
+                Base_Test.KillProcess(application);
+            }
+        }
+        public static void UFTInitializes()
+        {
+            int processCount_LFTRuntime = Process.GetProcesses().ToList()
+                .Where(anyProcess => anyProcess.ProcessName.Contains("LFTRuntime")).Count();
+
+            if (processCount_LFTRuntime == 0)
+            {
+                StartUFT();
+            }
+            else
+            {
+                Console.WriteLine("LFTRuntime is running");
+            }
+            try
+            {
+                var configuration = new SdkConfiguration();
+                //configuration.AutoLaunch = true;
+                SDK.Init(configuration);
+                Console.WriteLine($"SDK.IsServerReady : {SDK.IsServerReady}");
+            }
+            catch (Exception)
+            {
+
+                StopUFT();
+                StartUFT();
+                var configuration = new SdkConfiguration();
+                //configuration.AutoLaunch = true;
+                SDK.Init(configuration);
+                Console.WriteLine($"SDK.IsServerReady : {SDK.IsServerReady}");
+            }
+
+        }
+        public static void StartUFT()
+        {
+            Console.WriteLine("Start LFTRuntime");
+            using (Process process = new Process())
+            {
+                var fileName = @"C:\Program Files (x86)\Micro Focus\UFT Developer\bin\leanft.bat";
+                if (!File.Exists(fileName))
+                    fileName = @"C:\Program Files (x86)\OpenText\UFT Developer\bin\leanft.bat";
+                process.StartInfo.FileName = fileName;
+                process.StartInfo.Arguments = "start";
+                process.StartInfo.WorkingDirectory = new FileInfo(fileName).Directory.FullName;
+                process.StartInfo.UseShellExecute = true;
+                process.Start();
+                process.WaitForExit(5 * 60 * 1000);
+                Thread.Sleep(3 * 1000);
+                Console.WriteLine("Start LFTRuntime successful");
+                var executeCountFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UFTExecuteCount.txt");
+                var restartCountFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UFTRestartCount.txt");
+                uint executeCount = 0;
+                if (File.Exists(executeCountFile))
+                    executeCount = Convert.ToUInt32(File.ReadAllText(executeCountFile));
+                File.AppendAllText(restartCountFile, executeCount.ToString() + Environment.NewLine);
+
+            }
+        }
+        public static void StopUFT()
+        {
+            Console.WriteLine("Stop UFT");
+            string[] processUFT = { "Mediator64.exe", "HP.UFT.HelperService.exe", "LFTRuntime.exe" };
+            foreach (var item in processUFT)
+            {
+                Console.WriteLine($"taskkill {item}");
+                Process.Start("taskkill", $"/F /T /IM {item}");
+                Thread.Sleep(3000);
+            }
+            int processCount_LFTRuntime = Process.GetProcesses().ToList()
+                .Where(anyProcess => anyProcess.ProcessName.Contains("LFTRuntime")).Count();
+            if (processCount_LFTRuntime > 0)
+            {
+                Process.Start("wmic process where name='LFTRuntime.exe' call terminate");
+            }
+        }
     }
+    
 
 
 }

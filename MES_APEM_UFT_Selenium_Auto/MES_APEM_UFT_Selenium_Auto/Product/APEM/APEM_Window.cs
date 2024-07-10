@@ -64,8 +64,8 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         //m2r.Window.m2rDialog$FixedSize
         public Confirm_Dialog ConfirmDialog => new Confirm_Dialog(_UFT_Window, "//Dialog[@NativeClass = 'm2r.Window.m2rDialog$FixedSize']");
         public SelectMasterRecipe_Dialog SelectMasterRecipeDialog => new SelectMasterRecipe_Dialog(_UFT_Window, "//Dialog[@Title = 'Select Master Recipe']");
-        
-        
+        public BPLImport_Export_Dialog BPLExport_ImportDialog => new BPLImport_Export_Dialog(_UFT_Window, "//Dialog[@Title = 'BPL Export/import']");
+        public UFT_Dialog LogWindow_Dialog => new UFT_Dialog(_UFT_Window, "//Dialog[@TagName = 'Log window']");
 
         //orderlist
         public UFT_Dialog CancelOrderDialog => new UFT_Dialog("//Dialog[@Title = 'Cancel Order']");

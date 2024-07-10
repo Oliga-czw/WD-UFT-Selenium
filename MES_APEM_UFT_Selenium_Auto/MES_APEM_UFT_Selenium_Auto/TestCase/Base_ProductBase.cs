@@ -46,7 +46,9 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Base_File.CleanWorkFolder(Base_Directory.GenerateOutputFileDir(CaseID, ""));
             //Initial data
             WD_Fuction.initial_data();
-            
+            Base_Test.UFTInitializes();
+
+
         }
 
         [TestCleanup]
@@ -127,7 +129,9 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Base_Test.KillProcess("AtOdmAdministrator");
             Base_File.CleanWorkFolder(Base_Directory.GenerateOutputFileDir(CaseID, ""));
             //Initial data
+            Base_Test.UFTInitializes();
             //GML_Function.GML_ConfigAll();
+
 
         }
 
@@ -202,6 +206,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Base_Test.KillProcess("javaw");
             Base_Test.KillProcess("mmc");
             Base_File.CleanWorkFolder(Base_Directory.GenerateOutputFileDir(CaseID, ""));
+            Base_Test.UFTInitializes();
 
         }
 
@@ -279,6 +284,7 @@ namespace MES_APEM_UFT_Selenium_Auto.TestCase
             Base_Test.KillProcess("javaw");
             Base_Test.KillProcess("mmc");
             Base_File.CleanWorkFolder(Base_Directory.GenerateOutputFileDir(CaseID, ""));
+            Base_Test.UFTInitializes();
 
         }
 

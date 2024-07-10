@@ -130,7 +130,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         public UFT_Label Potency => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'dispLblPotency']");
         public UFT_Button comment => new UFT_Button(_UFT_InterFrame, "//Button[@ObjectName = 'sbtnComment']");
         public UFT_UiObject weighBar => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@ObjectName = 'WeighBar']");
-
+        public UFT_Label CheckResult => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'lblInstruction']");
         public UFT_Label WeightNumber => new UFT_Label(_UFT_InterFrame, "//Label[@ObjectName = 'lblNumber']");
         //WeighBar
         public UFT_Editor net_editor => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Net:']");

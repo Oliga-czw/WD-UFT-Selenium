@@ -112,7 +112,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
         public IEditor Reason => _UFT_Dialog.Describe<IEditor>(new EditorDescription
         {
             AttachedText = @"Reason"
-        }); 
+        });
+        public IList Datalist => _UFT_Dialog.Describe<IList>(new ListDescription
+            {
+                TagName = @"JList"
+            });
     }
 
 
@@ -187,5 +191,25 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.UFTLibrary
         public UFT_Table MRTable => new UFT_Table(_UFT_Dialog, "//Table[@AttachedText = 'Name\\s\\s']");
         public UFT_Button Print => new UFT_Button(_UFT_Dialog, "//Button[@Label = 'Print']");
 
+    }
+    public class BPLImport_Export_Dialog : UFT_Dialog
+    {
+        public BPLImport_Export_Dialog(ITestObject parentObject, string xpath) : base(parentObject, xpath)
+        {
+        }
+
+        public IRadioButton Export_MergeButton => _UFT_Dialog.Describe<IRadioButton>(new RadioButtonDescription
+        {
+            AttachedText = @"Export/merge"
+        });
+        public IRadioButton ExportAllButton => _UFT_Dialog.Describe<IRadioButton>(new RadioButtonDescription
+        {
+            AttachedText = @"Export all"
+        });
+        public UFT_Editor FolderEditor => new UFT_Editor(_UFT_Dialog, "//Editor[@TagName = 'Folder:']");
+        public ICheckBox Ignore_non_recognized_files => _UFT_Dialog.Describe<ICheckBox>(new CheckBoxDescription
+        {
+            AttachedText = @"Ignore non-recognized files"
+        });
     }
 }
