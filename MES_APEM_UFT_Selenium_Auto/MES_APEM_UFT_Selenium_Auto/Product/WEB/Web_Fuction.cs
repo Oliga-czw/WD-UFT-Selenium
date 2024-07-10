@@ -323,6 +323,28 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
             }
         }
 
+        public static void check_report_new(List<string> columns, List<string> datatexts)
+        {
+            // Assuming Web.Report_Page.Report_Table._Selenium_WebElement is an IWebDriver or similar.
+            var table = Web.Report_Page.Report_Table._Selenium_WebElement.FindElement(By.XPath("//table[@class='Report_Paper_Border_Shading']/tbody/tr[4]/td/table"));
+            var head = table.FindElements(By.XPath(".//tr/td/div//a[@class='Report_Head_Style']"));
+            var head_list = head.Select(h => h.Text).ToList();
+
+            var rows = table.FindElements(By.XPath(".//tr/td[@class='Inner_Column_Left']/.."));
+            var data_list = rows.Select(row => row.FindElements(By.CssSelector("td.Inner_Column_Left")).Select(cell => cell.Text).ToList()).ToList();
+
+            for (int i = 0; i < columns.Count; i++)
+            {
+                int number = head_list.IndexOf(columns[i]);
+                string datatext = datatexts[i];
+                foreach (var row in data_list)
+                {
+                    Console.WriteLine(row[number]);
+                    Base_Assert.AreEqual(datatext, row[number]);
+                }
+            }
+        }
+          
         public static void Check_report_inner(List<List<string>> datatexts,int tablerow)
         {
 
@@ -396,7 +418,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
                                  select word;
                 // Count the matches, which executes the query.  
                 int wordCount = matchQuery.Count();
-                Console.WriteLine(searchTerm + wordCount);
+                Console.WriteLine(searchTerm +":" + wordCount);
                 //verify no.<tr> == ferquency(line+cerified) 
                 Base_Assert.AreEqual(row.Count+1, wordCount, searchTerm);
             }
@@ -521,8 +543,6 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
                     {
                         Base_Assert.AreEqual(datatext, data_list[m][number],"show difference");
                     }
-
-
             }
 
 

@@ -156,10 +156,12 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.WD
         }
         #region report
         public Selenium_WebElement Cleaning => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Cleaning']");
+        public Selenium_WebElement Deviation => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Deviation']");
         public Selenium_WebElement Weighing => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Weighing']");
         public Selenium_WebElement ScaleCheck => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Scale Check']");
         public Selenium_WebElement LabelReprint => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Label Reprint']");
-        
+        //audit
+        public Selenium_WebElement Signatures => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Signatures']");
         public Selenium_WebElement Permissions => new Selenium_WebElement(_Selenium_Driver, "//div[text()='Permissions']");
         #endregion
         public Selenium_WebElement Start_Time => new Selenium_WebElement(_Selenium_Driver, "//input[@class='Date_TextBox_Style']/../../td/img",0);
