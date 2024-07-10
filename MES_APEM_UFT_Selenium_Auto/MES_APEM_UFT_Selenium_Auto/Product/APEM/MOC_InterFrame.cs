@@ -378,6 +378,9 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public UFT_Button VerifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Verify']");
         public UFT_Button CertifyButton => new UFT_Button(_UFT_InterFrame, "//Button[@AttachedText = 'Certify']");
         public UFT_Button MakeUsable_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Make usable']");
+        public UFT_Button FullExport_Import_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Full BPL export/import' and @IsWrapped = 'True']");
+        public UFT_Editor NameSearch_Editor => new UFT_Editor(_UFT_InterFrame, "//Editor[@NativeClass = 'javax.swing.JTextField']");
+        public UFT_Button Filter_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Local filter' and @IsWrapped = 'True']");
     }
 
     public class BPLData_InterFrame : MOCMainInterFrame
@@ -388,6 +391,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         }
         public UFT_Button ConfirmChanges_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Confirm changes' and @IsWrapped = 'True']");
         public UFT_Button CancelChanges_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Cancel changes' and @IsWrapped = 'True']");
+        public UFT_Button Delete_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Delete row' and @IsWrapped = 'True']");
         public UFT_Editor BPLName => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Name']");
         public UFT_Editor BPLDescription => new UFT_Editor(_UFT_InterFrame, "//Editor[@AttachedText = 'Description']");
         public UFT_Button MakeUsable_Button => new UFT_Button(_UFT_InterFrame, "//Button[@Label = 'Make usable']");

@@ -87,7 +87,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public static UFT_Dialog CutElementDialog => new UFT_Dialog("//Dialog[@Title = 'Cut Element']");
         public static UFT_Dialog LoseCopiedDialog => new UFT_Dialog("//Dialog[@Title = 'Lose Copied Element']");
         public static UFT_Dialog AuditReasonDialog => new UFT_Dialog("//Dialog[@Title = 'Audit Reason']");
-
+        
         public static UFT_Dialog DesignSavedDialog => new UFT_Dialog("//Dialog[@Title = 'Design Is Saved']");
         public static UFT_Dialog DesignVerificationDialog => new UFT_Dialog("//Dialog[@Title = 'Design verification']");
         public static UFT_Dialog DesignCompilationDialog => new UFT_Dialog("//Dialog[@Title = 'Design compilation']");
@@ -109,6 +109,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         public static UFT_Dialog BPLEditDialog => new UFT_Dialog("//Dialog[@Title = 'Edit']");
         public static UFT_Dialog SwitchToEditingDialog => new UFT_Dialog("//Dialog[@Title = 'Switch to Editing']");
         public static UFT_Dialog DeleteOrderDialog => new UFT_Dialog("//Dialog[@Title = 'Delete Order']");
+        public static UFT_Dialog DeleteRowDialog => new UFT_Dialog("//Dialog[@Title = 'Delete current row']");
         #endregion
 
 
