@@ -32,6 +32,7 @@ namespace MES_APEM_UFT_Selenium_Auto
         public void TestInitialize()
         {
             Base_logger.GenerateLogFile("Prepare");
+            Base_Test.UFTInitializes();
         }
 
 
