@@ -249,6 +249,7 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         });
         public UFT_UiObject OperationUiObject => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@TagName = 'Operation']");
         public UFT_UiObject PhaseUiObject => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@TagName = 'Phase' and @ Index = '0']");
+        public UFT_UiObject PhaseUiObject2 => new UFT_UiObject(_UFT_InterFrame, "//UiObject[@TagName = 'Phase' and @ Index = '1']");
         public IUiObject Script1 => _UFT_InterFrame.Describe<IUiObject>(new UiObjectDescription
         {
             NativeClass = @"PFCTree.View.Script",
@@ -270,6 +271,11 @@ namespace MES_APEM_UFT_Selenium_Auto.Product.APEM
         {
             NativeClass = @"PFCTree.View.Step$RoundCornerLabel",
             Index = 0
+        });
+        public ILabel Phase2_ExecutionStatus => _UFT_InterFrame.Describe<ILabel>(new LabelDescription
+        {
+            NativeClass = @"PFCTree.View.Step$RoundCornerLabel",
+            Index = 2
         });
         public IMenu ExecuteButton => _UFT_InterFrame.Describe<IMenu>(new MenuDescription
         {
