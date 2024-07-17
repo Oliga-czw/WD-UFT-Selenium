@@ -49,7 +49,7 @@ namespace MES_APEM_UFT_Selenium_Auto
             string BPLname = "BPL539370";
             string PO_Value = "PO123";
             GML_Function.GMLAPRMConfig();
-            //Library.BaseLibrary.Application.LaunchMocAndLogin();
+            //Library.BaseLibrary.Application.LaunchMocAndLogin();111
             //APEM.MocmainWindow.RPLDesign.ClickSignle();
             //if (!APEM.MocmainWindow.BPLListInternalFrame.BPLList_Table.Row(BPLname).Existing)
             //{
