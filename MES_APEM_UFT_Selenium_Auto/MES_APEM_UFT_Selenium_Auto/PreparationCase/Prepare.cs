@@ -1,8 +1,6 @@
 ﻿using HP.LFT.SDK;
 using HP.LFT.SDK.WinForms;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support;
 using System;
 using System.Drawing;
 using System.IO;

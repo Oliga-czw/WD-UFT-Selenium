@@ -115,6 +115,7 @@
     <Compile Include="Library\UFTLibrary\WPF_Window.cs" />
     <Compile Include="Library\UFTLibrary\UFT_Label.cs" />
     <Compile Include="Library\UFTLibrary\UFT_UiObject.cs" />
+    <Compile Include="PreparationCase\Install.cs" />
     <Compile Include="PreparationCase\Prepare.cs" />
     <Compile Include="Product\AFW\AFW_Fuction.cs" />
     <Compile Include="Product\AFW\AFW_Window.cs" />
@@ -145,6 +146,7 @@
     <Compile Include="Product\DataBaseWizard\Wizard_Function.cs" />
     <Compile Include="Product\DataBaseWizard\Wizard_Repository.cs" />
     <Compile Include="Product\DataBaseWizard\Wizard_Window.cs" />
+    <Compile Include="Product\Install\Install_Window.cs" />
     <Compile Include="Product\IP21\IP21_Repository.cs" />
     <Compile Include="Product\IP21\IP21_Window.cs" />
     <Compile Include="Product\mMDM\mMDM_Fuction.cs" />

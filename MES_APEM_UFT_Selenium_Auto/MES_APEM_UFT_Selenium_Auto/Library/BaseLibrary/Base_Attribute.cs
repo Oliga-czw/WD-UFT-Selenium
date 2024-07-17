@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
 using System.Reflection;
 using DescriptionAttribute = Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute;
 
@@ -281,4 +284,104 @@ namespace MES_APEM_UFT_Selenium_Auto.Library.BaseLibrary
         public const string SQL = "MSSQLSERVER";
 
     }
+     public class Utility
+    {
+        public static string MachineName = "Lucy-2022-197";
+        public static string UserName = "sa";
+        public static string Password = "Aspen100";
+        public static string ComputerUser = "qae\\qaone1";
+        public static string aprmAdmin = "Aspen Production Record Manager Administrator V14.5 - aspenONE";
+        public static string version = "V14.5";
+        public static string BcuDemoFilePath = @"C:\Program Files (x86)\AspenTech\Batch.21\Demo\atcdemo.bcu";
+
+
+        public static string slnPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString();
+        public static string RunCommand(string command)
+        {
+            ProcessStartInfo startInfo = new ProcessStartInfo
+            {
+                FileName = "cmd.exe",
+                Arguments = $"/c {command}",
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                UseShellExecute = false,
+                CreateNoWindow = true,
+                Verb = "runas",
+            };
+
+            using (Process process = new Process { StartInfo = startInfo })
+            {
+                process.Start();
+
+                string output = process.StandardOutput.ReadToEnd();
+                string error = process.StandardError.ReadToEnd();
+                process.WaitForExit();
+
+                if (!string.IsNullOrEmpty(error))
+                {
+                    return $"Error: {error}";
+                }
+
+                return output;
+            }
+        }
+
+        public static string RunPSCommand(string command)
+        {
+            ProcessStartInfo startInfo = new ProcessStartInfo
+            {
+                FileName = "powershell.exe",
+                Arguments = $"{command}",
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                UseShellExecute = false,
+                CreateNoWindow = true,
+                Verb = "runas",
+            };
+
+            using (Process process = new Process { StartInfo = startInfo })
+            {
+                process.Start();
+
+                string output = process.StandardOutput.ReadToEnd();
+                string error = process.StandardError.ReadToEnd();
+                process.WaitForExit();
+
+                if (!string.IsNullOrEmpty(error))
+                {
+                    return $"Error: {error}";
+                }
+
+                return output;
+            }
+        }
+
+        public static string GetNewestFile(string folder)
+        {
+            var a = Directory.GetFiles(folder).OrderByDescending(x => new FileInfo(x).CreationTime).FirstOrDefault();
+            return a;
+        }
+
+        public static string GetNewestIsoFile(string folder)
+        {
+            var a = Directory.GetFiles(folder, "*.iso").OrderByDescending(x => new FileInfo(x).CreationTime).FirstOrDefault();
+            return a;
+        }
+
+
+
+        public static void killProcess(string sprocess)
+        {
+            Process[] pro = Process.GetProcessesByName(sprocess);
+            for (int i = 0; i < pro.Length; i++)
+            {
+                if (pro[i].ProcessName.ToString().ToLower() == sprocess)
+                {
+                    pro[i].Kill();
+                }
+
+            }
+        }
+    }
+   
 }
